@@ -1,0 +1,671 @@
+# TS EAMCET Chemistry - Blueprints from PYQ Papers
+# Extracted from 2016-2024 Previous Year Questions
+
+# ============================================
+# ORGANIC CHEMISTRY - From 2017 PYQ
+# ============================================
+
+- id: PYQ_CHEM_ORG_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: General Organic Chemistry
+  concept: Activating and deactivating groups
+  pyq_year: 2017
+
+  template_variants:
+    - "Which of the following groups on benzene is deactivating but ortho-para directing?"
+    - "Identify the substituent that is deactivating yet ortho-para directing in electrophilic substitution."
+
+  variables:
+    options:
+      type: choice
+      values:
+        - { answer: "Halogens (-F, -Cl, -Br, -I)" }
+
+  constraints:
+    steps: 1
+    expected_time_sec: 30
+
+  question_type: conceptual
+  answer_type: categorical
+
+  difficulty_level: easy
+
+  tags:
+    - organic_chemistry
+    - benzene
+    - directing_groups
+    - pyq_2017
+
+- id: PYQ_CHEM_ORG_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: General Organic Chemistry
+  concept: Resonance effect
+
+  template_variants:
+    - "Identify the strongest activating group among: -OH, -NH₂, -OCH₃, -CH₃"
+    - "Rank the following in order of activating power: {groups}"
+
+  variables:
+    groups:
+      type: choice
+      values:
+        - "-NH₂ > -OH > -OCH₃ > -CH₃"
+
+  constraints:
+    steps: 1
+    expected_time_sec: 30
+
+  question_type: conceptual
+  answer_type: categorical
+
+  difficulty_level: easy
+
+  tags:
+    - organic_chemistry
+    - resonance
+    - directing_groups
+
+- id: PYQ_CHEM_ORG_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Hydrocarbons
+  concept: IUPAC Nomenclature
+
+  template_variants:
+    - "Give IUPAC name of: CH₃-CH(CH₃)-CH(C₂H₅)-CH₃"
+    - "Name the compound: {structure}"
+
+  variables:
+    structure:
+      type: choice
+      values:
+        - "2,3-dimethylpentane"
+        - "3-ethyl-2-methylpentane"
+
+  constraints:
+    steps: 2
+    expected_time_sec: 45
+
+  question_type: naming
+  answer_type: text
+
+  difficulty_level: moderate
+
+  tags:
+    - organic_chemistry
+    - nomenclature
+    - iupac
+
+# ============================================
+# SOLUTIONS - From 2017 PYQ
+# ============================================
+
+- id: PYQ_CHEM_SOL_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Molarity calculation
+  pyq_year: 2017
+
+  template_variants:
+    - "{mass} g of {compound} (M = {molar_mass}) is dissolved to make {volume} mL solution. Find molarity."
+    - "Calculate molarity: {mass} g {compound} in {volume} mL solution."
+
+  variables:
+    mass:
+      type: integer
+      range: [10, 50]
+      step: 5
+    compound:
+      type: choice
+      values:
+        - "NaOH"
+        - "HCl"
+        - "H₂SO₄"
+        - "NaCl"
+    molar_mass:
+      type: choice
+      values:
+        - 40
+        - 36.5
+        - 98
+        - 58.5
+    volume:
+      type: integer
+      range: [250, 1000]
+      step: 250
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "M = (mass/molar_mass) × (1000/volume)"
+  answer_unit: "M"
+  solution_template: "M = ({mass}/{molar_mass}) × (1000/{volume}) = {answer} M"
+
+  difficulty_level: easy
+
+  tags:
+    - solutions
+    - molarity
+    - pyq_2017
+
+- id: PYQ_CHEM_SOL_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Molality
+
+  template_variants:
+    - "{mass} g of {solute} is dissolved in {solvent_mass} g of water. Find molality."
+    - "Calculate molality: {mass} g solute (M = {molar_mass}) in {solvent_mass} g water."
+
+  variables:
+    mass:
+      type: integer
+      range: [5, 30]
+      step: 5
+    solute:
+      type: choice
+      values: ["NaCl", "KCl", "glucose"]
+    molar_mass:
+      type: choice
+      values: [58.5, 74.5, 180]
+    solvent_mass:
+      type: integer
+      range: [100, 500]
+      step: 100
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "m = (mass/molar_mass) × (1000/solvent_mass)"
+  answer_unit: "m"
+
+  difficulty_level: easy
+
+  tags:
+    - solutions
+    - molality
+    - concentration
+
+# ============================================
+# ATOMIC STRUCTURE
+# ============================================
+
+- id: PYQ_CHEM_ATOM_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: Quantum numbers
+
+  template_variants:
+    - "For 3d orbital, find all possible values of magnetic quantum number (m)."
+    - "What are the m values for {n}{l} orbital?"
+
+  variables:
+    n:
+      type: integer
+      range: [3, 4]
+    l:
+      type: choice
+      values: ["s", "p", "d", "f"]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "For l = 2 (d orbital): m = -2, -1, 0, +1, +2"
+  answer_type: set
+
+  difficulty_level: easy
+
+  tags:
+    - atomic_structure
+    - quantum_numbers
+
+- id: PYQ_CHEM_ATOM_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: Electronic configuration
+
+  template_variants:
+    - "Write electronic configuration of {element} (Z = {z})."
+    - "Find the configuration for element with atomic number {z}."
+
+  variables:
+    element:
+      type: choice
+      values: ["Fe", "Cu", "Cr", "Mn"]
+    z:
+      type: choice
+      values: [26, 29, 24, 25]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  answer_type: text
+
+  difficulty_level: moderate
+
+  tags:
+    - atomic_structure
+    - electronic_configuration
+
+# ============================================
+# CHEMICAL BONDING
+# ============================================
+
+- id: PYQ_CHEM_BOND_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: Hybridization
+
+  template_variants:
+    - "Find the hybridization of central atom in {compound}."
+    - "What is the hybridization state in {compound}?"
+
+  variables:
+    compound:
+      type: choice
+      values:
+        - "BF₃"
+        - "PCl₅"
+        - "SF₆"
+        - "XeF₄"
+
+  constraints:
+    steps: 2
+    expected_time_sec: 45
+
+  answer_type: text
+  difficulty_level: moderate
+
+  tags:
+    - chemical_bonding
+    - hybridization
+
+- id: PYQ_CHEM_BOND_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: Bond order
+
+  template_variants:
+    - "Calculate bond order of {molecule} using MOT."
+    - "Find bond order of {molecule}."
+
+  variables:
+    molecule:
+      type: choice
+      values:
+        - "O₂"
+        - "N₂"
+        - "O₂⁺"
+        - "O₂⁻"
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "Bond order = (Nb - Na)/2"
+  answer_type: numeric
+
+  difficulty_level: moderate
+
+  tags:
+    - chemical_bonding
+    - mot
+    - bond_order
+
+# ============================================
+# THERMODYNAMICS
+# ============================================
+
+- id: PYQ_CHEM_THERMO_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: Enthalpy change
+
+  template_variants:
+    - "For reaction A → B, ΔH = {dh} kJ/mol at {t1}°C. Find ΔH at {t2}°C. [Cp(B) - Cp(A) = {dcp} J/mol·K]"
+    - "Calculate enthalpy change at new temperature using Kirchhoff's equation."
+
+  variables:
+    dh:
+      type: integer
+      range: [-50, -10]
+      step: 5
+    t1:
+      type: integer
+      range: [25, 30]
+    t2:
+      type: integer
+      range: [50, 100]
+      step: 25
+    dcp:
+      type: integer
+      range: [10, 50]
+      step: 10
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "ΔH₂ = ΔH₁ + ΔCp(T₂ - T₁)"
+  answer_unit: "kJ/mol"
+
+  difficulty_level: moderate
+
+  tags:
+    - thermodynamics
+    - enthalpy
+    - kirchhoff
+
+- id: PYQ_CHEM_THERMO_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: Gibbs free energy
+
+  template_variants:
+    - "For a reaction, ΔH = {dh} kJ and ΔS = {ds} J/K at {t} K. Find ΔG."
+    - "Calculate ΔG at {t} K: ΔH = {dh} kJ, ΔS = {ds} J/K."
+
+  variables:
+    dh:
+      type: integer
+      range: [-100, -20]
+      step: 10
+    ds:
+      type: integer
+      range: [-200, 200]
+      step: 50
+    t:
+      type: choice
+      values: [298, 300, 400]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "ΔG = ΔH - TΔS"
+  answer_unit: "kJ"
+
+  difficulty_level: easy
+
+  tags:
+    - thermodynamics
+    - gibbs_energy
+    - spontaneity
+
+# ============================================
+# CHEMICAL KINETICS
+# ============================================
+
+- id: PYQ_CHEM_KIN_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: Half-life
+
+  template_variants:
+    - "For first order reaction with k = {k} s⁻¹, find half-life."
+    - "Calculate t₁/₂ for first order: k = {k} s⁻¹."
+
+  variables:
+    k:
+      type: choice
+      values:
+        - 0.01
+        - 0.02
+        - 0.05
+        - 0.1
+
+  constraints:
+    steps: 1
+    expected_time_sec: 30
+
+  formula: "t₁/₂ = 0.693/k"
+  answer_unit: "s"
+  solution_template: "t₁/₂ = 0.693/{k} = {answer} s"
+
+  difficulty_level: easy
+
+  tags:
+    - kinetics
+    - half_life
+    - first_order
+
+- id: PYQ_CHEM_KIN_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: Rate law
+
+  template_variants:
+    - "For 2A + B → C, rate = k[A]²[B]. If [A] is doubled and [B] is halved, how does rate change?"
+    - "Rate = k[A]ⁿ[B]ᵐ. Find rate change when concentrations are modified."
+
+  variables:
+    n:
+      type: integer
+      range: [1, 2]
+    m:
+      type: integer
+      range: [1, 2]
+    factor_a:
+      type: integer
+      range: [2, 3]
+    factor_b:
+      type: choice
+      values: [0.5, 1, 2]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "new rate = original × (factor_a)^n × (factor_b)^m"
+  answer_type: numeric
+
+  difficulty_level: moderate
+
+  tags:
+    - kinetics
+    - rate_law
+
+# ============================================
+# ELECTROCHEMISTRY
+# ============================================
+
+- id: PYQ_CHEM_ELEC_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Cell EMF
+
+  template_variants:
+    - "For cell Zn|Zn²⁺||Cu²⁺|Cu, E°(Zn²⁺/Zn) = {e_zn} V, E°(Cu²⁺/Cu) = {e_cu} V. Find E°cell."
+    - "Calculate standard EMF: E°(cathode) = {e_cu} V, E°(anode) = {e_zn} V."
+
+  variables:
+    e_zn:
+      type: choice
+      values: [-0.76]
+    e_cu:
+      type: choice
+      values: [0.34]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "E°cell = E°cathode - E°anode"
+  answer_unit: "V"
+  solution_template: "E°cell = {e_cu} - ({e_zn}) = {answer} V"
+
+  difficulty_level: easy
+
+  tags:
+    - electrochemistry
+    - emf
+    - galvanic_cell
+
+- id: PYQ_CHEM_ELEC_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Nernst equation
+
+  template_variants:
+    - "For cell with E° = {e_std} V, find E when [oxidized]/[reduced] = {ratio} at 298 K."
+    - "Apply Nernst equation: E° = {e_std} V, concentration ratio = {ratio}."
+
+  variables:
+    e_std:
+      type: choice
+      values: [1.10, 0.76, 0.34]
+    ratio:
+      type: choice
+      values: [10, 100, 0.1, 0.01]
+    n:
+      type: integer
+      range: [2, 3]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 65
+
+  formula: "E = E° - (0.059/n)log(Q)"
+  answer_unit: "V"
+
+  difficulty_level: moderate
+
+  tags:
+    - electrochemistry
+    - nernst_equation
+
+# ============================================
+# INORGANIC CHEMISTRY - p-Block Elements
+# ============================================
+
+- id: PYQ_CHEM_PBLOCK_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: p-Block Elements
+  concept: Group properties
+
+  template_variants:
+    - "Which allotrope of sulphur is thermodynamically stable at room temperature?"
+    - "The most stable form of sulphur is:"
+
+  variables:
+    options:
+      type: choice
+      values:
+        - { answer: "Rhombic sulphur" }
+
+  constraints:
+    steps: 1
+    expected_time_sec: 20
+
+  question_type: conceptual
+  answer_type: categorical
+
+  difficulty_level: easy
+
+  tags:
+    - inorganic_chemistry
+    - p_block
+    - group_16
+
+# ============================================
+# COORDINATION COMPOUNDS
+# ============================================
+
+- id: PYQ_CHEM_COORD_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Coordination Compounds
+  concept: Isomerism
+
+  template_variants:
+    - "How many geometrical isomers are possible for [Co(NH₃)₃Cl₃]?"
+    - "Find number of isomers for {complex}."
+
+  variables:
+    complex:
+      type: choice
+      values:
+        - "[Co(NH₃)₃Cl₃]"
+        - "[Pt(NH₃)₂Cl₂]"
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  answer_type: integer
+
+  difficulty_level: moderate
+
+  tags:
+    - coordination_chemistry
+    - isomerism
+    - geometrical_isomers
+
+- id: PYQ_CHEM_COORD_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Coordination Compounds
+  concept: Crystal field theory
+
+  template_variants:
+    - "Find CFSE for {complex} in octahedral field."
+    - "Calculate crystal field stabilization energy for {complex}."
+
+  variables:
+    complex:
+      type: choice
+      values:
+        - "d⁶ low spin"
+        - "d⁴ high spin"
+        - "d³"
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "CFSE = (-0.4×t2g + 0.6×eg)Δo + P"
+  answer_type: expression
+
+  difficulty_level: hard
+
+  tags:
+    - coordination_chemistry
+    - cft
+    - cfse

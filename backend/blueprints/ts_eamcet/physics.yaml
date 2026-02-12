@@ -1,0 +1,1183 @@
+# TS EAMCET Physics Blueprints
+# Comprehensive blueprint collection for question generation
+
+# ============================================
+# UNIT 1: MECHANICS
+# ============================================
+
+- id: PHY_MECH_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Units and Measurements
+  concept: Dimensional formula
+
+  template_variants:
+    - "Find the dimensional formula of {quantity}."
+    - "What is the dimension of {quantity}?"
+
+  variables:
+    quantity:
+      type: choice
+      values:
+        - "velocity"
+        - "acceleration"
+        - "force"
+        - "work"
+        - "power"
+        - "momentum"
+        - "pressure"
+
+  constraints:
+    steps: 1
+    expected_time_sec: 30
+
+  question_type: formula_recall
+  answer_type: expression
+  difficulty_level: easy
+
+  tags:
+    - dimensions
+    - units
+
+- id: PHY_MECH_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Equations of motion
+
+  template_variants:
+    - "A body starts from rest and accelerates at {a} m/s². Find its velocity after {t} seconds."
+    - "An object accelerates uniformly at {a} m/s² from rest. What is its speed after {t} s?"
+
+  variables:
+    a:
+      type: integer
+      range: [2, 10]
+      step: 2
+    t:
+      type: integer
+      range: [2, 8]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+    ensure_integer_answer: true
+
+  formula: "v = u + at = 0 + at"
+  answer_unit: "m/s"
+  solution_template: "v = u + at = 0 + ({a})({t}) = {answer} m/s"
+
+  difficulty_level: easy
+  difficulty_factors:
+    - single_formula
+    - direct_substitution
+
+  options:
+    count: 4
+    distractor_strategy:
+      - formula: "a * t / 2"
+        error_type: used_displacement_formula
+      - formula: "a + t"
+        error_type: added_instead
+      - formula: "a * t * 2"
+        error_type: doubled
+
+  tags:
+    - kinematics
+    - equations_of_motion
+
+- id: PHY_MECH_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Distance traveled
+
+  template_variants:
+    - "A car moving with initial velocity {u} m/s accelerates at {a} m/s² for {t} seconds. Find the distance covered."
+    - "Find the displacement of a body with initial velocity {u} m/s and acceleration {a} m/s² after {t} seconds."
+
+  variables:
+    u:
+      type: integer
+      range: [0, 10]
+      step: 2
+    a:
+      type: integer
+      range: [2, 6]
+      step: 2
+    t:
+      type: integer
+      range: [2, 5]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "s = ut + ½at²"
+  answer_unit: "m"
+  solution_template: "s = ut + ½at² = ({u})({t}) + ½({a})({t})² = {ut} + {half_at_sq} = {answer} m"
+
+  difficulty_level: easy
+
+  tags:
+    - kinematics
+    - displacement
+
+- id: PHY_MECH_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Newton's Laws
+  concept: Force calculation
+
+  template_variants:
+    - "A body of mass {m} kg is accelerated at {a} m/s². Find the force applied."
+    - "Calculate the force required to accelerate a {m} kg mass at {a} m/s²."
+
+  variables:
+    m:
+      type: integer
+      range: [2, 10]
+      step: 2
+    a:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+    ensure_integer_answer: true
+
+  formula: "F = ma"
+  answer_unit: "N"
+  solution_template: "F = ma = ({m})({a}) = {answer} N"
+
+  difficulty_level: easy
+
+  options:
+    count: 4
+    distractor_strategy:
+      - formula: "m + a"
+        error_type: addition_error
+      - formula: "m / a"
+        error_type: division_error
+      - formula: "m * a / 2"
+        error_type: halved
+
+  tags:
+    - newtons_laws
+    - force
+
+- id: PHY_MECH_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work, Energy, Power
+  concept: Work done
+
+  template_variants:
+    - "A force of {F} N displaces a body through {d} m in the direction of force. Find the work done."
+    - "Calculate work done when a {F} N force moves an object {d} m."
+
+  variables:
+    F:
+      type: integer
+      range: [5, 20]
+      step: 5
+    d:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+    ensure_integer_answer: true
+
+  formula: "W = Fd"
+  answer_unit: "J"
+  solution_template: "W = Fd = ({F})({d}) = {answer} J"
+
+  difficulty_level: easy
+
+  tags:
+    - work
+    - energy
+
+- id: PHY_MECH_06
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work, Energy, Power
+  concept: Kinetic energy
+
+  template_variants:
+    - "Find the kinetic energy of a body of mass {m} kg moving with velocity {v} m/s."
+    - "Calculate KE of a {m} kg object moving at {v} m/s."
+
+  variables:
+    m:
+      type: integer
+      range: [2, 10]
+      step: 2
+    v:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+    ensure_integer_answer: true
+
+  formula: "KE = ½mv²"
+  answer_unit: "J"
+  solution_template: "KE = ½mv² = ½({m})({v})² = ½({m})({v_sq}) = {answer} J"
+
+  difficulty_level: easy
+
+  tags:
+    - kinetic_energy
+    - mechanics
+
+- id: PHY_MECH_07
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Gravitation
+  concept: Gravitational force
+
+  template_variants:
+    - "Find the acceleration due to gravity at height h equal to {n} times the radius of Earth (g on surface = {g} m/s²)."
+    - "At what height h = {n}R, find g if g₀ = {g} m/s²."
+
+  variables:
+    n:
+      type: integer
+      range: [1, 3]
+    g:
+      type: integer
+      range: [10, 10]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "g' = g/(1+h/R)² = g/(1+n)²"
+  answer_unit: "m/s²"
+  solution_template: "g' = g/(1+n)² = {g}/(1+{n})² = {g}/{denom} = {answer} m/s²"
+
+  difficulty_level: moderate
+
+  tags:
+    - gravitation
+    - acceleration
+
+- id: PHY_MECH_08
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Rotational Motion
+  concept: Moment of inertia
+
+  template_variants:
+    - "Find the moment of inertia of a ring of mass {m} kg and radius {r} m about its axis."
+    - "Calculate I for a ring (M = {m} kg, R = {r} m) about perpendicular axis through center."
+
+  variables:
+    m:
+      type: integer
+      range: [2, 10]
+      step: 2
+    r:
+      type: integer
+      range: [1, 5]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+
+  formula: "I = MR²"
+  answer_unit: "kg⋅m²"
+  solution_template: "I = MR² = ({m})({r})² = ({m})({r_sq}) = {answer} kg⋅m²"
+
+  difficulty_level: easy
+
+  tags:
+    - rotational_motion
+    - moment_of_inertia
+
+# ============================================
+# UNIT 2: WAVES AND OPTICS
+# ============================================
+
+- id: PHY_WAVE_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Waves and Optics
+  chapter: Wave Motion
+  concept: Wave velocity
+
+  template_variants:
+    - "A wave has frequency {f} Hz and wavelength {lambda} m. Find its velocity."
+    - "Calculate wave velocity for f = {f} Hz and λ = {lambda} m."
+
+  variables:
+    f:
+      type: integer
+      range: [10, 100]
+      step: 10
+    lambda:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+    ensure_integer_answer: true
+
+  formula: "v = fλ"
+  answer_unit: "m/s"
+  solution_template: "v = fλ = ({f})({lambda}) = {answer} m/s"
+
+  difficulty_level: easy
+
+  tags:
+    - waves
+    - velocity
+
+- id: PHY_WAVE_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Waves and Optics
+  chapter: Sound
+  concept: Frequency of string
+
+  template_variants:
+    - "Find the fundamental frequency of a string of length {L} m under tension {T} N with linear mass density {mu} kg/m."
+
+  variables:
+    L:
+      type: integer
+      range: [1, 2]
+    T:
+      type: integer
+      range: [100, 400]
+      step: 100
+    mu:
+      type: choice
+      values: [0.01, 0.04]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 70
+
+  formula: "f = (1/2L)√(T/μ)"
+  answer_unit: "Hz"
+
+  difficulty_level: moderate
+
+  tags:
+    - sound
+    - strings
+
+- id: PHY_WAVE_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Waves and Optics
+  chapter: Optics
+  concept: Focal length
+
+  template_variants:
+    - "A convex lens forms an image at {v} cm when object is at {u} cm. Find the focal length."
+    - "For a lens, if u = {u} cm and v = {v} cm, find f."
+
+  variables:
+    u:
+      type: integer
+      range: [-30, -10]
+      step: 5
+    v:
+      type: integer
+      range: [10, 30]
+      step: 5
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "1/f = 1/v - 1/u"
+  answer_unit: "cm"
+  solution_template: "1/f = 1/v - 1/u = 1/{v} - 1/{u} = 1/{v} + 1/{u_abs}. f = {answer} cm"
+
+  difficulty_level: moderate
+
+  tags:
+    - optics
+    - lenses
+
+- id: PHY_WAVE_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Waves and Optics
+  chapter: Optics
+  concept: Mirror formula
+
+  template_variants:
+    - "A concave mirror has focal length {f} cm. Find image distance when object is at {u} cm."
+    - "For a mirror with f = {f} cm and u = {u} cm, find v."
+
+  variables:
+    f:
+      type: integer
+      range: [-20, -10]
+      step: 5
+    u:
+      type: integer
+      range: [-30, -15]
+      step: 5
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "1/v + 1/u = 1/f"
+  answer_unit: "cm"
+
+  difficulty_level: moderate
+
+  tags:
+    - optics
+    - mirrors
+
+- id: PHY_WAVE_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Waves and Optics
+  chapter: Optics
+  concept: Refractive index
+
+  template_variants:
+    - "Light travels from medium 1 (n = {n1}) to medium 2 (n = {n2}). If angle of incidence is {i}°, find angle of refraction."
+
+  variables:
+    n1:
+      type: choice
+      values: [1, 1.5]
+    n2:
+      type: choice
+      values: [1.5, 1.33]
+    i:
+      type: choice
+      values: [30, 45, 60]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "n1 sin(i) = n2 sin(r)"
+  answer_unit: "degrees"
+
+  difficulty_level: moderate
+
+  tags:
+    - optics
+    - refraction
+
+# ============================================
+# UNIT 3: THERMODYNAMICS
+# ============================================
+
+- id: PHY_THERMO_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermodynamics
+  chapter: Heat
+  concept: Heat transfer
+
+  template_variants:
+    - "Find the heat required to raise the temperature of {m} kg of water by {dT}°C. (Specific heat = {c} J/kg°C)"
+    - "Calculate heat needed to warm {m} kg water from {T1}°C to {T2}°C."
+
+  variables:
+    m:
+      type: integer
+      range: [1, 5]
+    dT:
+      type: integer
+      range: [10, 50]
+      step: 10
+    c:
+      type: integer
+      range: [4200, 4200]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "Q = mcΔT"
+  answer_unit: "J"
+  solution_template: "Q = mcΔT = ({m})({c})({dT}) = {answer} J"
+
+  difficulty_level: easy
+
+  tags:
+    - heat
+    - calorimetry
+
+- id: PHY_THERMO_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermodynamics
+  chapter: Ideal Gas
+  concept: Ideal gas law
+
+  template_variants:
+    - "A gas at {P1} atm and {V1} L is compressed to {V2} L at constant temperature. Find the final pressure."
+    - "For isothermal compression from {V1} L to {V2} L at {P1} atm, find P₂."
+
+  variables:
+    P1:
+      type: integer
+      range: [1, 4]
+    V1:
+      type: integer
+      range: [4, 10]
+      step: 2
+    V2:
+      type: integer
+      range: [1, 3]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 45
+
+  formula: "P₁V₁ = P₂V₂"
+  answer_unit: "atm"
+  solution_template: "P₂ = P₁V₁/V₂ = ({P1})({V1})/{V2} = {answer} atm"
+
+  difficulty_level: easy
+
+  tags:
+    - ideal_gas
+    - isothermal
+
+- id: PHY_THERMO_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermodynamics
+  chapter: First Law
+  concept: Work done by gas
+
+  template_variants:
+    - "Find work done by {n} moles of gas expanding isothermally at {T} K from {V1} L to {V2} L."
+
+  variables:
+    n:
+      type: integer
+      range: [1, 3]
+    T:
+      type: integer
+      range: [300, 400]
+      step: 50
+    V1:
+      type: integer
+      range: [1, 2]
+    V2:
+      type: integer
+      range: [4, 10]
+      step: 2
+
+  constraints:
+    steps: 2
+    expected_time_sec: 70
+
+  formula: "W = nRT ln(V₂/V₁)"
+  answer_unit: "J"
+
+  difficulty_level: moderate
+
+  tags:
+    - first_law
+    - work
+
+# ============================================
+# UNIT 4: ELECTROSTATICS
+# ============================================
+
+- id: PHY_ES_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Electric Charge
+  concept: Coulomb's law
+
+  template_variants:
+    - "Find the force between two charges of {q1} μC and {q2} μC separated by {r} cm."
+    - "Calculate electrostatic force between {q1} μC and {q2} μC at distance {r} cm."
+
+  variables:
+    q1:
+      type: integer
+      range: [1, 5]
+    q2:
+      type: integer
+      range: [1, 5]
+    r:
+      type: integer
+      range: [10, 30]
+      step: 10
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "F = kq₁q₂/r² (k = 9×10⁹ N⋅m²/C²)"
+  answer_unit: "N"
+
+  difficulty_level: moderate
+
+  tags:
+    - coulombs_law
+    - electrostatics
+
+- id: PHY_ES_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Electric Field
+  concept: Field due to point charge
+
+  template_variants:
+    - "Find the electric field at {r} cm from a point charge of {q} μC."
+    - "Calculate E at distance {r} cm from a {q} μC charge."
+
+  variables:
+    q:
+      type: integer
+      range: [1, 5]
+    r:
+      type: integer
+      range: [10, 30]
+      step: 10
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "E = kq/r²"
+  answer_unit: "N/C"
+
+  difficulty_level: easy
+
+  tags:
+    - electric_field
+    - point_charge
+
+- id: PHY_ES_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Capacitors
+  concept: Capacitance
+
+  template_variants:
+    - "A parallel plate capacitor has area {A} m² and separation {d} mm. Find its capacitance."
+    - "Calculate C for a capacitor with plate area {A} m² and gap {d} mm."
+
+  variables:
+    A:
+      type: choice
+      values: [0.01, 0.02, 0.05]
+    d:
+      type: integer
+      range: [1, 5]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "C = ε₀A/d"
+  answer_unit: "F"
+
+  difficulty_level: moderate
+
+  tags:
+    - capacitors
+    - capacitance
+
+- id: PHY_ES_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Capacitors
+  concept: Energy stored
+
+  template_variants:
+    - "Find the energy stored in a capacitor of {C} μF charged to {V} V."
+    - "Calculate energy in a {C} μF capacitor at {V} V."
+
+  variables:
+    C:
+      type: integer
+      range: [2, 10]
+      step: 2
+    V:
+      type: integer
+      range: [10, 50]
+      step: 10
+
+  constraints:
+    steps: 1
+    expected_time_sec: 45
+
+  formula: "U = ½CV²"
+  answer_unit: "J"
+  solution_template: "U = ½CV² = ½({C}×10⁻⁶)({V})² = {answer} J"
+
+  difficulty_level: easy
+
+  tags:
+    - capacitors
+    - energy
+
+# ============================================
+# UNIT 5: CURRENT ELECTRICITY
+# ============================================
+
+- id: PHY_CE_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Ohm's Law
+  concept: Basic Ohm's Law
+
+  template_variants:
+    - "A wire of resistance {R} Ω is connected to a {V} V battery. Find the current flowing through the wire."
+    - "Find the current through a {R} Ω resistor connected across {V} V."
+    - "A {V} V source drives current through {R} Ω resistance. Calculate the current."
+
+  variables:
+    R:
+      type: integer
+      range: [2, 20]
+      step: 2
+    V:
+      type: integer
+      range: [6, 24]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+    ensure_integer_answer: true
+
+  formula: "I = V/R"
+  answer_unit: "A"
+  solution_template: "Using Ohm's Law: I = V/R = {V}/{R} = {answer} A"
+
+  difficulty_level: easy
+  difficulty_factors:
+    - single_formula
+    - direct_substitution
+
+  options:
+    count: 4
+    distractor_strategy:
+      - formula: "V / (R + 2)"
+        error_type: added_resistance
+      - formula: "(V + 2) / R"
+        error_type: wrong_voltage
+      - formula: "V * R"
+        error_type: multiplication_instead
+
+  tags:
+    - ohms_law
+    - current_electricity
+
+  source_reference:
+    similar_in_years: [2018, 2020, 2022]
+    frequency: high
+
+- id: PHY_CE_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Resistance
+  concept: Series combination
+
+  template_variants:
+    - "Three resistors of {R1} Ω, {R2} Ω and {R3} Ω are connected in series. Find the equivalent resistance."
+    - "Find R_eq for {R1} Ω, {R2} Ω, {R3} Ω in series."
+
+  variables:
+    R1:
+      type: integer
+      range: [2, 10]
+      step: 2
+    R2:
+      type: integer
+      range: [2, 10]
+      step: 2
+    R3:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 1
+    expected_time_sec: 30
+    ensure_integer_answer: true
+
+  formula: "R_eq = R₁ + R₂ + R₃"
+  answer_unit: "Ω"
+  solution_template: "R_eq = {R1} + {R2} + {R3} = {answer} Ω"
+
+  difficulty_level: easy
+
+  tags:
+    - resistance
+    - series
+
+- id: PHY_CE_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Resistance
+  concept: Parallel combination
+
+  template_variants:
+    - "Two resistors of {R1} Ω and {R2} Ω are connected in parallel. Find the equivalent resistance."
+    - "Calculate R_eq for {R1} Ω || {R2} Ω."
+
+  variables:
+    R1:
+      type: integer
+      range: [2, 12]
+      step: 2
+    R2:
+      type: integer
+      range: [2, 12]
+      step: 2
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "1/R_eq = 1/R₁ + 1/R₂ or R_eq = R₁R₂/(R₁+R₂)"
+  answer_unit: "Ω"
+  solution_template: "R_eq = ({R1}×{R2})/({R1}+{R2}) = {product}/{sum} = {answer} Ω"
+
+  difficulty_level: easy
+
+  tags:
+    - resistance
+    - parallel
+
+- id: PHY_CE_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Power
+  concept: Electrical power
+
+  template_variants:
+    - "Find the power dissipated in a {R} Ω resistor carrying {I} A current."
+    - "Calculate power when {I} A flows through {R} Ω."
+
+  variables:
+    R:
+      type: integer
+      range: [2, 10]
+      step: 2
+    I:
+      type: integer
+      range: [2, 5]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+    ensure_integer_answer: true
+
+  formula: "P = I²R"
+  answer_unit: "W"
+  solution_template: "P = I²R = ({I})²({R}) = {I_sq}×{R} = {answer} W"
+
+  difficulty_level: easy
+
+  tags:
+    - power
+    - current_electricity
+
+# ============================================
+# UNIT 6: MAGNETISM
+# ============================================
+
+- id: PHY_MAG_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetic Field
+  concept: Biot-Savart Law
+
+  template_variants:
+    - "Find the magnetic field at the center of a circular loop of radius {r} cm carrying {I} A current."
+
+  variables:
+    r:
+      type: integer
+      range: [5, 20]
+      step: 5
+    I:
+      type: integer
+      range: [2, 10]
+      step: 2
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "B = μ₀I/(2r)"
+  answer_unit: "T"
+
+  difficulty_level: moderate
+
+  tags:
+    - magnetic_field
+    - circular_loop
+
+- id: PHY_MAG_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetic Force
+  concept: Force on moving charge
+
+  template_variants:
+    - "A charge of {q} μC moving with velocity {v} m/s perpendicular to a magnetic field of {B} T. Find the force."
+
+  variables:
+    q:
+      type: integer
+      range: [1, 5]
+    v:
+      type: integer
+      range: [100, 500]
+      step: 100
+    B:
+      type: choice
+      values: [0.1, 0.2, 0.5]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 45
+
+  formula: "F = qvB (when v ⊥ B)"
+  answer_unit: "N"
+
+  difficulty_level: easy
+
+  tags:
+    - magnetic_force
+    - lorentz_force
+
+- id: PHY_MAG_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Electromagnetic Induction
+  concept: Induced EMF
+
+  template_variants:
+    - "A coil of {N} turns and area {A} cm² is in a magnetic field changing at {dB} T/s. Find the induced EMF."
+
+  variables:
+    N:
+      type: integer
+      range: [50, 200]
+      step: 50
+    A:
+      type: integer
+      range: [10, 50]
+      step: 10
+    dB:
+      type: choice
+      values: [0.1, 0.2, 0.5]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "EMF = -N × A × (dB/dt)"
+  answer_unit: "V"
+
+  difficulty_level: moderate
+
+  tags:
+    - electromagnetic_induction
+    - faradays_law
+
+# ============================================
+# UNIT 7: MODERN PHYSICS
+# ============================================
+
+- id: PHY_MOD_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Photoelectric Effect
+  concept: Photon energy
+
+  template_variants:
+    - "Find the energy of a photon of wavelength {lambda} nm."
+    - "Calculate photon energy for λ = {lambda} nm."
+
+  variables:
+    lambda:
+      type: integer
+      range: [400, 700]
+      step: 100
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "E = hc/λ (h = 6.63×10⁻³⁴ J⋅s, c = 3×10⁸ m/s)"
+  answer_unit: "eV"
+
+  difficulty_level: moderate
+
+  tags:
+    - photoelectric_effect
+    - photon
+
+- id: PHY_MOD_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Atomic Structure
+  concept: Energy levels
+
+  template_variants:
+    - "Find the energy of an electron in the {n}th orbit of hydrogen atom."
+    - "Calculate the energy of H-atom electron in n = {n} state."
+
+  variables:
+    n:
+      type: integer
+      range: [1, 4]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "E_n = -13.6/n² eV"
+  answer_unit: "eV"
+  solution_template: "E_{n} = -13.6/{n}² = -13.6/{n_sq} = {answer} eV"
+
+  difficulty_level: easy
+
+  tags:
+    - atomic_structure
+    - bohr_model
+
+- id: PHY_MOD_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Nuclear Physics
+  concept: Mass defect
+
+  template_variants:
+    - "Find the binding energy of a nucleus with mass defect {dm} u."
+    - "Calculate BE for mass defect Δm = {dm} u."
+
+  variables:
+    dm:
+      type: choice
+      values: [0.1, 0.2, 0.3, 0.5]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 45
+
+  formula: "BE = Δm × 931.5 MeV"
+  answer_unit: "MeV"
+  solution_template: "BE = {dm} × 931.5 = {answer} MeV"
+
+  difficulty_level: easy
+
+  tags:
+    - nuclear_physics
+    - binding_energy
+
+- id: PHY_MOD_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Radioactivity
+  concept: Half-life
+
+  template_variants:
+    - "A radioactive sample has half-life {t_half} days. Find the fraction remaining after {n} half-lives."
+    - "What fraction of radioactive material remains after {n} half-lives?"
+
+  variables:
+    t_half:
+      type: integer
+      range: [2, 10]
+      step: 2
+    n:
+      type: integer
+      range: [1, 4]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+
+  formula: "Remaining = (1/2)ⁿ"
+  answer_type: fraction
+  solution_template: "Remaining = (1/2)^{n} = 1/{two_pow_n}"
+
+  difficulty_level: easy
+
+  tags:
+    - radioactivity
+    - half_life
+
+- id: PHY_MOD_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: De Broglie Waves
+  concept: Wavelength
+
+  template_variants:
+    - "Find the de Broglie wavelength of an electron accelerated through {V} V."
+    - "Calculate λ for electron accelerated by {V} V potential."
+
+  variables:
+    V:
+      type: integer
+      range: [100, 400]
+      step: 100
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "λ = 12.27/√V Å"
+  answer_unit: "Å"
+  solution_template: "λ = 12.27/√{V} = 12.27/{sqrt_V} = {answer} Å"
+
+  difficulty_level: moderate
+
+  tags:
+    - de_broglie
+    - wave_particle_duality

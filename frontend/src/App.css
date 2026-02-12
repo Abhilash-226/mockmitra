@@ -1,0 +1,47 @@
+/* App-specific styles - CBT interface uses inline Tailwind classes */
+
+#root {
+  min-height: 100vh;
+}
+
+/* CBT Triangle Shapes for Question Status (CSS-only approach) */
+
+/* Not Answered - Red Triangle */
+.q-triangle-red {
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 32px solid #ef4444;
+  position: relative;
+}
+
+.q-triangle-red span {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+/* Answered - Green Triangle */
+.q-triangle-green {
+  width: 0;
+  height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-top: 32px solid #22c55e;
+  position: relative;
+}
+
+.q-triangle-green span {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+}

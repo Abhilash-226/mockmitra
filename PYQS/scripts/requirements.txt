@@ -1,0 +1,4 @@
+# PYQ Extraction Dependencies
+google-genai>=1.0.0
+pymupdf>=1.23.0
+pyyaml>=6.0

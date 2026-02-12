@@ -1,0 +1,676 @@
+# TS EAMCET Mathematics - Blueprints from PYQ Papers
+# Extracted from 2016-2024 Previous Year Questions
+
+# ============================================
+# MATRICES - From 2024 PYQ
+# ============================================
+
+- id: PYQ_MATH_MAT_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Matrices
+  concept: Matrix equations
+  pyq_year: 2024
+
+  template_variants:
+    - "If A is a square matrix and A² + I = {k}A, then A⁴ ="
+    - "For a square matrix A satisfying A² + I = {k}A, find A⁴."
+
+  variables:
+    k:
+      type: integer
+      range: [2, 5]
+
+  constraints:
+    steps: 3
+    expected_time_sec: 90
+
+  formula: "From A² = kA - I, compute A⁴ = (kA-I)² = k²A² - 2kA + I = k²(kA-I) - 2kA + I"
+  answer_type: expression
+  difficulty_level: moderate
+
+  tags:
+    - matrices
+    - matrix_equations
+    - pyq_2024
+
+- id: PYQ_MATH_MAT_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Matrices
+  concept: Trace and determinant
+
+  template_variants:
+    - "If A is a 2×2 matrix with trace {tr} and determinant {det}, find trace(A²)."
+    - "For a 2×2 matrix A with Tr(A) = {tr} and |A| = {det}, find Tr(A²)."
+
+  variables:
+    tr:
+      type: integer
+      range: [2, 6]
+    det:
+      type: integer
+      range: [1, 8]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "Tr(A²) = Tr(A)² - 2|A| = tr² - 2*det"
+  answer_unit: ""
+  solution_template: "Tr(A²) = (Tr(A))² - 2|A| = {tr}² - 2({det}) = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - matrices
+    - trace
+    - determinant
+
+# ============================================
+# QUADRATIC EQUATIONS - From 2024 PYQ
+# ============================================
+
+- id: PYQ_MATH_QUAD_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Quadratic Equations
+  concept: Equal roots condition
+  pyq_year: 2024
+
+  template_variants:
+    - "If the quadratic equation {a}x² + ({b}k + {c})x - {d}k = 0 has real and equal roots, find k."
+    - "Find k if {a}x² + ({b}k + {c})x - {d}k = 0 has equal roots."
+
+  variables:
+    a:
+      type: integer
+      range: [2, 5]
+    b:
+      type: integer
+      range: [2, 4]
+    c:
+      type: integer
+      range: [1, 3]
+    d:
+      type: integer
+      range: [3, 7]
+
+  constraints:
+    steps: 3
+    expected_time_sec: 90
+
+  formula: "For equal roots: D = 0, i.e., (bk+c)² + 4*a*d*k = 0"
+  answer_type: expression
+  difficulty_level: moderate
+
+  tags:
+    - quadratic_equations
+    - discriminant
+    - pyq_2024
+
+- id: PYQ_MATH_QUAD_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Quadratic Equations
+  concept: Sum and product of roots
+
+  template_variants:
+    - "If α and β are roots of x² - {p}x + {q} = 0, find α² + β²."
+    - "For the equation x² - {p}x + {q} = 0 with roots α, β, find α² + β²."
+
+  variables:
+    p:
+      type: integer
+      range: [3, 8]
+    q:
+      type: integer
+      range: [2, 10]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "α² + β² = (α + β)² - 2αβ = p² - 2q"
+  answer_unit: ""
+  solution_template: "α + β = {p}, αβ = {q}. α² + β² = {p}² - 2({q}) = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - quadratic_equations
+    - roots
+    - vietas_formulas
+
+# ============================================
+# CALCULUS - From 2024 PYQ (Distance/Velocity)
+# ============================================
+
+- id: PYQ_MATH_CALC_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Calculus
+  chapter: Applications of Derivatives
+  concept: Velocity and displacement
+  pyq_year: 2024
+
+  template_variants:
+    - "A particle moves along a straight line with S = t³ - {a}t² - {b}t + {c}. Find distance when particle comes to rest."
+    - "If S = t³ - {a}t² - {b}t + {c} metres, find the distance when velocity becomes zero."
+
+  variables:
+    a:
+      type: integer
+      range: [1, 3]
+    b:
+      type: integer
+      range: [1, 5]
+    c:
+      type: integer
+      range: [2, 6]
+
+  constraints:
+    steps: 3
+    expected_time_sec: 90
+
+  formula: "v = dS/dt = 3t² - 2at - b = 0, solve for t, substitute in S"
+  answer_unit: "m"
+  difficulty_level: moderate
+
+  tags:
+    - calculus
+    - applications_derivatives
+    - kinematics
+    - pyq_2024
+
+- id: PYQ_MATH_CALC_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Calculus
+  chapter: Differentiation
+  concept: Basic derivatives
+
+  template_variants:
+    - "Find dy/dx if y = {a}x³ + {b}x² - {c}x + {d}."
+    - "Differentiate y = {a}x³ + {b}x² - {c}x + {d} with respect to x."
+
+  variables:
+    a:
+      type: integer
+      range: [1, 5]
+    b:
+      type: integer
+      range: [2, 8]
+    c:
+      type: integer
+      range: [1, 6]
+    d:
+      type: integer
+      range: [1, 10]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "dy/dx = 3ax² + 2bx - c"
+  answer_type: expression
+  solution_template: "dy/dx = 3({a})x² + 2({b})x - {c} = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - calculus
+    - differentiation
+    - polynomials
+
+- id: PYQ_MATH_CALC_03
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Calculus
+  chapter: Integration
+  concept: Definite integrals
+
+  template_variants:
+    - "Evaluate ∫₀^{b} {a}x² dx"
+    - "Find the value of ∫₀^{b} {a}x² dx"
+
+  variables:
+    a:
+      type: integer
+      range: [1, 6]
+    b:
+      type: integer
+      range: [2, 5]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+
+  formula: "∫ax²dx = (a/3)x³, evaluate from 0 to b: (a/3)b³"
+  answer_unit: ""
+  solution_template: "= (a/3)[x³]₀^b = ({a}/3)({b})³ = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - calculus
+    - integration
+    - definite_integrals
+
+# ============================================
+# SEQUENCES AND SERIES
+# ============================================
+
+- id: PYQ_MATH_SEQ_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Sequences and Series
+  concept: AP sum
+
+  template_variants:
+    - "Find the sum of first {n} terms of AP: {a}, {a_plus_d}, {a_plus_2d}, ..."
+    - "For AP with first term {a} and common difference {d}, find S_{n}."
+
+  variables:
+    a:
+      type: integer
+      range: [2, 10]
+    d:
+      type: integer
+      range: [2, 6]
+    n:
+      type: integer
+      range: [10, 25]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 55
+
+  formula: "Sn = (n/2)[2a + (n-1)d]"
+  answer_unit: ""
+  solution_template: "S = ({n}/2)[2({a}) + ({n}-1)({d})] = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - sequences
+    - arithmetic_progression
+    - sum
+
+- id: PYQ_MATH_SEQ_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Sequences and Series
+  concept: GP sum
+
+  template_variants:
+    - "Find sum of GP: {a} + {ar} + {ar2} + ... to {n} terms."
+    - "Calculate Sn for GP with a = {a}, r = {r}, n = {n}."
+
+  variables:
+    a:
+      type: integer
+      range: [2, 6]
+    r:
+      type: integer
+      range: [2, 4]
+    n:
+      type: integer
+      range: [4, 8]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 60
+
+  formula: "Sn = a(r^n - 1)/(r - 1)"
+  answer_unit: ""
+
+  difficulty_level: easy
+
+  tags:
+    - sequences
+    - geometric_progression
+    - sum
+
+# ============================================
+# PERMUTATIONS AND COMBINATIONS
+# ============================================
+
+- id: PYQ_MATH_PnC_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Permutations and Combinations
+  concept: nPr formula
+
+  template_variants:
+    - "Find the value of ⁿP_r when n = {n} and r = {r}."
+    - "Calculate {n}P{r}."
+
+  variables:
+    n:
+      type: integer
+      range: [5, 10]
+    r:
+      type: integer
+      range: [2, 4]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+    r_less_than_n: true
+
+  formula: "nPr = n!/(n-r)!"
+  answer_unit: ""
+  solution_template: "{n}P{r} = {n}!/({n}-{r})! = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - permutations
+    - factorial
+
+- id: PYQ_MATH_PnC_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Algebra
+  chapter: Permutations and Combinations
+  concept: nCr formula
+
+  template_variants:
+    - "Find the value of ⁿC_r when n = {n} and r = {r}."
+    - "Calculate C({n}, {r})."
+
+  variables:
+    n:
+      type: integer
+      range: [6, 12]
+    r:
+      type: integer
+      range: [2, 5]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 50
+    r_less_than_n: true
+
+  formula: "nCr = n!/[r!(n-r)!]"
+  answer_unit: ""
+  solution_template: "C({n},{r}) = {n}!/[{r}!({n}-{r})!] = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - combinations
+    - factorial
+
+# ============================================
+# TRIGONOMETRY
+# ============================================
+
+- id: PYQ_MATH_TRIG_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Trigonometry
+  chapter: Trigonometric Functions
+  concept: Basic identities
+
+  template_variants:
+    - "If sin θ = {num}/{den}, find cos θ (θ in first quadrant)."
+    - "Given sin θ = {num}/{den} where 0 < θ < π/2, find cos θ."
+
+  variables:
+    ratio_data:
+      type: choice
+      values:
+        - { num: 3, den: 5, cos: "4/5" }
+        - { num: 5, den: 13, cos: "12/13" }
+        - { num: 8, den: 17, cos: "15/17" }
+        - { num: 7, den: 25, cos: "24/25" }
+        - { num: 12, den: 13, cos: "5/13" }
+
+  constraints:
+    steps: 2
+    expected_time_sec: 45
+
+  formula: "cos²θ = 1 - sin²θ, cos θ = √(1 - (num/den)²)"
+  answer_type: fraction
+  difficulty_level: easy
+
+  tags:
+    - trigonometry
+    - pythagorean_identity
+
+- id: PYQ_MATH_TRIG_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Trigonometry
+  chapter: Trigonometric Equations
+  concept: General solutions
+
+  template_variants:
+    - "Find the general solution of sin x = {val}."
+    - "Solve: sin x = {val}."
+
+  variables:
+    trig_data:
+      type: choice
+      values:
+        - { val: "1/2", solution: "x = nπ + (-1)ⁿ(π/6)" }
+        - { val: "√3/2", solution: "x = nπ + (-1)ⁿ(π/3)" }
+        - { val: "1/√2", solution: "x = nπ + (-1)ⁿ(π/4)" }
+        - { val: "0", solution: "x = nπ" }
+        - { val: "1", solution: "x = 2nπ + π/2" }
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  question_type: formula_recall
+  answer_type: expression
+  difficulty_level: easy
+
+  tags:
+    - trigonometry
+    - general_solutions
+
+# ============================================
+# COORDINATE GEOMETRY
+# ============================================
+
+- id: PYQ_MATH_COORD_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Coordinate Geometry
+  chapter: Straight Lines
+  concept: Distance between points
+
+  template_variants:
+    - "Find the distance between points ({x1}, {y1}) and ({x2}, {y2})."
+    - "Calculate the distance from A({x1}, {y1}) to B({x2}, {y2})."
+
+  variables:
+    x1:
+      type: integer
+      range: [-5, 5]
+    y1:
+      type: integer
+      range: [-5, 5]
+    x2:
+      type: integer
+      range: [-5, 10]
+    y2:
+      type: integer
+      range: [-5, 10]
+
+  constraints:
+    steps: 2
+    expected_time_sec: 45
+
+  formula: "d = √[(x2-x1)² + (y2-y1)²]"
+  answer_unit: "units"
+  solution_template: "d = √[({x2}-{x1})² + ({y2}-{y1})²] = √[{dx}² + {dy}²] = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - coordinate_geometry
+    - distance_formula
+
+- id: PYQ_MATH_COORD_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Coordinate Geometry
+  chapter: Straight Lines
+  concept: Slope of line
+
+  template_variants:
+    - "Find the slope of line passing through ({x1}, {y1}) and ({x2}, {y2})."
+    - "Calculate slope of line joining A({x1}, {y1}) and B({x2}, {y2})."
+
+  variables:
+    x1:
+      type: integer
+      range: [1, 5]
+    y1:
+      type: integer
+      range: [1, 6]
+    x2:
+      type: integer
+      range: [3, 10]
+    y2:
+      type: integer
+      range: [2, 12]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+
+  formula: "m = (y2 - y1)/(x2 - x1)"
+  answer_unit: ""
+  solution_template: "m = ({y2} - {y1})/({x2} - {x1}) = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - coordinate_geometry
+    - slope
+
+- id: PYQ_MATH_COORD_03
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Coordinate Geometry
+  chapter: Circles
+  concept: Equation of circle
+
+  template_variants:
+    - "Find the equation of circle with center ({h}, {k}) and radius {r}."
+    - "Write the equation of circle: center = ({h}, {k}), r = {r}."
+
+  variables:
+    h:
+      type: integer
+      range: [-3, 5]
+    k:
+      type: integer
+      range: [-3, 5]
+    r:
+      type: integer
+      range: [2, 7]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "(x - h)² + (y - k)² = r²"
+  answer_type: equation
+  solution_template: "(x - {h})² + (y - {k})² = {r}² = {r_sq}"
+
+  difficulty_level: easy
+
+  tags:
+    - coordinate_geometry
+    - circles
+    - equation
+
+# ============================================
+# PROBABILITY
+# ============================================
+
+- id: PYQ_MATH_PROB_01
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Probability
+  chapter: Basic Probability
+  concept: Addition theorem
+
+  template_variants:
+    - "If P(A) = {pa}, P(B) = {pb}, P(A∩B) = {pab}, find P(A∪B)."
+    - "Calculate P(A∪B) given P(A) = {pa}, P(B) = {pb}, P(A∩B) = {pab}."
+
+  variables:
+    pa:
+      type: choice
+      values: [0.3, 0.4, 0.5, 0.6]
+    pb:
+      type: choice
+      values: [0.4, 0.5, 0.6, 0.7]
+    pab:
+      type: choice
+      values: [0.1, 0.2, 0.3]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 35
+
+  formula: "P(A∪B) = P(A) + P(B) - P(A∩B)"
+  answer_unit: ""
+  solution_template: "P(A∪B) = {pa} + {pb} - {pab} = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - probability
+    - addition_theorem
+
+- id: PYQ_MATH_PROB_02
+  exam: TS_EAMCET
+  subject: Mathematics
+  unit: Probability
+  chapter: Basic Probability
+  concept: Conditional probability
+
+  template_variants:
+    - "If P(A) = {pa}, P(B) = {pb}, P(A∩B) = {pab}, find P(A|B)."
+    - "Calculate P(A|B) given P(A) = {pa}, P(B) = {pb}, P(A∩B) = {pab}."
+
+  variables:
+    pa:
+      type: choice
+      values: [0.4, 0.5, 0.6]
+    pb:
+      type: choice
+      values: [0.5, 0.6, 0.8]
+    pab:
+      type: choice
+      values: [0.2, 0.3, 0.4]
+
+  constraints:
+    steps: 1
+    expected_time_sec: 40
+
+  formula: "P(A|B) = P(A∩B)/P(B)"
+  answer_unit: ""
+  solution_template: "P(A|B) = P(A∩B)/P(B) = {pab}/{pb} = {answer}"
+
+  difficulty_level: easy
+
+  tags:
+    - probability
+    - conditional_probability

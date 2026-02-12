@@ -1,0 +1,22 @@
+id: ts_eamcet_2018_3
+exam: TS EAMCET
+year: 2018
+shift: 3
+date: null
+session: Shift 3
+source_pdf: 2018-3.pdf
+metadata:
+  total_questions: 0
+  duration_minutes: 180
+  marking_scheme: +1 for correct, -0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 0
+- code: PHY
+  name: Physics
+  question_count: 0
+- code: CHE
+  name: Chemistry
+  question_count: 0
+questions: []

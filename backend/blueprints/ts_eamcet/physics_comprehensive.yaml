@@ -1,0 +1,1411 @@
+# TS EAMCET Physics - Comprehensive Blueprint Collection
+# From 2016-2024 PYQ Analysis - Full Coverage for Mock/Sectional/Topic Tests
+
+# ============================================
+# MECHANICS: UNITS & MEASUREMENTS
+# ============================================
+
+- id: COMP_PHY_UNIT_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Units and Measurements
+  concept: Dimensional analysis
+  template_variants:
+    - "If velocity v, force F, and time T are taken as fundamental quantities, the dimensional formula of mass is"
+    - "Express mass in terms of v, F, T as fundamental quantities."
+  variables:
+    quantities: { type: choice, values: ["v, F, T", "v, F, E", "F, T, L"] }
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [units, dimensional_analysis]
+
+- id: COMP_PHY_UNIT_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Units and Measurements
+  concept: Error propagation
+  template_variants:
+    - "In Q = a^{p}b^{q}/c^{r}, errors in a, b, c are {ea}%, {eb}%, {ec}%. Find % error in Q."
+    - "Calculate percentage error in Q = a^{p}b^{q}/c^{r}."
+  variables:
+    p: { type: integer, range: [1, 3] }
+    q: { type: integer, range: [1, 3] }
+    r: { type: integer, range: [1, 2] }
+    ea: { type: integer, range: [1, 3] }
+    eb: { type: integer, range: [2, 4] }
+    ec: { type: integer, range: [3, 5] }
+  formula: "ΔQ/Q × 100 = p×ea + q×eb + r×ec"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [units, error_analysis, pyq_2017]
+
+- id: COMP_PHY_UNIT_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Units and Measurements
+  concept: Significant figures
+  template_variants:
+    - "Find number of significant figures in {num}."
+    - "How many significant figures are in {num}?"
+  variables:
+    num: { type: choice, values: ["0.00340", "5.060", "0.0203", "6.023×10²³"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [units, significant_figures]
+
+# ============================================
+# MECHANICS: KINEMATICS
+# ============================================
+
+- id: COMP_PHY_KIN_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Equations of motion
+  template_variants:
+    - "A body starts from rest and moves with acceleration {a} m/s² for {t} s. Find distance covered."
+    - "Calculate displacement: u = 0, a = {a} m/s², t = {t} s."
+  variables:
+    a: { type: integer, range: [2, 10] }
+    t: { type: integer, range: [2, 10] }
+  formula: "s = ut + ½at² = ½at²"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [kinematics, equations_of_motion]
+
+- id: COMP_PHY_KIN_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Projectile motion
+  template_variants:
+    - "A projectile is fired with velocity {u} m/s at angle {theta}°. Find maximum height. (g = 10 m/s²)"
+    - "Calculate H_max for projectile: u = {u} m/s, θ = {theta}°."
+  variables:
+    u: { type: integer, range: [20, 60], step: 10 }
+    theta: { type: choice, values: [30, 45, 60] }
+  formula: "H = u²sin²θ/(2g)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [kinematics, projectile]
+
+- id: COMP_PHY_KIN_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Relative velocity
+  template_variants:
+    - "Two cars A and B move with {va} km/h and {vb} km/h in same direction. Find relative velocity of A w.r.t. B."
+    - "Calculate v_AB if v_A = {va} km/h, v_B = {vb} km/h (same direction)."
+  variables:
+    va: { type: integer, range: [40, 80], step: 10 }
+    vb: { type: integer, range: [20, 50], step: 10 }
+  formula: "v_rel = v_A - v_B"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [kinematics, relative_velocity]
+
+- id: COMP_PHY_KIN_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Motion graphs
+  template_variants:
+    - "The v-t graph of a body is a straight line with slope {m}. Find acceleration."
+    - "From v-t graph with slope {m}, determine acceleration."
+  variables:
+    m: { type: integer, range: [2, 8] }
+  formula: "a = dv/dt = slope"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [kinematics, graphs]
+
+- id: COMP_PHY_KIN_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Kinematics
+  concept: Stopping distance
+  template_variants:
+    - "A driver sees signal {s} m ahead and applies brakes with deceleration {a} m/s² after reaction time {t} s. Find max safe speed."
+    - "Calculate maximum speed: stopping distance = {s} m, a = {a} m/s², reaction time = {t} s."
+  variables:
+    s: { type: integer, range: [30, 100], step: 10 }
+    a: { type: choice, values: [5, 8, 10] }
+    t: { type: choice, values: [0.5, 0.75, 1.0] }
+  formula: "s = vt + v²/(2a)"
+  constraints: { steps: 3, expected_time_sec: 90 }
+  difficulty_level: hard
+  tags: [kinematics, braking, pyq_2017]
+
+# ============================================
+# MECHANICS: NEWTON'S LAWS
+# ============================================
+
+- id: COMP_PHY_NLM_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Laws of Motion
+  concept: Friction
+  template_variants:
+    - "A {m} kg block on surface with μ = {mu} is pushed with {f} N. Find acceleration. (g = 10 m/s²)"
+    - "Calculate a for m = {m} kg, μ = {mu}, F = {f} N on horizontal surface."
+  variables:
+    m: { type: integer, range: [2, 10] }
+    mu: { type: choice, values: [0.1, 0.2, 0.3, 0.4, 0.5] }
+    f: { type: integer, range: [20, 100], step: 10 }
+  formula: "a = (F - μmg)/m"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: easy
+  tags: [newtons_laws, friction]
+
+- id: COMP_PHY_NLM_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Laws of Motion
+  concept: Connected bodies
+  template_variants:
+    - "Two masses {m1} kg and {m2} kg connected by string over frictionless pulley. Find acceleration."
+    - "Atwood machine: m₁ = {m1} kg, m₂ = {m2} kg. Calculate a."
+  variables:
+    m1: { type: integer, range: [2, 8] }
+    m2: { type: integer, range: [3, 10] }
+  formula: "a = (m₂ - m₁)g/(m₁ + m₂)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [newtons_laws, pulley]
+
+- id: COMP_PHY_NLM_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Laws of Motion
+  concept: Circular motion
+  template_variants:
+    - "A {m} kg body moves in circle of radius {r} m with speed {v} m/s. Find centripetal force."
+    - "Calculate F_c for m = {m} kg, r = {r} m, v = {v} m/s."
+  variables:
+    m: { type: integer, range: [1, 5] }
+    r: { type: integer, range: [2, 10] }
+    v: { type: integer, range: [5, 20] }
+  formula: "F = mv²/r"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [circular_motion, centripetal_force]
+
+- id: COMP_PHY_NLM_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Laws of Motion
+  concept: Momentum
+  template_variants:
+    - "A {m1} kg body moving at {v1} m/s collides with {m2} kg body at rest. If they stick together, find final velocity."
+    - "Inelastic collision: m₁ = {m1} kg, v₁ = {v1} m/s, m₂ = {m2} kg (at rest). Find v."
+  variables:
+    m1: { type: integer, range: [2, 6] }
+    v1: { type: integer, range: [4, 12] }
+    m2: { type: integer, range: [2, 8] }
+  formula: "m₁v₁ = (m₁ + m₂)v"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: easy
+  tags: [momentum, collision]
+
+# ============================================
+# MECHANICS: WORK, ENERGY, POWER
+# ============================================
+
+- id: COMP_PHY_WEP_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work Energy Power
+  concept: Work done
+  template_variants:
+    - "A force F = {f}i + {g}j N acts on body moving from origin to ({x}, {y}). Find work done."
+    - "Calculate W for F = {f}i + {g}j N, displacement ({x}, {y})."
+  variables:
+    f: { type: integer, range: [2, 6] }
+    g: { type: integer, range: [3, 8] }
+    x: { type: integer, range: [2, 5] }
+    y: { type: integer, range: [1, 4] }
+  formula: "W = F·d = fx + gy"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [work, dot_product]
+
+- id: COMP_PHY_WEP_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work Energy Power
+  concept: Kinetic energy
+  template_variants:
+    - "A {m} kg body has momentum {p} kg·m/s. Find its kinetic energy."
+    - "Calculate KE from m = {m} kg, p = {p} kg·m/s."
+  variables:
+    m: { type: integer, range: [2, 10] }
+    p: { type: integer, range: [10, 40], step: 5 }
+  formula: "KE = p²/(2m)"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [kinetic_energy, momentum]
+
+- id: COMP_PHY_WEP_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work Energy Power
+  concept: Power
+  template_variants:
+    - "A motor lifts {m} kg to height {h} m in {t} s. Find power. (g = 10 m/s²)"
+    - "Calculate power: m = {m} kg, h = {h} m, t = {t} s."
+  variables:
+    m: { type: integer, range: [50, 200], step: 50 }
+    h: { type: integer, range: [5, 20], step: 5 }
+    t: { type: integer, range: [5, 20], step: 5 }
+  formula: "P = mgh/t"
+  constraints: { steps: 2, expected_time_sec: 40 }
+  difficulty_level: easy
+  tags: [power, gravitational_pe]
+
+- id: COMP_PHY_WEP_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Work Energy Power
+  concept: Conservation of energy
+  template_variants:
+    - "A ball dropped from {h} m height. Find velocity at ground. (g = 10 m/s²)"
+    - "Using energy conservation, find v for ball falling {h} m."
+  variables:
+    h: { type: integer, range: [5, 45], step: 5 }
+  formula: "mgh = ½mv² → v = √(2gh)"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [energy_conservation]
+
+# ============================================
+# MECHANICS: ROTATIONAL MOTION
+# ============================================
+
+- id: COMP_PHY_ROT_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Rotational Motion
+  concept: Moment of inertia
+  template_variants:
+    - "Find moment of inertia of uniform disc of mass {m} kg and radius {r} m about its axis."
+    - "Calculate I for disc: m = {m} kg, R = {r} m."
+  variables:
+    m: { type: integer, range: [2, 10] }
+    r: { type: choice, values: [0.1, 0.2, 0.5, 1.0] }
+  formula: "I = ½MR²"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [rotational, moment_of_inertia]
+
+- id: COMP_PHY_ROT_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Rotational Motion
+  concept: Angular momentum
+  template_variants:
+    - "A disc of I = {i} kg·m² rotates at {omega} rad/s. Find angular momentum."
+    - "Calculate L for I = {i} kg·m², ω = {omega} rad/s."
+  variables:
+    i: { type: choice, values: [0.5, 1.0, 2.0, 4.0] }
+    omega: { type: integer, range: [5, 20] }
+  formula: "L = Iω"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [rotational, angular_momentum]
+
+- id: COMP_PHY_ROT_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Rotational Motion
+  concept: Rolling motion
+  template_variants:
+    - "A solid sphere rolls down incline of height {h} m. Find velocity at bottom."
+    - "Calculate v for rolling sphere from height {h} m."
+  variables:
+    h: { type: integer, range: [5, 20], step: 5 }
+  formula: "v = √(10gh/7) for solid sphere"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [rotational, rolling]
+
+# ============================================
+# MECHANICS: GRAVITATION
+# ============================================
+
+- id: COMP_PHY_GRAV_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Gravitation
+  concept: Gravitational field
+  template_variants:
+    - "Acceleration due to gravity at height h = R (Earth's radius) is"
+    - "Find g at height h = {n}R from Earth's surface."
+  variables:
+    n: { type: choice, values: [1, 2, 3] }
+  formula: "g' = g/(1 + h/R)² = g/(n+1)²"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [gravitation, variation_of_g]
+
+- id: COMP_PHY_GRAV_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Gravitation
+  concept: Orbital velocity
+  template_variants:
+    - "Find orbital velocity of satellite at height {h}R from Earth's surface."
+    - "Calculate v_o at h = {h}R."
+  variables:
+    h: { type: choice, values: [0, 1, 2, 3] }
+  formula: "v_o = √(gR/(1+h))"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [gravitation, satellites]
+
+- id: COMP_PHY_GRAV_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Mechanics
+  chapter: Gravitation
+  concept: Escape velocity
+  template_variants:
+    - "The escape velocity from Earth is {ve} km/s. Find escape velocity from planet with mass {m}M_E and radius {r}R_E."
+    - "Calculate escape velocity: mass = {m}×M_Earth, radius = {r}×R_Earth."
+  variables:
+    ve: { type: choice, values: [11.2] }
+    m: { type: integer, range: [2, 4] }
+    r: { type: integer, range: [1, 3] }
+  formula: "v_e' = v_e × √(m/r)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [gravitation, escape_velocity]
+
+# ============================================
+# PROPERTIES OF MATTER
+# ============================================
+
+- id: COMP_PHY_PROP_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Properties of Matter
+  chapter: Elasticity
+  concept: Young's modulus
+  template_variants:
+    - "A wire of length {l} m and area {a} mm² stretches by {dl} mm under force {f} N. Find Young's modulus."
+    - "Calculate Y: l = {l} m, A = {a} mm², Δl = {dl} mm, F = {f} N."
+  variables:
+    l: { type: integer, range: [1, 3] }
+    a: { type: integer, range: [1, 4] }
+    dl: { type: choice, values: [0.5, 1.0, 2.0] }
+    f: { type: integer, range: [100, 500], step: 100 }
+  formula: "Y = (F/A)/(Δl/l) = Fl/(AΔl)"
+  constraints: { steps: 2, expected_time_sec: 60 }
+  difficulty_level: moderate
+  tags: [elasticity, youngs_modulus]
+
+- id: COMP_PHY_PROP_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Properties of Matter
+  chapter: Surface Tension
+  concept: Capillary rise
+  template_variants:
+    - "Water rises {h} cm in a capillary of radius {r} mm. Find surface tension. (θ = 0°, ρ = 1000 kg/m³)"
+    - "Calculate T from capillary rise: h = {h} cm, r = {r} mm."
+  variables:
+    h: { type: integer, range: [2, 8] }
+    r: { type: choice, values: [0.2, 0.3, 0.5, 1.0] }
+  formula: "h = 2T cos θ/(ρgr)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [surface_tension, capillarity]
+
+- id: COMP_PHY_PROP_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Properties of Matter
+  chapter: Fluid Mechanics
+  concept: Bernoulli's equation
+  template_variants:
+    - "Water flows through pipe at {v1} m/s at height {h1} m. Find velocity at height {h2} m if pressure is same."
+    - "Using Bernoulli's equation, find v₂."
+  variables:
+    v1: { type: integer, range: [2, 6] }
+    h1: { type: integer, range: [0, 5] }
+    h2: { type: integer, range: [3, 10] }
+  formula: "½ρv₁² + ρgh₁ = ½ρv₂² + ρgh₂"
+  constraints: { steps: 2, expected_time_sec: 60 }
+  difficulty_level: moderate
+  tags: [fluid_mechanics, bernoulli]
+
+# ============================================
+# THERMAL PHYSICS
+# ============================================
+
+- id: COMP_PHY_THERM_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermal Physics
+  chapter: Heat and Temperature
+  concept: Linear expansion
+  template_variants:
+    - "A metal rod of length {l} m expands by {dl} mm when heated by {dt}°C. Find coefficient of linear expansion."
+    - "Calculate α: l = {l} m, Δl = {dl} mm, ΔT = {dt}°C."
+  variables:
+    l: { type: integer, range: [1, 3] }
+    dl: { type: choice, values: [0.5, 1.0, 1.5, 2.0] }
+    dt: { type: integer, range: [50, 150], step: 50 }
+  formula: "α = Δl/(l×ΔT)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [thermal, expansion]
+
+- id: COMP_PHY_THERM_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermal Physics
+  chapter: Thermodynamics
+  concept: First law
+  template_variants:
+    - "A gas absorbs {q} J of heat and does {w} J of work. Find change in internal energy."
+    - "Calculate ΔU: Q = {q} J, W = {w} J."
+  variables:
+    q: { type: integer, range: [100, 500], step: 50 }
+    w: { type: integer, range: [50, 200], step: 50 }
+  formula: "ΔU = Q - W"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [thermodynamics, first_law]
+
+- id: COMP_PHY_THERM_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermal Physics
+  chapter: Thermodynamics
+  concept: Isothermal process
+  template_variants:
+    - "An ideal gas at pressure {p} atm and volume {v} L expands isothermally to {v2} L. Find final pressure."
+    - "Calculate P₂: P₁ = {p} atm, V₁ = {v} L, V₂ = {v2} L (isothermal)."
+  variables:
+    p: { type: integer, range: [2, 8] }
+    v: { type: integer, range: [2, 6] }
+    v2: { type: integer, range: [8, 20], step: 2 }
+  formula: "P₁V₁ = P₂V₂"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [thermodynamics, isothermal]
+
+- id: COMP_PHY_THERM_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermal Physics
+  chapter: Thermodynamics
+  concept: Adiabatic process
+  template_variants:
+    - "A diatomic gas (γ = 7/5) expands adiabatically. If volume doubles, find ratio of final to initial temperature."
+    - "Calculate T₂/T₁ for adiabatic expansion with V₂ = 2V₁."
+  variables:
+    gamma: { type: choice, values: ["5/3", "7/5", "4/3"] }
+    ratio: { type: integer, range: [2, 4] }
+  formula: "TV^(γ-1) = constant"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [thermodynamics, adiabatic]
+
+- id: COMP_PHY_THERM_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Thermal Physics
+  chapter: Kinetic Theory
+  concept: RMS speed
+  template_variants:
+    - "Find RMS speed of oxygen molecules at {t}°C. (M = 32 g/mol, R = 8.314 J/mol·K)"
+    - "Calculate v_rms for O₂ at {t}°C."
+  variables:
+    t: { type: integer, range: [0, 100], step: 25 }
+  formula: "v_rms = √(3RT/M)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [kinetic_theory, rms_speed]
+
+# ============================================
+# OSCILLATIONS & WAVES
+# ============================================
+
+- id: COMP_PHY_OSC_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Oscillations and Waves
+  chapter: SHM
+  concept: Time period
+  template_variants:
+    - "A spring of constant {k} N/m has {m} kg mass attached. Find time period of oscillation."
+    - "Calculate T: k = {k} N/m, m = {m} kg."
+  variables:
+    k: { type: integer, range: [100, 500], step: 100 }
+    m: { type: integer, range: [1, 5] }
+  formula: "T = 2π√(m/k)"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [shm, spring]
+
+- id: COMP_PHY_OSC_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Oscillations and Waves
+  chapter: SHM
+  concept: Simple pendulum
+  template_variants:
+    - "A pendulum of length {l} m has time period T on Earth. Find T on Moon (g_moon = g/6)."
+    - "Calculate time period on Moon for pendulum with T_earth = {t} s."
+  variables:
+    l: { type: integer, range: [1, 4] }
+    t: { type: integer, range: [1, 3] }
+  formula: "T ∝ 1/√g, so T_moon = T_earth × √6"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [shm, pendulum]
+
+- id: COMP_PHY_OSC_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Oscillations and Waves
+  chapter: Waves
+  concept: Wave equation
+  template_variants:
+    - "A wave is given by y = {a} sin(2πx/{l} - 2πt/{t}). Find wave velocity."
+    - "Calculate v from y = {a} sin(kx - ωt)."
+  variables:
+    a: { type: choice, values: [0.1, 0.2, 0.5] }
+    l: { type: integer, range: [2, 6] }
+    t: { type: choice, values: [0.5, 1.0, 2.0] }
+  formula: "v = λ/T = ω/k"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [waves, wave_equation]
+
+- id: COMP_PHY_OSC_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Oscillations and Waves
+  chapter: Sound
+  concept: Beats
+  template_variants:
+    - "Two tuning forks of frequencies {f1} Hz and {f2} Hz are sounded together. Find beat frequency."
+    - "Calculate beats: f₁ = {f1} Hz, f₂ = {f2} Hz."
+  variables:
+    f1: { type: integer, range: [256, 512] }
+    f2: { type: integer, range: [258, 520] }
+  formula: "Beat frequency = |f₁ - f₂|"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [sound, beats]
+
+- id: COMP_PHY_OSC_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Oscillations and Waves
+  chapter: Sound
+  concept: Doppler effect
+  template_variants:
+    - "A source moving at {vs} m/s towards stationary observer emits frequency {f} Hz. Find apparent frequency. (v = 340 m/s)"
+    - "Calculate f' for moving source (towards observer)."
+  variables:
+    vs: { type: integer, range: [17, 68], step: 17 }
+    f: { type: integer, range: [500, 1000], step: 100 }
+  formula: "f' = f × v/(v - vs)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [sound, doppler]
+
+# ============================================
+# ELECTROSTATICS
+# ============================================
+
+- id: COMP_PHY_ELEC_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Coulomb's Law
+  concept: Force between charges
+  template_variants:
+    - "Two charges {q1} μC and {q2} μC are {r} cm apart. Find force between them."
+    - "Calculate F: q₁ = {q1} μC, q₂ = {q2} μC, r = {r} cm."
+  variables:
+    q1: { type: integer, range: [1, 6] }
+    q2: { type: integer, range: [2, 8] }
+    r: { type: integer, range: [10, 30], step: 5 }
+  formula: "F = kq₁q₂/r²"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [electrostatics, coulombs_law]
+
+- id: COMP_PHY_ELEC_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Electric Field
+  concept: Field due to point charge
+  template_variants:
+    - "Find electric field at {r} cm from a charge of {q} μC."
+    - "Calculate E: q = {q} μC, r = {r} cm."
+  variables:
+    q: { type: integer, range: [1, 10] }
+    r: { type: integer, range: [5, 20], step: 5 }
+  formula: "E = kq/r²"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [electrostatics, electric_field]
+
+- id: COMP_PHY_ELEC_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Potential
+  concept: Electric potential
+  template_variants:
+    - "Find potential at {r} cm from {q} μC charge."
+    - "Calculate V at distance {r} cm from charge {q} μC."
+  variables:
+    q: { type: integer, range: [2, 10] }
+    r: { type: integer, range: [5, 20], step: 5 }
+  formula: "V = kq/r"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [electrostatics, potential]
+
+- id: COMP_PHY_ELEC_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Capacitors
+  concept: Capacitance
+  template_variants:
+    - "Find equivalent capacitance of {c1} μF and {c2} μF capacitors in series."
+    - "Calculate C_eq for series: C₁ = {c1} μF, C₂ = {c2} μF."
+  variables:
+    c1: { type: integer, range: [2, 10] }
+    c2: { type: integer, range: [3, 12] }
+  formula: "1/C = 1/C₁ + 1/C₂"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [capacitors, series]
+
+- id: COMP_PHY_ELEC_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electrostatics
+  chapter: Capacitors
+  concept: Energy stored
+  template_variants:
+    - "A {c} μF capacitor is charged to {v} V. Find energy stored."
+    - "Calculate U: C = {c} μF, V = {v} V."
+  variables:
+    c: { type: integer, range: [2, 10] }
+    v: { type: integer, range: [100, 500], step: 100 }
+  formula: "U = ½CV²"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [capacitors, energy]
+
+# ============================================
+# CURRENT ELECTRICITY
+# ============================================
+
+- id: COMP_PHY_CURR_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Ohm's Law
+  concept: Resistance
+  template_variants:
+    - "A wire of resistance {r} Ω is stretched to {n} times its length. Find new resistance."
+    - "Calculate R' when R = {r} Ω wire is stretched {n}× length."
+  variables:
+    r: { type: integer, range: [4, 20], step: 4 }
+    n: { type: integer, range: [2, 4] }
+  formula: "R' = n²R"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: easy
+  tags: [current_electricity, resistance]
+
+- id: COMP_PHY_CURR_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Circuits
+  concept: Kirchhoff's laws
+  template_variants:
+    - "In a circuit, EMF = {e} V, internal resistance = {r} Ω, external resistance = {R} Ω. Find current."
+    - "Calculate I: ε = {e} V, r = {r} Ω, R = {R} Ω."
+  variables:
+    e: { type: integer, range: [6, 24], step: 6 }
+    r: { type: integer, range: [1, 4] }
+    R: { type: integer, range: [5, 20], step: 5 }
+  formula: "I = ε/(R + r)"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [current_electricity, circuits]
+
+- id: COMP_PHY_CURR_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Power
+  concept: Electric power
+  template_variants:
+    - "Find power dissipated in {r} Ω resistor carrying {i} A current."
+    - "Calculate P: R = {r} Ω, I = {i} A."
+  variables:
+    r: { type: integer, range: [5, 50], step: 5 }
+    i: { type: integer, range: [1, 5] }
+  formula: "P = I²R"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [current_electricity, power]
+
+- id: COMP_PHY_CURR_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: Power
+  concept: Motor efficiency
+  template_variants:
+    - "A motor fills tank at {h} m height at {rate} L/hr. Motor R = {R} Ω, V = {V} V. Find efficiency."
+    - "Calculate η: h = {h} m, rate = {rate} L/hr, R = {R} Ω, V = {V} V."
+  variables:
+    h: { type: integer, range: [15, 30], step: 5 }
+    rate: { type: integer, range: [15000, 25000], step: 5000 }
+    R: { type: integer, range: [20, 30], step: 2 }
+    V: { type: integer, range: [200, 240], step: 20 }
+  formula: "η = (mgh/t)/(V²/R)"
+  constraints: { steps: 4, expected_time_sec: 120 }
+  difficulty_level: hard
+  tags: [current_electricity, efficiency, pyq_2017]
+
+# ============================================
+# MAGNETISM
+# ============================================
+
+- id: COMP_PHY_MAG_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetic Field
+  concept: Biot-Savart law
+  template_variants:
+    - "Find magnetic field at center of circular loop of radius {r} cm carrying {i} A current."
+    - "Calculate B at center: r = {r} cm, I = {i} A."
+  variables:
+    r: { type: integer, range: [5, 20], step: 5 }
+    i: { type: integer, range: [1, 10] }
+  formula: "B = μ₀I/(2r)"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [magnetism, biot_savart]
+
+- id: COMP_PHY_MAG_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetic Force
+  concept: Force on current
+  template_variants:
+    - "A {l} cm wire carrying {i} A is placed perpendicular to field {b} T. Find force."
+    - "Calculate F: l = {l} cm, I = {i} A, B = {b} T."
+  variables:
+    l: { type: integer, range: [10, 50], step: 10 }
+    i: { type: integer, range: [2, 10] }
+    b: { type: choice, values: [0.1, 0.2, 0.5, 1.0] }
+  formula: "F = BIl"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [magnetism, force]
+
+- id: COMP_PHY_MAG_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: EMI
+  concept: Faraday's law
+  template_variants:
+    - "Magnetic flux through coil changes from {phi1} Wb to {phi2} Wb in {t} s. Find induced EMF."
+    - "Calculate ε: Φ₁ = {phi1} Wb, Φ₂ = {phi2} Wb, Δt = {t} s."
+  variables:
+    phi1: { type: choice, values: [0.1, 0.2, 0.5] }
+    phi2: { type: choice, values: [0.3, 0.5, 0.8] }
+    t: { type: choice, values: [0.1, 0.2, 0.5] }
+  formula: "ε = -dΦ/dt = (Φ₁ - Φ₂)/t"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [emi, faradays_law]
+
+- id: COMP_PHY_MAG_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: EMI
+  concept: Self inductance
+  template_variants:
+    - "A coil of self-inductance {l} H carries current changing at {di} A/s. Find induced EMF."
+    - "Calculate ε: L = {l} H, dI/dt = {di} A/s."
+  variables:
+    l: { type: choice, values: [0.1, 0.2, 0.5, 1.0] }
+    di: { type: integer, range: [2, 10] }
+  formula: "ε = -L(dI/dt)"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [emi, inductance]
+
+# ============================================
+# OPTICS
+# ============================================
+
+- id: COMP_PHY_OPT_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Optics
+  chapter: Reflection
+  concept: Mirror formula
+  template_variants:
+    - "An object is placed {u} cm from concave mirror of focal length {f} cm. Find image distance."
+    - "Calculate v: u = {u} cm, f = {f} cm (concave mirror)."
+  variables:
+    u: { type: integer, range: [15, 40], step: 5 }
+    f: { type: integer, range: [10, 20], step: 5 }
+  formula: "1/v + 1/u = 1/f"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [optics, mirrors]
+
+- id: COMP_PHY_OPT_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Optics
+  chapter: Refraction
+  concept: Lens formula
+  template_variants:
+    - "A convex lens of focal length {f} cm forms image at {v} cm. Find object distance."
+    - "Calculate u: f = {f} cm, v = {v} cm (convex lens)."
+  variables:
+    f: { type: integer, range: [10, 30], step: 5 }
+    v: { type: integer, range: [20, 60], step: 10 }
+  formula: "1/v - 1/u = 1/f"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [optics, lenses]
+
+- id: COMP_PHY_OPT_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Optics
+  chapter: Refraction
+  concept: Lens in liquid
+  template_variants:
+    - "A lens (n = {nl}) has f = {f} cm in air. Find f in liquid (n_liquid = {nm})."
+    - "Calculate f_liquid for lens immersed in liquid."
+  variables:
+    nl: { type: choice, values: [1.5, 1.6] }
+    f: { type: integer, range: [20, 60], step: 10 }
+    nm: { type: choice, values: [1.25, 1.33, 1.4] }
+  formula: "f_l/f = (n_l - 1)/(n_l/n_m - 1)"
+  constraints: { steps: 3, expected_time_sec: 90 }
+  difficulty_level: hard
+  tags: [optics, lens_in_liquid, pyq_2017]
+
+- id: COMP_PHY_OPT_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Optics
+  chapter: Wave Optics
+  concept: Young's double slit
+  template_variants:
+    - "In YDSE, d = {d} mm, D = {D} m, λ = {l} nm. Find fringe width."
+    - "Calculate β: d = {d} mm, D = {D} m, λ = {l} nm."
+  variables:
+    d: { type: choice, values: [0.1, 0.2, 0.5, 1.0] }
+    D: { type: choice, values: [1, 2, 3] }
+    l: { type: integer, range: [500, 700], step: 50 }
+  formula: "β = λD/d"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [optics, interference]
+
+# ============================================
+# MODERN PHYSICS
+# ============================================
+
+- id: COMP_PHY_MOD_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Photoelectric Effect
+  concept: Einstein's equation
+  template_variants:
+    - "Light of wavelength {l} nm falls on metal with work function {w} eV. Find max KE of photoelectrons."
+    - "Calculate KE_max: λ = {l} nm, φ = {w} eV."
+  variables:
+    l: { type: integer, range: [300, 500], step: 50 }
+    w: { type: choice, values: [1.5, 2.0, 2.5, 3.0] }
+  formula: "KE_max = hc/λ - φ"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [modern_physics, photoelectric]
+
+- id: COMP_PHY_MOD_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Atomic Physics
+  concept: Bohr model
+  template_variants:
+    - "Find wavelength of photon emitted when hydrogen atom transitions from n = {n1} to n = {n2}."
+    - "Calculate λ for transition: n₁ = {n1} → n₂ = {n2} in hydrogen."
+  variables:
+    n1: { type: integer, range: [3, 6] }
+    n2: { type: integer, range: [1, 2] }
+  formula: "1/λ = R(1/n₂² - 1/n₁²)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [modern_physics, hydrogen_spectrum, pyq_2017]
+
+- id: COMP_PHY_MOD_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Nuclear Physics
+  concept: Radioactive decay
+  template_variants:
+    - "A radioactive sample has half-life {t} days. Find fraction remaining after {n}×{t} days."
+    - "Calculate N/N₀ after time = {n}T₁/₂."
+  variables:
+    t: { type: integer, range: [5, 20], step: 5 }
+    n: { type: integer, range: [2, 5] }
+  formula: "N/N₀ = (1/2)ⁿ"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [nuclear_physics, radioactivity]
+
+- id: COMP_PHY_MOD_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Nuclear Physics
+  concept: Binding energy
+  template_variants:
+    - "Find binding energy per nucleon of nucleus with mass defect {dm} u and mass number {a}."
+    - "Calculate BE/A: Δm = {dm} u, A = {a}."
+  variables:
+    dm: { type: choice, values: [0.1, 0.2, 0.3, 0.5] }
+    a: { type: integer, range: [12, 56], step: 4 }
+  formula: "BE/A = Δm × 931.5/A MeV"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [nuclear_physics, binding_energy]
+
+- id: COMP_PHY_MOD_05
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: Semiconductors
+  concept: Diode
+  template_variants:
+    - "In circuit with Si diode, R = {r} kΩ, V = {v} V. Find current through diode."
+    - "Calculate I: R = {r} kΩ, supply = {v} V, Si diode (V_barrier = 0.7 V)."
+  variables:
+    r: { type: integer, range: [1, 5] }
+    v: { type: integer, range: [5, 15] }
+  formula: "I = (V - 0.7)/R"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: easy
+  tags: [semiconductors, diode, pyq_2017]
+
+- id: COMP_PHY_MOD_06
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Modern Physics
+  chapter: De Broglie
+  concept: Matter waves
+  template_variants:
+    - "Find de Broglie wavelength of electron accelerated through {v} V potential."
+    - "Calculate λ for electron: V = {v} V."
+  variables:
+    v: { type: integer, range: [100, 400], step: 50 }
+  formula: "λ = 12.27/√V Å"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [modern_physics, de_broglie]
+
+# ============================================
+# AC CIRCUITS
+# ============================================
+
+- id: COMP_PHY_AC_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: AC Circuits
+  concept: Reactance
+  template_variants:
+    - "Find capacitive reactance of {c} μF capacitor at {f} Hz."
+    - "Calculate X_C: C = {c} μF, f = {f} Hz."
+  variables:
+    c: { type: integer, range: [10, 100], step: 10 }
+    f: { type: integer, range: [50, 200], step: 50 }
+  formula: "X_C = 1/(2πfC)"
+  constraints: { steps: 1, expected_time_sec: 40 }
+  difficulty_level: easy
+  tags: [ac_circuits, reactance]
+
+- id: COMP_PHY_AC_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: AC Circuits
+  concept: LCR resonance
+  template_variants:
+    - "In LCR circuit, L = {l} mH, C = {c} μF. Find resonant frequency."
+    - "Calculate f_r: L = {l} mH, C = {c} μF."
+  variables:
+    l: { type: integer, range: [10, 100], step: 10 }
+    c: { type: integer, range: [10, 100], step: 10 }
+  formula: "f_r = 1/(2π√LC)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [ac_circuits, resonance]
+
+- id: COMP_PHY_AC_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Current Electricity
+  chapter: AC Circuits
+  concept: Power factor
+  template_variants:
+    - "In LCR circuit, R = {r} Ω, X_L = {xl} Ω, X_C = {xc} Ω. Find power factor."
+    - "Calculate cos φ: R = {r} Ω, X_L = {xl} Ω, X_C = {xc} Ω."
+  variables:
+    r: { type: integer, range: [30, 100], step: 10 }
+    xl: { type: integer, range: [40, 80], step: 10 }
+    xc: { type: integer, range: [20, 60], step: 10 }
+  formula: "cos φ = R/Z where Z = √(R² + (X_L - X_C)²)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [ac_circuits, power_factor]
+
+# ============================================
+# ELECTROMAGNETIC WAVES (SYLLABUS)
+# ============================================
+
+- id: COMP_PHY_EMW_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electromagnetic Waves
+  chapter: Electromagnetic Waves
+  concept: EM spectrum
+  template_variants:
+    - "Arrange in order of increasing wavelength: X-rays, UV, Visible, IR, Microwaves."
+    - "Which has highest frequency: Radio waves, Microwaves, IR, Visible, UV?"
+  variables:
+    wave_type:
+      {
+        type: choice,
+        values: ["gamma", "x-ray", "uv", "visible", "ir", "microwave", "radio"],
+      }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [em_waves, spectrum]
+
+- id: COMP_PHY_EMW_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electromagnetic Waves
+  chapter: Electromagnetic Waves
+  concept: Wave properties
+  template_variants:
+    - "An EM wave has E₀ = {e} V/m. Find B₀."
+    - "Calculate magnetic field amplitude: E₀ = {e} V/m."
+  variables:
+    e: { type: integer, range: [30, 300], step: 30 }
+  formula: "B₀ = E₀/c where c = 3×10⁸ m/s"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [em_waves, amplitude]
+
+- id: COMP_PHY_EMW_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electromagnetic Waves
+  chapter: Electromagnetic Waves
+  concept: Energy density
+  template_variants:
+    - "Find average energy density of EM wave with E₀ = {e} V/m."
+    - "Calculate u_av for EM wave: E₀ = {e} V/m."
+  variables:
+    e: { type: integer, range: [100, 500], step: 100 }
+  formula: "u = ε₀E₀²/2 = B₀²/(2μ₀)"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [em_waves, energy]
+
+- id: COMP_PHY_EMW_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electromagnetic Waves
+  chapter: Electromagnetic Waves
+  concept: Applications
+  template_variants:
+    - "Which EM radiation is used in {application}?"
+    - "Identify the type of EM wave used for {application}."
+  variables:
+    application:
+      {
+        type: choice,
+        values:
+          [
+            "RADAR",
+            "TV remote",
+            "X-ray imaging",
+            "night vision",
+            "radio broadcasting",
+            "microwave oven",
+          ],
+      }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [em_waves, applications]
+
+# ============================================
+# MAGNETISM AND MATTER (SYLLABUS)
+# ============================================
+
+- id: COMP_PHY_MAG_MATTER_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetism and Matter
+  concept: Magnetic dipole
+  template_variants:
+    - "A bar magnet of moment {m} A·m² is in uniform field {b} T at {theta}° angle. Find torque."
+    - "Calculate torque: M = {m} A·m², B = {b} T, θ = {theta}°."
+  variables:
+    m: { type: choice, values: [0.5, 1.0, 2.0] }
+    b: { type: choice, values: [0.1, 0.2, 0.5] }
+    theta: { type: choice, values: [30, 45, 60, 90] }
+  formula: "τ = MB sin θ"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [magnetism, dipole, torque]
+
+- id: COMP_PHY_MAG_MATTER_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetism and Matter
+  concept: Magnetic susceptibility
+  template_variants:
+    - "A material has magnetic susceptibility χ = {chi}. Find relative permeability."
+    - "Calculate μᵣ if χ = {chi}."
+  variables:
+    chi: { type: choice, values: [0.0001, 0.001, 100, 1000, -0.00001] }
+  formula: "μᵣ = 1 + χ"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [magnetism, susceptibility]
+
+- id: COMP_PHY_MAG_MATTER_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetism and Matter
+  concept: Classification of materials
+  template_variants:
+    - "A material with χ = {chi} is classified as"
+    - "Identify the type of magnetic material: χ = {chi}."
+  variables:
+    chi:
+      {
+        type: choice,
+        values: ["small positive", "large positive", "small negative"],
+      }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [magnetism, classification]
+
+- id: COMP_PHY_MAG_MATTER_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Magnetism
+  chapter: Magnetism and Matter
+  concept: Curie's law
+  template_variants:
+    - "If susceptibility of a paramagnetic material is {chi} at {t1} K, find susceptibility at {t2} K."
+    - "Apply Curie's law: χ₁ = {chi} at T₁ = {t1} K, find χ₂ at T₂ = {t2} K."
+  variables:
+    chi: { type: choice, values: [0.002, 0.004, 0.006] }
+    t1: { type: integer, range: [200, 300], step: 50 }
+    t2: { type: integer, range: [400, 600], step: 100 }
+  formula: "χ ∝ 1/T, so χ₁T₁ = χ₂T₂"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [magnetism, curie_law]
+
+# ============================================
+# COMMUNICATION SYSTEMS (SYLLABUS)
+# ============================================
+
+- id: COMP_PHY_COMM_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Communication
+  chapter: Communication Systems
+  concept: Modulation
+  template_variants:
+    - "In AM, carrier frequency is {fc} kHz and modulating frequency is {fm} kHz. Find bandwidth."
+    - "Calculate bandwidth: f_c = {fc} kHz, f_m = {fm} kHz."
+  variables:
+    fc: { type: integer, range: [500, 1500], step: 100 }
+    fm: { type: integer, range: [5, 20], step: 5 }
+  formula: "Bandwidth = 2f_m"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [communication, modulation, bandwidth]
+
+- id: COMP_PHY_COMM_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Communication
+  chapter: Communication Systems
+  concept: Modulation index
+  template_variants:
+    - "In AM wave, E_c = {ec} V and E_m = {em} V. Find modulation index."
+    - "Calculate μ: carrier amplitude = {ec} V, signal amplitude = {em} V."
+  variables:
+    ec: { type: integer, range: [10, 50], step: 10 }
+    em: { type: integer, range: [2, 20], step: 2 }
+  formula: "μ = E_m/E_c"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [communication, modulation_index]
+
+- id: COMP_PHY_COMM_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Communication
+  chapter: Communication Systems
+  concept: Range of transmission
+  template_variants:
+    - "If antenna height is {h} m, find range of TV transmission. (R = 6400 km)"
+    - "Calculate line-of-sight range: h = {h} m."
+  variables:
+    h: { type: integer, range: [100, 400], step: 50 }
+  formula: "d = √(2Rh) where R = 6.4×10⁶ m"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [communication, range]
+
+- id: COMP_PHY_COMM_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Communication
+  chapter: Communication Systems
+  concept: Propagation modes
+  template_variants:
+    - "Which mode of propagation is used for frequencies {f} MHz?"
+    - "Identify propagation mode for {f} MHz transmission."
+  variables:
+    f: { type: choice, values: [2, 30, 200, 10000] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [communication, propagation]
+
+# ============================================
+# SEMICONDUCTOR ELECTRONICS (COMPLETE)
+# ============================================
+
+- id: COMP_PHY_SEMI_01
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electronics
+  chapter: Semiconductor Electronics
+  concept: Energy bands
+  template_variants:
+    - "In a semiconductor, energy gap is {eg} eV. Classify this material."
+    - "A material has E_g = {eg} eV. Is it conductor, semiconductor, or insulator?"
+  variables:
+    eg: { type: choice, values: [0.7, 1.1, 3.0, 5.5] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [semiconductors, band_gap]
+
+- id: COMP_PHY_SEMI_02
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electronics
+  chapter: Semiconductor Electronics
+  concept: Diode characteristics
+  template_variants:
+    - "In a p-n junction, if forward voltage is {v} V and current is {i} mA, find resistance."
+    - "Calculate dynamic resistance: V = {v} V, I = {i} mA."
+  variables:
+    v: { type: choice, values: [0.5, 0.7, 1.0] }
+    i: { type: integer, range: [5, 25], step: 5 }
+  formula: "R = V/I"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [semiconductors, diode]
+
+- id: COMP_PHY_SEMI_03
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electronics
+  chapter: Semiconductor Electronics
+  concept: Logic gates
+  template_variants:
+    - "Find output Y for {gate} gate with inputs A = {a}, B = {b}."
+    - "In {gate} gate: A = {a}, B = {b}. Find Y."
+  variables:
+    gate: { type: choice, values: ["AND", "OR", "NAND", "NOR", "XOR"] }
+    a: { type: choice, values: [0, 1] }
+    b: { type: choice, values: [0, 1] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [semiconductors, logic_gates]
+
+- id: COMP_PHY_SEMI_04
+  exam: TS_EAMCET
+  subject: Physics
+  unit: Electronics
+  chapter: Semiconductor Electronics
+  concept: Transistor amplifier
+  template_variants:
+    - "In CE amplifier, if β = {beta} and I_B = {ib} μA, find I_C."
+    - "Calculate collector current: β = {beta}, I_B = {ib} μA."
+  variables:
+    beta: { type: integer, range: [50, 200], step: 50 }
+    ib: { type: integer, range: [10, 50], step: 10 }
+  formula: "I_C = β × I_B"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [semiconductors, transistor]

@@ -1,0 +1,10 @@
+# Credentials - NEVER commit these
+credentials.json
+**/credentials.json
+*.pem
+*.key
+
+# Environment files
+.env
+.env.local
+.env.*.local

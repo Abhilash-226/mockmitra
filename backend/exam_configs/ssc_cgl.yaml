@@ -1,0 +1,100 @@
+# SSC CGL Tier-1 Exam Configuration
+exam_code: ssc_cgl
+exam_name: SSC CGL Tier-1
+description: Staff Selection Commission - Combined Graduate Level Examination (Tier-1)
+
+# Timing
+total_duration_minutes: 60
+section_wise_timing: false
+
+# Marking Scheme
+default_marks_per_question: 2.0
+default_negative_marks: 0.5
+
+# Sections
+sections:
+  - name: General Intelligence & Reasoning
+    code: reasoning
+    total_questions: 25
+    marks_per_question: 2.0
+    negative_marks: 0.5
+    topics:
+      - Analogies
+      - Classification
+      - Series
+      - Coding-Decoding
+      - Blood Relations
+      - Direction Sense
+      - Syllogism
+      - Venn Diagrams
+      - Puzzle
+      - Matrix
+
+  - name: General Awareness
+    code: general_awareness
+    total_questions: 25
+    marks_per_question: 2.0
+    negative_marks: 0.5
+    topics:
+      - History
+      - Geography
+      - Polity
+      - Economics
+      - Science
+      - Current Affairs
+      - Static GK
+
+  - name: Quantitative Aptitude
+    code: quantitative
+    total_questions: 25
+    marks_per_question: 2.0
+    negative_marks: 0.5
+    topics:
+      - Number System
+      - Simplification
+      - Percentage
+      - Ratio and Proportion
+      - Average
+      - Profit and Loss
+      - Time and Work
+      - Time Speed Distance
+      - Simple Interest
+      - Compound Interest
+      - Algebra
+      - Geometry
+      - Mensuration
+      - Trigonometry
+      - Data Interpretation
+
+  - name: English Comprehension
+    code: english
+    total_questions: 25
+    marks_per_question: 2.0
+    negative_marks: 0.5
+    topics:
+      - Reading Comprehension
+      - Fill in the Blanks
+      - Spellings
+      - Phrases and Idioms
+      - One Word Substitution
+      - Sentence Correction
+      - Error Spotting
+      - Synonyms
+      - Antonyms
+      - Active Passive Voice
+      - Direct Indirect Speech
+
+# Instructions
+instructions:
+  - Total duration of the exam is 60 minutes.
+  - The exam consists of 100 questions divided into 4 sections.
+  - Each question carries 2 marks.
+  - There is negative marking of 0.5 marks for each wrong answer.
+  - No marks will be deducted for unattempted questions.
+  - Calculator is not allowed.
+  - Use of unfair means will result in disqualification.
+
+# Metadata
+conducting_body: Staff Selection Commission (SSC)
+frequency: yearly
+official_website: https://ssc.nic.in

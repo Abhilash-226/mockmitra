@@ -1,0 +1,272 @@
+# TS EAMCET Exam Configuration
+exam_code: ts_eamcet
+exam_name: TS EAMCET
+description: Telangana State Engineering, Agriculture & Medical Common Entrance Test
+
+# Timing
+total_duration_minutes: 180
+section_wise_timing: false
+
+default_marks_per_question: 1.0
+default_negative_marks: 0.0
+
+sections:
+  - name: Mathematics
+    code: mathematics
+    total_questions: 80
+    marks_per_question: 1.0
+    negative_marks: 0.0
+    topics:
+      - name: Algebra
+        code: algebra
+        question_count: 15
+      - name: Trigonometry
+        code: trigonometry
+        question_count: 12
+      - name: Geometry
+        code: geometry
+        question_count: 13
+      - name: Calculus
+        code: calculus
+        question_count: 20
+      - name: Statistics
+        code: statistics
+        question_count: 10
+      - name: Probability
+        code: probability
+        question_count: 10
+    topic_bank:
+      - name: Hyperbolic Functions
+        code: hyperbolic_functions
+      - name: Properties of Triangles
+        code: properties_of_triangles
+      - name: Trigonometric Equations
+        code: trigonometric_equations
+      - name: Inverse Trigonometric Functions
+        code: inverse_trigonometric_functions
+      - name: Trigonometric Ratios up to Transformations
+        code: trigonometric_transformations
+      - name: Measures of Dispersion
+        code: measures_of_dispersion
+      - name: Probability
+        code: probability_detailed
+      - name: Random Variables and Probability Distributions
+        code: random_variables_probability
+      - name: Matrices
+        code: matrices
+      - name: Theory of Equations
+        code: theory_of_equations
+      - name: De Moivre's Theorem
+        code: de_moivres_theorem
+      - name: Complex Numbers
+        code: complex_numbers
+      - name: Mathematical Induction
+        code: mathematical_induction
+      - name: Quadratic Expressions
+        code: quadratic_expressions
+      - name: Binomial Theorem
+        code: binomial_theorem
+      - name: Permutations and Combinations
+        code: permutations_and_combinations
+      - name: Functions
+        code: functions
+      - name: Partial Fractions
+        code: partial_fractions
+      - name: Addition of Vectors
+        code: addition_of_vectors
+      - name: Product of Vectors
+        code: product_of_vectors
+      - name: Pair of Straight Lines
+        code: pair_of_straight_lines
+      - name: Transformation of Axes
+        code: transformation_of_axes
+      - name: Straight Lines
+        code: straight_lines
+      - name: Locus
+        code: locus
+      - name: Circle
+        code: circle
+      - name: System of Circles
+        code: system_of_circles
+      - name: Parabola
+        code: parabola
+      - name: Hyperbola
+        code: hyperbola
+      - name: Ellipse
+        code: ellipse
+      - name: Plane
+        code: plane
+      - name: Direction Cosines and Direction Ratios
+        code: direction_cosines_and_ratios
+      - name: Three-Dimensional Coordinates
+        code: three_dimensional_coordinates
+      - name: Differentiation
+        code: differentiation
+      - name: Limits and Continuity
+        code: limits_and_continuity
+      - name: Applications of Derivatives
+        code: applications_of_derivatives
+      - name: Differential Equations
+        code: differential_equations
+      - name: Integration
+        code: integration
+      - name: Definite Integrals
+        code: definite_integrals
+
+  - name: Physics
+    code: physics
+    total_questions: 40
+    marks_per_question: 1.0
+    negative_marks: 0.0
+    topics:
+      - name: Mechanics
+        code: mechanics
+        question_count: 10
+      - name: Thermodynamics
+        code: thermodynamics
+        question_count: 8
+      - name: Electromagnetism
+        code: electromagnetism
+        question_count: 10
+      - name: Optics
+        code: optics
+        question_count: 6
+      - name: Modern Physics
+        code: modern_physics
+        question_count: 6
+    topic_bank:
+      - name: Physical World
+        code: physical_world
+      - name: Motion in a Straight Line
+        code: motion_in_a_straight_line
+      - name: Motion in a Plane
+        code: motion_in_a_plane
+      - name: Laws of Motion
+        code: laws_of_motion
+      - name: Work, Energy and Power
+        code: work_energy_power
+      - name: Systems of Particles and Rotational Motion
+        code: systems_of_particles_rotational_motion
+      - name: Oscillations
+        code: oscillations
+      - name: Gravitation
+        code: gravitation
+      - name: Mechanical Properties of Solids
+        code: mechanical_properties_of_solids
+      - name: Mechanical Properties of Fluids
+        code: mechanical_properties_of_fluids
+      - name: Thermal Properties of Matter
+        code: thermal_properties_of_matter
+      - name: Thermodynamics
+        code: thermodynamics_detailed
+      - name: Kinetic Theory
+        code: kinetic_theory
+      - name: Waves
+        code: waves
+      - name: Ray Optics and Optical Instruments
+        code: ray_optics_optical_instruments
+      - name: Wave Optics
+        code: wave_optics
+      - name: Electric Charges and Fields
+        code: electric_charges_and_fields
+      - name: Electrostatic Potential and Capacitance
+        code: electrostatic_potential_and_capacitance
+      - name: Current Electricity
+        code: current_electricity
+      - name: Moving Charges and Magnetism
+        code: moving_charges_and_magnetism
+      - name: Magnetism and Matter
+        code: magnetism_and_matter
+      - name: Electromagnetic Induction
+        code: electromagnetic_induction
+      - name: Alternating Current
+        code: alternating_current
+      - name: Electromagnetic Waves
+        code: electromagnetic_waves
+      - name: Dual Nature of Radiation and Matter
+        code: dual_nature_of_radiation_and_matter
+      - name: Atoms
+        code: atoms
+      - name: Nuclei
+        code: nuclei
+      - name: "Semiconductor Electronics: Materials, Devices and Circuits"
+        code: semiconductor_electronics
+      - name: Communication Systems
+        code: communication_systems
+
+  - name: Chemistry
+    code: chemistry
+    total_questions: 40
+    marks_per_question: 1.0
+    negative_marks: 0.0
+    topics:
+      - name: Physical Chemistry
+        code: physical_chemistry
+        question_count: 13
+      - name: Inorganic Chemistry
+        code: inorganic_chemistry
+        question_count: 13
+      - name: Organic Chemistry
+        code: organic_chemistry
+        question_count: 14
+    topic_bank:
+      - name: Classification of Elements and Periodicity in Properties
+        code: classification_periodicity
+      - name: Atomic Structure
+        code: atomic_structure
+      - name: Chemical Bonding and Molecular Structure
+        code: chemical_bonding_molecular_structure
+      - name: "States of Matter: Gases and Liquids"
+        code: states_of_matter_gases_liquids
+      - name: Stoichiometry
+        code: stoichiometry
+      - name: Thermodynamics
+        code: thermodynamics_chemistry
+      - name: Chemical Equilibrium and Acids-Bases
+        code: chemical_equilibrium_acids_bases
+      - name: Hydrogen and its Compounds
+        code: hydrogen_and_compounds
+      - name: The s-Block Elements
+        code: s_block_elements
+      - name: The p-Block Elements (Group 13)
+        code: p_block_elements_group_13
+      - name: The p-Block Elements (Group 14)
+        code: p_block_elements_group_14
+      - name: Environmental Chemistry
+        code: environmental_chemistry
+      - name: "Organic Chemistry: Principles, Techniques and Hydrocarbons"
+        code: organic_principles_hydrocarbons
+      - name: Solid State
+        code: solid_state
+      - name: Solutions
+        code: solutions
+      - name: Electrochemistry
+        code: electrochemistry
+      - name: Chemical Kinetics
+        code: chemical_kinetics
+      - name: Surface Chemistry
+        code: surface_chemistry
+      - name: The p-Block Elements (Groups 15-18)
+        code: p_block_elements_groups_15_18
+      - name: d and f Block Elements & Coordination Compounds
+        code: d_f_block_coordination
+      - name: Biomolecules
+        code: biomolecules
+      - name: Haloalkanes and Haloarenes
+        code: haloalkanes_haloarenes
+      - name: Organic Compounds containing C, H and O
+        code: organic_compounds_ch_o
+      - name: Organic Compounds containing Nitrogen
+        code: organic_compounds_nitrogen
+      - name: Phenols, Ethers, Aldehydes, Ketones and Carboxylic Acids
+        code: phenols_ethers_aldehydes_ketones_carboxylic_acids
+
+instructions:
+  - Total duration is 3 hours.
+  - No negative marking.
+  - All questions are multiple choice.
+  - Use of calculator is not allowed.
+
+conducting_body: Telangana State Council of Higher Education
+frequency: yearly
+official_website: https://eamcet.tsche.ac.in

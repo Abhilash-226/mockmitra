@@ -1,0 +1,1730 @@
+# TS EAMCET Chemistry - Comprehensive Blueprint Collection
+# From 2016-2024 PYQ Analysis - Full Coverage for Mock/Sectional/Topic Tests
+
+# ============================================
+# PHYSICAL CHEMISTRY: ATOMIC STRUCTURE
+# ============================================
+
+- id: COMP_CHEM_ATOM_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: Electronic configuration
+  template_variants:
+    - "Write the electronic configuration of {element} (Z = {z})."
+    - "Find the ground state configuration of element with atomic number {z}."
+  variables:
+    element:
+      { type: choice, values: ["Cr", "Cu", "Fe", "Mn", "Co", "Ni", "Zn"] }
+    z: { type: choice, values: [24, 29, 26, 25, 27, 28, 30] }
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: easy
+  tags: [atomic_structure, configuration]
+
+- id: COMP_CHEM_ATOM_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: Quantum numbers
+  template_variants:
+    - "For n = {n}, l = {l}, find maximum number of electrons."
+    - "Calculate max electrons in subshell with n = {n}, l = {l}."
+  variables:
+    n: { type: integer, range: [2, 4] }
+    l: { type: integer, range: [0, 3] }
+  formula: "Max = 2(2l + 1)"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [atomic_structure, quantum_numbers]
+
+- id: COMP_CHEM_ATOM_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: De Broglie wavelength
+  template_variants:
+    - "Find de Broglie wavelength of electron moving with velocity {v} × 10⁶ m/s."
+    - "Calculate λ for electron: v = {v} × 10⁶ m/s."
+  variables:
+    v: { type: choice, values: [1.0, 2.0, 3.0, 4.0] }
+  formula: "λ = h/(mv)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [atomic_structure, de_broglie]
+
+- id: COMP_CHEM_ATOM_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Atomic Structure
+  concept: Bohr model
+  template_variants:
+    - "Calculate the radius of {n}th orbit of hydrogen atom in Å."
+    - "Find r_n for n = {n} in hydrogen (a₀ = 0.529 Å)."
+  variables:
+    n: { type: integer, range: [1, 5] }
+  formula: "rₙ = n²a₀"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [atomic_structure, bohr_model]
+
+# ============================================
+# PHYSICAL CHEMISTRY: CHEMICAL BONDING
+# ============================================
+
+- id: COMP_CHEM_BOND_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: Hybridization
+  template_variants:
+    - "Find the hybridization of central atom in {molecule}."
+    - "What is the hybridization in {molecule}?"
+  variables:
+    molecule:
+      {
+        type: choice,
+        values: ["BF₃", "PCl₅", "SF₆", "XeF₄", "IF₅", "BeCl₂", "NH₃", "H₂O"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [bonding, hybridization]
+
+- id: COMP_CHEM_BOND_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: Bond order
+  template_variants:
+    - "Using MOT, find bond order of {molecule}."
+    - "Calculate bond order of {molecule}."
+  variables:
+    molecule:
+      {
+        type: choice,
+        values: ["O₂", "N₂", "O₂⁺", "O₂⁻", "O₂²⁻", "N₂⁺", "NO", "CO"],
+      }
+  formula: "BO = (Nb - Na)/2"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [bonding, mot, bond_order]
+
+- id: COMP_CHEM_BOND_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: VSEPR
+  template_variants:
+    - "Predict the shape of {molecule} using VSEPR theory."
+    - "What is the geometry of {molecule}?"
+  variables:
+    molecule:
+      {
+        type: choice,
+        values: ["SF₄", "ClF₃", "XeF₂", "ICl₄⁻", "BrF₅", "XeOF₄"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [bonding, vsepr, geometry]
+
+- id: COMP_CHEM_BOND_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Bonding
+  concept: Dipole moment
+  template_variants:
+    - "Which has higher dipole moment: {mol1} or {mol2}?"
+    - "Compare dipole moments of {mol1} and {mol2}."
+  variables:
+    mol1: { type: choice, values: ["NF₃", "H₂O", "CHCl₃", "o-dichlorobenzene"] }
+    mol2: { type: choice, values: ["NH₃", "H₂S", "CCl₄", "p-dichlorobenzene"] }
+  constraints: { steps: 1, expected_time_sec: 40 }
+  difficulty_level: moderate
+  tags: [bonding, dipole_moment]
+
+# ============================================
+# PHYSICAL CHEMISTRY: SOLUTIONS
+# ============================================
+
+- id: COMP_CHEM_SOL_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Molarity
+  template_variants:
+    - "{mass} g of {compound} (M = {molar_mass}) is dissolved in {vol} mL solution. Find molarity."
+    - "Calculate M: {mass} g {compound} in {vol} mL solution."
+  variables:
+    mass: { type: integer, range: [4, 20], step: 4 }
+    compound: { type: choice, values: ["NaOH", "HCl", "H₂SO₄", "NaCl", "KOH"] }
+    molar_mass: { type: choice, values: [40, 36.5, 98, 58.5, 56] }
+    vol: { type: integer, range: [100, 500], step: 100 }
+  formula: "M = (mass/molar_mass)/(vol/1000)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [solutions, molarity]
+
+- id: COMP_CHEM_SOL_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Normality
+  template_variants:
+    - "Find normality of {c} M H₂SO₄ solution."
+    - "Calculate N for {c} M H₂SO₄."
+  variables:
+    c: { type: choice, values: [0.5, 1.0, 1.5, 2.0] }
+  formula: "N = M × n-factor = M × 2"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [solutions, normality]
+
+- id: COMP_CHEM_SOL_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Colligative properties
+  template_variants:
+    - "Calculate boiling point elevation when {g} g glucose (M = 180) dissolves in {w} g water. (Kb = {kb} K·kg/mol)"
+    - "Find ΔTb for glucose solution."
+  variables:
+    g: { type: integer, range: [9, 36], step: 9 }
+    w: { type: integer, range: [100, 500], step: 100 }
+    kb: { type: choice, values: [0.52] }
+  formula: "ΔTb = Kb × m = Kb × (n/W)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [solutions, colligative]
+
+- id: COMP_CHEM_SOL_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solutions
+  concept: Osmotic pressure
+  template_variants:
+    - "Calculate osmotic pressure of {c} M solution at {t}°C."
+    - "Find π for {c} M solution at T = {t}°C."
+  variables:
+    c: { type: choice, values: [0.1, 0.2, 0.5, 1.0] }
+    t: { type: integer, range: [25, 50], step: 5 }
+  formula: "π = CRT"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [solutions, osmotic_pressure]
+
+# ============================================
+# PHYSICAL CHEMISTRY: THERMODYNAMICS
+# ============================================
+
+- id: COMP_CHEM_THERM_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: First law
+  template_variants:
+    - "A system absorbs {q} kJ heat and does {w} kJ work. Find ΔU."
+    - "Calculate ΔU: q = {q} kJ, w = {w} kJ."
+  variables:
+    q: { type: integer, range: [50, 200], step: 50 }
+    w: { type: integer, range: [20, 80], step: 20 }
+  formula: "ΔU = q - w"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [thermodynamics, first_law]
+
+- id: COMP_CHEM_THERM_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: Enthalpy
+  template_variants:
+    - "For a reaction, ΔH = {dh} kJ at {t1}°C. Find ΔH at {t2}°C. (ΔCp = {dcp} J/K)"
+    - "Apply Kirchhoff's equation for ΔH calculation."
+  variables:
+    dh: { type: integer, range: [-100, -20], step: 20 }
+    t1: { type: integer, range: [25, 30] }
+    t2: { type: integer, range: [50, 100], step: 25 }
+    dcp: { type: integer, range: [10, 50], step: 10 }
+  formula: "ΔH₂ = ΔH₁ + ΔCp(T₂ - T₁)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [thermodynamics, kirchhoff]
+
+- id: COMP_CHEM_THERM_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: Gibbs energy
+  template_variants:
+    - "For reaction, ΔH = {dh} kJ, ΔS = {ds} J/K at {t} K. Find ΔG."
+    - "Calculate ΔG: ΔH = {dh} kJ, ΔS = {ds} J/K, T = {t} K."
+  variables:
+    dh: { type: integer, range: [-80, -20], step: 20 }
+    ds: { type: integer, range: [-100, 100], step: 50 }
+    t: { type: choice, values: [298, 300, 400, 500] }
+  formula: "ΔG = ΔH - TΔS"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [thermodynamics, gibbs]
+
+- id: COMP_CHEM_THERM_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Thermodynamics
+  concept: Entropy
+  template_variants:
+    - "Calculate ΔS when {n} mol ideal gas expands isothermally from {v1} L to {v2} L."
+    - "Find entropy change: n = {n} mol, V₁ = {v1} L, V₂ = {v2} L (isothermal)."
+  variables:
+    n: { type: integer, range: [1, 3] }
+    v1: { type: integer, range: [1, 5] }
+    v2: { type: integer, range: [10, 25], step: 5 }
+  formula: "ΔS = nR ln(V₂/V₁)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [thermodynamics, entropy]
+
+# ============================================
+# PHYSICAL CHEMISTRY: CHEMICAL KINETICS
+# ============================================
+
+- id: COMP_CHEM_KIN_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: First order
+  template_variants:
+    - "For first order reaction with k = {k} s⁻¹, find half-life."
+    - "Calculate t₁/₂: k = {k} s⁻¹ (first order)."
+  variables:
+    k: { type: choice, values: [0.01, 0.02, 0.05, 0.1, 0.2] }
+  formula: "t₁/₂ = 0.693/k"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [kinetics, first_order]
+
+- id: COMP_CHEM_KIN_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: Rate law
+  template_variants:
+    - "For 2A + B → C, rate = k[A]²[B]. If [A] is doubled and [B] halved, how does rate change?"
+    - "Rate = k[A]^{m}[B]^{n}. Find new rate when concentrations change."
+  variables:
+    m: { type: integer, range: [1, 2] }
+    n: { type: integer, range: [1, 2] }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [kinetics, rate_law]
+
+- id: COMP_CHEM_KIN_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: Arrhenius equation
+  template_variants:
+    - "A reaction has Ea = {ea} kJ/mol. By what factor does rate increase when T changes from {t1} K to {t2} K?"
+    - "Calculate k₂/k₁ using Arrhenius equation."
+  variables:
+    ea: { type: integer, range: [40, 80], step: 10 }
+    t1: { type: integer, range: [300, 350], step: 25 }
+    t2: { type: integer, range: [350, 400], step: 25 }
+  formula: "ln(k₂/k₁) = Ea/R × (1/T₁ - 1/T₂)"
+  constraints: { steps: 3, expected_time_sec: 80 }
+  difficulty_level: hard
+  tags: [kinetics, arrhenius]
+
+- id: COMP_CHEM_KIN_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Kinetics
+  concept: Zero order
+  template_variants:
+    - "For zero order reaction: [A]₀ = {a0} M, k = {k} M/s. Find [A] after {t} s."
+    - "Calculate [A]_t for zero order: [A]₀ = {a0} M, k = {k} M/s, t = {t} s."
+  variables:
+    a0: { type: choice, values: [0.5, 1.0, 2.0] }
+    k: { type: choice, values: [0.01, 0.02, 0.05] }
+    t: { type: integer, range: [10, 50], step: 10 }
+  formula: "[A] = [A]₀ - kt"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [kinetics, zero_order]
+
+# ============================================
+# PHYSICAL CHEMISTRY: ELECTROCHEMISTRY
+# ============================================
+
+- id: COMP_CHEM_ELEC_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Cell EMF
+  template_variants:
+    - "For cell Zn|Zn²⁺||Cu²⁺|Cu, E°(Zn²⁺/Zn) = {e1} V, E°(Cu²⁺/Cu) = {e2} V. Find E°cell."
+    - "Calculate standard EMF of Daniel cell."
+  variables:
+    e1: { type: choice, values: [-0.76] }
+    e2: { type: choice, values: [0.34] }
+  formula: "E°cell = E°cathode - E°anode"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [electrochemistry, emf]
+
+- id: COMP_CHEM_ELEC_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Nernst equation
+  template_variants:
+    - "For cell with E° = {e} V, find E when [oxidized]/[reduced] = {r} at 298 K (n = {n})."
+    - "Apply Nernst equation: E° = {e} V, Q = {r}, n = {n}."
+  variables:
+    e: { type: choice, values: [0.76, 1.10, 0.34] }
+    r: { type: choice, values: [10, 100, 0.1, 0.01] }
+    n: { type: integer, range: [1, 3] }
+  formula: "E = E° - (0.059/n)log Q"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [electrochemistry, nernst]
+
+- id: COMP_CHEM_ELEC_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Faraday's laws
+  template_variants:
+    - "How much metal deposits when {c} A current passes through solution for {t} hours? (Eq. wt = {e})"
+    - "Calculate mass deposited: I = {c} A, t = {t} hr, E = {e}."
+  variables:
+    c: { type: integer, range: [2, 10] }
+    t: { type: integer, range: [1, 5] }
+    e: { type: integer, range: [27, 56], step: 5 }
+  formula: "m = (I × t × E)/(96500)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [electrochemistry, faraday]
+
+- id: COMP_CHEM_ELEC_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Electrochemistry
+  concept: Conductivity
+  template_variants:
+    - "If molar conductivity at infinite dilution is {lam0} S·cm²/mol and at conc. c is {lam} S·cm²/mol, find degree of dissociation."
+    - "Calculate α from Λ_m and Λ°_m."
+  variables:
+    lam0: { type: integer, range: [300, 500], step: 50 }
+    lam: { type: integer, range: [100, 300], step: 50 }
+  formula: "α = Λ_m/Λ°_m"
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [electrochemistry, conductivity]
+
+# ============================================
+# PHYSICAL CHEMISTRY: EQUILIBRIUM
+# ============================================
+
+- id: COMP_CHEM_EQUIL_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Equilibrium
+  concept: Equilibrium constant
+  template_variants:
+    - "For N₂ + 3H₂ ⇌ 2NH₃, if Kp = {kp} at T, find Kc. (R = 0.082, T = {t} K)"
+    - "Calculate Kc from Kp: Kp = {kp}, T = {t} K, Δn = -2."
+  variables:
+    kp: { type: choice, values: [0.1, 1.0, 10] }
+    t: { type: integer, range: [400, 700], step: 100 }
+  formula: "Kp = Kc(RT)^Δn"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [equilibrium, kp_kc]
+
+- id: COMP_CHEM_EQUIL_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Chemical Equilibrium
+  concept: Degree of dissociation
+  template_variants:
+    - "PCl₅ dissociates α = {alpha} at P atm. Find Kp."
+    - "Calculate Kp for PCl₅ ⇌ PCl₃ + Cl₂ given α = {alpha}."
+  variables:
+    alpha: { type: choice, values: [0.1, 0.2, 0.3, 0.5] }
+  formula: "Kp = α²P/(1-α²)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [equilibrium, dissociation]
+
+- id: COMP_CHEM_EQUIL_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Ionic Equilibrium
+  concept: pH calculation
+  template_variants:
+    - "Find pH of {c} M HCl solution."
+    - "Calculate pH: [HCl] = {c} M (strong acid)."
+  variables:
+    c: { type: choice, values: [0.001, 0.01, 0.1] }
+  formula: "pH = -log[H⁺]"
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [equilibrium, ph]
+
+- id: COMP_CHEM_EQUIL_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Ionic Equilibrium
+  concept: Buffer solution
+  template_variants:
+    - "Find pH of buffer containing {c1} M CH₃COOH and {c2} M CH₃COONa. (pKa = {pka})"
+    - "Calculate buffer pH using Henderson equation."
+  variables:
+    c1: { type: choice, values: [0.1, 0.2, 0.5] }
+    c2: { type: choice, values: [0.1, 0.2, 0.5] }
+    pka: { type: choice, values: [4.74, 4.76] }
+  formula: "pH = pKa + log([salt]/[acid])"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [equilibrium, buffer]
+
+- id: COMP_CHEM_EQUIL_05
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Ionic Equilibrium
+  concept: Solubility product
+  template_variants:
+    - "Calculate Ksp if solubility of {salt} is {s} mol/L."
+    - "Find Ksp for {salt} with solubility {s} M."
+  variables:
+    salt: { type: choice, values: ["AgCl", "PbI₂", "Ag₂CrO₄", "Ca(OH)₂"] }
+    s: { type: choice, values: ["1×10⁻⁵", "2×10⁻⁴", "1×10⁻³"] }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [equilibrium, ksp]
+
+# ============================================
+# INORGANIC CHEMISTRY: PERIODIC TABLE
+# ============================================
+
+- id: COMP_CHEM_PERIOD_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Periodic Table
+  concept: Ionization energy
+  template_variants:
+    - "Arrange in order of increasing IE: {elem1}, {elem2}, {elem3}, {elem4}."
+    - "Which has highest first ionization energy among {elem1}, {elem2}, {elem3}?"
+  variables:
+    elem1: { type: choice, values: ["Li", "Na", "K", "N", "O"] }
+    elem2: { type: choice, values: ["Be", "B", "C", "P", "S"] }
+    elem3: { type: choice, values: ["Mg", "Al", "Si", "As", "Se"] }
+    elem4: { type: choice, values: ["Ca", "Ga", "Ge", "Sb", "Te"] }
+  constraints: { steps: 1, expected_time_sec: 40 }
+  difficulty_level: easy
+  tags: [periodic, ionization_energy]
+
+- id: COMP_CHEM_PERIOD_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Periodic Table
+  concept: Electronegativity
+  template_variants:
+    - "Arrange in order of decreasing electronegativity: {elem1}, {elem2}, {elem3}."
+    - "Which is most electronegative: {elem1}, {elem2}, or {elem3}?"
+  variables:
+    elem1: { type: choice, values: ["F", "Cl", "Br", "I"] }
+    elem2: { type: choice, values: ["O", "S", "Se", "Te"] }
+    elem3: { type: choice, values: ["N", "P", "As", "Sb"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [periodic, electronegativity]
+
+- id: COMP_CHEM_PERIOD_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Periodic Table
+  concept: Atomic radius
+  template_variants:
+    - "Arrange in order of increasing atomic radius: {elem1}, {elem2}, {elem3}."
+    - "Compare atomic radii of {elem1}, {elem2}, {elem3}."
+  variables:
+    elem1: { type: choice, values: ["Li", "Na", "K", "Rb", "Cs"] }
+    elem2: { type: choice, values: ["Be", "Mg", "Ca", "Sr", "Ba"] }
+    elem3: { type: choice, values: ["B", "Al", "Ga", "In", "Tl"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [periodic, atomic_radius]
+
+# ============================================
+# INORGANIC CHEMISTRY: s-BLOCK & p-BLOCK
+# ============================================
+
+- id: COMP_CHEM_SBLOCK_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: s-Block Elements
+  concept: Properties of alkali metals
+  template_variants:
+    - "Which alkali metal has highest hydration energy?"
+    - "Arrange Li, Na, K in order of hydration energy."
+  variables:
+    property:
+      {
+        type: choice,
+        values: ["hydration energy", "ionic radius", "melting point"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [s_block, alkali_metals]
+
+- id: COMP_CHEM_PBLOCK_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: p-Block Elements
+  concept: Group 16 properties
+  template_variants:
+    - "Which allotrope of sulphur is thermodynamically stable at room temperature?"
+    - "Identify the most stable form of sulphur."
+  variables:
+    form: { type: choice, values: ["Rhombic", "Monoclinic", "Plastic"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [p_block, group_16]
+
+- id: COMP_CHEM_PBLOCK_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: p-Block Elements
+  concept: Halogens
+  template_variants:
+    - "Arrange halogens in order of oxidizing power: F₂, Cl₂, Br₂, I₂."
+    - "Which is the strongest oxidizing agent among halogens?"
+  variables:
+    property:
+      {
+        type: choice,
+        values:
+          ["oxidizing power", "bond dissociation energy", "electron affinity"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [p_block, halogens]
+
+- id: COMP_CHEM_PBLOCK_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: p-Block Elements
+  concept: Noble gases
+  template_variants:
+    - "Which noble gas compound is most stable: XeF₂, XeF₄, or XeF₆?"
+    - "Identify the geometry of {compound}."
+  variables:
+    compound:
+      { type: choice, values: ["XeF₂", "XeF₄", "XeF₆", "XeO₃", "XeOF₄"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [p_block, noble_gases]
+
+# ============================================
+# INORGANIC CHEMISTRY: d-BLOCK & COORDINATION
+# ============================================
+
+- id: COMP_CHEM_DBLOCK_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: d-Block Elements
+  concept: Oxidation states
+  template_variants:
+    - "Which transition metal shows maximum number of oxidation states in 3d series?"
+    - "Find the common oxidation state of {metal}."
+  variables:
+    metal:
+      { type: choice, values: ["Fe", "Mn", "Cr", "V", "Ti", "Cu", "Co", "Ni"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [d_block, oxidation_states]
+
+- id: COMP_CHEM_COORD_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Coordination Compounds
+  concept: Isomerism
+  template_variants:
+    - "How many geometrical isomers are possible for {complex}?"
+    - "Find number of isomers for {complex}."
+  variables:
+    complex:
+      {
+        type: choice,
+        values:
+          ["[Co(NH₃)₃Cl₃]", "[Pt(NH₃)₂Cl₂]", "[Co(en)₂Cl₂]⁺", "[Cr(en)₃]³⁺"],
+      }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [coordination, isomerism]
+
+- id: COMP_CHEM_COORD_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Coordination Compounds
+  concept: CFSE
+  template_variants:
+    - "Calculate CFSE for {config} in octahedral field."
+    - "Find crystal field stabilization energy for {config}."
+  variables:
+    config:
+      {
+        type: choice,
+        values: ["d³", "d⁴ high spin", "d⁶ low spin", "d⁵ high spin", "d⁸"],
+      }
+  formula: "CFSE = (-0.4×t₂g + 0.6×eg)Δ_o"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: hard
+  tags: [coordination, cft, cfse]
+
+- id: COMP_CHEM_COORD_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Coordination Compounds
+  concept: Magnetic properties
+  template_variants:
+    - "Calculate spin-only magnetic moment of {complex}."
+    - "Find μ for {complex} using spin-only formula."
+  variables:
+    complex:
+      {
+        type: choice,
+        values:
+          ["[Fe(H₂O)₆]²⁺", "[Co(NH₃)₆]³⁺", "[Ni(H₂O)₆]²⁺", "[Cu(NH₃)₄]²⁺"],
+      }
+  formula: "μ = √(n(n+2)) BM"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [coordination, magnetism]
+
+# ============================================
+# ORGANIC CHEMISTRY: GENERAL
+# ============================================
+
+- id: COMP_CHEM_ORG_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: General Organic Chemistry
+  concept: Directing groups
+  template_variants:
+    - "Which group is deactivating but ortho-para directing?"
+    - "Identify the deactivating ortho-para director."
+  variables:
+    group: { type: choice, values: ["-Cl", "-Br", "-I", "-F"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [organic, directing_groups, pyq_2017]
+
+- id: COMP_CHEM_ORG_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: General Organic Chemistry
+  concept: Resonance effect
+  template_variants:
+    - "Arrange in order of activating power: -OH, -NH₂, -OCH₃, -CH₃."
+    - "Which is the strongest activating group?"
+  variables:
+    groups: { type: choice, values: ["-NH₂", "-OH", "-OCH₃"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, resonance]
+
+- id: COMP_CHEM_ORG_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: General Organic Chemistry
+  concept: Inductive effect
+  template_variants:
+    - "Arrange in order of -I effect: -NO₂, -CN, -COOH, -Cl."
+    - "Which has strongest -I effect?"
+  variables:
+    groups: { type: choice, values: ["-NO₂", "-CN", "-COOH"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, inductive_effect]
+
+- id: COMP_CHEM_ORG_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: IUPAC Nomenclature
+  concept: Naming compounds
+  template_variants:
+    - "Give IUPAC name of: CH₃-CH(CH₃)-CH(C₂H₅)-CH₃."
+    - "Name the compound: {structure}."
+  variables:
+    structure:
+      {
+        type: choice,
+        values:
+          ["2,3-dimethylpentane", "3-ethyl-2-methylpentane", "2-methylhexane"],
+      }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [organic, nomenclature]
+
+# ============================================
+# ORGANIC CHEMISTRY: HYDROCARBONS
+# ============================================
+
+- id: COMP_CHEM_HYDRO_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Hydrocarbons
+  concept: Reactions of alkanes
+  template_variants:
+    - "The major product of chlorination of propane in presence of UV light is"
+    - "Predict major product: CH₃CH₂CH₃ + Cl₂ → (UV)"
+  variables:
+    reactant: { type: choice, values: ["propane", "butane", "isobutane"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, hydrocarbons, alkanes]
+
+- id: COMP_CHEM_HYDRO_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Hydrocarbons
+  concept: Reactions of alkenes
+  template_variants:
+    - "Product of HBr addition to propene in absence of peroxide is"
+    - "Apply Markovnikov's rule for HBr + propene."
+  variables:
+    reagent: { type: choice, values: ["HBr", "HCl", "H₂O/H⁺"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, hydrocarbons, alkenes]
+
+- id: COMP_CHEM_HYDRO_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Hydrocarbons
+  concept: Aromatic compounds
+  template_variants:
+    - "The product of nitration of toluene is predominantly"
+    - "Predict major product of toluene + HNO₃/H₂SO₄."
+  variables:
+    substituent:
+      {
+        type: choice,
+        values: ["o-nitrotoluene", "p-nitrotoluene", "m-nitrotoluene"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, aromatics]
+
+# ============================================
+# ORGANIC CHEMISTRY: OXYGEN CONTAINING
+# ============================================
+
+- id: COMP_CHEM_ALCOHOL_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Alcohols
+  concept: Acidity of alcohols
+  template_variants:
+    - "Arrange in order of acidity: CH₃OH, C₂H₅OH, (CH₃)₂CHOH, (CH₃)₃COH."
+    - "Which alcohol is most acidic?"
+  variables:
+    order: { type: choice, values: ["CH₃OH > primary > secondary > tertiary"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, alcohols]
+
+- id: COMP_CHEM_ALDKET_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Aldehydes and Ketones
+  concept: Reactions
+  template_variants:
+    - "The product of aldol condensation of acetaldehyde is"
+    - "Predict product: 2CH₃CHO → (dil. NaOH)"
+  variables:
+    product: { type: choice, values: ["3-hydroxybutanal", "crotonaldehyde"] }
+  constraints: { steps: 1, expected_time_sec: 40 }
+  difficulty_level: moderate
+  tags: [organic, aldehydes, aldol]
+
+- id: COMP_CHEM_ACID_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Carboxylic Acids
+  concept: Acidity comparison
+  template_variants:
+    - "Arrange in order of acidic strength: HCOOH, CH₃COOH, ClCH₂COOH, Cl₂CHCOOH."
+    - "Which carboxylic acid is strongest?"
+  variables:
+    acids: { type: choice, values: ["Cl₃CCOOH", "Cl₂CHCOOH", "ClCH₂COOH"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, carboxylic_acids]
+
+# ============================================
+# ORGANIC CHEMISTRY: NITROGEN CONTAINING
+# ============================================
+
+- id: COMP_CHEM_AMINE_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Amines
+  concept: Basicity
+  template_variants:
+    - "Arrange in order of basic strength: NH₃, CH₃NH₂, (CH₃)₂NH, (CH₃)₃N (in aqueous solution)."
+    - "Which amine is most basic in water?"
+  variables:
+    order: { type: choice, values: ["(CH₃)₂NH", "CH₃NH₂", "(CH₃)₃N"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [organic, amines, basicity]
+
+- id: COMP_CHEM_AMINE_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Amines
+  concept: Reactions
+  template_variants:
+    - "The product of reaction of aniline with NaNO₂/HCl at 0-5°C is"
+    - "Predict product of diazotization of aniline."
+  variables:
+    product:
+      {
+        type: choice,
+        values:
+          ["benzenediazonium chloride", "phenol", "aniline hydrochloride"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, amines, diazotization]
+
+# ============================================
+# ORGANIC CHEMISTRY: BIOMOLECULES
+# ============================================
+
+- id: COMP_CHEM_BIO_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Biomolecules
+  concept: Carbohydrates
+  template_variants:
+    - "Sucrose on hydrolysis gives"
+    - "Products of sucrose hydrolysis are"
+  variables:
+    products:
+      {
+        type: choice,
+        values:
+          ["glucose + fructose", "glucose + glucose", "maltose + fructose"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [organic, biomolecules, carbohydrates]
+
+- id: COMP_CHEM_BIO_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Biomolecules
+  concept: Amino acids
+  template_variants:
+    - "Which amino acid is optically inactive?"
+    - "Identify the achiral amino acid."
+  variables:
+    amino_acid: { type: choice, values: ["glycine", "alanine", "valine"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [organic, biomolecules, amino_acids]
+
+- id: COMP_CHEM_BIO_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Biomolecules
+  concept: Proteins
+  template_variants:
+    - "The bond linking amino acids in proteins is called"
+    - "Identify the type of bond in polypeptides."
+  variables:
+    bond:
+      {
+        type: choice,
+        values: ["peptide bond", "glycosidic bond", "ester bond"],
+      }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [organic, biomolecules, proteins]
+
+# ============================================
+# ORGANIC CHEMISTRY: POLYMERS
+# ============================================
+
+- id: COMP_CHEM_POLY_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Polymers
+  concept: Classification
+  template_variants:
+    - "Nylon-6,6 is an example of which type of polymer?"
+    - "Classify nylon-6,6 based on mode of polymerization."
+  variables:
+    type:
+      {
+        type: choice,
+        values: ["condensation polymer", "addition polymer", "copolymer"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [organic, polymers]
+
+- id: COMP_CHEM_POLY_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Polymers
+  concept: Monomers
+  template_variants:
+    - "The monomer of natural rubber is"
+    - "Identify the repeating unit in natural rubber."
+  variables:
+    monomer: { type: choice, values: ["isoprene", "chloroprene", "butadiene"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [organic, polymers]
+
+# ============================================
+# NAMED REACTIONS
+# ============================================
+
+- id: COMP_CHEM_NAMED_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Named Reactions
+  concept: Wurtz reaction
+  template_variants:
+    - "The product of Wurtz reaction with CH₃Br and C₂H₅Br is"
+    - "Predict products of Wurtz reaction."
+  variables:
+    product:
+      {
+        type: choice,
+        values: ["ethane + butane + propane", "only propane", "only butane"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, named_reactions]
+
+- id: COMP_CHEM_NAMED_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Named Reactions
+  concept: Cannizzaro reaction
+  template_variants:
+    - "The products of Cannizzaro reaction of formaldehyde are"
+    - "Predict products: HCHO + conc. NaOH →"
+  variables:
+    products:
+      { type: choice, values: ["HCOO⁻ + CH₃OH", "HCOOH + CH₃OH", "only CH₃OH"] }
+  constraints: { steps: 1, expected_time_sec: 40 }
+  difficulty_level: moderate
+  tags: [organic, named_reactions]
+
+- id: COMP_CHEM_NAMED_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Named Reactions
+  concept: Friedel-Crafts reaction
+  template_variants:
+    - "The product of Friedel-Crafts alkylation of benzene with CH₃Cl/AlCl₃ is"
+    - "Predict: C₆H₆ + CH₃Cl → (AlCl₃)"
+  variables:
+    product:
+      { type: choice, values: ["toluene", "chlorobenzene", "benzyl chloride"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, named_reactions, friedel_crafts]
+
+# ============================================
+# STEREOCHEMISTRY
+# ============================================
+
+- id: COMP_CHEM_STEREO_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Stereochemistry
+  concept: Optical isomerism
+  template_variants:
+    - "How many stereoisomers are possible for {compound}?"
+    - "Calculate number of optical isomers for compound with {n} chiral centers."
+  variables:
+    compound:
+      {
+        type: choice,
+        values: ["2,3-dibromobutane", "tartaric acid", "lactic acid"],
+      }
+    n: { type: integer, range: [1, 3] }
+  formula: "Max stereoisomers = 2ⁿ (for n chiral centers)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [organic, stereochemistry]
+
+- id: COMP_CHEM_STEREO_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Stereochemistry
+  concept: Geometrical isomerism
+  template_variants:
+    - "Which compound shows geometrical isomerism: {comp1}, {comp2}, or {comp3}?"
+    - "Identify the compound capable of cis-trans isomerism."
+  variables:
+    comp1: { type: choice, values: ["2-butene", "propene", "ethene"] }
+    comp2: { type: choice, values: ["1-butene", "2-pentene", "isobutene"] }
+    comp3:
+      { type: choice, values: ["1,2-dichloroethene", "1,1-dichloroethene"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [organic, stereochemistry, geometrical]
+
+# ============================================
+# SURFACE CHEMISTRY
+# ============================================
+
+- id: COMP_CHEM_SURF_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Surface Chemistry
+  concept: Adsorption
+  template_variants:
+    - "Physical adsorption is characterized by"
+    - "Differentiate between physisorption and chemisorption."
+  variables:
+    property:
+      {
+        type: choice,
+        values: ["low enthalpy", "high specificity", "irreversibility"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [surface_chemistry, adsorption]
+
+- id: COMP_CHEM_SURF_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Surface Chemistry
+  concept: Colloids
+  template_variants:
+    - "The charge on Fe(OH)₃ sol is"
+    - "Identify the charge on {colloid} colloidal particles."
+  variables:
+    colloid:
+      { type: choice, values: ["Fe(OH)₃", "As₂S₃", "gold", "AgI (excess KI)"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [surface_chemistry, colloids]
+
+# ============================================
+# ENVIRONMENTAL CHEMISTRY
+# ============================================
+
+- id: COMP_CHEM_ENV_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Environmental Chemistry
+  concept: Air pollution
+  template_variants:
+    - "The major greenhouse gas responsible for global warming is"
+    - "Which gas contributes most to greenhouse effect?"
+  variables:
+    gas: { type: choice, values: ["CO₂", "CH₄", "N₂O", "CFCs"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [environmental, pollution]
+
+- id: COMP_CHEM_ENV_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Environmental Chemistry
+  concept: Water pollution
+  template_variants:
+    - "The acceptable BOD level for drinking water is"
+    - "Normal BOD of clean water is approximately"
+  variables:
+    level: { type: choice, values: ["< 5 ppm", "5-10 ppm", "> 10 ppm"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [environmental, water]
+
+# ============================================
+# STATES OF MATTER - GASES AND LIQUIDS (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_GAS_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Ideal gas equation
+  template_variants:
+    - "Calculate volume of {n} mol ideal gas at {p} atm and {t} K."
+    - "Find V: n = {n} mol, P = {p} atm, T = {t} K (R = 0.082 L·atm/mol·K)."
+  variables:
+    n: { type: integer, range: [1, 5] }
+    p: { type: choice, values: [1, 2, 4] }
+    t: { type: choice, values: [273, 300, 373] }
+  formula: "PV = nRT"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [states_of_matter, ideal_gas]
+
+- id: COMP_CHEM_GAS_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Graham's law
+  template_variants:
+    - "Compare rates of diffusion of {gas1} (M = {m1}) and {gas2} (M = {m2})."
+    - "Find r₁/r₂: M₁ = {m1}, M₂ = {m2} (Graham's law)."
+  variables:
+    gas1: { type: choice, values: ["H₂", "He", "CH₄", "O₂"] }
+    gas2: { type: choice, values: ["O₂", "N₂", "CO₂", "SO₂"] }
+    m1: { type: choice, values: [2, 4, 16, 32] }
+    m2: { type: choice, values: [32, 28, 44, 64] }
+  formula: "r₁/r₂ = √(M₂/M₁)"
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [states_of_matter, graham_law]
+
+- id: COMP_CHEM_GAS_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Kinetic theory
+  template_variants:
+    - "Calculate rms velocity of {gas} molecules at {t} K. (M = {m} g/mol)"
+    - "Find v_rms: T = {t} K, M = {m} g/mol."
+  variables:
+    gas: { type: choice, values: ["O₂", "N₂", "H₂", "CO₂"] }
+    t: { type: choice, values: [273, 300, 400] }
+    m: { type: choice, values: [32, 28, 2, 44] }
+  formula: "v_rms = √(3RT/M)"
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [states_of_matter, kinetic_theory]
+
+- id: COMP_CHEM_GAS_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Van der Waals equation
+  template_variants:
+    - "For a real gas, if a = {a} and b = {b}, calculate critical temperature."
+    - "Find T_c for van der Waals gas: a = {a}, b = {b}."
+  variables:
+    a: { type: choice, values: [1.36, 3.59, 4.17] }
+    b: { type: choice, values: [0.032, 0.043, 0.037] }
+  formula: "T_c = 8a/(27Rb)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [states_of_matter, van_der_waals]
+
+- id: COMP_CHEM_LIQ_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Surface tension
+  template_variants:
+    - "Surface tension of a liquid decreases with increase in temperature because"
+    - "Effect of temperature on surface tension is"
+  variables:
+    reason:
+      {
+        type: choice,
+        values:
+          [
+            "kinetic energy increases",
+            "intermolecular forces decrease",
+            "both",
+          ],
+      }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [states_of_matter, surface_tension]
+
+- id: COMP_CHEM_LIQ_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: States of Matter
+  concept: Viscosity
+  template_variants:
+    - "Arrange in order of increasing viscosity: water, ethanol, glycerol."
+    - "Which has highest viscosity among given liquids?"
+  variables:
+    liquids: { type: choice, values: ["water", "ethanol", "glycerol", "ether"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [states_of_matter, viscosity]
+
+# ============================================
+# STOICHIOMETRY (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_STOICH_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Stoichiometry
+  concept: Mole concept
+  template_variants:
+    - "How many molecules are present in {g} g of {compound} (M = {m})?"
+    - "Calculate number of molecules: mass = {g} g, M = {m} g/mol."
+  variables:
+    g: { type: integer, range: [4, 20], step: 4 }
+    compound: { type: choice, values: ["H₂O", "CO₂", "NH₃", "CH₄"] }
+    m: { type: choice, values: [18, 44, 17, 16] }
+  formula: "N = (mass/M) × Nₐ"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: easy
+  tags: [stoichiometry, mole_concept]
+
+- id: COMP_CHEM_STOICH_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Stoichiometry
+  concept: Percentage composition
+  template_variants:
+    - "Find percentage of {element} in {compound}."
+    - "Calculate mass percentage of {element} in {compound}."
+  variables:
+    element: { type: choice, values: ["N", "C", "O", "S"] }
+    compound: { type: choice, values: ["NH₄NO₃", "C₆H₁₂O₆", "H₂SO₄", "Na₂CO₃"] }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: easy
+  tags: [stoichiometry, percentage]
+
+- id: COMP_CHEM_STOICH_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Stoichiometry
+  concept: Limiting reagent
+  template_variants:
+    - "In reaction A + 2B → C, if {a} mol A and {b} mol B are taken, find limiting reagent."
+    - "Identify limiting reagent: {a} mol A + {b} mol B → products."
+  variables:
+    a: { type: integer, range: [1, 5] }
+    b: { type: integer, range: [2, 8] }
+  constraints: { steps: 2, expected_time_sec: 50 }
+  difficulty_level: moderate
+  tags: [stoichiometry, limiting_reagent]
+
+- id: COMP_CHEM_STOICH_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Stoichiometry
+  concept: Empirical formula
+  template_variants:
+    - "A compound contains {c}% C, {h}% H, {o}% O. Find empirical formula."
+    - "Calculate empirical formula: C = {c}%, H = {h}%, O = {o}%."
+  variables:
+    c: { type: choice, values: [40, 52.2, 60] }
+    h: { type: choice, values: [6.7, 13, 13.3] }
+    o: { type: choice, values: [53.3, 34.8, 26.7] }
+  constraints: { steps: 3, expected_time_sec: 70 }
+  difficulty_level: moderate
+  tags: [stoichiometry, empirical_formula]
+
+# ============================================
+# HYDROGEN AND ITS COMPOUNDS (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_HYDROGEN_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Hydrogen and its Compounds
+  concept: Isotopes
+  template_variants:
+    - "Which isotope of hydrogen is radioactive?"
+    - "Identify the radioactive isotope of hydrogen."
+  variables:
+    isotope: { type: choice, values: ["Protium", "Deuterium", "Tritium"] }
+  constraints: { steps: 1, expected_time_sec: 20 }
+  difficulty_level: easy
+  tags: [hydrogen, isotopes]
+
+- id: COMP_CHEM_HYDROGEN_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Hydrogen and its Compounds
+  concept: Water structure
+  template_variants:
+    - "The bond angle in water molecule is"
+    - "Explain why bond angle in H₂O is {angle}°."
+  variables:
+    angle: { type: choice, values: [104.5, 109.5, 120] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [hydrogen, water]
+
+- id: COMP_CHEM_HYDROGEN_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Hydrogen and its Compounds
+  concept: Hydrogen peroxide
+  template_variants:
+    - "H₂O₂ acts as {type} in reaction with {reactant}."
+    - "Identify role of H₂O₂ when reacting with {reactant}."
+  variables:
+    type: { type: choice, values: ["oxidizing agent", "reducing agent"] }
+    reactant:
+      {
+        type: choice,
+        values: ["acidified KMnO₄", "PbS", "Cl₂", "acidified KI"],
+      }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [hydrogen, h2o2]
+
+- id: COMP_CHEM_HYDROGEN_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Inorganic Chemistry
+  chapter: Hydrogen and its Compounds
+  concept: Heavy water
+  template_variants:
+    - "The boiling point of D₂O is {bp}°C because"
+    - "Compare properties of H₂O and D₂O."
+  variables:
+    bp: { type: choice, values: [101.4, 100, 98] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [hydrogen, heavy_water]
+
+# ============================================
+# SOLID STATE (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_SOLID_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solid State
+  concept: Crystal systems
+  template_variants:
+    - "NaCl crystallizes in {system} crystal system."
+    - "Identify the crystal system of {compound}."
+  variables:
+    system:
+      {
+        type: choice,
+        values: ["cubic", "tetragonal", "hexagonal", "orthorhombic"],
+      }
+    compound: { type: choice, values: ["NaCl", "CsCl", "ZnS", "CaF₂"] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [solid_state, crystal]
+
+- id: COMP_CHEM_SOLID_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solid State
+  concept: Packing efficiency
+  template_variants:
+    - "Find packing efficiency of {type} unit cell."
+    - "Calculate % space occupied in {type} arrangement."
+  variables:
+    type: { type: choice, values: ["simple cubic", "BCC", "FCC", "HCP"] }
+  formula: "BCC: 68%, FCC: 74%, sc: 52%"
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [solid_state, packing]
+
+- id: COMP_CHEM_SOLID_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solid State
+  concept: Defects
+  template_variants:
+    - "Schottky defect is observed in {compound} because"
+    - "Which type of defect is common in {compound}?"
+  variables:
+    compound: { type: choice, values: ["NaCl", "AgBr", "ZnO", "FeO"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: moderate
+  tags: [solid_state, defects]
+
+- id: COMP_CHEM_SOLID_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Physical Chemistry
+  chapter: Solid State
+  concept: Density calculation
+  template_variants:
+    - "If edge length of BCC unit cell is {a} pm and M = {m}, find density."
+    - "Calculate density: a = {a} pm, M = {m} g/mol, Z = 2 (BCC)."
+  variables:
+    a: { type: integer, range: [280, 350], step: 10 }
+    m: { type: integer, range: [40, 60], step: 5 }
+  formula: "ρ = ZM/(a³Nₐ)"
+  constraints: { steps: 2, expected_time_sec: 55 }
+  difficulty_level: moderate
+  tags: [solid_state, density]
+
+# ============================================
+# HALOALKANES AND HALOARENES (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_HALO_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Haloalkanes and Haloarenes
+  concept: SN1 vs SN2
+  template_variants:
+    - "{compound} undergoes {mechanism} mechanism because"
+    - "Predict mechanism for {compound} with NaOH."
+  variables:
+    compound:
+      { type: choice, values: ["CH₃Cl", "(CH₃)₃CBr", "C₆H₅CH₂Cl", "CH₃CH₂I"] }
+    mechanism: { type: choice, values: ["SN1", "SN2"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [haloalkanes, mechanism]
+
+- id: COMP_CHEM_HALO_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Haloalkanes and Haloarenes
+  concept: Elimination vs substitution
+  template_variants:
+    - "Major product of (CH₃)₃CBr + {reagent} is"
+    - "Predict product: tert-butyl bromide + {reagent}."
+  variables:
+    reagent:
+      { type: choice, values: ["aqueous NaOH", "alcoholic KOH", "NaCN/DMSO"] }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [haloalkanes, elimination]
+
+- id: COMP_CHEM_HALO_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Haloalkanes and Haloarenes
+  concept: Reactivity order
+  template_variants:
+    - "Arrange in order of SN2 reactivity: CH₃Cl, C₂H₅Cl, (CH₃)₂CHCl, (CH₃)₃CCl."
+    - "Order of reactivity towards SN2."
+  variables:
+    order: { type: choice, values: ["1° > 2° > 3°", "3° > 2° > 1°"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [haloalkanes, reactivity]
+
+- id: COMP_CHEM_HALO_04
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Haloalkanes and Haloarenes
+  concept: Aryl halides
+  template_variants:
+    - "Chlorobenzene is less reactive than alkyl chlorides towards nucleophilic substitution because"
+    - "Why is C₆H₅Cl unreactive with NaOH under normal conditions?"
+  variables:
+    reason: { type: choice, values: ["resonance", "sp² carbon", "both"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: moderate
+  tags: [haloarenes, reactivity]
+
+# ============================================
+# PHENOLS (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_PHENOL_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Phenols
+  concept: Acidity
+  template_variants:
+    - "Arrange in order of acidic strength: phenol, p-nitrophenol, p-cresol."
+    - "Which is most acidic: phenol, p-nitrophenol, or p-cresol?"
+  variables:
+    compound:
+      {
+        type: choice,
+        values: ["phenol", "p-nitrophenol", "p-cresol", "p-methoxyphenol"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [phenols, acidity]
+
+- id: COMP_CHEM_PHENOL_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Phenols
+  concept: Reactions
+  template_variants:
+    - "Product of phenol + {reagent} is"
+    - "Predict product: C₆H₅OH + {reagent}."
+  variables:
+    reagent:
+      {
+        type: choice,
+        values: ["Br₂/H₂O", "NaOH + CO₂", "Zn dust", "conc. HNO₃"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: easy
+  tags: [phenols, reactions]
+
+- id: COMP_CHEM_PHENOL_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Phenols
+  concept: Kolbe-Schmidt reaction
+  template_variants:
+    - "Product of Kolbe-Schmidt reaction of sodium phenoxide is"
+    - "Phenol + NaOH + CO₂ (under pressure) gives"
+  variables:
+    product:
+      { type: choice, values: ["salicylic acid", "benzoic acid", "catechol"] }
+  constraints: { steps: 1, expected_time_sec: 30 }
+  difficulty_level: easy
+  tags: [phenols, named_reaction]
+
+# ============================================
+# ETHERS (SYLLABUS)
+# ============================================
+
+- id: COMP_CHEM_ETHER_01
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Ethers
+  concept: Preparation
+  template_variants:
+    - "Williamson synthesis of {ether} requires"
+    - "Prepare {ether} by Williamson method."
+  variables:
+    ether:
+      {
+        type: choice,
+        values: ["diethyl ether", "methyl ethyl ether", "anisole"],
+      }
+  constraints: { steps: 2, expected_time_sec: 45 }
+  difficulty_level: moderate
+  tags: [ethers, williamson]
+
+- id: COMP_CHEM_ETHER_02
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Ethers
+  concept: Reactions
+  template_variants:
+    - "Product of anisole + HI (excess) is"
+    - "C₆H₅OCH₃ + HI(excess) gives"
+  variables:
+    product:
+      {
+        type: choice,
+        values: ["phenol + CH₃I", "iodobenzene + CH₃OH", "phenol + CH₃OH"],
+      }
+  constraints: { steps: 1, expected_time_sec: 35 }
+  difficulty_level: moderate
+  tags: [ethers, cleavage]
+
+- id: COMP_CHEM_ETHER_03
+  exam: TS_EAMCET
+  subject: Chemistry
+  unit: Organic Chemistry
+  chapter: Ethers
+  concept: Structure
+  template_variants:
+    - "The C-O-C bond angle in dimethyl ether is approximately"
+    - "Predict bond angle in ethers."
+  variables:
+    angle: { type: choice, values: [111, 109, 120] }
+  constraints: { steps: 1, expected_time_sec: 25 }
+  difficulty_level: easy
+  tags: [ethers, structure]
