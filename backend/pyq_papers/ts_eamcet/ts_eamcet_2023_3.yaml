@@ -142,7 +142,7 @@ questions:
 - id: 10
   section: Algebra
   topic: complex_numbers
-  text: "If a point $P$ denotes the complex number $z = x+iy$ in the Argand plane and if $\frac{z-(2+i)}{z+(1-2i)}$ is purely real, then the locus of $P$ is"
+  text: "If a point $P$ denotes the complex number $z = x+iy$ in the Argand plane and if $\\frac{z-(2+i)}{z+(1-2i)}$ is purely real, then the locus of $P$ is"
   options:
     A: "the line $x + 3y - 5 = 0$ excluding the point (-1, 2)"
     B: "the circle $x^2 + y^2 - x - 3y = 0$ excluding the point (-1, 2)"
@@ -150,4 +150,124 @@ questions:
     D: "the circle $x^2 + y^2 - 2x - 6y + 5 = 0$ excluding the point (-1, 2)"
   correct_answer: A
   difficulty: moderate
+  subject: Mathematics
+- id: 11
+  section: Algebra
+  topic: complex_numbers
+  text: "If '$i$' is the root of the equation $x^2 + 1 = 0$ then $(1 + \\sqrt{3}i)^{2023} + (1 - \\sqrt{3}i)^{2023} =$"
+  options:
+    A: "$2^{2022}$"
+    B: "$2^{2023}$"
+    C: "$2^{2022}(\\sqrt{3})$"
+    D: "$2^{2023}(\\sqrt{3})$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: Algebra
+  topic: de_moivres_theorem
+  text: "One of the values of $(\\sqrt{3} - i)^{\\frac{1}{6}}$ is"
+  options:
+    A: "$2^{\\frac{1}{6}} \\text{ cis } \\frac{61\\pi}{36}$"
+    B: "$2^{\\frac{1}{6}} \\text{ cis } \\frac{37\\pi}{36}$"
+    C: "$2^{\\frac{1}{6}} \\text{ cis } \\frac{59\\pi}{36}$"
+    D: "$2^{\\frac{1}{6}} \\text{ cis } \\frac{49\\pi}{36}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 13
+  section: Algebra
+  topic: quadratic_expressions
+  text: "If $x^2 + 3x - 2k = 0$ and $x^2 - 2x - 7k = 0$ have a non-zero common root, then the positive root of the equation $kx^2 + (k + 2)x - (k + 1) = 0$ is"
+  options:
+    A: "2"
+    B: "$\\frac{2}{5}$"
+    C: "3"
+    D: "$\\frac{3}{5}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 14
+  section: Algebra
+  topic: quadratic_expressions
+  text: "The values of $\\frac{x^2 - 2x + 1}{x^2 + x - 1}$ do not lie in the interval"
+  options:
+    A: "$( - \\frac{4}{5} , 0 )$"
+    B: "$( - \\infty , - \\frac{4}{5} )$"
+    C: "$( 0 , \\infty )$"
+    D: "$( \\frac{4}{5} , \\infty )$"
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 15
+  section: Algebra
+  topic: theory_of_equations
+  text: "If $\\alpha, \\beta, \\gamma$ are the roots of the equation $x^3 - 3x^2 + 3x + 1 = 0$, then $\\alpha^2 \\beta^2 + \\beta^2 \\gamma^2 + \\gamma^2 \\alpha^2 =$"
+  options:
+    A: "9"
+    B: "15"
+    C: "8"
+    D: "20"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Algebra
+  topic: theory_of_equations
+  text: "If $\\alpha, \\beta, \\gamma$ are the roots of the equation $x^3 + 4x^2 - 9x - 36 = 0$ and $\\alpha < \\beta < \\gamma$ then $\\alpha + 2\\beta + 3\\gamma =$"
+  options:
+    A: "1"
+    B: "0"
+    C: "-1"
+    D: "-2"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 17
+  section: Algebra
+  topic: theory_of_equations
+  text: "If the sum of two particular roots of the equation $x^4 - 4x^3 - 7x^2 + 22x + 24 = 0$ is equal to the sum of the remaining two roots, then the sum of the cubes of all the roots of this equation is"
+  options:
+    A: "100"
+    B: "196"
+    C: "0"
+    D: "82"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 18
+  section: Algebra
+  topic: permutations_and_combinations
+  text: "If $n, r$ are two positive integers such that $1 \\le r < n$, then ${^n}P_{r+1} + r^2 \\cdot {^{n-1}}P_{r-1} + (r+1) \\cdot {^{n-1}}P_r + r \\cdot {^{n-1}}P_{r-1} =$"
+  options:
+    A: "${^{n+2}}P_{r+2}$"
+    B: "${^{n+2}}P_{r+1}$"
+    C: "$(n+1)!$"
+    D: "${^{n+1}}P_{r+1}$"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 19
+  section: Algebra
+  topic: permutations_and_combinations
+  text: "The number of ways in which $n$ boys and $n$ girls can be arranged in a row such that all the boys are together and all the girls are also together is equal to"
+  options:
+    A: "the number of ways in which $n$ boys and $n$ girls can be arranged in a row"
+    B: "the number of ways in which $n$ boys and $n$ girls can be arranged in a row such that all the girls are together"
+    C: "the number of ways in which $n$ boys and $n$ girls can be arranged in a row such that no two girls are together"
+    D: "the number of ways in which $n$ boys and $n$ girls can be arranged in a row such that no two girls are together and no two boys are together"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 20
+  section: Algebra
+  topic: permutations_and_combinations
+  text: "Among the positive divisors of the number 12600, if $n_1$ is the number of divisors which are multiples of 3 and $n_2$ is the number of divisors which are multiples of 14, then $n_1 + n_2 =$"
+  options:
+    A: "75"
+    B: "57"
+    C: "51"
+    D: "33"
+  correct_answer: A
+  difficulty: hard
   subject: Mathematics
