@@ -1,0 +1,153 @@
+id: ts_eamcet_2023_3
+exam: TS EAMCET
+year: 2023
+shift: 3
+date: null
+session: Shift 3
+source_pdf: null
+metadata:
+  total_questions: 160
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 80
+- code: PHY
+  name: Physics
+  question_count: 40
+- code: CHE
+  name: Chemistry
+  question_count: 40
+questions:
+- id: 1
+  section: Algebra
+  topic: functions
+  text: |
+    If the function $f : \mathbb{R} \to \mathbb{R}$ is defined by
+    $f(x) = \begin{cases} 2x-3, & \text{if } x < -2 \\ x^2-1, & \text{if } -2 \le x \le 2 \\ 3x+2, & \text{if } x > 2 \end{cases}$
+    then $f$ is
+  options:
+    A: "an injection but not a surjection"
+    B: "a surjection but not an injection"
+    C: "a bijection"
+    D: "neither injection nor surjection"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: Algebra
+  topic: functions
+  text: |
+    The domain of the real valued function $f(x) = \sqrt{\frac{\log_{10}\left(\frac{x}{x-2}\right)}{\sqrt{[x]^2-5[x]+6}}}$ is (Here $[x]$ denotes the greatest integer function)
+  options:
+    A: "$(-\infty, 0) \cup (2, \infty)$"
+    B: "$(2, \infty)$"
+    C: "$(-\infty, 2) \cup (4, \infty)$"
+    D: "$[4, \infty)$"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 3
+  section: Algebra
+  topic: functions
+  text: "The range of the real valued function $f(x) = \frac{1}{x-|x|}$ is"
+  options:
+    A: "$(0, \infty)$"
+    B: "$(-\infty, 0)$"
+    C: "$(-\infty, 0) \cup (0, \infty)$"
+    D: "$(-\infty, \infty)$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 4
+  section: Algebra
+  topic: matrices
+  text: |
+    If $A = \begin{bmatrix} 1 & 2 & -1 \\ -1 & 0 & 2 \\ 1 & 2 & 0 \end{bmatrix}$ and $B = \begin{bmatrix} -3 & -2 & 4 \\ 2 & 2 & -1 \\ -2 & 0 & 3 \end{bmatrix}$, then $A^2 =$
+  options:
+    A: "$A - B$"
+    B: "$B - A$"
+    C: "$A + B$"
+    D: "$B^2$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 5
+  section: Algebra
+  topic: matrices
+  text: |
+    $\begin{vmatrix} 2 & 3 & 5 \\ 3 & 5 & 2 \\ 5 & 2 & 3 \end{vmatrix} + \begin{vmatrix} 1 & 1 & 1 \\ 7 & 11 & 13 \\ 49 & 121 & 169 \end{vmatrix} =$
+  options:
+    A: "32"
+    B: "-67"
+    C: "93"
+    D: "-22"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 6
+  section: Algebra
+  topic: matrices
+  text: |
+    If $A = \begin{bmatrix} k & 5 & 2 \\ 2 & -k & 5 \\ 5 & 2 & -k \end{bmatrix}$ and $\det A = 190$ then $Adj A =$
+  options:
+    A: |
+      $\begin{bmatrix} -1 & 19 & 31 \\ 31 & -19 & -11 \\ 19 & 19 & -19 \end{bmatrix}$
+    B: |
+      $\begin{bmatrix} -1 & 31 & 19 \\ 19 & -19 & 19 \\ 31 & -11 & -19 \end{bmatrix}$
+    C: "None of these"
+    D: |
+      $\begin{bmatrix} -1 & 19 & 31 \\ -31 & -19 & -11 \\ 19 & 19 & -19 \end{bmatrix}$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 7
+  section: Algebra
+  topic: matrices
+  text: |
+    If the unique solution of the simultaneous linear equations $3x - 2y + z = 5k, 2x + 3y - 2z = -5k, x + 4y + 3z = k$ is $x = \alpha, y = \beta, z = 3$, then $k =$
+  options:
+    A: "1"
+    B: "2"
+    C: "-1"
+    D: "-2"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 8
+  section: Algebra
+  topic: complex_numbers
+  text: "If the value of $\sqrt{-5-12i} + \sqrt{7+24i}$ is a negative real number $k$, then $k =$"
+  options:
+    A: "-5"
+    B: "-7"
+    C: "-6"
+    D: "-4"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 9
+  section: Algebra
+  topic: complex_numbers
+  text: "Let $z = x+iy$ be a point in the Argand plane. If the amplitude of $\left(\frac{z-3}{z+2i}\right)$ is $\frac{\pi}{2}$, then the locus of $z$ is"
+  options:
+    A: "a circle"
+    B: "a straight line"
+    C: "a semicircular arc not containing the origin"
+    D: "a semicircular arc containing the origin"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 10
+  section: Algebra
+  topic: complex_numbers
+  text: "If a point $P$ denotes the complex number $z = x+iy$ in the Argand plane and if $\frac{z-(2+i)}{z+(1-2i)}$ is purely real, then the locus of $P$ is"
+  options:
+    A: "the line $x + 3y - 5 = 0$ excluding the point (-1, 2)"
+    B: "the circle $x^2 + y^2 - x - 3y = 0$ excluding the point (-1, 2)"
+    C: "both the line and the circle"
+    D: "the circle $x^2 + y^2 - 2x - 6y + 5 = 0$ excluding the point (-1, 2)"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics

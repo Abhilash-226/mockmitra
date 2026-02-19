@@ -1,0 +1,2264 @@
+id: ts_eamcet_2023_2
+exam: TS EAMCET
+year: 2023
+shift: 2
+date: null
+session: Shift 2
+source_pdf: null
+metadata:
+  total_questions: 160
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 80
+- code: PHY
+  name: Physics
+  question_count: 40
+- code: CHE
+  name: Chemistry
+  question_count: 40
+questions:
+- id: 1
+  section: Algebra
+
+  topic: functions
+  text: {inner}
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "4"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 2
+  section: Algebra
+
+  topic: functions
+  text: {inner}
+  options:
+    A: "$2g(x) + 2f(x)$"
+    B: "$12g(x) - 4f(x) - 22$"
+    C: "$3g(x) + f(x) - 2$"
+    D: "$2f(x) + 4g(x) - 32$"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 3
+  section: Algebra
+
+  topic: functions
+  text: {inner}
+  options:
+    A: "28"
+    B: "39"
+    C: "4"
+    D: "24"
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 4
+  section: Algebra
+
+  topic: matrices
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: medium
+  subject: Mathematics
+- id: 5
+  section: Algebra
+
+  topic: matrices
+  text: {inner}
+  options:
+    A: "-8"
+    B: "16"
+    C: "12"
+    D: "20"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 6
+  section: Algebra
+
+  topic: matrices
+  text: {inner}
+  options:
+    A: "0"
+    B: "-24"
+    C: "24"
+    D: "66"
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 7
+  section: Algebra
+
+  topic: matrices
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 8
+  section: Algebra
+
+  topic: Algebra
+  text: {inner}
+  options:
+    A: "$a^3+b^3$"
+    B: "$3(a^3+b^3)$"
+    C: "$a^3-b^3$"
+    D: "$3(a^3-b^3)$"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 9
+  section: Algebra
+
+  topic: Trigonometry
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: "1"
+    D: {inner}
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 10
+  section: Algebra
+
+  topic: complex_numbers
+  text: {inner}
+  options:
+    A: {inner}
+    B: "5"
+    C: "25"
+    D: {inner}
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 11
+  section: Algebra
+
+  topic: theory_of_equations
+  text: {inner}
+  options:
+    A: "48"
+    B: "12"
+    C: "24"
+    D: "36"
+  correct_answer: C
+  difficulty: medium
+  subject: Mathematics
+- id: 12
+  section: Algebra
+
+  topic: complex_numbers
+  text: {inner}
+  options:
+    A: "9"
+    B: "18"
+    C: "36"
+    D: "72"
+  correct_answer: C
+  difficulty: medium
+  subject: Mathematics
+- id: 13
+  section: Algebra
+
+  topic: theory_of_equations
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 14
+  section: Algebra
+
+  topic: theory_of_equations
+  text: "The sum of all the real values of $x$ satisfying the equation $(x^2-7x+11)^{x^2-6x-7} = 1$ is"
+  options:
+    A: "14"
+    B: "20"
+    C: "13"
+    D: "16"
+  correct_answer: D
+  difficulty: medium
+  subject: Mathematics
+- id: 15
+  section: Algebra
+
+  topic: theory_of_equations
+  text: "If a polynomial $P(x)$ given by $P(x) = 2x^4+ax^3+bx^2+cx+d$ is such that $P(1)=4, P(2)=7, P(3)=12$ and $P(4)=19$, then $P(5) =$"
+  options:
+    A: "28"
+    B: "76"
+    C: "26"
+    D: "72"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 16
+  section: Algebra
+
+  topic: theory_of_equations
+  text: "If the roots of the equation $kx^3-18x^2-36x+8=0$ are in harmonic progression, then $k =$"
+  options:
+    A: "64"
+    B: "45"
+    C: "81"
+    D: "27"
+  correct_answer: C
+  difficulty: medium
+  subject: Mathematics
+- id: 17
+  section: Algebra
+
+  topic: theory_of_equations
+  text: |
+    If $\alpha, \beta, \gamma$ are the roots of the equation $x^3+x^2+x+1=0$ then match the items of List I with those of List II
+    List I:
+    (i) $\frac{1}{\alpha} + \frac{1}{\beta} + \frac{1}{\gamma}$
+    (ii) $\alpha^2 + \beta^2 + \gamma^2$
+    (iii) $\alpha^3 + \beta^3 + \gamma^3$
+    (iv) $(\alpha-\beta)^2 + (\beta-\gamma)^2 + (\gamma-\alpha)^2$
+
+    List II:
+    a) -1
+    b) -4
+    c) 1
+    d) 3
+    e) 0
+
+    Then the correct match is
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 18
+  section: Algebra
+
+  topic: permutations_and_combinations
+  text: "The number of odd numbers greater than 600,000 that can be formed by using the digits 3, 6, 7, 8, 9, 0 without repetition is"
+  options:
+    A: "480"
+    B: "240"
+    C: "288"
+    D: "500"
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 19
+  section: Algebra
+
+  topic: permutations_and_combinations
+  text: "The number of ways in which 6 men and 4 women can be seated around a table so that a particular man and a particular woman never sit adjacent to each other is"
+  options:
+    A: "9!"
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 20
+  section: Algebra
+
+  topic: permutations_and_combinations
+  text: "There are three sections in a question paper, each section containing 4 questions. If a candidate has to answer only 5 questions from this paper without leaving any section, then the number of ways in which a candidate can make the choice of questions is"
+  options:
+    A: "624"
+    B: "704"
+    C: "384"
+    D: "432"
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 21
+  section: Algebra
+
+  topic: binomial_theorem
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: medium
+  subject: Mathematics
+- id: 22
+  section: Algebra
+
+  topic: binomial_theorem
+  text: {inner}
+  options:
+    A: "1302"
+    B: "1220"
+    C: "1240"
+    D: "1364"
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 23
+  section: Algebra
+
+  topic: Series
+  text: {inner}
+  options:
+    A: "108"
+    B: "54"
+    C: "100"
+    D: "144"
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 24
+  section: Algebra
+
+  topic: partial_fractions
+  text: {inner}
+  options:
+    A: "9"
+    B: {inner}
+    C: "7"
+    D: {inner}
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 25
+  section: Trigonometry
+
+  topic: Trigonometry
+  text: {inner}
+  options:
+    A: "250"
+    B: "125"
+    C: "175"
+    D: "350"
+  correct_answer: A
+  difficulty: medium
+  subject: Mathematics
+- id: 26
+  section: Trigonometry
+
+  topic: trigonometric_ratios_up_to_transformations
+  text: {inner}
+  options:
+    A: {inner}
+    B: "$n+1$"
+    C: "$1-n$"
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 27
+  section: Trigonometry
+
+  topic: trigonometric_ratios_up_to_transformations
+  text: {inner}
+  options:
+    A: "0"
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: medium
+  subject: Mathematics
+- id: 28
+  section: Trigonometry
+
+  topic: hyperbolic_functions
+  text: {inner}
+  options:
+    A: "1"
+    B: "2"
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: medium
+  subject: Mathematics
+- id: 29
+  section: Trigonometry
+
+  topic: properties_of_triangles
+  text: {inner}
+  options:
+    A: "4:5"
+    B: "2:3"
+    C: "5:4"
+    D: "5:6"
+  correct_answer: C
+  difficulty: medium
+  subject: Mathematics
+- id: 30
+  section: Trigonometry
+
+  topic: properties_of_triangles
+  text: |
+    Assertion (A): In $\triangle ABC$, if $r=6, r_2=36, R=15$ then $c^2+a^2=b^2$
+    Reason (R): In $\triangle ABC$, if $r:R:r_2 = 1:2.5:6$ then $B=90^\circ$
+    The correct option among the following is
+  options:
+    A: "Both (A) and (R) are true. (R) is a correct explanation of (A)"
+    B: "Both (A) and (R) are true, but (R) is not a correct explanation of (A)"
+    C: "(A) is true and (R) is false"
+    D: "(A) is false and (R) is true"
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 31
+  section: Vector Algebra
+
+  topic: Vectors
+  text: {inner}
+  options:
+    A: "6"
+    B: "14"
+    C: "38"
+    D: "26"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: Vector Algebra
+
+  topic: Vectors
+  text: {inner}
+  options:
+    A: {inner}
+    B: "5"
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 33
+  section: Vector Algebra
+
+  topic: Vectors
+  text: |
+    If S is the circumcentre, O is the orthocentre and G is the centroid of a triangle ABC, then match the items of List-I with those of the items of List-II given below.
+    List-I:
+    (i) $\vec{SA} + \vec{SB} + \vec{SC}$
+    (ii) $\vec{GA} + \vec{GB} + \vec{GC}$
+    (iii) $\vec{OA} + \vec{OB} + \vec{OC}$
+    (iv) $\vec{OG}$
+
+    List-II:
+    a) $2\vec{OS}$
+    b) $\frac{1}{3}\vec{OS}$
+    c) $\vec{0}$
+    d) $\vec{SO}$
+    e) $\vec{OG}$
+
+    Then the correct match is
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 34
+  section: Vector Algebra
+
+  topic: Vectors
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: "10"
+    D: "-10"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: Vector Algebra
+
+  topic: Vectors
+  text: {inner}
+  options:
+    A: "3"
+    B: {inner}
+    C: "6"
+    D: "1"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 36
+  section: Probability & Statistics
+
+  topic: measures_of_dispersion
+  text: "The mean and standard deviation of 100 observations were calculated as 40 and 5.1 respectively. Later on it was found that one of the observations was taken as 50 in the place of 40. If the wrong entry is replaced by the correct one, then the sum of the squares of all the observations is"
+  options:
+    A: "162701"
+    B: "163501"
+    C: "162601"
+    D: "161701"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 37
+  section: Probability & Statistics
+
+  topic: probability
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 38
+  section: Probability & Statistics
+
+  topic: probability
+  text: "A boy throws an unbiased die. Whenever he gets 1 on the die he has a further chance to throw it once again immediately. The probability that the boy gets a score of 7 in this process is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 39
+  section: Probability & Statistics
+
+  topic: probability
+  text: "There are 10 coins in a box out of which 8 are normal and the remaining are with heads on both sides. A coin is chosen at random from the box and tossed 6 times. If it shows heads each time, then the probability that the selected coin has head on both sides is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 40
+  section: Probability & Statistics
+
+  topic: random_variables_and_distributions
+  text: |
+    A random variable X has the following distribution:
+    | $X=x_i$ | -2 | -1 | 0 | 1 | 2 | 3 |
+    | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+    | $P(X=x_i)$ | 0.1 | k | 0.2 | 2k | 3k | k |
+    Then the variance of this distribution is
+  options:
+    A: "2.64"
+    B: "2.8"
+    C: "2.16"
+    D: "1.86"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 41
+  section: Coordinate Geometry
+
+  topic: locus
+  text: {inner}
+  options:
+    A: "$xy+3x-4y=0$"
+    B: "$xy-3x+4y=0$"
+    C: "$xy-3x-4y=0$"
+    D: "$xy+3x+4y=0$"
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 42
+  section: Coordinate Geometry
+
+  topic: transformation_of_axes
+  text: "When the origin is shifted to the point P by translation of axes, the equation $2x^2+y^2-4x+4y=0$ is transformed to $2x^2+y^2-8x+8y+18=0$. Then the transformed equation of the straight line $x+2y+2=0$ if the origin is shifted to the same point P is"
+  options:
+    A: "$x+2y-1=0$"
+    B: "$x+2y-3=0$"
+    C: "$x+2y+7=0$"
+    D: "$x+2y+5=0$"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 43
+  section: Coordinate Geometry
+
+  topic: straight_line
+  text: "If the Circumcenter of the triangle formed by the points A(a,3), B(b,5) and C(a, b) is (1,1), then out of all the possible coordinates of C the sum of the absolute values of the distinct coordinates of C is"
+  options:
+    A: "8"
+    B: "9"
+    C: "12"
+    D: "4"
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 44
+  section: Coordinate Geometry
+
+  topic: straight_line
+  text: "If the lines $x+y-1=0$, $kx+2y+1=0$ and $4x+2ky+7=0$ are concurrent, then $k =$"
+  options:
+    A: "2"
+    B: {inner}
+    C: {inner}
+    D: "-2"
+  correct_answer: C
+  difficulty: medium
+  subject: Mathematics
+- id: 45
+  section: Coordinate Geometry
+
+  topic: straight_line
+  text: {inner}
+  options:
+    A: "1"
+    B: {inner}
+    C: "7"
+    D: "10"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 46
+  section: Coordinate Geometry
+
+  topic: straight_line
+  text: {inner}
+  options:
+    A: "$(k, k)$"
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 47
+  section: Coordinate Geometry
+
+  topic: pair_of_straight_lines
+  text: "The point of concurrence of all the chords of the curve $3x^2-y^2-2x+4y=0$ which subtend a right angle at the origin is"
+  options:
+    A: "$(1, 2)$"
+    B: "$(1, -2)$"
+    C: "$(-1, 2)$"
+    D: "$(-1, -2)$"
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 48
+  section: Coordinate Geometry
+
+  topic: circle
+  text: "The equation of a circle passing through (-6,3) and touching both the coordinate axes is"
+  options:
+    A: "$x^2+y^2+20x-20y+100=0$"
+    B: "$x^2+y^2+10x-10y+25=0$"
+    C: "$x^2+y^2+6x-6y+9=0$"
+    D: "$x^2+y^2-30x+30y+225=0$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 49
+  section: Coordinate Geometry
+
+  topic: circle
+  text: "The area (in sq. units) of the triangle formed by the X-axis, the tangent and the normal drawn to the circle $x^2+y^2=10x$ at the point (9, 3) is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: "75"
+    D: "25"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 50
+  section: Coordinate Geometry
+
+  topic: circle
+  text: "The number of common tangents of the circles $x^2+y^2-4=0$ and $x^2+y^2-6x-8y-24=0$ is"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "4"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 51
+  section: Coordinate Geometry
+
+  topic: circle
+  text: {inner}
+  options:
+    A: "5"
+    B: "13"
+    C: "33"
+    D: "23"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 52
+  section: Coordinate Geometry
+
+  topic: circle
+  text: "If a circle 'S' passing through the origin and having its centre on the line $x-y=0$ cuts the circle $x^2+y^2-4x-6y+10=0$ orthogonally, then the diameter of 'S' is"
+  options:
+    A: {inner}
+    B: "2"
+    C: {inner}
+    D: "4"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 53
+  section: Coordinate Geometry
+
+  topic: circle
+  text: {inner}
+  options:
+    A: "$x^2+y^2-2x-12=0$"
+    B: "$x^2+y^2-4x-6y=0$"
+    C: "$x^2+y^2-2y-12=0$"
+    D: "$x^2+y^2+6x-4y=0$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 54
+  section: Coordinate Geometry
+
+  topic: parabola
+  text: {inner}
+  options:
+    A: "$2x+y-32=0$"
+    B: "$2x+y-48=0$"
+    C: "$x-2y+16=0$"
+    D: "$x+2y-48=0$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 55
+  section: Coordinate Geometry
+
+  topic: parabola
+  text: "If one of the vertices of an equilateral triangle inscribed in the parabola $y^2=12x$ coincides with the vertex of the parabola, then the area (in sq. units) of that triangle is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 56
+  section: Coordinate Geometry
+
+  topic: ellipse
+  text: "If an ellipse with its axes as coordinate axes, 2a and 2b as the lengths of its major and minor axes respectively passes through the points (2, 2) and (3, 1), then $3a^2 + 5b^2 =$"
+  options:
+    A: "32"
+    B: "8"
+    C: "64"
+    D: "16"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 57
+  section: Coordinate Geometry
+
+  topic: ellipse
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 58
+  section: Coordinate Geometry
+
+  topic: hyperbola
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 59
+  section: Coordinate Geometry
+
+  topic: three_dimensional_coordinates
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 60
+  section: Coordinate Geometry
+
+  topic: direction_cosines_and_ratios
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 61
+  section: Coordinate Geometry
+
+  topic: plane
+  text: {inner}
+  options:
+    A: "2"
+    B: "8"
+    C: "4"
+    D: "9"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 62
+  section: Calculus
+
+  topic: limits_and_continuity
+  text: {inner}
+  options:
+    A: "1"
+    B: "3"
+    C: "6"
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 63
+  section: Calculus
+
+  topic: limits_and_continuity
+  text: {inner}
+  options:
+    A: "4"
+    B: "8"
+    C: {inner}
+    D: "16"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 64
+  section: Calculus
+
+  topic: differentiation
+  text: {inner}
+  options:
+    A: "1"
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 65
+  section: Calculus
+
+  topic: differentiation
+  text: |
+    Match the items of List I with those of List II
+    List I:
+    (i) $\frac{d}{dx} (\sin^{-1} x)$
+    (ii) $\frac{d}{dx} (\cos^{-1} x)$
+    (iii) $\frac{d}{dx} (\tan^{-1} x)$
+    (iv) $\frac{d}{dx} (\cot^{-1} x)$
+
+    List II:
+    a) $-\frac{1}{1+x^2}$
+    b) $\frac{1}{1+x^2}$
+    c) $\frac{1}{\sqrt{1-x^2}}$
+    d) $-\frac{1}{\sqrt{1-x^2}}$
+
+    Then the correct match is
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 66
+  section: Calculus
+
+  topic: differentiation
+  text: {inner}
+  options:
+    A: {inner}
+    B: "2"
+    C: "1"
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 67
+  section: Calculus
+
+  topic: applications_of_derivatives
+  text: "A ladder of length 13 mts has one end resting against a vertical wall and the other on the ground. If the lower end moves away from the wall at a speed of 2 mts/minute, then the speed (in mts/min) at which upper end falls when the bottom is 5 mts away from the wall is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 68
+  section: Calculus
+
+  topic: applications_of_derivatives
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 69
+  section: Calculus
+
+  topic: applications_of_derivatives
+  text: "The maximum volume (in cu. units) of the cylinder which can be inscribed in a sphere of radius 12 units is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 70
+  section: Calculus
+
+  topic: integration
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 71
+  section: Calculus
+
+  topic: integration
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 72
+  section: Calculus
+
+  topic: integration
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 73
+  section: Calculus
+
+  topic: integration
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 74
+  section: Calculus
+
+  topic: definite_integrals
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 75
+  section: Calculus
+
+  topic: definite_integrals
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: "2"
+    D: "1"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 76
+  section: Calculus
+
+  topic: limits_and_continuity
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 77
+  section: Calculus
+
+  topic: definite_integrals
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 78
+  section: Calculus
+
+  topic: differential_equations
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 79
+  section: Calculus
+
+  topic: differential_equations
+  text: "If the solution for the differential equation $y^2 dx + (x^2 - xy - y^2) dy = 0$ at (2, 1) is $x + y = k(xy^2 - y^3)$, then k ="
+  options:
+    A: "-3"
+    B: "-4"
+    C: "4"
+    D: "3"
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 80
+  section: Calculus
+
+  topic: differential_equations
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 81
+  section: Physical World & Measurement
+
+  topic: physical_world
+  text: |
+    Match the Following
+    List I (Fundamental forces in nature):
+    A) Strong nuclear force
+    B) Weak nuclear force
+    C) Electromagnetic force
+    D) Gravitational force
+
+    List II (Relative strength):
+    e) $10^{-2}$
+    f) 1
+    g) $10^{36}$
+    h) $10^{-13}$
+    i) $10^{-39}$
+
+    Then the correct match is
+  options:
+    A: "A-f, B-i, C-e, D-h"
+    B: "A-f, B-h, C-e, D-g"
+    C: "A-f, B-h, C-e, D-i"
+    D: "A-f, B-e, C-h, D-i"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 82
+  section: Physical World & Measurement
+
+  topic: units_and_measurements
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 83
+  section: Mechanics
+
+  topic: motion_in_a_straight_line
+  text: {inner}
+  options:
+    A: {inner}
+    B: "$1:1$"
+    C: "$1:2$"
+    D: {inner}
+  correct_answer: D
+  difficulty: approach
+  subject: Physics
+- id: 84
+  section: Mechanics
+
+  topic: motion_in_a_plane
+  text: {inner}
+  options:
+    A: "$y = x - 5x^2$"
+    B: "$y = 2x - 5x^2$"
+    C: "$y = 2x - 15x^2$"
+    D: "$y = 2x - 25x^2$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 85
+  section: Mechanics
+
+  topic: laws_of_motion
+  text: "If the radii of circular paths of two particles of same mass are in the ratio of $1:2$, then to have a constant centripetal force, the ratio of their speeds should be"
+  options:
+    A: "$4:1$"
+    B: {inner}
+    C: "$1:4$"
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 86
+  section: Mechanics
+
+  topic: work_energy_and_power
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 87
+  section: Mechanics
+
+  topic: systems_of_particles_and_rotational_motion
+  text: "A bomb of mass 16 kg explodes into two pieces of masses 4 kg and 12 kg. The velocity of the 12 kg mass is 4 ms$^{-1}$. The kinetic energy of the second piece is"
+  options:
+    A: "144 J"
+    B: "192 J"
+    C: "96 J"
+    D: "288 J"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 88
+  section: Mechanics
+
+  topic: systems_of_particles_and_rotational_motion
+  text: "A constant torque acting on a uniform circular wheel changes its angular momentum from $A_0$ to $4A_0$ in 4 seconds. The magnitude of the torque is"
+  options:
+    A: {inner}
+    B: "$A_0$"
+    C: "$4A_0$"
+    D: "$12A_0$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 89
+  section: Mechanics
+
+  topic: systems_of_particles_and_rotational_motion
+  text: "A particle performs uniform circular motion with an angular momentum L. If the frequency of the particle's motion is doubled and its kinetic energy is halved, then its angular momentum becomes"
+  options:
+    A: "2L"
+    B: "4L"
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 90
+  section: Mechanics
+
+  topic: oscillations
+  text: {inner}
+  options:
+    A: "4"
+    B: "4"
+    C: {inner}
+    D: "8"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 91
+  section: Mechanics
+
+  topic: gravitation
+  text: "A body of mass $m$ is at height R from the surface of the earth where R is the radius of the earth. If the body is taken from here to a height of 3R from the surface of the earth, the increase in the gravitational potential energy of the body is ($g$ is acceleration due to gravity on the surface of the earth)"
+  options:
+    A: "$3mgR$"
+    B: {inner}
+    C: "$4mgR$"
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Properties of Matter
+
+  topic: mechanical_properties_of_solids
+  text: "The ratio of the areas of cross sections of three wires is 1:2:3 and the ratio of the Young's moduli of their materials is 3:2:1. If the three wires are of same length and same stretching force is applied to the three wires, then the ratio of the elongations of the three wires is"
+  options:
+    A: "4:3:4"
+    B: "1:1:1"
+    C: "9:4:1"
+    D: "3:4:3"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 93
+  section: Properties of Matter
+
+  topic: mechanical_properties_of_fluids
+  text: "When a large bubble rises from the bottom of a lake to the surface, the volume of the bubble becomes 5 times its volume at the bottom of the lake. If H is the atmospheric pressure expressed in terms of water column height, then the depth of the lake is (The temperature of the water in the lake is same at all points)"
+  options:
+    A: "2H"
+    B: "4H"
+    C: "5H"
+    D: "3H"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 94
+  section: Properties of Matter
+
+  topic: mechanical_properties_of_fluids
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: hard
+  subject: Physics
+- id: 95
+  section: Properties of Matter
+
+  topic: thermal_properties_of_matter
+  text: {inner}
+  options:
+    A: "155 g"
+    B: "150 g"
+    C: "145 g"
+    D: "5 g"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 96
+  section: Properties of Matter
+
+  topic: thermal_properties_of_matter
+  text: {inner}
+  options:
+    A: "200"
+    B: "227"
+    C: "254"
+    D: "300"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 97
+  section: Thermodynamics & Kinetic Theory
+
+  topic: thermodynamics
+  text: {inner}
+  options:
+    A: "900 R"
+    B: "1800 R"
+    C: "1200 R"
+    D: "300 R"
+  correct_answer: B
+  difficulty: hard
+  subject: Physics
+- id: 98
+  section: Thermodynamics & Kinetic Theory
+
+  topic: kinetic_theory_of_gases
+  text: {inner}
+  options:
+    A: "5"
+    B: "10"
+    C: "15"
+    D: "20"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 99
+  section: Optics
+
+  topic: Waves
+  text: {inner}
+  options:
+    A: "2:1"
+    B: "4:3"
+    C: "6:5"
+    D: "9:8"
+  correct_answer: D
+  difficulty: hard
+  subject: Physics
+- id: 100
+  section: Optics
+
+  topic: Waves
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: hard
+  subject: Physics
+- id: 101
+  section: Waves & Optics
+
+  topic: ray_optics_and_optical_instruments
+  text: "The focal lengths of the objective and the eyepiece of a compound microscope are 2 cm and 3 cm respectively and the distance between them is 15 cm. The final image formed by the eyepiece is at infinity. The distances of the object and the image produced by the object from the objective lens are respectively"
+  options:
+    A: "2.4 cm, 12 cm"
+    B: "2.4 cm, 15 cm"
+    C: "2.3 cm, 12 cm"
+    D: "2.3 cm, 3 cm"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 102
+  section: Waves & Optics
+
+  topic: wave_optics
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 103
+  section: Electricity & Magnetism
+
+  topic: electric_charges_and_fields
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 104
+  section: Electricity & Magnetism
+
+  topic: electrostatic_potential_and_capacitance
+  text: |
+    The circuit shows two capacitors A and B of capacitances C and 2C respectively. When they are fully charged, the cell is removed and the capacitors are connected with their plates of opposite polarities touching each other. Then
+    a) Charge on A is $\frac{4CE}{9}$
+    b) Charge on B is zero
+    c) Loss of energy in this process is $\frac{CE^2}{3}$
+    The correct statement(s) is/are
+  image: "/static/papers/ts_eamcet/2023_2/q104.png"
+  options:
+    A: "a and b are correct"
+    B: "b and c are correct"
+    C: "a, b and c are correct"
+    D: "c alone is correct"
+  correct_answer: B
+  difficulty: hard
+  subject: Physics
+- id: 105
+  section: Electricity & Magnetism
+
+  topic: current_electricity
+  text: {inner}
+  image: "/static/papers/ts_eamcet/2023_2/q105.png"
+  options:
+    A: "1.5 V"
+    B: "3 V"
+    C: "0.67 V"
+    D: "1.33 V"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 106
+  section: Electricity & Magnetism
+
+  topic: current_electricity
+  text: "In the given circuit, the equivalent resistance between A and B is"
+  image: "/static/papers/ts_eamcet/2023_2/q106.png"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 107
+  section: Electricity & Magnetism
+
+  topic: moving_charges_and_magnetism
+  text: "A square loop of side 'a' and carrying a current 'I' is suspended from an insulating hanger of a spring balance as shown in the figure. The transverse magnetic field 'B' directed into the paper occurs only at the bottom side of the loop. When direction of current in the loop is reversed, the change in the reading of spring balance is"
+  image: "/static/papers/ts_eamcet/2023_2/q107.png"
+  options:
+    A: "IaB"
+    B: "2IaB"
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 108
+  section: Electricity & Magnetism
+
+  topic: moving_charges_and_magnetism
+  text: |
+    A current carrying loop is placed in a uniform magnetic field 'B' in different orientations I, II, III and IV as shown in the figure. The correct order of decreasing potential energy is
+    ($\vec{n}$ - unit vector normal to the plane of the loop)
+  image: "/static/papers/ts_eamcet/2023_2/q108.png"
+  options:
+    A: "I, III, II, IV"
+    B: "I, II, III, IV"
+    C: "I, IV, II, III"
+    D: "III, IV, I, II"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 109
+  section: Electricity & Magnetism
+
+  topic: magnetism_and_matter
+  text: "A bar magnet of magnetic moment 2 Am$^2$ lies aligned with the direction of a uniform magnetic field of 0.3 T. The amount of work required by an external torque to turn the magnet so as to align its magnetic moment normal to the field direction is"
+  options:
+    A: "0.15 J"
+    B: "0.3 J"
+    C: "0.6 J"
+    D: "1.2 J"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 110
+  section: Electricity & Magnetism
+
+  topic: electromagnetic_induction
+  text: |
+    A conducting rod is moving towards right with a velocity 'V' in a uniform magnetic field 'B'. If the direction of induced current 'i' is as shown in the figure, then the direction of 'B' is
+    (Image shows rod moving right, current 'i' upwards)
+  image: "/static/papers/ts_eamcet/2023_2/q110.png"
+  options:
+    A: "in the plane of the paper towards right"
+    B: "in the plane of the paper towards left"
+    C: "perpendicular to the plane of the paper and into the paper"
+    D: "perpendicular to the plane of the paper and out of the paper"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 111
+  section: Electricity & Magnetism
+
+  topic: alternating_currents
+  text: {inner}
+  options:
+    A: "2 A"
+    B: {inner}
+    C: "4 A"
+    D: "8 A"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 112
+  section: Electricity & Magnetism
+
+  topic: moving_charges_and_magnetism
+  text: "A current 'i' is flowing through a wire of length 'L'. If it is made into a circular loop of one turn, then its magnetic moment is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 113
+  section: Modern Physics
+
+  topic: nuclei
+  text: "Energy released in the fission of a single uranium nucleus is 200 MeV. Then the number of fissions per second to produce 5 mW power is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 114
+  section: Electricity & Magnetism
+
+  topic: electromagnetic_waves
+  text: |
+    Match the electromagnetic radiations given in List - I with their uses given in List - II.
+    List - I:
+    A) X-rays
+    B) UV-rays
+    C) Radio waves
+    D) IR - rays
+
+    List - II:
+    P) Remote switches
+    Q) Finger prints in forensic Labs
+    R) Crystal structure study
+    S) TV communication system
+  options:
+    A: "A-Q, B-R, C-P, D-S"
+    B: "A-R, B-Q, C-S, D-P"
+    C: "A-R, B-S, C-Q, D-P"
+    D: "A-S, B-R, C-Q, D-P"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 115
+  section: Modern Physics
+
+  topic: atoms
+  text: "The ratio of longest wavelengths of the spectral lines in the Lyman and Balmer series of hydrogen spectrum is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 116
+  section: Modern Physics
+
+  topic: dual_nature_of_matter_and_radiation
+  text: "The graph given in the figure shows the variation of photo current (I) and the applied voltage (V) for two different materials and for two different intensities of the incident radiations. Then the curves which represent the same material are"
+  image: "/static/papers/ts_eamcet/2023_2/q116.png"
+  options:
+    A: "1 and 3"
+    B: "1 and 4"
+    C: "2 and 3"
+    D: "3 and 4"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 117
+  section: Modern Physics
+
+  topic: nuclei
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 118
+  section: Modern Physics
+
+  topic: semiconductor_electronics
+  text: "When an n-type semiconductor is heated"
+  options:
+    A: "number of electrons increases while that of holes decreases"
+    B: "number of holes increases while that of electrons decreases"
+    C: "number of holes and electrons do not change"
+    D: "number of holes and electrons increases equally"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 119
+  section: Modern Physics
+
+  topic: semiconductor_electronics
+  text: |
+    5 logic gates are connected as shown in the figure. If A and B are the inputs, Y is the output then the truth table of the circuit is
+  image: "/static/papers/ts_eamcet/2023_2/q119.png"
+  options:
+    A: |
+      | A | B | Y |
+      |---|---|---|
+      | 0 | 0 | 0 |
+      | 1 | 0 | 0 |
+      | 0 | 1 | 0 |
+      | 1 | 1 | 0 |
+    B: |
+      | A | B | Y |
+      |---|---|---|
+      | 0 | 0 | 1 |
+      | 1 | 0 | 0 |
+      | 0 | 1 | 0 |
+      | 1 | 1 | 1 |
+    C: |
+      | A | B | Y |
+      |---|---|---|
+      | 0 | 0 | 0 |
+      | 1 | 0 | 1 |
+      | 0 | 1 | 1 |
+      | 1 | 1 | 1 |
+    D: |
+      | A | B | Y |
+      |---|---|---|
+      | 0 | 0 | 1 |
+      | 1 | 0 | 1 |
+      | 0 | 1 | 1 |
+      | 1 | 1 | 1 |
+  correct_answer: A
+  difficulty: hard
+  subject: Physics
+- id: 120
+  section: Modern Physics
+
+  topic: communication_systems
+  text: |
+    Consider the following statements regarding digital signals.
+    i) provide a continuous set of values
+    ii) represent values as discrete steps
+    iii) can utilise binary system
+    iv) are in the form of rectangular waves
+    Then the true statements are
+  options:
+    A: "(i), (ii)"
+    B: "(ii), (iii)"
+    C: "(ii), (iii), (iv)"
+    D: "(i), (ii), (iii), (iv)"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 121
+  section: Physical Chemistry
+
+  topic: atomic_structure
+  text: 'A 100 watt bulb emits light of wavelength "$x \text{ \AA}$". What is the value of x, if the number of photons emitted is $2.0 \times 10^{20} \text{ s}^{-1}$? ($h = 6.63 \times 10^{-34} \text{ Js}, 1 \text{ watt} = 1 \text{ Js}^{-1}$)'
+  options:
+    A: "3578"
+    B: "4978"
+    C: "3978"
+    D: "4578"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 122
+  section: Physical Chemistry
+
+  topic: atomic_structure
+  text: 'The ratio of the difference in energy between the first and second Bohr orbits to that between the second and third orbits is'
+  options:
+    A: '$\frac{5}{27}$'
+    B: '$\frac{27}{5}$'
+    C: '$\frac{4}{9}$'
+    D: '$\frac{9}{4}$'
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 123
+  section: Inorganic Chemistry
+
+  topic: classification_of_elements_and_periodicity
+  text: |
+    Assertion (A): First ionisation enthalpy of oxygen is less than that of nitrogen
+    Reason (R): Atoms with half-filled or completely filled orbitals are less stable
+    The correct option among the following is
+  options:
+    A: "(A) and (R) are true. (R) is the correct explanation of (A)"
+    B: "(A) and (R) are true, but (R) is not correct explanation of (A)"
+    C: "(A) is true but (R) is false"
+    D: "(A) is false but (R) is true"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 124
+  section: Inorganic Chemistry
+
+  topic: chemical_bonding_and_molecular_structure
+  text: "In which of the following, molecules are arranged in the increasing order of their bond angles?"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 125
+  section: Inorganic Chemistry
+
+  topic: chemical_bonding_and_molecular_structure
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 126
+  section: Physical Chemistry
+
+  topic: states_of_matter
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 127
+  section: Physical Chemistry
+
+  topic: redox_reactions
+  text: {inner}
+  options:
+    A: "+2, 0, +2"
+    B: "+2, 0, +4"
+    C: "+4, +2, +2"
+    D: "-2, +2, 0"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 128
+  section: Physical Chemistry
+
+  topic: thermodynamics
+  text: {inner}
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 129
+  section: Physical Chemistry
+
+  topic: chemical_equilibrium
+  text: {inner}
+  options:
+    A: "2.5, 14"
+    B: "25, 13"
+    C: "25, 14"
+    D: "2.5, 16"
+  correct_answer: B
+  difficulty: hard
+  subject: Chemistry
+- id: 130
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "Zeolite is a silicate of two metal ions X and Y. X and Y are respectively"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 131
+  section: Inorganic Chemistry
+
+  topic: s_block_elements
+  text: "Identify the incorrect reaction from the following"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 132
+  section: Inorganic Chemistry
+
+  topic: s_block_elements
+  text: |
+    In the reactions I and II the covalencies of Be and Al in X and Y are respectively
+    I) $\text{Be(OH)}_2 + \text{NaOH} (\text{excess}) \to X$
+    II) $\text{Al(OH)}_3 + \text{NaOH} (\text{excess}) \to Y$
+  options:
+    A: "4, 6"
+    B: "4, 4"
+    C: "6, 4"
+    D: "3, 6"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 133
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "The atomic radius of gallium is less than that of aluminium. This is due to"
+  options:
+    A: "Greater shielding power of s-electrons of gallium atom"
+    B: "poor shielding power of s-electrons of gallium"
+    C: "Poor shielding power of d-electrons of gallium"
+    D: "Greater shielding power of d-electrons of gallium"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 134
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "Which of the following has lowest melting point?"
+  options:
+    A: "Si"
+    B: "Ge"
+    C: "Sn"
+    D: "Pb"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 135
+  section: Organic Chemistry
+
+  topic: hydrocarbons
+  text: |
+    Arrange the following in the correct order of their acidic strength
+    $\text{H}_2\text{C}=\text{CH}_2$ (I), $\text{CH}\equiv\text{CH}$ (II), $\text{CH}_3\text{-C}\equiv\text{CH}$ (III), $\text{CH}_3\text{-CH}_3$ (IV)
+  options:
+    A: "I < II < III < IV"
+    B: "IV < I < III < II"
+    C: "IV < III < II < I"
+    D: "II < III < IV < I"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 136
+  section: Organic Chemistry
+
+  topic: hydrocarbons
+  text: |
+    $\text{C}_3\text{H}_4 + \text{H}_2\text{O} \xrightarrow[333K]{Hg^{2+}/H^+} [X] \xrightarrow{\text{Tautomerisation}} Y$
+    X and Y are respectively
+  options:
+    A: "unsaturated alcohol, aldehyde"
+    B: "saturated alcohol, ketone"
+    C: "unsaturated alcohol, ketone"
+    D: "saturated alcohol, aldehyde"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 137
+  section: Organic Chemistry
+
+  topic: hydrocarbons
+  text: "Addition of HBr to propene in presence of a peroxide takes place contrary to Markovnikov rule. This can be explained by the mechanism involving"
+  options:
+    A: "electrophile"
+    B: "free radical"
+    C: "nucleophile"
+    D: "carbene"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 138
+  section: Organic Chemistry
+
+  topic: basic_principles_of_organic_chemistry
+  text: "The rate of attack of an electrophile is least when X in the given compound is"
+  image: "/static/papers/ts_eamcet/2023_2/q138.png"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 139
+  section: Physical Chemistry
+
+  topic: states_of_matter
+  text: "In the structure of a solid, W atoms are located at the cube corners of the unit cell, O atoms are located at the cube edges and Na atoms at the cube centres. The formula of the compound is"
+  options:
+    A: {inner}
+    B: {inner}
+    C: {inner}
+    D: {inner}
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 140
+  section: Physical Chemistry
+
+  topic: solutions
+  text: {inner}
+  options:
+    A: "-0.62"
+    B: "-0.512"
+    C: "-1.24"
+    D: "-1.86"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 141
+  section: Physical Chemistry
+
+  topic: chemical_kinetics
+  text: |
+    A possible mechanism for the gaseous reaction $2H_2 + 2NO \to 2H_2O + N_2$ is
+    Step 1: $2NO \rightleftharpoons N_2O_2$
+    Step 2: $N_2O_2 + H_2 \longrightarrow N_2O + H_2O$ (slow)
+    Step 3: $N_2O + H_2 \longrightarrow N_2 + H_2O$
+    The rate law for this reaction is
+  options:
+    A: "$R = k[NO]^2 [H_2]^2$"
+    B: "$R = k[NO] [H_2]^2$"
+    C: "$R = k[NO]^{1.5} [H_2]$"
+    D: "$R = k[NO]^2 [H_2]$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 142
+  section: Physical Chemistry
+
+  topic: electrochemistry
+  text: {inner}
+  options:
+    A: "0.543"
+    B: "0.653"
+    C: "0.733"
+    D: "0.822"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 143
+  section: Physical Chemistry
+
+  topic: surface_chemistry
+  text: "The sol prepared by Bredig's Arc method is X and the charge of sol particles of it is q. X and q are respectively"
+  options:
+    A: "Metal sol, -ve"
+    B: "Metal sol, +ve"
+    C: "Metal sulphide sol, -ve"
+    D: "$TiO_2$ sol, +ve"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 144
+  section: Inorganic Chemistry
+
+  topic: general_principles_of_metallurgy
+  text: "The metal which is refined by Mond process is (X), by van Arkel process is (Y) and by zone refining is (Z). X, Y and Z respectively are"
+  options:
+    A: "Ni, Zr, Ga"
+    B: "Zr, Ni, Ga"
+    C: "Ga, Ni, Zr"
+    D: "Ni, Ga, Zr"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 145
+  section: Inorganic Chemistry
+
+  topic: d_block_elements
+  text: "The products formed during thermal decomposition of ammonium dichromate are"
+  options:
+    A: "$O_2, H_2O, Cr(OH)_3$"
+    B: "$NO_2, H_2O, Cr_2O_3$"
+    C: "$N_2, Cr_2O_3, H_2O$"
+    D: "$N_2O, Cr(OH)_3$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 146
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "Among the hydrides of group 16 elements, the hydride X has lowest boiling point and the hydride Y has highest boiling point. X and Y respectively are"
+  options:
+    A: "$H_2Te, H_2Se$"
+    B: "$H_2O, H_2Te$"
+    C: "$H_2S, H_2Te$"
+    D: "$H_2S, H_2O$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 147
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "Sodium nitrite with hydrochloric acid gives water along with two nitrogen oxides. They are"
+  options:
+    A: "$NO, NO_2$"
+    B: "$NO_2, N_2O_3$"
+    C: "$NO_2, N_2O$"
+    D: "$NO, N_2O_5$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 148
+  section: Inorganic Chemistry
+
+  topic: p_block_elements_groups_13_16
+  text: "Identify the incorrect statement about the interhalogen compounds"
+  options:
+    A: "ICl is more reactive than $I_2$"
+    B: "They are diamagnetic in nature"
+    C: "The products of ICl and water are HI + HOCl"
+    D: "They act as fluorinating agents"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 149
+  section: Inorganic Chemistry
+
+  topic: f_block_elements
+  text: "In +2 oxidation state, which of the following lanthanoids act as reducing agents?"
+  options:
+    A: "Ce, Pr"
+    B: "Eu, Gd"
+    C: "Eu, Yb"
+    D: "Lu, Er"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 150
+  section: Inorganic Chemistry
+
+  topic: coordination_compounds
+  text: "The sum of oxidation state and co-ordination number of central metal atom is maximum with respect to which of the following complex?"
+  options:
+    A: "$K_3[Cr(C_2O_4)_3]$"
+    B: "$[Cr(CO)_6]$"
+    C: "$K_2[PtCl_6]$"
+    D: "$K_4[Fe(CN)_6]$"
+  correct_answer: C
+  difficulty: hard
+  subject: Chemistry
+- id: 151
+  section: Organic Chemistry
+
+  topic: polymers
+  text: |
+    Match the following
+    List - I (Polymer Type) vs List - II (Example)
+    A) Fibre  ; B) Elastomer  ; C) Thermosetting polymer  ; D) Thermoplastic polymer
+    I) Bakelite  ; II) Polystyrene  ; III) Neoprene  ; IV) Dacron
+  options:
+    A: "A — III, B — IV, C — I, D — II"
+    B: "A — IV, B — III, C — I, D — II"
+    C: "A — II, B — I, C — IV, D — III"
+    D: "A — IV, B — I, C — II, D — III"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 152
+  section: Organic Chemistry
+
+  topic: biomolecules
+  text: |
+    From the following, the correct statements about polysaccharides are
+    I) Starch is a polymer of $\alpha$-D(+)-glucose
+    II) Amylose component of starch is not soluble in water
+    III) Amylose is a branched chain polymer of $\alpha$-D(+)-glucose
+    IV) Cellulose is a straight chain polymer of $\beta$-D(+)-glucose units
+  options:
+    A: "I & IV only"
+    B: "II & III only"
+    C: "II & IV only"
+    D: "I & III only"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 153
+  section: Organic Chemistry
+
+  topic: chemistry_in_everyday_life
+  text: "Which of the following acts as antihistamine?"
+  options:
+    A: "Heroin"
+    B: "Dimetapp"
+    C: "Nardil"
+    D: "Veronal"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 154
+  section: Organic Chemistry
+
+  topic: haloalkanes_and_haloarenes
+  text: "Identify the halogen exchange reaction from the following"
+  options:
+    A: "Sandmeyer reaction"
+    B: "Swarts reaction"
+    C: "Stephen reaction"
+    D: "Wurtz reaction"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 155
+  section: Organic Chemistry
+
+  topic: alcohols_phenols_and_ethers
+  text: |
+    Identify the major product Y in the given reaction sequence
+    $CH_3 - CH(Br) - CH_3 \xrightarrow[Alc. KOH]{\Delta} X \xrightarrow[ii) H_2O_2 / OH^-]{i) B_2H_6} Y$
+  options:
+    A: "$CH_3 - CH(OH) - CH_3$"
+    B: "$CH_3 - CH_2 - CH_2OH$"
+    C: "$CH_3 - CH(OH) - CH_2OH$"
+    D: "$CH_2(OH) - CH_2 - CH_2OH$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 156
+  section: Organic Chemistry
+
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: |
+    $C_6H_6 \xrightarrow[Anhy. AlCl_3]{CH_3COCl} X \xrightarrow{Zn-Hg | conc. HCl} Y$
+    Conversion of X into Y is an example of the reaction
+  options:
+    A: "Rosenmund reduction"
+    B: "Clemmensen reduction"
+    C: "Wolff-Kishner reduction"
+    D: "Stephen reduction"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 157
+  section: Organic Chemistry
+
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: "The main reactants involved in Etard reaction are"
+  options:
+    A: "Toluene + $CrO_2Cl_2$"
+    B: "Toluene + $CrO_3 + (CH_3CO)_2O$"
+    C: {inner}
+    D: "Benzene + CO + HCl / Anhy. $AlCl_3$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 158
+  section: Organic Chemistry
+
+  topic: amines
+  text: |
+    The major product 'Z' in the reaction sequence is
+    Benzoic acid $\xrightarrow[conc. H_2SO_4]{conc. HNO_3} X \xrightarrow{Sn / HCl} Y \xrightarrow[ii) CuCl / HCl]{i) NaNO_2 / HCl, 0^{\circ}C} Z$
+  image: "/static/papers/ts_eamcet/2023_2/q158.png"
+  options:
+    A: "3-nitrobenzoic acid"
+    B: "3-chlorobenzoic acid"
+    C: "3-aminobenzoic acid"
+    D: "3-chlorobenzoyl chloride"
+  correct_answer: B
+  difficulty: hard
+  subject: Chemistry
+- id: 159
+  section: Organic Chemistry
+
+  topic: amines
+  text: |
+    Arrange the following in the order of decreasing basicity
+    $RN=CHR'$ (I), $RC\equiv N$ (II), $RNH_2$ (III)
+  options:
+    A: "I > III > II"
+    B: "III > I > II"
+    C: "II > III > I"
+    D: "II > I > III"
+  correct_answer: B
+  difficulty: hard
+  subject: Chemistry
+- id: 160
+  section: Organic Chemistry
+
+  topic: amines
+  text: "Which one of the following gives a foul-smelling substance when treated with chloroform and alcoholic KOH?"
+  image: "/static/papers/ts_eamcet/2023_2/q160.png"
+  options:
+    A: "N-methylaniline"
+    B: "Benzylamine"
+    C: "Benzamide"
+    D: "N,N-dimethylaniline"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
