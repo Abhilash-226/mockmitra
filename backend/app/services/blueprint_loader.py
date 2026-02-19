@@ -9,7 +9,17 @@ from pathlib import Path
 from typing import List, Optional, Dict, Any
 from functools import lru_cache
 
-from app.models.blueprint import Blueprint, DifficultyLevel
+from app.models.blueprint import Blueprint, DifficultyLevel, AnswerType
+
+# Map section codes to subject names
+SECTION_MAP = {
+    "MAT": "Mathematics",
+    "PHY": "Physics",
+    "CHE": "Chemistry",
+    "MATH": "Mathematics",
+    "PHYS": "Physics",
+    "CHEM": "Chemistry"
+}
 
 
 class BlueprintLoader:
@@ -31,12 +41,13 @@ class BlueprintLoader:
             blueprints_dir = base_dir / "blueprints"
         
         self.blueprints_dir = Path(blueprints_dir)
+        self.pyq_dir = self.blueprints_dir.parent / "pyq_papers"
         self._blueprints: Dict[str, Blueprint] = {}
         self._loaded = False
     
     def load_all(self, force_reload: bool = False) -> int:
         """
-        Load all blueprint YAML files from the blueprints directory.
+        Load all blueprint YAML files from the blueprints directory and PYQ papers.
         
         Args:
             force_reload: If True, reload even if already loaded
@@ -49,15 +60,21 @@ class BlueprintLoader:
         
         self._blueprints.clear()
         
-        if not self.blueprints_dir.exists():
-            raise FileNotFoundError(f"Blueprints directory not found: {self.blueprints_dir}")
-        
-        # Load all YAML files recursively from exam subfolders
-        for yaml_file in self.blueprints_dir.glob("**/*.yaml"):
-            self._load_file(yaml_file)
-        
-        for yml_file in self.blueprints_dir.glob("**/*.yml"):
-            self._load_file(yml_file)
+        # Load manual blueprints if directory exists (now optional)
+        if self.blueprints_dir.exists():
+            # Load all YAML files recursively from exam subfolders
+            for yaml_file in self.blueprints_dir.glob("**/*.yaml"):
+                self._load_file(yaml_file)
+            
+            for yml_file in self.blueprints_dir.glob("**/*.yml"):
+                self._load_file(yml_file)
+            
+        # Load PYQ papers as virtual blueprints
+        if self.pyq_dir.exists():
+            for yaml_file in self.pyq_dir.glob("**/*.yaml"):
+                self._load_pyq_file(yaml_file)
+            for yml_file in self.pyq_dir.glob("**/*.yml"):
+                self._load_pyq_file(yml_file)
         
         self._loaded = True
         return len(self._blueprints)
@@ -91,6 +108,55 @@ class BlueprintLoader:
             print(f"Warning: Failed to parse YAML file {file_path}: {e}")
         except Exception as e:
             print(f"Warning: Error loading {file_path}: {e}")
+
+    def _load_pyq_file(self, file_path: Path) -> None:
+        """Load virtual blueprints from a PYQ paper YAML file."""
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = yaml.safe_load(f)
+            
+            if not data or 'questions' not in data:
+                return
+            
+            exam_name = data.get('exam', 'TS_EAMCET')
+            paper_id = data.get('id', file_path.stem)
+            
+            for q_data in data['questions']:
+                try:
+                    q_id = q_data.get('id')
+                    section_code = q_data.get('section', 'MAT')
+                    subject = SECTION_MAP.get(section_code, "Mathematics")
+                    
+                    # Create a Virtual Blueprint from the PYQ question
+                    bp_id = f"PYQ_{paper_id}_{q_id}"
+                    
+                    # Skip if already exists (static blueprints take precedence)
+                    if bp_id in self._blueprints:
+                        continue
+                        
+                    blueprint = Blueprint(
+                        id=bp_id,
+                        exam=exam_name,
+                        subject=q_data.get('subject', subject),
+                        section=q_data.get('section', 
+                                          q_data.get('topic', 'General') if 'subject' in q_data else 'General'),
+                        topic=q_data.get('topic', 
+                                         q_data.get('chapter', 'General')),
+                        chapter=q_data.get('chapter'),
+                        concept=q_data.get('concept'),
+                        template=q_data.get('text', ''),
+                        answer_options=list(q_data.get('options', {}).values()) if q_data.get('options') else None,
+                        answer_type=AnswerType.CATEGORICAL if q_data.get('options') else AnswerType.NUMERICAL,
+                        difficulty_level=q_data.get('difficulty', DifficultyLevel.MODERATE),
+                        tags=q_data.get('tags', []) + [paper_id, "pyq_source"]
+                    )
+                    self._blueprints[bp_id] = blueprint
+                except Exception as e:
+                    # Silently skip malformed individual questions
+                    continue
+                    
+        except Exception as e:
+            print(f"Warning: Error loading PYQ {file_path}: {e}")
     
     def get_blueprint(self, blueprint_id: str) -> Optional[Blueprint]:
         """
@@ -207,6 +273,8 @@ class BlueprintLoader:
         chapter: Optional[str] = None,
         concept: Optional[str] = None,
         difficulty: Optional[DifficultyLevel] = None,
+        section: Optional[str] = None,
+        topic: Optional[str] = None,
         tags: Optional[List[str]] = None,
         limit: Optional[int] = None
     ) -> List[Blueprint]:
@@ -220,6 +288,8 @@ class BlueprintLoader:
             chapter: Filter by chapter
             concept: Filter by concept (partial match)
             difficulty: Filter by difficulty level
+            section: Filter by section (e.g., "Algebra")
+            topic: Filter by topic (e.g., "Matrices")
             tags: Filter by tags (any match)
             limit: Maximum number of results
             
@@ -233,13 +303,25 @@ class BlueprintLoader:
             results = [bp for bp in results if bp.exam and bp.exam.lower() == exam.lower()]
         
         if subject:
-            results = [bp for bp in results if bp.subject.lower() == subject.lower()]
+            results = [bp for bp in results if bp.subject and bp.subject.lower() == subject.lower()]
         
+        if section:
+            results = [bp for bp in results if bp.section and bp.section.lower() == section.lower()]
+            
+        if topic:
+            results = [bp for bp in results if bp.topic and bp.topic.lower() == topic.lower()]
+
         if unit:
             results = [bp for bp in results if bp.unit and bp.unit.lower() == unit.lower()]
         
         if chapter:
-            results = [bp for bp in results if bp.chapter.lower() == chapter.lower()]
+            # Inclusive matching: check if requested chapter matches either chapter or unit
+            results = [
+                bp for bp in results 
+                if (bp.chapter and bp.chapter.lower() == chapter.lower()) or 
+                   (bp.unit and bp.unit.lower() == chapter.lower()) or
+                   (bp.section and bp.section.lower() == chapter.lower())
+            ]
         
         if concept:
             results = [

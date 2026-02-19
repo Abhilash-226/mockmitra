@@ -58,8 +58,45 @@ const normalizeTopic = (topic, index, sectionCode, indexOffset = 0) => {
   };
 };
 
-const normalizeSections = (sections = [], defaults = {}) =>
-  sections.map((section, index) => {
+const normalizeSections = (sections = [], subjects = [], defaults = {}) => {
+  // If we have subjects (new hierarchy), use them
+  if (subjects && subjects.length > 0) {
+    return subjects.map((subject) => {
+      const subjectCode = subject.code;
+      const sections = (subject.sections || []).map((section, sectionIndex) => {
+        const sectionName = section.name;
+        const sectionCode = section.code || slugify(sectionName);
+        
+        // Topics inside this section (from the new hierarchy)
+        const topics = (section.topics || []).map((topic, topicIndex) => 
+          normalizeTopic(topic, topicIndex, sectionCode)
+        ).filter(Boolean);
+
+        return {
+          id: sectionCode,
+          code: sectionCode,
+          name: sectionName,
+          totalQuestions: section.total_questions ?? 0,
+          marksPerQuestion: section.marks_per_question ?? defaults.defaultMarks ?? 1,
+          negativeMarks: section.negative_marks ?? defaults.defaultNegative ?? 0,
+          topics,
+          subjectCode: subject.code,
+          subjectName: subject.name
+        };
+      });
+
+      return {
+        id: subjectCode,
+        code: subjectCode,
+        name: subject.name,
+        sections,
+        totalQuestions: sections.reduce((acc, s) => acc + s.totalQuestions, 0)
+      };
+    });
+  }
+
+  // Backward compatibility for flat sections
+  return sections.map((section, index) => {
     const sectionName = section.name || `Section ${index + 1}`;
     const sectionCode =
       section.code || slugify(sectionName) || `section-${index}`;
@@ -87,12 +124,13 @@ const normalizeSections = (sections = [], defaults = {}) =>
       topicBank,
     };
   });
+};
 
 const sumQuestions = (sections = []) =>
   sections.reduce((total, section) => total + (section.totalQuestions || 0), 0);
 
 const transformExamConfig = (data, fallbackMeta = {}) => {
-  const sections = normalizeSections(data.sections || [], {
+  const subjects = normalizeSections(data.sections || [], data.subjects || [], {
     defaultMarks: data.default_marks_per_question,
     defaultNegative: data.default_negative_marks,
   });
@@ -109,10 +147,10 @@ const transformExamConfig = (data, fallbackMeta = {}) => {
       data.description ||
       fallbackMeta.description ||
       DEFAULT_EXAM_CONFIG.description,
-    sections,
+    sections: subjects, // We'll keep calling it 'sections' for the component props
     maxQuestions:
       data.total_questions ||
-      sumQuestions(sections) ||
+      sumQuestions(subjects) ||
       fallbackMeta.questionCount ||
       DEFAULT_EXAM_CONFIG.maxQuestions,
     defaultDuration:
@@ -360,36 +398,50 @@ export default function ExamCustomizationPage() {
   };
 
   const handleSubmit = async (config) => {
-    console.log("Starting test with config:", config);
-    const targetExamCode =
-      config.selectedExam || examConfig?.examCode || examId;
     try {
-      // Generate test with the config
-      const testResponse = await examService.generateTest({
+      setLoading(true);
+      const targetExamCode = config.selectedExam || examConfig?.examCode || examId;
+      
+      // Process selected sections and topics based on hierarchical mapping
+      let selectedSections = [];
+      let selectedTopics = [];
+
+      if (config.testMode === "sectional") {
+        // In this mode, config.selectedTopics contains section codes
+        selectedSections = config.selectedTopics.map(t => 
+          typeof t === 'string' ? t : (t.id || t.code || t)
+        );
+      } else if (config.testMode === "topic") {
+        // In this mode, config.selectedTopics contains actual topic codes/names
+        selectedTopics = config.selectedTopics.map(t => 
+          typeof t === 'string' ? t : (t.id || t.code || t.name || t)
+        );
+      }
+
+      // Generate test
+      await examService.generateTest({
         title: `${examConfig?.examName || targetExamCode} ${
-          config.testMode === "full" ? "Full Mock" : "Custom Test"
+          config.testMode === "full" ? "Full Mock" : 
+          config.testMode === "sectional" ? "Sectional Drill" : "Topic Focus"
         }`,
         exam_code: targetExamCode,
-        test_type: TEST_TYPE_MAP[config.testMode] || TEST_TYPE_MAP.full,
+        test_type: TEST_TYPE_MAP[config.testMode] || "topic_wise",
+        sections: selectedSections,
+        topics: selectedTopics,
+        difficulty: config.difficulty || "mixed",
+        custom_question_count: config.questionCount,
+        custom_duration_minutes: config.duration,
       });
 
-      const testData = testResponse.data || testResponse;
-      const testId = testData.id || testData._id || testData.test_id;
-
-      // Set the exam in the store before navigating
-      actions.setCurrentExam({
-        ...testData,
-        id: testId,
-        config: config,
-      });
-
-      navigate(`/exam/${testId}/instructions`, {
-        state: { config, testId: testId },
-      });
+      // Show success message (could be a toast in future)
+      alert("Your test is being generated! You will be notified on the dashboard when it is ready.");
+      
+      // Navigate to dashboard to see progress
+      navigate("/dashboard");
     } catch (err) {
       console.error("Failed to generate test:", err);
-      // Fallback to instructions page without generated test
-      navigate(`/exam/${targetExamCode}/instructions`, { state: { config } });
+      setError("Failed to start test generation. Please try again.");
+      setLoading(false);
     }
   };
 

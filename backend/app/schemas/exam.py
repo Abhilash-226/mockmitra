@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, computed_field, model_validator
 from typing import List, Optional, Dict, Any, Union
 
 
@@ -19,22 +19,19 @@ class TopicConfig(BaseModel):
 
 
 class SectionConfig(BaseModel):
+    """Section configuration (e.g., Algebra, Mechanics)"""
     name: str
     code: str
     total_questions: int
     marks_per_question: float
     negative_marks: float
-    time_limit_minutes: Optional[int] = None  # If section has separate timer
-    topics: List[TopicConfig]
-    topic_bank: List[TopicConfig] = []
+    time_limit_minutes: Optional[int] = None
+    topics: List[TopicConfig] = []
     
-    @field_validator('topics', 'topic_bank', mode='before')
+    @field_validator('topics', mode='before')
     @classmethod
     def convert_topics(cls, v):
-        """Convert string topics to TopicConfig objects for backward compatibility"""
-        if not v:
-            return []
-        
+        if not v: return []
         result = []
         for topic in v:
             if isinstance(topic, str):
@@ -44,6 +41,17 @@ class SectionConfig(BaseModel):
             else:
                 result.append(topic)
         return result
+
+
+class SubjectConfig(BaseModel):
+    """Subject configuration (e.g., Mathematics, Physics)"""
+    name: str
+    code: str
+    sections: List[SectionConfig]
+    
+    @property
+    def total_questions(self) -> int:
+        return sum(s.total_questions for s in self.sections)
 
 
 class ExamConfig(BaseModel):
@@ -60,8 +68,48 @@ class ExamConfig(BaseModel):
     default_marks_per_question: float = 1.0
     default_negative_marks: float = 0.0
     
-    # Sections
-    sections: List[SectionConfig]
+    # Subjects (Mathematics, Physics, Chemistry)
+    subjects: Optional[List[SubjectConfig]] = None
+    
+    @model_validator(mode='before')
+    @classmethod
+    def migrate_legacy_sections(cls, data: Any) -> Any:
+        if isinstance(data, dict):
+            # If subjects is already present, we're good
+            if 'subjects' in data and data['subjects']:
+                return data
+                
+            # If missing subjects but has sections (legacy format)
+            if 'sections' in data and data['sections']:
+                legacy_sections = data['sections']
+                new_subjects = []
+                
+                for section_data in legacy_sections:
+                    # Map OLD section to NEW subject + NEW single section
+                    # This preserves the 3-level hierarchy for the UI
+                    section_name = section_data.get('name', 'General')
+                    section_code = section_data.get('code', 'general')
+                    
+                    new_subjects.append({
+                        'name': section_name,
+                        'code': section_code,
+                        'sections': [section_data] # The subject has one section which is itself
+                    })
+                
+                data['subjects'] = new_subjects
+                # We don't delete 'sections' as it might be used by @computed_field later
+                # but Pydantic will ignore extra fields not in model unless configured otherwise
+                
+        return data
+    
+    @computed_field
+    @property
+    def sections(self) -> List[SectionConfig]:
+        """Flat list of all sections across all subjects for backward compatibility"""
+        all_sections = []
+        for sub in self.subjects:
+            all_sections.extend(sub.sections)
+        return all_sections
     
     # Instructions
     instructions: List[str]
@@ -86,4 +134,5 @@ class ExamListResponse(BaseModel):
     description: str
     total_questions: int
     duration_minutes: int
+    subjects: List[str]
     sections: List[str]

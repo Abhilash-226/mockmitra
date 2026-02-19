@@ -1,7 +1,27 @@
 // PYQ Exam Interface Page - For Past Year Question Papers
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate, useLocation, useBlocker, useBeforeUnload } from "react-router-dom";
+import "katex/dist/katex.min.css";
+import Latex from "react-latex-next";
 import Modal from "../../components/ui/Modal";
+
+// Helper: renders text with LaTeX, preserving \n as line breaks
+// Handles both actual newlines and literal \n sequences (from YAML single-quoted strings)
+function LatexText({ children }) {
+  if (!children) return null;
+  // Split on actual newlines OR literal \n (two chars: backslash + n)
+  const parts = String(children).split(/\n|\\n/);
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          <Latex>{part}</Latex>
+          {i < parts.length - 1 && <br />}
+        </span>
+      ))}
+    </>
+  );
+}
 import Button from "../../components/ui/Button";
 import { pyqService } from "../../services/pyqService";
 
@@ -175,9 +195,25 @@ export default function PYQExamInterfacePage() {
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [language, setLanguage] = useState("English");
   const [currentSection, setCurrentSection] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   // Loading state
   const [loadingMessage, setLoadingMessage] = useState("Loading paper...");
+
+  // Prevent accidental navigation
+  useBeforeUnload(
+    useCallback((e) => {
+      if (!loading && questions.length > 0) {
+        e.preventDefault();
+        return (e.returnValue = "Are you sure you want to leave the exam? Your progress may not be saved.");
+      }
+    }, [loading, questions.length])
+  );
+
+  // Block internal navigation (back button, etc.)
+  useBlocker(({ nextLocation, currentLocation }) => {
+    return !loading && questions.length > 0 && !isSubmitted && nextLocation.pathname !== currentLocation.pathname;
+  });
 
   // Store correct answers for result calculation
   const [correctAnswers, setCorrectAnswers] = useState({});
@@ -213,6 +249,7 @@ export default function PYQExamInterfacePage() {
           ],
           section: q.section || "general",
           topic: q.topic,
+          image: q.image,
         }));
 
         setQuestions(transformedQuestions);
@@ -376,6 +413,7 @@ export default function PYQExamInterfacePage() {
   const handleSubmit = async () => {
     // For PYQ, we calculate results locally
     // Navigate to results with answers state
+    setIsSubmitted(true);
     navigate(`/pyq/${paperId}/results`, {
       state: {
         paperId,
@@ -553,9 +591,18 @@ export default function PYQExamInterfacePage() {
 
               {/* Question Text */}
               <div className="bg-white p-6 rounded-lg shadow-sm border mb-6">
-                <p className="text-gray-800 text-lg leading-relaxed whitespace-pre-wrap">
-                  {currentQuestion.text}
+                <p className="text-gray-800 text-lg leading-relaxed">
+                  <LatexText>{currentQuestion.text}</LatexText>
                 </p>
+                {currentQuestion.image && (
+                  <div className="mt-4 flex justify-center bg-white p-2 border rounded">
+                    <img 
+                      src={currentQuestion.image.startsWith('http') ? currentQuestion.image : `http://localhost:8000${currentQuestion.image}`} 
+                      alt="Question Diagram" 
+                      className="max-w-full h-auto max-h-[300px] object-contain"
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Options */}
@@ -582,7 +629,9 @@ export default function PYQExamInterfacePage() {
                       >
                         ({option.id})
                       </div>
-                      <span className="text-gray-800">{option.text}</span>
+                      <span className="text-gray-800">
+                        <LatexText>{option.text}</LatexText>
+                      </span>
                     </button>
                   );
                 })}

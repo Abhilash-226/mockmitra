@@ -1,0 +1,1940 @@
+id: ts_eamcet_2024_3
+exam: TS EAMCET
+year: 2024
+shift: 3
+session: Shift 3 (May 10 Forenoon)
+metadata:
+  total_questions: 160
+  duration_minutes: 180
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 80
+- code: PHY
+  name: Physics
+  question_count: 40
+- code: CHE
+  name: Chemistry
+  question_count: 40
+questions:
+- id: 1
+  section: Algebra
+  topic: Functions
+  text: "If the real valued function $f(x) = \\sin^{-1}(x^2-1) - 3\\log_3(3^x-2)$ is not defined for all $x \\in (-\\infty, a] \\cup (b, \\infty)$, then $3^a + b^2 =$"
+  options:
+    A: "5"
+    B: "6"
+    C: "3"
+    D: "4"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: Algebra
+  topic: Functions
+  text: "If $f$ is a real valued function from $A$ onto $B$ defined by $f(x) = \\frac{1}{\\sqrt{x-|x|}}$, then $A \\cap B =$"
+  options:
+    A: "$\\phi$"
+    B: "$(-\\infty, 0)$"
+    C: "$(0, \\infty)$"
+    D: "$(-\\infty, \\infty)$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 3
+  section: Algebra
+  topic: Series
+  text: "Among the following four statements, the statement which is not true, for all $n \\in \\mathbb{N}$ is"
+  options:
+    A: "$(2n+7) < (n+3)^2$"
+    B: "$1^2 + 2^2 + \\dots + n^2 > \\frac{n^3}{3}$"
+    C: "$3 \\cdot 5^{2n+1} + 2^{3n+1}$ is divisible by 23"
+    D: "$2+7+12+\\dots+(5n-3) = \\frac{n(5n-1)}{2}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 4
+  section: Algebra
+  topic: Matrices
+  text: "If $A = \\begin{bmatrix} x & y & y \\\\ y & x & y \\\\ y & y & x \\end{bmatrix}$ is a matrix such that $5A^{-1} = \\begin{bmatrix} -3 & 2 & 2 \\\\ 2 & -3 & 2 \\\\ 2 & 2 & -3 \\end{bmatrix}$, then $A^2 - 4A =$"
+  options:
+    A: "$5A^{-1}$"
+    B: "$5I$"
+    C: "0"
+    D: "$I$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 5
+  section: Algebra
+  topic: Matrices
+  text: "If $A = \\begin{bmatrix} 9 & 3 & 0 \\\\ 1 & 5 & 8 \\\\ 7 & 6 & 2 \\end{bmatrix}$ and $AA^T - A^2 = \\begin{bmatrix} a_{11} & a_{12} & a_{13} \\\\ a_{21} & a_{22} & a_{23} \\\\ a_{31} & a_{32} & a_{33} \\end{bmatrix}$, then $\\sum_{1 \\le i \\le 3, 1 \\le j \\le 3} a_{ij} =$"
+  options:
+    A: "35"
+    B: "0"
+    C: "33"
+    D: "1"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 6
+  section: Algebra
+  topic: Matrices
+  text: "If $a \ne b \ne c$, $\\Delta_1 = \\begin{vmatrix} 1 & a^2 & bc \\\\ 1 & b^2 & ca \\\\ 1 & c^2 & ab \\end{vmatrix}$, $\\Delta_2 = \\begin{vmatrix} 1 & 1 & 1 \\\\ a^2 & b^2 & c^2 \\\\ a^3 & b^3 & c^3 \\end{vmatrix}$ and $\\frac{\\Delta_1}{\\Delta_2} = \\frac{6}{11}$, then $11(a+b+c) =$"
+  options:
+    A: "0"
+    B: "1"
+    C: "$ab+bc+ca$"
+    D: "$6(ab+bc+ca)$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 7
+  section: Algebra
+  topic: Systems of Linear Equations
+  text: "The system of equations $x+3y+7=0$, $3x+10y-3z+18=0$ and $3y-9z+2=0$ has"
+  options:
+    A: "unique solution"
+    B: "infinitely many solutions"
+    C: "no solution"
+    D: "finite number of solutions"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 8
+  section: Algebra
+  topic: Complex Numbers
+  text: "If $x$ and $y$ are two positive real numbers such that $x+iy = \\frac{13\\sqrt{-5+12i}}{(2-3i)(3+2i)}$, then $13y-26x =$"
+  options:
+    A: "28"
+    B: "39"
+    C: "42"
+    D: "54"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 9
+  section: Algebra
+  topic: Complex Numbers
+  text: "If $z=x+iy$ and if the point $P$ represents $z$ in the Argand plane, then the locus of $z$ satisfying the equation $|z-1|+|z+i|=2$ is"
+  options:
+    A: "$15x^2 - 2xy + 15y^2 - 16x + 16y - 48 = 0$"
+    B: "$3x^2 + 2xy + 3y^2 - 4x - 4y = 0$"
+    C: "$3x^2 - 2xy + 3y^2 - 4x + 4y = 0$"
+    D: "$15x^2 + 2xy + 15y^2 + 16x - 16y - 48 = 0$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 10
+  section: Algebra
+  topic: Complex Numbers
+  text: "One of the values of $(-64i)^{5/6}$ is"
+  options:
+    A: "$32i$"
+    B: "$16\\sqrt{2}(1+i)$"
+    C: "$32(1+i)$"
+    D: "$16\\sqrt{2} i$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 11
+  section: Algebra
+  topic: Theory of Equations
+  text: "If $\\alpha, \\beta$ are the roots of the equation $x + \\frac{4}{x} = 2\\sqrt{3}$, then $\\frac{2}{\\sqrt{3}}|\\alpha^{2024} - \\beta^{2024}| =$"
+  options:
+    A: "$2^{2024}$"
+    B: "$2^{2025}$"
+    C: "$2^{2023}$"
+    D: "$2^{1012}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: Algebra
+  topic: Theory of Equations
+  text: "$\\alpha, \\beta$ are the real roots of the equation $12x^{1/3} - 25x^{1/6} + 12 = 0$. If $\\alpha > \\beta$, then $\\sqrt[6]{\\frac{\\alpha}{\\beta}} =$"
+  options:
+    A: "$\\frac{3}{2}$"
+    B: "$\\frac{4}{3}$"
+    C: "$\\frac{9}{8}$"
+    D: "$\\frac{16}{9}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 13
+  section: Algebra
+  topic: Quadratic Expressions
+  text: "If the expression $7 + 6x - 3x^2$ attains its extreme value $\\beta$ at $x = \\alpha$, then the sum of the squares of the roots of the equation $x^2 + \\alpha x - \\beta = 0$ is"
+  options:
+    A: "21"
+    B: "-19"
+    C: "19"
+    D: "-21"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 14
+  section: Algebra
+  topic: Theory of Equations
+  text: "$\\alpha, \\beta, \\gamma$ are the roots of the equation $x^3 + 3x^2 - 10x - 24 = 0$. If $\\alpha > \\beta > \\gamma$ and $\\alpha^3 + 3\\beta^2 - 10\\gamma - 24 = 11k$, then $k =$"
+  options:
+    A: "1"
+    B: "11"
+    C: "5"
+    D: "55"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 15
+  section: Algebra
+  topic: Theory of Equations
+  text: "$\\alpha, \\beta, \\gamma$ are the roots of the equation $8x^3 - 42x^2 + 63x - 27 = 0$. If $\\beta < \\gamma < \\alpha$ and $\\beta, \\gamma, \\alpha$ are in geometric progression, then the extreme value of the expression $\\gamma x^2 + 4\\beta x + \\alpha$ is"
+  options:
+    A: "$\\frac{3}{4}$"
+    B: "3"
+    C: "$\\frac{3}{2}$"
+    D: "$\\frac{21}{4}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Algebra
+  topic: Permutations and Combinations
+  text: "All the letters of the word 'COLLEGE' are arranged in all possible ways and all the seven letter words (with or without meaning) thus formed are arranged in the dictionary order. Then the rank of the word 'COLLEGE' is"
+  options:
+    A: "119"
+    B: "149"
+    C: "176"
+    D: "179"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 17
+  section: Algebra
+  topic: Permutations and Combinations
+  text: "If all the possible 3-digit numbers are formed using the digits 1, 3, 5, 7, 9 without repeating any digit, then the number of such 3-digit numbers which are divisible by 3 is"
+  options:
+    A: "6"
+    B: "12"
+    C: "18"
+    D: "24"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 18
+  section: Algebra
+  topic: Permutations and Combinations
+  text: "A question paper has 3 parts A, B, C. Part A contains 7 questions, part B contains 5 questions and Part C contains 3 questions. If a candidate is allowed to answer not more than 4 questions from part A; not more than 3 questions from part B and not more than 2 questions from part C, then the number of ways in which a candidate can answer exactly 7 questions is"
+  options:
+    A: "4655"
+    B: "4025"
+    C: "3675"
+    D: "2625"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 19
+  section: Algebra
+  topic: Binomial Theorem
+  text: "If $p$ and $q$ are the real numbers such that the $7^{th}$ term in the expansion of $\\left(\\frac{5}{p^3} - \\frac{3q}{7}\\right)^8$ is 700 then $49 p^2 =$"
+  options:
+    A: "$4q^2$"
+    B: "$9q^2$"
+    C: "$16q^2$"
+    D: "$25q^2$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 20
+  section: Algebra
+  topic: Binomial Theorem
+  text: "If $T_4$ represents the $4^{th}$ term in the expansion of $\\left(5x + \\frac{7}{x}\\right)^{-3/2}$ and $x \notin \\left[-\\sqrt{\\frac{7}{5}}, \\sqrt{\\frac{7}{5}}\\right]$, then $(x^7 \\sqrt{5x}) T_4 =$"
+  options:
+    A: "$\\frac{7^4}{2^5 5^3}$"
+    B: "$-\\frac{7^4}{2^5 5^3}$"
+    C: "$-\\frac{7^4}{2^4 5^3}$"
+    D: "$\\frac{7^4}{2^4 5^3}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 21
+  section: Algebra
+  topic: Partial Fractions
+  text: "If $\\frac{2x^3+1}{2x^2-x-6} = ax+b+\\frac{A}{px-2}+\\frac{B}{2x+q}$, then $51 apB =$"
+  options:
+    A: "$23bqA$"
+    B: "$69bqA$"
+    C: "$7bqA$"
+    D: "$17bqA$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 22
+  section: Trigonometry
+  topic: Trigonometric Ratios and Identities
+  text: "$\\tan A = \\frac{-60}{11}$ and $A$ does not lie in the $4^{th}$ quadrant. $\\sec B = \\frac{41}{9}$ and $B$ does not lie in the $1^{st}$ quadrant. If $\\text{cosec } A + \\cot B = K$, then $24K =$"
+  options:
+    A: "11"
+    B: "19"
+    C: "40"
+    D: "61"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 23
+  section: Trigonometry
+  topic: Trigonometric Ratios and Identities
+  text: "If $\\tan A + \\tan B + \\cot A + \\cot B = \\tan A \\tan B - \\cot A \\cot B$ and $0^\\circ < A+B < 270^\\circ$, then $A+B=$"
+  options:
+    A: "$45^\\circ$"
+    B: "$135^\\circ$"
+    C: "$150^\\circ$"
+    D: "$225^\\circ$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 24
+  section: Trigonometry
+  topic: Trigonometric Ratios and Identities
+  text: "If $\\cos^2 84^\\circ + \\sin^2 126^\\circ - \\sin 84^\\circ \\cos 126^\\circ = K$ and $\\cot A + \\tan A = 2K$, then the possible values of $\\tan A$ are"
+  options:
+    A: "$\\frac{2}{3}, \\frac{3}{2}$"
+    B: "$\\frac{1}{3}, 3$"
+    C: "$\\frac{1}{2}, 2$"
+    D: "$\\frac{3}{4}, \\frac{4}{3}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 25
+  section: Trigonometry
+  topic: Trigonometric Equations
+  text: "The equation that is satisfied by the general solution of the equation $4 - 3\\cos^2 \\theta = 5\\sin \\theta \\cos \\theta$ is"
+  options:
+    A: "$7\\sin^2 \\theta + 3\\cos^2 \\theta = 4$"
+    B: "$\\sin^2 \\theta - 2\\cos \\theta + \\frac{1}{4} = 0$"
+    C: "$\\cot \\theta - \\tan \\theta = \\sec \\theta$"
+    D: "$1 + \\sin^2 \\theta = 3\\cos^2 \\theta$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 26
+  section: Trigonometry
+  topic: Inverse Trigonometric Functions
+  text: "If $\\sin^{-1}(4x) - \\cos^{-1}(3x) = \\frac{\\pi}{6}$, then $x =$"
+  options:
+    A: "$\\frac{\\sqrt{3}}{2\\sqrt{7}}$"
+    B: "$\\frac{\\sqrt{3}}{4\\sqrt{7}}$"
+    C: "$\\frac{\\sqrt{3}}{2\\sqrt{13}}$"
+    D: "$\\frac{\\sqrt{3}}{4\\sqrt{13}}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 27
+  section: Trigonometry
+  topic: Hyperbolic Functions
+  text: "If $\\sinh^{-1}(-\\sqrt{3}) + \\cosh^{-1}(2) = K$, then $\\cosh K =$"
+  options:
+    A: "$\\log(2-\\sqrt{3})$"
+    B: "$\\log(2+\\sqrt{3})$"
+    C: "0"
+    D: "1"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 28
+  section: Trigonometry
+  topic: Properties of Triangles
+  text: "In triangle ABC, if $a=4, b=3, c=2$ then $2(a - b \\cos C)(a - c \\sec B) =$"
+  options:
+    A: "0"
+    B: "1"
+    C: "2"
+    D: "3"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 29
+  section: Trigonometry
+  topic: Properties of Triangles
+  text: "In triangle ABC, if $A=45^\\circ, C=75^\\circ$ and $R=\\sqrt{2}$, then $r=$"
+  options:
+    A: "$\\frac{3+\\sqrt{3}}{\\sqrt{3}+\\sqrt{2}+1}$"
+    B: "$\\frac{\\sqrt{3}+1}{\\sqrt{3}+\\sqrt{2}+1}$"
+    C: "$\\frac{\\sqrt{3}+1}{\\sqrt{6}+\\sqrt{3}+3}$"
+    D: "$\\frac{\\sqrt{3}+1}{\\sqrt{3}+\\sqrt{2}}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 30
+  section: Vector Algebra
+  topic: Addition of Vectors
+  text: "P and Q are the points of trisection of the line segment AB. If $2\\bar{i} - 5\\bar{j} + 3\\bar{k}$ and $4\\bar{i} + \\bar{j} - 6\\bar{k}$ are the position vectors of A and B respectively, then the position vector of the point which divides PQ in the ratio 2:3 is"
+  options:
+    A: "$\\frac{1}{15}(44\\bar{i} - 33\\bar{j} - 18\\bar{k})$"
+    B: "$\\frac{1}{5}(36\\bar{i} - 26\\bar{j} - 18\\bar{k})$"
+    C: "$\\frac{1}{5}(3\\bar{i} + 7\\bar{j} - 9\\bar{k})$"
+    D: "$\\frac{1}{15}(-3\\bar{i} - 7\\bar{j} + 9\\bar{k})$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 31
+  section: Vector Algebra
+  topic: Addition of Vectors
+  text: "The position vector of the point of intersection of the line joining the points $\\bar{i}-\\bar{j}+\\bar{k}$, $\\bar{i}+\\bar{j}-2\\bar{k}$ and the line joining the points $2\\bar{i}+\\bar{j}-6\\bar{k}$, $3\\bar{i}-\\bar{j}-7\\bar{k}$ is"
+  options:
+    A: "$\\bar{i}-3\\bar{j}+4\\bar{k}$"
+    B: "$4\\bar{i}-3\\bar{j}-8\\bar{k}$"
+    C: "$\\bar{i}+3\\bar{j}-5\\bar{k}$"
+    D: "$\\bar{i}+\\bar{j}-2\\bar{k}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: Vector Algebra
+  topic: Product of Vectors
+  text: "If $\\bar{a} = 4\\bar{i}+5\\bar{j}-3\\bar{k}$ and $\\bar{b} = 6\\bar{i}-2\\bar{j}-2\\bar{k}$ are two vectors, then the magnitude of the component of $\\bar{b}$ parallel to $\\bar{a}$ is"
+  options:
+    A: "$2\\sqrt{2}$"
+    B: "$10\\sqrt{2}$"
+    C: "$4\\sqrt{2}$"
+    D: "$6\\sqrt{2}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 33
+  section: Vector Algebra
+  topic: Product of Vectors
+  text: "A plane $\\pi_1$ passing through the point $3\\bar{i}-7\\bar{j}+5\\bar{k}$ is perpendicular to the vector $\\bar{i}+2\\bar{j}-2\\bar{k}$ and another plane $\\pi_2$ passing through the point $2\\bar{i}+7\\bar{j}-8\\bar{k}$ is perpendicular to the vector $3\\bar{i}+2\\bar{j}+6\\bar{k}$. If $p_1$ and $p_2$ are the perpendicular distances from the origin to the planes $\\pi_1$ and $\\pi_2$ respectively, then $p_1-p_2=$"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "4"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 34
+  section: Vector Algebra
+  topic: Product of Vectors
+  text: "$\\bar{a}=2\\bar{i}-\\bar{j}$, $\\bar{b}=2\\bar{j}-\\bar{k}$, $\\bar{c}=2\\bar{k}-\\bar{i}$ are three vectors and $\\bar{d}$ is a unit vector perpendicular to $\\bar{c}$. If $\\bar{a}, \\bar{b}, \\bar{d}$ are coplanar vectors, then $|\\bar{d} \\cdot \\bar{b}|=$"
+  options:
+    A: "0"
+    B: "$\\frac{1}{\\sqrt{14}}$"
+    C: "$\\sqrt{\\frac{2}{7}}$"
+    D: "$\\sqrt{\\frac{7}{2}}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: Statistics and Probability
+  topic: Measures of Dispersion
+  text: "If $M_1$ is the mean deviation from the mean of the discrete data 44, 5, 27, 20, 8, 54, 9, 14, 35 and $M_2$ is the mean deviation from the median of the same data, then $M_1 - M_2 =$"
+  options:
+    A: "$\\frac{7}{9}$"
+    B: "$\\frac{2}{3}$"
+    C: "$\\frac{5}{9}$"
+    D: "$\\frac{4}{9}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 36
+  section: Statistics and Probability
+  topic: Probability
+  text: "If two dice are thrown, then the probability of getting co-prime numbers on the dice is"
+  options:
+    A: "$\\frac{23}{36}$"
+    B: "$\\frac{13}{36}$"
+    C: "$\\frac{5}{6}$"
+    D: "$\\frac{1}{6}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 37
+  section: Statistics and Probability
+  topic: Probability
+  text: "If two cards are drawn at random simultaneously from a well shuffled pack of 52 playing cards, then the probability of getting a card having a composite number and a card having a number which is a multiple of 3 is"
+  options:
+    A: "$\\frac{94}{663}$"
+    B: "$\\frac{62}{663}$"
+    C: "$\\frac{102}{663}$"
+    D: "$\\frac{64}{663}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 38
+  section: Statistics and Probability
+  topic: Probability
+  text: "Bag 'P' contains 3 white, 2 red, 5 blue balls and bag 'Q' contains 2 white, 3 red, 5 blue balls. A ball is chosen at random from 'P' and is placed in 'Q'. If a ball is chosen from bag 'Q' at random, then the probability that it is a red ball is"
+  options:
+    A: "$\\frac{9}{50}$"
+    B: "$\\frac{13}{45}$"
+    C: "$\\frac{16}{55}$"
+    D: "$\\frac{12}{35}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 39
+  section: Statistics and Probability
+  topic: Random Variables
+  text: "If the probability distribution of a random variable X is as follows, then the variance of X is\n\n| X=x | 2 | 3 | 5 | 9 |\n| :--- | :--- | :--- | :--- | :--- |\n| P(X=x) | k | 2k | $3k^2$ | $k^2$ |"
+  options:
+    A: "$\\frac{61}{4}$"
+    B: "$\\frac{7}{2}$"
+    C: "12"
+    D: "3"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 40
+  section: Statistics and Probability
+  topic: Probability Distributions
+  text: "The mean of a binomial variate $X \\sim B(n, p)$ is 1. If $n > 2$ and $P(X=2)=\\frac{27}{128}$, then the variance of the distribution is"
+  options:
+    A: "$\\frac{3}{4}$"
+    B: "$\\frac{1}{4}$"
+    C: "$\\frac{4}{3}$"
+    D: "4"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 41
+  section: Coordinate Geometry
+  topic: Locus
+  text: "If the distance from a variable point P to the point (4,3) is equal to the perpendicular distance from P to the line $x+2y-1=0$, then the equation of the locus of the point P is"
+  options:
+    A: "$4x^2 + 4xy + y^2 - 38x + 26y + 124 = 0$"
+    B: "$4x^2 - 4xy + y^2 - 38x - 26y + 124 = 0$"
+    C: "$4x^2 - 4xy + y^2 + 38x + 26y + 124 = 0$"
+    D: "$4x^2 - 4xy + y^2 - 38x + 26y + 124 = 0$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 42
+  section: Coordinate Geometry
+  topic: Transformation of Axes
+  text: "$(0,k)$ is the point to which the origin is to be shifted by the translation of the axes so as to remove the first degree terms from the equation $ax^2 - 2xy + by^2 - 2x + 4y + 1 = 0$ and $\\frac{1}{2}\\text{Tan}^{-1}(2)$ is the angle through which the coordinate axes are to be rotated about the origin to remove the xy-term from the given equation, then $a+b=$"
+  options:
+    A: "1"
+    B: "-2"
+    C: "3"
+    D: "-4"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 43
+  section: Coordinate Geometry
+  topic: The Straight Line
+  text: "$\\beta$ is the angle made by the perpendicular drawn from origin to the line $L \\equiv x+y-2=0$ with the positive X-axis in the anticlockwise direction. If 'a' is the X-intercept of the line $L=0$ and p is the perpendicular distance from the origin to the line $L=0$, then $a \\tan \\beta + p^2 =$"
+  options:
+    A: "1"
+    B: "2"
+    C: "3"
+    D: "4"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 44
+  section: Coordinate Geometry
+  topic: The Straight Line
+  text: "The line $2x+y-3=0$ divides the line segment joining the points A(1,2) and B(-2,1) in the ratio $a:b$ at the point C. If the point C divides the line segment joining the points $P\\left(\\frac{b}{3a}, -3\\right)$ and $Q\\left(-3, -\\frac{b}{3a}\\right)$ in the ratio $p:q$, then $\\frac{p}{q} + \\frac{q}{p} =$"
+  options:
+    A: "$\\frac{29}{10}$"
+    B: "$\\frac{17}{10}$"
+    C: "6"
+    D: "5"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 45
+  section: Coordinate Geometry
+  topic: The Straight Line
+  text: "If Q and R are the images of the point P(2,3) with respect to the lines $x-y+2=0$ and $2x+y-2=0$ respectively, then Q and R lie on"
+  options:
+    A: "the same side of the line $2x+y-2=0$"
+    B: "the opposite sides of the line $2x-y-2=0$"
+    C: "the same side of the line $x+y+2=0$"
+    D: "the opposite sides of the line $x-y+2=0$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 46
+  section: Coordinate Geometry
+  topic: Pair of Straight Lines
+  text: "If $(2, -1)$ is the point of intersection of the pair of lines $2x^2 + axy + 3y^2 + bx + cy - 3 = 0$ then $3a + 2b + c =$"
+  options:
+    A: "11"
+    B: "0"
+    C: "1"
+    D: "21"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 47
+  section: Coordinate Geometry
+  topic: Circles
+  text: "$(1, k)$ is a point on the circle passing through the points $(-1, 1)$, $(0, -1)$ and $(1, 0)$. If $k \ne 0$, then $k =$"
+  options:
+    A: "$\\frac{1}{2}$"
+    B: "$\\frac{1}{3}$"
+    C: "$-\\frac{1}{3}$"
+    D: "$-\\frac{1}{2}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 48
+  section: Coordinate Geometry
+  topic: Circles
+  text: "If the tangents $x+y+k=0$ and $x+ay+b=0$ drawn to the circle $S \\equiv x^2+y^2+2x-2y+1=0$ are perpendicular to each other and $k, b$ are both greater than 1, then $b-k =$"
+  options:
+    A: "$\\sqrt{2}$"
+    B: "0"
+    C: "2"
+    D: "$2\\sqrt{2}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 49
+  section: Coordinate Geometry
+  topic: Circles
+  text: "If $(h, k)$ is the internal centre of similitude of the circles $x^2+y^2+2x-6y+1=0$ and $x^2+y^2-4x+2y+4=0$, then $4h =$"
+  options:
+    A: "0"
+    B: "3"
+    C: "1"
+    D: "5"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 50
+  section: Coordinate Geometry
+  topic: Circles
+  text: "The slope of a common tangent to the circles $x^2+y^2-4x-8y+16=0$ and $x^2+y^2-6x-16y+64=0$ is"
+  options:
+    A: "0"
+    B: "$\\frac{15}{8}$"
+    C: "1"
+    D: "$\\frac{17}{4}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 51
+  section: Coordinate Geometry
+  topic: Circles
+  text: "$x^2+y^2+2x-6y-6=0$ and $x^2+y^2-6x-2y+k=0$ are two intersecting circles and k is not an integer. If $\\theta$ is the angle between the two circles and $\\cos\\theta=\\frac{-5}{24}$, then $k=$"
+  options:
+    A: "$\\frac{6}{5}$"
+    B: "$\\frac{74}{9}$"
+    C: "$\\frac{37}{3}$"
+    D: "$\\frac{53}{7}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 52
+  section: Coordinate Geometry
+  topic: Circles
+  text: "If $(p,q)$ is the centre of the circle which cuts the three circles $x^2+y^2-2x-4y+4=0$, $x^2+y^2+2x-4y+1=0$ and $x^2+y^2-4x-2y-11=0$ orthogonally, then $p+q=$"
+  options:
+    A: "9"
+    B: "$\\frac{35}{4}$"
+    C: "$\\frac{15}{2}$"
+    D: "7"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 53
+  section: Coordinate Geometry
+  topic: Parabola
+  text: "If the focal chord of the parabola $x^2=12y$ drawn through the point (3,0) intersects the parabola at the points P and Q, then the sum of the reciprocals of the abscissae of the points P and Q is"
+  options:
+    A: "$\\frac{1}{4}$"
+    B: "$\\frac{1}{5}$"
+    C: "$\\frac{1}{3}$"
+    D: "$\\frac{1}{8}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 54
+  section: Coordinate Geometry
+  topic: Parabola
+  text: "If the normal drawn at the point P(9,9) on the parabola $y^2=9x$ meets the parabola again at Q(a,b), then $2a+b=$"
+  options:
+    A: "54"
+    B: "$\\frac{99}{2}$"
+    C: "$\\frac{63}{2}$"
+    D: "27"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 55
+  section: Coordinate Geometry
+  topic: Ellipse
+  text: "The length of the latus rectum of the ellipse $\\frac{x^2}{a^2}+\\frac{y^2}{b^2}=1$ $(a>b)$ is $\\frac{8}{3}$. If the distance from the centre of the ellipse to its focus is $\\sqrt{5}$, then $\\sqrt{a^2+6ab+b^2}=$"
+  options:
+    A: "7"
+    B: "$12\\sqrt{2}$"
+    C: "$3\\sqrt{5}$"
+    D: "11"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 56
+  section: Coordinate Geometry
+  topic: Ellipse
+  text: "S' is the focus of the ellipse $\\frac{x^2}{25}+\\frac{y^2}{b^2}=1, (b<5)$ lying on the negative X-axis and $P(\\theta)$ is a point on this ellipse. If the distance between the foci of this ellipse is 8 and $S'P=7$, then $\\theta=$"
+  options:
+    A: "$\\frac{\\pi}{6}$"
+    B: "$\\frac{\\pi}{3}$"
+    C: "$\\frac{\\pi}{4}$"
+    D: "$\\frac{2\\pi}{3}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 57
+  section: Coordinate Geometry
+  topic: Hyperbola
+  text: "The slope of the tangent drawn from the point (1,1) to the hyperbola $2x^2-y^2=4$ is"
+  options:
+    A: "2"
+    B: "$\\frac{-2\\pm\\sqrt{6}}{2}$"
+    C: "$-1\\pm\\sqrt{6}$"
+    D: "$\\frac{-2\\pm\\sqrt{3}}{2}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 58
+  section: Coordinate Geometry
+  topic: Three Dimensional Geometry
+  text: "A(2,3,k), B(-1,k,-1), C(4,-3,2) are the vertices of $\\triangle ABC$. If $AB=AC$ and $k>0$, then ABC is"
+  options:
+    A: "an equilateral triangle"
+    B: "a right-angled isosceles triangle"
+    C: "an isosceles triangle but not right angled"
+    D: "an obtuse angled isosceles triangle"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 59
+  section: Coordinate Geometry
+  topic: Three Dimensional Geometry
+  text: "If A(1,2,-3), B(2,3,-1), C(3,1,1) are the vertices of $\\triangle ABC$ then $\\left|\\frac{\\cos A}{\\cos B}\\right|=$"
+  options:
+    A: "$\\frac{3\\sqrt{3}}{4\\sqrt{2}}$"
+    B: "$\\frac{3\\sqrt{3}}{\\sqrt{7}}$"
+    C: "$\\frac{4\\sqrt{2}}{3\\sqrt{3}}$"
+    D: "$\\frac{\\sqrt{7}}{3\\sqrt{3}}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 60
+  section: Coordinate Geometry
+  topic: Three Dimensional Geometry
+  text: "If a,b,c are the intercepts made on X, Y, Z-axes respectively by the plane passing through the points (1,0,-2), (3,-1,2) and (0,-3,4), then $3a+4b+7c=$"
+  options:
+    A: "-5"
+    B: "5"
+    C: "-15"
+    D: "15"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 61
+  section: Calculus
+  topic: Limits
+  text: "If $\\lim_{x \\to 4} \\frac{2x^2+(3+2a)x+3a}{x^3-2x^2-23x+60} = \\frac{11}{9}$, then $\\lim_{x \\to a} \\frac{x^2+9x+20}{x^2-x-20} =$"
+  options:
+    A: "-9"
+    B: "-4"
+    C: "$-\\frac{1}{4}$"
+    D: "$\\frac{1}{9}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 62
+  section: Calculus
+  topic: Continuity
+  text: "If the function $f(x) = \\begin{cases} \\frac{\\tan a(x-1)}{x-1}, & 0 < x < 1 \\\\ \\frac{x^3-125}{x^2-25}, & 1 \\le x \\le 4 \\\\ \\frac{b^x-1}{x}, & x > 4 \\end{cases}$ is continuous in its domain, then $6a+9b^4=$"
+  options:
+    A: "284"
+    B: "261"
+    C: "214"
+    D: "317"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 63
+  section: Calculus
+  topic: Differentiation
+  text: "If $y = \\log\\left|\\tan\\sqrt{\\frac{2^x-1}{2^x+1}}\\right|$, $x > 0$, then $\\left(\\frac{dy}{dx}\\right)_{x=1} =$"
+  options:
+    A: "$\\frac{4\\sqrt{2}\\log 2}{9\\sin\\left(\\frac{2}{\\sqrt{3}}\\right)}$"
+    B: "$\\frac{4\\sqrt{3}\\log 2}{9\\sin\\left(\\frac{\\sqrt{3}}{2}\\right)}$"
+    C: "$\\frac{4\\sqrt{3}\\log 2}{9\\sin\\left(\\frac{2}{\\sqrt{3}}\\right)}$"
+    D: "$\\frac{4\\sqrt{2}\\log 2}{9\\sin\\left(\\frac{\\sqrt{3}}{2}\\right)}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 64
+  section: Calculus
+  topic: Differentiation
+  text: "If $y = \\cos^{-1}\\left(\\frac{6x-2x^2-4}{2x^2-6x+5}\\right)$ then $\\frac{dy}{dx} =$"
+  options:
+    A: "$\\frac{2}{\\sqrt{3x-x^2-2}}$"
+    B: "$\\frac{2}{3x-x^2-2}$"
+    C: "$\\frac{2}{\\sqrt{2x^2-6x+5}}$"
+    D: "$\\frac{2}{2x^2-6x+5}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 65
+  section: Calculus
+  topic: Differentiation
+  text: "If $\\log y = y^{\\log x}$ then $\\frac{dy}{dx} =$"
+  options:
+    A: "$\\frac{y(\\log y)^2}{x(1-\\log x \\log y)}$"
+    B: "$\\frac{x(\\log x)^2}{y(1-\\log x \\log y)}$"
+    C: "$\\frac{x(1-\\log x \\log y)}{y(\\log y)^2}$"
+    D: "$\\frac{y(1-\\log x \\log y)}{x(\\log x)^2}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 66
+  section: Calculus
+  topic: Differentiation
+  text: "If $y = a\\cos 3x + be^{-x}$, then $y''(3\\sin 3x - \\cos 3x) =$"
+  options:
+    A: "$10y'\\sin 3x + 3y(\\sin 3x + 3\\cos 3x)$"
+    B: "$10y'\\cos 3x + 3y(\\sin 3x + 3\\cos 3x)$"
+    C: "$10y'\\cos 3x + 3y(\\cos 3x + 3\\sin 3x)$"
+    D: "$10y'\\cos 3x + 3y(\\sin 3x - 3\\cos 3x)$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 67
+  section: Calculus
+  topic: Applications of Derivatives
+  text: "The approximate value of $\\sec 59°$ obtained by taking $1° = 0.0174$ and $\\sqrt{3} = 1.732$ is"
+  options:
+    A: "1.9849"
+    B: "1.8493"
+    C: "1.9397"
+    D: "1.9948"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 68
+  section: Calculus
+  topic: Applications of Derivatives
+  text: "The equation of the normal drawn to the curve $y^3 = 4x^5$ at the point (4,16) is"
+  options:
+    A: "$20x+3y=128$"
+    B: "$20x-3y=32$"
+    C: "$3x-20y+308=0$"
+    D: "$3x+20y=332$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 69
+  section: Calculus
+  topic: Applications of Derivatives
+  text: "A point P is moving on the curve $x^3y^4=2^7$. The x-coordinate of P is decreasing at the rate of 8 units per second. When the point P is at (2,2), the y-coordinate of P"
+  options:
+    A: "increases at the rate of 6 units per second"
+    B: "decreases at the rate of 6 units per second"
+    C: "increases at the rate of 4 units per second"
+    D: "decreases at the rate of 4 units per second"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 70
+  section: Calculus
+  topic: Applications of Derivatives
+  text: "If the function $f(x) = x^3 + ax^2 + bx + 40$ satisfies the conditions of Rolle's theorem on the interval $[-5, 4]$ and $-5, 4$ are two roots of the equation $f(x) = 0$, then one of the values of c as stated in that theorem is"
+  options:
+    A: "3"
+    B: "$\\frac{1+\\sqrt{67}}{3}$"
+    C: "$\\frac{1+\\sqrt{65}}{3}$"
+    D: "-2"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 71
+  section: Calculus
+  topic: Applications of Derivatives
+  text: "If x and y are two positive integers such that $x+y=24$ and $x^3y^5$ is maximum, then $x^2+y^2=$"
+  options:
+    A: "288"
+    B: "296"
+    C: "306"
+    D: "320"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 72
+  section: Calculus
+  topic: Integration
+  text: "$\\int \\sqrt{4\\cos^2 x - 5\\sin^2 x} \\cos x \\, dx =$"
+  options:
+    A: "$\\frac{1}{2}\\cos x\\sqrt{4-9\\sin^2 x} + \\frac{2}{3}\\sin^{-1}\\left(\\frac{3\\sin x}{2}\\right) + c$"
+    B: "$\\frac{1}{2}\\sin x\\sqrt{4-9\\sin^2 x} + \\frac{2}{3}\\cos^{-1}\\left(\\frac{3\\cos x}{2}\\right) + c$"
+    C: "$\\frac{1}{2}\\cos x\\sqrt{1-9\\cos^2 x} + \\frac{2}{3}\\sin^{-1}\\left(\\frac{3\\cos x}{2}\\right) + c$"
+    D: "$\\frac{1}{2}\\sin x\\sqrt{4-9\\sin^2 x} + \\frac{2}{3}\\sin^{-1}\\left(\\frac{3\\sin x}{2}\\right) + c$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 73
+  section: Calculus
+  topic: Integration
+  text: "$\\int \\left(\\frac{4\\tan^4 x + 3\\tan^2 x - 1}{\\tan^2 x + 4}\\right) dx =$"
+  options:
+    A: "$4\\tan x - \\frac{17}{4}\\tan^{-1}\\left(\\frac{\\tan x}{4}\\right) + c$"
+    B: "$4\\tan x - \\frac{17}{4}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + c$"
+    C: "$4\\tan x - \\frac{17}{2}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + c$"
+    D: "$2\\tan x - \\frac{17}{2}\\tan^{-1}\\left(\\frac{\\tan x}{2}\\right) + c$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 74
+  section: Calculus
+  topic: Integration
+  text: "$\\int \\left(\\frac{(\\sin^4 x + 2\\cos^2 x - 1)\\cos x}{(1+\\sin x)^6}\\right) dx =$"
+  options:
+    A: "$\\frac{\\sin^6 x}{6(1+\\sin x)^6} + c$"
+    B: "$-\\frac{\\sin^6 x}{6(1+\\sin x)^6} + c$"
+    C: "$\\frac{\\cos^6 x}{6(1+\\sin x)^6} + c$"
+    D: "$-\\frac{\\cos^6 x}{6(1+\\sin x)^6} + c$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 75
+  section: Calculus
+  topic: Integration
+  text: "$\\int (\\log x)^3 \\, dx =$"
+  options:
+    A: "$(\\log x)^3 - 3(\\log x)^2 + 6\\log x - 6 + c$"
+    B: "$x\\left[(\\log x)^3 - 3(\\log x)^2 + 6(\\log x) - 6\\right] + c$"
+    C: "$(x\\log x)^3 - 3(x\\log x)^2 + 6x(\\log x) - 6 + c$"
+    D: "$\\frac{1}{x}\\left[(\\log x)^3 - 3(\\log x)^2 + 6\\log x - 6\\right] + c$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 76
+  section: Calculus
+  topic: Definite Integrals
+  text: "$\\int_0^{\\pi} (\\sin^3 x + \\cos^2 x)^2 \\, dx =$"
+  options:
+    A: "$\\frac{15\\pi}{16} + \\frac{8}{15}$"
+    B: "$\\frac{11\\pi}{16} + \\frac{8}{15}$"
+    C: "$\\frac{15\\pi}{16} + \\frac{4}{15}$"
+    D: "$\\frac{11\\pi}{16} + \\frac{4}{15}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 77
+  section: Calculus
+  topic: Definite Integrals
+  text: "$\\int_{-7/8}^{7/8} \\frac{\\sin^4(4x)}{1+e^{4x}} \\, dx =$"
+  options:
+    A: "$\\frac{3\\pi}{128}$"
+    B: "$\\frac{3\\pi}{256}$"
+    C: "$\\frac{3\\pi}{64}$"
+    D: "$\\frac{3\\pi}{32}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 78
+  section: Calculus
+  topic: Area Under Curves
+  text: "The area of the region enclosed by the curves $y^2 = 4(x+1)$ and $y^2 = 5(x-4)$ is"
+  options:
+    A: "$\\frac{280}{3}$"
+    B: "150"
+    C: "140"
+    D: "$\\frac{200}{3}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 79
+  section: Calculus
+  topic: Differential Equations
+  text: "If A and B are arbitrary constants, then the differential equation having $y = Ae^{-x} + B\\cos x$ as its general solution is"
+  options:
+    A: "$(\\sin x - \\cos x)\\frac{d^2y}{dx^2} + 2\\cos x\\frac{dy}{dx} - (\\sin x + \\cos x)y = 0$"
+    B: "$(\\cos x - \\sin x)\\frac{d^2y}{dx^2} + 2\\cos x\\frac{dy}{dx} + (\\sin x + \\cos x)y = 0$"
+    C: "$(\\cos x + \\sin x)\\frac{d^2y}{dx^2} + 2\\sin x\\frac{dy}{dx} - (\\sin x - \\cos x)y = 0$"
+    D: "$(\\cos x - \\sin x)\\frac{d^2y}{dx^2} - 2\\sin x\\frac{dy}{dx} + (\\cos x + \\sin x)y = 0$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 80
+  section: Calculus
+  topic: Differential Equations
+  text: "The general solution of the differential equation $\\frac{dy}{dx} + \\frac{\\sin(2x+y)}{\\cos x} + 2 = 0$ is"
+  options:
+    A: "$(\\sec x + \\tan x)[\\text{cosec}(2x+y) - \\cot(2x+y)] = c$"
+    B: "$\\sin(2x+y)\\cos x = c$"
+    C: "$\\cos(2x+y)\\sin x = c$"
+    D: "$(\\text{cosec } x - \\cot x)(\\sec(2x+y) - \\tan(2x+y)) = c$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 81
+  section: General
+  topic: Physical World
+  text: "Which of the following statements regarding nature of physical laws is NOT correct?"
+  options:
+    A: "All conserved quantities are necessarily scalars"
+    B: "The laws of nature do not change with time"
+    C: "The laws of nature are same everywhere in the universe"
+    D: "The law of gravitation is the same both on the moon and the earth"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 82
+  section: Mechanics
+  topic: Units and Measurements
+  text: "The internal and external diameters of a hollow cylinder measured with vernier calipers are $(5.73 \\pm 0.01)$ cm and $(6.01 \\pm 0.01)$ cm respectively. Then the thickness of the cylinder wall is"
+  options:
+    A: "$(0.28 \\pm 0.01)$ cm"
+    B: "$(0.28 \\pm 0.02)$ cm"
+    C: "$(0.14 \\pm 0.02)$ cm"
+    D: "$(0.14 \\pm 0.01)$ cm"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 83
+  section: Mechanics
+  topic: Motion in a Straight Line
+  text: "A body moving with uniform acceleration, travels a distance of 25 m in the fourth second and 37 m in the sixth second. The distance covered by the body in the next two seconds is"
+  options:
+    A: "63 m"
+    B: "84 m"
+    C: "49 m"
+    D: "92 m"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 84
+  section: Mechanics
+  topic: Motion in a Plane
+  text: "A body is projected from the ground at an angle of $\\tan^{-1}(\\sqrt{7})$ with the horizontal. At half of the maximum height, the speed of the body is 'n' times the speed of projection. The value of 'n' is"
+  options:
+    A: "2"
+    B: "$\\frac{1}{2}$"
+    C: "$\\frac{4}{3}$"
+    D: "$\\frac{3}{4}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 85
+  section: Mechanics
+  topic: Laws of Motion
+  text: "An aircraft executes a horizontal loop of radius 9 km at a constant speed of 540 km/h. The wings of the aircraft are banked at an angle of (Acceleration due to gravity $= 10$ ms$^{-2}$)"
+  options:
+    A: "$\\cosec^{-1}(4)$"
+    B: "$\\cot^{-1}(4)$"
+    C: "$\\tan^{-1}(4)$"
+    D: "$\\sec^{-1}(4)$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 86
+  section: Mechanics
+  topic: Work, Energy and Power
+  text: "A body thrown vertically upwards from the ground reaches a maximum height 'h'. The ratio of the kinetic and potential energies of the body at a height 40% of h from the ground is"
+  options:
+    A: "2:3"
+    B: "3:2"
+    C: "1:1"
+    D: "4:9"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 87
+  section: Mechanics
+  topic: Collisions
+  text: "A ball of mass 1.2 kg moving with a velocity of 12 ms$^{-1}$ makes one dimensional collision with another stationary ball of mass 1.2 kg. If the coefficient of restitution is $\\frac{1}{\\sqrt{2}}$, then the ratio of the total kinetic energy of the balls after collision and the initial kinetic energy is"
+  options:
+    A: "3:4"
+    B: "1:1"
+    C: "2:3"
+    D: "$3:\\sqrt{2}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 88
+  section: Mechanics
+  topic: System of Particles and Rotational Motion
+  text: "An alphabet 'T' made of two similar thin uniform metal plates of each length 'L' and width 'a' is placed on a horizontal surface as shown in the figure. If the alphabet is vertically inverted, the shift in the position of its centre of mass from the horizontal surface is"
+  image: "/static/papers/ts_eamcet/2024_3/q88.png"
+  options:
+    A: "$\\frac{L-a}{2}$"
+    B: "$\\frac{a-L}{2}$"
+    C: "$L-\\frac{a}{2}$"
+    D: "$\\frac{L}{2}-a$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 89
+  section: Mechanics
+  topic: System of Particles and Rotational Motion
+  text: "A solid sphere and a disc of same mass 'M' and radius 'R' are kept such that their curved surfaces are in contact and their centers lie along the same horizontal line. The moment of inertia of the two body system about an axis passing through their point of contact and perpendicular to the plane of the disc is"
+  options:
+    A: "$\\frac{53MR^2}{20}$"
+    B: "$\\frac{39MR^2}{10}$"
+    C: "$\\frac{29MR^2}{10}$"
+    D: "$\\frac{9MR^2}{10}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 90
+  section: Mechanics
+  topic: Oscillations
+  text: "If a body dropped freely from a height of 20 m reaches the surface of a planet with a velocity of 31.4 ms$^{-1}$, then the length of a simple pendulum that ticks seconds on the planet is"
+  options:
+    A: "1 m"
+    B: "0.625 m"
+    C: "2.5 m"
+    D: "2 m"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 91
+  section: Mechanics
+  topic: Gravitation
+  text: "Two stars of masses 'M' and '2M' that are at a distance 'd' apart, are revolving one around another. The angular velocity of the system of two stars is (G-Universal gravitational constant)"
+  options:
+    A: "$\\sqrt{\\frac{4GM}{d^3}}$"
+    B: "$\\sqrt{\\frac{2GM}{d^3}}$"
+    C: "$\\sqrt{\\frac{9GM}{d^3}}$"
+    D: "$\\sqrt{\\frac{3GM}{d^3}}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Mechanics
+  topic: Mechanical Properties of Solids
+  text: "A block of mass 2 kg is tied to one end of a 2 m long metal wire of 1.0 mm$^2$ area of cross-section and rotated in a vertical circle such that the tension in the wire is zero at the highest point. If the maximum elongation in the wire is 2 mm, the Young's modulus of the metal is (Acceleration due to gravity $= 10$ ms$^{-2}$)"
+  options:
+    A: "$1.0 \\times 10^{11}$ Nm$^{-2}$"
+    B: "$1.2 \\times 10^{11}$ Nm$^{-2}$"
+    C: "$2.0 \\times 10^{11}$ Nm$^{-2}$"
+    D: "$0.2 \\times 10^{11}$ Nm$^{-2}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 93
+  section: Mechanics
+  topic: Mechanical Properties of Fluids
+  text: "A big liquid drop splits into 'n' similar small drops under isothermal conditions, then in this process"
+  options:
+    A: "volume decreases"
+    B: "total surface area decreases"
+    C: "energy is absorbed"
+    D: "energy is liberated"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 94
+  section: Mechanics
+  topic: Mechanical Properties of Fluids
+  text: "A wooden cube of side 10 cm floats at the interface between water and oil with its lower surface 3 cm below the interface. If the density of oil is 0.9 g cm$^{-3}$, the mass of the wooden cube is"
+  options:
+    A: "940 g"
+    B: "900 g"
+    C: "1000 g"
+    D: "930 g"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 95
+  section: Thermodynamics
+  topic: Thermal Properties of Matter
+  text: "37 g of ice at 0°C temperature is mixed with 74 g of water at 70°C temperature. The resultant temperature is (Specific heat capacity of water $= 1$ cal g$^{-1}$ °C$^{-1}$ and latent heat of fusion of ice $= 80$ cal g$^{-1}$)"
+  options:
+    A: "45°C"
+    B: "70°C"
+    C: "20°C"
+    D: "35°C"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 96
+  section: Thermodynamics
+  topic: Thermal Properties of Matter
+  text: "The thickness of a uniform rectangular metal plate is 5 mm and the area of each surface is 5 cm$^2$. In steady state, the temperature difference between the two surfaces of the plate is 14°C. If the heat flowing through the plate in one second from one surface to the other surface is 42 J, then the thermal conductivity of the metal is"
+  options:
+    A: "90 Wm$^{-1}$K$^{-1}$"
+    B: "30 Wm$^{-1}$K$^{-1}$"
+    C: "45 Wm$^{-1}$K$^{-1}$"
+    D: "60 Wm$^{-1}$K$^{-1}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 97
+  section: Thermodynamics
+  topic: Thermodynamics
+  text: "The ratio of the specific heat capacities of a gas is 1.5. When the gas undergoes an adiabatic process, its volume is doubled and pressure becomes $P_1$. When the gas undergoes isothermal process, its volume is doubled and pressure becomes $P_2$. If $P_1 = P_2$, the ratio of the initial pressures of the gas when it undergoes adiabatic and isothermal processes is"
+  options:
+    A: "$\\sqrt{3}:\\sqrt{2}$"
+    B: "1:1"
+    C: "$\\sqrt{3}:1$"
+    D: "$\\sqrt{2}:1$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 98
+  section: Thermodynamics
+  topic: Kinetic Theory
+  text: "A vessel contains hydrogen and nitrogen gases in the ratio 2:3 by mass. If the temperature of the mixture of the gases is 30°C, then the ratio of the average kinetic energies per molecule of hydrogen and nitrogen gases is (Molecular mass of hydrogen = 2 and molecular mass of nitrogen = 28)"
+  options:
+    A: "3:7"
+    B: "2:3"
+    C: "1:1"
+    D: "1:14"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 99
+  section: Waves
+  topic: Waves
+  text: "The difference between the fundamental frequencies of an open pipe and a closed pipe of same length is 100 Hz. The difference between the frequencies of the second harmonic of the open pipe and the third harmonic of the closed pipe is"
+  options:
+    A: "100 Hz"
+    B: "150 Hz"
+    C: "200 Hz"
+    D: "250 Hz"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 100
+  section: Waves
+  topic: Waves
+  text: "The displacement equations of sound waves produced by two sources are given by $y_1 = 5\\sin 400\\pi t$ and $y_2 = 8\\sin 408\\pi t$, where 't' is time in seconds. If the waves are produced simultaneously, the number of beats produced per minute is"
+  options:
+    A: "4"
+    B: "8"
+    C: "120"
+    D: "240"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 101
+  section: Optics
+  topic: Ray Optics
+  text: "When an object of height 12 cm is placed at a distance from a convex lens, an image of height 18 cm is formed on a screen. Without changing the positions of the object and the screen, if the lens is moved towards the screen, another clear image is formed on the screen. The height of this image is"
+  options:
+    A: "4 cm"
+    B: "6 cm"
+    C: "8 cm"
+    D: "10 cm"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 102
+  section: Optics
+  topic: Ray Optics
+  text: "A thin plano-convex lens of focal length 73.5 cm has a circular aperture of diameter 8.4 cm. If the refractive index of the material of the lens is $\\frac{5}{3}$, then the thickness of the lens is nearly"
+  options:
+    A: "2.4 cm"
+    B: "2.4 mm"
+    C: "1.8 mm"
+    D: "1.8 cm"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 103
+  section: Optics
+  topic: Wave Optics
+  text: "In Young's double slit experiment, intensity of light at a point on the screen where the path difference becomes $\\lambda$ is I. The intensity at a point on the screen where the path difference becomes $\\frac{\\lambda}{3}$ is"
+  options:
+    A: "$\\frac{I}{4}$"
+    B: "$\\frac{I}{3}$"
+    C: "$\\frac{2I}{3}$"
+    D: "3I"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 104
+  section: Electrostatics
+  topic: Electric Charges and Fields
+  text: "Two point charges $-10\\,\\mu$C and $+5\\,\\mu$C are situated on X-axis at $x=0$ and $x=\\sqrt{2}$ m. The point along the X-axis where the electric field becomes zero is"
+  options:
+    A: "$x=(\\sqrt{2}-1)$ m"
+    B: "$x=2(\\sqrt{2}-1)$ m"
+    C: "$x=2(\\sqrt{2}+1)$ m"
+    D: "$x=(\\sqrt{2}+1)$ m"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 105
+  section: Electrostatics
+  topic: Capacitance
+  text: "A 10 $\\mu$F capacitor is charged by a 100 V battery. It is disconnected from the battery and is connected to another uncharged capacitor of capacitance 30 $\\mu$F. During this process, the electrostatic energy lost by the first capacitor is"
+  options:
+    A: "$5 \\times 10^{-2}$ J"
+    B: "$1.25 \\times 10^{-2}$ J"
+    C: "$2.75 \\times 10^{-2}$ J"
+    D: "$3.75 \\times 10^{-2}$ J"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 106
+  section: Electrostatics
+  topic: Current Electricity
+  text: "A conductor of length 1.5 m and area of cross-section $3 \\times 10^{-5}$ m$^2$ has electrical resistance of 15 $\\Omega$. The current density in the conductor for an electric field of 21 Vm$^{-1}$ is"
+  options:
+    A: "$0.7 \\times 10^{6}$ Am$^{-2}$"
+    B: "$0.7 \\times 10^{-6}$ Am$^{-2}$"
+    C: "$0.7 \\times 10^{-5}$ Am$^{-2}$"
+    D: "$0.7 \\times 10^{5}$ Am$^{-2}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 107
+  section: Electrostatics
+  topic: Current Electricity
+  text: "The relation between the current i (in ampere) in a conductor and the time t (in second) is $i = 12t + 9t^2$. The charge passing through the conductor between the times $t = 2$ s and $t = 10$ s is"
+  options:
+    A: "3720 C"
+    B: "3648 C"
+    C: "3600 C"
+    D: "3552 C"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 108
+  section: Magnetism
+  topic: Moving Charges and Magnetism
+  text: "A long straight rod of diameter 4 mm carries a steady current 'i'. The current is uniformly distributed across its cross-section. The ratio of the magnetic fields at distances 1 mm and 4 mm from the axis of the rod is"
+  options:
+    A: "1:2"
+    B: "1:4"
+    C: "4:1"
+    D: "1:1"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 109
+  section: Magnetism
+  topic: Moving Charges and Magnetism
+  text: "A straight wire of length 20 cm carrying a current of $\\frac{3}{\\pi^2}$ A is bent in the form of a circle. The magnetic field at the centre of the circle is"
+  options:
+    A: "$8 \\times 10^{-6}$ T"
+    B: "$3 \\times 10^{-6}$ T"
+    C: "$12 \\times 10^{-6}$ T"
+    D: "$6 \\times 10^{-6}$ T"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 110
+  section: Magnetism
+  topic: Moving Charges and Magnetism
+  text: "A circular coil carrying a current of 2.5 A is free to rotate about an axis in its plane perpendicular to an external magnetic field. When the coil is made to oscillate, the time period of oscillation is T. If the current through the coil is 10 A, the time period of oscillation is"
+  options:
+    A: "$\\frac{T}{2}$"
+    B: "T"
+    C: "2T"
+    D: "$\\frac{T}{4}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 111
+  section: Magnetism
+  topic: Electromagnetic Induction
+  text: "A circular coil of area 200 cm$^2$ and 50 turns is rotating about its vertical diameter with an angular speed of 40 rads$^{-1}$ in a uniform horizontal magnetic field of magnitude $2 \\times 10^{-2}$ T. The maximum emf induced in the coil is"
+  options:
+    A: "1.2 V"
+    B: "0.8 V"
+    C: "0.6 V"
+    D: "0.3 V"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 112
+  section: Magnetism
+  topic: Alternating Current
+  text: "An inductor and a resistor are connected in series to an ac source of 10 V. If the potential difference across the inductor is 6 V, then the potential difference across the resistor is"
+  options:
+    A: "4 V"
+    B: "10 V"
+    C: "6 V"
+    D: "8 V"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 113
+  section: Optics
+  topic: Electromagnetic Waves
+  text: "If the peak value of the magnetic field of an electromagnetic wave is $30 \\times 10^{-9}$ T, then the peak value of the electric field is"
+  options:
+    A: "3 Vm$^{-1}$"
+    B: "12 Vm$^{-1}$"
+    C: "6 Vm$^{-1}$"
+    D: "9 Vm$^{-1}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 114
+  section: Modern Physics
+  topic: Dual Nature of Radiation and Matter
+  text: "The de Broglie wavelength of a proton is twice the de Broglie wavelength of an alpha particle. The ratio of the kinetic energies of the proton and the alpha particle is"
+  options:
+    A: "1:1"
+    B: "1:4"
+    C: "1:2"
+    D: "1:8"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 115
+  section: Modern Physics
+  topic: Atoms
+  text: "The ratio of the centripetal accelerations of the electron in two successive orbits of hydrogen is 81:16. Due to a transition between these two states, the angular momentum of the electron changes by (h - Planck's constant)"
+  options:
+    A: "$\\frac{h}{3\\pi}$"
+    B: "$\\frac{3h}{\\pi}$"
+    C: "$\\frac{h}{2\\pi}$"
+    D: "$\\frac{2h}{\\pi}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 116
+  section: Modern Physics
+  topic: Nuclei
+  text: "The operation of a nuclear reactor is said to be critical when the value of neutron multiplication factor K is"
+  options:
+    A: "K = 0"
+    B: "K > 1"
+    C: "K = 1"
+    D: "0 < K < 1"
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 117
+  section: Modern Physics
+  topic: Nuclei
+  text: "An $\\alpha$-particle of energy 'E' is liberated during the decay of a nucleus of mass number 236. The total energy released in this process is"
+  options:
+    A: "58 E"
+    B: "59 E"
+    C: "$\\frac{58E}{59}$"
+    D: "$\\frac{59E}{58}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 118
+  section: Modern Physics
+  topic: Semiconductor Electronics
+  text: "The voltage gain of a transistor in common emitter configuration is 160. The resistances in base and collector sides of the circuit are 1 k$\\Omega$ and 4 k$\\Omega$ respectively. If the change in base current is 100 $\\mu$A, then the change in collector current is"
+  options:
+    A: "4 mA"
+    B: "4 $\\mu$A"
+    C: "40 mA"
+    D: "40 $\\mu$A"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 119
+  section: Modern Physics
+  topic: Semiconductor Electronics
+  text: "Normally a capacitor is connected across the output terminals of a rectifier to"
+  options:
+    A: "convert AC to DC"
+    B: "convert DC to AC"
+    C: "to get a varying DC output"
+    D: "to get a steady DC output"
+  correct_answer: D
+  difficulty: easy
+  subject: Physics
+- id: 120
+  section: Modern Physics
+  topic: Communication Systems
+  text: "The process of the loss of strength of a signal while propagating through a medium is"
+  options:
+    A: "damping"
+    B: "attenuation"
+    C: "amplification"
+    D: "modulation"
+  correct_answer: B
+  difficulty: easy
+  subject: Physics
+- id: 121
+  section: Physical Chemistry
+  topic: Structure of Atom
+  text: "The wavenumber of first spectral line of Lyman series of He$^+$ ion is $x$ m$^{-1}$. What is the wavenumber (in m$^{-1}$) of second spectral line of Balmer series of Li$^{2+}$ ion?"
+  options:
+    A: "$\\frac{9x}{16}$"
+    B: "$\\frac{16x}{9}$"
+    C: "$\\frac{27x}{8}$"
+    D: "$\\frac{8x}{27}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 122
+  section: Physical Chemistry
+  topic: Structure of Atom
+  text: "The uncertainty in determination of position of a small ball of mass 10 g is $10^{-33}$ m. With what % of accuracy its speed can be measured, if it has a speed of 52.5 ms$^{-1}$? (h = $6.6 \\times 10^{-34}$ Js)"
+  options:
+    A: "1.0 %"
+    B: "20 %"
+    C: "10 %"
+    D: "2.0 %"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 123
+  section: Inorganic Chemistry
+  topic: Classification of Elements and Periodicity in Properties
+  text: "In which of the following ionic pairs, second ion is smaller in size than the first ion?"
+  options:
+    A: "Al$^{3+}$, Mg$^{2+}$"
+    B: "F$^-$, Na$^+$"
+    C: "O$^{2-}$, N$^{3-}$"
+    D: "Mg$^{2+}$, Na$^+$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 124
+  section: Inorganic Chemistry
+  topic: d-Block Elements
+  text: "The set of elements which obey the general electronic configuration $(n-1)d^{1-10} ns^2$ is"
+  options:
+    A: "Bh, Eu, Po"
+    B: "Ho, Er, Lu"
+    C: "Hs, Hg, W"
+    D: "K, Bi, Ba"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 125
+  section: Physical Chemistry
+  topic: Chemical Bonding and Molecular Structure
+  text: "Identify the set of molecules which are not in the correct order of their dipole moments"
+  options:
+    A: "HF > HCl > HBr"
+    B: "H$_2$O > H$_2$S > CO$_2$"
+    C: "H$_2$S > HCl > HF"
+    D: "NH$_3$ > NF$_3$ > BF$_3$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 126
+  section: Physical Chemistry
+  topic: Chemical Bonding and Molecular Structure
+  text: "Match the following:\nList - I (Molecule)\nA) SF$_4$\nB) ClF$_3$\nC) BrF$_5$\nD) XeF$_4$\n\nList - II (Shape)\nI) T - shaped\nII) Square planar\nIII) See-saw\nIV) Square pyramidal"
+  options:
+    A: "A - II; B - III; C - I; D - IV"
+    B: "A - II; B - I; C - IV; D - III"
+    C: "A - III; B - II; C - IV; D - I"
+    D: "A - III; B - I; C - IV; D - II"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 127
+  section: Physical Chemistry
+  topic: "States of Matter: Gases and Liquids"
+  text: "At 400 K, an ideal gas is enclosed in a 0.5 m$^3$ vessel at a pressure of 203 kPa. What is the change in temperature required (in K), if it occupies a volume of 0.2 m$^3$ under a pressure of 304 kPa? (Nearest integer)"
+  options:
+    A: "240"
+    B: "160"
+    C: "120"
+    D: "80"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 128
+  section: Physical Chemistry
+  topic: Stoichiometry
+  text: "Match the following\nList - I (Substance)\nA) Na$_2$CO$_3$\nB) KMnO$_4$ | H$^+$\nC) K$_2$Cr$_2$O$_7$ | H$^+$\nD) KMnO$_4$ | H$_2$O\n\nList - II (Equivalent weight)\nI) M/5\nII) M/3\nIII) M/2\nIV) M/6"
+  options:
+    A: "A - III; B - I; C - IV; D - II"
+    B: "A - III; B - IV; C - I; D - II"
+    C: "A - II; B - III; C - IV; D - I"
+    D: "A - IV; B - II; C - III; D - I"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 129
+  section: Physical Chemistry
+  topic: Thermodynamics
+  text: "The standard enthalpy of combustion of C (graphite), H$_2$ (g) and CH$_3$OH(l) respectively are $-393$, $-286$ and $-726$ kJ mol$^{-1}$. What is the standard enthalpy of formation of methanol?"
+  options:
+    A: "$-726$ kJ mol$^{-1}$"
+    B: "$-239$ kJ mol$^{-1}$"
+    C: "$-96$ kJ mol$^{-1}$"
+    D: "$+96$ kJ mol$^{-1}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 130
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "Observe the following species\ni) NH$_3$\nii) AlCl$_3$\niii) SnCl$_4$\niv) CO$_2$\nv) Ag$^+$\nvi) HSO$_4^-$\nHow many of the above species act as Lewis acids?"
+  options:
+    A: "5"
+    B: "3"
+    C: "4"
+    D: "2"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 131
+  section: Inorganic Chemistry
+  topic: Hydrogen and its Compounds
+  text: "The normality of 20 volume solution of hydrogen peroxide is"
+  options:
+    A: "0.892 N"
+    B: "1.785 N"
+    C: "2.678 N"
+    D: "3.570 N"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 132
+  section: Inorganic Chemistry
+  topic: s-Block Elements
+  text: "Consider the following reactions\n\nCs + O$_2$(excess) $\\rightarrow$ X\n\nNa + O$_2$ $\\rightarrow$ Y\n\nIdentify the correct statement about X and Y"
+  options:
+    A: "Y is monoxide and X is superoxide"
+    B: "Y is peroxide and X is peroxide"
+    C: "Y is peroxide and X is superoxide"
+    D: "Y is superoxide and X is peroxide"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 133
+  section: Inorganic Chemistry
+  topic: s-Block Elements
+  text: "Choose the correct statements from the following\nI) In vapour phase BeCl$_2$ exists as chlorobridged dimer\nII) BeSO$_4$ is readily soluble in water\nIII) BeO is completely basic in nature\nIV) BeCO$_3$ being unstable, is kept in the atmosphere of CO$_2$\nV) BeCO$_3$ is less soluble among all the carbonates of group 2 elements"
+  options:
+    A: "II, III, IV"
+    B: "I, II, IV"
+    C: "I, IV, V"
+    D: "II, III, V"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 134
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "Observe the following reactions (not balanced)\n\nBF$_3$ + LiAlH$_4$ $\\xrightarrow{(C_2H_5)_2O}$ X + LiF + AlF$_3$\n\nX + NaH $\\rightarrow$ Y\n\nThe incorrect statement about Y is"
+  options:
+    A: "It is a good oxidizing agent"
+    B: "It is a good reducing agent"
+    C: "Oxidation state of hydrogen in it is -1"
+    D: "Oxidation of it with iodine gives diborane"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 135
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "Assertion (A): Silicones are used for water proofing of fabrics\nReason (R): The repeating unit in silicones is $[\\text{R}_2\\text{SiO}]_n$"
+  options:
+    A: "(A) and (R) are correct, but (R) is not the correct explanation of (A)"
+    B: "(A) and (R) are correct, (R) is the correct explanation of (A)"
+    C: "(A) is not correct but (R) is correct"
+    D: "(A) is correct but (R) is not correct"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 136
+  section: Organic Chemistry
+  topic: Environmental Chemistry
+  text: "Acrolein (X) is one of the chemicals formed when O$_3$ and NO$_2$ react with unburnt hydrocarbons present in the polluted air. The structure of 'X' is"
+  options:
+    A: "CH$_3$ - CH = CH$_2$"
+    B: "CH$_2$ = CH - CHO"
+    C: "CH$_2$ = CH - CN"
+    D: "CH$_3$CO(OO)NO$_2$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 137
+  section: Organic Chemistry
+  topic: General Organic Chemistry
+  text: "An organic compound containing phosphorous on oxidation with Na$_2$O$_2$ gives a compound 'X'. This 'X' when boiled with HNO$_3$ followed by treatment with a reagent gives yellow precipitate Y. X and Y respectively are"
+  options:
+    A: "Na$_3$PO$_4$, (NH$_4$)$_2$MoO$_3$"
+    B: "Na$_3$PO$_4$, (NH$_4$)$_2$MoO$_4$"
+    C: "H$_3$PO$_4$, (NH$_4$)$_2$MoO$_4$"
+    D: "Na$_3$PO$_4$, (NH$_4$)$_3$PO$_4 \\cdot$ 12MoO$_3$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 138
+  section: Organic Chemistry
+  topic: General Organic Chemistry
+  text: "The correct IUPAC name of the structure given below is\n\n$H_2N - CH(CH_3) - CH = C(CH_3) - C(=O) - CH_2 - OH$"
+  options:
+    A: "5-Amino-4-methyl-2-oxohex-3-en-1-ol"
+    B: "4-Amino-2-methylpentanoic acid"
+    C: "5-Amino-1-hydroxy-3-methylhex-3-en-2-one"
+    D: "2-Amino-6-hydroxy-5-keto-4-methyl-3-hexene"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 139
+  section: Organic Chemistry
+  topic: Organic Compounds Containing C, H and O
+  text: "The major product 'Y' in the given sequence of reactions is\n\n$C_3H_7OH \\xrightarrow[443 K]{\\text{Conc. } H_2SO_4} X \\xrightarrow[(C_6H_5CO)_2O_2]{HBr} Y$"
+  options:
+    A: "CH$_3$CH$_2$CH$_2$Br"
+    B: "CH$_3$CH(Br)CH$_3$"
+    C: "CH$_3$COC$_6H_5$"
+    D: "C$_6H_5$COBr"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 140
+  section: Organic Chemistry
+  topic: Hydrocarbons
+  text: "Compound 'A' on heating with sodalime gives propane. Identify the compound 'A'."
+  options:
+    A: "CH$_3$ - CH$_2$ - CH$_2$ - OH"
+    B: "CH$_3$CH$_2$CO$_2$Na"
+    C: "CH$_3$CH$_2$CH$_2$CO$_2$Na"
+    D: "CH$_3$ - C(=O) - CH$_3$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 141
+  section: Physical Chemistry
+  topic: Solid State
+  text: "An element with molar mass $2.7 \\times 10^{-2}$ kg mol$^{-1}$ forms a cubic unit cell with edge length of 405 pm. If its density is $2.7 \\times 10^3$ kg m$^{-3}$, the number of atoms present in one unit cell of it is (Given; $N_A = 6.023 \\times 10^{23}$ mol$^{-1}$)"
+  options:
+    A: "2"
+    B: "4"
+    C: "6"
+    D: "12"
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 142
+  section: Physical Chemistry
+  topic: Solutions
+  text: "At 300 K, 0.06 kg of an organic solute is dissolved in 1 kg water. The vapour pressure of solution at 300 K is 3.768 kPa. If vapour pressure of water at that temperature is 3.78 kPa, what is the molar mass of the organic solute (in g mol$^{-1}$)? (Assume the solution is dilute)"
+  options:
+    A: "180"
+    B: "120"
+    C: "340"
+    D: "260"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 143
+  section: Physical Chemistry
+  topic: Electrochemistry and Chemical Kinetics
+  text: "The molar conductivity of 0.02 M solution of an electrolyte is $124 \\times 10^{-4}$ S m$^2$ mol$^{-1}$. What is the resistance of the same solution (in ohms), kept in a cell of cell constant 129 m$^{-1}$?"
+  options:
+    A: "390"
+    B: "130"
+    C: "260"
+    D: "520"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 144
+  section: Physical Chemistry
+  topic: Electrochemistry and Chemical Kinetics
+  text: "The decomposition of benzene diazonium chloride is a first order reaction. The time taken for its decomposition to $1/4$ and $1/10$ of its initial concentration are $t_{1/4}$ and $t_{1/10}$ respectively. The value of $\\frac{t_{1/4}}{t_{1/10}} \\times 100$ is (Given: $\\log 2 = 0.3$)"
+  options:
+    A: "60"
+    B: "30"
+    C: "90"
+    D: "45"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 145
+  section: Physical Chemistry
+  topic: Surface Chemistry
+  text: "10 mL of 0.5 M NaCl is required to coagulate 1L of $Sb_2S_3$ sol in 2 hours time. The flocculating value of NaCl (in milli moles) is"
+  options:
+    A: "20"
+    B: "10"
+    C: "5"
+    D: "15"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 146
+  section: Inorganic Chemistry
+  topic: General Principles of Isolation of Elements
+  text: "Kaolinite is a silicate mineral of metal 'X' and calamine is a carbonate mineral of metal 'Y'. X and Y respectively are"
+  options:
+    A: "Fe, Cu"
+    B: "Zn, Al"
+    C: "Al, Zn"
+    D: "Zn, Cu"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 147
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "$NH_2CONH_2 + 2H_2O \\rightarrow [X] \\rightleftharpoons 2NH_3 + H_2O + [Y]$ The hybridization of carbon in X and Y respectively are"
+  options:
+    A: "$sp^2$, $sp$"
+    B: "$sp$, $sp^2$"
+    C: "$sp^3$, $sp^2$"
+    D: "$sp^2$, $sp^3$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 148
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "Among the hydrides $NH_3$, $PH_3$, $AsH_3$, $SbH_3$ and $BiH_3$, the hydride with highest boiling point is X and the hydride with lowest boiling point is Y. What are X and Y respectively?"
+  options:
+    A: "$PH_3$, $NH_3$"
+    B: "$NH_3$, $PH_3$"
+    C: "$BiH_3$, $PH_3$"
+    D: "$NH_3$, $BiH_3$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 149
+  section: Inorganic Chemistry
+  topic: p-Block Elements
+  text: "Xenon (VI) fluoride on complete hydrolysis gives an oxide of xenon 'O'. The total number of $\\sigma$ and $\\pi$ bonds in 'O' is"
+  options:
+    A: "2"
+    B: "4"
+    C: "6"
+    D: "8"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 150
+  section: Inorganic Chemistry
+  topic: Coordination Compounds
+  text: "In which of the following ions the spin only magnetic moment is lowest?"
+  options:
+    A: "$[Ti(H_{2}O)_{6}]^{3+}$"
+    B: "$[Mn(H_{2}O)_{6}]^{2+}$"
+    C: "$[Ni(H_{2}O)_{6}]^{2+}$"
+    D: "$[Co(H_{2}O)_{6}]^{2+}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 151
+  section: Inorganic Chemistry
+  topic: Coordination Compounds
+  text: "Identify the complex ion with electronic configuration $t_{2g}^3e_g^2$"
+  options:
+    A: "$[Fe(H_{2}O)_{6}]^{3+}$"
+    B: "$[Cr(H_{2}O)_{6}]^{3+}$"
+    C: "$[Ni(H_{2}O)_{6}]^{2+}$"
+    D: "$[Ti(H_{2}O)_{6}]^{3+}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 152
+  section: Organic Chemistry
+  topic: Polymers
+  text: "Identify the structure of the polymer 'P' formed in the given reaction: Caprolactam $\\xrightarrow[H_2O]{533-543 K} P$"
+  options:
+    A: "$[C(=O)-NH-(CH_2)_5-C(=O)]_n$"
+    B: "$[NH-(CH_2)_6-NH-CO-(CH_2)_4-C(=O)]_n$"
+    C: "$[CO-(CH_2)_5-NH]_n$"
+    D: "$[CO-(CH_2)_6-NH]_n$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 153
+  section: Organic Chemistry
+  topic: Biomolecules
+  text: "Which of the following vitamin is also called pyridoxine?"
+  options:
+    A: "$B_6$"
+    B: "$B_{12}$"
+    C: "$B_2$"
+    D: "$B_1$"
+  correct_answer: A
+  difficulty: easy
+  subject: Chemistry
+- id: 154
+  section: Organic Chemistry
+  topic: Chemistry in Everyday Life
+  text: "The number of $-OH$ groups present in the structures of bithionol, terpineol and chloroxylenol is respectively"
+  options:
+    A: "2, 1, 1"
+    B: "1, 2, 1"
+    C: "1, 1, 2"
+    D: "2, 2, 1"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 155
+  section: Organic Chemistry
+  topic: Organic Compounds Containing Halogens
+  text: "Aniline $\\xrightarrow[(2) Cu_2Cl_2|HCl]{(1) NaNO_2|HCl, 0^\\circ C} X$, then $X + CH_3Cl \\xrightarrow[dry ether]{Na} Y$. Conversion of X to Y in the above reaction is"
+  options:
+    A: "Wurtz reaction"
+    B: "Fittig reaction"
+    C: "Wurtz-Fittig reaction"
+    D: "Sandmeyer reaction"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 156
+  section: Organic Chemistry
+  topic: Organic Compounds Containing C, H and O
+  text: "$CH_3CH_2OH \\xrightarrow[443K]{\\text{Conc. } H_2SO_4} X \\xrightarrow[(2) Zn/H_2O]{(1) O_3} Y \\text{ (2 Moles)} \\xrightarrow[(ii) H^+]{(i) \\text{Conc. } NaOH} Z$\nZ is a mixture of alcohol and acid. Reaction of conversion of Y to Z is"
+  options:
+    A: "Reimer-Tiemann reaction"
+    B: "Kolbe's reaction"
+    C: "Cannizzaro reaction"
+    D: "Stephen reaction"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 157
+  section: Organic Chemistry
+  topic: General Organic Chemistry
+  text: "Arrange the following in the increasing order of pKa values\nI) Phenol\nII) p-Nitrophenol\nIII) Ethanol\nIV) p-Nitrobenzoic acid"
+  options:
+    A: "III < IV < II < I"
+    B: "II < III < IV < I"
+    C: "IV < II < I < III"
+    D: "IV < III < II < I"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 158
+  section: Organic Chemistry
+  topic: Organic Compounds Containing C, H and O
+  text: "What is 'C' in the following reaction sequence?\nPropanone + $CH_3MgBr \\xrightarrow[Ether]{} A \\xrightarrow{H_3O^+} B \\xrightarrow[573K]{Cu} C"
+  options:
+    A: "Propanone"
+    B: "2-methyl-2-propanol"
+    C: "2-methylprop-1-ene"
+    D: "But-2-enal"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 159
+  section: Organic Chemistry
+  topic: Organic Compounds Containing C, H and O
+  text: "Identify the products R and S in the reaction sequence given\n$(CH_3)_3COH \\xrightarrow{Na} P \\xrightarrow{CH_3Br} Q \\xrightarrow[\\Delta]{HI} R + S$"
+  options:
+    A: "$(CH_3)_3CI, CH_3OH$"
+    B: "$(CH_3)_3COH, CH_3I$"
+    C: "$(CH_3)_3COH, CH_3OH$"
+    D: "$(CH_3)_2C = CH_2, CH_3OH$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 160
+  section: Organic Chemistry
+  topic: Organic Compounds Containing Nitrogen
+  text: "In the given reaction sequence, Z is\nBenzoic acid $\\xrightarrow[(2) \\Delta]{(1) NH_3} X \\xrightarrow[NaOH]{Br_2} Y \\xrightarrow[KOH]{CHCl_3} Z$"
+  options:
+    A: "Chlorobenzene"
+    B: "Phenol"
+    C: "Phenyl isocyanide"
+    D: "Benzonitrile"
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry

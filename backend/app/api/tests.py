@@ -1,23 +1,35 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Header
-from beanie import PydanticObjectId
-from typing import List, Optional, Dict, Any
-from datetime import datetime
-from pydantic import BaseModel
-
-from app.core.security import get_current_user
-from app.models.test import Test, TestAttempt, TestResponse as TestResponseModel, TestStatus
-from app.models.question import Question, QuestionSource, DifficultyLevel
-from app.schemas.test import TestCreate, TestResponse, TestAttemptResponse, SubmitTestRequest
-from app.schemas.question import QuestionInTest
-from app.api.exams import load_exam_config
-from app.services.question_generator_v2 import get_question_generator_v2
-from app.models.blueprint import Blueprint, DifficultyLevel as BlueprintDifficulty, Constraints
 import random
+import uuid
+import sys
+import asyncio
+from typing import List, Optional, Dict, Any, Union
+from datetime import datetime, timezone, timedelta
+from enum import Enum
+
+# Timezone Constants (IST for Indian Mock Exams)
+IST = timezone(timedelta(hours=5, minutes=30))
+
+from pydantic import BaseModel, Field, validator
+from beanie import Document, PydanticObjectId, Link
+from beanie.operators import In
+from fastapi import APIRouter, Depends, HTTPException, status, Header, BackgroundTasks, Query
+
+from app.core.security import get_current_user, get_optional_user
+from app.core.config import settings
+from app.models.test import Test, TestAttempt, TestStatus, TestType, TestResponse as TestResponseModel
+from app.models.question import Question, QuestionSource, DifficultyLevel
+from app.models.blueprint import Blueprint, DifficultyLevel as BlueprintDifficulty, Constraints
+from app.schemas.test import TestCreate, TestAttemptResponse, SubmitTestRequest
+from app.schemas.question import QuestionInTest
+from app.services.question_generator_v2 import get_question_generator_v2
+from app.services.blueprint_loader import get_blueprint_loader
+from app.schemas.exam import ExamConfig
+from app.api.exams import load_exam_config
 
 
 class AIGeneratedQuestion(BaseModel):
     """AI-generated question response model"""
-    id: str
+    id: Optional[str] = None
     question_text: str
     options: Dict[str, str]  # {"a": "...", "b": "...", "c": "...", "d": "..."}
     section: Optional[str] = None
@@ -37,146 +49,341 @@ router = APIRouter()
 DEV_USER_ID = "000000000000000000000001"
 
 
-async def get_optional_user(authorization: Optional[str] = Header(None)) -> str:
-    """Get user ID from token, or return a test user ID for development"""
-    if authorization and authorization.startswith("Bearer "):
-        from app.core.security import decode_token
-        token = authorization.split(" ")[1]
-        payload = decode_token(token)
-        if payload and payload.get("sub"):
-            return payload.get("sub")
-    # Return a fixed test user ObjectId for development
-    return DEV_USER_ID
 
 
-@router.post("/generate", response_model=TestResponse)
+@router.post("/generate", response_model=TestAttemptResponse)
 async def generate_test(
     test_data: TestCreate,
+    background_tasks: BackgroundTasks,
     user_id: str = Depends(get_optional_user)
 ):
-    """Generate a new test based on exam configuration"""
-    # Load exam config
+    """
+    Initiate test generation in background.
+    Returns the TestAttempt immediately with status 'GENERATING'.
+    """
+    print(f"DEBUG: generate_test called for {test_data.exam_code}")
+    # Load exam config to get details for the shell test
     exam_config = load_exam_config(test_data.exam_code)
+    print("DEBUG: Exam config loaded")
     
-    # Get questions for each section
-    question_ids = []
-    generator = get_question_generator_v2()
+    # 1. Create the Test shell (without questions initially)
+    # Filter sections if requested
+    filtered_sections = []
+    if test_data.sections:
+        target_codes = set(test_data.sections)
+        filtered_sections = [s for s in exam_config.sections if s.code in target_codes]
+    else:
+        filtered_sections = exam_config.sections
+
+    # Use custom values if provided, otherwise fall back to exam_config defaults
+    total_questions = test_data.custom_question_count or sum(s.total_questions for s in filtered_sections)
+    duration_minutes = test_data.custom_duration_minutes or exam_config.total_duration_minutes
     
-    for section in exam_config.sections:
-        # Query questions for this section
-        section_questions = await Question.find(
-            Question.exam_code == test_data.exam_code,
-            Question.section == section.code
-        ).to_list()
-        
-        needed = section.total_questions
-        
-        # Randomly select required number of questions
-        if len(section_questions) >= needed:
-            selected = random.sample(section_questions, needed)
-            question_ids.extend([q.id for q in selected])
-        else:
-            # Use available questions first
-            question_ids.extend([q.id for q in section_questions])
-            shortage = needed - len(section_questions)
-            
-            # Generate missing questions with LLM
-            if generator.llm_client and shortage > 0:
-                for topic in section.topics[:shortage]:
-                    topic_name = topic.name if hasattr(topic, 'name') else str(topic)
-                    topic_code = topic.code if hasattr(topic, 'code') else topic_name.lower().replace(' ', '_')
-                    
-                    blueprint = Blueprint(
-                        id=f"{section.code}_{topic_code}_GEN",
-                        exam=test_data.exam_code.upper(),
-                        subject=section.name,
-                        chapter=topic_name,
-                        concept=topic_name,
-                        template_variants=[f"Question about {topic_name}"],
-                        difficulty_level=BlueprintDifficulty.MODERATE,
-                        answer_type="numeric",
-                        answer_unit="dimensionless",
-                        constraints=Constraints(steps=2, expected_time_sec=90),
-                        tags=[section.code, topic_code],
-                    )
-                    
-                    try:
-                        gen_q = generator.generate_from_blueprint(blueprint, use_ai_phrasing=False)
-                        if gen_q is None:
-                            continue
-                        
-                        # Store generated question in DB
-                        db_question = Question(
-                            question_text=gen_q.question_text,
-                            options={
-                                "a": gen_q.options[0] if len(gen_q.options) > 0 else "A",
-                                "b": gen_q.options[1] if len(gen_q.options) > 1 else "B",
-                                "c": gen_q.options[2] if len(gen_q.options) > 2 else "C",
-                                "d": gen_q.options[3] if len(gen_q.options) > 3 else "D",
-                            },
-                            correct_option=["a", "b", "c", "d"][gen_q.correct_option_index],
-                            explanation=gen_q.solution,
-                            exam_code=test_data.exam_code,
-                            section=section.code,
-                            topic=topic_code,
-                            difficulty=DifficultyLevel.MEDIUM,
-                            source=QuestionSource.AI_GENERATED,
-                        )
-                        await db_question.insert()
-                        question_ids.append(db_question.id)
-                    except Exception as e:
-                        print(f"Failed to generate question for {topic_name}: {e}")
-    
-    # Create test
+    # Adjust per-section counts if custom_question_count is provided
+    final_sections = [s.model_dump() for s in filtered_sections]
+    if test_data.custom_question_count and len(final_sections) > 0:
+        actual_total = sum(s['total_questions'] for s in final_sections)
+        if actual_total > 0:
+            assigned = 0
+            for i, s in enumerate(final_sections):
+                if i == len(final_sections) - 1:
+                    s['total_questions'] = total_questions - assigned
+                else:
+                    count = int((s['total_questions'] / actual_total) * total_questions)
+                    s['total_questions'] = count
+                    assigned += count
+
     test = Test(
         title=test_data.title,
         exam_code=test_data.exam_code,
         test_type=test_data.test_type,
-        total_questions=exam_config.total_questions,
-        total_marks=exam_config.total_marks,
-        duration_minutes=exam_config.total_duration_minutes,
+        total_questions=total_questions,
+        total_marks=total_questions,  # Assuming 1 mark per question
+        duration_minutes=duration_minutes,
         negative_marking=exam_config.default_negative_marks,
-        sections=[s.model_dump() for s in exam_config.sections],
-        question_ids=question_ids
+        sections=final_sections,
+        question_ids=[] # Will be populated in background
+    )
+    await test.insert()
+    
+    # 2. Create the Attempt with GENERATING status
+    attempt = TestAttempt(
+        user_id=PydanticObjectId(user_id),
+        test_id=test.id,
+        status=TestStatus.GENERATING,
+        started_at=None,
+        skipped=test.total_questions
+    )
+    await attempt.insert()
+    
+    # 3. Add background task
+    background_tasks.add_task(
+        process_test_generation, 
+        test.id, 
+        attempt.id, 
+        test_data, 
+        exam_config
     )
     
-    await test.insert()
-    return test
+    return attempt
+
+
+async def process_test_generation(test_id: PydanticObjectId, attempt_id: PydanticObjectId, test_data: TestCreate, exam_config: ExamConfig):
+    """Background task to generate questions and update test"""
+    from app.models.test import TestType # Local import to ensure it's in scope for background task
+    print(f"Background: Starting generation for Test {test_id}...")
+    try:
+        # Load necessary services
+        generator = get_question_generator_v2()
+        blueprint_loader = get_blueprint_loader()
+        
+        # Get the target test document to update later
+        test = await Test.get(test_id)
+        if not test:
+            print(f"Error: Test {test_id} not found")
+            return
+            
+        target_question_count = test.total_questions
+        question_ids = []
+        
+        # Define variety pool factor
+        VARIETY_POOL_FACTOR = 3.0
+        
+        # Load all blueprints for this exam
+        blueprint_loader.load_all(force_reload=True)
+        blueprints = blueprint_loader.get_blueprints_by_exam(test_data.exam_code)
+        print(f"DEBUG: Found {len(blueprints)} blueprints total for {test_data.exam_code}")
+        
+        if len(blueprints) == 0:
+            all_bps = blueprint_loader.get_all_blueprints()
+            print(f"DEBUG: Total blueprints in loader: {len(all_bps)}")
+            if all_bps:
+                print(f"DEBUG: Sample blueprint exam field: '{all_bps[0].exam}'")
+                print(f"DEBUG: Requested exam_code: '{test_data.exam_code}'")
+        
+        # Iterate through subjects then sections
+        for subject in exam_config.subjects:
+            if len(question_ids) >= target_question_count:
+                break
+                
+            subject_name = subject.name
+            print(f"DEBUG: Processing Subject: {subject_name}")
+            
+            # Find relevant sections for this subject in the TEST
+            # Note: test.sections is a flat list of Section objects from the attempt
+            for section_config in subject.sections:
+                if len(question_ids) >= target_question_count:
+                    break
+                    
+                section_code = section_config.code
+                section_name = section_config.name
+                
+                # Check if this section is needed for this specific test
+                # We matching by code
+                section_info = next((s for s in test.sections if s.get('code') == section_code), None)
+                if not section_info:
+                    continue
+                    
+                needed_for_section = section_info.get('total_questions', 0)
+                if needed_for_section <= 0:
+                    continue
+                    
+                print(f"DEBUG: Processing Section: {section_name} (Code: {section_code}), Need: {needed_for_section}")
+                
+                # Filter blueprints for this subject AND section
+                # Use a more flexible search
+                available_blueprints = [
+                    bp for bp in blueprints 
+                    if bp.subject.lower() == subject_name.lower() and 
+                       (bp.section and (bp.section.lower() == section_name.lower() or bp.section.lower() == section_code.lower()))
+                ]
+                
+                print(f"DEBUG: Found {len(available_blueprints)} relevant blueprints for {section_name}")
+                
+                if not available_blueprints:
+                    # Fallback: ignore section if none found, but keep subject
+                    available_blueprints = [bp for bp in blueprints if bp.subject.lower() == subject_name.lower()]
+                    print(f"DEBUG: Fallback - found {len(available_blueprints)} blueprints for subject {subject_name} only")
+
+                # Filter by difficulty if specified
+                if test_data.difficulty and test_data.difficulty != "mixed":
+                    target_diff = test_data.difficulty.lower()
+                    available_blueprints = [
+                        bp for bp in available_blueprints 
+                        if bp.difficulty_level and bp.difficulty_level.value == target_diff
+                    ]
+                
+                random.shuffle(available_blueprints)
+            
+                # 3. Fetch existing questions from DB matching this section/subject
+                query_filter = {
+                    "exam_code": test_data.exam_code,
+                    "section": section_name # Using section name matches how questions are often tagged
+                }
+                if test_data.test_type == TestType.TOPIC_WISE and test_data.topics:
+                    query_filter["topic"] = {"$in": test_data.topics}
+                
+                existing_questions = await Question.find(query_filter).to_list()
+                
+                # 4. Selection Logic: Sample from DB or Generate via AI
+                is_pool_shallow = len(existing_questions) < (needed_for_section * VARIETY_POOL_FACTOR)
+                
+                shortage = needed_for_section
+                if not is_pool_shallow:
+                    selected = random.sample(existing_questions, needed_for_section)
+                    question_ids.extend([q.id for q in selected])
+                    shortage = 0
+                else:
+                    # Take some from DB and generate the rest
+                    use_from_db = min(len(existing_questions), needed_for_section // 4)
+                    if use_from_db > 0:
+                        selected = random.sample(existing_questions, use_from_db)
+                        question_ids.extend([q.id for q in selected])
+                        shortage = needed_for_section - use_from_db
+                
+                # 5. Generate with AI if needed
+                if shortage > 0 and available_blueprints:
+                    print(f"Generating {shortage} AI questions for {section_name}...")
+                    sem = asyncio.Semaphore(2)
+                    
+                    # Capture closure variables correctly
+                    current_section_name = section_name
+                    
+                    async def gen_q_task(i, target_section):
+                        async with sem:
+                            bp = available_blueprints[i % len(available_blueprints)]
+                            try:
+                                # Use executor for sync generator call
+                                loop = asyncio.get_running_loop()
+                                gen_q = await loop.run_in_executor(None, lambda: generator.generate_from_blueprint(bp, use_ai_phrasing=True))
+                                if not gen_q: return None
+                                
+                                # Map difficulty
+                                mapping = {"easy": "easy", "moderate": "medium", "hard": "hard"}
+                                q_diff = mapping.get(str(gen_q.difficulty_level).lower(), "medium")
+                                
+                                db_q = Question(
+                                    question_text=gen_q.question_text,
+                                    options={"a": gen_q.options[0], "b": gen_q.options[1], "c": gen_q.options[2], "d": gen_q.options[3]},
+                                    correct_option=["a", "b", "c", "d"][gen_q.correct_option_index],
+                                    explanation=gen_q.solution,
+                                    exam_code=test_data.exam_code,
+                                    section=target_section,
+                                    topic=bp.chapter or bp.concept,
+                                    difficulty=q_diff,
+                                    source=QuestionSource.AI_GENERATED
+                                )
+                                await db_q.insert()
+                                return db_q.id
+                            except Exception as e:
+                                print(f"AI Gen Error in section {target_section}: {e}")
+                                return None
+                                
+                    tasks = [gen_q_task(i, current_section_name) for i in range(shortage)]
+                    new_ids = await asyncio.gather(*tasks)
+                    question_ids.extend([nid for nid in new_ids if nid])
+
+        # Finalize Test and Attempt
+        test.question_ids = question_ids
+        await test.save()
+        
+        attempt = await TestAttempt.get(attempt_id)
+        if attempt:
+            attempt.status = TestStatus.NOT_STARTED
+            await attempt.save()
+            print(f"Background: Test {test_id} complete. {len(question_ids)} questions added.")
+
+    except Exception as e:
+        print(f"Background Generation CRITICAL FAILURE: {e}")
+        import traceback
+        traceback.print_exc()
+        attempt = await TestAttempt.get(attempt_id)
+        if attempt:
+            attempt.status = TestStatus.ABANDONED
+            await attempt.save()
 
 
 @router.post("/{test_id}/start", response_model=TestAttemptResponse)
 async def start_test(
     test_id: str,
-    user_id: str = Depends(get_optional_user)
+    user_id: str = Depends(get_current_user)
 ):
-    """Start a test attempt"""
+    """Start a test attempt. Returns a fresh or existing in-progress attempt."""
     # Get test
     test = await Test.get(PydanticObjectId(test_id))
-    
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
     
-    # Check for existing in-progress attempt - return it instead of error
-    existing = await TestAttempt.find_one(
+    # 1. Check for existing attempt for this test/user
+    attempt = await TestAttempt.find_one(
         TestAttempt.test_id == PydanticObjectId(test_id),
-        TestAttempt.user_id == PydanticObjectId(user_id),
-        TestAttempt.status == TestStatus.IN_PROGRESS
-    )
-    if existing:
-        # Return existing attempt instead of throwing error
-        return existing
-    
-    # Create attempt
-    attempt = TestAttempt(
-        user_id=PydanticObjectId(user_id),
-        test_id=PydanticObjectId(test_id),
-        status=TestStatus.IN_PROGRESS,
-        started_at=datetime.utcnow(),
-        skipped=test.total_questions
+        TestAttempt.user_id == PydanticObjectId(user_id)
     )
     
-    await attempt.insert()
-    return attempt
+    if attempt:
+        # 2. If attempt exists, check status
+        if attempt.status == TestStatus.COMPLETED:
+            # If already completed, maybe they want to start a NEW attempt?
+            # For now, let's just create a new one to be safe, or return the completed one.
+            # In MockMitra, we usually create a NEW attempt if they want to re-take.
+            pass # Fall through to creation if we decide so, but let's just reset for now
+            
+        elif attempt.status in [TestStatus.NOT_STARTED, TestStatus.GENERATING, TestStatus.ABANDONED]:
+            # Reset and start fresh!
+            attempt.status = TestStatus.IN_PROGRESS
+            attempt.started_at = datetime.now(timezone.utc)
+            await attempt.save()
+            sys.stderr.write(f"Resetting existing attempt {attempt.id} to IN_PROGRESS with fresh timer\n")
+            sys.stderr.flush()
+        
+        elif attempt.status == TestStatus.IN_PROGRESS:
+            # 2b. Check if IN_PROGRESS attempt is stale or inactive
+            now = datetime.now(timezone.utc)
+            duration_sec = (test.duration_minutes or 180) * 60
+            
+            # Ensure started_at is aware for calculation
+            started_at = attempt.started_at
+            if started_at and started_at.tzinfo is None:
+                started_at = started_at.replace(tzinfo=timezone.utc)
+            
+            if started_at:
+                elapsed_sec = (now - started_at).total_seconds()
+                
+                # If started more than (duration + 10 mins) ago, OR
+                # if 0 questions answered and started more than 5 mins ago
+                is_stale = elapsed_sec > (duration_sec + 600)
+                has_no_progress = attempt.total_attempted == 0 and elapsed_sec > 300
+                
+                if is_stale or has_no_progress:
+                    attempt.started_at = now
+                    await attempt.save()
+                    ist_now = now.astimezone(IST).strftime('%Y-%m-%d %I:%M:%S %p')
+                    sys.stderr.write(f"[{ist_now} IST] Resetting stale attempt {attempt.id} (Elapsed: {elapsed_sec}s)\n")
+                    sys.stderr.flush()
+        
+        # If it's already IN_PROGRESS and recent, we just return it (it might be a refresh)
+    else:
+        # 3. Create fresh attempt if none exists
+        attempt = TestAttempt(
+            user_id=PydanticObjectId(user_id),
+            test_id=PydanticObjectId(test_id),
+            status=TestStatus.IN_PROGRESS,
+            started_at=datetime.now(timezone.utc),
+            skipped=test.total_questions
+        )
+        await attempt.insert()
+        ist_now = datetime.now(IST).strftime('%Y-%m-%d %I:%M:%S %p')
+        sys.stderr.write(f"[{ist_now} IST] Created new attempt {attempt.id} for test {test_id}\n")
+        sys.stderr.flush()
+    
+    # Enrich response with test details
+    response = TestAttemptResponse.model_validate(attempt)
+    response.test_title = test.title
+    response.exam_code = test.exam_code
+    response.duration_minutes = test.duration_minutes
+    response.total_questions = test.total_questions
+    response.sections = test.sections
+    return response
 
 
 @router.get("/{test_id}/questions", response_model=List[QuestionInTest])
@@ -212,7 +419,7 @@ async def get_ai_generated_questions(
     test_id: str,
     limit: Optional[int] = None,
     use_ai_phrasing: bool = False,
-    user_id: str = Depends(get_optional_user)
+    user_id: str = Depends(get_current_user)
 ):
     """Get deterministically-generated questions for a test.
     
@@ -244,6 +451,38 @@ async def get_ai_generated_questions(
     if not test:
         raise HTTPException(status_code=404, detail="Test not found")
     
+    #  Check if test already has pre-generated questions
+    if test.question_ids and len(test.question_ids) > 0:
+        sys.stderr.write(f"Using {len(test.question_ids)} pre-generated questions for test {test_id}\n")
+        sys.stderr.flush()
+        
+        # Fetch questions from database
+        questions = await Question.find(
+            In(Question.id, test.question_ids)
+        ).to_list()
+        
+        # Convert to response format
+        ai_questions: List[AIGeneratedQuestion] = []
+        for q in questions:
+            ai_questions.append(AIGeneratedQuestion(
+                id=str(q.id),
+                question_text=q.question_text,
+                options=q.options,
+                section=q.section,
+                topic=q.topic,
+                difficulty=q.difficulty or "medium"
+            ))
+        
+        return AIQuestionsResponse(
+            test_id=str(test.id),
+            questions=ai_questions,
+            total_questions=len(ai_questions)
+        )
+    
+    # If no pre-generated questions, generate on-the-fly
+    sys.stderr.write(f"No pre-generated questions found. Generating on-the-fly for test {test_id}\n")
+    sys.stderr.flush()
+    
     # Get the question generator (V2 - deterministic workflow)
     generator = get_question_generator_v2()
     
@@ -256,41 +495,64 @@ async def get_ai_generated_questions(
     # Generate questions using blueprints
     ai_questions: List[AIGeneratedQuestion] = []
     
-    # If we have sections in exam config, generate per section
-    if exam_config and exam_config.sections:
-        for section in exam_config.sections:
-            # Use limit if provided, otherwise use full section count for complete mock
-            section_count = limit if limit else section.total_questions
-            section_count = min(section_count, section.total_questions)
+    # If we have subjects in exam config, generate per subject and then per section
+    if exam_config and exam_config.subjects:
+        for subject in exam_config.subjects:
+            subject_name = subject.name
+            for section in subject.sections:
+                # Check if this section is needed for this specific test
+                section_info = next((s for s in test.sections if s.get('code') == section.code), None)
+                if not section_info:
+                    continue
+                
+                needed_for_section = section_info.get('total_questions', 0)
+                if needed_for_section <= 0:
+                    continue
+
+                # Use limit if provided, otherwise respect the test's needed count
+                section_count = limit if limit else needed_for_section
+                section_count = min(section_count, section.total_questions)
+                
+                section_name = section.name
+                print(f"Generating {section_count} questions for {subject_name} > {section_name}...")
+                
+                # Generate questions for this section (deterministic V2 workflow)
+                generated = generator.generate_batch(
+                    count=section_count,
+                    subject=subject_name,
+                    section=section_name,
+                    unique_blueprints=True,
+                    use_ai_phrasing=use_ai_phrasing
+                )
+                
+                if not generated:
+                    # Fallback: try by subject only if section yielded nothing
+                    print(f"No questions found for section {section_name}, falling back to subject {subject_name}")
+                    generated = generator.generate_batch(
+                        count=section_count,
+                        subject=subject_name,
+                        unique_blueprints=True,
+                        use_ai_phrasing=use_ai_phrasing
+                    )
+
+                print(f"Generated {len(generated)} questions for {subject_name} > {section_name}")
             
-            subject_name = section.name  # e.g., "Mathematics", "Physics", "Chemistry"
-            print(f"Generating {section_count} questions for {subject_name}...")
-            
-            # Generate questions for this section (deterministic V2 workflow)
-            generated = generator.generate_batch(
-                count=section_count,
-                subject=subject_name,
-                unique_blueprints=True,
-                use_ai_phrasing=use_ai_phrasing
-            )
-            print(f"Generated {len(generated)} questions for {subject_name}")
-            
-            # Convert to response format
-            for q in generated:
-                options_dict = {
-                    "a": q.options[0] if len(q.options) > 0 else "Option A",
-                    "b": q.options[1] if len(q.options) > 1 else "Option B",
-                    "c": q.options[2] if len(q.options) > 2 else "Option C",
-                    "d": q.options[3] if len(q.options) > 3 else "Option D",
-                }
-                ai_questions.append(AIGeneratedQuestion(
-                    id=q.id,
-                    question_text=q.question_text,
-                    options=options_dict,
-                    section=section.code,
-                    topic=q.chapter,
-                    difficulty=str(q.difficulty_level) if q.difficulty_level else "moderate"
-                ))
+                # Convert to response format (moved INSIDE the loop)
+                for q in generated:
+                    options_dict = {
+                        "a": q.options[0] if len(q.options) > 0 else "Option A",
+                        "b": q.options[1] if len(q.options) > 1 else "Option B",
+                        "c": q.options[2] if len(q.options) > 2 else "Option C",
+                        "d": q.options[3] if len(q.options) > 3 else "Option D",
+                    }
+                    ai_questions.append(AIGeneratedQuestion(
+                        id=q.id,
+                        question_text=q.question_text,
+                        options=options_dict,
+                        section=section.code,
+                        topic=q.chapter,
+                        difficulty=str(q.difficulty_level) if q.difficulty_level else "moderate"
+                    ))
     else:
         # No sections - generate generic questions using full count
         question_count = limit if limit else test.total_questions
@@ -386,7 +648,7 @@ async def submit_test(
             is_correct=is_correct,
             is_marked_for_review=response.is_marked_for_review,
             time_spent_seconds=response.time_spent_seconds,
-            answered_at=datetime.utcnow()
+            answered_at=datetime.now(timezone.utc)
         )
         responses_to_insert.append(test_response)
     
@@ -396,8 +658,18 @@ async def submit_test(
     
     # Update attempt
     attempt.status = TestStatus.COMPLETED
-    attempt.completed_at = datetime.utcnow()
-    attempt.time_taken_seconds = int((attempt.completed_at - attempt.started_at).total_seconds())
+    attempt.completed_at = datetime.now(timezone.utc)
+    
+    # Ensure started_at is aware for calculation (v6.4+ React Router Data API fix)
+    started_at = attempt.started_at
+    if started_at and started_at.tzinfo is None:
+        started_at = started_at.replace(tzinfo=timezone.utc)
+    
+    if started_at:
+        attempt.time_taken_seconds = int((attempt.completed_at - started_at).total_seconds())
+    else:
+        attempt.time_taken_seconds = 0
+        
     attempt.total_attempted = correct + wrong
     attempt.correct_answers = correct
     attempt.wrong_answers = wrong
@@ -417,7 +689,25 @@ async def get_test_history(user_id: str = Depends(get_current_user)):
         TestAttempt.user_id == PydanticObjectId(user_id)
     ).sort(-TestAttempt.started_at).to_list()
     
-    return attempts
+    # Fetch test details to populate titles
+    test_ids = list(set([a.test_id for a in attempts]))
+    tests = await Test.find({"_id": {"$in": test_ids}}).to_list()
+    test_map = {t.id: t for t in tests}
+    
+    response = []
+    for attempt in attempts:
+        test_info = test_map.get(attempt.test_id)
+        # Create response object manually to include extra fields
+        resp = TestAttemptResponse.model_validate(attempt)
+        if test_info:
+            resp.test_title = test_info.title
+            resp.exam_code = test_info.exam_code
+            resp.duration_minutes = test_info.duration_minutes
+            resp.total_questions = test_info.total_questions
+            resp.sections = test_info.sections
+        response.append(resp)
+        
+    return response
 
 
 @router.get("/{test_id}/review")
@@ -480,3 +770,175 @@ async def get_test_review(
         "time_taken_seconds": attempt.time_taken_seconds,
         "questions": review_items,
     }
+
+
+# =============================================================================
+# VALIDATION ENDPOINTS
+# =============================================================================
+
+class ValidationReportResponse(BaseModel):
+    """Response model for validation report"""
+    is_valid: bool
+    total_questions: int
+    expected_questions: int
+    error_count: int
+    warning_count: int
+    section_counts: Dict[str, int]
+    expected_section_counts: Dict[str, int]
+    issues: List[Dict[str, Any]]
+    summary: str
+
+
+@router.post("/validate-generated", response_model=ValidationReportResponse)
+async def validate_generated_questions(
+    questions: List[AIGeneratedQuestion],
+    expected_total: int = 160,
+    user_id: str = Depends(get_optional_user)
+):
+    """
+    Validate a list of generated questions before saving to DB.
+    
+    This is a PRE-DEPLOYMENT check to catch:
+    - Placeholder options
+    - Missing correct answers
+    - Duplicate options
+    - Structural issues
+    
+    Call this BEFORE publishing a test.
+    """
+    from app.services.exam_validator import validate_exam
+    
+    # Convert AIGeneratedQuestion to dict format for validator
+    question_dicts = []
+    for q in questions:
+        options_list = [
+            q.options.get("a", ""),
+            q.options.get("b", ""),
+            q.options.get("c", ""),
+            q.options.get("d", ""),
+        ]
+        question_dicts.append({
+            "id": q.id,
+            "question_text": q.question_text,
+            "options": options_list,
+            "correct_answer": options_list[0] if options_list else "",  # First option as placeholder
+            "correct_option_index": 0,
+            "section": q.section,
+            "subject": q.section,
+            "topic": q.topic,
+            "difficulty": q.difficulty,
+        })
+    
+    # Run validation
+    report = validate_exam(
+        question_dicts,
+        expected_total=expected_total,
+        section_distribution={
+            "Mathematics": 80,
+            "Physics": 40,
+            "Chemistry": 40,
+        }
+    )
+    
+    # Convert issues to dict
+    issues_list = [
+        {
+            "severity": issue.severity.value,
+            "question_id": issue.question_id,
+            "question_index": issue.question_index,
+            "field": issue.field,
+            "message": issue.message,
+            "details": issue.details,
+        }
+        for issue in report.issues
+    ]
+    
+    return ValidationReportResponse(
+        is_valid=report.is_valid,
+        total_questions=report.total_questions,
+        expected_questions=report.expected_questions,
+        error_count=report.error_count,
+        warning_count=report.warning_count,
+        section_counts=report.section_counts,
+        expected_section_counts=report.expected_section_counts,
+        issues=issues_list,
+        summary=report.summary(),
+    )
+
+
+@router.get("/{test_id}/validate", response_model=ValidationReportResponse)
+async def validate_test(
+    test_id: str,
+    user_id: str = Depends(get_optional_user)
+):
+    """
+    Validate an existing test's questions.
+    
+    Useful for checking test quality after generation.
+    """
+    from app.services.exam_validator import validate_exam
+    
+    # Get test
+    test = await Test.get(PydanticObjectId(test_id))
+    if not test:
+        raise HTTPException(status_code=404, detail="Test not found")
+    
+    # Get questions
+    questions = await Question.find({"_id": {"$in": test.question_ids}}).to_list()
+    
+    # Convert to dict format
+    question_dicts = []
+    for q in questions:
+        options_list = [
+            q.options.get("a", "") if isinstance(q.options, dict) else (q.options[0] if q.options else ""),
+            q.options.get("b", "") if isinstance(q.options, dict) else (q.options[1] if len(q.options) > 1 else ""),
+            q.options.get("c", "") if isinstance(q.options, dict) else (q.options[2] if len(q.options) > 2 else ""),
+            q.options.get("d", "") if isinstance(q.options, dict) else (q.options[3] if len(q.options) > 3 else ""),
+        ]
+        question_dicts.append({
+            "id": str(q.id),
+            "question_text": q.question_text,
+            "options": options_list,
+            "correct_answer": options_list[["a", "b", "c", "d"].index(q.correct_option)] if q.correct_option in ["a", "b", "c", "d"] else "",
+            "correct_option_index": ["a", "b", "c", "d"].index(q.correct_option) if q.correct_option in ["a", "b", "c", "d"] else 0,
+            "section": q.section,
+            "subject": q.section,
+            "topic": q.topic,
+            "difficulty": str(q.difficulty) if q.difficulty else "medium",
+        })
+    
+    # Run validation
+    report = validate_exam(
+        question_dicts,
+        expected_total=test.total_questions,
+        section_distribution={
+            "Mathematics": 80,
+            "Physics": 40,
+            "Chemistry": 40,
+        }
+    )
+    
+    # Convert issues to dict
+    issues_list = [
+        {
+            "severity": issue.severity.value,
+            "question_id": issue.question_id,
+            "question_index": issue.question_index,
+            "field": issue.field,
+            "message": issue.message,
+            "details": issue.details,
+        }
+        for issue in report.issues
+    ]
+    
+    return ValidationReportResponse(
+        is_valid=report.is_valid,
+        total_questions=report.total_questions,
+        expected_questions=report.expected_questions,
+        error_count=report.error_count,
+        warning_count=report.warning_count,
+        section_counts=report.section_counts,
+        expected_section_counts=report.expected_section_counts,
+        issues=issues_list,
+        summary=report.summary(),
+    )

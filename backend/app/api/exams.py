@@ -59,6 +59,7 @@ async def list_exams():
             description=config.description,
             total_questions=config.total_questions,
             duration_minutes=config.total_duration_minutes,
+            subjects=[s.name for s in config.subjects],
             sections=[s.name for s in config.sections]
         )
         for config in filtered_configs

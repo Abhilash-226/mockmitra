@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "../../components/ui/Card";
 import Spinner from "../../components/ui/Spinner";
-import { analyticsService } from "../../services/analyticsService";
+import { examService } from "../../services/examService"; // Changed from analyticsService
+import { analyticsService } from "../../services/analyticsService"; // Keep for stats if needed
 
 export default function HistoryPage() {
   const [history, setHistory] = useState([]);
@@ -16,44 +17,60 @@ export default function HistoryPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchHistory = async () => {
+    try {
+      const [historyData, dashboardData] = await Promise.all([
+        examService.getHistory(),
+        analyticsService.getDashboard().catch(() => ({})), // Fallback if analytics fails
+      ]);
+
+      // Extract history from API
+      // The backend now returns TestAttemptResponse list
+      const testHistory = (historyData || []).map((attempt) => ({
+        id: attempt.id || attempt._id,
+        testId: attempt.test_id, // For resuming/starting
+        examName: attempt.test_title || attempt.exam_code || "Untitled Test",
+        date: attempt.started_at || attempt.created_at,
+        completedDate: attempt.completed_at,
+        score: attempt.score ?? 0,
+        percentage: attempt.percentage ?? 0,
+        status: attempt.status, // generating, not_started, in_progress, completed, abandoned
+      }));
+
+      setHistory(testHistory);
+
+      // Set stats from dashboard data (or calculate locally if needed)
+      setStats({
+        totalTests: dashboardData.total_tests || testHistory.filter(t => t.status === 'completed').length,
+        avgScore: dashboardData.average_percentage || 0,
+        accuracy: dashboardData.overall_accuracy || 0,
+        practiceTime: formatPracticeTime(dashboardData.total_time_spent_hours || 0),
+      });
+
+      setError(null);
+    } catch (err) {
+      console.error("Failed to fetch history:", err);
+      setError("Failed to load test history");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchHistory = async () => {
-      try {
-        setLoading(true);
-        const response = await analyticsService.getDashboard();
-        const data = response.data || response;
-
-        // Extract history from dashboard data
-        const testHistory = (data.recent_attempts || []).map(
-          (attempt, index) => ({
-            id: attempt.id || attempt._id || `attempt-${index}`,
-            examName: attempt.test_name || `Attempt ${index + 1}`,
-            date: attempt.completed_at || new Date().toISOString(),
-            score: attempt.score ?? 0,
-            percentage: attempt.percentage ?? 0,
-          }),
-        );
-
-        setHistory(testHistory);
-
-        // Set stats from dashboard data
-        setStats({
-          totalTests: data.total_tests || testHistory.length,
-          avgScore: data.average_percentage || data.average_score || 0,
-          accuracy: data.overall_accuracy || 0,
-          practiceTime: formatPracticeTime(data.total_time_spent_hours),
-        });
-
-        setError(null);
-      } catch (err) {
-        console.error("Failed to fetch history:", err);
-        setError("Failed to load test history");
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchHistory();
+
+    // Poll for updates if any test is generating
+    const interval = setInterval(() => {
+      setHistory((prev) => {
+        const hasGenerating = prev.some((t) => t.status === "generating");
+        if (hasGenerating) {
+          fetchHistory();
+        }
+        return prev;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const formatPracticeTime = (hours) => {
@@ -63,6 +80,37 @@ export default function HistoryPage() {
     if (wholeHours === 0) return `${minutes}m`;
     if (minutes === 0) return `${wholeHours}h`;
     return `${wholeHours}h ${minutes}m`;
+  };
+
+  const getStatusBadge = (status) => {
+    switch (status) {
+      case "generating":
+        return (
+          <span className="flex items-center gap-2 text-blue-600 bg-blue-50 px-3 py-1 rounded-full text-sm font-medium">
+            <Spinner size="sm" /> Generating...
+          </span>
+        );
+      case "not_started":
+        return (
+          <span className="text-gray-600 bg-gray-100 px-3 py-1 rounded-full text-sm font-medium">
+            Ready to Start
+          </span>
+        );
+      case "in_progress":
+        return (
+          <span className="text-yellow-600 bg-yellow-50 px-3 py-1 rounded-full text-sm font-medium">
+            In Progress
+          </span>
+        );
+      case "abandoned":
+        return (
+          <span className="text-red-600 bg-red-50 px-3 py-1 rounded-full text-sm font-medium">
+            Abandoned
+          </span>
+        );
+      default:
+        return null; // Completed shows score
+    }
   };
 
   if (loading) {
@@ -141,41 +189,63 @@ export default function HistoryPage() {
                         {test.examName}
                       </h3>
                       <p className="text-sm text-gray-500 mt-1">
-                        {new Date(test.date).toLocaleDateString("en-IN", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
+                        {(() => {
+                          const dateStr = test.date;
+                          if (!dateStr) return "...";
+                          const normalizedDateStr = (dateStr.endsWith('Z') || dateStr.includes('+'))
+                            ? dateStr
+                            : dateStr + 'Z';
+                          return new Date(normalizedDateStr).toLocaleDateString("en-IN", {
+                            day: "numeric",
+                            month: "short",
+                            year: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit",
+                          });
+                        })()}
                       </p>
                     </div>
+                    
                     <div className="flex items-center gap-6">
-                      <div className="text-center">
-                        <p className="text-2xl font-bold text-gray-900">
-                          {test.score}
-                        </p>
-                        <p className="text-xs text-gray-500">Score</p>
-                      </div>
-                      <div className="text-center">
-                        <p
-                          className={`text-2xl font-bold ${
-                            test.percentage >= 80
-                              ? "text-green-600"
-                              : test.percentage >= 60
-                                ? "text-yellow-600"
-                                : "text-red-600"
-                          }`}
-                        >
-                          {test.percentage}%
-                        </p>
-                        <p className="text-xs text-gray-500">Percentage</p>
-                      </div>
-                      <Link to={`/results/${test.id}`}>
-                        <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                          View Details
-                        </button>
-                      </Link>
+                      {test.status === "completed" ? (
+                        <>
+                          <div className="text-center">
+                            <p className="text-2xl font-bold text-gray-900">
+                              {test.score}
+                            </p>
+                            <p className="text-xs text-gray-500">Score</p>
+                          </div>
+                          <div className="text-center">
+                            <p
+                              className={`text-2xl font-bold ${
+                                test.percentage >= 80
+                                  ? "text-green-600"
+                                  : test.percentage >= 60
+                                    ? "text-yellow-600"
+                                    : "text-red-600"
+                              }`}
+                            >
+                              {test.percentage}%
+                            </p>
+                            <p className="text-xs text-gray-500">Percentage</p>
+                          </div>
+                          <Link to={`/results/${test.id}`}>
+                            <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                              View Results
+                            </button>
+                          </Link>
+                        </>
+                      ) : (
+                        getStatusBadge(test.status)
+                      )}
+
+                      {(test.status === "not_started" || test.status === "in_progress") && (
+                        <Link to={`/exam/${test.testId}/test`}>
+                          <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+                            {test.status === "in_progress" ? "Resume Test" : "Start Test"}
+                          </button>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -204,9 +274,11 @@ export default function HistoryPage() {
           <p className="text-gray-500 mb-4">
             Start taking tests to see your history here
           </p>
-          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
-            Take a Test
-          </button>
+          <Link to="/exam/custom/customize"> {/* Adjust link as needed */}
+             <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+              Take a Test
+            </button>
+          </Link>
         </div>
       )}
     </div>

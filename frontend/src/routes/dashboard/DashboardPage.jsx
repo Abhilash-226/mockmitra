@@ -108,9 +108,9 @@ export default function DashboardPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchDashboardData = async () => {
+    const fetchDashboardData = async (showLoading = true) => {
       try {
-        setLoading(true);
+        if (showLoading) setLoading(true);
         const [dashboard, stats] = await Promise.all([
           analyticsService.getDashboard().catch(() => null),
           analyticsService.getBlueprintStats().catch(() => null),
@@ -120,17 +120,28 @@ export default function DashboardPage() {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        if (showLoading) setLoading(false);
       }
     };
 
     fetchDashboardData();
+
+    // Poll for updates if any test is generating
+    const interval = setInterval(() => {
+      // Background fetch without making the whole page "loading"
+      fetchDashboardData(false);
+    }, 10000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // Format relative time
   const formatRelativeTime = (dateStr) => {
     if (!dateStr) return "N/A";
-    const date = new Date(dateStr);
+    const normalizedDateStr = (dateStr.endsWith('Z') || dateStr.includes('+'))
+      ? dateStr
+      : dateStr + 'Z';
+    const date = new Date(normalizedDateStr);
     const now = new Date();
     const diffMs = now - date;
     const diffHours = Math.floor(diffMs / (1000 * 60 * 60));
@@ -267,26 +278,42 @@ export default function DashboardPage() {
                         Test #{test.test_id?.slice(-6) || "N/A"}
                       </p>
                       <p className="text-sm text-gray-500">
-                        {formatRelativeTime(test.completed_at)}
+                        {test.status === "generating"
+                          ? "Processing..."
+                          : formatRelativeTime(test.completed_at || test.created_at)}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span
-                        className={`text-lg font-bold ${
-                          test.percentage >= 70
-                            ? "text-green-600"
-                            : test.percentage >= 50
-                              ? "text-yellow-600"
-                              : "text-red-600"
-                        }`}
-                      >
-                        {test.percentage}%
-                      </span>
-                      <Link to={`/results/${test.id}`}>
-                        <Button size="sm" variant="outline">
-                          Review
-                        </Button>
-                      </Link>
+                      {test.status === "generating" ? (
+                        <span className="flex items-center gap-2 text-sm text-blue-600 font-medium px-3 py-1 bg-blue-50 rounded-full border border-blue-200">
+                          <Spinner size="sm" /> Generating
+                        </span>
+                      ) : test.status === "not_started" ? (
+                        <Link to={`/exam/${test.test_id}/instructions`}>
+                          <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+                            Start Test
+                          </Button>
+                        </Link>
+                      ) : (
+                        <>
+                          <span
+                            className={`text-lg font-bold ${
+                              test.percentage >= 70
+                                ? "text-green-600"
+                                : test.percentage >= 50
+                                  ? "text-yellow-600"
+                                  : "text-red-600"
+                            }`}
+                          >
+                            {test.percentage}%
+                          </span>
+                          <Link to={`/results/${test.id}`}>
+                            <Button size="sm" variant="outline">
+                              Review
+                            </Button>
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
                 ))

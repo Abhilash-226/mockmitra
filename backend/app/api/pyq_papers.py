@@ -61,6 +61,7 @@ class PaperQuestion(BaseModel):
     text: str
     options: Dict[str, str]
     correct: str
+    image: Optional[str] = None
     topic: Optional[str] = None
 
 
@@ -263,11 +264,12 @@ async def get_paper(paper_id: str):
     questions = []
     for q in yaml_data.get("questions", []):
         questions.append(PaperQuestion(
-            number=q.get("number", 0),
+            number=q.get("number") or q.get("id", 0),
             section=q.get("section", ""),
             text=q.get("text", ""),
             options=q.get("options", {}),
             correct=q.get("correct", ""),
+            image=q.get("image"),
             topic=q.get("topic"),
         ))
     
@@ -324,6 +326,7 @@ async def get_paper_questions(paper_id: str, section: Optional[str] = None):
                 "section": q.section,
                 "text": q.text,
                 "options": q.options,
+                "image": q.image,
                 # "correct" is intentionally omitted for exam mode
             }
             for q in questions

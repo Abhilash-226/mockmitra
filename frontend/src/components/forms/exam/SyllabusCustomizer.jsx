@@ -23,11 +23,6 @@ const TEST_MODES = [
     label: "Topic Focus",
     description: "Target specific topics or weak areas",
   },
-  {
-    value: "pyq",
-    label: "PYQ Mix",
-    description: "Practice curated previous year questions",
-  },
 ];
 
 const CATEGORY_METADATA = {
@@ -275,30 +270,36 @@ export default function SyllabusCustomizer({
   }, [examOptions, searchTerm]);
 
   const topicSections = useMemo(() => {
-    const sections = Array.isArray(examConfig?.sections)
+    // With the new hierarchy, examConfig.sections actually contains a list of SUBJECTS
+    // unless it's an old flat config.
+    const subjects = Array.isArray(examConfig?.sections)
       ? examConfig.sections
       : [];
-    if (config.testMode !== "topic") {
-      return sections;
+      
+    if (config.testMode === "sectional") {
+      // In Sectional Drill mode:
+      // Group Header = Subject Name
+      // Checkbox Items = Sections (Algebra, Trigonometry, etc.)
+      return subjects.map((subject) => ({
+        ...subject,
+        topics: subject.sections || [], // Map sections as 'topics' for TopicSelector
+      }));
     }
 
-    return sections.map((section) => {
-      const topicBank =
-        (Array.isArray(section.topicBank) && section.topicBank.length > 0
-          ? section.topicBank
-          : Array.isArray(section.topic_bank) && section.topic_bank.length > 0
-            ? section.topic_bank
-            : section.topics) || [];
+    if (config.testMode === "topic") {
+      // In Topic Focus mode:
+      // Group Header = Section Name
+      // Checkbox Items = Actual Topics (Matrices, Functions, etc.)
+      const allSections = [];
+      subjects.forEach((subject) => {
+        if (subject.sections) {
+          allSections.push(...subject.sections);
+        }
+      });
+      return allSections;
+    }
 
-      if (topicBank === section.topics) {
-        return section;
-      }
-
-      return {
-        ...section,
-        topics: topicBank,
-      };
-    });
+    return subjects;
   }, [examConfig?.sections, config.testMode]);
 
   const updateConfig = (key, value) => {

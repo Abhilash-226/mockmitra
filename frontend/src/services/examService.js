@@ -90,6 +90,12 @@ export const examService = {
     const response = await api.get(API_ENDPOINTS.TESTS.REVIEW(testId));
     return response.data;
   },
+
+  // Get user's test history
+  getHistory: async () => {
+    const response = await api.get(API_ENDPOINTS.TESTS.HISTORY);
+    return response.data;
+  },
 };
 
 export default examService;

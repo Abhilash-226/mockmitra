@@ -1,6 +1,6 @@
 from beanie import Document, Indexed
 from pydantic import Field
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, Dict, Annotated
 from enum import Enum
 
@@ -22,6 +22,7 @@ class Question(Document):
     question_text: str
     options: Dict[str, str]  # {"a": "...", "b": "...", "c": "...", "d": "..."}
     correct_option: str  # a, b, c, or d
+    image: Optional[str] = None
     explanation: Optional[str] = None
     
     # Categorization
@@ -41,8 +42,8 @@ class Question(Document):
     avg_time_seconds: float = 0.0
     
     # Timestamps
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     
     class Settings:
         name = "questions"

@@ -32,6 +32,7 @@ export const API_ENDPOINTS = {
     SUBMIT: (testId) => `/tests/${testId}/submit`,
     SAVE_RESPONSE: (testId) => `/tests/${testId}/response`,
     REVIEW: (testId) => `/tests/${testId}/review`,
+    HISTORY: "/tests/history",
   },
 
   // Analytics

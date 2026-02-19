@@ -1,8 +1,8 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import Optional
 from jose import JWTError, jwt
 import bcrypt
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends, HTTPException, status, Header
 from fastapi.security import OAuth2PasswordBearer
 
 from app.core.config import settings
@@ -30,9 +30,9 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None) -
     """Create JWT access token"""
     to_encode = data.copy()
     if expires_delta:
-        expire = datetime.utcnow() + expires_delta
+        expire = datetime.now(timezone.utc) + expires_delta
     else:
-        expire = datetime.utcnow() + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
+        expire = datetime.now(timezone.utc) + timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     to_encode.update({"exp": expire})
     encoded_jwt = jwt.encode(to_encode, settings.SECRET_KEY, algorithm=settings.ALGORITHM)
     return encoded_jwt
@@ -61,3 +61,19 @@ async def get_current_user(token: str = Depends(oauth2_scheme)):
     if user_id is None:
         raise credentials_exception
     return user_id
+
+# Fixed test user ObjectId for development (24 hex chars)
+DEV_USER_ID = "000000000000000000000001"
+
+
+async def get_optional_user(authorization: Optional[str] = Header(None)) -> str:
+    """Dependency to get current authenticated user, or a fallback for development"""
+    if authorization and authorization.startswith("Bearer "):
+        token = authorization.split(" ")[1]
+        payload = decode_token(token)
+        if payload and payload.get("sub"):
+            return payload.get("sub")
+    
+    # Optional: You could raise a 401 here if you want to strictly enforce login
+    # but for "MockMitra" customized tests, we allow a test user fallback for now
+    return DEV_USER_ID

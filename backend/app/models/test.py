@@ -1,6 +1,6 @@
 from beanie import Document, Indexed, PydanticObjectId
 from pydantic import Field
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, List, Dict, Any, Annotated
 from enum import Enum
 
@@ -14,6 +14,7 @@ class TestType(str, Enum):
 
 class TestStatus(str, Enum):
     NOT_STARTED = "not_started"
+    GENERATING = "generating"
     IN_PROGRESS = "in_progress"
     COMPLETED = "completed"
     ABANDONED = "abandoned"
@@ -40,7 +41,7 @@ class Test(Document):
     question_ids: List[PydanticObjectId] = []
     
     # Timestamps
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
     
     class Settings:
         name = "tests"

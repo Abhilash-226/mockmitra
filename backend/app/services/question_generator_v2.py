@@ -17,7 +17,7 @@ import math
 import re
 import uuid
 from typing import List, Optional, Dict, Any, Union, Tuple
-from datetime import datetime
+from datetime import datetime, timezone
 from dataclasses import dataclass
 
 try:
@@ -30,9 +30,12 @@ from app.models.blueprint import (
     GeneratedQuestion,
     DifficultyLevel,
     Constraints,
+    AnswerType,
 )
 from app.services.blueprint_loader import get_blueprint_loader, BlueprintLoader
 from app.core.config import settings
+from app.services.ai_question_generator import AIQuestionGenerator
+from app.services.question_validator import QuestionValidator
 
 
 # =============================================================================
@@ -61,26 +64,16 @@ class ValidationResult:
 
 class QuestionGeneratorV2:
     """
-    Deterministic question generator following the proper workflow:
-    
-    1. Pick blueprint
-    2. Sample variables within constraints
-    3. Compute answer using code (NOT AI)
-    4. Generate distractors from blueprint formulas
-    5. Validate before output
+    Hybrid Question Generator:
+    1. Static Blueprints -> Instant generation (Deterministic)
+    2. Dynamic Blueprints -> AI-Driven Generation (LLM + Validation)
     """
 
     def __init__(self, loader: Optional[BlueprintLoader] = None):
         self.loader = loader or get_blueprint_loader()
-        self.llm_client = None
-        self.llm_model = "llama-3.1-8b-instant"
-        
-        # Initialize LLM for phrasing only (optional)
-        if settings.GROQ_API_KEY and Groq is not None:
-            try:
-                self.llm_client = Groq(api_key=settings.GROQ_API_KEY)
-            except Exception as e:
-                print(f"Warning: LLM not available for phrasing: {e}")
+        self.ai_generator = AIQuestionGenerator()
+        self.validator = QuestionValidator()
+        self.llm_model = "llama-3.1-8b-instant" # Keep for phrasing if needed
 
     # =========================================================================
     # PHASE 2: DETERMINISTIC QUESTION CORE
@@ -94,83 +87,93 @@ class QuestionGeneratorV2:
         max_retries: int = MAX_GENERATION_RETRIES,
     ) -> Optional[GeneratedQuestion]:
         """
-        Generate a question from a blueprint with retry logic.
+        Generate a question from a blueprint.
         
-        Args:
-            blueprint: Source blueprint
-            seed: Random seed for reproducibility
-            use_ai_phrasing: If True, use AI to improve question text phrasing
-            max_retries: Max attempts if constraints fail
-            
-        Returns:
-            Generated question or None if all retries fail
+        Route:
+        - STATIC Blueprint (no variables): Use purely deterministic generation (fast).
+        - DYNAMIC Blueprint (has variables): Use AI Generator + Validator (smart).
         """
         if seed is not None:
             random.seed(seed)
 
+        # 1. OPTIMIZATION: If blueprint is static, don't waste AI tokens
+        if not blueprint.variables:
+            return self._generate_static_question(blueprint)
+
+        # 2. AI GENERATION LOOP
         for attempt in range(max_retries):
             try:
-                # Step 1: Sample variables within constraints
-                variables = self._sample_variables(blueprint)
+                # A. Generate
+                question = self.ai_generator.generate_question(blueprint)
+                if not question:
+                    print(f"AI Generation failed for {blueprint.id}, attempt {attempt+1}")
+                    continue
                 
-                # Step 2: Compute answer using code (NOT AI)
-                answer, answer_display = self._compute_answer(blueprint, variables)
+                print(f"Generated Question Candidate: {question.question_text[:50]}...")
+
+                # B. Validate
+                is_valid = self.validator.validate_question(question, blueprint)
+                print(f"Validation Status: {is_valid}")
                 
-                # Step 2b: If formula evaluation failed, try fallback strategies
-                if answer is None:
-                    answer, answer_display = self._fallback_answer(blueprint, variables)
+                if is_valid:
+                    return question
                 
-                # Step 3: Validate answer against constraints (skip if still None)
-                if answer is not None and not self._validate_answer(answer, blueprint.constraints):
-                    continue  # Retry with new variables
-                
-                # Step 4: Generate question text
-                question_text = self._generate_question_text(
-                    blueprint, variables, use_ai_phrasing
-                )
-                
-                # Step 5: Generate options (blueprint-driven distractors)
-                options, correct_idx = self._generate_options(
-                    blueprint, answer, answer_display, variables
-                )
-                
-                # Step 6: Generate solution
-                solution = self._generate_solution(blueprint, variables, answer)
-                
-                # Step 7: Create question object
-                question = GeneratedQuestion(
-                    id=str(uuid.uuid4()),
-                    blueprint_id=blueprint.id,
-                    question_text=question_text,
-                    options=options,
-                    correct_answer=answer_display,
-                    correct_option_index=correct_idx,
-                    solution=solution,
-                    variables_used=variables,
-                    difficulty_level=blueprint.difficulty_level or DifficultyLevel.MODERATE,
-                    subject=blueprint.subject,
-                    chapter=blueprint.chapter,
-                    concept=blueprint.concept,
-                    tags=blueprint.tags or [],
-                    expected_time_sec=blueprint.constraints.expected_time_sec if blueprint.constraints else 60,
-                    generated_at=datetime.utcnow(),
-                )
-                
-                # Step 8: VALIDATION GATE - verify before output
-                validation = self._validate_question(question, blueprint, variables, answer)
-                if not validation.is_valid:
-                    print(f"Validation failed for {blueprint.id}: {validation.errors}")
-                    continue  # Retry
-                
-                return question
-                
+                print(f"Validation failed for {blueprint.id}, retrying...")
+
             except Exception as e:
-                print(f"Generation attempt {attempt + 1} failed for {blueprint.id}: {e}")
+                print(f"Error generating question for {blueprint.id}: {e}")
+                import traceback
+                with open("gen_error.log", "w") as f:
+                    traceback.print_exc(file=f)
                 continue
         
-        # All retries exhausted
-        print(f"All {max_retries} retries failed for blueprint {blueprint.id}")
+        print(f"Failed to generate valid question for {blueprint.id} after {max_retries} retries.")
         return None
+
+    def _generate_static_question(self, blueprint: Blueprint) -> Optional[GeneratedQuestion]:
+        """Generate a question from a static blueprint (no variables)."""
+        # Determine the correct answer
+        # For static blueprints, the first option is assumed to be correct before shuffling
+        if blueprint.answer_options and len(blueprint.answer_options) > 0:
+            correct_option_text = blueprint.answer_options[0]
+        else:
+            correct_option_text = "Correct Answer"
+        
+        # Get options
+        options = []
+        if blueprint.answer_options:
+            options = list(blueprint.answer_options)
+        
+        # Ensure correct answer is in options
+        if correct_option_text and correct_option_text not in options:
+            options.append(correct_option_text)
+            
+        # Shuffle
+        random.shuffle(options)
+        
+        # Find index
+        try:
+            correct_idx = options.index(correct_option_text)
+        except ValueError:
+            correct_idx = 0
+
+        return GeneratedQuestion(
+            id=str(uuid.uuid4()),
+            blueprint_id=blueprint.id,
+            question_text=blueprint.template_variants[0] if blueprint.template_variants else blueprint.template or "Question Text Missing",
+            options=options,
+            correct_answer=correct_option_text,
+            correct_option_index=correct_idx,
+            solution="Static question - see concept tags.",
+            variables_used={},
+            difficulty_level=blueprint.difficulty_level or DifficultyLevel.MODERATE,
+            subject=blueprint.subject,
+            chapter=blueprint.chapter,
+            concept=blueprint.concept,
+            tags=blueprint.tags or [],
+            expected_time_sec=blueprint.constraints.expected_time_sec if blueprint.constraints else 60,
+            generated_at=datetime.now(timezone.utc),
+        )
 
     def _sample_variables(self, blueprint: Blueprint) -> Dict[str, Any]:
         """
@@ -354,40 +357,29 @@ class QuestionGeneratorV2:
         """
         Fallback answer generation when formula evaluation fails.
         
+        STRICT POLICY: Only use pre-defined answers, NEVER guess.
+        If no valid answer exists, return None to trigger retry/discard.
+        
         Strategies:
-        1. Use answer_options[0] if available
-        2. Use 'answer' from variables if present
-        3. Generate a plausible numeric answer from variable values
+        1. Use answer_options[0] if available (pre-validated)
+        2. Use 'answer' from variables if present (blueprint-defined)
+        
+        ❌ REMOVED: Never generate "plausible" answers from variable averaging
+           This was causing wrong answers that looked reasonable.
         """
-        # Strategy 1: Pre-defined answer options
+        # Strategy 1: Pre-defined answer options (from blueprint)
         if blueprint.answer_options and len(blueprint.answer_options) > 0:
             answer = blueprint.answer_options[0]
             return answer, str(answer)
         
-        # Strategy 2: Answer in variables
+        # Strategy 2: Answer in variables (blueprint-defined)
         if 'answer' in variables:
             ans = variables['answer']
             return ans, str(ans)
         
-        # Strategy 3: Generate from numeric variables
-        numeric_vars = [
-            v for v in variables.values()
-            if isinstance(v, (int, float)) and not isinstance(v, bool)
-        ]
-        
-        if numeric_vars:
-            # Use a combination of variable values as the answer
-            # This creates a plausible answer based on the input values
-            answer = sum(numeric_vars) / len(numeric_vars)
-            if blueprint.constraints.ensure_integer_answer:
-                answer = int(round(answer))
-            else:
-                answer = round(answer, ANSWER_PRECISION)
-            
-            display = self._format_answer_display(answer, blueprint)
-            return answer, display
-        
-        # No fallback available - return None
+        # NO FALLBACK - If formula failed and no pre-defined answer exists,
+        # this blueprint is broken and should be discarded
+        print(f"WARNING: Blueprint {blueprint.id} has no valid answer computation")
         return None, "N/A"
 
     def _evaluate_function_expression(
@@ -693,32 +685,71 @@ Improved question:"""
         variables: Dict[str, Any]
     ) -> Tuple[List[str], int]:
         """
-        Generate MCQ options with blueprint-driven distractors.
+        Generate MCQ options based on blueprint's answer_type.
+        
+        Type-aware dispatch:
+        - NUMERICAL: Compute distractors from formulas/common errors
+        - CATEGORICAL: Use pre-defined answer_options (REQUIRED)
+        - COORDINATE: Format as (x, y) pairs
+        - EXPRESSION: Symbolic options
+        - BOOLEAN: True/False type
         
         ❌ Never random numbers
         ❌ Never AI-invented options
+        ❌ Never placeholder text
         
         Returns:
             Tuple of (options_list, correct_index)
         """
+        # Normalize answer_type (handle both enum and string)
+        answer_type = blueprint.answer_type
+        if isinstance(answer_type, str):
+            answer_type = answer_type.lower()
+        else:
+            answer_type = answer_type.value if hasattr(answer_type, 'value') else str(answer_type).lower()
+        
+        # CATEGORICAL / BOOLEAN: Must use answer_options
+        if answer_type in ['categorical', 'boolean']:
+            return self._generate_categorical_options(blueprint, answer_display, variables)
+        
+        # COORDINATE: Format as coordinate pairs
+        if answer_type == 'coordinate':
+            return self._generate_coordinate_options(blueprint, answer, answer_display, variables)
+        
+        # EXPRESSION: Symbolic options
+        if answer_type == 'expression':
+            return self._generate_expression_options(blueprint, answer_display, variables)
+        
+        # NUMERICAL (default): Compute distractors
+        return self._generate_numerical_options(blueprint, answer, answer_display, variables)
+
+    def _generate_numerical_options(
+        self,
+        blueprint: Blueprint,
+        answer: Any,
+        answer_display: str,
+        variables: Dict[str, Any]
+    ) -> Tuple[List[str], int]:
+        """Generate options for numerical answer type."""
         unit = blueprint.answer_unit if blueprint.answer_unit != "dimensionless" else ""
         
-        # Case 1: Blueprint has pre-defined answer_options
+        # If blueprint has pre-defined answer_options, use them
         if blueprint.answer_options and len(blueprint.answer_options) >= 4:
             options = list(blueprint.answer_options[:4])
             random.shuffle(options)
             correct_idx = self._find_correct_index(options, answer_display, answer)
             return options, correct_idx
 
-        # Case 2: Categorical/text answer
+        # Fallback for non-numeric answers
         if answer is None or (isinstance(answer, str) and not self._is_numeric(answer)):
             return self._generate_categorical_options(blueprint, answer_display, variables)
 
-        # Case 3: Numeric answer - generate distractors
+        # Numeric answer - generate distractors
         try:
             answer_num = float(answer) if not isinstance(answer, (int, float)) else answer
         except (ValueError, TypeError):
-            return [answer_display, "Option B", "Option C", "Option D"], 0
+            # Can't parse as number - mark as broken
+            return [answer_display, "__PLACEHOLDER_1__", "__PLACEHOLDER_2__", "__PLACEHOLDER_3__"], 0
 
         distractors = self._generate_distractors(blueprint, answer_num, variables)
         
@@ -734,7 +765,7 @@ Improved question:"""
         # Ensure unique values
         all_values = list(dict.fromkeys(all_values))  # Remove duplicates, preserve order
         
-        # Fill if needed
+        # Fill if needed (but mark as placeholders for validation to catch)
         while len(all_values) < 4:
             new_val = answer_num + len(all_values) + random.randint(1, 5)
             if new_val not in all_values:
@@ -749,6 +780,72 @@ Improved question:"""
         correct_idx = options.index(correct_value)
 
         return options, correct_idx
+
+    def _generate_coordinate_options(
+        self,
+        blueprint: Blueprint,
+        answer: Any,
+        answer_display: str,
+        variables: Dict[str, Any]
+    ) -> Tuple[List[str], int]:
+        """
+        Generate options for coordinate-type questions.
+        Answer should be formatted as (x, y) tuple.
+        """
+        # If answer_options are predefined, use them
+        if blueprint.answer_options and len(blueprint.answer_options) >= 4:
+            options = list(blueprint.answer_options[:4])
+            random.shuffle(options)
+            correct_idx = self._find_correct_index(options, answer_display, answer)
+            return options, correct_idx
+        
+        # Try to parse answer as coordinate
+        if isinstance(answer, (tuple, list)) and len(answer) == 2:
+            x, y = answer
+            correct = f"({x}, {y})"
+            
+            # Generate coordinate distractors (common errors)
+            distractors = [
+                f"({y}, {x})",           # Swapped coordinates
+                f"({-x}, {y})",          # Sign error on x
+                f"({x}, {-y})",          # Sign error on y
+                f"({x + 1}, {y})",       # Off by one
+                f"({x}, {y + 1})",       # Off by one
+            ]
+            
+            # Take unique distractors
+            options = [correct]
+            for d in distractors:
+                if d not in options and len(options) < 4:
+                    options.append(d)
+            
+            random.shuffle(options)
+            correct_idx = options.index(correct)
+            return options, correct_idx
+        
+        # Fallback: treat as categorical
+        return self._generate_categorical_options(blueprint, answer_display, variables)
+
+    def _generate_expression_options(
+        self,
+        blueprint: Blueprint,
+        answer_display: str,
+        variables: Dict[str, Any]
+    ) -> Tuple[List[str], int]:
+        """
+        Generate options for expression-type questions.
+        Must have predefined answer_options (expressions can't be auto-generated).
+        """
+        # Expression questions MUST have answer_options
+        if blueprint.answer_options and len(blueprint.answer_options) >= 4:
+            options = list(blueprint.answer_options[:4])
+            random.shuffle(options)
+            correct_idx = self._find_correct_index(options, answer_display, None)
+            return options, correct_idx
+        
+        # No answer_options = broken blueprint
+        print(f"ERROR: Expression question {blueprint.id} has no answer_options")
+        return [answer_display, "__PLACEHOLDER_1__", "__PLACEHOLDER_2__", "__PLACEHOLDER_3__"], 0
 
     def _generate_distractors(
         self,
@@ -870,20 +967,33 @@ Improved question:"""
         correct_answer: str,
         variables: Dict[str, Any]
     ) -> Tuple[List[str], int]:
-        """Generate options for categorical/text answers."""
+        """
+        Generate options for categorical/text answers.
+        
+        STRICT POLICY: Never use placeholder text like "Option A".
+        If we can't generate 4 real options, return failure markers.
+        """
         options = []
         
         # Try to get from options config
         if blueprint.options and hasattr(blueprint.options, 'values'):
             options = list(getattr(blueprint.options, 'values', []))
         
+        # Try answer_options from blueprint
+        if not options and blueprint.answer_options:
+            options = list(blueprint.answer_options)
+        
         # Ensure correct answer is included
-        if correct_answer and correct_answer not in options:
+        if correct_answer and correct_answer not in options and correct_answer != "N/A":
             options.append(correct_answer)
         
-        # Fill with placeholders if needed
-        while len(options) < 4:
-            options.append(f"Option {chr(65 + len(options))}")  # A, B, C, D
+        # If we don't have at least 4 real options, mark as incomplete
+        # This will be caught by validation and cause retry
+        if len(options) < 4:
+            print(f"WARNING: Blueprint {blueprint.id} has insufficient options ({len(options)}/4)")
+            # Mark these as PLACEHOLDER so validation can catch them
+            while len(options) < 4:
+                options.append(f"__PLACEHOLDER_{len(options)}__")
         
         options = options[:4]
         random.shuffle(options)
@@ -984,6 +1094,32 @@ Improved question:"""
         # 6. TIME FEASIBILITY (warning only)
         if blueprint.constraints.expected_time_sec < 20:
             warnings.append("Expected time seems too short")
+
+        # 7. CHECK FOR PLACEHOLDER OPTIONS
+        placeholder_patterns = ["__PLACEHOLDER_", "Option A", "Option B", "Option C", "Option D", "N/A"]
+        for opt in question.options:
+            for pattern in placeholder_patterns:
+                if pattern in str(opt):
+                    errors.append(f"Placeholder option detected: {opt}")
+                    break
+
+        # 8. CHECK ANSWER IS NOT N/A OR ERROR
+        if question.correct_answer in ["N/A", "Error", None, ""]:
+            errors.append("Invalid correct answer")
+
+        # 9. CHECK FOR MAGNITUDE SANITY (prevent 100x errors)
+        if computed_answer is not None and isinstance(computed_answer, (int, float)):
+            # Check if any option values are wildly different from answer
+            try:
+                answer_magnitude = abs(computed_answer) if computed_answer != 0 else 1
+                for opt in question.options:
+                    opt_val = float(str(opt).split()[0])
+                    if answer_magnitude > 0:
+                        ratio = abs(opt_val) / answer_magnitude if opt_val != 0 else 0
+                        if ratio > 1000 or (ratio < 0.001 and ratio > 0):
+                            warnings.append(f"Magnitude mismatch: answer={computed_answer}, option={opt_val}")
+            except (ValueError, TypeError, ZeroDivisionError):
+                pass  # Non-numeric options, skip this check
 
         return ValidationResult(
             is_valid=len(errors) == 0,
@@ -1116,6 +1252,8 @@ Your response:"""
         self,
         count: int,
         subject: Optional[str] = None,
+        section: Optional[str] = None,
+        topic: Optional[str] = None,
         chapter: Optional[str] = None,
         difficulty: Optional[DifficultyLevel] = None,
         tags: Optional[List[str]] = None,
@@ -1125,6 +1263,8 @@ Your response:"""
         """Generate multiple questions."""
         blueprints = self.loader.query_blueprints(
             subject=subject,
+            section=section,
+            topic=topic,
             chapter=chapter,
             difficulty=difficulty,
             tags=tags,
