@@ -40,6 +40,7 @@ export const API_ENDPOINTS = {
     DASHBOARD: "/analytics/dashboard",
     PERFORMANCE: (examCode) => `/analytics/performance/${examCode}`,
     ATTEMPT: (attemptId) => `/analytics/attempt/${attemptId}`,
+    GENERATE_SOLUTION: "/analytics/generate-solution",
   },
 
   // Blueprints
@@ -56,5 +57,6 @@ export const API_ENDPOINTS = {
     YEARS: "/pyq/years",
     DETAILS: (paperId) => `/pyq/papers/${paperId}`,
     QUESTIONS: (paperId) => `/pyq/papers/${paperId}/questions`,
+    SUBMIT: "/pyq/submit",
   },
 };

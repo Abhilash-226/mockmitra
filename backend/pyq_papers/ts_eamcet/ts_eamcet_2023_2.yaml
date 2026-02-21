@@ -22,2243 +22,2494 @@ sections:
 questions:
 - id: 1
   section: Algebra
-
-  topic: functions
-  text: {inner}
+  topic: functions_and_inverse_functions
+  text: 'Let $f: \mathbb{R} \to \mathbb{R}$ be a function defined by $f(x) = \begin{cases}
+    x^2 - 4x + 3, & \text{if } x < 2 \\ x - 3, & \text{if } x \ge 2 \end{cases}$.
+    Then the number of real numbers $x$ for which $f(x) = 8$ is'
   options:
-    A: "1"
-    B: "2"
-    C: "3"
-    D: "4"
+    A: '1'
+    B: '2'
+    C: '3'
+    D: '4'
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 2
   section: Algebra
-
-  topic: functions
-  text: {inner}
+  topic: functions_and_inverse_functions
+  text: If $f(x)$ and $g(x)$ are two real valued functions such that $f(x) = 3x -
+    2$ and $g(x) = x^2 + 2$ then $[(g \circ f) + (f \circ g)](x) = $
   options:
-    A: "$2g(x) + 2f(x)$"
-    B: "$12g(x) - 4f(x) - 22$"
-    C: "$3g(x) + f(x) - 2$"
-    D: "$2f(x) + 4g(x) - 32$"
+    A: $2g(x) + 2f(x)$
+    B: $12g(x) - 4f(x) - 22$
+    C: $3g(x) + f(x) - 2$
+    D: $2f(x) + 4g(x) - 32$
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 3
   section: Algebra
-
-  topic: functions
-  text: {inner}
+  topic: functions_and_inverse_functions
+  text: If $f(x) = \frac{ax^{10} + bx^9 + cx^5 + dx^4 + ex^3 + 12x + 15}{x} (x \ne
+    0)$ is a real valued function defined by $f(4) = -4$, then $f(-4) =$
   options:
-    A: "28"
-    B: "39"
-    C: "4"
-    D: "24"
+    A: '28'
+    B: '39'
+    C: '4'
+    D: '24'
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 4
   section: Algebra
-
   topic: matrices
-  text: {inner}
+  text: If $X_{4 \times 3}, Y_{4 \times 3}$ and $P_{2 \times 3}$ are the matrices
+    then the order of the matrix $[P(X^T Y)^{-1} P^T]^T$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $4 \times 3$
+    B: $3 \times 4$
+    C: $3 \times 3$
+    D: $2 \times 2$
   correct_answer: D
   difficulty: medium
   subject: Mathematics
 - id: 5
   section: Algebra
-
   topic: matrices
-  text: {inner}
+  text: If $A = \begin{bmatrix} 1 & 2 \\ 3 & 5 \end{bmatrix}$ and $\alpha, \beta \in
+    \mathbb{R}$ are such that $\alpha A^2 - \beta A = 2I$, then $\alpha^2 + \beta
+    =$
   options:
-    A: "-8"
-    B: "16"
-    C: "12"
-    D: "20"
+    A: '-8'
+    B: '16'
+    C: '12'
+    D: '20'
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 6
   section: Algebra
-
   topic: matrices
-  text: {inner}
+  text: '$\begin{vmatrix} (1+\alpha)^2 & (1+2\alpha)^2 & (1+3\alpha)^2 \\ (2+\alpha)^2
+    & (2+2\alpha)^2 & (2+3\alpha)^2 \\ (3+\alpha)^2 & (3+2\alpha)^2 & (3+3\alpha)^2
+    \end{vmatrix} = k$, and $\alpha = -2$, then $k =$
+
+    Note: For this question, discrepancy is found in question/answer. Full Marks is
+    being awarded to all candidates.
+
+    '
   options:
-    A: "0"
-    B: "-24"
-    C: "24"
-    D: "66"
+    A: '0'
+    B: '-24'
+    C: '24'
+    D: '66'
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 7
   section: Algebra
-
   topic: matrices
-  text: {inner}
+  text: If the system of equations $x+y+z=5$, $x+2y+2z=6$ and $x+3y+\lambda z = \mu
+    (\lambda, \mu \in \mathbb{R})$ is solvable by Matrix Inversion Method, then
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\lambda \ne 3, \mu \in \mathbb{R}$
+    B: $\lambda = 3, \mu = 0$
+    C: $\lambda \ne 3, \mu \ne 5$
+    D: $\lambda = 3, \mu \in \mathbb{R}$
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 8
   section: Algebra
-
-  topic: Algebra
-  text: {inner}
+  topic: matrices
+  text: If $x = a+b, y = a\alpha + b\beta, z = a\beta + b\alpha$ and $\alpha, \beta$
+    are the complex cube roots of unity, then $x^3 + y^3 + z^3 =$
   options:
-    A: "$a^3+b^3$"
-    B: "$3(a^3+b^3)$"
-    C: "$a^3-b^3$"
-    D: "$3(a^3-b^3)$"
+    A: $a^3+b^3$
+    B: $3(a^3+b^3)$
+    C: $a^3-b^3$
+    D: $3(a^3-b^3)$
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 9
-  section: Algebra
+  section: Trigonometry
+  topic: trigonometric_ratios_and_identities
+  text: 'If $Z = \frac{3+2i\cos\theta}{1-2i\sin\theta}$ is a purely imaginary number,
+    then $\sin^2\theta + \cos^2 3\theta =$
 
-  topic: Trigonometry
-  text: {inner}
+    Note: For this question, discrepancy is found in question/answer. Full Marks is
+    being awarded to all candidates.
+
+    '
   options:
-    A: {inner}
-    B: {inner}
-    C: "1"
-    D: {inner}
-  correct_answer: A
+    A: 3/4
+    B: 7/4
+    C: '1'
+    D: 5/4
+  correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 10
   section: Algebra
-
   topic: complex_numbers
-  text: {inner}
+  text: If $z = x+iy$ is a complex number such that $z\bar{z}^3 + \bar{z}z^3 = 350$
+    and $x, y$ are integers, then $|z| =$
   options:
-    A: {inner}
-    B: "5"
-    C: "25"
-    D: {inner}
+    A: $\sqrt{41}$
+    B: '5'
+    C: '25'
+    D: $\sqrt{13}$
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 11
   section: Algebra
-
   topic: theory_of_equations
-  text: {inner}
+  text: If $\alpha, \beta$ are the roots of the equation $x^2 + x + 1 = 0$, then $(\alpha
+    + \beta)^2 + (\alpha^2 + \beta^2)^2 + (\alpha^3 + \beta^3)^2 + \dots + (\alpha^{12}
+    + \beta^{12})^2 =$
   options:
-    A: "48"
-    B: "12"
-    C: "24"
-    D: "36"
+    A: '48'
+    B: '12'
+    C: '24'
+    D: '36'
   correct_answer: C
   difficulty: medium
   subject: Mathematics
 - id: 12
   section: Algebra
-
   topic: complex_numbers
-  text: {inner}
+  text: The least positive integral value of $n$ such that $\left[ \frac{1 + \sin\frac{2\pi}{9}
+    + i\cos\frac{2\pi}{9}}{1 + \sin\frac{2\pi}{9} - i\cos\frac{2\pi}{9}} \right]^n
+    = 1$ is
   options:
-    A: "9"
-    B: "18"
-    C: "36"
-    D: "72"
+    A: '9'
+    B: '18'
+    C: '36'
+    D: '72'
   correct_answer: C
   difficulty: medium
   subject: Mathematics
 - id: 13
   section: Algebra
-
   topic: theory_of_equations
-  text: {inner}
+  text: If $\alpha, \beta$ are the roots of $x^2 + ax + 2 = 0$ and $\frac{1}{\alpha},
+    \frac{1}{\beta}$ are the roots of $x^2 - bx + c = 0$, then $\left( \alpha + \frac{1}{\beta}
+    \right) \left( \beta + \frac{1}{\alpha} \right) \left( \alpha - \frac{1}{\alpha}
+    \right) \left( \beta - \frac{1}{\beta} \right) =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{9}{4}(9 - a^2)$
+    B: $\frac{9}{4}(9 + a^2)$
+    C: $\frac{9}{4}(9 - b^2)$
+    D: $\frac{9}{4}(9 + b^2)$
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 14
   section: Algebra
-
   topic: theory_of_equations
-  text: "The sum of all the real values of $x$ satisfying the equation $(x^2-7x+11)^{x^2-6x-7} = 1$ is"
+  text: The sum of all the real values of $x$ satisfying the equation $(x^2 - 7x +
+    11)^{x^2 - 6x - 7} = 1$ is
   options:
-    A: "14"
-    B: "20"
-    C: "13"
-    D: "16"
+    A: '14'
+    B: '20'
+    C: '13'
+    D: '16'
   correct_answer: D
   difficulty: medium
   subject: Mathematics
 - id: 15
   section: Algebra
-
   topic: theory_of_equations
-  text: "If a polynomial $P(x)$ given by $P(x) = 2x^4+ax^3+bx^2+cx+d$ is such that $P(1)=4, P(2)=7, P(3)=12$ and $P(4)=19$, then $P(5) =$"
+  text: If a polynomial $P(x)$ given by $P(x) = 2x^4 + ax^3 + bx^2 + cx + d$ is such
+    that $P(1) = 4, P(2) = 7, P(3) = 12$ and $P(4) = 19$, then $P(5) =$
   options:
-    A: "28"
-    B: "76"
-    C: "26"
-    D: "72"
+    A: '28'
+    B: '76'
+    C: '26'
+    D: '72'
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 16
   section: Algebra
-
   topic: theory_of_equations
-  text: "If the roots of the equation $kx^3-18x^2-36x+8=0$ are in harmonic progression, then $k =$"
+  text: If the roots of the equation $kx^3 - 18x^2 - 36x + 8 = 0$ are in harmonic
+    progression, then $k =$
   options:
-    A: "64"
-    B: "45"
-    C: "81"
-    D: "27"
+    A: '64'
+    B: '45'
+    C: '81'
+    D: '27'
   correct_answer: C
   difficulty: medium
   subject: Mathematics
 - id: 17
   section: Algebra
-
   topic: theory_of_equations
-  text: |
-    If $\alpha, \beta, \gamma$ are the roots of the equation $x^3+x^2+x+1=0$ then match the items of List I with those of List II
+  text: 'If $\alpha, \beta, \gamma$ are the roots of the equation $x^3 + x^2 + x +
+    1 = 0$ then match the items of List I with those of List II
+
     List I:
+
     (i) $\frac{1}{\alpha} + \frac{1}{\beta} + \frac{1}{\gamma}$
+
     (ii) $\alpha^2 + \beta^2 + \gamma^2$
+
     (iii) $\alpha^3 + \beta^3 + \gamma^3$
-    (iv) $(\alpha-\beta)^2 + (\beta-\gamma)^2 + (\gamma-\alpha)^2$
+
+    (iv) $(\alpha - \beta)^2 + (\beta - \gamma)^2 + (\gamma - \alpha)^2$
+
 
     List II:
+
     a) -1
+
     b) -4
+
     c) 1
+
     d) 3
+
     e) 0
 
+
     Then the correct match is
+
+    '
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: (i) $\to$ a, (ii) $\to$ a, (iii) $\to$ d, (iv) $\to$ b
+    B: (i) $\to$ c, (ii) $\to$ a, (iii) $\to$ e, (iv) $\to$ b
+    C: (i) $\to$ a, (ii) $\to$ c, (iii) $\to$ d, (iv) $\to$ b
+    D: (i) $\to$ c, (ii) $\to$ a, (iii) $\to$ b, (iv) $\to$ e
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 18
   section: Algebra
-
   topic: permutations_and_combinations
-  text: "The number of odd numbers greater than 600,000 that can be formed by using the digits 3, 6, 7, 8, 9, 0 without repetition is"
+  text: The number of odd numbers greater than 600,000 that can be formed by using
+    the digits 3, 6, 7, 8, 9, 0 without repetition is
   options:
-    A: "480"
-    B: "240"
-    C: "288"
-    D: "500"
+    A: '480'
+    B: '240'
+    C: '288'
+    D: '500'
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 19
   section: Algebra
-
   topic: permutations_and_combinations
-  text: "The number of ways in which 6 men and 4 women can be seated around a table so that a particular man and a particular woman never sit adjacent to each other is"
+  text: The number of ways in which 6 men and 4 women can be seated around a table
+    so that a particular man and a particular woman never sit adjacent to each other
+    is
   options:
-    A: "9!"
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 9!
+    B: $7 \times 8!$
+    C: $8 \times 8!$
+    D: $6 \times 7!$
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 20
   section: Algebra
-
   topic: permutations_and_combinations
-  text: "There are three sections in a question paper, each section containing 4 questions. If a candidate has to answer only 5 questions from this paper without leaving any section, then the number of ways in which a candidate can make the choice of questions is"
+  text: There are three sections in a question paper, each section containing 4 questions.
+    If a candidate has to answer only 5 questions from this paper without leaving
+    any section, then the number of ways in which a candidate can make the choice
+    of questions is
   options:
-    A: "624"
-    B: "704"
-    C: "384"
-    D: "432"
+    A: '624'
+    B: '704'
+    C: '384'
+    D: '432'
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 21
   section: Algebra
-
   topic: binomial_theorem
-  text: {inner}
+  text: The term independent of $x$ in the expansion of $(1 - 3x + 2x^2) \left( \frac{3x^2}{2}
+    - \frac{1}{3x} \right)^9$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{7}{18}$
+    B: $\frac{5}{18}$
+    C: $\frac{19}{54}$
+    D: $\frac{17}{54}$
   correct_answer: D
   difficulty: medium
   subject: Mathematics
 - id: 22
   section: Algebra
-
   topic: binomial_theorem
-  text: {inner}
+  text: If $\sum_{r=0}^{20} {}^{20+r}C_r = \frac{p}{q} {}^{40}C_{20}$ and $\text{GCD}(p,
+    q) = 1$, then $p^2 - q^2 =$
   options:
-    A: "1302"
-    B: "1220"
-    C: "1240"
-    D: "1364"
+    A: '1302'
+    B: '1220'
+    C: '1240'
+    D: '1364'
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 23
   section: Algebra
-
-  topic: Series
-  text: {inner}
+  topic: matrices
+  text: If $x = \frac{2 \cdot 5}{2! \cdot 3} + \frac{2 \cdot 5 \cdot 7}{3! \cdot 3^2}
+    + \frac{2 \cdot 5 \cdot 7 \cdot 9}{4! \cdot 3^3} + \dots$, then $x^2 + 8x + 8
+    =$
   options:
-    A: "108"
-    B: "54"
-    C: "100"
-    D: "144"
+    A: '108'
+    B: '54'
+    C: '100'
+    D: '144'
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 24
   section: Algebra
-
   topic: partial_fractions
-  text: {inner}
+  text: If the coefficient of $x^4$ in the expansion of $\frac{x}{(x-1)^2(x-2)}$ is
+    $\frac{m}{n}$ and $|m|, |n|$ are coprimes, then $\sqrt{|m+n|} =$
   options:
-    A: "9"
-    B: {inner}
-    C: "7"
-    D: {inner}
+    A: '9'
+    B: $\sqrt{33}$
+    C: '7'
+    D: $6\sqrt{2}$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 25
   section: Trigonometry
-
-  topic: Trigonometry
-  text: {inner}
+  topic: trigonometric_ratios_and_identities
+  text: If $\frac{\sin^4 x}{2} + \frac{\cos^4 x}{3} = \frac{1}{5}$, then $27 \sec^6
+    x + 8 \csc^6 x =$
   options:
-    A: "250"
-    B: "125"
-    C: "175"
-    D: "350"
+    A: '250'
+    B: '125'
+    C: '175'
+    D: '350'
   correct_answer: A
   difficulty: medium
   subject: Mathematics
 - id: 26
   section: Trigonometry
-
-  topic: trigonometric_ratios_up_to_transformations
-  text: {inner}
+  topic: trigonometric_ratios_and_identities
+  text: If $\tan \beta = \frac{n \sin \alpha \cos \alpha}{1 - n \cos^2 \alpha}$, then
+    $\tan(\alpha + \beta) \cdot \cot \alpha =$
   options:
-    A: {inner}
-    B: "$n+1$"
-    C: "$1-n$"
-    D: {inner}
+    A: $\frac{-1}{n-1}$
+    B: $n+1$
+    C: $1-n$
+    D: $\frac{1}{n+1}$
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 27
   section: Trigonometry
-
-  topic: trigonometric_ratios_up_to_transformations
-  text: {inner}
+  topic: trigonometric_ratios_and_identities
+  text: If $\cos A + \cos B + \cos C = 0 = \sin A + \sin B + \sin C$, then $\cos(A-B)
+    + \cos(B-C) + \cos(C-A) =$
   options:
-    A: "0"
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: '0'
+    B: $\frac{1}{2}$
+    C: $\frac{3}{2}$
+    D: $\frac{-3}{2}$
   correct_answer: D
   difficulty: medium
   subject: Mathematics
 - id: 28
   section: Trigonometry
-
   topic: hyperbolic_functions
-  text: {inner}
+  text: If $\sin x \cosh y = \cos \theta$ and $\cos x \sinh y = \sin \theta$ then
+    $\sin^2 x + \cosh^2 y =$
   options:
-    A: "1"
-    B: "2"
-    C: {inner}
-    D: {inner}
+    A: '1'
+    B: '2'
+    C: $\frac{3}{2}$
+    D: $\frac{1}{2}$
   correct_answer: B
   difficulty: medium
   subject: Mathematics
 - id: 29
   section: Trigonometry
-
   topic: properties_of_triangles
-  text: {inner}
+  text: In $\triangle ABC$, if $a, b, c$ are in arithmetic progression and $A = 2C$,
+    then $b:c =$
   options:
-    A: "4:5"
-    B: "2:3"
-    C: "5:4"
-    D: "5:6"
+    A: '4:5'
+    B: '2:3'
+    C: '5:4'
+    D: '5:6'
   correct_answer: C
   difficulty: medium
   subject: Mathematics
 - id: 30
   section: Trigonometry
-
   topic: properties_of_triangles
-  text: |
-    Assertion (A): In $\triangle ABC$, if $r=6, r_2=36, R=15$ then $c^2+a^2=b^2$
+  text: 'Assertion (A): In $\triangle ABC$, if $r=6, r_2=36, R=15$ then $c^2+a^2=b^2$
+
     Reason (R): In $\triangle ABC$, if $r:R:r_2 = 1:2.5:6$ then $B=90^\circ$
+
     The correct option among the following is
+
+    '
   options:
-    A: "Both (A) and (R) are true. (R) is a correct explanation of (A)"
-    B: "Both (A) and (R) are true, but (R) is not a correct explanation of (A)"
-    C: "(A) is true and (R) is false"
-    D: "(A) is false and (R) is true"
+    A: Both (A) and (R) are true. (R) is a correct explanation of (A)
+    B: Both (A) and (R) are true, but (R) is not a correct explanation of (A)
+    C: (A) is true and (R) is false
+    D: (A) is false and (R) is true
   correct_answer: A
-  difficulty: hard
+  difficulty: medium
   subject: Mathematics
 - id: 31
   section: Vector Algebra
-
-  topic: Vectors
-  text: {inner}
+  topic: vectors_and_scalars
+  text: If $\vec{a}, \vec{b}, \vec{c}$ are unit vectors such that $\vec{a}$ is perpendicular
+    to both $\vec{b}, \vec{c}$ and angle between $\vec{b}, \vec{c}$ is $\frac{2\pi}{3}$,
+    then $|\vec{a} + 3\vec{b} - 4\vec{c}|^2 =$
   options:
-    A: "6"
-    B: "14"
-    C: "38"
-    D: "26"
+    A: '6'
+    B: '14'
+    C: '38'
+    D: '26'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 32
   section: Vector Algebra
-
-  topic: Vectors
-  text: {inner}
+  topic: vectors_and_scalars
+  text: Let $\vec{a} = 2\vec{i} - \vec{j} + \vec{k}$ be the position vector of a point
+    A. Let $\vec{b} = \vec{i} + 2\vec{j} - \vec{k}$ and $\vec{c} = \vec{i} + \vec{j}
+    - 2\vec{k}$ be two vectors and $\vec{r}$ be a vector passing through the point
+    $A(\vec{a})$ and parallel to the vector $\vec{b}$. If the projection of $\vec{r}$
+    on $\vec{c}$ is $\frac{9}{\sqrt{6}}$, then $|\vec{r}| =$
   options:
-    A: {inner}
-    B: "5"
-    C: {inner}
-    D: {inner}
+    A: $\sqrt{26}$
+    B: '5'
+    C: $\sqrt{5}$
+    D: $\sqrt{34}$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 33
   section: Vector Algebra
+  topic: vectors_and_scalars
+  text: 'If S is the circumcentre, O is the orthocentre and G is the centroid of a
+    triangle ABC, then match the items of List-I with those of the items of List-II
+    given below.
 
-  topic: Vectors
-  text: |
-    If S is the circumcentre, O is the orthocentre and G is the centroid of a triangle ABC, then match the items of List-I with those of the items of List-II given below.
     List-I:
+
     (i) $\vec{SA} + \vec{SB} + \vec{SC}$
+
     (ii) $\vec{GA} + \vec{GB} + \vec{GC}$
+
     (iii) $\vec{OA} + \vec{OB} + \vec{OC}$
+
     (iv) $\vec{OG}$
 
+
     List-II:
+
     a) $2\vec{OS}$
+
     b) $\frac{1}{3}\vec{OS}$
+
     c) $\vec{0}$
+
     d) $\vec{SO}$
+
     e) $\vec{OG}$
 
+
     Then the correct match is
+
+    '
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: i $\to$ c, ii $\to$ b, iii $\to$ e, iv $\to$ a
+    B: i $\to$ b, ii $\to$ c, iii $\to$ a, iv $\to$ d
+    C: i $\to$ d, ii $\to$ a, iii $\to$ c, iv $\to$ e
+    D: i $\to$ d, ii $\to$ c, iii $\to$ a, iv $\to$ b
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 34
   section: Vector Algebra
-
-  topic: Vectors
-  text: {inner}
+  topic: vectors_and_scalars
+  text: Let $\vec{a}, \vec{b}, \vec{c}$ be three vectors such that $\vec{a} \cdot
+    \vec{a} = \vec{b} \cdot \vec{b} = \vec{c} \cdot \vec{c} = 5$ and $|\vec{a} + \vec{b}
+    - \vec{c}|^2 + |\vec{b} + \vec{c} - \vec{a}|^2 + |\vec{c} + \vec{a} - \vec{b}|^2
+    = 50$, then $\vec{a} \cdot \vec{b} + \vec{b} \cdot \vec{c} + \vec{c} \cdot \vec{a}
+    =$
   options:
-    A: {inner}
-    B: {inner}
-    C: "10"
-    D: "-10"
+    A: $\frac{5}{2}$
+    B: $-\frac{5}{2}$
+    C: '10'
+    D: '-10'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 35
   section: Vector Algebra
-
-  topic: Vectors
-  text: {inner}
+  topic: vectors_and_scalars
+  text: Let $\vec{c}$ be a vector coplanar with the unit vectors $\vec{a}, \vec{b}$
+    and let $\vec{d}$ be the unit vector perpendicular to $\vec{a}, \vec{b}$ and $\vec{c}$.
+    If $[\vec{a} \vec{b} \vec{d}]\vec{c} - [\vec{a} \vec{b} \vec{c}]\vec{d} = \vec{i}
+    + 2\vec{j} + 2\vec{k}$ and the angle between $\vec{a}$ and $\vec{b}$ is $30^\circ$,
+    then $|\vec{c}| =$
   options:
-    A: "3"
-    B: {inner}
-    C: "6"
-    D: "1"
+    A: '3'
+    B: $\frac{3}{2}$
+    C: '6'
+    D: '1'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 36
   section: Probability & Statistics
-
   topic: measures_of_dispersion
-  text: "The mean and standard deviation of 100 observations were calculated as 40 and 5.1 respectively. Later on it was found that one of the observations was taken as 50 in the place of 40. If the wrong entry is replaced by the correct one, then the sum of the squares of all the observations is"
+  text: The mean and standard deviation of 100 observations were calculated as 40
+    and 5.1 respectively. Later on it was found that one of the observations was taken
+    as 50 in the place of 40. If the wrong entry is replaced by the correct one, then
+    the sum of the squares of all the observations is
   options:
-    A: "162701"
-    B: "163501"
-    C: "162601"
-    D: "161701"
+    A: '162701'
+    B: '163501'
+    C: '162601'
+    D: '161701'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 37
   section: Probability & Statistics
-
   topic: probability
-  text: {inner}
+  text: If a matrix is chosen at random from the set of all $3 \times 3$ non zero
+    matrices whose entries are the elements of the set $\{-1, 0, 1\}$, then the probability
+    that the matrix is skew symmetric is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{1}{729}$
+    B: $\frac{1}{757}$
+    C: $\frac{1}{703}$
+    D: $\frac{1}{742}$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 38
   section: Probability & Statistics
-
   topic: probability
-  text: "A boy throws an unbiased die. Whenever he gets 1 on the die he has a further chance to throw it once again immediately. The probability that the boy gets a score of 7 in this process is"
+  text: A boy throws an unbiased die. Whenever he gets 1 on the die he has a further
+    chance to throw it once again immediately. The probability that the boy gets a
+    score of 7 in this process is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{1}{5}(1 - \frac{1}{6^5})$
+    B: $\frac{1}{30}(1 - \frac{1}{6^4})$
+    C: $\frac{1}{30}(1 - \frac{1}{6^5})$
+    D: $\frac{1}{5}(1 - \frac{1}{6^4})$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 39
   section: Probability & Statistics
-
   topic: probability
-  text: "There are 10 coins in a box out of which 8 are normal and the remaining are with heads on both sides. A coin is chosen at random from the box and tossed 6 times. If it shows heads each time, then the probability that the selected coin has head on both sides is"
+  text: There are 10 coins in a box out of which 8 are normal and the remaining are
+    with heads on both sides. A coin is chosen at random from the box and tossed 6
+    times. If it shows heads each time, then the probability that the selected coin
+    has head on both sides is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{16}{17}$
+    B: $\frac{32}{41}$
+    C: $\frac{8}{9}$
+    D: $\frac{12}{13}$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 40
   section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'A random variable X has the following distribution:
 
-  topic: random_variables_and_distributions
-  text: |
-    A random variable X has the following distribution:
     | $X=x_i$ | -2 | -1 | 0 | 1 | 2 | 3 |
+
     | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
     | $P(X=x_i)$ | 0.1 | k | 0.2 | 2k | 3k | k |
+
     Then the variance of this distribution is
+
+    '
   options:
-    A: "2.64"
-    B: "2.8"
-    C: "2.16"
-    D: "1.86"
+    A: '2.64'
+    B: '2.8'
+    C: '2.16'
+    D: '1.86'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 41
   section: Coordinate Geometry
-
   topic: locus
-  text: {inner}
+  text: 'A straight line passing through a fixed point (-3,4) intersects the coordinate
+    axes at A and B. If ''O'' is the origin and OABC forms a rectangle, then the locus
+    of C is
+
+    Note: For this question, discrepancy is found in question/answer. Full Marks is
+    being awarded to all candidates.
+
+    '
   options:
-    A: "$xy+3x-4y=0$"
-    B: "$xy-3x+4y=0$"
-    C: "$xy-3x-4y=0$"
-    D: "$xy+3x+4y=0$"
+    A: $xy+3x-4y=0$
+    B: $xy-3x+4y=0$
+    C: $xy-3x-4y=0$
+    D: $xy+3x+4y=0$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 42
   section: Coordinate Geometry
-
   topic: transformation_of_axes
-  text: "When the origin is shifted to the point P by translation of axes, the equation $2x^2+y^2-4x+4y=0$ is transformed to $2x^2+y^2-8x+8y+18=0$. Then the transformed equation of the straight line $x+2y+2=0$ if the origin is shifted to the same point P is"
+  text: When the origin is shifted to the point P by translation of axes, the equation
+    $2x^2+y^2-4x+4y=0$ is transformed to $2x^2+y^2-8x+8y+18=0$. Then the transformed
+    equation of the straight line $x+2y+2=0$ if the origin is shifted to the same
+    point P is
   options:
-    A: "$x+2y-1=0$"
-    B: "$x+2y-3=0$"
-    C: "$x+2y+7=0$"
-    D: "$x+2y+5=0$"
+    A: $x+2y-1=0$
+    B: $x+2y-3=0$
+    C: $x+2y+7=0$
+    D: $x+2y+5=0$
   correct_answer: D
   difficulty: hard
   subject: Mathematics
 - id: 43
   section: Coordinate Geometry
-
-  topic: straight_line
-  text: "If the Circumcenter of the triangle formed by the points A(a,3), B(b,5) and C(a, b) is (1,1), then out of all the possible coordinates of C the sum of the absolute values of the distinct coordinates of C is"
+  topic: straight_lines
+  text: If the Circumcenter of the triangle formed by the points A(a,3), B(b,5) and
+    C(a, b) is (1,1), then out of all the possible coordinates of C the sum of the
+    absolute values of the distinct coordinates of C is
   options:
-    A: "8"
-    B: "9"
-    C: "12"
-    D: "4"
+    A: '8'
+    B: '9'
+    C: '12'
+    D: '4'
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 44
   section: Coordinate Geometry
-
-  topic: straight_line
-  text: "If the lines $x+y-1=0$, $kx+2y+1=0$ and $4x+2ky+7=0$ are concurrent, then $k =$"
+  topic: straight_lines
+  text: If the lines $x+y-1=0, kx+2y+1=0$ and $4x+2ky+7=0$ are concurrent, then $k
+    =$
   options:
-    A: "2"
-    B: {inner}
-    C: {inner}
-    D: "-2"
+    A: '2'
+    B: $\frac{13}{2}$
+    C: $\frac{-13}{2}$
+    D: '-2'
   correct_answer: C
   difficulty: medium
   subject: Mathematics
 - id: 45
   section: Coordinate Geometry
-
-  topic: straight_line
-  text: {inner}
+  topic: straight_lines
+  text: If $\alpha, \beta$ ($\alpha > \beta$) are two values of $k$ such that the
+    equations $2x+(3-2k)y+(2k+1)=0$ and $kx+(k-1)y-4=0$ represent two perpendicular
+    lines, then $\alpha^2+2\beta=$
   options:
-    A: "1"
-    B: {inner}
-    C: "7"
-    D: "10"
+    A: '1'
+    B: $\frac{7}{4}$
+    C: '7'
+    D: '10'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 46
   section: Coordinate Geometry
-
-  topic: straight_line
-  text: {inner}
+  topic: straight_lines
+  text: If $k=\frac{a+b}{ab}$ is a non-zero constant then the point which lies on
+    the straight line $\frac{x}{a}+\frac{y}{b}=1$ is
   options:
-    A: "$(k, k)$"
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $(k, k)$
+    B: $(k, \frac{1}{k})$
+    C: $(\frac{1}{k}, k)$
+    D: $(\frac{1}{k}, \frac{1}{k})$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 47
   section: Coordinate Geometry
-
   topic: pair_of_straight_lines
-  text: "The point of concurrence of all the chords of the curve $3x^2-y^2-2x+4y=0$ which subtend a right angle at the origin is"
+  text: The point of concurrence of all the chords of the curve $3x^2-y^2-2x+4y=0$
+    which subtend a right angle at the origin is
   options:
-    A: "$(1, 2)$"
-    B: "$(1, -2)$"
-    C: "$(-1, 2)$"
-    D: "$(-1, -2)$"
+    A: $(1, 2)$
+    B: $(1, -2)$
+    C: $(-1, 2)$
+    D: $(-1, -2)$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 48
   section: Coordinate Geometry
-
   topic: circle
-  text: "The equation of a circle passing through (-6,3) and touching both the coordinate axes is"
+  text: The equation of a circle passing through (-6,3) and touching both the coordinate
+    axes is
   options:
-    A: "$x^2+y^2+20x-20y+100=0$"
-    B: "$x^2+y^2+10x-10y+25=0$"
-    C: "$x^2+y^2+6x-6y+9=0$"
-    D: "$x^2+y^2-30x+30y+225=0$"
+    A: $x^2+y^2+20x-20y+100=0$
+    B: $x^2+y^2+10x-10y+25=0$
+    C: $x^2+y^2+6x-6y+9=0$
+    D: $x^2+y^2-30x+30y+225=0$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 49
   section: Coordinate Geometry
-
   topic: circle
-  text: "The area (in sq. units) of the triangle formed by the X-axis, the tangent and the normal drawn to the circle $x^2+y^2=10x$ at the point (9, 3) is"
+  text: The area (in sq. units) of the triangle formed by the X-axis, the tangent
+    and the normal drawn to the circle $x^2+y^2=10x$ at the point (9, 3) is
   options:
-    A: {inner}
-    B: {inner}
-    C: "75"
-    D: "25"
+    A: $\frac{75}{4}$
+    B: $\frac{75}{8}$
+    C: '75'
+    D: '25'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 50
   section: Coordinate Geometry
-
   topic: circle
-  text: "The number of common tangents of the circles $x^2+y^2-4=0$ and $x^2+y^2-6x-8y-24=0$ is"
+  text: The number of common tangents of the circles $x^2+y^2-4=0$ and $x^2+y^2-6x-8y-24=0$
+    is
   options:
-    A: "1"
-    B: "2"
-    C: "3"
-    D: "4"
+    A: '1'
+    B: '2'
+    C: '3'
+    D: '4'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 51
   section: Coordinate Geometry
-
   topic: circle
-  text: {inner}
+  text: If the equation of the circle whose radius is $\sqrt{10}$ and which touches
+    the circle $x^2+y^2+2x+8y-23=0$ externally at the point $(1, 2)$ is $x^2+y^2+ax+by+c=0$,
+    then $|a+b+c| =$
   options:
-    A: "5"
-    B: "13"
-    C: "33"
-    D: "23"
+    A: '5'
+    B: '13'
+    C: '33'
+    D: '23'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 52
   section: Coordinate Geometry
-
   topic: circle
-  text: "If a circle 'S' passing through the origin and having its centre on the line $x-y=0$ cuts the circle $x^2+y^2-4x-6y+10=0$ orthogonally, then the diameter of 'S' is"
+  text: If a circle 'S' passing through the origin and having its centre on the line
+    $x-y=0$ cuts the circle $x^2+y^2-4x-6y+10=0$ orthogonally, then the diameter of
+    'S' is
   options:
-    A: {inner}
-    B: "2"
-    C: {inner}
-    D: "4"
+    A: $\sqrt{2}$
+    B: '2'
+    C: $2\sqrt{2}$
+    D: '4'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 53
   section: Coordinate Geometry
-
   topic: circle
-  text: {inner}
+  text: The equation of the circle passing through the points of intersection of the
+    circles $x^2+y^2+6x+4y-12=0$, $x^2+y^2-4x-6y-12=0$ and having radius $\sqrt{13}$
+    is
   options:
-    A: "$x^2+y^2-2x-12=0$"
-    B: "$x^2+y^2-4x-6y=0$"
-    C: "$x^2+y^2-2y-12=0$"
-    D: "$x^2+y^2+6x-4y=0$"
+    A: $x^2+y^2-2x-12=0$
+    B: $x^2+y^2-4x-6y=0$
+    C: $x^2+y^2-2y-12=0$
+    D: $x^2+y^2+6x-4y=0$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 54
   section: Coordinate Geometry
-
   topic: parabola
-  text: {inner}
+  text: If $\overline{AB}$ is the focal chord of the parabola $y^2=16x$ and $A=(1,-4)$,
+    then the equation of the normal to the parabola at the point B is
   options:
-    A: "$2x+y-32=0$"
-    B: "$2x+y-48=0$"
-    C: "$x-2y+16=0$"
-    D: "$x+2y-48=0$"
+    A: $2x+y-32=0$
+    B: $2x+y-48=0$
+    C: $x-2y+16=0$
+    D: $x+2y-48=0$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 55
   section: Coordinate Geometry
-
   topic: parabola
-  text: "If one of the vertices of an equilateral triangle inscribed in the parabola $y^2=12x$ coincides with the vertex of the parabola, then the area (in sq. units) of that triangle is"
+  text: If one of the vertices of an equilateral triangle inscribed in the parabola
+    $y^2=12x$ coincides with the vertex of the parabola, then the area (in sq. units)
+    of that triangle is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $192\sqrt{3}$
+    B: $864\sqrt{3}$
+    C: $216\sqrt{3}$
+    D: $432\sqrt{3}$
   correct_answer: D
   difficulty: hard
   subject: Mathematics
 - id: 56
   section: Coordinate Geometry
-
   topic: ellipse
-  text: "If an ellipse with its axes as coordinate axes, 2a and 2b as the lengths of its major and minor axes respectively passes through the points (2, 2) and (3, 1), then $3a^2 + 5b^2 =$"
+  text: If an ellipse with its axes as coordinate axes, 2a and 2b as the lengths of
+    its major and minor axes respectively passes through the points (2, 2) and (3,
+    1), then $3a^2 + 5b^2 =$
   options:
-    A: "32"
-    B: "8"
-    C: "64"
-    D: "16"
+    A: '32'
+    B: '8'
+    C: '64'
+    D: '16'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 57
   section: Coordinate Geometry
-
   topic: ellipse
-  text: {inner}
+  text: The values of $c$ such that the line $y=4x+c$ touches the ellipse $\frac{x^2}{4}+\frac{y^2}{1}=1$
+    is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\pm 13$
+    B: $\pm 7$
+    C: $\pm \sqrt{65}$
+    D: $\pm \sqrt{74}$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 58
   section: Coordinate Geometry
-
   topic: hyperbola
-  text: {inner}
+  text: If the line $2x+\sqrt{6}y=2$ touches the hyperbola $x^2-2y^2=4$, then the
+    coordinates of the point of contact are
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $(\frac{1}{2}, \frac{1}{\sqrt{6}})$
+    B: $(4, -\sqrt{6})$
+    C: $(4, \sqrt{6})$
+    D: $(-2, \sqrt{6})$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 59
   section: Coordinate Geometry
-
   topic: three_dimensional_coordinates
-  text: {inner}
+  text: If the circumcenter of the triangle formed by the points $(1, 2, 3), (3, -1,
+    5)$ and $(4, 0, -3)$ is $(\alpha, \beta, \gamma)$, then $|\alpha|+|\beta| =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $|\gamma|$
+    B: $3|\gamma|$
+    C: $4|\gamma|$
+    D: $2|\gamma|$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 60
   section: Coordinate Geometry
-
-  topic: direction_cosines_and_ratios
-  text: {inner}
+  topic: three_dimensional_coordinates
+  text: If $\theta$ is the acute angle between the two lines whose direction cosines
+    are connected by the relations $l+m+n=0$ and $2lm+2nl-mn=0$, then $\cos \theta
+    =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{1}{2}$
+    B: $\frac{\sqrt{3}}{2}$
+    C: $\frac{5}{6}$
+    D: $\frac{3}{5}$
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 61
   section: Coordinate Geometry
-
-  topic: plane
-  text: {inner}
+  topic: three_dimensional_coordinates
+  text: If the foot of the perpendicular drawn from the point (1, 0, -2) to the plane
+    $\pi$ is (2, 0, -1) and the equation of the plane $\pi$ is $ax + by + cz = 2$
+    then $a^2 + b^2 + c^2 =$
   options:
-    A: "2"
-    B: "8"
-    C: "4"
-    D: "9"
+    A: '2'
+    B: '8'
+    C: '4'
+    D: '9'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 62
   section: Calculus
-
   topic: limits_and_continuity
-  text: {inner}
+  text: $\lim_{x \to 0} \frac{2 \tan x + \cos x - 1 + x}{\sqrt{4 \sin^2 x + 2 \tan
+    x + 1} - \sqrt{3 \tan^2 x + \sin x + 1}} =$
   options:
-    A: "1"
-    B: "3"
-    C: "6"
-    D: {inner}
+    A: '1'
+    B: '3'
+    C: '6'
+    D: 2/3
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 63
   section: Calculus
-
   topic: limits_and_continuity
-  text: {inner}
+  text: If a function $f$ is defined by $f(x) = \frac{\cot^3 x - \tan x}{\cos(x +
+    \pi/4)}$ ($x \neq \pi/4$), then $\lim_{x \to \frac{\pi}{4}^-} f(x) =$
   options:
-    A: "4"
-    B: "8"
-    C: {inner}
-    D: "16"
+    A: '4'
+    B: '8'
+    C: 8/3
+    D: '16'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 64
   section: Calculus
-
-  topic: differentiation
-  text: {inner}
+  topic: differentiation_and_derivatives
+  text: If $f(x) = \sqrt{x}$ ($x \geq 0$) and $g(x) = 1 + x^2$, then $(f \circ g)'(1)
+    =$
   options:
-    A: "1"
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: '1'
+    B: 1/2
+    C: $\sqrt{2}$
+    D: $1/\sqrt{2}$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 65
   section: Calculus
+  topic: differentiation_and_derivatives
+  text: 'Match the items of List I with those of List II
 
-  topic: differentiation
-  text: |
-    Match the items of List I with those of List II
     List I:
+
     (i) $\frac{d}{dx} (\sin^{-1} x)$
+
     (ii) $\frac{d}{dx} (\cos^{-1} x)$
+
     (iii) $\frac{d}{dx} (\tan^{-1} x)$
+
     (iv) $\frac{d}{dx} (\cot^{-1} x)$
 
+
     List II:
+
     a) $-\frac{1}{1+x^2}$
+
     b) $\frac{1}{1+x^2}$
+
     c) $\frac{1}{\sqrt{1-x^2}}$
+
     d) $-\frac{1}{\sqrt{1-x^2}}$
 
+
     Then the correct match is
+
+    '
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: (i) $\to$ c, (ii) $\to$ d, (iii) $\to$ b, (iv) $\to$ a
+    B: (i) $\to$ c, (ii) $\to$ c, (iii) $\to$ d, (iv) $\to$ a
+    C: (i) $\to$ d, (ii) $\to$ c, (iii) $\to$ b, (iv) $\to$ a
+    D: (i) $\to$ d, (ii) $\to$ c, (iii) $\to$ c, (iv) $\to$ b
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 66
   section: Calculus
-
-  topic: differentiation
-  text: {inner}
+  topic: differentiation_and_derivatives
+  text: If $y = x \sin x$ and at $x = \alpha$, $\frac{\frac{dy}{dx} - \frac{y}{x}}{x
+    \frac{dy}{dx} - y} = 1$, then $\alpha =$
   options:
-    A: {inner}
-    B: "2"
-    C: "1"
-    D: {inner}
+    A: $\sqrt{2}$
+    B: '2'
+    C: '1'
+    D: $1/\sqrt{2}$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 67
   section: Calculus
-
   topic: applications_of_derivatives
-  text: "A ladder of length 13 mts has one end resting against a vertical wall and the other on the ground. If the lower end moves away from the wall at a speed of 2 mts/minute, then the speed (in mts/min) at which upper end falls when the bottom is 5 mts away from the wall is"
+  text: A ladder of length 13 mts has one end resting against a vertical wall and
+    the other on the ground. If the lower end moves away from the wall at a speed
+    of 2 mts/minute, then the speed (in mts/min) at which upper end falls when the
+    bottom is 5 mts away from the wall is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 6/5
+    B: 12/5
+    C: 5/6
+    D: 5/12
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 68
   section: Calculus
-
   topic: applications_of_derivatives
-  text: {inner}
+  text: An angle between the curves $x^2 - y^2 = 4$ and $x^2 + y^2 = 4\sqrt{2}$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\pi/6$
+    B: $\pi/4$
+    C: $\pi/3$
+    D: $\pi/2$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 69
   section: Calculus
-
   topic: applications_of_derivatives
-  text: "The maximum volume (in cu. units) of the cylinder which can be inscribed in a sphere of radius 12 units is"
+  text: The maximum volume (in cu. units) of the cylinder which can be inscribed in
+    a sphere of radius 12 units is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $384\sqrt{3}\pi$
+    B: $768\sqrt{3}\pi$
+    C: $768\pi/\sqrt{3}$
+    D: $1152\pi/\sqrt{3}$
   correct_answer: B
   difficulty: hard
   subject: Mathematics
 - id: 70
   section: Calculus
-
   topic: integration
-  text: {inner}
+  text: $\int \frac{\tan x}{\sec^2 x (1 + \sec^6 x)^{2/3}} dx =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $-\frac{1}{2} (1 + \sec^6 x)^{1/3} + c$
+    B: $2 (1 + \sec^6 x)^{4/3} + c$
+    C: $-\frac{1}{2} (1 + \cos^6 x)^{1/3} + c$
+    D: $2 (1 + \cos^6 x)^{1/3} + c$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 71
   section: Calculus
-
   topic: integration
-  text: {inner}
+  text: $\int \frac{1}{(x-1)^{5/7}(x+1)^{9/7}} dx =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{7}{4} \left( \frac{x+1}{x-1} \right)^{2/7} + c$
+    B: $-\frac{7}{4} \left( \frac{x+1}{x-1} \right)^{2/7} + c$
+    C: $\frac{7}{4} \left( \frac{x-1}{x+1} \right)^{2/7} + c$
+    D: $-\frac{7}{4} \left( \frac{x-1}{x+1} \right)^{2/7} + c$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 72
   section: Calculus
-
   topic: integration
-  text: {inner}
+  text: $\int \frac{1 + \sqrt{3} \cot x}{1 - \sqrt{3} \cot x} dx =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $-\frac{x}{2} + \frac{\sqrt{3}}{2} \log \left| \sin(x - \frac{\pi}{3}) \right|
+      + c$
+    B: $\frac{x}{2} + \frac{\sqrt{3}}{2} \log \left| \sin(x - \frac{\pi}{3}) \right|
+      + c$
+    C: $-\frac{x}{2} - \frac{\sqrt{3}}{2} \log \left| \sin(x - \frac{\pi}{3}) \right|
+      + c$
+    D: $\frac{x}{2} - \frac{\sqrt{3}}{2} \log \left| \sin(x - \frac{\pi}{3}) \right|
+      + c$
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 73
   section: Calculus
-
   topic: integration
-  text: {inner}
+  text: If $\int \frac{1}{\csc x + \cos x} dx = \frac{1}{2\sqrt{3}} \log |f(x)| -
+    \int \frac{\cos x - \sin x}{2 + \sin 2x} dx + c$ then at $x = \frac{\pi}{3}, |f(x)|
+    =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{3\sqrt{3}-1}{\sqrt{3}+1}$
+    B: $\frac{3\sqrt{3}+1}{\sqrt{3}+1}$
+    C: $\frac{6\sqrt{3}-2}{\sqrt{3}+1}$
+    D: $\frac{6\sqrt{3}+2}{\sqrt{3}+1}$
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 74
   section: Calculus
-
   topic: definite_integrals
-  text: {inner}
+  text: $\int_0^{\pi/2} \frac{x \tan x \sec^2 x}{\tan^4 x + 1} dx =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{\pi^2}{16}$
+    B: $\frac{\pi^2}{4}$
+    C: $\frac{\pi^2}{8}$
+    D: $\frac{\pi^2}{32}$
   correct_answer: A
   difficulty: hard
   subject: Mathematics
 - id: 75
   section: Calculus
-
   topic: definite_integrals
-  text: {inner}
+  text: $\int_3^6 \frac{\sqrt{x}}{\sqrt{9-x} + \sqrt{x}} dx =$
   options:
-    A: {inner}
-    B: {inner}
-    C: "2"
-    D: "1"
+    A: 1/2
+    B: 3/2
+    C: '2'
+    D: '1'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 76
   section: Calculus
-
   topic: limits_and_continuity
-  text: {inner}
+  text: $\lim_{n \to \infty} \left[ \left(1 + \frac{1^2}{n^2}\right) \left(1 + \frac{2^2}{n^2}\right)
+    \dots (2) \right]^{1/n} =$
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $2e^{\pi - 4}$
+    B: $e^{\frac{\pi-4}{2}}$
+    C: $2e^{\frac{\pi-4}{2}}$
+    D: $\frac{1}{2} e^{\frac{\pi-4}{2}}$
   correct_answer: C
   difficulty: hard
   subject: Mathematics
 - id: 77
   section: Calculus
-
   topic: definite_integrals
-  text: {inner}
+  text: The area (in Sq. units) of the region bounded by the circle $x^2 + y^2 = 64$,
+    positive X-axis and the line $y = \sqrt{3} x$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{16\pi}{3}$
+    B: $\frac{8\pi}{3}$
+    C: $\frac{64\pi}{3}$
+    D: $\frac{32\pi}{3}$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 78
   section: Calculus
-
   topic: differential_equations
-  text: {inner}
+  text: If a and b are the arbitrary constants, then the differential equation corresponding
+    to the family of curves given by $y = x [a \cos(\log x) + b \sin(\log x)]$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $x \frac{d^2 y}{dx^2} + x \frac{dy}{dx} - 2y = 0$
+    B: $x^2 \frac{d^2 y}{dx^2} - x \frac{dy}{dx} + 2y = 0$
+    C: $x^2 \frac{d^2 y}{dx^2} + x \frac{dy}{dx} - 2y = 0$
+    D: $x^2 \frac{d^2 y}{dx^2} - x \frac{dy}{dx} + y = 0$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 79
   section: Calculus
-
   topic: differential_equations
-  text: "If the solution for the differential equation $y^2 dx + (x^2 - xy - y^2) dy = 0$ at (2, 1) is $x + y = k(xy^2 - y^3)$, then k ="
+  text: If the solution for the differential equation $y^2 dx + (x^2 - xy - y^2) dy
+    = 0$ at (2, 1) is $x + y = k(xy^2 - y^3)$, then k =
   options:
-    A: "-3"
-    B: "-4"
-    C: "4"
-    D: "3"
+    A: '-3'
+    B: '-4'
+    C: '4'
+    D: '3'
   correct_answer: D
   difficulty: hard
   subject: Mathematics
 - id: 80
   section: Calculus
-
   topic: differential_equations
-  text: {inner}
+  text: The general solution of the differential equation $\frac{dy}{dx} + \frac{y}{x}
+    = x^2$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $xy = \frac{x^2}{2} + c$
+    B: $xy = \frac{x^3}{3} + c$
+    C: $xy = \frac{x^4}{4} + c$
+    D: $xy = \frac{x^5}{5} + c$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 81
-  section: Physical World & Measurement
+  section: Mechanics
+  topic: units_and_measurements
+  text: 'Match the Following
 
-  topic: physical_world
-  text: |
-    Match the Following
     List I (Fundamental forces in nature):
+
     A) Strong nuclear force
+
     B) Weak nuclear force
+
     C) Electromagnetic force
+
     D) Gravitational force
 
+
     List II (Relative strength):
+
     e) $10^{-2}$
+
     f) 1
+
     g) $10^{36}$
+
     h) $10^{-13}$
+
     i) $10^{-39}$
 
+
     Then the correct match is
+
+    '
   options:
-    A: "A-f, B-i, C-e, D-h"
-    B: "A-f, B-h, C-e, D-g"
-    C: "A-f, B-h, C-e, D-i"
-    D: "A-f, B-e, C-h, D-i"
+    A: A-f, B-i, C-e, D-h
+    B: A-f, B-h, C-e, D-g
+    C: A-f, B-h, C-e, D-i
+    D: A-f, B-e, C-h, D-i
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 82
-  section: Physical World & Measurement
-
+  section: Mechanics
   topic: units_and_measurements
-  text: {inner}
+  text: A physical quantity X is given by $X = \frac{2k^3 l^2}{m \sqrt{n}}$. The percentage
+    errors in the measurements of k, l, m and n are 1%, 2%, 3% and 4% respectively.
+    The value of X is uncertain by
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 8%
+    B: 10%
+    C: 12%
+    D: 14%
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 83
   section: Mechanics
-
   topic: motion_in_a_straight_line
-  text: {inner}
+  text: The displacement-time graphs of two moving particles make angles of $30^\circ$
+    and $45^\circ$ with the time axis. The ratio of their velocities is
   options:
-    A: {inner}
-    B: "$1:1$"
-    C: "$1:2$"
-    D: {inner}
+    A: $\sqrt{3}:2$
+    B: '1:1'
+    C: '1:2'
+    D: $1:\sqrt{3}$
   correct_answer: D
   difficulty: approach
   subject: Physics
 - id: 84
   section: Mechanics
-
   topic: motion_in_a_plane
-  text: {inner}
+  text: '{inner}'
   options:
-    A: "$y = x - 5x^2$"
-    B: "$y = 2x - 5x^2$"
-    C: "$y = 2x - 15x^2$"
-    D: "$y = 2x - 25x^2$"
+    A: $y = x - 5x^2$
+    B: $y = 2x - 5x^2$
+    C: $y = 2x - 15x^2$
+    D: $y = 2x - 25x^2$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 85
   section: Mechanics
-
   topic: laws_of_motion
-  text: "If the radii of circular paths of two particles of same mass are in the ratio of $1:2$, then to have a constant centripetal force, the ratio of their speeds should be"
+  text: If the radii of circular paths of two particles of same mass are in the ratio
+    of $1:2$, then to have a constant centripetal force, the ratio of their speeds
+    should be
   options:
-    A: "$4:1$"
-    B: {inner}
-    C: "$1:4$"
-    D: {inner}
+    A: '4:1'
+    B: $1:\sqrt{2}$
+    C: '1:4'
+    D: $\sqrt{2}:1$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 86
   section: Mechanics
-
   topic: work_energy_and_power
-  text: {inner}
+  text: The angle between force $\vec{F} = 3\hat{i} + 4\hat{j} - 5\hat{k}$ and displacement
+    $\vec{d} = 5\hat{i} + 4\hat{j} + 3\hat{k}$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\cos^{-1}(0.16)$
+    B: $\cos^{-1}(0.32)$
+    C: $\cos^{-1}(0.24)$
+    D: $\cos^{-1}(0.64)$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 87
   section: Mechanics
-
-  topic: systems_of_particles_and_rotational_motion
-  text: "A bomb of mass 16 kg explodes into two pieces of masses 4 kg and 12 kg. The velocity of the 12 kg mass is 4 ms$^{-1}$. The kinetic energy of the second piece is"
+  topic: system_of_particles_and_rotational_motion
+  text: A bomb of mass 16 kg explodes into two pieces of masses 4 kg and 12 kg. The
+    velocity of the 12 kg mass is 4 ms$^{-1}$. The kinetic energy of the second piece
+    is
   options:
-    A: "144 J"
-    B: "192 J"
-    C: "96 J"
-    D: "288 J"
+    A: 144 J
+    B: 192 J
+    C: 96 J
+    D: 288 J
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 88
   section: Mechanics
-
-  topic: systems_of_particles_and_rotational_motion
-  text: "A constant torque acting on a uniform circular wheel changes its angular momentum from $A_0$ to $4A_0$ in 4 seconds. The magnitude of the torque is"
+  topic: system_of_particles_and_rotational_motion
+  text: A constant torque acting on a uniform circular wheel changes its angular momentum
+    from $A_0$ to $4A_0$ in 4 seconds. The magnitude of the torque is
   options:
-    A: {inner}
-    B: "$A_0$"
-    C: "$4A_0$"
-    D: "$12A_0$"
+    A: $\frac{3A_0}{4}$
+    B: $A_0$
+    C: $4A_0$
+    D: $12A_0$
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 89
   section: Mechanics
-
-  topic: systems_of_particles_and_rotational_motion
-  text: "A particle performs uniform circular motion with an angular momentum L. If the frequency of the particle's motion is doubled and its kinetic energy is halved, then its angular momentum becomes"
+  topic: system_of_particles_and_rotational_motion
+  text: A particle performs uniform circular motion with an angular momentum L. If
+    the frequency of the particle's motion is doubled and its kinetic energy is halved,
+    then its angular momentum becomes
   options:
-    A: "2L"
-    B: "4L"
-    C: {inner}
-    D: {inner}
+    A: 2L
+    B: 4L
+    C: L/2
+    D: L/4
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 90
-  section: Mechanics
-
-  topic: oscillations
-  text: {inner}
+  section: Oscillations and Waves
+  topic: simple_harmonic_motion
+  text: The displacement of a particle is given by the relation $x = 4(\cos \pi t
+    + \sin \pi t)$. The amplitude of the particle is
   options:
-    A: "4"
-    B: "4"
-    C: {inner}
-    D: "8"
+    A: '-4'
+    B: '4'
+    C: $4\sqrt{2}$
+    D: '8'
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 91
   section: Mechanics
-
   topic: gravitation
-  text: "A body of mass $m$ is at height R from the surface of the earth where R is the radius of the earth. If the body is taken from here to a height of 3R from the surface of the earth, the increase in the gravitational potential energy of the body is ($g$ is acceleration due to gravity on the surface of the earth)"
+  text: A body of mass $m$ is at height R from the surface of the earth where R is
+    the radius of the earth. If the body is taken from here to a height of 3R from
+    the surface of the earth, the increase in the gravitational potential energy of
+    the body is ($g$ is acceleration due to gravity on the surface of the earth)
   options:
-    A: "$3mgR$"
-    B: {inner}
-    C: "$4mgR$"
-    D: {inner}
+    A: $3mgR$
+    B: $mgR/3$
+    C: $4mgR$
+    D: $mgR/4$
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 92
-  section: Properties of Matter
-
-  topic: mechanical_properties_of_solids
-  text: "The ratio of the areas of cross sections of three wires is 1:2:3 and the ratio of the Young's moduli of their materials is 3:2:1. If the three wires are of same length and same stretching force is applied to the three wires, then the ratio of the elongations of the three wires is"
+  section: Mechanics
+  topic: properties_of_matter
+  text: The ratio of the areas of cross sections of three wires is 1:2:3 and the ratio
+    of the Young's moduli of their materials is 3:2:1. If the three wires are of same
+    length and same stretching force is applied to the three wires, then the ratio
+    of the elongations of the three wires is
   options:
-    A: "4:3:4"
-    B: "1:1:1"
-    C: "9:4:1"
-    D: "3:4:3"
+    A: '4:3:3'
+    B: '1:1:1'
+    C: '9:4:1'
+    D: '3:4:3'
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 93
-  section: Properties of Matter
-
-  topic: mechanical_properties_of_fluids
-  text: "When a large bubble rises from the bottom of a lake to the surface, the volume of the bubble becomes 5 times its volume at the bottom of the lake. If H is the atmospheric pressure expressed in terms of water column height, then the depth of the lake is (The temperature of the water in the lake is same at all points)"
+  section: Mechanics
+  topic: fluid_mechanics
+  text: When a large bubble rises from the bottom of a lake to the surface, the volume
+    of the bubble becomes 5 times its volume at the bottom of the lake. If H is the
+    atmospheric pressure expressed in terms of water column height, then the depth
+    of the lake is (The temperature of the water in the lake is same at all points)
   options:
-    A: "2H"
-    B: "4H"
-    C: "5H"
-    D: "3H"
+    A: 2H
+    B: 4H
+    C: 5H
+    D: 3H
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 94
-  section: Properties of Matter
-
-  topic: mechanical_properties_of_fluids
-  text: {inner}
+  section: Mechanics
+  topic: fluid_mechanics
+  text: A water drop breaks into 64 identical droplets of each surface area $10^{-7}
+    \text{ m}^2$. If the surface tension of water is $0.07 \text{ Nm}^{-1}$, the increase
+    in the surface energy in the process is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $158 \times 10^{-6} \text{ J}$
+    B: $432 \times 10^{-6} \text{ J}$
+    C: $216 \times 10^{-6} \text{ J}$
+    D: $336 \times 10^{-6} \text{ J}$
   correct_answer: D
   difficulty: hard
   subject: Physics
 - id: 95
-  section: Properties of Matter
+  section: Thermal Physics
+  topic: thermodynamics
+  text: 'Steam at $100^\circ\text{C}$ is added to 150 g water to increase its temperature
+    from $20^\circ\text{C}$ to $40^\circ\text{C}$.
 
-  topic: thermal_properties_of_matter
-  text: {inner}
+    The total mass of the water at $40^\circ\text{C}$ is
+
+    (specific heat capacity of water $= 1 \text{ cal g}^{-1} \text{ }^\circ\text{C}^{-1}$
+    and latent heat of steam $= 540 \text{ cal g}^{-1}$)
+
+    '
   options:
-    A: "155 g"
-    B: "150 g"
-    C: "145 g"
-    D: "5 g"
+    A: 155 g
+    B: 150 g
+    C: 145 g
+    D: 5 g
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 96
-  section: Properties of Matter
+  section: Thermal Physics
+  topic: thermodynamics
+  text: 'A blacksmith fixes circular iron frame on the wooden wheel of a bullock cart.
+    The diameter of wooden wheel and circular iron frame are 5.012 m and 5 m respectively
+    at $27^\circ\text{C}$. The temperature (in $^\circ\text{C}$) to which the iron
+    ring must be heated so as to fit the wooden wheel is
 
-  topic: thermal_properties_of_matter
-  text: {inner}
+    (Coefficient of linear expansion of iron $= 1.2 \times 10^{-5} \text{ }^\circ\text{C}^{-1}$)
+
+    '
   options:
-    A: "200"
-    B: "227"
-    C: "254"
-    D: "300"
+    A: '200'
+    B: '227'
+    C: '254'
+    D: '300'
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 97
-  section: Thermodynamics & Kinetic Theory
-
+  section: Thermal Physics
   topic: thermodynamics
-  text: {inner}
+  text: 'Two moles of a triatomic gas ($\gamma = 4/3$) at temperature $327^\circ\text{C}$
+    expands adiabatically such that its volume becomes 8 times its initial volume.
+    Later the temperature of the gas is doubled in an isochoric process. The total
+    work done in the two processes is
+
+    (R - universal gas constant)
+
+    '
   options:
-    A: "900 R"
-    B: "1800 R"
-    C: "1200 R"
-    D: "300 R"
+    A: 900 R
+    B: 1800 R
+    C: 1200 R
+    D: 300 R
   correct_answer: B
   difficulty: hard
   subject: Physics
 - id: 98
-  section: Thermodynamics & Kinetic Theory
-
-  topic: kinetic_theory_of_gases
-  text: {inner}
+  section: Thermal Physics
+  topic: thermodynamics
+  text: If the temperature of a gas is increased from $27^\circ\text{C}$ to $159^\circ\text{C}$,
+    then the percentage increase in the rms speed of the gas molecules is
   options:
-    A: "5"
-    B: "10"
-    C: "15"
-    D: "20"
+    A: '5'
+    B: '10'
+    C: '15'
+    D: '20'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 99
-  section: Optics
+  section: Oscillations and Waves
+  topic: wave_motion
+  text: 'A source emitting sound is tied to one end of a string of length 50 cm and
+    is rotated with an angular speed of 40 rad s$^{-1}$ in the horizontal plane. The
+    ratio of the maximum and minimum frequencies of the sound heard by an observer
+    standing at a distance of 10 m from the fixed end of the string is
 
-  topic: Waves
-  text: {inner}
+    (speed of sound in air $= 340 \text{ ms}^{-1}$)
+
+    '
   options:
-    A: "2:1"
-    B: "4:3"
-    C: "6:5"
-    D: "9:8"
+    A: '2:1'
+    B: '4:3'
+    C: '6:5'
+    D: '9:8'
   correct_answer: D
   difficulty: hard
   subject: Physics
 - id: 100
-  section: Optics
+  section: Oscillations and Waves
+  topic: wave_motion
+  text: 'One end of a string is tied to the ceiling of a lift and a load is attached
+    at the bottom end of the string. When the lift is moving upwards with an acceleration
+    of 2.1 ms$^{-2}$, the speed of the transverse wave at the lower end of the string
+    is 88 ms$^{-1}$. If the lift moves downwards with an acceleration of 1.9 ms$^{-2}$,
+    the speed of the transverse wave at the lower end of the string is
 
-  topic: Waves
-  text: {inner}
+    (g = 10 ms$^{-2}$)
+
+    '
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 88 ms$^{-1}$
+    B: 102 ms$^{-1}$
+    C: 119 ms$^{-1}$
+    D: 72 ms$^{-1}$
   correct_answer: D
   difficulty: hard
   subject: Physics
 - id: 101
-  section: Waves & Optics
-
+  section: Optics
   topic: ray_optics_and_optical_instruments
-  text: "The focal lengths of the objective and the eyepiece of a compound microscope are 2 cm and 3 cm respectively and the distance between them is 15 cm. The final image formed by the eyepiece is at infinity. The distances of the object and the image produced by the object from the objective lens are respectively"
+  text: The focal lengths of the objective and the eyepiece of a compound microscope
+    are 2 cm and 3 cm respectively and the distance between them is 15 cm. The final
+    image formed by the eyepiece is at infinity. The distances of the object and the
+    image produced by the object from the objective lens are respectively
   options:
-    A: "2.4 cm, 12 cm"
-    B: "2.4 cm, 15 cm"
-    C: "2.3 cm, 12 cm"
-    D: "2.3 cm, 3 cm"
+    A: 2.4 cm, 12 cm
+    B: 2.4 cm, 15 cm
+    C: 2.3 cm, 12 cm
+    D: 2.3 cm, 3 cm
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 102
-  section: Waves & Optics
-
+  section: Optics
   topic: wave_optics
-  text: {inner}
+  text: In a single slit diffraction, the slit is illuminated with light of wavelength
+    6000 \text{\AA}. If the slit were illuminated by a light of wavelength $\lambda$
+    the angular width of the central maximum decreases by 30%. Then $\lambda$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 6000 \text{\AA}
+    B: 4200 \text{\AA}
+    C: 3000 \text{\AA}
+    D: 1800 \text{\AA}
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 103
-  section: Electricity & Magnetism
-
-  topic: electric_charges_and_fields
-  text: {inner}
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: A hollow spherical shell of radius r has a uniform charge density $\sigma$.
+    It is kept in a cube of edge 3r such that the centres of the cube and the shell
+    coincide. Then the electric flux coming out of one face of a cube is ($\epsilon_0$
+    - permittivity of free space)
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{\pi r^2 \sigma}{\epsilon_0}$
+    B: $\frac{5 \epsilon_0}{2 \pi r^2 \sigma}$
+    C: $\frac{\pi r^2 \sigma}{6 \epsilon_0}$
+    D: $\frac{2 \pi r^2 \sigma}{3 \epsilon_0}$
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 104
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: electrostatic_potential_and_capacitance
-  text: |
-    The circuit shows two capacitors A and B of capacitances C and 2C respectively. When they are fully charged, the cell is removed and the capacitors are connected with their plates of opposite polarities touching each other. Then
+  text: 'The circuit shows two capacitors A and B of capacitances C and 2C respectively.
+    When they are fully charged, the cell is removed and the capacitors are connected
+    with their plates of opposite polarities touching each other. Then
+
     a) Charge on A is $\frac{4CE}{9}$
+
     b) Charge on B is zero
+
     c) Loss of energy in this process is $\frac{CE^2}{3}$
+
     The correct statement(s) is/are
-  image: "/static/papers/ts_eamcet/2023_2/q104.png"
+
+    '
+  image: /static/papers/ts_eamcet/2023_2/q104.png
   options:
-    A: "a and b are correct"
-    B: "b and c are correct"
-    C: "a, b and c are correct"
-    D: "c alone is correct"
+    A: a and b are correct
+    B: b and c are correct
+    C: a, b and c are correct
+    D: c alone is correct
   correct_answer: B
   difficulty: hard
   subject: Physics
 - id: 105
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: current_electricity
-  text: {inner}
-  image: "/static/papers/ts_eamcet/2023_2/q105.png"
+  text: A uniform conducting wire AB of length 5 m and resistance 5 $\Omega$ is connected
+    as shown in the circuit. If the balancing point is obtained at 3 m from A, then
+    the value of E is
+  image: /static/papers/ts_eamcet/2023_2/q105.png
   options:
-    A: "1.5 V"
-    B: "3 V"
-    C: "0.67 V"
-    D: "1.33 V"
+    A: 1.5 V
+    B: 3 V
+    C: 0.67 V
+    D: 1.33 V
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 106
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: current_electricity
-  text: "In the given circuit, the equivalent resistance between A and B is"
-  image: "/static/papers/ts_eamcet/2023_2/q106.png"
+  text: In the given circuit, the equivalent resistance between A and B is
+  image: /static/papers/ts_eamcet/2023_2/q106.png
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: 3 $\Omega$
+    B: 4 $\Omega$
+    C: 4.5 $\Omega$
+    D: 5 $\Omega$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 107
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
-  text: "A square loop of side 'a' and carrying a current 'I' is suspended from an insulating hanger of a spring balance as shown in the figure. The transverse magnetic field 'B' directed into the paper occurs only at the bottom side of the loop. When direction of current in the loop is reversed, the change in the reading of spring balance is"
-  image: "/static/papers/ts_eamcet/2023_2/q107.png"
+  text: A square loop of side 'a' and carrying a current 'I' is suspended from an
+    insulating hanger of a spring balance as shown in the figure. The transverse magnetic
+    field 'B' directed into the paper occurs only at the bottom side of the loop.
+    When direction of current in the loop is reversed, the change in the reading of
+    spring balance is
+  image: /static/papers/ts_eamcet/2023_2/q107.png
   options:
-    A: "IaB"
-    B: "2IaB"
-    C: {inner}
-    D: {inner}
+    A: IaB
+    B: 2IaB
+    C: $\frac{IaB}{2}$
+    D: $\frac{3}{2}IaB$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 108
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
-  text: |
-    A current carrying loop is placed in a uniform magnetic field 'B' in different orientations I, II, III and IV as shown in the figure. The correct order of decreasing potential energy is
+  text: 'A current carrying loop is placed in a uniform magnetic field ''B'' in different
+    orientations I, II, III and IV as shown in the figure. The correct order of decreasing
+    potential energy is
+
     ($\vec{n}$ - unit vector normal to the plane of the loop)
-  image: "/static/papers/ts_eamcet/2023_2/q108.png"
+
+    '
+  image: /static/papers/ts_eamcet/2023_2/q108.png
   options:
-    A: "I, III, II, IV"
-    B: "I, II, III, IV"
-    C: "I, IV, II, III"
-    D: "III, IV, I, II"
+    A: I, III, II, IV
+    B: I, II, III, IV
+    C: I, IV, II, III
+    D: III, IV, I, II
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 109
-  section: Electricity & Magnetism
-
-  topic: magnetism_and_matter
-  text: "A bar magnet of magnetic moment 2 Am$^2$ lies aligned with the direction of a uniform magnetic field of 0.3 T. The amount of work required by an external torque to turn the magnet so as to align its magnetic moment normal to the field direction is"
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: A bar magnet of magnetic moment 2 Am$^2$ lies aligned with the direction of
+    a uniform magnetic field of 0.3 T. The amount of work required by an external
+    torque to turn the magnet so as to align its magnetic moment normal to the field
+    direction is
   options:
-    A: "0.15 J"
-    B: "0.3 J"
-    C: "0.6 J"
-    D: "1.2 J"
+    A: 0.15 J
+    B: 0.3 J
+    C: 0.6 J
+    D: 1.2 J
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 110
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: electromagnetic_induction
-  text: |
-    A conducting rod is moving towards right with a velocity 'V' in a uniform magnetic field 'B'. If the direction of induced current 'i' is as shown in the figure, then the direction of 'B' is
-    (Image shows rod moving right, current 'i' upwards)
-  image: "/static/papers/ts_eamcet/2023_2/q110.png"
+  text: 'A conducting rod is moving towards right with a velocity ''V'' in a uniform
+    magnetic field ''B''. If the direction of induced current ''i'' is as shown in
+    the figure, then the direction of ''B'' is
+
+    (Image shows rod moving right, current ''i'' upwards)
+
+    '
+  image: /static/papers/ts_eamcet/2023_2/q110.png
   options:
-    A: "in the plane of the paper towards right"
-    B: "in the plane of the paper towards left"
-    C: "perpendicular to the plane of the paper and into the paper"
-    D: "perpendicular to the plane of the paper and out of the paper"
+    A: in the plane of the paper towards right
+    B: in the plane of the paper towards left
+    C: perpendicular to the plane of the paper and into the paper
+    D: perpendicular to the plane of the paper and out of the paper
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 111
-  section: Electricity & Magnetism
-
-  topic: alternating_currents
-  text: {inner}
+  section: Electricity and Magnetism
+  topic: alternating_current_circuits
+  text: A coil has a resistance of 30 $\Omega$ and an inductive reactance of 20 $\Omega$
+    at 50 Hz frequency. If an AC source of 200 V, 100 Hz is connected across the coil,
+    the current in the coil is
   options:
-    A: "2 A"
-    B: {inner}
-    C: "4 A"
-    D: "8 A"
+    A: 2 A
+    B: $\frac{20}{\sqrt{13}}$ A
+    C: 4 A
+    D: 8 A
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 112
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
-  text: "A current 'i' is flowing through a wire of length 'L'. If it is made into a circular loop of one turn, then its magnetic moment is"
+  text: A current 'i' is flowing through a wire of length 'L'. If it is made into
+    a circular loop of one turn, then its magnetic moment is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{L^2 i}{4 \pi}$
+    B: $\frac{L^2}{4 \pi}$
+    C: $\frac{4 \pi}{L^2 i}$
+    D: $4 \pi L^2 i$
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 113
   section: Modern Physics
-
   topic: nuclei
-  text: "Energy released in the fission of a single uranium nucleus is 200 MeV. Then the number of fissions per second to produce 5 mW power is"
+  text: Energy released in the fission of a single uranium nucleus is 200 MeV. Then
+    the number of fissions per second to produce 5 mW power is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $1.56 \times 10^8$
+    B: $1.56 \times 10^{13}$
+    C: $3.12 \times 10^8$
+    D: $3.12 \times 10^{13}$
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 114
-  section: Electricity & Magnetism
-
+  section: Electricity and Magnetism
   topic: electromagnetic_waves
-  text: |
-    Match the electromagnetic radiations given in List - I with their uses given in List - II.
+  text: 'Match the electromagnetic radiations given in List - I with their uses given
+    in List - II.
+
     List - I:
+
     A) X-rays
+
     B) UV-rays
+
     C) Radio waves
+
     D) IR - rays
 
+
     List - II:
+
     P) Remote switches
+
     Q) Finger prints in forensic Labs
+
     R) Crystal structure study
+
     S) TV communication system
+
+    '
   options:
-    A: "A-Q, B-R, C-P, D-S"
-    B: "A-R, B-Q, C-S, D-P"
-    C: "A-R, B-S, C-Q, D-P"
-    D: "A-S, B-R, C-Q, D-P"
+    A: A-Q, B-R, C-P, D-S
+    B: A-R, B-Q, C-S, D-P
+    C: A-R, B-S, C-Q, D-P
+    D: A-S, B-R, C-Q, D-P
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 115
   section: Modern Physics
-
   topic: atoms
-  text: "The ratio of longest wavelengths of the spectral lines in the Lyman and Balmer series of hydrogen spectrum is"
+  text: The ratio of longest wavelengths of the spectral lines in the Lyman and Balmer
+    series of hydrogen spectrum is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{3}{23}$
+    B: $\frac{5}{27}$
+    C: $\frac{7}{29}$
+    D: $\frac{9}{31}$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 116
   section: Modern Physics
-
   topic: dual_nature_of_matter_and_radiation
-  text: "The graph given in the figure shows the variation of photo current (I) and the applied voltage (V) for two different materials and for two different intensities of the incident radiations. Then the curves which represent the same material are"
-  image: "/static/papers/ts_eamcet/2023_2/q116.png"
+  text: The graph given in the figure shows the variation of photo current (I) and
+    the applied voltage (V) for two different materials and for two different intensities
+    of the incident radiations. Then the curves which represent the same material
+    are
+  image: /static/papers/ts_eamcet/2023_2/q116.png
   options:
-    A: "1 and 3"
-    B: "1 and 4"
-    C: "2 and 3"
-    D: "3 and 4"
+    A: 1 and 3
+    B: 1 and 4
+    C: 2 and 3
+    D: 3 and 4
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 117
   section: Modern Physics
-
   topic: nuclei
-  text: {inner}
+  text: Half-life of a radioactive substance A is two times the half-life of another
+    radioactive substance B. Initially the number of nuclei of A and B are $N_A$ and
+    $N_B$ respectively. After three half-lives of A, the number of nuclei of both
+    are equal. Then $\frac{N_A}{N_B}$ is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{1}{3}$
+    B: $\frac{1}{4}$
+    C: $\frac{1}{6}$
+    D: $\frac{1}{8}$
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 118
   section: Modern Physics
-
-  topic: semiconductor_electronics
-  text: "When an n-type semiconductor is heated"
+  topic: semiconductors_and_devices
+  text: When an n-type semiconductor is heated
   options:
-    A: "number of electrons increases while that of holes decreases"
-    B: "number of holes increases while that of electrons decreases"
-    C: "number of holes and electrons do not change"
-    D: "number of holes and electrons increases equally"
+    A: number of electrons increases while that of holes decreases
+    B: number of holes increases while that of electrons decreases
+    C: number of holes and electrons do not change
+    D: number of holes and electrons increases equally
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 119
   section: Modern Physics
+  topic: semiconductors_and_devices
+  text: '5 logic gates are connected as shown in the figure. If A and B are the inputs,
+    Y is the output then the truth table of the circuit is
 
-  topic: semiconductor_electronics
-  text: |
-    5 logic gates are connected as shown in the figure. If A and B are the inputs, Y is the output then the truth table of the circuit is
-  image: "/static/papers/ts_eamcet/2023_2/q119.png"
+    '
+  image: /static/papers/ts_eamcet/2023_2/q119.png
   options:
-    A: |
-      | A | B | Y |
+    A: '| A | B | Y |
+
       |---|---|---|
+
       | 0 | 0 | 0 |
+
       | 1 | 0 | 0 |
+
       | 0 | 1 | 0 |
+
       | 1 | 1 | 0 |
-    B: |
-      | A | B | Y |
+
+      '
+    B: '| A | B | Y |
+
       |---|---|---|
+
       | 0 | 0 | 1 |
+
       | 1 | 0 | 0 |
+
       | 0 | 1 | 0 |
+
       | 1 | 1 | 1 |
-    C: |
-      | A | B | Y |
+
+      '
+    C: '| A | B | Y |
+
       |---|---|---|
+
       | 0 | 0 | 0 |
+
       | 1 | 0 | 1 |
+
       | 0 | 1 | 1 |
+
       | 1 | 1 | 1 |
-    D: |
-      | A | B | Y |
+
+      '
+    D: '| A | B | Y |
+
       |---|---|---|
+
       | 0 | 0 | 1 |
+
       | 1 | 0 | 1 |
+
       | 0 | 1 | 1 |
+
       | 1 | 1 | 1 |
+
+      '
   correct_answer: A
   difficulty: hard
   subject: Physics
 - id: 120
-  section: Modern Physics
+  section: Communication Systems
+  topic: basics_of_communication_systems
+  text: 'Consider the following statements regarding digital signals.
 
-  topic: communication_systems
-  text: |
-    Consider the following statements regarding digital signals.
     i) provide a continuous set of values
+
     ii) represent values as discrete steps
+
     iii) can utilise binary system
+
     iv) are in the form of rectangular waves
+
     Then the true statements are
+
+    '
   options:
-    A: "(i), (ii)"
-    B: "(ii), (iii)"
-    C: "(ii), (iii), (iv)"
-    D: "(i), (ii), (iii), (iv)"
+    A: (i), (ii)
+    B: (ii), (iii)
+    C: (ii), (iii), (iv)
+    D: (i), (ii), (iii), (iv)
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 121
   section: Physical Chemistry
-
   topic: atomic_structure
-  text: 'A 100 watt bulb emits light of wavelength "$x \text{ \AA}$". What is the value of x, if the number of photons emitted is $2.0 \times 10^{20} \text{ s}^{-1}$? ($h = 6.63 \times 10^{-34} \text{ Js}, 1 \text{ watt} = 1 \text{ Js}^{-1}$)'
+  text: A 100 watt bulb emits light of wavelength "$x \text{ \AA}$". What is the value
+    of x, if the number of photons emitted is $2.0 \times 10^{20} \text{ s}^{-1}$?
+    ($h = 6.63 \times 10^{-34} \text{ Js}, 1 \text{ watt} = 1 \text{ Js}^{-1}$)
   options:
-    A: "3578"
-    B: "4978"
-    C: "3978"
-    D: "4578"
+    A: '3578'
+    B: '4978'
+    C: '3978'
+    D: '4578'
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 122
   section: Physical Chemistry
-
   topic: atomic_structure
-  text: 'The ratio of the difference in energy between the first and second Bohr orbits to that between the second and third orbits is'
+  text: The ratio of the difference in energy between the first and second Bohr orbits
+    to that between the second and third orbits is
   options:
-    A: '$\frac{5}{27}$'
-    B: '$\frac{27}{5}$'
-    C: '$\frac{4}{9}$'
-    D: '$\frac{9}{4}$'
+    A: $\frac{5}{27}$
+    B: $\frac{27}{5}$
+    C: $\frac{4}{9}$
+    D: $\frac{9}{4}$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 123
   section: Inorganic Chemistry
-
   topic: classification_of_elements_and_periodicity
-  text: |
-    Assertion (A): First ionisation enthalpy of oxygen is less than that of nitrogen
+  text: 'Assertion (A): First ionisation enthalpy of oxygen is less than that of nitrogen
+
     Reason (R): Atoms with half-filled or completely filled orbitals are less stable
+
     The correct option among the following is
+
+    '
   options:
-    A: "(A) and (R) are true. (R) is the correct explanation of (A)"
-    B: "(A) and (R) are true, but (R) is not correct explanation of (A)"
-    C: "(A) is true but (R) is false"
-    D: "(A) is false but (R) is true"
+    A: (A) and (R) are true. (R) is the correct explanation of (A)
+    B: (A) and (R) are true, but (R) is not correct explanation of (A)
+    C: (A) is true but (R) is false
+    D: (A) is false but (R) is true
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 124
-  section: Inorganic Chemistry
-
+  section: Physical Chemistry
   topic: chemical_bonding_and_molecular_structure
-  text: "In which of the following, molecules are arranged in the increasing order of their bond angles?"
+  text: In which of the following, molecules are arranged in the increasing order
+    of their bond angles?
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\text{NH}_3 < \text{SO}_2 < \text{H}_2\text{O}$
+    B: $\text{H}_2\text{O} < \text{NH}_3 < \text{SO}_2$
+    C: $\text{SO}_2 < \text{NH}_3 < \text{H}_2\text{O}$
+    D: $\text{SO}_2 < \text{H}_2\text{O} < \text{NH}_3$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 125
-  section: Inorganic Chemistry
-
+  section: Physical Chemistry
   topic: chemical_bonding_and_molecular_structure
-  text: {inner}
+  text: Arrange the molecules $\text{B}_2, \text{He}_2, \text{N}_2$ and $\text{C}_2$
+    in the increasing order of their bond order values
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\text{C}_2 < \text{He}_2 < \text{B}_2 < \text{N}_2$
+    B: $\text{N}_2 < \text{B}_2 < \text{C}_2 < \text{He}_2$
+    C: $\text{He}_2 < \text{B}_2 < \text{C}_2 < \text{N}_2$
+    D: $\text{He}_2 < \text{C}_2 < \text{N}_2 < \text{B}_2$
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 126
   section: Physical Chemistry
-
   topic: states_of_matter
-  text: {inner}
+  text: Two containers A and B contain $\text{CO}_2$ gas. Pressure, volume and absolute
+    temperature of the gas in A are 4 times more compared to that in B. If the mass
+    of the gas in B is x g, then the mass of the gas in A will be
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\frac{x}{2} \text{ g}$
+    B: $4x \text{ g}$
+    C: $2x \text{ g}$
+    D: $16x \text{ g}$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 127
   section: Physical Chemistry
-
-  topic: redox_reactions
-  text: {inner}
+  topic: stoichiometry
+  text: The oxidation states of three carbon atoms in carbon suboxide ($\text{C}_3\text{O}_2$)
+    respectively are
   options:
-    A: "+2, 0, +2"
-    B: "+2, 0, +4"
-    C: "+4, +2, +2"
-    D: "-2, +2, 0"
+    A: +2, 0, +2
+    B: +2, 0, +4
+    C: +4, +2, +2
+    D: -2, +2, 0
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 128
   section: Physical Chemistry
-
   topic: thermodynamics
-  text: {inner}
+  text: At T(K) 2 mole of an ideal gas is allowed to expand reversibly and isothermally
+    from a pressure of 10 atmospheres to 1 atmosphere. The work done (in kJ) is ($\text{R}
+    = 8.3 \text{ J K}^{-1} \text{ mol}^{-1}$)
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $-3.82 \times 10^{-1} \times \text{T}$
+    B: $-4.82 \times 10^{-1} \times \text{T}$
+    C: $-2.82 \times 10^{-2} \times \text{T}$
+    D: $-3.82 \times 10^{-2} \times \text{T}$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 129
   section: Physical Chemistry
-
-  topic: chemical_equilibrium
-  text: {inner}
+  topic: chemical_equilibrium_acids_bases
+  text: At 298 K the molar solubility of $\text{Cd(OH)}_2$ in 0.1M KOH solution is
+    $x \times 10^{-y}$. The values of x and y are respectively (at 298 K, $\text{K}_{sp}$
+    of $\text{Cd(OH)}_2 = 2.5 \times 10^{-14}$)
   options:
-    A: "2.5, 14"
-    B: "25, 13"
-    C: "25, 14"
-    D: "2.5, 16"
+    A: 2.5, 14
+    B: 25, 13
+    C: 25, 14
+    D: 2.5, 16
   correct_answer: B
   difficulty: hard
   subject: Chemistry
 - id: 130
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "Zeolite is a silicate of two metal ions X and Y. X and Y are respectively"
+  topic: p_block_elements
+  text: Zeolite is a silicate of two metal ions X and Y. X and Y are respectively
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $\text{Ca}^{2+}, \text{Na}^+$
+    B: $\text{Mg}^{2+}, \text{Na}^+$
+    C: $\text{Na}^{+}, \text{Al}^{3+}$
+    D: $\text{Ca}^{2+}, \text{Mg}^{2+}$
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 131
   section: Inorganic Chemistry
-
   topic: s_block_elements
-  text: "Identify the incorrect reaction from the following"
+  text: Identify the incorrect reaction from the following
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $2 \text{NaNO}_3 \to 2 \text{NaNO}_2 + \text{O}_2$
+    B: $2 \text{LiNO}_3 \to 2 \text{LiNO}_2 + \text{O}_2$
+    C: $2 \text{Pb(NO}_3)_2 \to 2 \text{PbO} + 4 \text{NO}_2 + \text{O}_2$
+    D: $4 \text{LiNO}_3 \to 2 \text{Li}_2\text{O} + 4 \text{NO}_2 + \text{O}_2$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 132
   section: Inorganic Chemistry
-
   topic: s_block_elements
-  text: |
-    In the reactions I and II the covalencies of Be and Al in X and Y are respectively
+  text: 'In the reactions I and II the covalencies of Be and Al in X and Y are respectively
+
     I) $\text{Be(OH)}_2 + \text{NaOH} (\text{excess}) \to X$
+
     II) $\text{Al(OH)}_3 + \text{NaOH} (\text{excess}) \to Y$
+
+    '
   options:
-    A: "4, 6"
-    B: "4, 4"
-    C: "6, 4"
-    D: "3, 6"
+    A: 4, 6
+    B: 4, 4
+    C: 6, 4
+    D: 3, 6
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 133
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "The atomic radius of gallium is less than that of aluminium. This is due to"
+  topic: p_block_elements
+  text: The atomic radius of gallium is less than that of aluminium. This is due to
   options:
-    A: "Greater shielding power of s-electrons of gallium atom"
-    B: "poor shielding power of s-electrons of gallium"
-    C: "Poor shielding power of d-electrons of gallium"
-    D: "Greater shielding power of d-electrons of gallium"
+    A: Greater shielding power of s-electrons of gallium atom
+    B: poor shielding power of s-electrons of gallium
+    C: Poor shielding power of d-electrons of gallium
+    D: Greater shielding power of d-electrons of gallium
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 134
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "Which of the following has lowest melting point?"
+  topic: p_block_elements
+  text: Which of the following has lowest melting point?
   options:
-    A: "Si"
-    B: "Ge"
-    C: "Sn"
-    D: "Pb"
+    A: Si
+    B: Ge
+    C: Sn
+    D: Pb
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 135
   section: Organic Chemistry
-
   topic: hydrocarbons
-  text: |
-    Arrange the following in the correct order of their acidic strength
-    $\text{H}_2\text{C}=\text{CH}_2$ (I), $\text{CH}\equiv\text{CH}$ (II), $\text{CH}_3\text{-C}\equiv\text{CH}$ (III), $\text{CH}_3\text{-CH}_3$ (IV)
+  text: 'Arrange the following in the correct order of their acidic strength
+
+    $\text{H}_2\text{C}=\text{CH}_2$ (I), $\text{CH}\equiv\text{CH}$ (II), $\text{CH}_3\text{-C}\equiv\text{CH}$
+    (III), $\text{CH}_3\text{-CH}_3$ (IV)
+
+    '
   options:
-    A: "I < II < III < IV"
-    B: "IV < I < III < II"
-    C: "IV < III < II < I"
-    D: "II < III < IV < I"
+    A: I < II < III < IV
+    B: IV < I < III < II
+    C: IV < III < II < I
+    D: II < III < IV < I
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 136
   section: Organic Chemistry
-
   topic: hydrocarbons
-  text: |
-    $\text{C}_3\text{H}_4 + \text{H}_2\text{O} \xrightarrow[333K]{Hg^{2+}/H^+} [X] \xrightarrow{\text{Tautomerisation}} Y$
+  text: '$\text{C}_3\text{H}_4 + \text{H}_2\text{O} \xrightarrow[333K]{Hg^{2+}/H^+}
+    [X] \xrightarrow{\text{Tautomerisation}} Y$
+
     X and Y are respectively
+
+    '
   options:
-    A: "unsaturated alcohol, aldehyde"
-    B: "saturated alcohol, ketone"
-    C: "unsaturated alcohol, ketone"
-    D: "saturated alcohol, aldehyde"
+    A: unsaturated alcohol, aldehyde
+    B: saturated alcohol, ketone
+    C: unsaturated alcohol, ketone
+    D: saturated alcohol, aldehyde
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 137
   section: Organic Chemistry
-
   topic: hydrocarbons
-  text: "Addition of HBr to propene in presence of a peroxide takes place contrary to Markovnikov rule. This can be explained by the mechanism involving"
+  text: Addition of HBr to propene in presence of a peroxide takes place contrary
+    to Markovnikov rule. This can be explained by the mechanism involving
   options:
-    A: "electrophile"
-    B: "free radical"
-    C: "nucleophile"
-    D: "carbene"
+    A: electrophile
+    B: free radical
+    C: nucleophile
+    D: carbene
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 138
   section: Organic Chemistry
-
-  topic: basic_principles_of_organic_chemistry
-  text: "The rate of attack of an electrophile is least when X in the given compound is"
-  image: "/static/papers/ts_eamcet/2023_2/q138.png"
+  topic: basic_principles_and_techniques
+  text: The rate of attack of an electrophile is least when X in the given compound
+    is
+  image: /static/papers/ts_eamcet/2023_2/q138.png
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: $-\text{NO}_2$
+    B: $-\text{CH}_3$
+    C: $-\text{OH}$
+    D: $-\text{NH}_2$
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 139
   section: Physical Chemistry
-
   topic: states_of_matter
-  text: "In the structure of a solid, W atoms are located at the cube corners of the unit cell, O atoms are located at the cube edges and Na atoms at the cube centres. The formula of the compound is"
+  text: In the structure of a solid, W atoms are located at the cube corners of the
+    unit cell, O atoms are located at the cube edges and Na atoms at the cube centres.
+    The formula of the compound is
   options:
-    A: {inner}
-    B: {inner}
-    C: {inner}
-    D: {inner}
+    A: Na WO$_3$
+    B: Na WO$_2$
+    C: Na$_2$ W$_2$O$_3$
+    D: Na$_2$ WO$_3$
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 140
   section: Physical Chemistry
-
   topic: solutions
-  text: {inner}
+  text: 'An aqueous solution of a non-volatile solute boils at 100.17 $^\circ$C. The
+    temperature at which this solution will freeze (in $^\circ$C) is
+
+    ($\text{K}_b (\text{H}_2\text{O}) = 0.512 \text{ } ^\circ \text{C kg mol}^{-1},
+    \text{K}_f (\text{H}_2\text{O}) = 1.86 \text{ } ^\circ \text{C kg mol}^{-1}$)'
   options:
-    A: "-0.62"
-    B: "-0.512"
-    C: "-1.24"
-    D: "-1.86"
+    A: '-0.62'
+    B: '-0.512'
+    C: '-1.24'
+    D: '-1.86'
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 141
   section: Physical Chemistry
-
   topic: chemical_kinetics
-  text: |
-    A possible mechanism for the gaseous reaction $2H_2 + 2NO \to 2H_2O + N_2$ is
+  text: 'A possible mechanism for the gaseous reaction $2H_2 + 2NO \to 2H_2O + N_2$
+    is
+
     Step 1: $2NO \rightleftharpoons N_2O_2$
+
     Step 2: $N_2O_2 + H_2 \longrightarrow N_2O + H_2O$ (slow)
+
     Step 3: $N_2O + H_2 \longrightarrow N_2 + H_2O$
+
     The rate law for this reaction is
+
+    '
   options:
-    A: "$R = k[NO]^2 [H_2]^2$"
-    B: "$R = k[NO] [H_2]^2$"
-    C: "$R = k[NO]^{1.5} [H_2]$"
-    D: "$R = k[NO]^2 [H_2]$"
+    A: $R = k[NO]^2 [H_2]^2$
+    B: $R = k[NO] [H_2]^2$
+    C: $R = k[NO]^{1.5} [H_2]$
+    D: $R = k[NO]^2 [H_2]$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 142
   section: Physical Chemistry
-
   topic: electrochemistry
-  text: {inner}
+  text: 'The reduction potential of a half cell consisting of a Pt electrode immersed
+    in 2.0 M $\text{Fe}^{2+}$ and 0.02 M $\text{Fe}^{3+}$ solution (in V) is
+
+    Given: ($\frac{2.303RT}{F} = 0.059, E^{\circ}_{\text{Fe}^{3+}/\text{Fe}^{2+}}
+    = 0.771 \text{V}$)
+
+    '
   options:
-    A: "0.543"
-    B: "0.653"
-    C: "0.733"
-    D: "0.822"
+    A: '0.543'
+    B: '0.653'
+    C: '0.733'
+    D: '0.822'
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 143
   section: Physical Chemistry
-
   topic: surface_chemistry
-  text: "The sol prepared by Bredig's Arc method is X and the charge of sol particles of it is q. X and q are respectively"
+  text: The sol prepared by Bredig's Arc method is X and the charge of sol particles
+    of it is q. X and q are respectively
   options:
-    A: "Metal sol, -ve"
-    B: "Metal sol, +ve"
-    C: "Metal sulphide sol, -ve"
-    D: "$TiO_2$ sol, +ve"
+    A: Metal sol, -ve
+    B: Metal sol, +ve
+    C: Metal sulphide sol, -ve
+    D: $TiO_2$ sol, +ve
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 144
   section: Inorganic Chemistry
-
-  topic: general_principles_of_metallurgy
-  text: "The metal which is refined by Mond process is (X), by van Arkel process is (Y) and by zone refining is (Z). X, Y and Z respectively are"
+  topic: representative_elements
+  text: The metal which is refined by Mond process is (X), by van Arkel process is
+    (Y) and by zone refining is (Z). X, Y and Z respectively are
   options:
-    A: "Ni, Zr, Ga"
-    B: "Zr, Ni, Ga"
-    C: "Ga, Ni, Zr"
-    D: "Ni, Ga, Zr"
+    A: Ni, Zr, Ga
+    B: Zr, Ni, Ga
+    C: Ga, Ni, Zr
+    D: Ni, Ga, Zr
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 145
   section: Inorganic Chemistry
-
-  topic: d_block_elements
-  text: "The products formed during thermal decomposition of ammonium dichromate are"
+  topic: d_and_f_block_elements
+  text: The products formed during thermal decomposition of ammonium dichromate are
   options:
-    A: "$O_2, H_2O, Cr(OH)_3$"
-    B: "$NO_2, H_2O, Cr_2O_3$"
-    C: "$N_2, Cr_2O_3, H_2O$"
-    D: "$N_2O, Cr(OH)_3$"
+    A: $O_2, H_2O, Cr(OH)_3$
+    B: $NO_2, H_2O, Cr_2O_3$
+    C: $N_2, Cr_2O_3, H_2O$
+    D: $N_2O, Cr(OH)_3$
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 146
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "Among the hydrides of group 16 elements, the hydride X has lowest boiling point and the hydride Y has highest boiling point. X and Y respectively are"
+  topic: p_block_elements
+  text: Among the hydrides of group 16 elements, the hydride X has lowest boiling
+    point and the hydride Y has highest boiling point. X and Y respectively are
   options:
-    A: "$H_2Te, H_2Se$"
-    B: "$H_2O, H_2Te$"
-    C: "$H_2S, H_2Te$"
-    D: "$H_2S, H_2O$"
+    A: $H_2Te, H_2Se$
+    B: $H_2O, H_2Te$
+    C: $H_2S, H_2Te$
+    D: $H_2S, H_2O$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 147
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "Sodium nitrite with hydrochloric acid gives water along with two nitrogen oxides. They are"
+  topic: p_block_elements
+  text: Sodium nitrite with hydrochloric acid gives water along with two nitrogen
+    oxides. They are
   options:
-    A: "$NO, NO_2$"
-    B: "$NO_2, N_2O_3$"
-    C: "$NO_2, N_2O$"
-    D: "$NO, N_2O_5$"
+    A: $NO, NO_2$
+    B: $NO_2, N_2O_3$
+    C: $NO_2, N_2O$
+    D: $NO, N_2O_5$
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
-
-  topic: p_block_elements_groups_13_16
-  text: "Identify the incorrect statement about the interhalogen compounds"
+  topic: p_block_elements
+  text: Identify the incorrect statement about the interhalogen compounds
   options:
-    A: "ICl is more reactive than $I_2$"
-    B: "They are diamagnetic in nature"
-    C: "The products of ICl and water are HI + HOCl"
-    D: "They act as fluorinating agents"
+    A: ICl is more reactive than $I_2$
+    B: They are diamagnetic in nature
+    C: The products of ICl and water are HI + HOCl
+    D: They act as fluorinating agents
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 149
   section: Inorganic Chemistry
-
-  topic: f_block_elements
-  text: "In +2 oxidation state, which of the following lanthanoids act as reducing agents?"
+  topic: d_and_f_block_elements
+  text: In +2 oxidation state, which of the following lanthanoids act as reducing
+    agents?
   options:
-    A: "Ce, Pr"
-    B: "Eu, Gd"
-    C: "Eu, Yb"
-    D: "Lu, Er"
+    A: Ce, Pr
+    B: Eu, Gd
+    C: Eu, Yb
+    D: Lu, Er
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 150
   section: Inorganic Chemistry
-
   topic: coordination_compounds
-  text: "The sum of oxidation state and co-ordination number of central metal atom is maximum with respect to which of the following complex?"
+  text: The sum of oxidation state and co-ordination number of central metal atom
+    is maximum with respect to which of the following complex?
   options:
-    A: "$K_3[Cr(C_2O_4)_3]$"
-    B: "$[Cr(CO)_6]$"
-    C: "$K_2[PtCl_6]$"
-    D: "$K_4[Fe(CN)_6]$"
+    A: $K_3[Cr(C_2O_4)_3]$
+    B: $[Cr(CO)_6]$
+    C: $K_2[PtCl_6]$
+    D: $K_4[Fe(CN)_6]$
   correct_answer: C
   difficulty: hard
   subject: Chemistry
 - id: 151
   section: Organic Chemistry
-
   topic: polymers
-  text: |
-    Match the following
+  text: 'Match the following
+
     List - I (Polymer Type) vs List - II (Example)
+
     A) Fibre  ; B) Elastomer  ; C) Thermosetting polymer  ; D) Thermoplastic polymer
+
     I) Bakelite  ; II) Polystyrene  ; III) Neoprene  ; IV) Dacron
+
+    '
   options:
-    A: "A — III, B — IV, C — I, D — II"
-    B: "A — IV, B — III, C — I, D — II"
-    C: "A — II, B — I, C — IV, D — III"
-    D: "A — IV, B — I, C — II, D — III"
+    A: A — III, B — IV, C — I, D — II
+    B: A — IV, B — III, C — I, D — II
+    C: A — II, B — I, C — IV, D — III
+    D: A — IV, B — I, C — II, D — III
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 152
   section: Organic Chemistry
-
   topic: biomolecules
-  text: |
-    From the following, the correct statements about polysaccharides are
+  text: 'From the following, the correct statements about polysaccharides are
+
     I) Starch is a polymer of $\alpha$-D(+)-glucose
+
     II) Amylose component of starch is not soluble in water
+
     III) Amylose is a branched chain polymer of $\alpha$-D(+)-glucose
+
     IV) Cellulose is a straight chain polymer of $\beta$-D(+)-glucose units
+
+    '
   options:
-    A: "I & IV only"
-    B: "II & III only"
-    C: "II & IV only"
-    D: "I & III only"
+    A: I & IV only
+    B: II & III only
+    C: II & IV only
+    D: I & III only
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 153
   section: Organic Chemistry
-
   topic: chemistry_in_everyday_life
-  text: "Which of the following acts as antihistamine?"
+  text: Which of the following acts as antihistamine?
   options:
-    A: "Heroin"
-    B: "Dimetapp"
-    C: "Nardil"
-    D: "Veronal"
+    A: Heroin
+    B: Dimetapp
+    C: Nardil
+    D: Veronal
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 154
   section: Organic Chemistry
-
   topic: haloalkanes_and_haloarenes
-  text: "Identify the halogen exchange reaction from the following"
+  text: Identify the halogen exchange reaction from the following
   options:
-    A: "Sandmeyer reaction"
-    B: "Swarts reaction"
-    C: "Stephen reaction"
-    D: "Wurtz reaction"
+    A: Sandmeyer reaction
+    B: Swarts reaction
+    C: Stephen reaction
+    D: Wurtz reaction
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 155
   section: Organic Chemistry
-
   topic: alcohols_phenols_and_ethers
-  text: |
-    Identify the major product Y in the given reaction sequence
-    $CH_3 - CH(Br) - CH_3 \xrightarrow[Alc. KOH]{\Delta} X \xrightarrow[ii) H_2O_2 / OH^-]{i) B_2H_6} Y$
+  text: 'Identify the major product Y in the given reaction sequence
+
+    $CH_3 - CH(Br) - CH_3 \xrightarrow[Alc. KOH]{\Delta} X \xrightarrow[ii) H_2O_2
+    / OH^-]{i) B_2H_6} Y$
+
+    '
   options:
-    A: "$CH_3 - CH(OH) - CH_3$"
-    B: "$CH_3 - CH_2 - CH_2OH$"
-    C: "$CH_3 - CH(OH) - CH_2OH$"
-    D: "$CH_2(OH) - CH_2 - CH_2OH$"
+    A: $CH_3 - CH(OH) - CH_3$
+    B: $CH_3 - CH_2 - CH_2OH$
+    C: $CH_3 - CH(OH) - CH_2OH$
+    D: $CH_2(OH) - CH_2 - CH_2OH$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 156
   section: Organic Chemistry
-
   topic: aldehydes_ketones_and_carboxylic_acids
-  text: |
-    $C_6H_6 \xrightarrow[Anhy. AlCl_3]{CH_3COCl} X \xrightarrow{Zn-Hg | conc. HCl} Y$
+  text: '$C_6H_6 \xrightarrow[Anhy. AlCl_3]{CH_3COCl} X \xrightarrow{Zn-Hg | conc.
+    HCl} Y$
+
     Conversion of X into Y is an example of the reaction
+
+    '
   options:
-    A: "Rosenmund reduction"
-    B: "Clemmensen reduction"
-    C: "Wolff-Kishner reduction"
-    D: "Stephen reduction"
+    A: Rosenmund reduction
+    B: Clemmensen reduction
+    C: Wolff-Kishner reduction
+    D: Stephen reduction
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 157
   section: Organic Chemistry
-
   topic: aldehydes_ketones_and_carboxylic_acids
-  text: "The main reactants involved in Etard reaction are"
+  text: The main reactants involved in Etard reaction are
   options:
-    A: "Toluene + $CrO_2Cl_2$"
-    B: "Toluene + $CrO_3 + (CH_3CO)_2O$"
-    C: {inner}
-    D: "Benzene + CO + HCl / Anhy. $AlCl_3$"
+    A: Toluene + $CrO_2Cl_2$
+    B: Toluene + $CrO_3 + (CH_3CO)_2O$
+    C: Toluene + $Cl_2/h\nu$
+    D: Benzene + CO + HCl / Anhy. $AlCl_3$
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 158
   section: Organic Chemistry
-
   topic: amines
-  text: |
-    The major product 'Z' in the reaction sequence is
-    Benzoic acid $\xrightarrow[conc. H_2SO_4]{conc. HNO_3} X \xrightarrow{Sn / HCl} Y \xrightarrow[ii) CuCl / HCl]{i) NaNO_2 / HCl, 0^{\circ}C} Z$
-  image: "/static/papers/ts_eamcet/2023_2/q158.png"
+  text: 'The major product ''Z'' in the reaction sequence is
+
+    Benzoic acid $\xrightarrow[conc. H_2SO_4]{conc. HNO_3} X \xrightarrow{Sn / HCl}
+    Y \xrightarrow[ii) CuCl / HCl]{i) NaNO_2 / HCl, 0^{\circ}C} Z$
+
+    '
+  image: /static/papers/ts_eamcet/2023_2/q158.png
   options:
-    A: "3-nitrobenzoic acid"
-    B: "3-chlorobenzoic acid"
-    C: "3-aminobenzoic acid"
-    D: "3-chlorobenzoyl chloride"
+    A: 3-nitrobenzoic acid
+    B: 3-chlorobenzoic acid
+    C: 3-aminobenzoic acid
+    D: 3-chlorobenzoyl chloride
   correct_answer: B
   difficulty: hard
   subject: Chemistry
 - id: 159
   section: Organic Chemistry
-
   topic: amines
-  text: |
-    Arrange the following in the order of decreasing basicity
-    $RN=CHR'$ (I), $RC\equiv N$ (II), $RNH_2$ (III)
+  text: 'Arrange the following in the order of decreasing basicity
+
+    $RN=CHR''$ (I), $RC\equiv N$ (II), $RNH_2$ (III)
+
+    '
   options:
-    A: "I > III > II"
-    B: "III > I > II"
-    C: "II > III > I"
-    D: "II > I > III"
+    A: I > III > II
+    B: III > I > II
+    C: II > III > I
+    D: II > I > III
   correct_answer: B
   difficulty: hard
   subject: Chemistry
 - id: 160
   section: Organic Chemistry
-
   topic: amines
-  text: "Which one of the following gives a foul-smelling substance when treated with chloroform and alcoholic KOH?"
-  image: "/static/papers/ts_eamcet/2023_2/q160.png"
+  text: Which one of the following gives a foul-smelling substance when treated with
+    chloroform and alcoholic KOH?
+  image: /static/papers/ts_eamcet/2023_2/q160.png
   options:
-    A: "N-methylaniline"
-    B: "Benzylamine"
-    C: "Benzamide"
-    D: "N,N-dimethylaniline"
+    A: N-methylaniline
+    B: Benzylamine
+    C: Benzamide
+    D: N,N-dimethylaniline
   correct_answer: B
   difficulty: moderate
   subject: Chemistry

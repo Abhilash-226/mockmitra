@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Depends, HTTPException
 from beanie import PydanticObjectId
-from typing import Optional
+from typing import Optional, List
+from pydantic import BaseModel
 
 from app.core.security import get_current_user
 from app.models.test import TestAttempt, TestStatus, Test
 from app.models.user import User
+from app.core.config import settings
 
 router = APIRouter()
 
@@ -119,6 +121,7 @@ async def get_attempt_analytics(
 ):
     """Get detailed analytics for a specific attempt"""
     from app.models.test import TestResponse as TestResponseModel
+    from app.models.question import Question
     
     uid = PydanticObjectId(user_id)
     aid = PydanticObjectId(attempt_id)
@@ -137,12 +140,54 @@ async def get_attempt_analytics(
         TestResponseModel.attempt_id == aid
     ).to_list()
     
+    # Build a map of responses keyed by question_id for quick lookup
+    response_map = {str(r.question_id): r for r in responses}
+    
+    # Fetch full question documents
+    question_ids = [r.question_id for r in responses]
+    questions_docs = await Question.find(
+        {"_id": {"$in": question_ids}}
+    ).to_list()
+    
+    # Build questions list in response order
+    question_doc_map = {str(q.id): q for q in questions_docs}
+    questions_list = []
+    for idx, r in enumerate(responses):
+        qid = str(r.question_id)
+        q = question_doc_map.get(qid)
+        if not q:
+            continue
+        # options is a dict like {"a": "...", "b": "...", ...}
+        # Convert to list of {key, text} for the frontend
+        options_list = [{"key": k, "text": v} for k, v in q.options.items()]
+        questions_list.append({
+            "id": qid,
+            "question_text": q.question_text,
+            "options": options_list,
+            "correct_answer": q.correct_option,
+            "selected_option": r.selected_option,
+            "is_correct": r.is_correct,
+            "topic": q.topic or "General",
+            "section": q.section or "General",
+            "difficulty": q.difficulty.value if q.difficulty else "medium",
+            "solution": q.explanation or "No explanation available",
+            "time_spent": r.time_spent_seconds,
+            "image": q.image,
+        })
+    
     # Calculate time analysis
     time_per_question = [r.time_spent_seconds for r in responses if r.time_spent_seconds]
-    
+
+    # Fetch test for title/marks
+    test_doc = await Test.get(attempt.test_id)
+    test_name = test_doc.title if test_doc else "Test"
+    max_score = test_doc.total_marks if test_doc else (attempt.total_attempted + attempt.skipped)
+
     return {
         "attempt_id": str(attempt_id),
+        "test_name": test_name,
         "score": attempt.score,
+        "max_score": max_score,
         "percentage": attempt.percentage,
         "total_questions": attempt.total_attempted + attempt.skipped,
         "correct": attempt.correct_answers,
@@ -151,13 +196,89 @@ async def get_attempt_analytics(
         "time_taken_seconds": attempt.time_taken_seconds,
         "average_time_per_question": round(sum(time_per_question) / len(time_per_question), 2) if time_per_question else 0,
         "section_results": attempt.section_results,
+        "questions": questions_list,
         "responses": [
             {
                 "question_id": str(r.question_id),
                 "selected_option": r.selected_option,
                 "is_correct": r.is_correct,
-                "time_spent": r.time_spent_seconds
+                "time_spent": r.time_spent_seconds,
+                "topic": question_doc_map.get(str(r.question_id), {}).topic if question_doc_map.get(str(r.question_id)) else "General",
             }
             for r in responses
         ]
     }
+
+
+# ── Solution generation ────────────────────────────────────────────────────────
+
+class SolutionRequest(BaseModel):
+    question_text: str
+    options: List[dict]          # [{"value": "a", "text": "..."}]
+    correct_answer: str          # option value, e.g. "b"
+    topic: Optional[str] = None
+    section: Optional[str] = None
+
+
+@router.post("/generate-solution")
+async def generate_solution(
+    body: SolutionRequest,
+    user_id: str = Depends(get_current_user)
+):
+    """Generate a step-by-step solution using Groq LLM."""
+    if not settings.GROQ_API_KEY:
+        raise HTTPException(status_code=503, detail="AI service not configured")
+
+    try:
+        from groq import Groq
+        client = Groq(api_key=settings.GROQ_API_KEY)
+    except Exception as e:
+        raise HTTPException(status_code=503, detail=f"AI service unavailable: {e}")
+
+    # Find the correct option text
+    correct_text = body.correct_answer
+    option_labels = ["A", "B", "C", "D", "E", "F"]
+    options_str_parts = []
+    for idx, opt in enumerate(body.options):
+        label = option_labels[idx] if idx < len(option_labels) else str(idx + 1)
+        text = opt.get("text", "")
+        is_correct = opt.get("value") == body.correct_answer
+        if is_correct:
+            correct_text = f"{label}. {text}"
+        options_str_parts.append(f"{label}. {text}")
+    options_str = "\n".join(options_str_parts)
+
+    context = ""
+    if body.section or body.topic:
+        context = f"Subject/Section: {body.section or ''}  Topic: {body.topic or ''}\n"
+
+    prompt = f"""You are an expert tutor helping a student understand a multiple-choice exam question.
+
+{context}Question:
+{body.question_text}
+
+Options:
+{options_str}
+
+Correct Answer: {correct_text}
+
+Provide a clear, concise step-by-step solution that:
+1. Identifies the key concept being tested
+2. Shows the logical/mathematical working clearly
+3. Explains why the correct answer is right
+4. Briefly explains why the other options are incorrect (if helpful)
+
+Use LaTeX for all mathematical expressions (wrap in $...$ for inline, $$...$$ for display).
+Keep the solution educational but concise (aim for 150-300 words)."""
+
+    try:
+        response = client.chat.completions.create(
+            messages=[{"role": "user", "content": prompt}],
+            model="llama-3.3-70b-versatile",
+            temperature=0.3,
+            max_tokens=600,
+        )
+        solution_text = response.choices[0].message.content.strip()
+        return {"solution": solution_text}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Solution generation failed: {e}")

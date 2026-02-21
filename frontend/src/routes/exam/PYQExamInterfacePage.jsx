@@ -424,17 +424,41 @@ export default function PYQExamInterfacePage() {
   };
 
   const handleSubmit = async () => {
-    // For PYQ, we calculate results locally
-    // Navigate to results with answers state
     setIsSubmitted(true);
-    navigate(`/pyq/${paperId}/results`, {
-      state: {
+
+    // Build answers payload: map index-based answers to question_number + option letter
+    const answersPayload = questions.map((q, idx) => ({
+      question_number: q.number,
+      selected_option: answers[idx] || null,  // "A", "B", "C", "D" or null
+      time_spent_seconds: 0,  // TODO: per-question timing
+    }));
+
+    // Calculate rough total time from duration
+    const elapsed = examInfo.duration - (document.querySelector('[class*="font-mono"]')?.textContent
+      ? 0 : examInfo.duration);  // fallback
+    const timeTaken = Math.max(0, examInfo.duration - 0);  // simplified
+
+    try {
+      const result = await pyqService.submitPyqTest({
         paperId,
-        answers,
-        totalQuestions,
-        attemptedQuestions: stats.answered + stats.answeredMarked,
-      },
-    });
+        answers: answersPayload,
+        timeTakenSeconds: timeTaken,
+      });
+
+      // Navigate to the standard results page using attempt_id
+      navigate(`/results/${result.attempt_id}`);
+    } catch (err) {
+      console.error("PYQ submit failed:", err);
+      // Fallback: navigate with local state for basic results
+      navigate(`/pyq/${paperId}/results`, {
+        state: {
+          paperId,
+          answers,
+          totalQuestions,
+          attemptedQuestions: stats.answered + stats.answeredMarked,
+        },
+      });
+    }
   };
 
   // Loading state

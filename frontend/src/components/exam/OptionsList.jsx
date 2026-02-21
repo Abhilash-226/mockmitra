@@ -1,4 +1,22 @@
 // Options List Component with Tailwind CSS
+import "katex/dist/katex.min.css";
+import Latex from "react-latex-next";
+
+function LatexText({ children }) {
+  if (!children) return null;
+  const parts = String(children).split(/\n|\\n/);
+  return (
+    <>
+      {parts.map((part, i) => (
+        <span key={i}>
+          <Latex>{part}</Latex>
+          {i < parts.length - 1 && <br />}
+        </span>
+      ))}
+    </>
+  );
+}
+
 const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 
 export default function OptionsList({
@@ -45,7 +63,7 @@ export default function OptionsList({
             </span>
 
             {/* Option text */}
-            <span className="flex-1 text-gray-800">{optionText}</span>
+            <span className="flex-1 text-gray-800"><LatexText>{optionText}</LatexText></span>
 
             {/* Correct/Incorrect indicator */}
             {correctOption && (

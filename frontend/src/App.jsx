@@ -282,22 +282,16 @@ const getRouter = (isAuthenticated) => createBrowserRouter(
           <ProtectedRoute>
             <Navbar user={{ name: "User" }} />
             <PageContainer title="Results">
-              <ResultsSummaryPage />
+              <DetailedAnalysisPage />
             </PageContainer>
           </ProtectedRoute>
         }
       />
 
+      {/* Backward-compat: /analysis redirects to parent */}
       <Route
         path="results/:attemptId/analysis"
-        element={
-          <ProtectedRoute>
-            <Navbar user={{ name: "User" }} />
-            <PageContainer title="Detailed Analysis">
-              <DetailedAnalysisPage />
-            </PageContainer>
-          </ProtectedRoute>
-        }
+        element={<Navigate to=".." relative="path" replace />}
       />
 
       {/* Catch-all redirect */}

@@ -22,7 +22,7 @@ sections:
 questions:
 - id: 1
   section: Algebra
-  topic: Functions
+  topic: functions_and_inverse_functions
   text: If $f(x) = \frac{2x-3}{3x-2}$ and $f_n(x) = (f \circ f \circ f \circ ... n
     \text{ times})(x)$, then $f_{32}(x) =$
   options:
@@ -36,7 +36,7 @@ questions:
   subject: Mathematics
 - id: 2
   section: Algebra
-  topic: Functions
+  topic: functions_and_inverse_functions
   text: The domain of the real valued function $f(x) = \sqrt{\cos(\sin x)} + \cos^{-1}\left(\frac{1+x^2}{2x}\right)$
     is
   options:
@@ -50,7 +50,7 @@ questions:
   subject: Mathematics
 - id: 3
   section: Algebra
-  topic: Number Theory
+  topic: mathematical_induction
   text: For $n \in \mathbb{N}$, the largest positive integer that divides $81^n +
     20n - 1$ is k. If S is the sum of all positive divisors of k, then $S - k =$
   options:
@@ -64,7 +64,7 @@ questions:
   subject: Mathematics
 - id: 4
   section: Algebra
-  topic: Matrices
+  topic: matrices
   text: A, B, C, D are square matrices such that $A+B$ is symmetric, $A-B$ is skew-symmetric
     and D is the transpose of C. If $A = \begin{bmatrix} -1 & 2 & 3 \\ 4 & 3 & -2
     \\ 3 & -4 & 5 \end{bmatrix}$ and $C = \begin{bmatrix} 0 & 1 & -2 \\ 2 & -1 & 0
@@ -80,7 +80,7 @@ questions:
   subject: Mathematics
 - id: 5
   section: Algebra
-  topic: Matrices
+  topic: matrices
   text: If A is a square matrix and $A^2 + I = 2A$, then $A^9 =$
   options:
     A: $8A^2 - 7I$
@@ -93,7 +93,7 @@ questions:
   subject: Mathematics
 - id: 6
   section: Algebra
-  topic: Determinants
+  topic: matrices
   text: $\det \begin{bmatrix} \frac{a^2+b^2}{c} & c & c \\ a & \frac{b^2+c^2}{a} &
     a \\ b & b & \frac{c^2+a^2}{b} \end{bmatrix} =$
   options:
@@ -107,7 +107,7 @@ questions:
   subject: Mathematics
 - id: 7
   section: Algebra
-  topic: Linear Equations
+  topic: matrices
   text: The system of simultaneous linear equations $x - 2y + 3z = 4$, $3x + y - 2z
     = 7$, $2x + 3y + z = 6$ has
   options:
@@ -121,7 +121,7 @@ questions:
   subject: Mathematics
 - id: 8
   section: Algebra
-  topic: Complex Numbers
+  topic: complex_numbers
   text: If $\sqrt{5} - i\sqrt{15} = r(\cos\theta + i\sin\theta)$, $-\pi < \theta <
     \pi$, then $r^2(\sec\theta + 3\csc^2\theta) =$
   options:
@@ -135,7 +135,7 @@ questions:
   subject: Mathematics
 - id: 9
   section: Algebra
-  topic: Complex Numbers
+  topic: complex_numbers
   text: The point P denotes the complex number $z = x + iy$ in the Argand plane. If
     $\frac{2z-i}{z-2}$ is a purely real number, then the equation of the locus of
     P is
@@ -150,7 +150,7 @@ questions:
   subject: Mathematics
 - id: 10
   section: Algebra
-  topic: Complex Numbers
+  topic: complex_numbers
   text: x and y are two complex numbers such that $|x| = |y| = 1$. If $\text{Arg}(x)
     = 2\alpha$, $\text{Arg}(y) = 3\beta$ and $\alpha + \beta = \frac{\pi}{36}$, then
     $x^5y^4 + \frac{1}{x^5y^4} =$
@@ -165,7 +165,7 @@ questions:
   subject: Mathematics
 - id: 11
   section: Algebra
-  topic: Equations
+  topic: theory_of_equations
   text: One of the roots of the equation $x^{14} + x^9 - x^5 - 1 = 0$ is
   options:
     A: $\frac{1+\sqrt{3}i}{2}$
@@ -177,8 +177,8 @@ questions:
   original_number: 11
   subject: Mathematics
 - id: 12
-  section: General
-  topic: Quadratic Equations
+  section: Algebra
+  topic: quadratic_expressions
   text: If the quadratic equation $3x^2 + (2k+1)x - 5k = 0$ has real and equal roots,
     then the value of k such that $-\frac{1}{2} < k < 0$ is
   options:
@@ -192,7 +192,7 @@ questions:
   subject: Mathematics
 - id: 13
   section: Algebra
-  topic: Quadratic Equations
+  topic: quadratic_expressions
   text: The equations $2x^2 + ax - 2 = 0$ and $x^2 + x + 2a = 0$ have exactly one
     common root. If $a \neq 0$, then one of the roots of the equation $ax^2 - 4x -
     2a = 0$ is
@@ -207,7 +207,7 @@ questions:
   subject: Mathematics
 - id: 14
   section: Algebra
-  topic: Theory of Equations
+  topic: theory_of_equations
   text: If $\alpha, \beta, \gamma$ are the roots of the equation $2x^3 - 3x^2 + 5x
     - 7 = 0$, then $\sum \alpha^2\beta^2 =$
   options:
@@ -221,7 +221,7 @@ questions:
   subject: Mathematics
 - id: 15
   section: Algebra
-  topic: Theory of Equations
+  topic: theory_of_equations
   text: The sum of two roots of the equation $x^4 - x^3 - 16x^2 + 4x + 48 = 0$ is
     zero. If $\alpha, \beta, \gamma, \delta$ are the roots of this equation, then
     $\alpha^4 + \beta^4 + \gamma^4 + \delta^4 =$
@@ -236,7 +236,7 @@ questions:
   subject: Mathematics
 - id: 16
   section: Algebra
-  topic: Permutations and Combinations
+  topic: permutations_and_combinations
   text: The sum of all the 4-digit numbers formed by taking all the digits from 2,
     3, 5, 7 without repetition, is
   options:
@@ -250,7 +250,7 @@ questions:
   subject: Mathematics
 - id: 17
   section: Algebra
-  topic: Permutations and Combinations
+  topic: permutations_and_combinations
   text: The number of ways in which 15 identical gold coins can be distributed among
     3 persons such that each one gets at least 3 gold coins is
   options:
@@ -264,7 +264,7 @@ questions:
   subject: Mathematics
 - id: 18
   section: Algebra
-  topic: Permutations and Combinations
+  topic: permutations_and_combinations
   text: The number of all possible combinations of 4 letters which are taken from
     the letters of the word ACCOMMODATION is
   options:
@@ -278,7 +278,7 @@ questions:
   subject: Mathematics
 - id: 19
   section: Algebra
-  topic: Binomial Theorem
+  topic: binomial_theorem
   text: If $^nC_r = C_r$ and $2\frac{C_1}{C_0} + 4\frac{C_2}{C_1} + 6\frac{C_3}{C_2}
     + ... + 2n\frac{C_n}{C_{n-1}} = 650$, then $^nC_2 =$
   options:
@@ -292,7 +292,7 @@ questions:
   subject: Mathematics
 - id: 20
   section: Algebra
-  topic: Binomial Theorem
+  topic: binomial_theorem
   text: When $|x| < 2$, the coefficient of $x^2$ in the power series expansion of
     $\frac{x}{(x-2)(x-3)}$ is
   options:
@@ -306,7 +306,7 @@ questions:
   subject: Mathematics
 - id: 21
   section: Trigonometry
-  topic: Trigonometric Equations
+  topic: trigonometric_equations
   text: If the period of the function $f(x) = 2\cos(3x+4) - 3\tan(2x-3) + 5\sin(5x)
     - 7$ is $k$, then
   options:
@@ -320,7 +320,7 @@ questions:
   subject: Mathematics
 - id: 22
   section: Trigonometry
-  topic: Trigonometric Equations
+  topic: trigonometric_equations
   text: If $\tan A < 0$ and $\tan 2A = -\frac{4}{3}$, then $\cos 6A =$
   options:
     A: $\frac{117}{125}$
@@ -333,7 +333,7 @@ questions:
   subject: Mathematics
 - id: 23
   section: Trigonometry
-  topic: Trigonometric Equations
+  topic: trigonometric_equations
   text: If $m\cos(\alpha+\beta) - n\cos(\alpha-\beta) = m\cos(\alpha-\beta) + n\cos(\alpha+\beta)$,
     then $\tan\alpha\tan\beta =$
   options:
@@ -347,7 +347,7 @@ questions:
   subject: Mathematics
 - id: 24
   section: Trigonometry
-  topic: Trigonometric Equations
+  topic: trigonometric_equations
   text: The number of solutions of the equation $\sin 7\theta - \sin 3\theta = \sin
     4\theta$ that lie in the interval $(0, \pi)$ is
   options:
@@ -361,7 +361,7 @@ questions:
   subject: Mathematics
 - id: 25
   section: Trigonometry
-  topic: Trigonometric Equations
+  topic: trigonometric_equations
   text: The number of solutions of the equation $\sin 7\theta - \sin 3\theta = \sin
     4\theta$ that lie in the interval $(0, \pi)$ is
   options:
@@ -374,8 +374,8 @@ questions:
   original_number: 25
   subject: Mathematics
 - id: 26
-  section: Algebra
-  topic: Inverse Trigonometric Functions
+  section: Trigonometry
+  topic: inverse_trigonometric_functions
   text: $\cos^{-1}\frac{3}{5} + \sin^{-1}\frac{5}{13} + \tan^{-1}\frac{16}{63} =$
   options:
     A: $\frac{\pi}{2}$
@@ -387,8 +387,8 @@ questions:
   original_number: 26
   subject: Mathematics
 - id: 27
-  section: Algebra
-  topic: Hyperbolic Functions
+  section: Trigonometry
+  topic: hyperbolic_functions
   text: If $\cosh^{-1}\left(\frac{5}{3}\right) + \sinh^{-1}\left(\frac{3}{4}\right)
     = k$, then $e^k =$
   options:
@@ -402,7 +402,7 @@ questions:
   subject: Mathematics
 - id: 28
   section: Trigonometry
-  topic: Properties of Triangle
+  topic: properties_of_triangles
   text: In a triangle ABC, if $(a-b)^2\cos^2\frac{C}{2} + (a+b)^2\sin^2\frac{C}{2}
     = a^2 + b^2$, then $\cos A =$
   options:
@@ -416,7 +416,7 @@ questions:
   subject: Mathematics
 - id: 29
   section: Trigonometry
-  topic: Properties of Triangle
+  topic: properties_of_triangles
   text: In a triangle ABC, if $r_1 + r_3 = 35$, $r_2 + r_1 = 63$ and $r_3 + r_2 =
     45$, then $2s =$
   options:
@@ -429,8 +429,8 @@ questions:
   original_number: 29
   subject: Mathematics
 - id: 30
-  section: Geometry
-  topic: Vectors
+  section: Vector Algebra
+  topic: vectors_and_scalars
   text: $\vec{i} - 2\vec{j} + \vec{k}$, $2\vec{i} + \vec{j} - \vec{k}$, $\vec{i} -
     \vec{j} - 2\vec{k}$ are the position vectors of the vertices A, B, C of a triangle
     ABC respectively. If D and E are the mid points of BC and CA respectively, then
@@ -445,8 +445,8 @@ questions:
   original_number: 30
   subject: Mathematics
 - id: 31
-  section: Geometry
-  topic: Vectors
+  section: Vector Algebra
+  topic: vectors_and_scalars
   text: A vector of magnitude $\sqrt{2}$ units along the internal bisector of the
     angle between the vectors $2\vec{i} - 2\vec{j} + \vec{k}$ and $\vec{i} + 2\vec{j}
     + 2\vec{k}$ is
@@ -460,8 +460,8 @@ questions:
   original_number: 31
   subject: Mathematics
 - id: 32
-  section: Geometry
-  topic: Vectors
+  section: Vector Algebra
+  topic: vectors_and_scalars
   text: If $\theta$ is the angle between the vectors $4\vec{i} - \vec{j} + 2\vec{k}$
     and $\vec{i} + 3\vec{j} - 2\vec{k}$, then $\sin 2\theta =$
   options:
@@ -474,8 +474,8 @@ questions:
   original_number: 32
   subject: Mathematics
 - id: 33
-  section: Geometry
-  topic: Vectors
+  section: Vector Algebra
+  topic: vectors_and_scalars
   text: $\vec{a}, \vec{b}, \vec{c}$ are three vectors such that $|\vec{a}| = 3, |\vec{b}|
     = 2\sqrt{2}, |\vec{c}| = 5$ and $\vec{c}$ is perpendicular to the plane of $\vec{a}$
     and $\vec{b}$. If the angle between the vectors $\vec{a}$ and $\vec{b}$ is $\frac{\pi}{4}$,
@@ -490,8 +490,8 @@ questions:
   original_number: 33
   subject: Mathematics
 - id: 34
-  section: Geometry
-  topic: Vectors
+  section: Vector Algebra
+  topic: vectors_and_scalars
   text: If $\vec{a}, \vec{b}, \vec{c}$ are non-coplanar vectors and the points $\lambda\vec{a}
     + 3\vec{b} - \vec{c}$, $\vec{a} - \lambda\vec{b} + 3\vec{c}$, $3\vec{a} + 4\vec{b}
     - \lambda\vec{c}$, $\lambda\vec{a} - 6\vec{b} + 6\vec{c}$ are coplanar, then one
@@ -506,8 +506,8 @@ questions:
   original_number: 34
   subject: Mathematics
 - id: 35
-  section: Statistics
-  topic: Statistics
+  section: Probability & Statistics
+  topic: measures_of_dispersion
   text: 'The mean deviation about the mean for the following data is\nClass interval:
     0-2, 2-4, 4-6, 6-8, 8-10\nFrequency: 1, 3, 5, 3, 1'
   options:
@@ -520,8 +520,8 @@ questions:
   original_number: 35
   subject: Mathematics
 - id: 36
-  section: Probability
-  topic: Probability
+  section: Probability & Statistics
+  topic: probability
   text: When 2 dice are thrown, it is observed that the sum of the numbers appeared
     on the top faces of both the dice is a prime number. Then the probability of having
     a multiple of 3 among the pair of numbers thus obtained is
@@ -535,8 +535,8 @@ questions:
   original_number: 36
   subject: Mathematics
 - id: 37
-  section: Probability
-  topic: Probability
+  section: Probability & Statistics
+  topic: probability
   text: If 2 cards drawn at random from a well shuffled pack of 52 playing cards are
     from the same suit, then the probability of getting a face card and a card having
     a prime number is
@@ -550,8 +550,8 @@ questions:
   original_number: 37
   subject: Mathematics
 - id: 38
-  section: Probability
-  topic: Probability
+  section: Probability & Statistics
+  topic: probability
   text: A dealer gets refrigerators from 3 different manufacturing companies $C_1,
     C_2, C_3$. 25% of his stock is from $C_1$, 35% from $C_2$ and 40% from $C_3$.
     The percentages of receiving defective refrigerators from $C_1, C_2, C_3$ are
@@ -567,8 +567,8 @@ questions:
   original_number: 38
   subject: Mathematics
 - id: 39
-  section: Probability
-  topic: Probability
+  section: Probability & Statistics
+  topic: probability
   text: If the probability that a student selected at random from a particular college
     is good at mathematics is 0.6, then the probability of having two students who
     are good at mathematics in a group of 8 students of that college standing in front
@@ -583,8 +583,8 @@ questions:
   original_number: 39
   subject: Mathematics
 - id: 40
-  section: Probability
-  topic: Probability
+  section: Probability & Statistics
+  topic: probability
   text: If on an average 4 customers visit a shop in an hour, then the probability
     that more than 2 customers visit the shop in a specific hour is
   options:
@@ -597,8 +597,8 @@ questions:
   original_number: 40
   subject: Mathematics
 - id: 41
-  section: Geometry
-  topic: Locus
+  section: Coordinate Geometry
+  topic: locus
   text: The centroid of a variable triangle ABC is at the distance of 5 units from
     the origin. If A=(2,3) and B=(3,2), then the locus of C is
   options:
@@ -611,8 +611,8 @@ questions:
   original_number: 41
   subject: Mathematics
 - id: 42
-  section: Geometry
-  topic: Transformation of Axes
+  section: Coordinate Geometry
+  topic: transformation_of_axes
   text: When the origin is shifted to the point (2, b) by translation of axes, the
     coordinates of the point (4,4) have changed to (6,8). When the origin is shifted
     to (a, b) by translation of axes, if the transformed equation of $x^2 + 4xy +
@@ -627,8 +627,8 @@ questions:
   original_number: 42
   subject: Mathematics
 - id: 43
-  section: Geometry
-  topic: Straight Lines
+  section: Coordinate Geometry
+  topic: straight_lines
   text: The slope of a line L passing through the point (-2,-3) is not defined. If
     the angle between the lines L and $ax-2y+3=0$ ($a>0$) is $45^\circ$, then the
     angle made by the line $x+ay-4=0$ with positive X-axis in the anticlockwise direction
@@ -643,8 +643,8 @@ questions:
   original_number: 43
   subject: Mathematics
 - id: 44
-  section: General
-  topic: Concurrency of Lines
+  section: Coordinate Geometry
+  topic: straight_lines
   text: $(a,b)$ is the point of concurrency of the lines $x-3y+3=0$, $kx+y+k=0$ and
     $2x+y-8=0$. If the perpendicular distance from the origin to the line $L = ax-by+2k=0$
     is p, then the perpendicular distance from the point (2,3) to $L=0$ is
@@ -658,8 +658,8 @@ questions:
   original_number: 44
   subject: Mathematics
 - id: 45
-  section: General
-  topic: Properties of Square
+  section: Coordinate Geometry
+  topic: straight_lines
   text: If (4,3) and (1,-2) are the end points of a diagonal of a square, then the
     equation of one of its sides is
   options:
@@ -672,8 +672,8 @@ questions:
   original_number: 45
   subject: Mathematics
 - id: 46
-  section: General
-  topic: Area of Triangle
+  section: Calculus
+  topic: applications_of_derivatives
   text: Area of the triangle bounded by the lines given by the equations $12x^2-20xy+7y^2=0$
     and $x+y-1=0$ is
   options:
@@ -686,8 +686,8 @@ questions:
   original_number: 46
   subject: Mathematics
 - id: 47
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: If (1,1), (-2,2), (2,-2) are 3 points on a circle S, then the perpendicular
     distance from the centre of the circle S to the line $3x-4y+1=0$ is
   options:
@@ -700,8 +700,8 @@ questions:
   original_number: 47
   subject: Mathematics
 - id: 48
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: If the line $4x-3y+p=0$ ($p+3>0$) touches the circle $x^2+y^2-4x+6y+4=0$ at
     the point $(h,k)$, then $h-2k=$
   options:
@@ -714,8 +714,8 @@ questions:
   original_number: 48
   subject: Mathematics
 - id: 49
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: If the inverse point of the point P(3,3) with respect to the circle $x^2+y^2-4x+4y+4=0$
     is Q(a,b), then $a+5b=$
   options:
@@ -728,8 +728,8 @@ questions:
   original_number: 49
   subject: Mathematics
 - id: 50
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: If the equation of the transverse common tangent of the circles $x^2+y^2-4x+6y+4=0$
     and $x^2+y^2+2x-2y-2=0$ is $ax+by+c=0$, then $\frac{a}{c}=$
   options:
@@ -742,8 +742,8 @@ questions:
   original_number: 50
   subject: Mathematics
 - id: 51
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: A circle $S \equiv x^2 + y^2 + 2gx + 2fy + 6 = 0$ cuts another circle $x^2
     + y^2 - 6x - 6y - 6 = 0$ orthogonally. If the angle between the circles $S = 0$
     and $x^2 + y^2 + 6x + 6y + 2 = 0$ is $60^\circ$, then the radius of the circle
@@ -758,8 +758,8 @@ questions:
   original_number: 51
   subject: Mathematics
 - id: 52
-  section: Geometry
-  topic: Circles
+  section: Coordinate Geometry
+  topic: circle
   text: If $m_1$ and $m_2$ are the slopes of the direct common tangents drawn to the
     circles $x^2 + y^2 - 2x - 8y + 8 = 0$ and $x^2 + y^2 - 8x + 15 = 0$, then $m_1
     + m_2 =$
@@ -773,8 +773,8 @@ questions:
   original_number: 52
   subject: Mathematics
 - id: 53
-  section: Geometry
-  topic: Parabola
+  section: Coordinate Geometry
+  topic: parabola
   text: If (2,3) is the focus and $x-y+3=0$ is the directrix of a parabola then the
     equation of the tangent drawn at the vertex of the parabola is
   options:
@@ -787,8 +787,8 @@ questions:
   original_number: 53
   subject: Mathematics
 - id: 54
-  section: Geometry
-  topic: Parabola & Circle
+  section: Coordinate Geometry
+  topic: parabola
   text: The equation of the common tangent to the parabola $y^2=8x$ and the circle
     $x^2+y^2=2$ is $ax+by+2=0$. If $-\frac{a}{b}>0$, then $3a^2+2b+1=$
   options:
@@ -801,8 +801,8 @@ questions:
   original_number: 54
   subject: Mathematics
 - id: 55
-  section: Geometry
-  topic: Parabola
+  section: Coordinate Geometry
+  topic: parabola
   text: Consider the parabola $25[(x-2)^2+(y+5)^2]=(3x+4y-1)^2$, match the characteristic
     of this parabola given in List-I with its corresponding item in List-II.\nList-I:\nI.
     Vertex\nII. length of latus rectum\nIII. Directrix\nIV. One end of the latus rectum\nList-II:\nA.
@@ -819,8 +819,8 @@ questions:
   original_number: 55
   subject: Mathematics
 - id: 56
-  section: Geometry
-  topic: Ellipse
+  section: Coordinate Geometry
+  topic: ellipse
   text: If $6x-5y-20=0$ is a normal to the ellipse $x^2+3y^2=k$, then $k=$
   options:
     A: '9'
@@ -832,8 +832,8 @@ questions:
   original_number: 56
   subject: Mathematics
 - id: 57
-  section: Geometry
-  topic: Hyperbola & Circle
+  section: Coordinate Geometry
+  topic: hyperbola
   text: The point of intersection of two tangents drawn to the hyperbola $\frac{x^2}{a^2}-\frac{y^2}{4}=1$
     lie on the circle $x^2+y^2=5$. If these tangents are perpendicular to each other,
     then $a=$
@@ -847,8 +847,8 @@ questions:
   original_number: 57
   subject: Mathematics
 - id: 58
-  section: Geometry
-  topic: 3D Geometry
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
   text: If the ratio of the perpendicular distances of a variable point $P(x,y,z)$
     from the X-axis and from the YZ-plane is $2:3$, then the equation of the locus
     of $P$ is
@@ -862,8 +862,8 @@ questions:
   original_number: 58
   subject: Mathematics
 - id: 59
-  section: Geometry
-  topic: Direction Cosines
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
   text: The direction cosines of two lines are connected by the relations $l-m+n=0$
     and $2lm-3mn+nl=0$. If $\theta$ is the angle between these two lines, then $\cos\theta=$
   options:
@@ -876,8 +876,8 @@ questions:
   original_number: 59
   subject: Mathematics
 - id: 60
-  section: Geometry
-  topic: Planes
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
   text: A plane $\pi$ passes through the points $(5,1,2)$, $(3,-4,6)$ and $(7,0,-1)$.
     If $p$ is the perpendicular distance from the origin to the plane $\pi$ and $l,m,n$
     are the direction cosines of a normal to the plane $\pi$, then $|3l+2m+5n|=$
@@ -892,7 +892,7 @@ questions:
   subject: Mathematics
 - id: 61
   section: Calculus
-  topic: Limits
+  topic: limits_and_continuity
   text: $\lim_{x \to 0} \frac{3^{\sin x} - 2^{\tan x}}{\sin x} =$
   options:
     A: '0'
@@ -905,7 +905,7 @@ questions:
   subject: Mathematics
 - id: 62
   section: Calculus
-  topic: Continuity
+  topic: limits_and_continuity
   text: If the function $f(x) = \begin{cases} \frac{\cos ax - \cos 9x}{x^2}, & x \neq
     0 \\ 16, & x = 0 \end{cases}$ is continuous at $x=0$, then $a=$
   options:
@@ -919,7 +919,7 @@ questions:
   subject: Mathematics
 - id: 63
   section: Calculus
-  topic: Continuity & Differentiability
+  topic: limits_and_continuity
   text: If $f(x) = \begin{cases} \frac{8}{x^3-6x}, & 0 < x \leq 1 \\ \frac{16x^2}{1-x^4},
     & x > 1 \end{cases}$ is a real valued function, then at $x=1$, $f$ is
   options:
@@ -933,7 +933,7 @@ questions:
   subject: Mathematics
 - id: 64
   section: Calculus
-  topic: Differentiation
+  topic: differentiation_and_derivatives
   text: If $2x^2-3xy+4y^2+2x-3y+4=0$, then $\left(\frac{dy}{dx}\right)_{(3,2)}=$
   options:
     A: $-5$
@@ -946,7 +946,7 @@ questions:
   subject: Mathematics
 - id: 65
   section: Calculus
-  topic: Parametric Differentiation
+  topic: differentiation_and_derivatives
   text: If $x=\frac{9t^2}{1+t^4}$ and $y=\frac{16t^2}{1-t^4}$ then $\frac{dy}{dx}=$
   options:
     A: $\frac{16}{9}\left(\frac{1-t^4}{1+t^4}\right)^3$
@@ -959,7 +959,7 @@ questions:
   subject: Mathematics
 - id: 66
   section: Calculus
-  topic: Differential Equations
+  topic: differential_equations
   text: If $y=\sin ax + \cos bx$ then $y''+b^2y=$
   options:
     A: $(b^2-a^2)\sin ax$
@@ -972,7 +972,7 @@ questions:
   subject: Mathematics
 - id: 67
   section: Calculus
-  topic: Error & Approximation
+  topic: applications_of_derivatives
   text: The radius of a sphere is 7 cm. If an error of 0.08 sq.cm. is made in measuring
     it, then the approximate error (in cubic cm) found in its volume is
   options:
@@ -986,7 +986,7 @@ questions:
   subject: Mathematics
 - id: 68
   section: Calculus
-  topic: Tangents & Normals
+  topic: applications_of_derivatives
   text: The curve $y=x^3-2x^2+3x-4$ intersects the horizontal line $y=-2$ at the point
     $P(h,k)$. If the tangent drawn to this curve at $P$ meets the X-axis at $(x_1,
     y_1)$, then $x_1=$
@@ -1001,7 +1001,7 @@ questions:
   subject: Mathematics
 - id: 69
   section: Calculus
-  topic: Motion
+  topic: applications_of_derivatives
   text: A particle moving from a fixed point on a straight line travels a distance
     $S$ metres in $t$ sec. If $S=t^3-t^2-t+3$, then the distance (in mts) travelled
     by the particle when it comes to rest is
@@ -1016,7 +1016,7 @@ questions:
   subject: Mathematics
 - id: 70
   section: Calculus
-  topic: Rolle's Theorem
+  topic: applications_of_derivatives
   text: If $f(x)=(2x-1)(3x+2)(4x-3)$ is a real valued function defined on $\left[\frac{1}{2},\frac{3}{4}\right]$,
     then the value(s) of $c$ as defined in the statement of Rolle's theorem
   options:
@@ -1030,7 +1030,7 @@ questions:
   subject: Mathematics
 - id: 71
   section: Algebra
-  topic: Functions
+  topic: functions_and_inverse_functions
   text: If the interval in which the real valued function $f(x)=\log\left(\frac{1+x}{1-x}\right)-2x-\frac{x^3}{1-x^2}$
     is decreasing in $(a,b)$, where $|b-a|$ is maximum, then $\frac{a}{b}=$
   options:
@@ -1044,7 +1044,7 @@ questions:
   subject: Mathematics
 - id: 72
   section: Calculus
-  topic: Definite Integrals
+  topic: definite_integrals
   text: $\int (\sqrt{1-\sin x}+\sqrt{1+\sin x})dx=f(x)+c$, where $c$ is the constant
     of integration. If $\frac{5\pi}{2}<x<\frac{7\pi}{2}$ and $f\left(\frac{8\pi}{3}\right)=-2$,
     then $f'\left(\frac{8\pi}{3}\right)=$
@@ -1059,7 +1059,7 @@ questions:
   subject: Mathematics
 - id: 73
   section: Calculus
-  topic: Definite Integrals
+  topic: definite_integrals
   text: If $f(x)=\int \frac{\sin 2x+2\cos x}{4\sin^2 x+5\sin x+1}dx$ and $f(0)=0$,
     then $f'\left(\frac{\pi}{6}\right)=$
   options:
@@ -1073,7 +1073,7 @@ questions:
   subject: Mathematics
 - id: 74
   section: Calculus
-  topic: Indefinite Integrals
+  topic: integration
   text: $\int \frac{(1-4\sin^2 x)\cos x}{\cos(3x+2)}dx=$
   options:
     A: $(\cos 2)x-\frac{1}{3}(\sin 2)(\cos 2)\log|\sec(3x+2)|+c$
@@ -1086,7 +1086,7 @@ questions:
   subject: Mathematics
 - id: 75
   section: Calculus
-  topic: Indefinite Integrals
+  topic: integration
   text: $\int \frac{x^5+x}{x^2+1}dx=$
   options:
     A: $\frac{1}{\sqrt{2}}\tan^{-1}\left(\frac{x^4-1}{\sqrt{2}x}\right)+c$
@@ -1099,7 +1099,7 @@ questions:
   subject: Mathematics
 - id: 76
   section: Calculus
-  topic: Limits
+  topic: limits_and_continuity
   text: $\lim_{n \to \infty} \left[\left(1+\frac{1}{n^2}\right)\left(1+\frac{4}{n^2}\right)\left(1+\frac{9}{n^2}\right)...(2)\right]^{\frac{1}{n}}=$
   options:
     A: $16e^{-1}$
@@ -1112,7 +1112,7 @@ questions:
   subject: Mathematics
 - id: 77
   section: Calculus
-  topic: Definite Integrals
+  topic: definite_integrals
   text: $\int_{-2}^{2} x^4(4-x^2)^7 dx=$
   options:
     A: $4\pi$
@@ -1125,7 +1125,7 @@ questions:
   subject: Mathematics
 - id: 78
   section: Calculus
-  topic: Area under Curves
+  topic: applications_of_derivatives
   text: Area of the region enclosed between the curves $y^2=4(x+7)$ and $y^2=5(2-x)$
     is
   options:
@@ -1139,7 +1139,7 @@ questions:
   subject: Mathematics
 - id: 79
   section: Calculus
-  topic: Tangents & Derivatives
+  topic: applications_of_derivatives
   text: If the slope of the tangent drawn at any point $(x,y)$ on the curve $y=f(x)$
     is $(6x^2+10x-9)$ and $f(2)=0$, then $f(-2)=$
   options:
@@ -1153,7 +1153,7 @@ questions:
   subject: Mathematics
 - id: 80
   section: Calculus
-  topic: Differential Equations
+  topic: differential_equations
   text: The general solution of the differential equation $(3x^2-2xy)dy+(y^2-2xy)dx=0$
     is
   options:
@@ -1166,8 +1166,8 @@ questions:
   original_number: 80
   subject: Mathematics
 - id: 81
-  section: General
-  topic: Fundamental Forces
+  section: Mechanics
+  topic: units_and_measurements
   text: Regarding fundamental forces in nature, the correct statement is
   options:
     A: electromagnetic forces are always attractive
@@ -1180,7 +1180,7 @@ questions:
   subject: Physics
 - id: 82
   section: Mechanics
-  topic: Dimensions
+  topic: units_and_measurements
   text: The equation of motion of a damped oscillator is given by $m\frac{d^2x}{dt^2}+b\frac{dx}{dt}+kx=0$.
     The dimensional formula of $\frac{b}{km}$ is
   options:
@@ -1193,8 +1193,8 @@ questions:
   original_number: 82
   subject: Physics
 - id: 83
-  section: General
-  topic: Motion under Gravity
+  section: Mechanics
+  topic: motion_in_a_straight_line
   text: A body is falling freely from the top of a tower of height 125 m. The distance
     covered by the body during the last second of its motion is x% of the height of
     the tower. Then x is (Acceleration due to gravity = $10\ ms^{-2}$)
@@ -1208,8 +1208,8 @@ questions:
   original_number: 83
   subject: Physics
 - id: 84
-  section: General
-  topic: Projectile Motion
+  section: Mechanics
+  topic: motion_in_a_plane
   text: A body P is projected at an angle of $30^\circ$ with the horizontal and another
     body Q is projected at an angle of $30^\circ$ with the vertical. If the ratio
     of the horizontal ranges of the bodies P and Q is 1:2, then the ratio of the maximum
@@ -1225,7 +1225,7 @@ questions:
   subject: Physics
 - id: 85
   section: Mechanics
-  topic: Circular Motion
+  topic: system_of_particles_and_rotational_motion
   text: A car is moving on circular track banked at an angle of $45^\circ$. If the
     maximum permissible speed of the car to avoid slipping is twice the optimum speed
     of the car to avoid the wear and tear of the tyres, then the coefficient of static
@@ -1241,7 +1241,7 @@ questions:
   subject: Physics
 - id: 86
   section: Mechanics
-  topic: Work, Energy & Power
+  topic: work_energy_and_power
   text: A block of mass 0.5 kg is at rest on a horizontal table. The coefficient of
     kinetic friction between the table and the block is 0.2. If a horizontal force
     of 5 N is applied on the block, the kinetic energy of the block in a time of 4
@@ -1257,7 +1257,7 @@ questions:
   subject: Physics
 - id: 87
   section: Mechanics
-  topic: Collisions
+  topic: work_energy_and_power
   text: The sphere A of mass m moving with a constant velocity hits another sphere
     B of mass 2m at rest. If the coefficient of restitution is 0.4, the ratio of the
     velocities of the spheres A and B after collision is
@@ -1272,7 +1272,7 @@ questions:
   subject: Physics
 - id: 88
   section: Mechanics
-  topic: Rolling Motion
+  topic: system_of_particles_and_rotational_motion
   text: A solid sphere rolls down without slipping from the top of an inclined plane
     of height 28 m and angle of inclination $30^\circ$. The velocity of the sphere,
     when it reaches the bottom of the plane is (Acceleration due to gravity = $10\
@@ -1287,8 +1287,8 @@ questions:
   original_number: 88
   subject: Physics
 - id: 89
-  section: General
-  topic: Centre of Mass
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
   text: Four identical particles each of mass ‘m’ are kept at the four corners of
     a square of side ‘a’. If one of the particles is removed, the shift in the position
     of the centre of mass is
@@ -1302,8 +1302,8 @@ questions:
   original_number: 89
   subject: Physics
 - id: 90
-  section: Mechanics
-  topic: Damped Oscillations
+  section: Oscillations and Waves
+  topic: simple_harmonic_motion
   text: In a time ‘t’, the amplitude of vibrations of a damped oscillator becomes
     half of its initial value, then the mechanical energy of the oscillator decreases
     by
@@ -1318,7 +1318,7 @@ questions:
   subject: Physics
 - id: 91
   section: Mechanics
-  topic: Gravitation
+  topic: gravitation
   text: The energy required to take a body from the surface of the earth to a height
     equal to the radius of the earth is ‘W’. The energy required to take this body
     from the surface of the earth to a height equal to twice the radius of the earth
@@ -1333,8 +1333,8 @@ questions:
   original_number: 91
   subject: Physics
 - id: 92
-  section: Thermodynamics
-  topic: Elasticity
+  section: Mechanics
+  topic: properties_of_matter
   text: A steel wire of length 3 m and a copper wire of length 2.2 m are connected
     end to end. When the combination is stretched by a force, the net elongation is
     1.05 mm. If the area of cross-section of each wire is $6\ mm^2$, then the load
@@ -1351,7 +1351,7 @@ questions:
   subject: Physics
 - id: 93
   section: Mechanics
-  topic: Fluids
+  topic: fluid_mechanics
   text: The height of water level in a tank of uniform cross-section is 5 m. The volume
     of the water leaked in 5 s through a hole of area $2.4\ mm^2$ made at the bottom
     of the tank is (Assume the level of the water in the tank remains constant and
@@ -1366,8 +1366,8 @@ questions:
   original_number: 93
   subject: Physics
 - id: 94
-  section: Thermodynamics
-  topic: Surface Tension
+  section: Mechanics
+  topic: properties_of_matter
   text: The work done in increasing the diameter of a soap bubble from 2 cm to 4 cm
     is (Surface tension of soap solution = $3.5\times10^{-2}\ Nm^{-1}$)
   options:
@@ -1380,8 +1380,8 @@ questions:
   original_number: 94
   subject: Physics
 - id: 95
-  section: Thermodynamics
-  topic: Temperature Scales
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
   text: The temperature on a Fahrenheit temperature scale that is twice the temperature
     on a Celsius temperature scale is
   options:
@@ -1394,8 +1394,8 @@ questions:
   original_number: 95
   subject: Physics
 - id: 96
-  section: Thermodynamics
-  topic: Calorimetry
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
   text: The temperatures of equal masses of three different liquids A, B and C are
     15 $^\circ$C, 24 $^\circ$C and 30 $^\circ$C respectively. The resultant temperature
     when liquids A and B are mixed is 20 $^\circ$C and when liquids B and C are mixed
@@ -1411,8 +1411,8 @@ questions:
   original_number: 96
   subject: Physics
 - id: 97
-  section: Thermodynamics
-  topic: Thermodynamics
+  section: Thermal Physics
+  topic: thermodynamics
   text: The efficiency of a reversible heat engine working between two temperatures
     is 50%. The coefficient of performance of a refrigerator working between the same
     two temperatures but in reverse direction is
@@ -1426,8 +1426,8 @@ questions:
   original_number: 97
   subject: Physics
 - id: 98
-  section: Thermodynamics
-  topic: Kinetic Theory of Gases
+  section: Thermal Physics
+  topic: kinetic_theory_of_gases
   text: The total internal energy of 4 moles of a diatomic gas at a temperature of
     27 $^\circ$C is (Universal gas constant = 8.31 J mol$^{-1}$ K$^{-1}$)
   options:
@@ -1440,8 +1440,8 @@ questions:
   original_number: 98
   subject: Physics
 - id: 99
-  section: Electromagnetism
-  topic: Doppler Effect
+  section: Oscillations and Waves
+  topic: waves
   text: A car travelling at a speed of 54 kmph towards a wall sounds horn of frequency
     400 Hz. The difference in the frequencies of two sounds, one received directly
     from the car and other reflected from the wall noticed by a person standing between
@@ -1456,8 +1456,8 @@ questions:
   original_number: 99
   subject: Physics
 - id: 100
-  section: Electromagnetism
-  topic: Waves in Strings
+  section: Oscillations and Waves
+  topic: waves
   text: The speed of a transverse wave in a stretched string ‘A’ is ‘v’. Another string
     ‘B’ of same length and same radius is subjected to same tension. If the density
     of the material of the string ‘B’ is 2% more than that of ‘A’, then the speed
@@ -1473,7 +1473,7 @@ questions:
   subject: Physics
 - id: 101
   section: Optics
-  topic: Lenses
+  topic: ray_optics_and_optical_instruments
   text: For a combination of two convex lenses of focal lengths ‘f$_1$’ and ‘f$_2$’
     to act as a glass slab, the distance of separation between them is
   options:
@@ -1487,7 +1487,7 @@ questions:
   subject: Physics
 - id: 102
   section: Optics
-  topic: Prism
+  topic: ray_optics_and_optical_instruments
   text: If a ray of light passes through an equilateral prism such that the angle
     of incidence and the angle of emergence are both equal to 70% of the angle of
     the prism, then the angle of minimum deviation is
@@ -1502,7 +1502,7 @@ questions:
   subject: Physics
 - id: 103
   section: Optics
-  topic: Young's Double Slit Experiment
+  topic: wave_optics
   text: Young’s double slit experiment is performed with monochromatic light of wavelength
     6000 Å. If the intensity of light at a point on the screen where path difference
     of 2000 Å is I$_1$, and the intensity of light at a point on the screen where
@@ -1517,8 +1517,8 @@ questions:
   original_number: 103
   subject: Physics
 - id: 104
-  section: General
-  topic: Electrostatics
+  section: Electricity and Magnetism
+  topic: electrostatics
   text: Two positive point charges are separated by a distance of 4 m in air. If the
     sum of the two charges is 36 μC and the electrostatic force between them is 0.18
     N, then the bigger charge is
@@ -1532,8 +1532,8 @@ questions:
   original_number: 104
   subject: Physics
 - id: 105
-  section: General
-  topic: Capacitors
+  section: Electricity and Magnetism
+  topic: electrostatic_potential_and_capacitance
   text: Three capacitors of capacitances 10 μF, 5 μF and 20 μF are connected in series
     with a 14 V dc supply. The charge on 5 μF capacitor is
   options:
@@ -1546,8 +1546,8 @@ questions:
   original_number: 105
   subject: Physics
 - id: 106
-  section: Electromagnetism
-  topic: Resistance & Temperature
+  section: Electricity and Magnetism
+  topic: current_electricity
   text: When the temperature of a wire is increased from 303 K to 356 K, the resistance
     of the wire increases by 10%. The temperature coefficient of resistance of the
     material of the wire is
@@ -1561,13 +1561,13 @@ questions:
   original_number: 106
   subject: Physics
 - id: 107
-  section: Electromagnetism
-  topic: Current Electricity
+  section: Electricity and Magnetism
+  topic: current_electricity
   text: Three resistors of resistances 10 Ω, 20 Ω and 30 Ω are connected as shown
     in the figure. If the points A, B and C are at potentials 10 V, 6 V and 5 V respectively,
     then the ratio of the magnitudes of the currents through 10 Ω and 30 Ω resistors
     is
-  image: "/static/papers/ts_eamcet/2024_1/q107.png"
+  image: /static/papers/ts_eamcet/2024_1/q107.png
   options:
     A: '1:3'
     B: '3:1'
@@ -1578,8 +1578,8 @@ questions:
   original_number: 107
   subject: Physics
 - id: 108
-  section: General
-  topic: Lorentz Force
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
   text: A particle of charge 2 C is moving with a velocity of $(3\hat{i}+4\hat{j})\
     ms^{-1}$ in the presence of magnetic and electric fields. If the magnetic field
     is $(\hat{i}+2\hat{j}+3\hat{k})$ T and the electric field is $(-2\hat{k})\ NC^{-1}$,
@@ -1594,8 +1594,8 @@ questions:
   original_number: 108
   subject: Physics
 - id: 109
-  section: General
-  topic: Magnetic Moment
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
   text: A rectangular coil of 400 turns and $10^{-2}\ m^2$ area, carrying a current
     of 0.5 A is placed in a uniform magnetic field of 1 T such that the plane of the
     coil makes an angle of $60^\circ$ with the direction of the magnetic field. The
@@ -1610,8 +1610,8 @@ questions:
   original_number: 109
   subject: Physics
 - id: 110
-  section: Electromagnetism
-  topic: Magnetism
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
   text: The most exotic diamagnetic materials are
   options:
     A: Superconductors
@@ -1623,8 +1623,8 @@ questions:
   original_number: 110
   subject: Physics
 - id: 111
-  section: Electromagnetism
-  topic: Mutual Inductance
+  section: Electricity and Magnetism
+  topic: electromagnetic_induction
   text: Two circular coils of radii $r_1$ and $r_2$ ($r_1 \ll r_2$) are placed coaxially
     with their centers coinciding. The mutual inductance is
   options:
@@ -1637,8 +1637,8 @@ questions:
   original_number: 111
   subject: Physics
 - id: 112
-  section: Electromagnetism
-  topic: LCR Circuit
+  section: Electricity and Magnetism
+  topic: alternating_current_circuits
   text: In a series LCR circuit, if the current leads the source voltage, then
   options:
     A: $X_L > X_C$
@@ -1650,8 +1650,8 @@ questions:
   original_number: 112
   subject: Physics
 - id: 113
-  section: Electromagnetism
-  topic: Electromagnetic Waves
+  section: Electricity and Magnetism
+  topic: electromagnetic_waves
   text: If the amplitude of the magnetic field part of a harmonic electromagnetic
     wave in vacuum is 270 nT, the amplitude of the electric field part of the wave
     is
@@ -1665,8 +1665,8 @@ questions:
   original_number: 113
   subject: Physics
 - id: 114
-  section: General
-  topic: Photoelectric Effect
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
   text: If Planck's constant is $6.63 \times 10^{-34}$ Js, then the slope of a graph
     drawn between cut off voltage and frequency of incident light in a photoelectric
     experiment is
@@ -1680,8 +1680,8 @@ questions:
   original_number: 114
   subject: Physics
 - id: 115
-  section: General
-  topic: Atomic Spectra
+  section: Modern Physics
+  topic: atoms
   text: At room temperature, gaseous hydrogen is bombarded with a beam of electrons
     of 13.6 eV energy. The series to which the emitted spectral line belongs to
   options:
@@ -1694,8 +1694,8 @@ questions:
   original_number: 115
   subject: Physics
 - id: 116
-  section: General
-  topic: Radioactive Decay
+  section: Modern Physics
+  topic: nuclear_physics
   text: The half-life of a radioactive substance is 12 minutes. The time gap between
     28% decay and 82% decay of the radioactive substance is
   options:
@@ -1708,8 +1708,8 @@ questions:
   original_number: 116
   subject: Physics
 - id: 117
-  section: General
-  topic: Isotopes
+  section: Modern Physics
+  topic: atoms
   text: An element consists of a mixture of three isotopes A, B and C of masses $m_1$,
     $m_2$ and $m_3$ respectively. If the relative abundances of the three isotopes
     A, B and C is in the ratio 2:3:5, the average mass of the element is
@@ -1723,8 +1723,8 @@ questions:
   original_number: 117
   subject: Physics
 - id: 118
-  section: General
-  topic: Semiconductors
+  section: Modern Physics
+  topic: semiconductors_and_devices
   text: The concentration of electrons in an intrinsic semiconductor is $6 \times
     10^{19}\ m^{-3}$. On doping with an impurity the electron concentration increases
     to $4 \times 10^{22}\ m^{-3}$. In thermal equilibrium, the concentration of the
@@ -1740,10 +1740,10 @@ questions:
   subject: Physics
 - id: 119
   section: Modern Physics
-  topic: Logic Gates
+  topic: semiconductors_and_devices
   text: Three logic gates are connected as shown in the figure. If the inputs are
     A=1 and B=1, then the values of $y_1$ and $y_2$ respectively are
-  image: "/static/papers/ts_eamcet/2024_1/q119.png"
+  image: /static/papers/ts_eamcet/2024_1/q119.png
   options:
     A: 0, 0
     B: 0, 1
@@ -1754,8 +1754,8 @@ questions:
   original_number: 119
   subject: Physics
 - id: 120
-  section: Modern Physics
-  topic: Communication Systems
+  section: Communication Systems
+  topic: basics_of_communication_systems
   text: The heights of the transmitting and receiving antennas are 33.8 m and 64.8
     m respectively. The maximum distance between the antennas for satisfactory communication
     in line of sight mode is (Radius of the earth = 6400 km)
@@ -1770,7 +1770,7 @@ questions:
   subject: Physics
 - id: 121
   section: Physical Chemistry
-  topic: Atomic Structure
+  topic: atomic_structure
   text: Identify the pair of species having same energy from the following (The number
     given in the bracket corresponds to principal quantum number (n) in which the
     electron is present)
@@ -1785,7 +1785,7 @@ questions:
   subject: Chemistry
 - id: 122
   section: Physical Chemistry
-  topic: Atomic Structure
+  topic: atomic_structure
   text: Which one of the following corresponds to the wavelength of line spectrum
     of H atom in its Balmer series? (R = Rydberg constant)
   options:
@@ -1798,8 +1798,8 @@ questions:
   original_number: 122
   subject: Chemistry
 - id: 123
-  section: General
-  topic: Periodic Table
+  section: Inorganic Chemistry
+  topic: classification_of_elements_and_periodicity
   text: Identify the pair of elements in which the number of s-electrons to p-electrons
     ratio is 2:3
   options:
@@ -1812,8 +1812,8 @@ questions:
   original_number: 123
   subject: Chemistry
 - id: 124
-  section: General
-  topic: Periodic Properties
+  section: Inorganic Chemistry
+  topic: classification_of_elements_and_periodicity
   text: Which of the following has the least electron gain enthalpy?
   options:
     A: Chlorine
@@ -1826,7 +1826,7 @@ questions:
   subject: Chemistry
 - id: 125
   section: Physical Chemistry
-  topic: Chemical Bonding
+  topic: chemical_bonding_and_molecular_structure
   text: According to Fajan's rules, which of the following is not correct about covalent
     character?
   options:
@@ -1840,7 +1840,7 @@ questions:
   subject: Chemistry
 - id: 126
   section: Physical Chemistry
-  topic: Chemical Bonding
+  topic: chemical_bonding_and_molecular_structure
   text: Consider the following pairs. A) $NO_2 > O_2 > H_2O$ - Bond angle, B) $HF
     > H_2O > NH_3$ - Dipole moment, C) $I_2 > F_2 > N_2$ - Bond length. Which of the
     above pairs are correctly matched?
@@ -1855,7 +1855,7 @@ questions:
   subject: Chemistry
 - id: 127
   section: Physical Chemistry
-  topic: States of Matter
+  topic: states_of_matter
   text: An open vessel containing air was heated from 27°C to 727°C. Some air was
     expelled. What is the fraction of air remaining in the vessel? (Assume air as
     an ideal gas)
@@ -1870,7 +1870,7 @@ questions:
   subject: Chemistry
 - id: 128
   section: Physical Chemistry
-  topic: Stoichiometry
+  topic: basic_concepts_of_chemistry
   text: 12 g of an element reacts with 32 g of oxygen. What is the equivalent weight
     of the element?
   options:
@@ -1884,7 +1884,7 @@ questions:
   subject: Chemistry
 - id: 129
   section: Physical Chemistry
-  topic: Thermodynamics
+  topic: thermodynamics
   text: The standard enthalpy of formation ($\Delta_f H^{\circ}$) of ammonia is -46.2
     kJ mol$^{-1}$. What is the $\Delta_r H^{\circ}$ of the following reaction? $N_2(g)
     + 3H_2(g) \rightarrow 2NH_3(g)$
@@ -1899,7 +1899,7 @@ questions:
   subject: Chemistry
 - id: 130
   section: Physical Chemistry
-  topic: Chemical Equilibrium
+  topic: chemical_equilibrium_acids_bases
   text: At T(K), $K_c$ for the reaction $AO_2(g) + BO_2(g) \rightleftharpoons AO_3(g)
     + BO(g)$ is 16. One mole each of reactants and products are taken in a 1L flask
     and heated to T(K), and equilibrium is established. What is the equilibrium concentration
@@ -1914,8 +1914,8 @@ questions:
   original_number: 130
   subject: Chemistry
 - id: 131
-  section: General
-  topic: Redox Reactions
+  section: Physical Chemistry
+  topic: stoichiometry
   text: Observe the following reactions. I. $H_2O(l) + 2Na(s) \rightarrow 2NaOH(aq)
     + H_2(g)$, II. $2H_2O(l) + 2F_2(g) \rightarrow 4HF(aq) + 4F^-(aq) + O_2(g)$. Identify
     the correct statement from the following
@@ -1930,7 +1930,7 @@ questions:
   subject: Chemistry
 - id: 132
   section: Inorganic Chemistry
-  topic: s-Block Elements (Group 1 - Superoxides)
+  topic: s_block_elements
   text: What is the correct stability order of $KO_2$, $RbO_2$, $CsO_2$?
   options:
     A: $KO_2 < CsO_2 < RbO_2$
@@ -1943,7 +1943,7 @@ questions:
   subject: Chemistry
 - id: 133
   section: Inorganic Chemistry
-  topic: s-Block Elements (Group 2 - Solubility)
+  topic: s_block_elements
   text: Assertion (A) MgO, CaO, SrO and BaO are insoluble in water. Reason (R) In
     aqueous medium the basic strength of MgO, CaO, SrO and BaO increases with increase
     in the atomic number of metal. The correct option among the following is
@@ -1958,7 +1958,7 @@ questions:
   subject: Chemistry
 - id: 134
   section: Inorganic Chemistry
-  topic: p-Block Elements (Group 13 - Inert Pair Effect)
+  topic: p_block_elements
   text: Identify the element for which +1 oxidation state is more stable than +3 oxidation
     state
   options:
@@ -1972,7 +1972,7 @@ questions:
   subject: Chemistry
 - id: 135
   section: Inorganic Chemistry
-  topic: Classification of Elements
+  topic: classification_of_elements_and_periodicity
   text: Observe the following oxides $N_2O$, $B_2O_3$, $SiO_2$, $CO_2$, $Al_2O_3$,
     $PbO_2$, $Tl_2O_3$. The number of acidic oxides in the list is
   options:
@@ -1986,7 +1986,7 @@ questions:
   subject: Chemistry
 - id: 136
   section: Inorganic Chemistry
-  topic: Environmental Chemistry
+  topic: environmental_chemistry
   text: The common components of photochemical smog are
   options:
     A: $O_3$, $CH_4$, $CO_2$
@@ -1998,11 +1998,11 @@ questions:
   original_number: 136
   subject: Chemistry
 - id: 137
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: The electron displacement effect observed in the given structures is known
     as
-  image: "/static/papers/ts_eamcet/2024_1/q137.png"
+  image: /static/papers/ts_eamcet/2024_1/q137.png
   options:
     A: +R effect
     B: -R effect
@@ -2013,8 +2013,8 @@ questions:
   original_number: 137
   subject: Chemistry
 - id: 138
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: hydrocarbons
   text: An alkene X (C4H8) exhibits geometrical isomerism. Oxidation of A with $KMnO_4/H^+$
     gave Y. On heating sodium salt of Y with a mixture of NaOH and CaO gave Z. What
     is Z?
@@ -2028,8 +2028,8 @@ questions:
   original_number: 138
   subject: Chemistry
 - id: 139
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: The number of activating and deactivating groups of the following are respectively
     $-OCH_3CH_3$, $-COCH_3$, $-NHCOCH_3$, $-COOCH_3$, $-SO_3H$
   options:
@@ -2042,8 +2042,8 @@ questions:
   original_number: 139
   subject: Chemistry
 - id: 140
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: X and Z respectively in the following reaction sequence are $C_3H_6 \xrightarrow{X}
     Y \xrightarrow{C_6H_6/AlCl_3} Z$ (major product)
   options:
@@ -2057,7 +2057,7 @@ questions:
   subject: Chemistry
 - id: 141
   section: Physical Chemistry
-  topic: Solid State
+  topic: solid_state
   text: The molecular formula of a compound is $AB_2O_4$. Atoms of O form ccp lattice.
     Atoms of A (cation) occupy $\frac{1}{8}$ th of tetrahedral voids. Atoms of B (cation)
     occupy a fraction of octahedral voids. What is the fraction of vacant octahedral
@@ -2073,7 +2073,7 @@ questions:
   subject: Chemistry
 - id: 142
   section: Physical Chemistry
-  topic: Solutions
+  topic: solutions
   text: Distilled water boils at 373.15 K and freezes at 273.15 K. A solution of glucose
     in distilled water boils at 373.202 K. What is the freezing point (in K) of the
     same solution? (For water, $K_b = 0.52$ K kg mol$^{-1}$, $K_f = 1.86$ K kg mol$^{-1}$)
@@ -2088,7 +2088,7 @@ questions:
   subject: Chemistry
 - id: 143
   section: Physical Chemistry
-  topic: Solutions
+  topic: solutions
   text: Identify the correct statements from the following. A) 298 K, the potential
     of hydrogen electrode placed in a solution of pH = 10. B) The limiting molar conductivity
     of $Ca^{2+}$ and $Cl^-$ is 119 and 76.5 cm$^2$ mol$^{-1}$ respectively. The limiting
@@ -2105,7 +2105,7 @@ questions:
   subject: Chemistry
 - id: 144
   section: Physical Chemistry
-  topic: Chemical Kinetics
+  topic: chemical_kinetics
   text: For a first order reaction, a plot of ln(k) (y-axis) and $\frac{1}{T}$ (x-axis)
     gave the straight line with slope equal to $-10^4$ and intercept equal to 5.303
     (y-axis). What is the activation energy ($E_a$ in kJ mol$^{-1}$) of the reaction?
@@ -2120,8 +2120,8 @@ questions:
   original_number: 144
   subject: Chemistry
 - id: 145
-  section: General
-  topic: Gaseous State
+  section: Physical Chemistry
+  topic: states_of_matter
   text: Adsorption of a gas (A) on an adsorbent follows Freundlich adsorption isotherm.
     The slope and intercept (on y-axis) of the isotherm are 0.5 and 1.0 respectively.
     What is the value of $\frac{x}{m}$ when the pressure of the gas (A) is 100 mm?
@@ -2135,8 +2135,8 @@ questions:
   original_number: 145
   subject: Chemistry
 - id: 146
-  section: General
-  topic: Metallurgy
+  section: Inorganic Chemistry
+  topic: representative_elements
   text: A low boiling point metal contains high boiling point metal as impurity. The
     correct refining method is
   options:
@@ -2150,7 +2150,7 @@ questions:
   subject: Chemistry
 - id: 147
   section: Inorganic Chemistry
-  topic: p-Block Elements (Group 15 - Preparation of N2)
+  topic: p_block_elements
   text: Which of the following when subjected to thermal decomposition will liberate
     dinitrogen? (i) sodium nitrate (ii) ammonium dichromate (iii) barium azide
   options:
@@ -2164,7 +2164,7 @@ questions:
   subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
-  topic: p-Block Elements (Group 17 - Deacon's Process)
+  topic: p_block_elements
   text: Observe the following reaction. This reaction represents $4HCl + O_2 \xrightarrow{CuCl_2/723K}
     2Cl_2 + 2H_2O$
   options:
@@ -2178,7 +2178,7 @@ questions:
   subject: Chemistry
 - id: 149
   section: Inorganic Chemistry
-  topic: p-Block Elements (Groups 15, 17, 18 - Properties)
+  topic: p_block_elements
   text: Identify the set which is not correctly matched in the following. $PH_3$,
     colourless gas, rotten fish smell; $Cl_2$, greenish yellow gas, pungent smell;
     Ne, fluorescent green gas, rotten egg smell; $SO_2$, colourless gas, pungent smell
@@ -2193,7 +2193,7 @@ questions:
   subject: Chemistry
 - id: 150
   section: Inorganic Chemistry
-  topic: d-Block Elements (Properties)
+  topic: d_and_f_block_elements
   text: Identify the correct statements from the following. (i) Ti(IV) is more stable
     than Ti(III) and Ti(II). (ii) Among 3d-series elements (from Z=22 to 29) only
     copper has positive reduction potential ($M^{2+}/M$). (iii) Both Sc and Zn exhibit
@@ -2208,8 +2208,8 @@ questions:
   original_number: 150
   subject: Chemistry
 - id: 151
-  section: General
-  topic: Coordination Chemistry
+  section: Inorganic Chemistry
+  topic: coordination_compounds
   text: The molecular formula of a coordinate complex is $CoH_xO_yCl_z$. When one
     mole of this aqueous solution of complex is reacted with excess of aqueous AgNO$_3$
     solution, three moles of AgCl was formed. What is the correct formula of the complex?
@@ -2224,8 +2224,10 @@ questions:
   subject: Chemistry
 - id: 152
   section: Organic Chemistry
-  topic: Polymers
-  text: "Match the following.\nList-I (Monomer/s)\nA) $CF_2=CF_2$\nB) $NH_2(CH_2)_6NH_2$, $HO_2C(CH_2)_4CO_2H$\nC) $C_6H_5OH$, HCHO\nD) $CH_2=CH(Cl)-CH=CH_2$\n\nList-II (Name of the polymer)\nI) Neoprene\nII) Bakelite\nIII) Teflon\nIV) Nylon 6,6"
+  topic: polymers
+  text: Match the following.\nList-I (Monomer/s)\nA) $CF_2=CF_2$\nB) $NH_2(CH_2)_6NH_2$,
+    $HO_2C(CH_2)_4CO_2H$\nC) $C_6H_5OH$, HCHO\nD) $CH_2=CH(Cl)-CH=CH_2$\n\nList-II
+    (Name of the polymer)\nI) Neoprene\nII) Bakelite\nIII) Teflon\nIV) Nylon 6,6
   options:
     A: A-II; B-III; C-I; D-IV
     B: A-III; B-IV; C-II; D-I
@@ -2237,7 +2239,7 @@ questions:
   subject: Chemistry
 - id: 153
   section: Organic Chemistry
-  topic: Biomolecules
+  topic: biomolecules
   text: The functional groups involved in the conversion of glucose to gluconic acid
     and gluconic acid to saccharic acid respectively are
   options:
@@ -2251,7 +2253,7 @@ questions:
   subject: Chemistry
 - id: 154
   section: Organic Chemistry
-  topic: Biomolecules
+  topic: biomolecules
   text: Among the following the incorrect statement about chloramphenicol is
   options:
     A: It is a bacteriostatic drug
@@ -2263,8 +2265,8 @@ questions:
   original_number: 154
   subject: Chemistry
 - id: 155
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: A halogen compound X ($C_4H_9Br$) on hydrolysis gave alcohol Y. The alcohol
     Y undergoes dehydration with 20% $H_3PO_4$ at 358 K. What is X?
   options:
@@ -2277,8 +2279,8 @@ questions:
   original_number: 155
   subject: Chemistry
 - id: 156
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: An alcohol X ($C_4H_{10}O$) when reacted with conc. HCl and anhydrous $ZnCl_2$
     produces turbidity instantly. The alcohol X can be prepared from which of the
     following reactions?
@@ -2292,8 +2294,8 @@ questions:
   original_number: 156
   subject: Chemistry
 - id: 157
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: Assertion (A) Chlorobenzene is not formed in the reaction of phenol with thionyl
     chloride. Reason (R) In phenol, carbon-oxygen bond has partial double bond character
   options:
@@ -2306,8 +2308,8 @@ questions:
   original_number: 157
   subject: Chemistry
 - id: 158
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: The $pK_a$ values of X, Y, Z respectively are 8.3, 7.1, 10.2. What are X,
     Y, Z?
   options:
@@ -2320,8 +2322,8 @@ questions:
   original_number: 158
   subject: Chemistry
 - id: 159
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: The reagents/chemicals X and Y that convert cyanobenzene to schiff's base
     are
   options:
@@ -2334,8 +2336,8 @@ questions:
   original_number: 159
   subject: Chemistry
 - id: 160
-  section: General
-  topic: Organic Chemistry
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
   text: The correct statements of the following are. A) Aniline forms a stable benzenediazonium
     chloride at 285K. B) N-Phenylethanamide is less reactive towards nitration than
     aniline. C) p-$CH_3C_6H_4COCl$ is Hinsberg reagent

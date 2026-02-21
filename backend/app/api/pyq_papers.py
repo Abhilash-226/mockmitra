@@ -5,14 +5,21 @@ Provides endpoints for:
 - Listing available papers by exam
 - Getting paper details and questions
 - Starting a paper attempt
+- Submitting a PYQ attempt (persists to DB for history + analytics)
 """
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Depends
 from pydantic import BaseModel
+from beanie import PydanticObjectId
 from typing import List, Optional, Dict, Any
 from pathlib import Path
+from datetime import datetime, timezone
 import yaml
 import os
+
+from app.core.security import get_current_user
+from app.models.question import Question, QuestionSource, DifficultyLevel
+from app.models.test import Test, TestAttempt, TestStatus, TestType, TestResponse as TestResponseModel
 
 router = APIRouter()
 
@@ -60,9 +67,10 @@ class PaperQuestion(BaseModel):
     section: str
     text: str
     options: Dict[str, str]
-    correct: str
+    correct_answer: str
     image: Optional[str] = None
     topic: Optional[str] = None
+    subject: Optional[str] = None
 
 
 class PaperSummary(BaseModel):
@@ -266,11 +274,12 @@ async def get_paper(paper_id: str):
         questions.append(PaperQuestion(
             number=q.get("number") or q.get("id", 0),
             section=q.get("section", ""),
-            text=q.get("text", ""),
-            options=q.get("options", {}),
-            correct=q.get("correct", ""),
+            text=str(q.get("text", "")),
+            options={k: str(v) for k, v in q.get("options", {}).items()},
+            correct_answer=q.get("correct_answer") or q.get("correct", ""),
             image=q.get("image"),
             topic=q.get("topic"),
+            subject=q.get("subject"),
         ))
     
     # Parse sections
@@ -327,7 +336,9 @@ async def get_paper_questions(paper_id: str, section: Optional[str] = None):
                 "text": q.text,
                 "options": q.options,
                 "image": q.image,
-                # "correct" is intentionally omitted for exam mode
+                "topic": q.topic,
+                "subject": q.subject,
+                # "correct_answer" is intentionally omitted for exam mode
             }
             for q in questions
         ]
@@ -371,4 +382,177 @@ async def get_available_years(exam: str = "ts_eamcet"):
     return {
         "exam": exam.upper(),
         "years": sorted(years_data.values(), key=lambda x: -x["year"])
+    }
+
+
+# ── PYQ Submission ───────────────────────────────────────────────────────────
+
+class PYQAnswer(BaseModel):
+    question_number: int
+    selected_option: Optional[str] = None   # "A", "B", "C", "D" or null
+    time_spent_seconds: int = 0
+
+class PYQSubmitRequest(BaseModel):
+    paper_id: str
+    answers: List[PYQAnswer]
+    time_taken_seconds: int = 0
+
+
+@router.post("/submit")
+async def submit_pyq_test(
+    body: PYQSubmitRequest,
+    user_id: str = Depends(get_current_user),
+):
+    """
+    Submit a PYQ test attempt.  Persists questions into the questions collection,
+    creates Test + TestAttempt + TestResponse records so the attempt appears in
+    test-history and supports the same detailed-analytics page as mock tests.
+    """
+    # 1. Parse paper_id → exam_code, year, shift
+    parts = body.paper_id.split("_")
+    if len(parts) < 4:
+        raise HTTPException(status_code=400, detail="Invalid paper_id format")
+    exam_code = f"{parts[0]}_{parts[1]}"
+    year = int(parts[2])
+    shift = int(parts[3])
+
+    # 2. Load YAML to get correct answers and full question data
+    yaml_data = load_paper_yaml(body.paper_id, exam_code)
+    if not yaml_data or not yaml_data.get("questions"):
+        raise HTTPException(status_code=404, detail="Paper not found or has no questions")
+
+    yaml_questions = yaml_data["questions"]
+    metadata = yaml_data.get("metadata", {})
+
+    # Build a lookup: question_number → yaml_question
+    q_by_number: Dict[int, dict] = {}
+    for q in yaml_questions:
+        num = q.get("number") or q.get("id", 0)
+        q_by_number[num] = q
+
+    # 3. Insert / reuse Question documents in DB
+    #    We use a composite key (exam_code + source=PYQ + year + question_text hash)
+    #    to avoid duplicates across multiple submissions of the same paper.
+    question_docs: Dict[int, Question] = {}  # number → Question doc
+    for num, yq in q_by_number.items():
+        q_text = str(yq.get("text", ""))
+        opts_raw = yq.get("options", {})
+
+        # Normalise option keys to lowercase a/b/c/d
+        options_map = {}
+        for k, v in opts_raw.items():
+            options_map[k.lower()] = str(v)
+
+        correct_raw = str(yq.get("correct_answer") or yq.get("correct", "")).strip().lower()
+
+        # Try to find an existing identical question (avoid duplicates)
+        existing = await Question.find_one(
+            Question.exam_code == exam_code,
+            Question.source == QuestionSource.PYQ,
+            Question.year == year,
+            Question.question_text == q_text,
+        )
+        if existing:
+            question_docs[num] = existing
+        else:
+            doc = Question(
+                question_text=q_text,
+                options=options_map,
+                correct_option=correct_raw,
+                image=yq.get("image"),
+                explanation=yq.get("explanation"),
+                exam_code=exam_code,
+                section=yq.get("subject") or yq.get("section"),
+                topic=yq.get("topic"),
+                difficulty=DifficultyLevel.MEDIUM,
+                source=QuestionSource.PYQ,
+                year=year,
+            )
+            await doc.insert()
+            question_docs[num] = doc
+
+    question_ids = [doc.id for doc in question_docs.values()]
+
+    # 4. Create a Test document (template)
+    exam_label = exam_code.upper().replace("_", " ")
+    test = Test(
+        title=f"PYQ {exam_label} {year} Shift-{shift}",
+        exam_code=exam_code,
+        test_type=TestType.FULL_LENGTH,
+        total_questions=len(question_ids),
+        total_marks=float(len(question_ids)),
+        duration_minutes=metadata.get("duration_minutes", 180),
+        negative_marking=0.0,
+        question_ids=question_ids,
+    )
+    await test.insert()
+
+    # 5. Create TestAttempt
+    now = datetime.now(timezone.utc)
+    attempt = TestAttempt(
+        user_id=PydanticObjectId(user_id),
+        test_id=test.id,
+        status=TestStatus.COMPLETED,
+        started_at=now,
+        completed_at=now,
+        time_taken_seconds=body.time_taken_seconds,
+    )
+
+    # 6. Score answers & build TestResponse records
+    correct = 0
+    wrong = 0
+    skipped = 0
+    responses_to_insert: list[TestResponseModel] = []
+
+    for ans in body.answers:
+        q_doc = question_docs.get(ans.question_number)
+        if not q_doc:
+            continue
+
+        # Normalise user's selected option to lowercase
+        selected = ans.selected_option.lower() if ans.selected_option else None
+
+        is_correct = None
+        if selected is None:
+            skipped += 1
+        elif selected == q_doc.correct_option:
+            correct += 1
+            is_correct = True
+        else:
+            wrong += 1
+            is_correct = False
+
+        responses_to_insert.append(
+            TestResponseModel(
+                attempt_id=PydanticObjectId("000000000000000000000000"),  # placeholder, updated below
+                question_id=q_doc.id,
+                selected_option=selected,
+                is_correct=is_correct,
+                time_spent_seconds=ans.time_spent_seconds,
+                answered_at=now,
+            )
+        )
+
+    attempt.total_attempted = correct + wrong
+    attempt.correct_answers = correct
+    attempt.wrong_answers = wrong
+    attempt.skipped = skipped
+    attempt.score = float(correct)
+    attempt.percentage = round((correct / len(question_ids) * 100), 2) if question_ids else 0.0
+    await attempt.insert()
+
+    # Patch the placeholder attempt_id in responses, then bulk-insert
+    for r in responses_to_insert:
+        r.attempt_id = attempt.id
+    if responses_to_insert:
+        await TestResponseModel.insert_many(responses_to_insert)
+
+    return {
+        "attempt_id": str(attempt.id),
+        "score": attempt.score,
+        "percentage": attempt.percentage,
+        "correct": correct,
+        "wrong": wrong,
+        "skipped": skipped,
+        "total": len(question_ids),
     }
