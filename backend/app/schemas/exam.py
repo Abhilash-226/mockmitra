@@ -22,9 +22,9 @@ class SectionConfig(BaseModel):
     """Section configuration (e.g., Algebra, Mechanics)"""
     name: str
     code: str
-    total_questions: int
-    marks_per_question: float
-    negative_marks: float
+    total_questions: int = 0
+    marks_per_question: float = 1.0
+    negative_marks: float = 0.0
     time_limit_minutes: Optional[int] = None
     topics: List[TopicConfig] = []
     
@@ -75,30 +75,37 @@ class ExamConfig(BaseModel):
     @classmethod
     def migrate_legacy_sections(cls, data: Any) -> Any:
         if isinstance(data, dict):
-            # If subjects is already present, we're good
-            if 'subjects' in data and data['subjects']:
-                return data
-                
-            # If missing subjects but has sections (legacy format)
-            if 'sections' in data and data['sections']:
+            # 1. Handle missing subjects but has sections (legacy format)
+            if ('subjects' not in data or not data['subjects']) and ('sections' in data and data['sections']):
                 legacy_sections = data['sections']
                 new_subjects = []
                 
                 for section_data in legacy_sections:
                     # Map OLD section to NEW subject + NEW single section
-                    # This preserves the 3-level hierarchy for the UI
                     section_name = section_data.get('name', 'General')
                     section_code = section_data.get('code', 'general')
                     
                     new_subjects.append({
                         'name': section_name,
                         'code': section_code,
-                        'sections': [section_data] # The subject has one section which is itself
+                        'sections': [section_data]
                     })
                 
                 data['subjects'] = new_subjects
-                # We don't delete 'sections' as it might be used by @computed_field later
-                # but Pydantic will ignore extra fields not in model unless configured otherwise
+            
+            # 2. Propagate default marks to sections if missing
+            def_marks = data.get('default_marks_per_question', 1.0)
+            def_neg = data.get('default_negative_marks', 0.0)
+            
+            if 'subjects' in data and data['subjects']:
+                for subject in data['subjects']:
+                    if 'sections' in subject:
+                        for section in subject['sections']:
+                            if 'marks_per_question' not in section:
+                                section['marks_per_question'] = def_marks
+                            if 'negative_marks' not in section:
+                                section['negative_marks'] = def_neg
+                            # total_questions is now defaulted to 0 in SectionConfig
                 
         return data
     

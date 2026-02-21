@@ -249,6 +249,7 @@ export default function PYQExamInterfacePage() {
           ],
           section: q.section || "general",
           topic: q.topic,
+          subject: q.subject,
           image: q.image,
         }));
 
@@ -258,21 +259,33 @@ export default function PYQExamInterfacePage() {
         // Note: The API doesn't expose correct answers in exam mode
         // We'll fetch full paper for results later
 
-        // Update sections from actual questions
-        const uniqueSections = [...new Set(pyqQuestions.map((q) => q.section))];
-        const sections = uniqueSections.map((sectionCode) => {
+        // Update sections from actual questions - Grouping by Subject
+        const uniqueSubjects = [...new Set(pyqQuestions.map((q) => q.subject || q.section))];
+        
+        // Define subject order
+        const subjectOrder = ["Mathematics", "Physics", "Chemistry"];
+        uniqueSubjects.sort((a, b) => {
+          const indexA = subjectOrder.indexOf(a);
+          const indexB = subjectOrder.indexOf(b);
+          if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+          if (indexA !== -1) return -1;
+          if (indexB !== -1) return 1;
+          return a.localeCompare(b);
+        });
+
+        const sections = uniqueSubjects.map((subject) => {
           const sectionQuestions = pyqQuestions.filter(
-            (q) => q.section === sectionCode,
+            (q) => q.subject === subject || q.section === subject,
           );
-          const sectionNames = {
-            MAT: "Mathematics",
-            PHY: "Physics",
-            CHE: "Chemistry",
+          const subjectDisplayNames = {
+            Mathematics: "Maths",
+            Physics: "Phy",
+            Chemistry: "Che",
           };
           return {
-            id: sectionCode,
-            code: sectionCode,
-            name: sectionNames[sectionCode] || sectionCode,
+            id: subject,
+            code: subject,
+            name: subjectDisplayNames[subject] || subject,
             questionCount: sectionQuestions.length,
           };
         });
@@ -553,9 +566,9 @@ export default function PYQExamInterfacePage() {
             key={section.id}
             onClick={() => {
               setCurrentSection(idx);
-              // Find first question of this section
+              // Find first question of this subject/section
               const firstQIdx = examData.questions.findIndex(
-                (q) => q.section === section.id,
+                (q) => (q.subject === section.id || q.section === section.id),
               );
               if (firstQIdx !== -1) goToQuestion(firstQIdx);
             }}
@@ -584,7 +597,9 @@ export default function PYQExamInterfacePage() {
                 </h2>
                 <div className="flex gap-2">
                   <span className="text-sm text-gray-500">
-                    Section: {currentQuestion.section}
+                    {currentQuestion.subject && `${currentQuestion.subject} > `}
+                    {currentQuestion.section}
+                    {currentQuestion.topic && ` > ${currentQuestion.topic}`}
                   </span>
                 </div>
               </div>
@@ -597,7 +612,9 @@ export default function PYQExamInterfacePage() {
                 {currentQuestion.image && (
                   <div className="mt-4 flex justify-center bg-white p-2 border rounded">
                     <img 
-                      src={currentQuestion.image.startsWith('http') ? currentQuestion.image : `http://localhost:8000${currentQuestion.image}`} 
+                      src={currentQuestion.image.startsWith('http') 
+                        ? currentQuestion.image 
+                        : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8000'}${currentQuestion.image}`} 
                       alt="Question Diagram" 
                       className="max-w-full h-auto max-h-[300px] object-contain"
                     />

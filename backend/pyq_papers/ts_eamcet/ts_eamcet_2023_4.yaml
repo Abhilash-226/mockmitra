@@ -1,0 +1,2263 @@
+id: ts_eamcet_2023_4
+exam: TS EAMCET
+year: 2023
+shift: 4
+date: null
+session: Shift 4
+source_pdf: null
+metadata:
+  total_questions: 160
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 80
+- code: PHY
+  name: Physics
+  question_count: 40
+- code: CHE
+  name: Chemistry
+  question_count: 40
+questions:
+- id: 1
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: Which one of the following functions is a bijection?
+  options:
+    A: '$f : \mathbb{R} \to [0, 1]$ defined by $f(x) = \sqrt{x - [x]}$'
+    B: '$f : \mathbb{R} \to (-\infty, 2)$ defined by $f(x) = 4x - x^2 - 3$'
+    C: '$f : (5, \infty) \to \mathbb{R} - \{0\}$ defined by $f(x) = \frac{1}{\sqrt{x-5}}$'
+    D: '$f : [0, 4] \to [0, 4]$ defined by $f(x) = \sqrt{16-x^2}$'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: The domain of the real valued function $f(x) = \frac{\sqrt{|x|-x}}{\sqrt{x-[x]}}$
+    is
+  options:
+    A: $\mathbb{Z}$
+    B: $\phi$
+    C: $\mathbb{R} - \mathbb{Z}$
+    D: $\mathbb{R}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 3
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: 'The range of the function defined by
+
+    $f(x) = \begin{cases} 2x-3, & \text{if } x < -1 \\ 1-x^2, & \text{if } -1 \le
+    x \le 1 \\ 3x^2+2, & \text{if } x > 1 \end{cases}$ is
+
+    '
+  options:
+    A: $\mathbb{R}$
+    B: $(-\infty, -5) \cup [0, 1] \cup (5, \infty)$
+    C: $(-\infty, -1) \cup (1, \infty)$
+    D: $(-\infty, -3) \cup (0, 1) \cup (3, \infty)$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 4
+  section: Algebra
+  topic: matrices
+  text: 'If $A = \begin{bmatrix} b & a & 0 \\ c & 0 & b \\ a & a & b \end{bmatrix}$
+    and $B = \begin{bmatrix} 0 & a & b \\ b & 0 & c \\ b & a & a \end{bmatrix}$ are
+    two matrices such that $AB = \begin{bmatrix} 2 & 2 & 7 \\ 1 & 8 & 5 \\ 3 & 6 &
+    10 \end{bmatrix}$, then $a^2 + b^2 + c^2 =$
+
+    '
+  options:
+    A: '14'
+    B: '17'
+    C: '22'
+    D: '29'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 5
+  section: Algebra
+  topic: matrices
+  text: 'If $A = \begin{bmatrix} 1 & a & 3 \\ b & 2 & c \\ 3 & d & 4 \end{bmatrix}$
+    is a symmetric matrix and $B = \begin{bmatrix} 0 & 5 & b \\ -5 & 0 & -7 \\ 6 &
+    c & 0 \end{bmatrix}$ is a skew symmetric matrix, then $AB =$
+
+    '
+  options:
+    A: '$\begin{bmatrix} 48 & 27 & 48 \\ 52 & 19 & 22 \\ -59 & 43 & -67 \end{bmatrix}$
+
+      '
+    B: '$\begin{bmatrix} 48 & 26 & 36 \\ 32 & 19 & 22 \\ -11 & 43 & -67 \end{bmatrix}$
+
+      '
+    C: '$\begin{bmatrix} 12 & 26 & 36 \\ 32 & 79 & 50 \\ -11 & 43 & -67 \end{bmatrix}$
+
+      '
+    D: '$\begin{bmatrix} 12 & 32 & 41 \\ 32 & 19 & 22 \\ -11 & 43 & -67 \end{bmatrix}$
+
+      '
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 6
+  section: Algebra
+  topic: matrices
+  text: 'If the inverse of the matrix $A = \begin{bmatrix} -1 & -3 & -2 \\ 0 & 1 &
+    2 \\ 3 & 4 & 5 \end{bmatrix}$ is $A^{-1} = \begin{bmatrix} a_1 & a_2 & a_3 \\
+    b_1 & b_2 & b_3 \\ c_1 & c_2 & c_3 \end{bmatrix}$, then $a_1 + c_2 + b_3 =$
+
+    '
+  options:
+    A: '-6'
+    B: $\frac{2}{3}$
+    C: $\frac{2}{3}$
+    D: '6'
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 7
+  section: Algebra
+  topic: matrices
+  text: 'If $x=\alpha, y=\beta, z=\gamma$ is the unique solution of the system of
+    linear equations
+
+    $2x-3y+5z=12, 5x+2y+3z=11$ and $x+2y-3z=-3$ then $2\alpha+5\beta+3\gamma =$
+
+    '
+  options:
+    A: '10'
+    B: '11'
+    C: '3'
+    D: '2'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 8
+  section: Algebra
+  topic: complex_numbers
+  text: If $i^2 = -1$ then $(1+\sqrt{3}i)^{2022} - (\sqrt{3}-i)^{2022} =$
+  options:
+    A: $2^{2023}$
+    B: '0'
+    C: $2^{2022}$
+    D: $3^{1011}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 9
+  section: Algebra
+  topic: complex_numbers
+  text: If $\left(\frac{\sqrt{3}+i}{\sqrt{3}-i}\right)^4 + \left(\frac{\sqrt{3}-i}{\sqrt{3}+i}\right)^4
+    = r \text{ cis } \theta$, then one of the values of $\sqrt{r \text{ cis } \theta}$
+    is
+  options:
+    A: $cis\left(\frac{3\pi}{4}\right)$
+    B: $cis\left(\frac{3\pi}{2}\right)$
+    C: $cis\left(\frac{\pi}{3}\right)$
+    D: $cis \pi$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 10
+  section: Algebra
+  topic: complex_numbers
+  text: If $z = x+iy$ and the point P in the Argand plane represents $z$, then the
+    locus of $z$ satisfying the equation $|z-2|+|z-2i|=4$ is
+  options:
+    A: $4x^2 + 3xy + 4y^2 - 6x - 6y + 8 = 0$
+    B: $3x^2 + 2xy + 3y^2 - 8x - 8y + 6 = 0$
+    C: $3x^2 + 2xy + 3y^2 - 8x - 8y = 0$
+    D: $4x^2 + 3xy + 4y^2 - 6x - 6y = 0$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 11
+  section: Algebra
+  topic: complex_numbers
+  text: One of the values of $(\sqrt{3}-i)^{2/3}$ is
+  options:
+    A: $2^{2/3} (1-\sqrt{3}i)$
+    B: $2^{-2/3} (\sqrt{3}+i)$
+    C: $2^{2/3} (\sqrt{3}-i)$
+    D: $2^{2/3} (1+\sqrt{3}i)$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\alpha, \beta, \gamma, \delta$ are the roots of the equation $x^4+x^2+1=0$
+    such that $\alpha+\beta=-1$, $\gamma+\delta=1$, $\alpha^2=\beta$ and $\gamma^2=-\delta$,
+    then $\alpha^{2023} + \beta^{2023} + \gamma^{2022} + \delta^{2022} =$
+  options:
+    A: '1'
+    B: '0'
+    C: $1+3\omega$
+    D: $\omega-2\omega^2$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 13
+  section: Algebra
+  topic: quadratic_expressions
+  text: Let the equations $ax^2-7x+c=0$ and $ax^2+5x-c=0$ have a common root and $ac
+    \ne 0$. If 3 is a root of $ax^2-7x+c=0$ other than the common root, then the common
+    root of the given equations is
+  options:
+    A: '3'
+    B: $\frac{1}{2}$
+    C: '2'
+    D: $\frac{1}{3}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 14
+  section: Algebra
+  topic: quadratic_expressions
+  text: The set of all values of $x$ for which the inequalities $x^2-7x+10 \ge 0$
+    and $2x+3-x^2 > 0$ hold simultaneously is
+  options:
+    A: $(-\infty, 2]$
+    B: $(3, \infty)$
+    C: $(-1, 2]$
+    D: $[2, 3)$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 15
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\alpha, \beta, \gamma$ are the roots of the equation $2x^3+x^2-13x+6=0$,
+    then $\alpha^3 + \beta^3 + \gamma^3 =$
+  options:
+    A: $-\frac{161}{8}$
+    B: '36'
+    C: '99'
+    D: $-\frac{151}{8}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\alpha, \beta, \gamma$ are the real roots of the equation $18x^3-15x^2-4x+4=0$
+    such that $\alpha=\beta$ and $\alpha > \gamma$, then $\alpha + \beta^2 + \gamma^3
+    =$
+  options:
+    A: $\frac{71}{72}$
+    B: $\frac{53}{54}$
+    C: $\frac{89}{90}$
+    D: $\frac{59}{60}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 17
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\alpha$ is a multiple root of the equation $x^5-6x^4+11x^3-2x^2-12x+8=0$,
+    then $3\alpha^2 - 2\alpha + 1 =$
+  options:
+    A: '-2'
+    B: '1'
+    C: '0'
+    D: '9'
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 18
+  section: Algebra
+  topic: permutations_and_combinations
+  text: All the letters of the word 'INDEED' are taken and permuted in all possible
+    ways to form distinct 6 letter strings (words with or without meaning). If they
+    are listed in dictionary order, then the rank position of the string 'NIDDEE'
+    is
+  options:
+    A: '349'
+    B: '325'
+    C: '163'
+    D: '175'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 19
+  section: Algebra
+  topic: permutations_and_combinations
+  text: All possible 5 digit numbers each having 5 distinct digits are formed using
+    the digits 1, 2, 3, 5, 6, 8. Among them, the number of numbers which are divisible
+    by 3 but not by 6 is
+  options:
+    A: '120'
+    B: '72'
+    C: '48'
+    D: '240'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 20
+  section: Algebra
+  topic: permutations_and_combinations
+  text: The total number of ways of forming a committee of 5 members out of 7 Indians,
+    6 Americans, 5 Russians and 4 Australians so that every committee contains at
+    least one member from each country is
+  options:
+    A: '3360'
+    B: '6720'
+    C: '7200'
+    D: '7560'
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 21
+  section: Algebra
+  topic: binomial_theorem
+  text: The numerically greatest term in the binomial expansion of $(2x-3y)^5$ when
+    $x=\frac{3}{2}$ and $y=\frac{2}{3}$ is
+  options:
+    A: '360'
+    B: '1080'
+    C: '720'
+    D: '2160'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 22
+  section: Algebra
+  topic: binomial_theorem
+  text: When $3^{2023}$ is divided by 16, the remainder obtained is
+  options:
+    A: '15'
+    B: '11'
+    C: '9'
+    D: '7'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 23
+  section: Algebra
+  topic: binomial_theorem
+  text: If $3x = 1 + \frac{5}{8} + \frac{5 \cdot 9}{8 \cdot 16} + \frac{5 \cdot 9
+    \cdot 13}{8 \cdot 16 \cdot 24} + \dots$, then $x^4 + 4x^3 + 6x^2 + 4x =$
+  options:
+    A: '0'
+    B: '1'
+    C: '4'
+    D: '8'
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 24
+  section: Algebra
+  topic: partial_fractions
+  text: If $\frac{2x^3 + 3x^2 + 3x + 5}{(x^2+1)(x^2+2)}$ is expanded in terms of the
+    powers of $x$, then the coefficient of $x^3$ is
+  options:
+    A: '0'
+    B: $-\frac{5}{4}$
+    C: $\frac{17}{8}$
+    D: $\frac{9}{8}$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 25
+  section: Trigonometry
+  topic: trigonometric_ratios_and_identities
+  text: $\sin 6^\circ + \sin 54^\circ + \sin 126^\circ + \cos 156^\circ =$
+  options:
+    A: $\frac{\sqrt{5}+1}{4}$
+    B: $\frac{\sqrt{5}-1}{4}$
+    C: $\frac{1}{2}$
+    D: $\frac{3}{4}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 26
+  section: Trigonometry
+  topic: trigonometric_ratios_and_identities
+  text: If $\tan \alpha = \frac{-12}{5}, \cot \beta = \frac{7}{24}, \alpha$ does not
+    belong to second quadrant and $\beta$ does not belong to first quadrant, then
+    $\sqrt{13} \sin \frac{\alpha}{2} + \cos \frac{\alpha}{2} + \tan \frac{\alpha}{2}
+    \cot \frac{\beta}{2} =$
+  options:
+    A: $\frac{31}{10}$
+    B: $\frac{19}{10}$
+    C: $\frac{21}{10}$
+    D: $-\frac{9}{10}$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 27
+  section: Trigonometry
+  topic: trigonometric_ratios_and_identities
+  text: $\cos \frac{\pi}{7} \cos \frac{2\pi}{7} \cos \frac{3\pi}{7} \cos \frac{\pi}{14}
+    \cos \frac{3\pi}{14} \cos \frac{5\pi}{14} =$
+  options:
+    A: $\frac{1}{16} \left[\sin \frac{\pi}{7} + \sin \frac{2\pi}{7} + \sin \frac{3\pi}{7}\right]$
+    B: $\frac{1}{8} \left[\sin \frac{2\pi}{7} + \sin \frac{3\pi}{7} - \sin \frac{\pi}{7}\right]$
+    C: $\frac{1}{32} \left[\sin \frac{2\pi}{7} + \sin \frac{3\pi}{7} - \sin \frac{\pi}{7}\right]$
+    D: $\frac{1}{32} \left[\sin \frac{\pi}{7} - \sin \frac{2\pi}{7} + \sin \frac{3\pi}{7}\right]$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 28
+  section: Trigonometry
+  topic: hyperbolic_functions
+  text: If $\sinh x = -\frac{4}{3}$ then $\sinh 2x + \cosh 2x =$
+  options:
+    A: $-\frac{31}{41}$
+    B: $-\frac{20}{9}$
+    C: $\frac{49}{41}$
+    D: $\frac{1}{9}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 29
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: In triangle ABC, if $b=6, c=7$ and $\tan \frac{A}{2} = \frac{1}{\sqrt{6}}$,
+    then the inradius of $\triangle ABC$ is
+  options:
+    A: $\sqrt{\frac{2}{3}}$
+    B: $\frac{2\sqrt{6}}{9}$
+    C: $\frac{\sqrt{2}}{9}$
+    D: $\frac{2\sqrt{6}}{3}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 30
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: In $\triangle ABC$, if $a=7, b=8$ and $c=9$ then $\frac{1}{r_1} + \frac{1}{r_2}
+    + \frac{1}{r_3} =$
+  options:
+    A: $\frac{97}{360}$
+    B: $\frac{5}{72}$
+    C: $\frac{169}{360}$
+    D: $\frac{67}{72}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 31
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: If the points with position vectors $\vec{i}-\vec{j}+\vec{k}$, $2\vec{i}-\vec{k}$,
+    $\vec{i}+\vec{j}+2\vec{k}$ and $\vec{i}+\vec{j}+\lambda\vec{k}$ are coplanar,
+    then the magnitude of the vector $6\lambda\vec{i}-3\vec{j}+6\vec{k}$ is
+  options:
+    A: $\sqrt{54}$
+    B: $\sqrt{46}$
+    C: '7'
+    D: '9'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: Let $\vec{a}, \vec{b}, \vec{c}$ be three non-coplanar vectors and L be the
+    line passing through the points $\vec{a}-\vec{b}+\vec{c}$ and $\vec{b}-\vec{c}$.
+    If $\pi$ is a plane passing through the points $2\vec{a}-\vec{b}$, $2\vec{b}-\vec{c}$
+    and $2\vec{c}-\vec{a}$, then the point of intersection of L and $\pi$ is
+  options:
+    A: $\vec{a}-\vec{b}$
+    B: $\vec{b}+\vec{c}$
+    C: $\vec{c}-\vec{a}$
+    D: $\vec{a}-\vec{b}+\vec{c}$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 33
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: Let $\vec{a}=\vec{i}-2\vec{j}+2\vec{k}, \vec{b}=6\vec{i}+2\vec{j}-3\vec{k}$
+    and $\vec{c}=3\vec{i}-4\vec{j}-12\vec{k}$ be three vectors. If $\vec{p}$ is the
+    projection of $\vec{b}$ on $\vec{a}$ and $\vec{q}$ is the projection of $\vec{c}$
+    on $\vec{a}$, then $13\vec{p} =$
+  options:
+    A: $4\vec{q}$
+    B: $5\vec{q}$
+    C: $6\vec{q}$
+    D: $7\vec{q}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 34
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: Let $\vec{a}=\vec{i}+2\vec{j}+3\vec{k}, \vec{b}=3\vec{i}-\vec{j}+5\vec{k}$
+    and $\vec{c}=\vec{i}-4\vec{j}-2\vec{k}$ be three vectors. Let $\vec{r}$ be a vector
+    perpendicular to both $\vec{b}, \vec{c}$ and $\vec{r} \cdot \vec{a} = 11$. Then
+    the vector among the following that is perpendicular to $\vec{r}$ is
+  options:
+    A: $\vec{i}+\vec{j}+\vec{k}$
+    B: $\vec{i}-\vec{j}+\vec{k}$
+    C: $\vec{i}+\vec{j}-\vec{k}$
+    D: $\vec{i}-\vec{j}-\vec{k}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: The volume of the tetrahedron with $\vec{i}-\lambda\vec{j}+\vec{k}, \lambda\vec{i}-\vec{j}-\vec{k}$
+    and $\vec{i}+\vec{j}+\lambda\vec{k}$ as coterminous edges is 2. If $\lambda$ is
+    an integer, then $|\lambda\vec{i}-3\lambda\vec{j}+3\vec{k}| =$
+  options:
+    A: '3'
+    B: $\sqrt{19}$
+    C: '7'
+    D: '13'
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 36
+  section: Probability & Statistics
+  topic: measures_of_dispersion
+  text: If M and $\sigma^2$ represent respectively the mean deviation from the mean
+    and the variance for the data 1, 3, 5, 7, 11, 13, 17, 19, 23 then $3(\sigma^2
+    - M) =$
+  options:
+    A: '232'
+    B: '112'
+    C: '224'
+    D: '136'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 37
+  section: Probability & Statistics
+  topic: probability
+  text: A bag contains 3 red, 5 black and 7 blue balls. If three balls are drawn at
+    random simultaneously from the bag then the probability of getting at least two
+    blue balls is
+  options:
+    A: $\frac{29}{65}$
+    B: $\frac{29}{130}$
+    C: $\frac{9}{65}$
+    D: $\frac{9}{130}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 38
+  section: Probability & Statistics
+  topic: probability
+  text: In a game, two dice are thrown simultaneously by a person A and two cards
+    are drawn at random simultaneously from a pack of 52 playing cards by a person
+    B. They win the game if A gets a prime score as the sum of the numbers appear
+    on both the dice and B gets a face card and a card having a prime number. Then
+    the probability that both A and B win is
+  options:
+    A: $\frac{8}{663}$
+    B: $\frac{40}{663}$
+    C: $\frac{16}{117}$
+    D: $\frac{40}{221}$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 39
+  section: Probability & Statistics
+  topic: probability
+  text: Two players A and B alternatively toss 3 coins simultaneously. The player
+    who gets 2 heads and 1 tail first, wins the game. If game continues until someone
+    wins and if A begins the game, the probability that B wins the game is
+  options:
+    A: $\frac{24}{39}$
+    B: $\frac{4}{7}$
+    C: $\frac{15}{39}$
+    D: $\frac{3}{7}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 40
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: If X is a Poisson variate satisfying the condition $3P(x=2) = P(x=4)$ then
+    $P(x=6) =$
+  options:
+    A: $\frac{162}{5e^6}$
+    B: $\frac{108}{5e^6}$
+    C: $\frac{324}{5e^6}$
+    D: $\frac{648}{5e^6}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 41
+  section: Coordinate Geometry
+  topic: locus
+  text: Let $A=(1, 2)$, $B=(2, 1)$, $C=(-1, -1)$ be three points. If P is a point
+    such that the area of the quadrilateral PABC is twice the area of the triangle
+    PAB, then the equation of the locus of P is
+  options:
+    A: $8x^2 - 14xy + 3y^2 - 18x + 22y + 7 = 0$
+    B: $9x^2 - 12xy + 4y^2 - 24x + 16y + 16 = 0$
+    C: $x^2 + 2xy + y^2 - 6x - 6y + 9 = 0$
+    D: $x^2 - 4xy + 8y - 4 = 0$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 42
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: When the origin is shifted to the point $(h, k)$ by translating the coordinate
+    axes, the equation $S \equiv 2x^2 - xy + y^2 + 2x + 3y + 1 = 0$ is changed to
+    $S' \equiv ax^2 + 2hxy + by^2 - 3 = 0$. Again by rotating the coordinate axes
+    about the new origin through the angle $\theta$ in the positive direction, $S'
+    = 0$ is changed to $Ax^2 + By^2 + C = 0$. Then $h + k + \tan 2\theta = $
+  options:
+    A: '-4'
+    B: '0'
+    C: '1'
+    D: '-1'
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 43
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: Two points $P(\alpha, 2)$ and $Q(1, b)$ lie on either side of the line $2x-3y+1=0$.
+    If P is the point of intersection of the lines $4x+3y+k=0$ and $3x+4y+k=0$, then
+    the range of $b$ is
+  options:
+    A: $(-\infty, 3)$
+    B: $(-\infty, 1)$
+    C: $(1, \infty)$
+    D: $(3, \infty)$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 44
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: Let the angle between the lines $x-2y+3=0$ and $kx-y+2=0$ be $45^\circ$. If
+    $k_1, k_2 (k_1 > k_2)$ are two distinct real values of k, then $k_1 - 2 = $
+  options:
+    A: $k_2$
+    B: $-k_2$
+    C: $-3k_2$
+    D: $3k_2$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 45
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: If the lines $4x+3y-k=0, 2x+y+3=0$ and $3x+2y+k=0$ are concurrent, then the
+    perpendicular distance from the point of concurrency of these lines to the line
+    $3x+4y+2=0$ is
+  options:
+    A: $3/5$
+    B: '1'
+    C: $13/5$
+    D: '3'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 46
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: Let A(1,3) and B(2,5) be two points and C(h, k) be a point such that BC is
+    perpendicular to AC. If $|\angle CAB| = |\angle CBA|$, then h =
+  options:
+    A: $24/5$ or $7/2$
+    B: $2/5$ or $7/2$
+    C: $1/2$ or $5/2$
+    D: $24/5$ or $2/5$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 47
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: Let the line $2x-3y-1=0$ intersect the curve $x^2+2xy+5y^2+2x+3y-1=0$ in distinct
+    points A and B. If 'O' is the origin, then $\cos \angle AOB = $
+  options:
+    A: 1/2
+    B: $3\sqrt{2}/5$
+    C: '0'
+    D: $3\sqrt{2}/7$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 48
+  section: Coordinate Geometry
+  topic: circle
+  text: The equation of the circle inscribed in a square formed by the lines $x+y-2=0,
+    x+y-6=0, x-y+1=0$ and $x-y+5=0$ is
+  options:
+    A: $2x^2 + 2y^2 - 2x - 14y + 21 = 0$
+    B: $x^2+y^2-x-7y+10=0$
+    C: $2x^2+2y^2-x-7y+21=0$
+    D: $x^2+y^2-2x-14y+10=0$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 49
+  section: Coordinate Geometry
+  topic: circle
+  text: Let the circle $S \equiv x^2+y^2+2gx+2fy+c=0$ touch the positive X-axis and
+    the positive Y-axis. Let (2,4) be a point on the circle S=0. If two such circles
+    exist, then the difference of their areas is
+  options:
+    A: $104 \pi$
+    B: $96 \pi$
+    C: $9 \pi$
+    D: $41 \pi$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 50
+  section: Coordinate Geometry
+  topic: circle
+  text: If the equations $2x-3y+3=0, 2x+y+1=0$ and $6x+4y+1=0$ represent the sides
+    of a triangle, then the equation of the circle passing through the vertices of
+    this triangle is
+  options:
+    A: $4x^2 + 4y^2 + 9x - 10y + 7 = 0$
+    B: $2x^2 + 2y^2 - 7x - 5y + 9 = 0$
+    C: $8x^2 + 8y^2 + 18x - 20y + 17 = 0$
+    D: $x^2 + y^2 + 3x - y + 13 = 0$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 51
+  section: Coordinate Geometry
+  topic: circle
+  text: If $T_1T_1'$ and $T_2T_2'$ are the common tangents of the circles $S \equiv
+    x^2+y^2-2x-4y-4=0$ and $S' \equiv x^2+y^2+4x+4y+4=0$ where $T_1, T_1', T_2, T_2'$
+    are the points of contact, then the distance between $T_1$ and $T_1'$ is
+  options:
+    A: $6\sqrt{6}$
+    B: $5\sqrt{6}$
+    C: $10\sqrt{6}$
+    D: $2\sqrt{6}$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 52
+  section: Coordinate Geometry
+  topic: circle
+  text: A circle $S = x^2+y^2+2gx+2fy+4=0$ cuts the circle $x^2+y^2-4x-4y-4=0$ orthogonally
+    and makes an angle of $60^\circ$ with the circle $x^2+y^2+4x+4y+4=0$. Then the
+    radius of the circle S=0 is
+  options:
+    A: '4'
+    B: '3'
+    C: '5'
+    D: '1'
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 53
+  section: Coordinate Geometry
+  topic: circle
+  text: If the circle $S = x^2+y^2+2gx+2fy+c=0$ cuts each of the three circles $x^2+y^2+4x+4y+7=0,
+    x^2+y^2-4x+4y+7=0$ and $x^2+y^2-4x-4y+7=0$ orthogonally, then the equation of
+    the tangent drawn at the point $(\sqrt{3}, 2)$ to the circle S=0 is
+  options:
+    A: $(\sqrt{3}-1)x+4y+(\sqrt{3}-1)=0$
+    B: $\sqrt{3}x+2y-7=0$
+    C: $(\sqrt{3}+2)x+3y+(\sqrt{3}+1)=0$
+    D: $\sqrt{3}x-2y+7=0$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 54
+  section: Coordinate Geometry
+  topic: parabola
+  text: If the line $2x+3y+n=0$ is a tangent to the parabola $y^2=8x$, then the equation
+    of the normal drawn at the point $(2n, 4\sqrt{n})$ to the parabola $y^2=8x$ is
+  options:
+    A: $x-3y+18=0$
+    B: $3x+2y-30=0$
+    C: $3x+y-66=0$
+    D: $2x-3y+6=0$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 55
+  section: Coordinate Geometry
+  topic: parabola
+  text: $ax-y+c=0$ is the equation of the common tangent to the parabola $y^2=8\sqrt{5}x$
+    and the circle $x^2+y^2=1$. If this tangent makes an acute angle with the positive
+    X-axis in the positive direction, then $a^2c^2 = $
+  options:
+    A: '40'
+    B: '80'
+    C: '160'
+    D: '20'
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 56
+  section: Coordinate Geometry
+  topic: ellipse
+  text: In an ellipse, the distance from one of the foci to its corresponding end
+    of the major axis is $4-\sqrt{7}$ and the distance from same focus to one end
+    of the minor axis is 4. Then the cosine of the angle subtended by the line segment
+    joining its foci at one end of its minor axis is
+  options:
+    A: $1/8$
+    B: $3/4$
+    C: $\sqrt{7}/3$
+    D: $1/3\sqrt{7}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 57
+  section: Coordinate Geometry
+  topic: ellipse
+  text: 'If the equations $x=1+2\cos\theta, y=2+\sin\theta, 0 \le \theta < 2\pi$ represent
+    an ellipse, then the point of intersection of the normal drawn at $P(\frac{\pi}{4})$
+    to this ellipse and its major axis is\n(Note: For this question, discrepancy is
+    found in question/answer. Full Marks is being awarded to all candidates.)'
+  options:
+    A: $(\frac{4-\sqrt{3}}{4}, 0)$
+    B: $(\frac{\sqrt{3}+1}{4}, 0)$
+    C: $(\frac{8+\sqrt{3}}{2}, 0)$
+    D: $(\frac{5}{2}, 0)$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 58
+  section: Coordinate Geometry
+  topic: hyperbola
+  text: If the equation $x+y+n=0$ represents a normal to the hyperbola $\frac{x^2}{6}
+    - \frac{y^2}{2} = 1$, then $n = $
+  options:
+    A: $\pm\sqrt{3}$
+    B: $\pm 4$
+    C: $\pm\sqrt{2}$
+    D: $\pm 2$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 59
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
+  text: 'A(1, 2, 3), B(2, 3, 1) and C(3, 1, 2) are three points. If the point P divides
+    AB in the ratio 1 : 2 and the point Q divides BC in the ratio -2 : 3, then the
+    distance between P and Q is'
+  options:
+    A: $\sqrt{312}$
+    B: '13'
+    C: $\frac{2}{3}\sqrt{78}$
+    D: '25'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 60
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
+  text: If the image of the point (1, -2, 1) with respect to the line passing through
+    the points B(1, 1, 2) and C(2, 2, 1) is (l, m, n), then $l^2+m^2+n^2 = $
+  options:
+    A: '1'
+    B: '9'
+    C: '22'
+    D: '26'
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 61
+  section: Coordinate Geometry
+  topic: three_dimensional_coordinates
+  text: A plane $\pi$ passing through the point (1, 1, 1) is perpendicular to the
+    line joining the points (6, 3, 2) and (1, -4, -9). If $ax+by+cz-23=0$ is the equation
+    of the plane $\pi$ then $a+b-c=$
+  options:
+    A: '1'
+    B: '23'
+    C: '9'
+    D: '13'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 62
+  section: Calculus
+  topic: limits_and_continuity
+  text: '$\lim_{x \to 2} \frac{\sqrt{6+x} - \sqrt[3]{10-x}}{x-2} =$\n(Note: For this
+    question, discrepancy is found in question/answer. Full Marks is being awarded
+    to all candidates.)'
+  options:
+    A: $1/8$
+    B: $1/4$
+    C: $1/2$
+    D: $1/16$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 63
+  section: Calculus
+  topic: limits_and_continuity
+  text: $\lim_{x \to 0} \frac{\tan^4 x - \sin^4 x}{x^6} =$
+  options:
+    A: $1/2$
+    B: $5/2$
+    C: '2'
+    D: '4'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 64
+  section: Calculus
+  topic: differentiation_and_derivatives
+  text: If $f(x) = \sqrt{\log(x^2+x+1) + \sqrt{\cosh(2x-3)}}$, then $f'(0)=$
+  options:
+    A: $\frac{1}{2\sqrt{\sqrt{\cosh(3)}}} \left( 1 + \frac{\sinh(3)}{\sqrt{\cosh(3)}}
+      \right)$
+    B: $\frac{1}{2\sqrt{\sqrt{\cosh(3)}}} \left( \log 3 - \frac{\sinh(3)}{\sqrt{\cosh(3)}}
+      \right)$
+    C: $\frac{\log 3 \cdot \sqrt{\cosh(3)} - \sinh(3)}{2(\cosh(3))^{3/4}}$
+    D: $\frac{\sqrt{\cosh(3)} - \sinh(3)}{2(\cosh(3))^{3/4}}$
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 65
+  section: Calculus
+  topic: differentiation_and_derivatives
+  text: If $x = \cos^3 \theta - \sin^3 \theta$ and $y = \sqrt[3]{\cos \theta} - \sqrt[3]{\sin
+    \theta}$, then the value of $\frac{dy}{dx}$ at $\theta = \frac{\pi}{4}$ is
+  options:
+    A: $\frac{2}{9}\sqrt{2}$
+    B: $\frac{\sqrt{2}}{3}$
+    C: $\frac{4}{9}\sqrt{2}$
+    D: $\frac{\sqrt{2}}{9}$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 66
+  section: Calculus
+  topic: differentiation_and_derivatives
+  text: If $2x^2 + 3xy - y^2 + 4x - 5y + 6 = 0$, then the value of $\frac{dy}{dx}$
+    at $(x, y) = (1, -2)$ is
+  options:
+    A: '1'
+    B: '-1'
+    C: $7/2$
+    D: '0'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 67
+  section: Calculus
+  topic: applications_of_derivatives
+  text: The diameter of a sphere is measured as 42 cm. If there is an error of $1/77$
+    cm in measuring it, then the error involved in the volume of that sphere (in cubic
+    centimeters) is
+  options:
+    A: '33'
+    B: $24/7$
+    C: '36'
+    D: $36/7$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 68
+  section: Calculus
+  topic: applications_of_derivatives
+  text: For $h, k \in \mathbb{N}$, let $P(h, k)$ be the point of intersection of the
+    curves $x^2 y - x^3 = 8$ and $y^3 - xy^2 = 32$. If $\theta$ is the acute angle
+    between these two curves at P, then $\tan \theta =$
+  options:
+    A: $27/11$
+    B: $1/3$
+    C: $\pi/2$
+    D: '3'
+  correct_answer: D
+  difficulty: hard
+  subject: Mathematics
+- id: 69
+  section: Calculus
+  topic: applications_of_derivatives
+  text: If the absolute maximum and absolute minimum values of the function $f(x)
+    = x^3 - 2x^2 + x - 3$ defined on [0, 2] are M and m respectively, then $M+m =$
+  options:
+    A: '-4'
+    B: $-\frac{104}{27}$
+    C: '2'
+    D: '-2'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 70
+  section: Calculus
+  topic: integration
+  text: $\int \frac{1}{\left(x + \frac{2}{x}\right) \sqrt{x^4 + 4x^2 + 3}} dx =$
+  options:
+    A: $\frac{1}{2} \sec^{-1}(x^2+2) + c$
+    B: $-\text{cosech}^{-1}(x^2+2) + c$
+    C: $\frac{1}{2} \tan^{-1}\left(x + \frac{2}{x}\right) + c$
+    D: $-\frac{1}{2} \cot^{-1}\left(x + \frac{2}{x}\right) + c$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 71
+  section: Calculus
+  topic: integration
+  text: If $\frac{3\pi}{2} < x < \frac{5\pi}{2}$ and $\int (\sqrt{1-\sin x} + \sqrt{1+\sin
+    x}) dx = f(x) + c$ where c is the constant of integration, then $f(\frac{\pi}{3})
+    - f(0) = $
+  options:
+    A: '2'
+    B: '-2'
+    C: $2\sqrt{2}$
+    D: $-2\sqrt{2}$
+  correct_answer: B
+  difficulty: hard
+  subject: Mathematics
+- id: 72
+  section: Calculus
+  topic: integration
+  text: If $\int \frac{2\sin 2x - 3\cos x}{2\sin^2 x - 3\sin x + 4} dx = f(x) + c$
+    where c is the constant of integration, then $f(\frac{\pi}{2}) - f(0) = $
+  options:
+    A: 2log 2
+    B: '0'
+    C: $\log(\frac{3}{4})$
+    D: '1'
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 73
+  section: Calculus
+  topic: integration
+  text: $\int \frac{2x+3}{\sqrt{3x^2 - 2x + 1}} dx = $
+  options:
+    A: $\frac{2}{3}\sqrt{3x^2 - 2x + 1} + \frac{11}{3} \sinh^{-1} \left(\frac{3x-1}{\sqrt{2}}\right)
+      + c$
+    B: $\frac{1}{3}\sqrt{3x^2 - 2x + 1} + \frac{11}{3} \sinh^{-1} \left(\frac{\sqrt{3}x-1}{\sqrt{2}}\right)
+      + c$
+    C: $\frac{1}{3}\sqrt{3x^2 - 2x + 1} + \frac{11}{3} \sinh^{-1} \left(\frac{3x-1}{\sqrt{3}}\right)
+      + c$
+    D: $\frac{2}{3}\sqrt{3x^2 - 2x + 1} + \frac{11}{3\sqrt{3}} \sinh^{-1} \left(\frac{3x-1}{\sqrt{2}}\right)
+      + c$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 74
+  section: Calculus
+  topic: definite_integrals
+  text: $\int_{0}^{\pi} \frac{x \cos^2 x}{1 + \sin x} dx = $
+  options:
+    A: $\frac{\pi(\pi-2)}{2}$
+    B: '1'
+    C: $\frac{\pi(\pi+2)}{2}$
+    D: $\frac{\pi}{4}$
+  correct_answer: A
+  difficulty: hard
+  subject: Mathematics
+- id: 75
+  section: Calculus
+  topic: definite_integrals
+  text: If $[x]$ represents greatest integer function then $\int_{-2}^{2} [2-x] dx
+    = $
+  options:
+    A: '10'
+    B: '6'
+    C: '4'
+    D: '3'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 76
+  section: Calculus
+  topic: definite_integrals
+  text: $\int_{0}^{2} \frac{x}{(2-x)^{3/4}} dx = $
+  options:
+    A: $\frac{24}{5} 2^{1/4}$
+    B: $\frac{5}{24} 2^{3/4}$
+    C: $\frac{32}{5} 2^{1/4}$
+    D: $\frac{5}{12} 2^{3/4}$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 77
+  section: Calculus
+  topic: definite_integrals
+  text: $\int_{0}^{2} x^3 (2-x)^4 dx = $
+  options:
+    A: $\frac{128}{105}$
+    B: $\frac{16}{35}$
+    C: $\frac{256}{105}$
+    D: $\frac{32}{35}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 78
+  section: Calculus
+  topic: applications_of_derivatives
+  text: If the slope of the tangent drawn at any point $(x, y)$ to the curve $y=f(x)$
+    is $3x^2 - 5$ and $f(1) = 2$, then the tangent at $(1, 2)$ to the curve $y=f(x)$
+    intersects the curve at the point
+  options:
+    A: (2, 0)
+    B: (-2, 8)
+    C: (3, -2)
+    D: (-1, 6)
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 79
+  section: Calculus
+  topic: differential_equations
+  text: The general solution of the differential equation $(3x-4y)(dx-3dy) + (6dx-4dy)
+    = 0$ is
+  options:
+    A: $x-2y + \log|3x-4y+6| = c$
+    B: $5x-15y - 4\log|15x-20y-12| = c$
+    C: $5x-15y + 14\log|15x-20y-12| = c$
+    D: $8y-4x + \log|9x-12y+4| = c$
+  correct_answer: C
+  difficulty: hard
+  subject: Mathematics
+- id: 80
+  section: Calculus
+  topic: differential_equations
+  text: The general solution of the differential equation $(\sec x + \tan x) \frac{dy}{dx}
+    + (\sec^2 x + \sec x \tan x) y = 1$ is
+  options:
+    A: $(1 + \sin x) y = x \cos x + c$
+    B: $(1 + \cos x) y = x \sin x + c$
+    C: $(\sec x + \tan x) y = x \sec x + c$
+    D: $(\sec x + \tan x) y = x + c$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 81
+  section: Mechanics
+  topic: units_and_measurements
+  text: The ratio of relative strengths of the gravitational force and the electromagnetic
+    force between two charged particles is
+  options:
+    A: $10^{-11}$
+    B: $10^{-38}$
+    C: $10^{-37}$
+    D: $10^{-41}$
+  correct_answer: C
+  difficulty: easy
+  subject: Physics
+- id: 82
+  section: Mechanics
+  topic: units_and_measurements
+  text: The efficiency of an engine is given by $\eta = \frac{\alpha\beta}{\sin\theta}
+    \log_e \frac{\beta x}{kT}$, where $\alpha$ and $\beta$ are constants. If T is
+    the absolute temperature, k - Boltzmann constant, $\theta$ - angular displacement
+    and x is distance, then the incorrect statement is
+  options:
+    A: Dimensions of $\beta$ are same as that of force
+    B: Dimensions of $\alpha^{-1}x$ are same as that of energy
+    C: Dimensions of $\eta^{-1} \sin\theta$ are same as that of $\alpha\beta$
+    D: Dimensions of $\alpha$ are same as that of $\beta$
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 83
+  section: Mechanics
+  topic: motion_in_a_straight_line
+  text: A bird flies with a velocity $(t-2) \text{ ms}^{-1}$ along a straight line,
+    where t is the time in seconds. The distance covered by it in a time of 4 seconds
+    is
+  options:
+    A: 2 m
+    B: 4 m
+    C: 6 m
+    D: 8 m
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 84
+  section: Mechanics
+  topic: motion_in_a_plane
+  text: A car is travelling with linear velocity 'V' on a circular road of radius
+    'r'. If its velocity is increasing at a rate of 'a' $\text{ms}^{-2}$, then the
+    resultant acceleration will be
+  options:
+    A: $\sqrt{\frac{V^2}{r^2} - a^2}$
+    B: $\sqrt{\frac{V^4}{r^2} + a^2}$
+    C: $\sqrt{\frac{V^4}{r^2} - a^2}$
+    D: $\sqrt{\frac{V^2}{r^2} + a^2}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 85
+  section: Mechanics
+  topic: laws_of_motion
+  text: Two blocks of masses $W_1$ and $W_2$ are suspended from the ends of a light
+    string passing over a smooth fixed pulley. If the pulley is pulled up with an
+    acceleration 'g', then the tension in the string will be
+  options:
+    A: $\frac{4W_1W_2}{W_1 + W_2}g$
+    B: $\frac{2W_1W_2}{W_1 + W_2}g$
+    C: $\frac{W_1W_2}{W_1 + W_2}g$
+    D: $\frac{W_1W_2}{2(W_1 + W_2)}g$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 86
+  section: Mechanics
+  topic: work_energy_and_power
+  text: A body is moved along a straight line by an engine which delivers a constant
+    power. The distance moved by the body in time 't' is proportional to
+  options:
+    A: $t^{1/2}$
+    B: $t^{3/4}$
+    C: $t^{3/2}$
+    D: $t^2$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 87
+  section: Mechanics
+  topic: work_energy_and_power
+  text: A body of mass 3 kg is moving under the action of a force which causes a displacement
+    of $(\frac{t^3}{3})$ m, where 't' is time in seconds. The work done by the force
+    in first 2 seconds is
+  options:
+    A: 2 J
+    B: 3.8 J
+    C: 5.2 J
+    D: 24 J
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 88
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: Two blocks of masses 2 kg and 1 kg are tied to the ends of a string which
+    passes over a light frictionless pulley. The blocks are held at rest at the same
+    horizontal level and then released suddenly. The distance traversed by their centre
+    of mass in 2 seconds is (acceleration due to gravity = $10 \text{ ms}^{-2}$)
+  options:
+    A: 1.42 m
+    B: 2.22 m
+    C: 3.12 m
+    D: 3.33 m
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 89
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: A particle of mass 'm' is moving along a line $y = x+a$ with a constant velocity
+    'v'. The angular momentum of the particle about the origin is
+  options:
+    A: mva
+    B: $mva\sqrt{2}$
+    C: $\frac{mva}{\sqrt{2}}$
+    D: $\frac{mva}{x\sqrt{2}}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 90
+  section: Oscillations and Waves
+  topic: simple_harmonic_motion
+  text: A force of 6.4 N stretches a vertical spring by 0.1 m. If it were to oscillate
+    with a period of $\frac{\pi}{4}$ then the mass that is to be suspended from the
+    spring is
+  options:
+    A: $\frac{\pi}{4} \text{ kg}$
+    B: 1 kg
+    C: $\frac{1}{\pi} \text{ kg}$
+    D: 10 kg
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 91
+  section: Mechanics
+  topic: gravitation
+  text: The ratio of orbital velocity of a body near to the surface of a planet and
+    escape velocity of a body from the surface of the same planet is
+  options:
+    A: $\sqrt{2}:1$
+    B: $\sqrt{5}:1$
+    C: $1:\sqrt{2}$
+    D: $1:\sqrt{5}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
+  text: The length of a metal rod at $30 ^\circ \text{C}$ is $30 \text{ cm}$. If its
+    temperature is raised to $105 ^\circ \text{C}$, its length is increased by $0.027
+    \text{ cm}$. Then the coefficient of linear expansion of the metal is
+  options:
+    A: $12 \times 10^{-4} /^\circ \text{C}$
+    B: $12 \times 10^{-5} /^\circ \text{C}$
+    C: $12 \times 10^{-6} /^\circ \text{C}$
+    D: $12 \times 10^{-7} /^\circ \text{C}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 93
+  section: Mechanics
+  topic: fluid_mechanics
+  text: The angle of contact is $120^\circ$ when a cylindrical rod is vertically placed
+    in a liquid. If the same rod is placed horizontally in the liquid, then the angle
+    of contact is
+  options:
+    A: $60^\circ$
+    B: $30^\circ$
+    C: $90^\circ$
+    D: $120^\circ$
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 94
+  section: Mechanics
+  topic: fluid_mechanics
+  text: In a well the pressure at a point 10 m below the surface of water is ($g =
+    10 \text{ ms}^{-2}$)
+  options:
+    A: $2 \times 10^4 \text{ Nm}^{-2}$
+    B: $10^5 \text{ Nm}^{-2}$
+    C: $10^4 \text{ Nm}^{-2}$
+    D: $2 \times 10^5 \text{ Nm}^{-2}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 95
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
+  text: The heat energy required to convert 10 kg of ice at $-10 ^\circ \text{C}$
+    into water at $0 ^\circ \text{C}$ is (specific heat capacity of ice = $0.5 \text{
+    cal g}^{-1}$ and latent heat of fusion of ice = $80 \text{ cal g}^{-1}$)
+  options:
+    A: $357 \times 10^4 \text{ J}$
+    B: $357 \times 10^3 \text{ J}$
+    C: $357 \times 10^2 \text{ J}$
+    D: $357 \times 10^5 \text{ J}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 96
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
+  text: If the reading in Fahrenheit scale is twice the reading in Celsius scale,
+    then the reading in Fahrenheit scale is
+  options:
+    A: $100 ^\circ \text{F}$
+    B: $120 ^\circ \text{F}$
+    C: $80 ^\circ \text{F}$
+    D: $320 ^\circ \text{F}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 97
+  section: Thermal Physics
+  topic: thermodynamics
+  text: When some amount of heat energy is supplied to a monatomic gas, the percentage
+    of heat energy used for increasing the internal energy of the gas ($\gamma = 5/3$)
+    is
+  options:
+    A: '60'
+    B: '40'
+    C: '20'
+    D: '80'
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 98
+  section: Thermal Physics
+  topic: kinetic_theory_of_gases
+  text: The average energy possessed by an oscillator at a temperature 300 K is (Boltzmann
+    constant = $1.38 \times 10^{-23} \text{ JK}^{-1}$)
+  options:
+    A: $2.14 \times 10^{-2} \text{ J}$
+    B: $2.07 \times 10^{-19} \text{ J}$
+    C: $4.14 \times 10^{-21} \text{ J}$
+    D: $4.6 \times 10^{-21} \text{ J}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 99
+  section: Oscillations and Waves
+  topic: waves
+  text: A wave is given by $y = 5 \times 10^{-5} \sin(12.5 \pi x - \frac{\pi}{2} t)$.
+    Then its wavelength and time period are respectively (y and x are in metres and
+    t is in seconds)
+  options:
+    A: 0.04 m, 4 s
+    B: 0.16 m, 1 s
+    C: 0.04 m, 2 s
+    D: 0.16 m, 4 s
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 100
+  section: Oscillations and Waves
+  topic: waves
+  text: A tuning fork 'A' of frequency 250 Hz and another tuning fork 'B' of frequency
+    'x' produced 5 beats per second when vibrated together. If the fork 'B' is waxed
+    and vibrated together with 'A', then 3 beats per second are produced. Then x =
+  options:
+    A: 255 Hz
+    B: 245 Hz
+    C: 247 Hz
+    D: 253 Hz
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 101
+  section: Optics
+  topic: ray_optics_and_optical_instruments
+  text: A convex lens forms a real image of a point object placed on its principal
+    axis. If the upper half of the lens is painted black, then
+  options:
+    A: the image shifts upward
+    B: the image shifts downward
+    C: the intensity of the image decreases
+    D: the intensity of the image increases
+  correct_answer: C
+  difficulty: easy
+  subject: Physics
+- id: 102
+  section: Optics
+  topic: wave_optics
+  text: Two slits separated by a distance of 1 mm are illuminated with light of wavelength
+    $6.5 \times 10^{-7} \text{ m}$. The interference fringes are observed on a screen
+    placed at 1 m from the slits. The distance between the third dark fringe and the
+    fifth bright fringe is equal to
+  options:
+    A: 0.655 mm
+    B: 1.625 mm
+    C: 3.125 mm
+    D: 4.785 mm
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 103
+  section: Electricity and Magnetism
+  topic: electrostatic_potential_and_capacitance
+  text: Two conducting spheres of radii $r_1$ and $r_2$ are charged to the same surface
+    charge density. The ratio of electric fields near their surfaces is
+  options:
+    A: $\frac{r_1^2}{r_2^2}$
+    B: $\frac{r_2^2}{r_1^2}$
+    C: $\frac{r_1}{r_2}$
+    D: '1:1'
+  correct_answer: D
+  difficulty: easy
+  subject: Physics
+- id: 104
+  section: Electricity and Magnetism
+  topic: electrostatic_potential_and_capacitance
+  text: Two electric charges $+2 \mu\text{C}$ and $-4 \mu\text{C}$ are separated by
+    a distance 3 m in air. At a point P located on the line joining the two charges
+    and in between them, the electric potential is zero. Then the electric field at
+    a point P (in $\text{NC}^{-1}$) is
+  options:
+    A: 9,000
+    B: 18,000
+    C: 12,000
+    D: 27,000
+  correct_answer: D
+  difficulty: hard
+  subject: Physics
+- id: 105
+  section: Electricity and Magnetism
+  topic: current_electricity
+  text: If the masses of three wires of same material are in the ratio of 1:2:3 and
+    their lengths are in the ratio of 3:2:1, then electrical resistances of these
+    wires are in the ratio
+  options:
+    A: '1:1:1'
+    B: '1:2:3'
+    C: '9:4:1'
+    D: '27:6:1'
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 106
+  section: Electricity and Magnetism
+  topic: current_electricity
+  text: As shown in the figure, in a Wheatstone's bridge, three resistances P, Q and
+    R are connected in the three arms and the fourth arm is formed by two resistances
+    $S_1$ and $S_2$ connected in parallel. The condition for the bridge to be balanced
+    is
+  options:
+    A: $\frac{P}{Q} = \frac{2R}{S_1 + S_2}$
+    B: $\frac{P}{Q} = \frac{R(S_1+S_2)}{S_1S_2}$
+    C: $\frac{P}{Q} = \frac{R(S_1+S_2)}{2S_1S_2}$
+    D: $\frac{P}{Q} = \frac{R}{S_1 + S_2}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 107
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
+  text: A current I flows in an infinitely long, straight and thin walled pipe, then
+  options:
+    A: the magnetic field at all the points inside the pipe is same, but not zero
+    B: the magnetic field at any point inside the pipe is zero
+    C: the magnetic field is zero only on the axis of the pipe
+    D: the magnetic field is different at different points inside the pipe
+  correct_answer: B
+  difficulty: easy
+  subject: Physics
+- id: 108
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
+  text: A closely wound solenoid of 80 cm long has 5 layers of windings of 400 turns
+    each. The diameter of the solenoid is 1.8 cm. If the current carried is 8 A, then
+    the magnitude of the magnetic field inside the solenoid near its centre is approximately
+  options:
+    A: $1.5 \times 10^{-2} \text{ T}$
+    B: $2.5 \times 10^{-2} \text{ T}$
+    C: $3.5 \times 10^{-2} \text{ T}$
+    D: $4.5 \times 10^{-2} \text{ T}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 109
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: The period of oscillation of a bar magnet at a place is 2 s. At the same place,
+    the period of oscillation of another identical bar magnet whose magnetic moment
+    is 4 times that of first magnet is
+  options:
+    A: 4 s
+    B: 1 s
+    C: 2 s
+    D: 0.5 s
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 110
+  section: Electricity and Magnetism
+  topic: electromagnetic_induction
+  text: The self-inductance of a coil depends on
+  options:
+    A: number of turns of the coil only
+    B: size of the coil only
+    C: shape of the coil only
+    D: size, shape of the coil and number of turns in it
+  correct_answer: D
+  difficulty: easy
+  subject: Physics
+- id: 111
+  section: Electricity and Magnetism
+  topic: electromagnetic_induction
+  text: A conducting circular coil is placed in a uniform magnetic field with the
+    magnetic field initially directed perpendicular to the plane of the coil. In step
+    A, the coil is rotated from its initial position by $60^\circ$ about its diameters
+    in time '$\tau$'. In step B, the coil is further rotated about the same axis in
+    the same sense by another $120^\circ$ in time '$2\tau$'. Ratio of emf induced
+    in the coil in step A to that in step B is
+  options:
+    A: '1:1'
+    B: '1:2'
+    C: '1:3'
+    D: '2:3'
+  correct_answer: D
+  difficulty: hard
+  subject: Physics
+- id: 112
+  section: Electricity and Magnetism
+  topic: alternating_current_circuits
+  text: An alternating emf given by the equation $E = 200 \sin(50 \pi t)$ (where E
+    is in volts and t is in seconds) is applied across a series combination of an
+    inductor and a resistor having inductive reactance $40 \ \Omega$ and resistance
+    $30 \ \Omega$ respectively. At time $t = 1 \text{ s}$, the power dissipated by
+    the resistor is close to $(\cos 53^\circ = 0.6)$
+  options:
+    A: 480 W
+    B: 240 W
+    C: 173 W
+    D: 307 W
+  correct_answer: B
+  difficulty: hard
+  subject: Physics
+- id: 113
+  section: Electricity and Magnetism
+  topic: electromagnetic_waves
+  text: The speed of electromagnetic waves in a medium is $1.5 \times 10^8 \text{
+    ms}^{-1}$. If relative permittivity of that medium is 2, then its magnetic susceptibility
+    is (speed of light in vacuum is $3 \times 10^8 \text{ ms}^{-1}$).
+  options:
+    A: '2'
+    B: '3'
+    C: '1'
+    D: '-1.5'
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 114
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: Consider two black bodies A and B having equal surface areas. On the surface
+    of A, 'n' photons of frequency 'f' are incident perpendicularly in a time 't'.
+    On the surface of B, '2n' photons of frequency '3f' are incident perpendicularly
+    in a time '4t'. The ratio of average intensity of radiation on surface A to that
+    on surface B is
+  options:
+    A: '2:3'
+    B: '3:2'
+    C: '1:12'
+    D: '1:24'
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 115
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: A photon released by the transition of an electron from the second excited
+    state to the ground state of Hydrogen atom is incident on the surface of a metal
+    of work function 3.1 eV. The de Broglie wavelength of the most energetic electron
+    emitted from that metal surface is nearly
+  options:
+    A: $2.6 \ \text{\AA}$
+    B: $4 \ \text{\AA}$
+    C: $6 \ \text{\AA}$
+    D: $7 \ \text{\AA}$
+  correct_answer: B
+  difficulty: hard
+  subject: Physics
+- id: 116
+  section: Modern Physics
+  topic: nuclei
+  text: The radius of a nucleus of mass number 27 is R. Which of the following is
+    true about a nucleus whose radius is 2R?
+  options:
+    A: It is stable in nature
+    B: Its mass number is 54
+    C: It is likely to undergo fission reaction
+    D: It is likely to undergo fusion reaction
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 117
+  section: Modern Physics
+  topic: nuclei
+  text: 'The nucleus ${}_Z^A X$ undergoes the series of reactions given below: ${}_Z^A
+    X \xrightarrow{\alpha\text{-decay}} P \xrightarrow{\beta^-\text{-decay}} Q \xrightarrow{\alpha\text{-decay}}
+    R$. The number of neutrons in the nucleus R is'
+  options:
+    A: A-5
+    B: A-Z-5
+    C: A-9
+    D: A-Z-4
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 118
+  section: Modern Physics
+  topic: semiconductors_and_devices
+  text: In the logic circuit given below, if X=1 and Y=1 then the values of P, Q and
+    R are
+  options:
+    A: P=1, Q=1, R=0
+    B: P=0, Q=1, R=0
+    C: P=1, Q=0, R=1
+    D: P=1, Q=1, R=1
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 119
+  section: Modern Physics
+  topic: semiconductors_and_devices
+  text: The symbol given below represents
+  image: /static/papers/ts_eamcet
+  options:
+    A: A p-n-p transistor
+    B: An n-p-n transistor
+    C: A p-n junction diode
+    D: An inductor
+  correct_answer: B
+  difficulty: easy
+  subject: Physics
+- id: 120
+  section: Communication Systems
+  topic: basics_of_communication_systems
+  text: A telephonic communication service is working at a carrier frequency of 20
+    GHz. Only 20% of it is utilized for transmission. If each channel requires a bandwidth
+    of 5 kHz, then the number of telephonic channels that can be transmitted simultaneously
+    are
+  options:
+    A: $6 \times 10^5$
+    B: $2 \times 10^5$
+    C: $8 \times 10^5$
+    D: $4 \times 10^5$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 121
+  section: Physical Chemistry
+  topic: atomic_structure
+  text: What is the approximate angular momentum (in J s) of electron in hydrogen
+    atom in its ground state? ($h = 6.625 \times 10^{-34} \text{ J s}$)
+  options:
+    A: $2110 \times 10^{-37}$
+    B: $2110 \times 10^{-36}$
+    C: $1055 \times 10^{-37}$
+    D: $1055 \times 10^{-36}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 122
+  section: Physical Chemistry
+  topic: atomic_structure
+  text: The energy of electron in hydrogen atom when present in n=1, n=2 and n=3 will
+    be in the ratio of
+  options:
+    A: '25 : 16 : 9'
+    B: '16 : 9 : 4'
+    C: '36 : 9 : 4'
+    D: '3 : 2 : 1'
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 123
+  section: Inorganic Chemistry
+  topic: classification_of_elements_and_periodicity
+  text: What is the correct order with respect to metallic property of Zr, Cd, Sn,
+    Sr?
+  options:
+    A: $Sn < Cd < Zr < Sr$
+    B: $Sn < Sr < Cd < Zr$
+    C: $Cd < Zr < Sr < Sn$
+    D: $Zr < Sr < Cd < Sn$
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 124
+  section: Physical Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: 'Identify the number of molecules in which the central atom has one lone pair
+    of electrons from the following list: $PbCl_2, PH_3, ClF_3, SF_4, BF_3, SnCl_2$'
+  options:
+    A: '3'
+    B: '4'
+    C: '1'
+    D: '2'
+  correct_answer: B
+  difficulty: hard
+  subject: Chemistry
+- id: 125
+  section: Physical Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: In which of the following molecules, the number of lone pairs of electrons
+    on central atom and the number d-orbitals involved in the hybridisation of central
+    atom, is same?
+  options:
+    A: $ClF_3$
+    B: $PCl_5$
+    C: $BrF_5$
+    D: $SF_4$
+  correct_answer: D
+  difficulty: hard
+  subject: Chemistry
+- id: 126
+  section: Physical Chemistry
+  topic: states_of_matter
+  text: 4 g of an ideal gas A (molar mass = $M_A$) present in a vessel of volume V
+    litre exerted a pressure of 5 atm at 300 K. When 16 g of another ideal gas B (molar
+    mass = $M_B$) was introduced into this vessel at the same temperature, its pressure
+    increased to 10 atm. What is the correct relationship between $M_A$ and $M_B$?
+  options:
+    A: $M_A = 4 M_B$
+    B: $M_A = M_B$
+    C: $M_A = 2 M_B$
+    D: $4 M_A = M_B$
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 127
+  section: Physical Chemistry
+  topic: basic_concepts_of_chemistry
+  text: The sum of three values 12.0, 19.034 and 2.0143 is equal to X. The number
+    of significant figures in X is
+  options:
+    A: '2'
+    B: '5'
+    C: '4'
+    D: '3'
+  correct_answer: D
+  difficulty: easy
+  subject: Chemistry
+- id: 128
+  section: Physical Chemistry
+  topic: thermodynamics
+  text: 'Observe the following properties:
+
+    I. Molar volume
+
+    II. Mass
+
+    III. Internal energy
+
+    IV. Volume
+
+    V. Enthalpy
+
+    VI. Temperature
+
+    VII. Density
+
+    The intensive properties in the above list are'
+  options:
+    A: I, VI, VII only
+    B: I, IV, VI, VII only
+    C: I, III, IV, V only
+    D: II, III, V only
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 129
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: At T (K), $K_c$ value for the reaction $\frac{1}{3} N_2(g) + H_2(g) \rightleftharpoons
+    \frac{2}{3} NH_3(g)$ is 50. The $K_c$ value for the reaction $2NH_3(g) \rightleftharpoons
+    N_2(g) + 3H_2(g)$ at the same temperature is
+  options:
+    A: $4 \times 10^{-6}$
+    B: $8 \times 10^{-6}$
+    C: $6 \times 10^{-6}$
+    D: $8 \times 10^{-3}$
+  correct_answer: B
+  difficulty: hard
+  subject: Chemistry
+- id: 130
+  section: Inorganic Chemistry
+  topic: hydrogen_and_its_compounds
+  text: 'Identify the correct statements from the following:
+
+    A. In photosynthesis reaction, water is oxidized to oxygen
+
+    B. An example for interstitial hydride is $MgH_2$
+
+    C. Sodium hexa metaphosphate is used in the removal of permanent hardness of water'
+  options:
+    A: A, B, C
+    B: A & B only
+    C: B & C only
+    D: A & C only
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 131
+  section: Inorganic Chemistry
+  topic: s_block_elements
+  text: Which one of the following statements is not correct?
+  options:
+    A: Molecular formula of calgon is $NaAlSiO_4$
+    B: Beryllium halides are soluble in organic solvents
+    C: Among alkali metals, the reducing property of sodium is least in aqueous solution
+    D: White metal is an alloy of Lithium
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 132
+  section: Inorganic Chemistry
+  topic: s_block_elements
+  text: Thermal decomposition of lithium nitrate gives
+  options:
+    A: $LiO_2, O_2, NO_2$
+    B: $Li_2O, O_2, N_2O$
+    C: $Li_2O, O_2, N_2$
+    D: $Li_2O, O_2, NO_2$
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 133
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: 'Consider the following statements about group 13 elements
+
+    A. $AlCl_3$ gets stability by forming a dimer
+
+    B. $BCl_3$ is an electron deficient molecule
+
+    C. $E^0_{M^{3+}/M} (V)$ is $+1.26$ for aluminium
+
+    D. In +1 oxidation state thallium is unstable
+
+    The incorrect statements are'
+  options:
+    A: C & D only
+    B: A & B only
+    C: A & D only
+    D: B & C only
+  correct_answer: A
+  difficulty: hard
+  subject: Chemistry
+- id: 134
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: What is the correct order of melting temperature of C, Si, Ge?
+  options:
+    A: $C > Ge > Si$
+    B: $Si > C > Ge$
+    C: $C > Si > Ge$
+    D: $Si > Ge > C$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 135
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
+  text: The IUPAC name of the following compound is (A hexane chain with an ethyl
+    group at position 3 and a methyl group at position 4)
+  options:
+    A: 3-(2-Butyl) Pentane
+    B: 2-(3-Pentyl) butane
+    C: 3-Ethyl-4-methylhexane
+    D: 3-Methyl-4-ethylhexane
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 136
+  section: Organic Chemistry
+  topic: basic_principles_and_techniques
+  text: The delocalization of $\sigma$ electrons of C-H bond of an alkyl group with
+    the $\pi$ electrons of benzene is observed in
+  options:
+    A: Inductive effect
+    B: Hyperconjugation effect
+    C: Resonance effect
+    D: Electromeric effect
+  correct_answer: B
+  difficulty: easy
+  subject: Chemistry
+- id: 137
+  section: Organic Chemistry
+  topic: hydrocarbons
+  text: An alkene X ($C_6H_{12}$) on ozonolysis gave acetaldehyde and ethyl methyl
+    ketone. What is the product formed when X reacts with HBr?
+  options:
+    A: 3-bromo-3-methylpentane
+    B: 2-bromo-3-methylpentane
+    C: 2-bromo-2-ethylbutane
+    D: 3-bromo-2-methylpentane
+  correct_answer: A
+  difficulty: hard
+  subject: Chemistry
+- id: 138
+  section: Organic Chemistry
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: What is X in the following reaction sequence? $Benzene \xrightarrow[ii. HNO_3
+    | H_2SO_4]{i. CrO_2Cl_2 | CS_2, H_3O^+} X$
+  options:
+    A: m-Nitrobenzoic acid
+    B: p-Nitrobenzyl chloride
+    C: m-Nitrobenzoyl chloride
+    D: m-Nitrobenzaldehyde
+  correct_answer: D
+  difficulty: hard
+  subject: Chemistry
+- id: 139
+  section: Physical Chemistry
+  topic: solid_state
+  text: A compound is formed by elements A, B and O. Atoms of oxygen form ccp lattice.
+    Atoms of A (cation) occupy $\frac{1}{8}$th of tetrahedral voids and atoms of B
+    (cation) occupy half of octahedral voids. What is the molecular formula of the
+    compound?
+  options:
+    A: $A_2BO_4$
+    B: $ABO_2$
+    C: $AB_2O_4$
+    D: $ABO_3$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 140
+  section: Physical Chemistry
+  topic: solutions
+  text: Liquids A and B form an ideal solution. The vapour pressures of A and B are
+    50 and 32mm Hg respectively at 300K. One mole of liquid A is mixed with 1 mole
+    of liquid B. What is the approximate mole fraction of A in vapour phase?
+  options:
+    A: '0.39'
+    B: '0.50'
+    C: '0.25'
+    D: '0.61'
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 141
+  section: Physical Chemistry
+  topic: electrochemistry
+  text: 'A and B are two metals. The standard reduction potential of $A^+ (aq) / A(s)$
+    and $B^+ (aq) / B(s)$ are $-0.5\text{ V}$ and $+0.5\text{ V}$ respectively. What
+    is the $\log K_c$ value for the following reaction at 298 K? $A(s) + B^+ (aq)
+    \rightleftharpoons A^+ (aq) + B(s)$. (Given: $\frac{2.303RT}{F} = 0.06\text{ V}$)'
+  options:
+    A: $\frac{6}{100}$
+    B: $\frac{100}{6}$
+    C: $\frac{6}{200}$
+    D: $\frac{200}{6}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 142
+  section: Physical Chemistry
+  topic: chemical_kinetics
+  text: For a zero order reaction $A \rightarrow \text{product}$, a plot of $[A]$
+    (on y-axis) and time (on x-axis) gave a straight line with slope equal to $-3
+    \times 10^{-3}\text{ M min}^{-1}$ and intercept equal to $2 \times 10^{-2}\text{
+    M}$ (on y-axis). What is the rate constant (in $\text{M min}^{-1}$) of this reaction?
+  options:
+    A: $3 \times 10^{-3}$
+    B: $5 \times 10^{-3}$
+    C: $3 \times 10^{-4}$
+    D: $5 \times 10^{-4}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 143
+  section: Physical Chemistry
+  topic: surface_chemistry
+  text: 'Match the following:
+
+    List I (Colloid Type/Property) | List II (Example/Description)
+
+    A. Negatively charged sol | I. Emulsion
+
+    B. Milk | II. Kalaazar
+
+    C. Gold number | III. $FeCl_3$ solution is added to excess NaOH solution
+
+    D. Colloidal antimony | IV. Protection of colloids'
+  options:
+    A: A-III, B-I, C-II, D-IV
+    B: A-III, B-I, C-IV, D-II
+    C: A-I, B-III, C-IV, D-II
+    D: A-II, B-I, C-III, D-IV
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 144
+  section: Inorganic Chemistry
+  topic: representative_elements
+  text: 'The reaction $4Ag(s) + 8CN^- (aq) + 2H_2O(aq) + O_2(g) \longrightarrow 4[Ag(CN)_2]^-
+    (aq) + 4OH^- (aq)$ represents the process of concentration of ore in the extraction
+    of silver. This process is:'
+  options:
+    A: Leaching
+    B: Levigation
+    C: Froth floatation
+    D: Liquation
+  correct_answer: A
+  difficulty: easy
+  subject: Chemistry
+- id: 145
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: Which one of the following statements is correct?
+  options:
+    A: $N_2$ is a brown coloured gas
+    B: $O_3$ is thermodynamically stable compared to oxygen
+    C: Rhombic sulphur is stable at room temperature
+    D: $Cl_2$ is a colourless gas
+  correct_answer: C
+  difficulty: easy
+  subject: Chemistry
+- id: 146
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: Which oxo acid of sulphur contains S-O-S bond?
+  options:
+    A: $H_2S_2O_3$
+    B: $H_2S_2O_4$
+    C: $H_2S_2O_7$
+    D: $H_2S_2O_8$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 147
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: Which of the following reaction gives nitrogen (II) oxide as one of the products?
+  options:
+    A: $Cu + dil. HNO_3 \rightarrow$
+    B: $Cu + conc. HNO_3 \rightarrow$
+    C: $Zn + dil. HNO_3 \rightarrow$
+    D: $Zn + conc. HNO_3 \rightarrow$
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 148
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: 'Identify the correct pairs in which the chemical substance given is correctly
+    matched with its use:
+
+    A) $Cl_2$ - Preparation of phosgene
+
+    B) $I_2O_5$ - estimation of CO
+
+    C) $O_3$ - disinfectant'
+  options:
+    A: A, B, C
+    B: A, B only
+    C: B, C only
+    D: A, C only
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 149
+  section: Inorganic Chemistry
+  topic: d_and_f_block_elements
+  text: 'Observe the following ions:
+
+    $V^{2+}, Zn^{2+}, Cu^{2+}, Fe^{2+}, Fe^{3+}, Ti^{3+}, Sc^{3+}, Ti^{4+}, Ni^{2+},
+    Co^{3+}, Cu^+$
+
+    How many ions in the above list have zero magnetic moment?'
+  options:
+    A: '4'
+    B: '3'
+    C: '5'
+    D: '2'
+  correct_answer: A
+  difficulty: hard
+  subject: Chemistry
+- id: 150
+  section: Inorganic Chemistry
+  topic: coordination_compounds
+  text: Identify the correct set for $[Co(NH_3)_6]^{3+}$ ion. (hybridisation of $Co^{3+}$,
+    type of complex, number of unpaired electrons in the complex ion respectively)
+  options:
+    A: $d^2sp^3$, inner orbital complex, zero
+    B: $sp^3d^2$, outer orbital complex, three
+    C: $d^2sp^3$, inner orbital complex, two
+    D: $sp^3d^2$, outer orbital complex, zero
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 151
+  section: Organic Chemistry
+  topic: polymers
+  text: 'Identify the correct statement from the following: (A) Glyptal is made from
+    the monomers ethylene glycol and phthalic acid. (B) Bakelite is used in making
+    electrical switches. (C) Nylon 2-nylon 6 is a biodegradable polymer.'
+  options:
+    A: A, B, C
+    B: A & C only
+    C: A & B only
+    D: B & C only
+  correct_answer: A
+  difficulty: easy
+  subject: Chemistry
+- id: 152
+  section: Organic Chemistry
+  topic: biomolecules
+  text: A vitamin X is soluble in fat and its source is egg yolk. Deficiency of X
+    causes the disease
+  options:
+    A: Scurvy
+    B: Convulsions
+    C: Xerophthalmia
+    D: Rickets
+  correct_answer: D
+  difficulty: easy
+  subject: Chemistry
+- id: 153
+  section: Organic Chemistry
+  topic: chemistry_in_everyday_life
+  text: Identify the pair of drugs which act as tranquilizers
+  options:
+    A: Heroin, Codeine
+    B: Valium, Serotonin
+    C: Dimetapp, Seldane
+    D: Cimetidine, Ranitidine
+  correct_answer: B
+  difficulty: easy
+  subject: Chemistry
+- id: 154
+  section: Organic Chemistry
+  topic: haloalkanes_and_haloarenes
+  text: An alkyl halide X ($C_4H_9Br$) undergoes nucleophilic substitution by $S_N2$
+    reaction. The product of X on reaction with Mg/dry ether followed by $D_2O$ is
+  options:
+    A: $CH_3CH_2CH_2CH_2OD$
+    B: $CH_3CH_2CH_2CH_2D$
+    C: $(CH_3)_3CD$
+    D: $(CH_3)_3COD$
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 155
+  section: Organic Chemistry
+  topic: alcohols_phenols_and_ethers
+  text: 'Assertion (A): $pK_a$ of phenol is 4.19 and that of benzoic acid is 10. Reason
+    (R): Phenoxide ion is stabilised by non-equivalent resonance structures whereas
+    benzoate ion by two equivalent resonance structures.'
+  options:
+    A: A and R are true, R is the correct explanation of A
+    B: A and R are true, but R is not the correct explanation of A
+    C: A is true but R is false
+    D: A is false but R is true
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 156
+  section: Organic Chemistry
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: In which of the following pairs reactant is correctly matched with reagent
+    that would form benzaldehyde as product? A. $C_6H_5COCl \ldots H_2-Pd/BaSO_4$;
+    B. $C_6H_5CO_2CH_2CH_3 \ldots \text{(i) LAH, (ii) } H_2O$; C. $C_6H_5CH_3 \ldots
+    KMnO_4/H^+$; D. $C_6H_5CN \ldots \text{(i) } AlH(i-Bu)_2, \text{(ii) } H_2O$
+  options:
+    A: A & C only
+    B: C & D only
+    C: A & D only
+    D: B & C only
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 157
+  section: Organic Chemistry
+  topic: hydrocarbons
+  text: An alkene X with formula $C_4H_8$ does not exhibit geometrical isomerism.
+    In the conversion of X to Y, the correct sequence of reagents A and B used are
+    (Y gives iodoform test)
+  options:
+    A: $BH_3, H_2O_2/OH^{-}, PCC$
+    B: $H_2O/H^{+}, ZnCl_2/HCl$
+    C: $H_2O/H^{+}, Cu/573\text{ K}$
+    D: $BH_3, H_2O_2/OH^{-}, Cu/573\text{ K}$
+  correct_answer: C
+  difficulty: hard
+  subject: Chemistry
+- id: 158
+  section: Organic Chemistry
+  topic: alcohols_phenols_and_ethers
+  text: Which of the following reaction is feasible?
+  options:
+    A: $C_6H_5OH + SOCl_2 \rightarrow C_6H_5Cl + SO_2 + HCl$
+    B: $H_3C-CH=CH-CH_2OH \xrightarrow{PCC} H_3C-CH=CH-CHO$
+    C: $CH_3CH_2CH_2OH \xrightarrow{KMnO_4/H^+} H_3C-CH_2CHO$
+    D: $CH_3CH_2CH_2CH_2OH \xrightarrow{20\% H_3PO_4 / 273\text{ K}} CH_3CH_2CH=CH_2$
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 159
+  section: Organic Chemistry
+  topic: amines
+  text: The sequence of reagents which convert p-methyl aniline to p-methyl benzoic
+    acid are
+  options:
+    A: $KMnO_4/H^{+}; NaNO_2+HCl; Cu/HCl$
+    B: $NaNO_2+HCl/273\text{K}; Cu/HCl; KMnO_4/H^{+}$
+    C: $NaNO_2+HCl/273\text{K}; CuCN/KCN; H_3O^{+}$
+    D: $NaNO_2+HCl/285\text{K}; KCN; H_3O^{+}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 160
+  section: Organic Chemistry
+  topic: amines
+  text: An amine (X) reacts with p-toluene sulphonyl chloride to give the product
+    Y, which is insoluble in alkali. The product of X with benzoyl chloride is
+  options:
+    A: $CH_3CH_2CH(NH_2)COC_6H_5$
+    B: $CH_3CH(CH_2NH_2)N(COCH_3)C_6H_5$
+    C: $CH_3CH_2NHCOC_6H_5$
+    D: $CH_3CH_2N(CH_3)COC_6H_5$
+  correct_answer: D
+  difficulty: hard
+  subject: Chemistry

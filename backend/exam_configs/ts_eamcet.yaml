@@ -13,43 +13,50 @@ default_negative_marks: 0.0
 subjects:
   - name: Mathematics
     code: mathematics
+    total_questions: 80
     sections:
       - name: Algebra
         code: algebra
-        total_questions: 15
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 20
         topics:
-          - matrices
-          - theory_of_equations
-          - de_moivres_theorem
-          - complex_numbers
+          - functions_and_inverse_functions
           - mathematical_induction
+          - complex_numbers
+          - de_moivres_theorem
           - quadratic_expressions
-          - binomial_theorem
+          - theory_of_equations
           - permutations_and_combinations
-          - functions
+          - binomial_theorem
           - partial_fractions
+          - matrices
       - name: Trigonometry
         code: trigonometry
-        total_questions: 12
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 10
         topics:
-          - hyperbolic_functions
-          - properties_of_triangles
+          - trigonometric_ratios_and_identities
+          - sum_and_difference_of_angles
+          - multiple_and_sub_multiple_angles
           - trigonometric_equations
           - inverse_trigonometric_functions
-          - trigonometric_transformations
-      - name: Geometry
-        code: geometry
-        total_questions: 13
-        marks_per_question: 1.0
-        negative_marks: 0.0
+          - properties_of_triangles
+          - hyperbolic_functions
+      - name: Vector Algebra
+        code: vector_algebra
+        total_questions: 10
+        topics:
+          - vectors_and_scalars
+          - types_of_vectors
+          - addition_of_vectors
+          - scalar_dot_product
+          - vector_cross_product
+          - applications_to_geometry
+      - name: Coordinate Geometry
+        code: coordinate_geometry
+        total_questions: 15
         topics:
           - locus
-          - straight_lines
           - transformation_of_axes
+          - straight_lines
           - pair_of_straight_lines
           - circle
           - system_of_circles
@@ -57,135 +64,141 @@ subjects:
           - ellipse
           - hyperbola
           - three_dimensional_coordinates
-          - direction_cosines_and_ratios
-          - plane
       - name: Calculus
         code: calculus
-        total_questions: 20
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 15
         topics:
           - limits_and_continuity
-          - differentiation
+          - differentiation_and_derivatives
           - applications_of_derivatives
           - integration
           - definite_integrals
           - differential_equations
-      - name: Statistics
-        code: statistics
+      - name: Probability & Statistics
+        code: probability_and_statistics
         total_questions: 10
-        marks_per_question: 1.0
-        negative_marks: 0.0
         topics:
+          - probability
+          - random_variables_and_distribution
           - measures_of_dispersion
-      - name: Probability
-        code: probability
-        total_questions: 10
-        marks_per_question: 1.0
-        negative_marks: 0.0
-        topics:
-          - probability_detailed
-          - random_variables_probability
 
   - name: Physics
     code: physics
+    total_questions: 40
     sections:
       - name: Mechanics
         code: mechanics
-        total_questions: 10
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 12
         topics:
-          - physical_world
+          - physics_world
+          - units_and_measurements
+          - laws_of_motion
+          - work_energy_and_power
+          - system_of_particles_and_rotational_motion
+          - gravitation
+          - properties_of_matter
+          - fluid_mechanics
           - motion_in_a_straight_line
           - motion_in_a_plane
-          - laws_of_motion
-          - work_energy_power
-          - systems_of_particles_rotational_motion
-          - oscillations
-          - gravitation
-          - mechanical_properties_of_solids
-          - mechanical_properties_of_fluids
-      - name: Thermodynamics
-        code: thermodynamics
-        total_questions: 8
-        marks_per_question: 1.0
-        negative_marks: 0.0
+      - name: Thermal Physics
+        code: thermal_physics
+        total_questions: 6
         topics:
+          - thermodynamics
+          - kinetic_theory_of_gases
           - thermal_properties_of_matter
-          - thermodynamics_detailed
-          - kinetic_theory
+      - name: Oscillations and Waves
+        code: oscillations_and_waves
+        total_questions: 4
+        topics:
+          - simple_harmonic_motion
+          - wave_motion
+          - sound_waves
+          - waves
+      - name: Electricity and Magnetism
+        code: electricity_and_magnetism
+        total_questions: 10
+        topics:
+          - electrostatics
+          - current_electricity
+          - magnetic_effects_of_current_and_magnetism
+          - moving_charges_and_magnetism
+          - electromagnetic_induction
+          - alternating_current_circuits
+          - electromagnetic_waves
+          - electrostatic_potential_and_capacitance
       - name: Optics
         code: optics
-        total_questions: 10
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 3
         topics:
-          - ray_optics_optical_instruments
+          - ray_optics_and_optical_instruments
           - wave_optics
-          - waves
       - name: Modern Physics
         code: modern_physics
-        total_questions: 12
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 3
         topics:
-          - duel_nature_of_radiation_and_matter
+          - dual_nature_of_matter_and_radiation
+          - atomic_physics
           - atoms
+          - nuclear_physics
           - nuclei
-          - semiconductor_electronics
-          - communication_systems
-          - electromagnetic_waves
+          - semiconductors_and_devices
+      - name: Communication Systems
+        code: communication_systems
+        total_questions: 2
+        topics:
+          - basics_of_communication_systems
 
   - name: Chemistry
     code: chemistry
+    total_questions: 40
     sections:
       - name: Physical Chemistry
         code: physical_chemistry
-        total_questions: 13
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 14
         topics:
-          - solid_state
-          - solutions
-          - electrochemistry
+          - basic_concepts_of_chemistry
+          - atomic_structure
+          - chemical_bonding_and_molecular_structure
+          - states_of_matter
+          - thermodynamics
           - chemical_kinetics
           - surface_chemistry
-          - atomic_structure
-          - states_of_matter_gases_liquids
-          - thermodynamics_chemistry
-          - chemical_equilibrium_acids_bases
+          - solutions
           - stoichiometry
+          - chemical_equilibrium_acids_bases
+          - electrochemistry
+          - solid_state
       - name: Inorganic Chemistry
         code: inorganic_chemistry
         total_questions: 13
-        marks_per_question: 1.0
-        negative_marks: 0.0
         topics:
-          - classification_periodicity
-          - chemical_bonding_molecular_structure
-          - hydrogen_and_compounds
+          - classification_of_elements_and_periodicity
+          - hydrogen_and_its_compounds
           - s_block_elements
-          - p_block_elements_group_13
-          - p_block_elements_group_14
-          - p_block_elements_groups_15_18
-          - d_f_block_coordination
+          - p_block_elements
+          - d_and_f_block_elements
+          - coordination_compounds
+          - representative_elements
+          - environmental_chemistry
       - name: Organic Chemistry
         code: organic_chemistry
-        total_questions: 14
-        marks_per_question: 1.0
-        negative_marks: 0.0
+        total_questions: 13
         topics:
-          - organic_principles_hydrocarbons
-          - environmental_chemistry
-          - haloalkanes_haloarenes
-          - organic_compounds_ch_o
-          - organic_compounds_nitrogen
-          - phenols_ethers_aldehydes_ketones_carboxylic_acids
+          - basic_principles_and_techniques
+          - hydrocarbons
+          - haloalkanes_and_haloarenes
+          - organic_compounds_containing_oxygen
+          - alcohols_phenols_and_ethers
+          - aldehydes_ketones_and_carboxylic_acids
+          - organic_compounds_containing_nitrogen
+          - amines
           - biomolecules
+          - polymers
+          - chemistry_in_everyday_life
 
 instructions:
-  - Total duration is 3 hours.
+  - Total duration is 180 minutes.
   - No negative marking.
   - All questions are multiple choice.
   - Use of calculator is not allowed.
