@@ -697,8 +697,20 @@ export default function ExamInterfacePage() {
                       >
                         {optionLabels[idx]}
                       </div>
-                      <span className="text-gray-800">
-                        <LatexText>{option.text}</LatexText>
+                      <span className="text-gray-800 flex-1">
+                        {typeof option.text === "object" && option.text?.image ? (
+                          <div className="py-1">
+                            <img
+                              src={option.text.image.startsWith('http') 
+                                ? option.text.image 
+                                : `http://localhost:8000${option.text.image}`}
+                              alt={`Option ${optionLabels[idx]}`}
+                              className="max-h-32 object-contain rounded"
+                            />
+                          </div>
+                        ) : (
+                          <LatexText>{option.text}</LatexText>
+                        )}
                       </span>
                     </button>
                   );

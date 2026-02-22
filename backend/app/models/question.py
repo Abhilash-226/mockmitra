@@ -1,7 +1,7 @@
 from beanie import Document, Indexed
 from pydantic import Field
 from datetime import datetime, timezone
-from typing import Optional, Dict, Annotated
+from typing import Optional, Dict, Annotated, Any
 from enum import Enum
 
 
@@ -20,7 +20,7 @@ class QuestionSource(str, Enum):
 class Question(Document):
     # Question content
     question_text: str
-    options: Dict[str, str]  # {"a": "...", "b": "...", "c": "...", "d": "..."}
+    options: Dict[str, Any]  # {"a": "...", "b": "...", "c": "...", "d": "..."}
     correct_option: str  # a, b, c, or d
     image: Optional[str] = None
     explanation: Optional[str] = None

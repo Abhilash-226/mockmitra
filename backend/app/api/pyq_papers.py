@@ -66,7 +66,7 @@ class PaperQuestion(BaseModel):
     number: int
     section: str
     text: str
-    options: Dict[str, str]
+    options: Dict[str, Any]
     correct_answer: str
     image: Optional[str] = None
     topic: Optional[str] = None
@@ -275,7 +275,7 @@ async def get_paper(paper_id: str):
             number=q.get("number") or q.get("id", 0),
             section=q.get("section", ""),
             text=str(q.get("text", "")),
-            options={k: str(v) for k, v in q.get("options", {}).items()},
+            options=q.get("options", {}),
             correct_answer=q.get("correct_answer") or q.get("correct", ""),
             image=q.get("image"),
             topic=q.get("topic"),
@@ -441,7 +441,7 @@ async def submit_pyq_test(
         # Normalise option keys to lowercase a/b/c/d
         options_map = {}
         for k, v in opts_raw.items():
-            options_map[k.lower()] = str(v)
+            options_map[k.lower()] = v
 
         correct_raw = str(yq.get("correct_answer") or yq.get("correct", "")).strip().lower()
 

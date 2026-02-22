@@ -36,6 +36,20 @@ function LatexText({ children }) {
   );
 }
 
+// Defensive helper to parse potential stringified objects (Python-style dicts)
+const parseOptionValue = (val) => {
+  if (typeof val !== "string") return val;
+  if (val.startsWith("{'") && val.endsWith("'}") && val.includes("'image':")) {
+    try {
+      // Basic Python dict -> JSON conversion for image paths
+      return JSON.parse(val.replace(/'/g, '"'));
+    } catch (e) {
+      return val;
+    }
+  }
+  return val;
+};
+
 const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 
 // Individual Question Card matching the reference UI
@@ -204,7 +218,21 @@ function QuestionReviewCard({ question }) {
                   {OPTION_LABELS[idx]}
                 </span>
                 <span className="flex-1 text-gray-800 text-[15px]">
-                  <LatexText>{opt.text}</LatexText>
+                  {typeof opt.text === "object" && opt.text?.image ? (
+                    <div className="py-1">
+                      <img
+                        src={
+                          opt.text.image.startsWith("http")
+                            ? opt.text.image
+                            : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${opt.text.image}`
+                        }
+                        alt={`Option (${OPTION_LABELS[idx]})`}
+                        className="max-h-32 object-contain rounded"
+                      />
+                    </div>
+                  ) : (
+                    <LatexText>{opt.text}</LatexText>
+                  )}
                 </span>
                 {style.icon}
               </div>
@@ -379,8 +407,11 @@ export default function DetailedAnalysisPage() {
         // Transform questions
         const questions = (data.questions || []).map((q, index) => {
           const options = (q.options || []).map((opt) => {
-            if (typeof opt === "string") return { value: opt, text: opt };
-            return { value: opt.key ?? opt.value, text: opt.text ?? opt.label ?? opt };
+            if (typeof opt === "string") return { value: opt, text: parseOptionValue(opt) };
+            return { 
+              value: opt.key ?? opt.value, 
+              text: parseOptionValue(opt.text ?? opt.label ?? opt) 
+            };
           });
           return {
             id: q.id || q.question_id || `q-${index}`,

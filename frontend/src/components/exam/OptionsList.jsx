@@ -62,8 +62,20 @@ export default function OptionsList({
               {OPTION_LABELS[index]}
             </span>
 
-            {/* Option text */}
-            <span className="flex-1 text-gray-800"><LatexText>{optionText}</LatexText></span>
+            {/* Option text or image */}
+            <span className="flex-1 text-gray-800">
+              {typeof optionText === "object" && optionText?.image ? (
+                <div className="py-2">
+                  <img
+                    src={optionText.image}
+                    alt={`Option ${OPTION_LABELS[index]}`}
+                    className="max-h-32 object-contain rounded-md"
+                  />
+                </div>
+              ) : (
+                <LatexText>{optionText}</LatexText>
+              )}
+            </span>
 
             {/* Correct/Incorrect indicator */}
             {correctOption && (
