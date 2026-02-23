@@ -7,8 +7,8 @@ from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
 import uuid
 
-import groq
-from groq import Groq
+from google import genai
+from google.genai import types
 
 from app.models.blueprint import (
     Blueprint,
@@ -37,24 +37,41 @@ class AIQuestionOutput(BaseModel):
         return v
 
 # =============================================================================
-# AI GENERATOR SERVICE
+# GEMINI AI GENERATOR SERVICE
 # =============================================================================
 
 class AIQuestionGenerator:
     """
-    Generates exam questions using Groq/Llama-3 based on structured blueprints.
+    Generates exam questions using Gemini 1.5 Flash via Google GenAI SDK.
+    Uses GCP credits if GOOGLE_CLOUD_PROJECT is set, otherwise uses API Key.
     """
     
     def __init__(self, api_key: Optional[str] = None):
-        self.api_key = api_key or settings.GROQ_API_KEY
+        self.api_key = api_key or settings.GEMINI_API_KEY
+        self.project = settings.GOOGLE_CLOUD_PROJECT
+        self.location = settings.GOOGLE_CLOUD_LOCATION
         self.client = None
-        self.model = "llama-3.1-8b-instant"  # Using 8B for speed/cost balance
+        self.model = "gemini-2.0-flash-001" 
         
-        if self.api_key:
-            try:
-                self.client = Groq(api_key=self.api_key)
-            except Exception as e:
-                print(f"Failed to initialize Groq client: {e}")
+        try:
+            if self.project:
+                # Use Vertex AI (GCP Credits)
+                print(f"Initializing Gemini via Vertex AI (Project: {self.project})")
+                self.client = genai.Client(
+                    vertexai=True,
+                    project=self.project,
+                    location=self.location
+                )
+                # Vertex AI uses a different model name format
+                self.model = "gemini-2.0-flash-001"
+            elif self.api_key:
+                # Use API Key (AI Studio style)
+                print("Initializing Gemini via API Key")
+                self.client = genai.Client(api_key=self.api_key)
+            else:
+                print("AI Generator Error: No Gemini API Key or GCP Project provided.")
+        except Exception as e:
+            print(f"Failed to initialize Gemini client: {e}")
 
     def generate_question(
         self, 
@@ -62,28 +79,23 @@ class AIQuestionGenerator:
         difficulty: Optional[DifficultyLevel] = None
     ) -> Optional[GeneratedQuestion]:
         """
-        Generate a single unique question from a blueprint using AI.
+        Generate a single unique question from a blueprint using Gemini.
         """
         if not self.client:
-            print("AI Generator Error: No API Key provided.")
+            print("AI Generator Error: Client not initialized.")
             return None
 
         difficulty = difficulty or blueprint.difficulty_level or DifficultyLevel.MODERATE
         
         # 1. Construct Prompt
-        prompt = self._build_prompt(blueprint, difficulty)
+        system_prompt, user_prompt = self._build_prompts(blueprint, difficulty)
         
-        # 2. Call LLM
+        # 2. Call Gemini
         try:
-            response_json = self._call_llm(prompt)
+            response_json = self._call_gemini(system_prompt, user_prompt)
             if not response_json:
-                print(f"LLM returned no JSON for {blueprint.id}")
                 return None
             
-            # DEBUG: Dump JSON
-            with open("debug_response.json", "w", encoding="utf-8") as f:
-                json.dump(response_json, f, indent=2)
-
             # 3. Parse & Validate Structure
             ai_data = AIQuestionOutput(**response_json)
             
@@ -91,98 +103,128 @@ class AIQuestionGenerator:
             return self._convert_to_question(ai_data, blueprint, difficulty)
             
         except Exception as e:
-            print(f"AI Generation Failed for {blueprint.id}: {e}")
-            import traceback
-            with open("ai_gen_error.log", "w") as f:
-                traceback.print_exc(file=f)
+            print(f"Gemini Generation Failed for {blueprint.id}: {e}")
             return None
 
-    def _build_prompt(self, blueprint: Blueprint, difficulty: DifficultyLevel) -> str:
-        """Constructs the system and user prompt for the LLM."""
+    def _build_prompts(self, blueprint: Blueprint, difficulty: DifficultyLevel) -> tuple[str, str]:
+        """Constructs prompts for Gemini."""
         
-        # Use new hierarchy with fallbacks
         section = blueprint.section or blueprint.chapter or "General"
         topic = blueprint.topic or blueprint.concept or "General"
+        
+        # Handle difficulty
+        diff_str = str(difficulty.value if hasattr(difficulty, 'value') else difficulty).upper()
 
-        # Extra metadata for few-shot prompts
-        source_id = ""
-        if "pyq_source" in (blueprint.tags or []):
-            source_id = next((t for t in blueprint.tags if "ts_eamcet" in t), "")
-
-        # Handle difficulty enum or string
-        diff_str = "MODERATE"
-        if hasattr(difficulty, 'value'):
-            diff_str = difficulty.value.upper()
-        else:
-            diff_str = str(difficulty).upper()
-
-        # Extract template or concept description
+        # Handle Template/Reference
         template_str = ""
-        if blueprint.template_variants:
-            template_str = f"Template Example: {random.choice(blueprint.template_variants)}"
-        elif blueprint.template:
-            # Check if this is a virtual blueprint (few-shot guide)
-            if "pyq_source" in (blueprint.tags or []):
-                template_str = f"Reference Real Exam Question (DO NOT REPEAT, USE AS STYLE GUIDE): {blueprint.template}"
-            else:
-                template_str = f"Template Example: {blueprint.template}"
-            
-        system_prompt = f"""You are an expert exam setter for {blueprint.exam}.
-Your task is to generate a UNIQUE, HIGH-QUALITY {blueprint.subject} question based on a specific blueprint.
+        is_pyq = "pyq_source" in (blueprint.tags or [])
+        
+        if is_pyq:
+            template_str = f"REFERENCE PYQ QUESTION (Original): {blueprint.template}\nINSTRUCTION: Create a NEW question based on the CONCEPT of this PYQ. Change values, scenarios, or chemical compounds. Do NOT repeat the reference question."
+        elif blueprint.template_variants:
+            template_str = f"TEMPLATE: {random.choice(blueprint.template_variants)}"
+        else:
+            template_str = f"TEMPLATE: {blueprint.template}"
 
-**Constraints:**
-1. Difficulty: {diff_str}
-2. Section: {section}
-3. Topic: {topic}
-4. Question Type: Multiple Choice (4 Options)
-5. Output Format: STRICT JSON ONLY. No markdown, no preamble.
+        system_prompt = f"""You are an expert Professor setting questions for the {blueprint.exam} exam ({blueprint.subject}).
+Your task is to generate a original, challenging, and accurate Multiple Choice Question (MCQ) based on a specific blueprint/template.
 
-**Rules:**
-1. The question must be mathematically/scientifically accurate.
-2. Generate NEW numbers/scenarios. Do NOT copy the reference/template exactly.
-3. If a reference question is provided, analyze its complexity and logical depth, then create a target question of EQUAL depth but DIFFERENT application.
-4. Ensure the options are plausible distractors.
-5. The 'correct_option' must be exactly one of the values in 'options'.
-6. 'solution_steps' must explain the logic clearly.
-7. Be creative! Use different names, contexts, or physical setups to ensure variety.
+Target Exam: {blueprint.exam}
+Subject: {blueprint.subject}
+Difficulty: {diff_str}
+Section/Topic: {section} / {topic}
+
+STRICT TECHNICAL RULES:
+1. Accuracy: The question must be mathematically and scientifically flawless.
+2. LaTeX: Use $...$ for all mathematical expressions and chemical formulas. Example: $\\text{{H}}_2\\text{{SO}}_4$, $x^2 + 2x + 1$.
+3. Originality: If a reference question is provided, do NOT repeat it. Extract the CORE CONCEPT and create a new problem.
+4. Distractors: Provide 4 plausible options. Avoid "None of these" or "All of these".
+5. Language: Use professional, academic English.
+6. JSON: Output ONLY a valid JSON object. No conversation, no markdown blocks.
+7. Backslashes: In the JSON output, all backslashes in LaTeX must be properly escaped (e.g., use \\\\text instead of \\text).
 """
 
-        user_prompt = f"""
-Generate a question for:
+        user_prompt = f"""Generate a unique {diff_str} question for:
 Subject: {blueprint.subject}
-Section: {section}
 Topic: {topic}
 {template_str}
 
-Output JSON structure:
+Ensure the output matches this schema:
 {{
-  "question_text": "...",
-  "options": ["A", "B", "C", "D"],
-  "correct_option": "...",
-  "solution_steps": "...",
-  "variables": {{ "var_name": value }},
-  "reasoning": "..."
+  "question_text": "string (including LaTeX)",
+  "options": ["string", "string", "string", "string"],
+  "correct_option": "string (must match one in options exactly)",
+  "solution_steps": "string (detailed explanation)",
+  "variables": {{ "name": value }},
+  "reasoning": "string (internal logic)"
 }}
 """
-        return system_prompt + "\n\nUser Request:\n" + user_prompt
+        return system_prompt, user_prompt
 
-    def _call_llm(self, prompt: str) -> Optional[Dict[str, Any]]:
-        """Executes the request to Groq SDK."""
-        try:
-            chat_completion = self.client.chat.completions.create(
-                messages=[
-                    {"role": "user", "content": prompt}
-                ],
-                model=self.model,
-                temperature=0.85, # Increased for better variety
-                response_format={"type": "json_object"},
-            )
-            
-            content = chat_completion.choices[0].message.content
-            return json.loads(content)
-        except Exception as e:
-            print(f"LLM Call Error: {e}")
-            return None
+    def _call_gemini(self, system_prompt: str, user_prompt: str) -> Optional[Dict[str, Any]]:
+        """Call Gemini API using the new SDK with exponential backoff for 429s."""
+        max_retries = 3
+        base_delay = 2  # seconds
+        
+        for attempt in range(max_retries):
+            try:
+                response = self.client.models.generate_content(
+                    model=self.model,
+                    contents=user_prompt,
+                    config=types.GenerateContentConfig(
+                        system_instruction=system_prompt,
+                        temperature=0.7,
+                        response_mime_type="application/json"
+                    )
+                )
+                
+                # Pre-processing: Sometimes LLMs return extra escapes or slightly broken JSON
+                content = response.text.strip()
+                # Remove markdown code blocks if present
+                if content.startswith("```json"):
+                    content = content[7:-3].strip()
+                elif content.startswith("```"):
+                    content = content[3:-3].strip()
+                
+                try:
+                    return json.loads(content)
+                except json.JSONDecodeError as je:
+                    # HEURISTIC: Fix common LaTeX JSON escaping issues
+                    # If we see a single backslash followed by a letter (common in LaTeX), 
+                    # but it's not a valid JSON escape, try to double it.
+                    print(f"JSON Decode Error. Attempting to fix LaTeX escaping...")
+                    
+                    # This regex finds a backslash not preceded by another backslash,
+                    # and followed by a letter (like \t, \s, \b which might be LaTeX but are bad JSON)
+                    import re
+                    # Replace \ with \\ unless it's already part of an escape sequence like \", \\, \/, \b, \f, \n, \r, \t
+                    # A simpler approach: replace all single \ with \\
+                    # But we must not double already doubled ones.
+                    fixed_content = re.sub(r'(?<!\\)\\(?!["\\/bfnrt])', r'\\\\', content)
+                    try:
+                        return json.loads(fixed_content)
+                    except:
+                        raise je # If still failing, raise the original error to trigger retry
+
+            except Exception as e:
+                error_msg = str(e)
+                # Handle Rate Limiting (429)
+                if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                    delay = base_delay * (2 ** attempt) + random.uniform(0, 1)
+                    print(f"Gemini Rate Limit (429). Retrying in {delay:.2f}s... (Attempt {attempt+1}/{max_retries})")
+                    time.sleep(delay)
+                    continue
+                
+                # Handle JSON issues
+                if "JSONDecodeError" in error_msg or "Invalid \\escape" in error_msg:
+                    print(f"Gemini returning invalid JSON (escape issue). Retrying... ({attempt+1}/{max_retries})")
+                    time.sleep(1) # Small pause
+                    continue
+                    
+                print(f"Gemini API Call Error: {e}")
+                return None
+        
+        return None
 
     def _convert_to_question(
         self, 
@@ -193,32 +235,19 @@ Output JSON structure:
         """Converts raw AI output to internal Question model."""
         
         # Find correct index
-        correct_idx = 0
-        correct_display = ai_data.correct_option
-        
-        # Scenario 1: correct_option is "A", "B", "C", "D"
-        if ai_data.correct_option.upper() in ["A", "B", "C", "D"]:
-            mapping = {"A": 0, "B": 1, "C": 2, "D": 3}
-            correct_idx = mapping[ai_data.correct_option.upper()]
-            if correct_idx < len(ai_data.options):
-                correct_display = ai_data.options[correct_idx]
-        
-        # Scenario 2: correct_option is the actual text
-        else:
-            try:
-                correct_idx = ai_data.options.index(ai_data.correct_option)
-                correct_display = ai_data.correct_option
-            except ValueError:
-                # Fallback: fuzzy match? For now default to 0
-                correct_idx = 0
-                correct_display = ai_data.options[0] if ai_data.options else "N/A"
+        try:
+            correct_idx = ai_data.options.index(ai_data.correct_option)
+        except ValueError:
+            # Fallback for LLM mistakes
+            correct_idx = 0
+            ai_data.options[0] = ai_data.correct_option
             
         return GeneratedQuestion(
             id=str(uuid.uuid4()),
             blueprint_id=blueprint.id,
             question_text=ai_data.question_text,
             options=ai_data.options,
-            correct_answer=correct_display,
+            correct_answer=ai_data.correct_option,
             correct_option_index=correct_idx,
             solution=ai_data.solution_steps,
             variables_used=ai_data.variables,
@@ -226,6 +255,6 @@ Output JSON structure:
             subject=blueprint.subject,
             chapter=blueprint.chapter,
             concept=blueprint.concept,
-            tags=blueprint.tags or [],
+            tags=(blueprint.tags or []) + ["gemini_generated"],
             generated_at=datetime.utcnow()
         )

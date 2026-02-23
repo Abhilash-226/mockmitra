@@ -1,0 +1,446 @@
+id: ts_eamcet_2021_1
+exam: TS EAMCET
+year: 2021
+shift: 1
+date: null
+session: Shift 1
+source_pdf: 2021-1.pdf
+metadata:
+  total_questions: 36
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 36
+- code: PHY
+  name: Physics
+  question_count: 0
+- code: CHE
+  name: Chemistry
+  question_count: 0
+questions:
+- id: 1
+  section: functions_and_inverse_functions
+  topic: functions_and_inverse_functions
+  text: '$\qquad f:[-2,2] \rightarrow [-2,2], g: [-2,2] \rightarrow [0,4]$ are two
+    functions defined as $f(x)=\begin{cases} -2, -2 \leq x \leq 0 \\ x^2-2, 0 \leq
+    x \leq 2 \end{cases}$ and $g(x) = |f(x)|+ f (|x|)$, then'
+  options: {}
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: functions_and_inverse_functions
+  topic: functions_and_inverse_functions
+  text: f and g are injective mappings
+  options:
+    A: f and g are injective mappings
+    B: f and g are surjective mappings
+    C: f is bijective mapping and g is injective mapping
+    D: f is not bijective mapping and g is surjective mapping
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 3
+  section: functions_and_inverse_functions
+  topic: functions_and_inverse_functions
+  text: The domain of the function $f(x) = \frac{1}{\sqrt{|x|-x}}$ is
+  options:
+    A: $\mathbb{R}$
+    B: $(-\infty,0)$
+    C: ''
+    D: ''
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 4
+  section: mathematical_induction
+  topic: mathematical_induction
+  text: For any $n \in N$, $4^n + 15n - 1$ is divisible by
+  options:
+    A: '2'
+    B: '9'
+    C: '5'
+    D: '6'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 5
+  section: matrices
+  topic: matrices
+  text: If $P = \begin{pmatrix} 1 & \alpha & 3 \\ 1 & 3 & 3 \\ 2 & 4 & 4 \end{pmatrix}$
+    is the adjoint of a 3x3 matrix A and det(A) = 4, then $\alpha$ =
+  options:
+    A: '22'
+    B: '11'
+    C: '3'
+    D: '4'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 6
+  section: matrices
+  topic: matrices
+  text: If $\begin{vmatrix} \alpha & \beta & \gamma \\ a & b & c \\ l & m & n \end{vmatrix}
+    = (-1)^K \begin{vmatrix} m & n & l \\ b & c & a \\ \beta & \gamma & \alpha \end{vmatrix}$,
+    then the least value of $K$ is
+  options:
+    A: ' '
+    B: ' '
+    C: ' '
+    D: ' '
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 7
+  section: matrices
+  topic: matrices
+  text: If the system of equations $x+y+z=1$, $x+2y+4z=K$, $x+4y+10z=K^2$ is consistent
+    then $K=$
+  options:
+    A: '1'
+    B: '-2'
+    C: null
+    D: null
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 8
+  section: complex_numbers
+  topic: complex_numbers
+  text: -1, 2
+  options: {}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 9
+  section: complex_numbers
+  topic: complex_numbers
+  text: 1, 2
+  options: {}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 10
+  section: locus
+  topic: locus
+  text: The locus of $z = x + iy$ such that $Im(\frac{z-3i}{iz+4}) = 0$ is
+  options:
+    A: $x^2 - y^2 + 7y - 12 = 0$
+    B: $x^2 + y^2 - 7y + 12 = 0$
+    C: $x^2 + y^2 - 7y + 12 = 0$ and $(x, y) \neq (0, 4)$
+    D: $x^2 - y^2 + 7y - 12 = 0$ and $(x, y) \neq (0, 4)$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 11
+  section: complex_numbers
+  topic: complex_numbers
+  text: If $\omega$ is a complex cube root of unity, then $\cos\left[ (\omega^{1234}
+    + \omega^{2021})\frac{\pi}{4} \right] = $
+  options:
+    A: $\frac{1}{\sqrt{2}}$
+    B: $\frac{1}{2}$
+    C: $\frac{\sqrt{3}}{2}$
+    D: $\frac{-1}{\sqrt{2}}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: quadratic_expressions
+  topic: quadratic_expressions
+  text: If $z_1$ and $z_2$ are the roots of the equation $x^2 + 2x + 2 = 0$, then
+    $\frac{-2^{11}(z_1 + 1 + 3i)^{11}}{2^5(z_2 + 1 - 3i)^{11}} = $
+  options:
+    A: ''
+    B: ''
+    C: ''
+    D: ''
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 13
+  section: matrices
+  topic: matrices
+  text: '64'
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 14
+  section: quadratic_expressions
+  topic: quadratic_expressions
+  text: Let $f(x)=ax^2+bx+c$ and GCD of $a, b, c$ is 1. If $\frac{-7+\sqrt{11}i}{6}$
+    is a root of $f(x)=0$ and $f(\frac{x}{k})-L = (x+4)(3x-5)$ then $k$ and $L$ are
+    respectively
+  options:
+    A: $1, -15$
+    B: $1, 25$
+    C: '32'
+    D: $16\sqrt{2}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 15
+  section: straight_lines
+  topic: straight_lines
+  text: 7, -15
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: functions_and_inverse_functions
+  topic: functions_and_inverse_functions
+  text: For $\forall x \in R$ the minimum value $\frac{1}{3}$ and the maximum value
+    3 of $\frac{x^2+x+1}{x^2-x+1}$ exist at $l$ and $m$ respectively, then $l + m
+    =$
+  options:
+    A: '-22'
+    B: '0'
+    C: '17'
+    D: '-7'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 17
+  section: theory_of_equations
+  topic: theory_of_equations
+  text: If 2 and 3 are the two roots of the equation $2x^3 + mx^2 -13x + n = 0$, then
+    the values of $m, n$ are respectively
+  options:
+    A: -5, -30
+    B: -5, 30
+    C: 5, 30
+    D: 5, -30
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 18
+  section: complex_numbers
+  topic: complex_numbers
+  text: If $-1+i$ is a root of the equation $x^4 + 4x^3 +5x^2 +2x-2=0$, then the real
+    roots of this equation are
+  options:
+    A: null
+    B: null
+    C: null
+    D: null
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 19
+  section: quadratic_expressions
+  topic: quadratic_expressions
+  text: -1$\pm\sqrt{3}$
+  options: {}
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 20
+  section: permutations_and_combinations
+  topic: permutations_and_combinations
+  text: By using the non-zero digits, the number of 5 digit numbers that can be formed
+    so that each number has largest digit in its middle place and the digits in the
+    number are different is
+  options:
+    A: $\sum_{r=4}^{9} {^rP_4}$
+    B: $\sum_{r=4}^{8} {^rP_4} - \sum_{r=4}^{8} {^rP_3}$
+    C: ''
+    D: ''
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 21
+  section: permutations_and_combinations
+  topic: permutations_and_combinations
+  text: $\sum_{r=4}^{8} {^rP_3}$
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 22
+  section: permutations_and_combinations
+  topic: permutations_and_combinations
+  text: Question text
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 23
+  section: permutations_and_combinations
+  topic: permutations_and_combinations
+  text: $T_m$ denotes the number of triangles that can be formed with the vertices
+    of a regular polygon of $m$ sides. If $T_{m+1} - T_m = 15$, then $m = $
+  options:
+    A: '3'
+    B: '6'
+    C: '9'
+    D: '12'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 24
+  section: binomial_theorem
+  topic: binomial_theorem
+  text: The term independent of $x$ in the expansion of $\left(x-\frac{2}{\sqrt{x}}\right)^{21}$
+    is
+  options:
+    A: ${ }^{21} C_{15}(-2)^{15}$
+    B: ${ }^{21} C_{14} 2^{14}$
+    C: $-{ }^{21} C_{7}(2)^{7}$
+    D: $-{ }^{21} C_{7} 2^{14}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 25
+  section: binomial_theorem
+  topic: binomial_theorem
+  text: If the set of all values of $x$ for which the expansion of $(7-5 x)^{-\frac{2}{3}}$
+    valid is equal to $(-a\ a)$, then $5 a+7=$
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 26
+  section: binomial_theorem
+  topic: binomial_theorem
+  text: The coefficient of $x^3$ in the expansion of $\left(1-\frac{3}{4}x\right)^{\frac{1}{2}}$
+    is
+  options:
+    A: $\frac{27}{1024}$
+    B: $\frac{-27}{1024}$
+    C: null
+    D: null
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 27
+  section: binomial_theorem
+  topic: binomial_theorem
+  text: $\frac{81}{1024}$
+  options: {}
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 28
+  section: partial_fractions
+  topic: partial_fractions
+  text: If $\frac{32x^2+186x}{(x^2+1)(x+5)} = \frac{37x+1}{x^2+1} + \frac{\lambda}{x+5}$,
+    then $\frac{\lambda}{2} = $
+  options:
+    A: '-5'
+    B: $\frac{-7}{2}$
+    C: $\frac{-3}{2}$
+    D: $\frac{-5}{2}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 29
+  section: trigonometric_ratios_and_identities
+  topic: trigonometric_ratios_and_identities
+  text: The period of $\tan ky + \sin ky$, where $k = 1+4+9+.....20$ terms, is
+  options:
+    A: $\frac{\pi}{1435}$
+    B: $\frac{2\pi}{1435}$
+    C: $\pi$
+    D: $2\pi$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 30
+  section: trigonometric_ratios_and_identities
+  topic: trigonometric_ratios_and_identities
+  text: If $\cot A=\frac{11}{60}, \cos B = \frac{7}{25}$ and neither A nor B is in
+    the first quadrant, then $A+\frac{B}{2}$ lies in the quadrant
+  options:
+    A: Option text
+    B: Option text
+    C: Option text
+    D: Option text
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 31
+  section: properties_of_triangles
+  topic: properties_of_triangles
+  text: In a $\triangle ABC$, if $cos A + cos B + cos C = a + b \sin\frac{A}{2} \sin\frac{B}{2}
+    \sin\frac{C}{2}$, then $a+b =$
+  options:
+    A: '3'
+    B: '0'
+    C: null
+    D: null
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: trigonometric_ratios_and_identities
+  topic: trigonometric_ratios_and_identities
+  text: $\sqrt{3} \operatorname{cosec} 20^{\circ} - \sec 20^{\circ} = $
+  options:
+    A: '1'
+    B: '2'
+    C: '3'
+    D: '4'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 33
+  section: trigonometric_equations
+  topic: trigonometric_equations
+  text: The common solution set of the equations $2\sin^2{x} + \sin^2{2x} = 2$ and
+    $\sin{2x} + \cos{2x} = \tan{x}$ is
+  options:
+    A: ' '
+    B: ' '
+    C: ' '
+    D: ' '
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 34
+  section: inverse_trigonometric_functions
+  topic: inverse_trigonometric_functions
+  text: 2 Tan$^{-1}$($\frac{1}{3}$) + Tan$^{-1}$($\frac{1}{7}$)=
+  options: {}
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: inverse_trigonometric_functions
+  topic: inverse_trigonometric_functions
+  text: $\text{Tan}^{-1} \left(\frac{49}{29}\right)$
+  options: {}
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 36
+  section: inverse_trigonometric_functions
+  topic: inverse_trigonometric_functions
+  text: ''
+  options: {}
+  correct_answer: null
+  difficulty: moderate
+  subject: Mathematics

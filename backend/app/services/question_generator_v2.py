@@ -97,7 +97,9 @@ class QuestionGeneratorV2:
             random.seed(seed)
 
         # 1. OPTIMIZATION: If blueprint is static, don't waste AI tokens
-        if not blueprint.variables:
+        # BUT: For PYQ sources, we WANT variety, so we force them through AI
+        is_pyq = "pyq_source" in (blueprint.tags or [])
+        if not blueprint.variables and not is_pyq:
             return self._generate_static_question(blueprint)
 
         # 2. AI GENERATION LOOP
@@ -1296,6 +1298,9 @@ Your response:"""
             
             if question:
                 questions.append(question)
+                # Small throttle to stay within Gemini/Vertex quotas
+                if use_ai_phrasing:
+                    time.sleep(0.5)
 
         return questions
 

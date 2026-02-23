@@ -13,8 +13,9 @@ import sys
 import argparse
 from pathlib import Path
 
-# Add parent dir to path for imports
+# Add parent dir and backend dir to path for imports
 sys.path.insert(0, str(Path(__file__).parent))
+sys.path.insert(0, str(Path(__file__).parent.parent.parent / "backend"))
 
 from pyq_extractor import GeminiExtractor, get_exam_config
 from pyq_extractor.config import list_available_exams
