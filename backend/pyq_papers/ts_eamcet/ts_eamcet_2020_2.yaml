@@ -6,48 +6,44 @@ date: null
 session: Shift 2
 source_pdf: 2020-2.pdf
 metadata:
-  total_questions: 140
+  total_questions: 160
   duration_minutes: 180
   marking_scheme: +1 for correct, 0 for wrong
 sections:
 - code: MAT
   name: Mathematics
-  question_count: 69
+  question_count: 80
 - code: PHY
   name: Physics
-  question_count: 31
+  question_count: 40
 - code: CHE
   name: Chemistry
-  question_count: 33
+  question_count: 40
 questions:
 - id: 1
-  section: Coordinate Geometry
-  topic: ellipse
-  text: If tangents are drawn to the ellipse $x^2 + 2y^2 = 2$, then the locus of the
-    mid points of the intercepts made by those tangents between the coordinate axes
-    is
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: 'If $f: Z \to N$ is defined by $f(n) = \begin{cases} 2n, & \text{if } n >
+    0 \\ 1, & \text{if } n = 0 \\ -2n - 1, & \text{if } n < 0 \end{cases}$ then $f$
+    is'
   options:
-    A: $\frac{x^2}{2} + \frac{y^2}{4} = 1$
-    B: $\frac{x^2}{4} + \frac{y^2}{2} = 1$
-    C: $\frac{1}{2x^2} + \frac{1}{4y^2} = 1$
-    D: $\frac{1}{4x^2} + \frac{1}{2y^2} = 1$
-  correct_answer: C
+    A: one-one but not onto
+    B: onto but not one-one
+    C: both one-one and onto
+    D: neither one-one nor onto
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 2
   section: Algebra
-  topic: matrices
-  text: "Let a, b, c, d $\\in$ R be such that $ad - bc \neq 0$ and e be a positive\
-    \ number other than 1. If $x^3y^3 = e^a, x^2y^3 = e^b, x^3y^d = e^c, \\Delta_1\
-    \ = \\begin{vmatrix} a & b \\ c & d \\end{vmatrix}, \\Delta_2 = \\begin{vmatrix}\
-    \ a & m \\ c & n \\end{vmatrix}$ and $ \\Delta_3 = \\begin{vmatrix} a & b \\ d\
-    \ & d \\end{vmatrix}$, then the values of x and y are respectively"
+  topic: functions_and_inverse_functions
+  text: Domain of $Cos^{-1}[log_5(x^2+7x+15)]$ is
   options:
-    A: $e^{\frac{\Delta_2}{\Delta_1}}, e^{\frac{\Delta_3}{\Delta_1}}$
-    B: $e^{\frac{-\Delta_2}{\Delta_1}}, e^{\frac{-\Delta_3}{\Delta_1}}$
-    C: $e^{\frac{\Delta_3}{\Delta_1}}, e^{\frac{\Delta_2}{\Delta_1}}$
-    D: None of the options
-  correct_answer: None
+    A: The set of all real numbers
+    B: $(-\infty, -5] \cup [-2, \infty)$
+    C: $R - \{-5, -2\}$, where $R$ is the set of real numbers
+    D: $[-5, -2]$
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 3
@@ -143,7 +139,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 10
-  section: Complex Numbers
+  section: Algebra
   topic: complex_numbers
   text: For $n > 1$ and $n \in \mathbb{N}$, if $z_1, z_2, ..., z_n$ are the roots
     of the equation $(z + 1)^n = z^n$, then $\sum_{i=1}^{n} \frac{Cot^{-1}(2|Im z_i|)-1}{2Re
@@ -167,6 +163,19 @@ questions:
     C: 9, 3
     D: 1, -1
   correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: 'When $R$ is the set of all real numbers, $\{x \in R: \frac{\sqrt{12-x-x^2}}{x+10}
+    \le \frac{\sqrt{12-x-x^2}}{2x+9} \} = $'
+  options:
+    A: (-4, 1] \cup {3}
+    B: '[-4, 1]'
+    C: '[-4, 1] \cup {3}'
+    D: $\phi$, the empty set
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 13
@@ -196,7 +205,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 15
-  section: Permutations and Combinations
+  section: Algebra
   topic: permutations_and_combinations
   text: 'Consider the following statements: I: The number of positive integral solutions
     of $x_1 + x_2 + x_3 + x_4 = 10$ is 286 II: If $25! = 10^k . k, (k \in N)$ then
@@ -206,6 +215,20 @@ questions:
     B: Only II is true
     C: Both I and II are true
     D: Both I and II are false
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Algebra
+  topic: permutations_and_combinations
+  text: A student is allowed to select at least $(n + 1)$ books but not all books
+    from a collection of $(2n + 1)$ books. If the total number of ways in which he
+    can select these books is 255, then the number of books in that collection is
+  options:
+    A: '4'
+    B: '9'
+    C: '10'
+    D: '7'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
@@ -224,7 +247,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 18
-  section: Binomial Theorem
+  section: Algebra
   topic: binomial_theorem
   text: The sum of the coefficients of $x^{-3/2}$ and $x^3$ in the expansion of $\sqrt{3+x+\sqrt{5+x}}$
     when $3 < x < 5$, is
@@ -237,16 +260,16 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 19
-  section: Partial Fractions
+  section: Algebra
   topic: partial_fractions
-  text: If $\frac{x^2-5}{x^3+x^2} = f(x) = \frac{A}{x^2} + \frac{B}{x} + \frac{C}{x+1}$,
+  text: If $\frac{x^5-5}{x^3+x^2} = f(x) + \frac{A}{x} + \frac{B}{x^2} + \frac{C}{x+1}$,
     then the larger value of K for which $f(K) + A + B + C = 1$, is
   options:
-    A: $\frac{5}{2}$
-    B: $\frac{7}{2}$
-    C: $\frac{9}{2}$
-    D: $\frac{11}{2}$
-  correct_answer: D
+    A: '3'
+    B: '2'
+    C: '-2'
+    D: '4'
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 20
@@ -303,7 +326,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 24
-  section: Inverse Trigonometric Functions
+  section: Trigonometry
   topic: inverse_trigonometric_functions
   text: The set of values of $x$ such that $\tan^{-1} (\frac{x}{x-2}) - \tan^{-1}
     (\frac{x}{2x-1}) = \tan^{-1} (\frac{2}{3})$ is
@@ -316,7 +339,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 25
-  section: Hyperbolic Functions
+  section: Trigonometry
   topic: hyperbolic_functions
   text: If $\sin \theta \cosh \alpha = \tan x, \cos \theta \sinh \alpha = \sec x$,
     then $\cos 2\theta \cosh 2\alpha = $
@@ -329,7 +352,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 26
-  section: Properties of Triangles
+  section: Trigonometry
   topic: properties_of_triangles
   text: If the sides of a triangle are three consecutive natural numbers and its largest
     angle is twice the smallest one, then the area (in sq. units) of that triangle
@@ -343,7 +366,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 27
-  section: Properties of Triangles
+  section: Trigonometry
   topic: properties_of_triangles
   text: In $\triangle ABC$, AD and BE are medians drawn from A and B. If $AD = \frac{7}{2}$,
     $|DAB| = \frac{\pi}{8}$ and $|ABE| = \frac{\pi}{4}$, then the area (in sq. units)
@@ -357,7 +380,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 28
-  section: Properties of Triangles
+  section: Trigonometry
   topic: properties_of_triangles
   text: If the radius of the incircle of a triangle with sides $5k$, $6k$ and $5k$
     is 6, then the largest angle of that triangle is
@@ -370,7 +393,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 29
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: If $\vec{a}, \vec{b}, \vec{c}$ are three independent vectors, and there exists
     a non zero scalar traid $(l, m, n)$, such that $l(3\vec{a}+2\vec{b}+\vec{c}) +
@@ -384,7 +407,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 30
-  section: Algebra
+  section: Vector Algebra
   topic: types_of_vectors
   text: If $\vec{a}$ and $\vec{b}$ represent two non collinear vectors, the equation
     $\vec{r} = t\vec{a} + (1-t)\vec{b}$ represents
@@ -398,7 +421,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 31
-  section: vectors_and_scalars
+  section: Vector Algebra
   topic: addition_of_vectors
   text: Let $\vec{a}, \vec{b}, \vec{c}$ be three vectors such that the magnitude of
     $\vec{b}$ is twice that of $\vec{a}$ and magnitude of $\vec{c}$ is three times
@@ -411,9 +434,9 @@ questions:
     D: '3'
   correct_answer: null
   difficulty: moderate
-  subject: Vector Algebra
+  subject: Mathematics
 - id: 32
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: If $\vec{a}, \vec{b}, \vec{c}$ are three mutually perpendicular vectors such
     that the magnitudes of $\vec{b}$ and $\vec{c}$ are $\frac{1}{2}$ times and $\frac{\sqrt{3}}{2}$
@@ -441,7 +464,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 34
-  section: vectors_and_scalars
+  section: Vector Algebra
   topic: addition_of_vectors
   text: The shortest distance between the skew-lines $\vec{r} = (-\hat{i} + 3\hat{k})
     + t(2\hat{i} + 3\hat{j} + 6\hat{k})$ and $\vec{r} = (3\hat{i} - \hat{j} - \hat{k})
@@ -453,7 +476,7 @@ questions:
     D: '8'
   correct_answer: B
   difficulty: moderate
-  subject: Vector Algebra
+  subject: Mathematics
 - id: 35
   section: Probability & Statistics
   topic: measures_of_dispersion
@@ -470,7 +493,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 36
-  section: measures_of_dispersion
+  section: General
   topic: general
   text: For the following distribution, the mean deviation about the median is | $x_i$
     | 6 | 12 | 18 | 24 | 30 | 36 | 42 | |---|---|---|---|---|---|---|---| | $f_i$
@@ -482,9 +505,9 @@ questions:
     D: '7.0'
   correct_answer: '0'
   difficulty: moderate
-  subject: Probability & Statistics
+  subject: Mathematics
 - id: 37
-  section: Probability & Statistics
+  section: General
   topic: general
   text: If a man throws a die until he gets a number bigger than 3, then the probability
     that he gets a 5 in his last throw is
@@ -497,7 +520,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 38
-  section: Probability & Statistics
+  section: General
   topic: general
   text: A diagnostic test has the probability 0.95 of giving a positive result when
     applied to a person suffering from a certain disease, and a probability 0.10 of
@@ -514,24 +537,37 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
-- id: 40
+- id: 39
   section: Probability & Statistics
   topic: probability
   text: 'Consider the following statements: Assertion (A): If $P_1, P_2, P_3$ are
     probability of happening of three independent events, then probability of happening
-    of atleast one of them is $1-[1-P_1)(1-P_2)(1-P_3)]$ Reason (R): For any three
+    of atleast one of them is $1-[(1-P_1)(1-P_2)(1-P_3)]$ Reason (R): For any three
     independent events A, B and C $P(A \cup B \cup C) = P(A) + P(B) + P(C) - P(A)P(B)
-    - P(A)P(C) -P(B)P(C) + P(A)P(B)P(C)$ The correct option among the following is'
+    - P(A)P(C) - P(B)P(C) + P(A)P(B)P(C)$ The correct option among the following is'
   options:
     A: (A) is true, (R) is true and (R) is the correct explanation for (A)
     B: (A) is true, (R) is true but (R) is not the correct explanation for (A)
     C: (A) is true but (R) is false
     D: (A) is false but (R) is true
-  correct_answer: null
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 40
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: If probability function of a discrete random variable X is $P(X = r) = \frac{r}{k},
+    r = 1, 2, 3, 4, 5$ then $P\left(X = 2 \text{ or } X = \frac{k}{3}\right)$ is
+  options:
+    A: $P(X = 1 \text{ or } X = 6)$
+    B: $P(X = 4 \text{ or } X = \frac{k}{5})$
+    C: $P(X = \frac{k}{5} \text{ or } X = 5)$
+    D: $P(X = \frac{k}{3} \text{ or } X = 0)$
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 41
-  section: Probability & Statistics
+  section: General
   topic: general
   text: If probability that an individual will suffer a reaction from an injection
     of a drug is 0.001, then the probability that out of 2000 individuals having that
@@ -571,6 +607,34 @@ questions:
     C: $-8 - 10\sqrt{3}$
     D: $-8 + 10\sqrt{3}$
   correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 44
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: 'If the normal form of the equation of a straight line $4x+3y+2=0$ is $x \cos
+    \alpha + y \sin \alpha = p$ and its intercept form is \frac{x}{a} + \frac{y}{b}
+    = 1, then \frac{p \sec \alpha}{ab} = '
+  options:
+    A: -1/2
+    B: 3/2
+    C: -3/2
+    D: 1/2
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 45
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: For an integer K, if the point $P(K^2, K+1)$ and the origin $O(0,0)$ lie in
+    the same region between the lines $x+2y-5=0$ and $3x-y+1=0$, then the possible
+    number of such points P is
+  options:
+    A: '4'
+    B: '2'
+    C: '6'
+    D: Infinitely many
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 46
@@ -672,7 +736,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 53
-  section: System of Circles
+  section: Coordinate Geometry
   topic: system_of_circles
   text: If the radical axis of the circles $x^2 + y^2 + 2\alpha x + 2\beta y + c =
     0$ and $x^2 + y^2 + \frac{3}{2}x + 4y + c = 0$ touches the circle $x^2 + y^2 +
@@ -739,8 +803,23 @@ questions:
   correct_answer: null
   difficulty: moderate
   subject: Mathematics
+- id: 58
+  section: Coordinate Geometry
+  topic: hyperbola
+  text: If $p, q$ are the eccentricities of the hyperbola \frac{x^2}{a^2} - \frac{y^2}{b^2}
+    = 1$ and its conjugate hyperbola respectively, then the area of the square (in
+    sq. units) formed by the points of intersection of the ellipse \frac{x^2}{p^2}
+    + \frac{y^2}{q^2} = 1$ and the pair of lines $x^2 - y^2 = 0$ is
+  options:
+    A: '4'
+    B: \sqrt{2}
+    C: \frac{\sqrt{3}}{2}
+    D: '16'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
 - id: 59
-  section: Three Dimensional Coordinates
+  section: Coordinate Geometry
   topic: three_dimensional_coordinates
   text: $\Pi_1, \Pi_2, \Pi_3$ are three planes which are respectively parallel to
     the YZ, ZX and XY planes at distances a, b and c forming a rectangular parallelepiped.
@@ -783,7 +862,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 62
-  section: Limits and Continuity
+  section: Calculus
   topic: limits_and_continuity
   text: Let $[x]$ denote the greatest integer less than or equal to $x$ and $k \ge
     2$ be an integer. Then $\mathop {Lt}\limits_{x \to k} \frac{{\sin \frac{{2\pi
@@ -823,7 +902,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 65
-  section: Differentiation and Derivatives
+  section: Calculus
   topic: differentiation_and_derivatives
   text: If $f(x) = \frac{1}{x} \int_{1}^{x} (2u^2 - uf'(u)) du$, then $f'(5) = $
   options:
@@ -833,9 +912,9 @@ questions:
     D: \frac{5}{13}
   correct_answer: 'null'
   difficulty: moderate
-  subject: Calculus
+  subject: Mathematics
 - id: 66
-  section: Differentiation and Derivatives
+  section: Calculus
   topic: differentiation_and_derivatives
   text: 'Let $f : R \to R$ be defined by $f(\frac{x+y}{2}) = \frac{f(x) + f(y)}{2}$
     for all $x$ and $y$. If $f''''(0)$ exists and equals $-1$ and $f(0) = 1$, then
@@ -847,9 +926,24 @@ questions:
     D: '1'
   correct_answer: 'null'
   difficulty: moderate
-  subject: Calculus
+  subject: Mathematics
+- id: 67
+  section: Calculus
+  topic: applications_of_derivatives
+  text: The angle A of $\triangle ABC$ is found by measurement to be $67 \frac{1^{\circ}}{2}$
+    and the area of $\triangle ABC$ is calculated from the measurements of b, c, A.
+    In measuring A, an error of 9 minutes is made then the percentage error in the
+    area of the triangle is
+  options:
+    A: \frac{\pi}{6}(2-\sqrt{3})
+    B: \frac{\pi}{6}(2+\sqrt{3})
+    C: \frac{\pi}{12}(\sqrt{2}+1)
+    D: \frac{\pi}{12}(\sqrt{2}-1)
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
 - id: 68
-  section: properties_of_triangles
+  section: General
   topic: general
   text: The angle A of $\triangle ABC$ is found by measurement to be $67\frac{1}{2}^o$
     and the area of $\triangle ABC$ is calculated from the measurements of b, c, A.
@@ -862,7 +956,7 @@ questions:
     D: $\frac{\pi}{12}(\sqrt{2}-1)$
   correct_answer: A
   difficulty: moderate
-  subject: Trigonometry
+  subject: Mathematics
 - id: 69
   section: Calculus
   topic: applications_of_derivatives
@@ -889,6 +983,19 @@ questions:
     C: $\frac{\pi}{3}$
     D: $\frac{2\pi}{3}$
   correct_answer: null
+  difficulty: moderate
+  subject: Mathematics
+- id: 71
+  section: Calculus
+  topic: integration
+  text: If $\int \frac{(x-1)dx}{(x+1)\sqrt{x^3+x^2+x}} = A. \text{Tan}^{-1} \sqrt{f(x)}
+    + \text{constant}$, then the ordered pair $(A, f(-1)) = $
+  options:
+    A: (2, 1)
+    B: (2, -1)
+    C: (1, 2)
+    D: (-2, 2)
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 72
@@ -973,7 +1080,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 78
-  section: Differential Equations
+  section: Calculus
   topic: differential_equations
   text: The order and degree of the differential equation $\frac{d^2y}{dx^2} + y +
     \left( \frac{dy}{dx} \right)^{\frac{3}{2}} = 0$, are respectively
@@ -986,7 +1093,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 79
-  section: Differential Equations
+  section: Calculus
   topic: differential_equations
   text: The general solution of the differential equation $\frac{dy}{dx} = \frac{2x
     - 3y + 4}{3x + 2y - 7}$ is
@@ -999,7 +1106,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 80
-  section: Differential Equations
+  section: Calculus
   topic: differential_equations
   text: The general solution of the differential equation $\frac{dy}{dx} = \frac{x
     + y + 1}{y - x + 1}$ is
@@ -1067,8 +1174,8 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 85
-  section: Algebra
-  topic: addition_of_vectors
+  section: Mechanics
+  topic: vectors_and_scalars
   text: If $\vec{r_1} = 2\hat{x}$, $\vec{r_2} = 2\hat{y}$, where $\hat{x}$ & $\hat{y}$
     are unit vectors along the x-axis and y-axis respectively, then the magnitude
     of $\vec{r_1} + \vec{r_2}$ is
@@ -1079,10 +1186,10 @@ questions:
     '4': '4'
   correct_answer: '1'
   difficulty: moderate
-  subject: Mathematics
+  subject: Physics
 - id: 86
-  section: Algebra
-  topic: addition_of_vectors
+  section: Mechanics
+  topic: vectors_and_scalars
   text: Let $\frac{\vec{A_1} + \vec{A_2}}{\vec{A_1} - \vec{A_2}} = 5\vec{A_3}$, $\frac{\vec{A_1}
     - \vec{A_2}}{\vec{A_1} - \vec{A_2}} = 3\vec{A_3}$, $\vec{A_1} = 2\hat{i} + 4\hat{j}$
     then $\frac{A_1}{A_2}$ is
@@ -1093,7 +1200,7 @@ questions:
     D: '6'
   correct_answer: A
   difficulty: moderate
-  subject: Mathematics
+  subject: Physics
 - id: 87
   section: Mechanics
   topic: laws_of_motion
@@ -1107,6 +1214,36 @@ questions:
     C: $Tan^{-1}(\frac{4}{5})$
     D: $Tan^{-1}(\frac{3}{4})$
   correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 88
+  section: Mechanics
+  topic: laws_of_motion
+  text: A box of mass m is in equilibrium under the application of three forces as
+    shown below. If the magnitude of \vec{f_1}$ is 10 N, what is the magnitude of
+    \vec{f_3}$?\n![Force Diagram](/static/papers/ts_eamcet/2020_2/q88.png)
+  options:
+    A: 5 N
+    B: 15 N
+    C: 20 N
+    D: 30 N
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 89
+  section: Mechanics
+  topic: laws_of_motion
+  text: A moving body with a mass $m_1$ and velocity u strikes a stationary body of
+    mass $m_2$. The masses $m_1$ and $m_2$ should be in the ratio $\frac{m_1}{m_2}$
+    so as to decrease the velocity of the first body to $\frac{2u}{3}$ and giving
+    a velocity of V to $m_2$ assuming a perfectly elastic impact. Then the ratio $\frac{m_1}{m_2}$
+    is
+  options:
+    A: '5'
+    B: 1/5
+    C: 1/25
+    D: '25'
+  correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 90
@@ -1141,7 +1278,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 92
-  section: System of Particles and Rotational Motion
+  section: Mechanics
   topic: system_of_particles_and_rotational_motion
   text: A straight rod of length L is made of a material having mass per unit length
     $m(x) = \lambda |x|$, where x is measured from the centre of rod. The moment of
@@ -1184,7 +1321,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 95
-  section: Properties of Matter
+  section: Mechanics
   topic: properties_of_matter
   text: Two metal wires A and B have length L and 3 L respectively. The radius of
     cross-sectional circular area of wire A and B are R and 2R respectively. These
@@ -1200,8 +1337,23 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
+- id: 96
+  section: Mechanics
+  topic: fluid_mechanics
+  text: A hydraulic lift as shown in the figure is used to lift a mass of 1000 Kg
+    which is placed on a piston ($P_1$) of area $1 m^2$. If the cross-section area
+    of the piston ($P_2$) at the other end is $0.01 m^2$, then, how much mass needs
+    to be put on it to lift the 1000 kg?\n![Hydraulic Lift Diagram](/static/papers/ts_eamcet/2020_2/q96.png)
+  options:
+    A: 1 Kg
+    B: 10 Kg
+    C: 50 Kg
+    D: 100 Kg
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
 - id: 97
-  section: Thermodynamics
+  section: Thermal Physics
   topic: thermodynamics
   text: If $\alpha$ and T are the coefficient of volume expansion and temperature
     for an ideal gas respectively, then
@@ -1212,7 +1364,7 @@ questions:
     D: $\frac{T}{\alpha}$ = constant
   correct_answer: null
   difficulty: moderate
-  subject: Thermal Physics
+  subject: Physics
 - id: 98
   section: Thermal Physics
   topic: thermal_properties_of_matter
@@ -1226,23 +1378,30 @@ questions:
   correct_answer: null
   difficulty: moderate
   subject: Physics
-- id: 100
-  section: Thermodynamics
+- id: 99
+  section: Thermal Physics
   topic: thermodynamics
-  text: All gases deviate from gas laws at _____ అన్నీ వాయు నియమాలను _____ వద్ద విచలిస్తాయి.
+  text: A Carnot engine $C_1$ operates between temperature $T_1$ and $T_2 (T_1 > T_2)$.
+    A second Carnot engine $C_2$ uses all the heat rejected by the engine $C_1$ and
+    operates between temperature $T_2$ and $T_3$ (where $T_2 > T_3$). The efficiency
+    of this combined ($C_1$ and $C_2$ together) engine is
   options:
-    A: 'Low pressure and high temperature
-
-      అల్ప పీడన మరియు అధిక ఉష్ణోగ్రత'
-    B: 'High pressure and low temperature
-
-      అధిక పీడన మరియు అల్ప ఉష్ణోగ్రత'
-    C: 'Low pressure and low temperature
-
-      అల్ప పీడన మరియు అల్ప ఉష్ణోగ్రత'
-    D: 'High pressure and high temperature
-
-      అధిక పీడన మరియు అధిక ఉష్ణోగ్రత'
+    A: $1 - \frac{T_2}{T_1}$
+    B: $1 - \frac{T_3}{T_2}$
+    C: $1 - \frac{T_3}{T_1}$
+    D: $1 - (1 - \frac{T_2}{T_1})(1 - \frac{T_3}{T_2})$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 100
+  section: Thermal Physics
+  topic: thermodynamics
+  text: All gases deviate from gas laws at _____    _____  .
+  options:
+    A: Low pressure and high temperature
+    B: High pressure and low temperature
+    C: Low pressure and low temperature
+    D: High pressure and high temperature
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1275,6 +1434,21 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Physics
+- id: 103
+  section: Optics
+  topic: ray_optics_and_optical_instruments
+  text: Consider a glass prism immersed in a liquid as shown below. The refractive
+    index of glass and liquid is 1.5 and 1.2 respectively. A ray of light enters the
+    prism perpendicular to the face AB. The largest value of angle $\theta$ is, if
+    the ray is totally reflected at the face AC:\n![Prism Diagram](/static/papers/ts_eamcet/2020_2/q103.png)
+  options:
+    A: $Cos^{-1}(0.8)$
+    B: $Sin^{-1}(0.8)$
+    C: $Cos^{-1}(0.6)$
+    D: $Sin^{-1}(0.4)$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
 - id: 104
   section: Optics
   topic: ray_optics_and_optical_instruments
@@ -1305,7 +1479,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 106
-  section: Electrostatics
+  section: Electricity and Magnetism
   topic: electrostatics
   text: Electric charges $+q$ and $-q$ are placed at points A and B respectively which
     are at a distance of 2L apart. If C is the midpoint between A and B, then the
@@ -1319,7 +1493,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 107
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: Find the equivalent resistance between point A and B in the following circuit.
     (The resistance of each resistor is R)
@@ -1332,7 +1506,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 108
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: 'In a meter bridge the balancing length from the left end is found to be 25
     cm. The value of the unknown resistance is : (Assume: Standard resistance of 1
@@ -1345,8 +1519,23 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Physics
+- id: 109
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
+  text: Two infinite wires carrying opposite electrical currents I and i are placed
+    a distance x apart. A point P at a distance y away from the wire carrying current
+    i is shown in the figure. If the magnetic field is zero at point P then the magnitude
+    of i is\n![Magnetic Field Diagram](/static/papers/ts_eamcet/2020_2/q109.png)
+  options:
+    A: $I \left( \frac{x}{x+y} \right)$
+    B: $I \left( \frac{2x}{x+y} \right)$
+    C: $I \left( \frac{y}{x+y} \right)$
+    D: $I \left( \frac{2y}{x+y} \right)$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
 - id: 110
-  section: Magnetic Effects of Current and Magnetism
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
   text: Two infinite wires carrying opposite electrical currents I and i are placed
     a distance x apart. A point P at a distance y away from the wire carrying current
@@ -1361,7 +1550,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 111
-  section: Magnetic Effects of Current and Magnetism
+  section: Electricity and Magnetism
   topic: magnetic_effects_of_current_and_magnetism
   text: A solenoid of length 2 m carries a current of 20 Ampere. The diameter of the
     solenoid is 3cm. If the magnetic field inside the solenoid is 20mT, then the length
@@ -1389,8 +1578,8 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Physics
-- id: 114
-  section: Alternating Current Circuits
+- id: 113
+  section: Electricity and Magnetism
   topic: alternating_current_circuits
   text: Which one of the following curves represents the variation of impedance (Z)
     with frequency f in a series LCR circuit when connected to an AC source?
@@ -1402,8 +1591,8 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Physics
-- id: 115
-  section: Optics
+- id: 114
+  section: Modern Physics
   topic: dual_nature_of_matter_and_radiation
   text: The radiation energy emitted per second of a point source is 100 W. If the
     efficiency of the source is 4%, then the rms value of the electric field at distance
@@ -1416,8 +1605,8 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
-- id: 116
-  section: Optics
+- id: 115
+  section: Modern Physics
   topic: dual_nature_of_matter_and_radiation
   text: A light of wavelength 310 nm is used in a photoelectric experiment. The metal
     electrode of work function of 2.5 eV is used in the experiment. The stopping potential
@@ -1430,32 +1619,50 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
+- id: 116
+  section: Modern Physics
+  topic: atomic_physics
+  text: If the first line in the Lyman series has wavelength $\lambda$, then the first
+    line in Balmer series has the wavelength
+  options:
+    A: $\frac{27}{5} \lambda$
+    B: $\frac{32}{27} \lambda$
+    C: $\frac{28}{21} \lambda$
+    D: $\frac{15}{4} \lambda$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 117
+  section: Modern Physics
+  topic: nuclear_physics
+  text: The half life of a radioactive isotope is 30 hours. How long will it take
+    to get reduced to 12.5% of its initial amount?
+  options:
+    A: 120 hours
+    B: 90 hours
+    C: 60 hours
+    D: 50 hours
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
 - id: 118
-  section: Semiconductors and Devices
+  section: Modern Physics
   topic: semiconductors_and_devices
   text: Which of the following circuits satisfies the logic condition A =1, B=1, D=1?
   options:
-    A: '
-
-      B
+    A: 'B
 
 
       D'
-    B: '
-
-      B
+    B: 'B
 
 
       D'
-    C: '
-
-      B
+    C: 'B
 
 
       D'
-    D: '
-
-      B
+    D: 'B
 
 
       D'
@@ -1475,9 +1682,23 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
+- id: 120
+  section: Communication Systems
+  topic: basics_of_communication_systems
+  text: A message signal of frequency $\frac{50}{\pi}$ KHz and peak voltage of 5 V
+    is used to modulate a carrier of frequency 1 MHz and peak voltage 20 V. The modulation
+    index is
+  options:
+    A: '10'
+    B: '0.4'
+    C: '0.5'
+    D: '0.25'
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
 - id: 121
-  section: Modern Physics
-  topic: dual_nature_of_matter_and_radiation
+  section: Physical Chemistry
+  topic: atoms_and_nuclei
   text: Given the ratio of kinetic energy of electron in two orbitals is 16:9. Calculate
     the ratio of wavelength of electron waves?
   options:
@@ -1487,10 +1708,10 @@ questions:
     D: '16 : 9'
   correct_answer: C
   difficulty: moderate
-  subject: Physics
+  subject: Chemistry
 - id: 122
-  section: Modern Physics
-  topic: dual_nature_of_matter_and_radiation
+  section: Physical Chemistry
+  topic: atomic_structure
   text: Which of the following results is not true about photoelectric effect?
   options:
     A: The electrons are ejected from the metal surface as soon as the beam of light
@@ -1502,7 +1723,7 @@ questions:
       of the incident radiation.
   correct_answer: A
   difficulty: moderate
-  subject: Physics
+  subject: Chemistry
 - id: 123
   section: Inorganic Chemistry
   topic: d_and_f_block_elements
@@ -1529,19 +1750,18 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 125
-  section: Algebra
-  topic: complex_numbers
-  text: For $n > 1$ and $n \u2208 N$, if $z_1, z_2, ..., z_n$ are the roots of the
-    equation $(z + 1)^n = z^n$, then $\sum_{r=1}^{n} Cot^{-1}(\frac{2|Im z_r|}{2Re
-    z_r}) = $
+  section: Physical Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: What is the correct order of bond lengths in the following molecules?\n(i)
+    $O_2$  (ii) $O_2^{+}$  (iii) $O_2^{-}$  (iv) $O_2^{2-}$
   options:
-    A: '0'
-    B: i
-    C: $\frac{1}{2}[\pi - (\pi - 2)n]$
-    D: $\frac{1}{2}[\pi + (\pi + 2)n]$
-  correct_answer: C
+    A: (iii) > (iv) > (ii) > (i)
+    B: (iii) > (iv) > (i) > (ii)
+    C: (iv) > (iii) > (ii) > (i)
+    D: (iv) > (iii) > (i) > (ii)
+  correct_answer: D
   difficulty: moderate
-  subject: Mathematics
+  subject: Chemistry
 - id: 126
   section: Physical Chemistry
   topic: chemical_kinetics
@@ -1557,7 +1777,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 127
-  section: Physical Chemistry
+  section: Thermal Physics
   topic: kinetic_theory_of_gases
   text: What is the ratio of kinetic energy of 7 grams of nitrogen and 4 grams of
     oxygen at T(K)?
@@ -1570,7 +1790,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 128
-  section: Physical Chemistry
+  section: Thermal Physics
   topic: kinetic_theory_of_gases
   text: Equal amount of gases are kept in two separate containers. If densities of
     the two gases are in 1:2 ratio and their temperatures are in 2:1 ratio, calculate
@@ -1638,6 +1858,21 @@ questions:
   correct_answer: null
   difficulty: moderate
   subject: Chemistry
+- id: 133
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: For a given reaction, $2A \rightleftharpoons B+C$, the equilibrium constant
+    is $2 \times 10^{-3}$. If at any given time the composition of the reaction mixture
+    is $[A]=[B]=[C]=6 \times 10^{-5} M$; predict in which direction the reaction will
+    proceed and the correct value for reaction quotient.
+  options:
+    A: Forward direction and 1.0
+    B: Backward direction and 1.0
+    C: Forward direction and $3 \times 10^{-5}$
+    D: Backward direction and $3 \times 10^{-5}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
 - id: 134
   section: Physical Chemistry
   topic: thermodynamics
@@ -1673,16 +1908,16 @@ questions:
   options:
     A: '(i) and (ii)
 
-      (i) మరియు (ii)'
-    B: '(i) మరియు (iii)
+      (i)  (ii)'
+    B: '(i)  (iii)
 
       (i)'
     C: '(ii) and (iii)
 
-      (ii) మరియు (iii)'
+      (ii)  (iii)'
     D: '(i), (ii) and (iii)
 
-      (i), (ii) మరియు (iii)'
+      (i), (ii)  (iii)'
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
@@ -1698,29 +1933,36 @@ questions:
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
-- id: 139
+- id: 138
   section: Inorganic Chemistry
+  topic: environmental_chemistry
+  text: Acid rain is mainly caused by the emissions of which of the following gases?\n(i)
+    Sulphur dioxide\n(ii) Carbon dioxide\n(iii) Nitrogen dioxide\n(iv) Methane
+  options:
+    A: (i) and (ii) only
+    B: (i), (ii) and (iii) only
+    C: (i) and (iii) only
+    D: (i), (ii), (iii) and (iv)
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 139
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: During the course of estimating nitrogen using Kjeldahl's method, the organic
     compound is heated with
   options:
-    A: '(i), (ii) and (iii) only
-
-      (i), (ii) మరియు (iii) మాత్రమే'
-    B: '(i) and (iii) only
-
-      (i) మరియు (iii) మాత్రమే'
-    C: '(i), (ii), (iii) and (iv)
-
-      (i), (ii), (iii) మరియు (iv)'
+    A: (i), (ii) and (iii) only
+    B: (i) and (iii) only
+    C: (i), (ii), (iii) and (iv)
     D: '(i) and (ii) only
 
-      (i) మరియు (ii) మాత్రమే'
+      (i)  (ii)'
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 140
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: An organic compound, 'A' with molecular formula $C_8H_8O$ on reaction with
     $I_2/KOH$ gives salt of carboxylic acid 'B' and a halo-compound 'C'. Compound
@@ -1735,7 +1977,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 141
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: The order of circled $C-H$ bond dissociation energy in the following compound
     is
@@ -1748,7 +1990,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 142
-  section: Solid State
+  section: Physical Chemistry
   topic: solid_state
   text: Intercepts of a plane in crystal is given by a, b/2, 3c in a simple cubic
     unit cell. The miller indices are
@@ -1761,7 +2003,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 143
-  section: Solutions
+  section: Physical Chemistry
   topic: solutions
   text: Relative lowering of vapor pressure of a dilute solution is 0.5. What is the
     mole fraction of the non-volatile solute?
@@ -1788,7 +2030,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 145
-  section: Electrochemistry
+  section: Physical Chemistry
   topic: electrochemistry
   text: $\Mg^{2+}$ displaces hydrogen from acids but copper does not. A galvanic cell
     prepared by combining $\Cu/\Cu^{2+}$ and $\Mg/\Mg^{2+}$ has an EMF of $2.71$ V
@@ -1803,7 +2045,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 146
-  section: Thermodynamics
+  section: Physical Chemistry
   topic: thermodynamics
   text: For a reversible reaction $A ightleftharpoons B$, pre-exponential factor is
     same for both the forward and backward reactions and has value of $20 S^{-1}$.
@@ -1818,23 +2060,27 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 147
-  section: Surface Chemistry
+  section: Physical Chemistry
   topic: surface_chemistry
   text: Which of the following is true for spontaneous adsorption?
   options:
-    '1': $\Delta G > 0, \Delta S > 0, \Delta H < 0$
-    '2': $\Delta G > 0, \Delta S > 0, \Delta H > 0$
-    '3': $\Delta G < 0, \Delta S < 0, \Delta H < 0$
-    '4': $\Delta G < 0, \Delta S > 0, \Delta H < 0$
-  correct_answer: '3'
+    A: $\Delta G > 0, \Delta S > 0, \Delta H < 0$
+    B: $\Delta G > 0, \Delta S > 0, \Delta H > 0$
+    C: $\Delta G < 0, \Delta S < 0, \Delta H < 0$
+    D: $\Delta G < 0, \Delta S > 0, \Delta H < 0$
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
   topic: representative_elements
   text: Which element does not exist in elemental state in the earth's crust?
-  options: {}
-  correct_answer: null
+  options:
+    A: C
+    B: S
+    C: Fe
+    D: Au
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 149
@@ -1850,19 +2096,17 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 150
-  section: Communication Systems
-  topic: basics_of_communication_systems
-  text: A message signal of frequency $\frac{50}{\pi}$ KHz and peak voltage of 5 V
-    is used to modulate a carrier of frequency 1 MHz and peak voltage 20 V. The modulation
-    index is
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: The most stable form of sulphur allotrope is
   options:
-    A: '10'
-    B: '0.4'
-    C: '0.5'
-    D: '0.25'
-  correct_answer: A
+    A: $S_6$
+    B: $S_7$
+    C: $S_8$
+    D: $S_{10}$
+  correct_answer: C
   difficulty: moderate
-  subject: Physics
+  subject: Chemistry
 - id: 151
   section: Inorganic Chemistry
   topic: coordination_compounds
@@ -1888,7 +2132,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 153
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: polymers
   text: The structure given below is an example of I) A condensation and biodegradable
     polymer II) A biodegradable and thermoplastic polymer III) A biodegradable and
@@ -1897,35 +2141,27 @@ questions:
     A: I, II and III
     B: I, II and IV
     C: I, III and IV
-    D: I, II మరియు IV
+    D: I, II  IV
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 154
-  section: Biomolecules
+  section: Organic Chemistry
   topic: biomolecules
   text: Which of the following statements support the cyclic form for glucose? (i)
     It doesn't give Schiff's test (ii) It is found to exist in two different crystalline
     forms (iii) It oxidizes with nitric acid to give saccharic acid (iv) Pentaacetate
     of glucose doesn't react with hydroxylamine
   options:
-    A: '(i), (ii) and (iv) only
-
-      (i), (ii) మరియు (iv) మాత్రమే'
-    B: '(i), (iii) and (iv) only
-
-      (i), (iii) మరియు (iv) మాత్రమే'
-    C: '(ii) and (iii) only
-
-      (ii) మరియు (iii) మాత్రమే'
-    D: '(i), (ii) and (iii) only
-
-      (i), (ii) మరియు (iii) మాత్రమే'
+    A: (i), (ii) and (iv) only
+    B: (i), (iii) and (iv) only
+    C: (ii) and (iii) only)
+    D: (i), (ii) and (iii) only
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 155
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: organic_compounds_containing_oxygen
   text: The structure of paracetamol is
   options:
@@ -1961,12 +2197,11 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 156
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: Arrange the following in the correct order of reactivity towards nucleophilic
-    substitution reaction. (i) 1-chloro-2-nitrobenzene (ii) Chlorobenzene (iii) 1-chloro-3-nitrobenzene
-    న్యూక్లియోఫిలిక్ ప్రతక్షేపణ చర్యవైపు క్రియా శీలత సరైన క్రమంలో అమర్చండి. (i) 1-క్లోరో-2-నైట్రోబెంజీన్
-    (ii) క్లోరోబెంజీన్ (iii) 1-క్లోరో-3- నైట్రోబెంజీన్
+    substitution reaction. (i) 1-chloro-2-nitrobenzene (ii) Chlorobenzene (iii) 1-chloro-3-nitrobenzene        .
+    (i) 1--2- (ii)  (iii) 1--3-
   options:
     A: ii > i > iii
     B: iii > i > ii
@@ -1975,35 +2210,25 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
-- id: 158
-  section: Inorganic Chemistry
+- id: 157
+  section: Organic Chemistry
   topic: alcohols_phenols_and_ethers
-  text: Reactions that produce n-butanol in the following are క్షికేయ వాటిలో n-బూటనాల్ను
-    ఉత్పత్తి చేసే చర్యలు ఏవి? (i) $CH_3CH_2CH=CH_2 \xrightarrow{(i) B_2H_6} \xrightarrow{(ii)
-    NaOH/H_2O_2}$ (ii) $CH_3CH_2CHO \xrightarrow{(i) CH_3Mgl} \xrightarrow{(ii) H_2O}$
-    (iii) $CH_3CH_2CH_2CN \xrightarrow{(i) SnCl_2.HCl} \xrightarrow{(ii) H_2O} \xrightarrow{(iii)
-    NaBH_4}$ (iv) $CH_3CH_2CH_2CO_2H \xrightarrow{B_2H_6}$
+  text: Reactions that produce n-butanol in the following are\n(i) $CH_3CH_2CH=CH_2
+    \xrightarrow{(i) B_2H_6, (ii) NaOH / H_2O_2}$\n(ii) $CH_3CH_2CHO \xrightarrow{(i)
+    CH_3MgI, (ii) H_2O}$\n(iii) $CH_3CH_2CH_2CN \xrightarrow{(i) SnCl_2, HCl, (ii)
+    H_2O, (iii) NaBH_4}$\n(iv) $CH_3CH_2CH_2CO_2H \xrightarrow{B_2H_6}$
   options:
-    A: '(i), (ii) and (iii)
-
-      (i), (ii) మరియు (iii)'
-    B: '(ii), (iii) and (iv)
-
-      (ii), (iii) మరియు (iv)'
-    C: '(i), (ii) and (iv)
-
-      (i), (ii) మరియు (iv)'
-    D: '(i), (iii) and (iv)
-
-      (i), (iii) మరియు (iv)'
+    A: (i), (ii) and (iii)
+    B: (ii), (iii) and (iv)
+    C: (i), (ii) and (iv)
+    D: (i), (iii) and (iv)
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
-- id: 159
-  section: Inorganic Chemistry
+- id: 158
+  section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
-  text: What are X and Y in the following reaction sequence? క్రింది చర్యలో వరుసలో
-    X మరియు Y లు ఏమి?
+  text: What are X and Y in the following reaction sequence?    X  Y  ?
   options:
     A: val1
     B: val2
@@ -2012,24 +2237,30 @@ questions:
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
+- id: 159
+  section: Organic Chemistry
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: Predict A and B in the following reaction sequence:\n$CH_3 - CH_2 - CH_2 -
+    CH_2 - COOH \xrightarrow{Br_2 / \text{Red Phosphorus}} A \xrightarrow{KOH(alc)}
+    B$
+  options:
+    A: 'A: $CH_3-(CH_2)_2-CH(Br)-COOH$, B: $CH_3-(CH_2)_2-CH(Br)-COOK^{+}$'
+    B: 'A: $CH_3-CH_2-CH(Br)-CH_2-COOH$, B: $CH_3-CH_2-CH=CH-COOK^{+}$'
+    C: 'A: $CH_3-CH_2-CH_2-CH(Br)-COOH$, B: $CH_3-CH=CH-CH_2-COOH$'
+    D: 'A: $CH_3-CH_2-CH_2-CH(Br)-COOH$, B: $CH_3-CH_2-CH=CH-COOK^{+}$'
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
 - id: 160
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: amines
   text: The major product formed by the reaction of benzylamine with nitrous acid
-    is బెంజైల్ ఎమీన్ నైట్రస్ ఆమ్లంతో చర్య నొందిన ప్రధాన ఉత్పన్నం ఏమి?
+    is         ?
   options:
-    A: 'Phenol
-
-      ఫినాల్'
-    B: 'Benzaldehyde
-
-      బెంజాల్డిహైడ్'
-    C: 'Benzoic acid
-
-      బెంజోయిక్ ఆమ్లం'
-    D: 'Benzyl alcohol
-
-      బెంజైల్ ఆల్కహాల్'
+    A: Phenol
+    B: Benzaldehyde
+    C: Benzoic acid
+    D: Benzyl alcohol
   correct_answer: A
   difficulty: moderate
   subject: Chemistry

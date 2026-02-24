@@ -100,6 +100,7 @@ subjects:
           - fluid_mechanics
           - motion_in_a_straight_line
           - motion_in_a_plane
+          - vectors_and_scalars
       - name: Thermal Physics
         code: thermal_physics
         total_questions: 6

@@ -30,6 +30,14 @@ class ExamConfig:
     section_questions: Dict[str, int] = field(default_factory=dict)
     # e.g., {"MAT": 80, "PHY": 40, "CHE": 40}
     
+    # Total question count and valid ID range
+    total_questions: int = 160
+    id_range_start: int = 1
+    id_range_end: int = 160
+    
+    # Subject ID ranges for auto-correction: {"Mathematics": (1, 80), "Physics": (81, 120), ...}
+    subject_id_ranges: Dict[str, tuple] = field(default_factory=dict)
+    
     # Exam metadata
     duration_minutes: int = 180
     marks_per_question: int = 1
@@ -39,6 +47,13 @@ class ExamConfig:
     question_pattern: str = ""
     language: str = "English"
     has_bilingual: bool = False  # Telugu/Hindi alongside English
+    
+    def get_subject_for_id(self, q_id: int) -> str:
+        """Return the correct subject for a given question ID based on ranges."""
+        for subject, (start, end) in self.subject_id_ranges.items():
+            if start <= q_id <= end:
+                return subject
+        return ""  # Unknown
     
     @property
     def pdfs_dir(self) -> Path:
@@ -70,10 +85,19 @@ EXAM_CONFIGS: Dict[str, ExamConfig] = {
             {"code": "CHE", "name": "Chemistry"},
         ],
         section_questions={"MAT": 80, "PHY": 40, "CHE": 40},
+        total_questions=160,
+        id_range_start=1,
+        id_range_end=160,
+        # Q1-80: Mathematics, Q81-120: Physics, Q121-160: Chemistry
+        subject_id_ranges={
+            "Mathematics": (1, 80),
+            "Physics": (81, 120),
+            "Chemistry": (121, 160),
+        },
         duration_minutes=180,
         marks_per_question=1,
         negative_marks=0,
-        question_pattern="MCQ with 4 options (1-4 or A-D)",
+        question_pattern="MCQ with 4 options (A-D)",
         language="English",
         has_bilingual=True,  # Has Telugu alongside English
     ),
