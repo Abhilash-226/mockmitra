@@ -124,18 +124,29 @@ class GeminiExtractor:
         # 2. Fix 'sqrt(x)' -> \sqrt{x}
         text = re.sub(r'sqrt\s*\(([^)]+)\)', r'\\sqrt{\1}', text)
         
-        # 3. Ensure math sequences are wrapped in $
-        # Look for typical math symbols/keywords that aren't wrapped
-        math_keywords = [r'\\frac', r'\\sqrt', r'\\alpha', r'\\beta', r'\\gamma', r'\\theta', r'\\infty', r'\\pm', r'\\times']
-        for kw in math_keywords:
-            # Wrap keyword and its following block if not already inside $...$
-            # This is a bit simplified; better to detect blocks
-            pass # Skipping complex auto-wrapping for now to avoid breaking text
+        # 3. Fix common chemistry arrow hallucinations
+        text = text.replace('->', r' \rightarrow ')
+        text = text.replace('=>', r' \Rightarrow ')
+        text = text.replace('-->', r' \rightarrow ')
 
-        # 4. Fix double-wrapped math like $$...$$
+        # 4. Fix missing backslashes in common commands (hallucinations/escapes)
+        # Matches things like 'frac{', 'sqrt{', 'ightarrow', 'left(', 'right)'
+        text = text.replace('frac{', r'\frac{')
+        text = text.replace('sqrt{', r'\sqrt{')
+        text = text.replace('ightarrow', r'\rightarrow')
+        text = text.replace('left(', r'\left(')
+        text = text.replace('right)', r'\right)')
+        text = text.replace('alpha', r'\alpha')
+        text = text.replace('beta', r'\beta')
+        text = text.replace('theta', r'\theta')
+        text = text.replace('pi', r'\pi')
+        text = text.replace('le ', r' \leq ')
+        text = text.replace('ge ', r' \geq ')
+        
+        # 5. Fix double-wrapped math like $$...$$
         text = text.replace('$$', '$')
         
-        # 5. Fix common hallucination: "Option A", "Option B" in options
+        # 6. Fix common hallucination: "Option A", "Option B" in options
         if text.strip() in ["Option A", "Option B", "Option C", "Option D", "Refer to Image"]:
             return "UNREADABLE_IMAGE"
 
@@ -179,14 +190,19 @@ class GeminiExtractor:
 CONTENT RULES:
 10. Clean Text: Do NOT include "Question Number", "Question Id", or any metadata in the "text" field.
 11. Subject/Section/Topic: Must match the STRICT HIERARCHY above.
-12. LaTeX (VITAL): Use $...$ for ALL math. Standard LaTeX only: \\\\frac{{a}}{{b}}, \\\\sqrt{{x}}, \\\\alpha, \\\\infty, \\\\pm.
+12. LaTeX (VITAL): Use $...$ for ALL math and Chemistry formulas/equations. 
+    - Math: \\frac{{a}}{{b}}, \\sqrt{{x}}, \\alpha, \\infty, \\pm, \\times.
+    - Chemistry: \\rightarrow, \\uparrow, \\downarrow, \\rightleftharpoons. 
+    - Examples: $H_2O$, $SO_4^{{2-}}$, $Fe^{{3+}} \\xrightarrow{{NaOH}} Fe(OH)_3 \\downarrow$.
 13. Options: Extract all 4 options as A, B, C, D. DO NOT use placeholders like "Option A". If an option is purely an image that cannot be described, use "IMAGE_CONTENT".
 14. NO Telugu: Extract ONLY English text. Ignore Telugu script.
 15. If a question is incomplete (cut off at bottom of Image 2), add "status": "incomplete".
+16. **Correct Answer (VITAL)**: Look for visual indicators like a green bar, a checkmark (✓), or green text to identify the correct answer. If multiple indicators exist, use the most obvious one. If found, set "correct_answer" to that option (A, B, C, or D).
 
 OUTPUT FORMAT (strict JSON):
 {{
   "pre_header_options": {{ "A": "...", "B": "...", "C": "...", "D": "..." }},
+  "pre_header_correct_answer": "<A/B/C/D>",
   "questions": [
     {{
       "number": <exact PDF question number, integer>,
@@ -195,7 +211,7 @@ OUTPUT FORMAT (strict JSON):
       "topic": "<exact topic slug>",
       "text": "<question text>",
       "options": {{"A": "...", "B": "...", "C": "...", "D": "..."}},
-      "correct_answer": "A",
+      "correct_answer": "<A/B/C/D>",
       "difficulty": "moderate"
     }}
   ]
@@ -256,6 +272,13 @@ OUTPUT FORMAT (strict JSON):
                     current_val = str(existing_opts.get(k, '')).strip()
                     if not current_val or current_val == "UNREADABLE_IMAGE":
                         existing_opts[k] = v
+                
+                # Merge correct answer if it was missing
+                if not existing.get('correct_answer') or existing.get('correct_answer') == 'A':
+                    pre_correct = result_data.get('pre_header_correct_answer')
+                    if pre_correct:
+                        existing['correct_answer'] = pre_correct
+
                 print(f"    Merged {len(pre_header_opts)} pre-header options into ID {last_question_id}")
 
             # 2. Process New Questions
@@ -465,8 +488,38 @@ OUTPUT FORMAT (strict JSON):
                     new_opts[k] = valid[0] if valid else vals[0]
                 
                 q['options'] = new_opts
+                
             else:
                 q['options'] = {k: "UNREADABLE_IMAGE" for k in ['A', 'B', 'C', 'D']}
+
+            # Normalize correct_answer key and value
+            raw_correct = q.get('correct_answer') or q.get('correct') or q.get('answer')
+            if raw_correct:
+                raw_correct = str(raw_correct).strip().replace('<', '').replace('>', '')
+                if raw_correct in ['1', '2', '3', '4']:
+                    q['correct_answer'] = chr(64 + int(raw_correct))
+                elif raw_correct.upper() in ['A', 'B', 'C', 'D']:
+                    q['correct_answer'] = raw_correct.upper()
+                else:
+                    # If it's something else, it might be a hint or a mistake, preserve it for now 
+                    # but maybe it's better to default to None to see it's missing
+                    q['correct_answer'] = None 
+            else:
+                q['correct_answer'] = None
+
+        # Clean pre_header_options too
+        pre_opts = data.get('pre_header_options')
+        
+        # Also normalize pre_header_correct_answer
+        pre_correct = data.get('pre_header_correct_answer')
+        if pre_correct:
+            pre_correct = str(pre_correct).strip().replace('<', '').replace('>', '').upper()
+            if pre_correct in ['A', 'B', 'C', 'D']:
+                data['pre_header_correct_answer'] = pre_correct
+            elif pre_correct in ['1', '2', '3', '4']:
+                 data['pre_header_correct_answer'] = chr(64 + int(pre_correct))
+            else:
+                data['pre_header_correct_answer'] = None
 
         # Clean pre_header_options too
         pre_opts = data.get('pre_header_options')
@@ -631,8 +684,8 @@ OUTPUT FORMAT (strict JSON):
             q = questions_map[q_num]
             
             # Robust Subject/Section Matching
-            extracted_subject = q.get('subject', 'Mathematics')
-            extracted_section = q.get('section', q.get('topic', 'General'))
+            extracted_subject = q.get('subject') or 'Mathematics'
+            extracted_section = q.get('section') or q.get('topic') or 'General'
             
             # Default to extracted
             canonical_subject = extracted_subject
@@ -641,12 +694,12 @@ OUTPUT FORMAT (strict JSON):
             # 1. First, correct Section from hierarchy
             for sub_name, data in hierarchy.items():
                 for sec_name in data["sections"].keys():
-                    if extracted_section.lower() in sec_name.lower() or sec_name.lower() in extracted_section.lower():
+                    if extracted_section and (extracted_section.lower() in sec_name.lower() or sec_name.lower() in extracted_section.lower()):
                         canonical_section = sec_name
                         break
             
             # 2. Crucial: Override Subject based on Section Map
-            if canonical_section.lower() in sec_to_sub:
+            if canonical_section and canonical_section.lower() in sec_to_sub:
                 canonical_subject = sec_to_sub[canonical_section.lower()]
             
             # 3. FINAL AUTHORITY: Override subject based on question ID range
@@ -661,7 +714,7 @@ OUTPUT FORMAT (strict JSON):
                 "topic": q.get('topic', 'general'),
                 "text": sanitize_text(q.get('text', '')),
                 "options": q.get('options', {}),
-                "correct_answer": q.get('correct', 'A'),
+                "correct_answer": q.get('correct_answer') or 'A',
                 "difficulty": "moderate",
                 "subject": canonical_subject
             })

@@ -30,7 +30,7 @@ questions:
     B: bijective
     C: injective but not surjective
     D: neither injective nor surjective
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 2
@@ -43,7 +43,7 @@ questions:
     B: $\left(-\frac{1}{4}, 4\right)$
     C: $\left(-\infty, -\frac{1}{2}\right] \cup \left[\frac{1}{2}, \infty\right)$
     D: $\left(-\infty, -\frac{1}{4}\right] \cup \left[\frac{1}{4}, \infty\right)$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 3
@@ -71,12 +71,10 @@ questions:
     $B^{2020} [B+(2021)C] =$ $B, C$ $n \times n$ .
   options:
     A: $A^{2020}$
-    B: '$\text{null zero matrix of order n} \times n$
-
-      $n \times n$'
+    B: $\text{null zero matrix of order n} \times n$
     C: $A^{2021}$
     D: $B^{2021}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 5
@@ -94,7 +92,7 @@ questions:
     B: '-2'
     C: '-1'
     D: '2'
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 6
@@ -107,7 +105,7 @@ questions:
     B: S has no solution, if $\lambda = -2$
     C: S has no unique solution for any real $\lambda$
     D: S is consistent for all $\lambda \in R$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 7
@@ -121,7 +119,7 @@ questions:
     B: $a^2 = 3b$
     C: $a^2 = 4b$
     D: $a = 3b$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 8
@@ -135,7 +133,7 @@ questions:
     B: (A) is true, (R) is true but (R) is not the correct explanation for (A)
     C: (A) is true but (R) is false
     D: (A) is false but (R) is true
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 9
@@ -148,12 +146,12 @@ questions:
     A: $-2$
     B: $2$
     C: $-1$
-    D: IMAGE_CONTENT
+    D: $0$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 10
-  section: Complex Numbers
+  section: Algebra
   topic: complex_numbers
   text: If $z = e^{i\theta}$ and $\frac{3 \cos 3\theta + 2 \cos 2\theta + 5 \cos \theta}{3
     \sin 3\theta + 2 \sin 2\theta + 5 \sin \theta} = i \frac{\sum\limits_{r=0}^{10}
@@ -164,11 +162,11 @@ questions:
     B: '1'
     C: '2'
     D: '3'
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 11
-  section: Quadratic Expressions
+  section: Algebra
   topic: quadratic_expressions
   text: The curves $y = x^2 + 9x + 20$ and $y'= x^2 + bx + c$ intersect the X-axis
     at the points $(\alpha_i, 0)$, $(i = 1, 2, 3, 4)$. If $\alpha_1 < \alpha_2 < \alpha_3
@@ -179,7 +177,7 @@ questions:
     B: '159'
     C: '216'
     D: '214'
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 12
@@ -206,7 +204,7 @@ questions:
     B: '1'
     C: '9'
     D: '10'
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 14
@@ -216,15 +214,15 @@ questions:
     then the equation with the diminished roots does not contain $x^3$ term. Then
     $12(a - \beta)^2 = $
   options:
-    A: UNREADABLE_IMAGE
-    B: UNREADABLE_IMAGE
-    C: UNREADABLE_IMAGE
-    D: UNREADABLE_IMAGE
+    A: '35'
+    B: '105'
+    C: '96'
+    D: '115'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 15
-  section: Permutations and Combinations
+  section: Algebra
   topic: permutations_and_combinations
   text: Five boys and five girls are writing an examination in a hall in which 5 benches
     are arranged in a row and only two students are to be seated on every bench at
@@ -241,7 +239,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 16
-  section: Permutations and Combinations
+  section: Algebra
   topic: permutations_and_combinations
   text: Let $x$ denote the number of ways of selecting at least one ball from a bag
     containing 3 identical red balls, 4 identical blue balls and 5 identical green
@@ -266,11 +264,11 @@ questions:
     B: 4(1+2^9)
     C: 6(1+2^{10})
     D: 4(1+2^{10})
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 18
-  section: Binomial Theorem
+  section: Algebra
   topic: binomial_theorem
   text: The number of irrational terms in the expansion of $(5^{\frac{1}{2}} + 7^{\frac{1}{8}})^{1024}
     + (5^{\frac{1}{2}} - 7^{\frac{1}{8}})^{1024}$ is
@@ -279,11 +277,11 @@ questions:
     B: '129'
     C: '513'
     D: '384'
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 19
-  section: Partial Fractions
+  section: Algebra
   topic: partial_fractions
   text: If $\frac{x^4+3x+1}{(x+1)^2(x-1)} = Ax + B + \frac{C}{x+1} + \frac{D}{(x+1)^2}
     + \frac{E}{x-1}$ Then $A + B + C + D + E =$
@@ -292,7 +290,7 @@ questions:
     B: \frac{9}{2}
     C: \frac{5}{2}
     D: '0'
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 20
@@ -302,10 +300,10 @@ questions:
     = 0$, for $\frac{\pi}{2} < \alpha < \pi$, then sin 2$\alpha$=
   options:
     A: \frac{-3}{5}
-    B: \frac{3}{5}
+    B: \frac{-24}{25}
     C: \frac{4}{5}
     D: \frac{-4}{5}
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 21
@@ -318,7 +316,7 @@ questions:
     B: \frac{5}{8}
     C: \frac{3}{4}
     D: \frac{5}{4}
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 22
@@ -330,7 +328,7 @@ questions:
     B: $\tan \gamma, \tan \alpha, \tan \beta$ are in harmonic progression
     C: $\cot \alpha, \cot \beta, \cot \gamma$ are in arithmetic progression
     D: $\tan \alpha, \tan \beta, \tan \gamma$ are in arithmetic progression
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 23
@@ -343,7 +341,7 @@ questions:
     B: '3'
     C: '5'
     D: infinitely many
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 24
@@ -370,7 +368,7 @@ questions:
     B: \frac{2\sqrt{3} + 3}{2}
     C: \frac{4\sqrt{3} + 3}{3}
     D: \frac{4\sqrt{3} - 3}{3}
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 26
@@ -383,23 +381,22 @@ questions:
     B: \frac{\sqrt{3} - 1}{\sqrt{6}}
     C: \frac{\sqrt{3} + 1}{\sqrt{6}}
     D: \frac{\sqrt{3}}{\sqrt{2}}
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 27
-  section: Mechanics
-  topic: laws_of_motion
-  text: A vehicle of mass $m$ is moving on a rough horizontal road with momentum $p$.
-    If the coefficient of friction between the tyres and the road is $\mu$, then the
-    stopping distance is
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: If $\triangle ABC$ is a non isosceles triangle and $\angle C=90^\circ$, then
+    $\frac{a^2+b^2}{a^2-b^2} \sin(A-B) =$
   options:
-    A: \frac{p^{2}}{2\mu mg}
-    B: \frac{p^{2}}{2\mu m^{2}g}
-    C: \frac{p}{2\mu mg}
-    D: \frac{p}{2\mu m^{2}g}
+    A: '1'
+    B: '2'
+    C: '0'
+    D: '-1'
   correct_answer: A
   difficulty: moderate
-  subject: Physics
+  subject: Mathematics
 - id: 28
   section: Trigonometry
   topic: properties_of_triangles
@@ -410,11 +407,11 @@ questions:
     B: \frac{1}{2R}
     C: 2\left(1+\frac{r}{4R}\right)
     D: 2\left(1+\frac{r}{2R}\right)
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 29
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: 'In $\Delta ABC$, the points P, Q, R divide BC, CA, AB in the ratio 3 : 4,
     2 : 5, 9 : 5, respectively and the point D divides BC in the ratio 2 : 3. If $\overrightarrow{AP}
@@ -425,11 +422,11 @@ questions:
     B: '4 : 3'
     C: '4 : 5'
     D: '3 : 2'
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 30
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: If A (1, 1, 2), B (4, 2, 1) and C (2, 3, 5) are the vertices of a triangle,
     then a vector representing the median of the triangle through A is
@@ -438,11 +435,11 @@ questions:
     B: $(1+2r)\overline{i} + \left(1+\frac{3r}{2}\right)\overline{j} + (2+r)\overline{k}$
     C: $-3\overline{i} - 4\overline{j} - 5\overline{k}$
     D: None
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 31
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: If the shortest distance between the lines $\overline{r} = (3\overline{i}+4\overline{j}-2\overline{k})
     + t(-\overline{i}-2\overline{j}+ \overline{k})$ and $\overline{r} = (-\overline{i}-7\overline{j}-2\overline{k})
@@ -454,28 +451,24 @@ questions:
     B: $5\overline{i}-\overline{j}+3\overline{k}$
     C: $\overline{i}+3\overline{j}+5\overline{k}$
     D: $3\overline{i}+5\overline{j}-\overline{k}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 32
-  section: Algebra
-  topic: matrices
-  text: If $A = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}$, then which one of the
-    following is correct?
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: The vector equation of the plane containing the lines $\vec{r} = (\hat{i}+\hat{j})+t(\hat{i}+2\hat{j}-\hat{k})$
+    and $\vec{r} = (\hat{i}+\hat{j})+s(-\hat{i}+\hat{j}-2\hat{k})$ is
   options:
-    A: $A^2 - 2A - 3I = 0$
-    B: $A^2 + 2A - 3I = 0$
-    C: $A^2 - 2A + 3I = 0$
-    D: $A^2 + 2A + 3I = 0$
-    '1': $7\overline{i}+5\overline{j}-3\overline{k}$
-    '2': $5\overline{i}-\overline{j}+3\overline{k}$
-    '3': $\overline{i}+3\overline{j}+5\overline{k}$
-    '4': $3\overline{i}+5\overline{j}-\overline{k}$
-  correct_answer: A
+    A: $\vec{r} \cdot \vec{n} = 3$, where $\vec{n} = \hat{i}-3\hat{j}-2\hat{k}$
+    B: $\vec{r} \cdot \vec{n} = 1$, where $\vec{n} = \hat{i}-\hat{j}+2\hat{k}$
+    C: $\vec{r} \cdot \vec{n} = 0$, where $\vec{n} = \hat{i}-\hat{j}-\hat{k}$
+    D: $\vec{r} \cdot \vec{n} = 2$, where $\vec{n} = \hat{i}-\hat{j}-\hat{k}$
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 33
-  section: Algebra
+  section: Vector Algebra
   topic: scalar_dot_product
   text: Let $\vec{a} = \hat{i}-2\hat{j}+3\hat{k}$ and $\vec{b} = 2\hat{i}+\hat{j}+\hat{k}$.
     If $\vec{c}$ is a unit vector such that $\left[ \vec{a} \vec{b} \vec{c} \right]$
@@ -489,7 +482,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 34
-  section: Algebra
+  section: Vector Algebra
   topic: vectors_and_scalars
   text: The shortest distance between the skew lines $\frac{x-2}{1} = \frac{y-3}{-2}
     = \frac{z+5}{1}$ and $\frac{x-1}{-1} = \frac{y+2}{3} = \frac{z-4}{2}$ is
@@ -498,11 +491,11 @@ questions:
     B: $\frac{21}{\sqrt{59}}$
     C: $\frac{31}{\sqrt{59}}$
     D: $\frac{31}{\sqrt{59}}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 35
-  section: Measures of Dispersion
+  section: Probability & Statistics
   topic: measures_of_dispersion
   text: The mean deviation from the arithmetic mean of the discrete data 2, 7, 5,
     6, 4, 3, 11, 17, 8 is
@@ -511,18 +504,18 @@ questions:
     B: $\frac{10}{3}$
     C: $\frac{37}{2}$
     D: '9'
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 36
-  section: Measures of Dispersion
+  section: Probability & Statistics
   topic: measures_of_dispersion
   text: The variance of the following frequency distribution is
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '56'
+    B: '30'
+    C: '11'
+    D: '20'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -537,21 +530,47 @@ questions:
     B: $P(A \cup C) = \frac{7}{13}$, A, B, C
     C: $\frac{10}{13} \leq P(B \cup C) \leq 1$ when A, B, C are exclusive events
     D: $\frac{10}{13} \leq P(B \cup C) \leq 1$, A, B, C
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 38
   section: Probability & Statistics
   topic: probability
-  text: $E_1$ and $E_2$ are two independent events of a random experiment with $P(E_1)
+  text: '$E_1$ and $E_2$ are two independent events of a random experiment with $P(E_1)
     = \frac{1}{2}$ and $P(E_1 \cup E_2) = \frac{2}{3}$. Then match the items of List
     - I with those of List – II
+
+
+    **List - I**
+
+    A) $P(E_2) =$
+
+    B) $P(E_1|E_2) =$
+
+    C) $P(\bar{E}_2|\bar{E}_1) =$
+
+    D) $P(\bar{E}_1 \cup \bar{E}_2) =$
+
+
+    **List - II**
+
+    I) $2/3$
+
+    II) $5/6$
+
+    III) $1/3$
+
+    IV) $1/2$
+
+    V) $1/6$
+
+    '
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: A-III, B-II, C-I, D-IV
+    B: A-III, B-IV, C-I, D-II
+    C: A-III, B-IV, C-II, D-I
+    D: A-IV, B-III, C-I, D-II
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 39
@@ -563,9 +582,9 @@ questions:
   options:
     A: \frac{2}{15}
     B: \frac{1}{10}
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    C: \frac{1}{5}
+    D: \frac{3}{10}
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 40
@@ -584,7 +603,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 41
-  section: random_variables_and_distribution
+  section: Probability & Statistics
   topic: probability
   text: If a random variable X follows the Poisson distribution with variance 3, then
     P (X = r) is maximum, when r =
@@ -593,11 +612,11 @@ questions:
     B: '1'
     C: '2'
     D: '4'
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 42
-  section: locus
+  section: Coordinate Geometry
   topic: locus
   text: For a real variable $a > 1$, consider the points $A_k = (ka, a^k), k = 1,
     2, ..., n$ in the Cartesian plane. If $\alpha$ and $\beta$ represent respectively
@@ -608,7 +627,7 @@ questions:
     B: $y^2 = \left( \frac{2x}{n+1} \right)^{\frac{n}{n+1}}$
     C: $y = \left( \frac{2x}{n+1} \right)^{\frac{n}{n+1}}$
     D: $y = \left( \frac{2x}{n(n+1)} \right)^{\frac{n}{n+1}}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 43
@@ -623,7 +642,7 @@ questions:
     B: \frac{\pi}{2}
     C: \frac{\pi}{4}
     D: \frac{\pi}{3}
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 44
@@ -638,7 +657,7 @@ questions:
     B: $\frac{-2}{3}$
     C: $\frac{-1}{2}$
     D: $\frac{1}{2}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 45
@@ -648,15 +667,15 @@ questions:
     $x - 3y = 0$, $3x - y = 0$, $x + y + 4 = 0$. If P and Q are the points on the
     line $3x - y + k = 0$ passing through B such that PB : BQ = 1 : 1 then k ='
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '8'
+    B: '10'
+    C: '-8'
+    D: '-12'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 46
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: Let A (1, 1), B (1, –1), C (–1, 1) be the vertices of $\triangle$ABC. Let
     S be the circum-centre, O be the orthocentre and I be the incentre of the $\triangle$ABC.
@@ -666,11 +685,11 @@ questions:
     B: '2'
     C: 2+ 2\sqrt{2}
     D: 2 + \sqrt{2}
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 47
-  section: Pair of straight lines
+  section: Coordinate Geometry
   topic: straight_lines
   text: If one of the pair of lines $4x^2 + 6xy + ky^2 = 0$ is perpendicular to one
     of the lines represented by $3x^2 - 5xy + 2y^2 = 0$, then twice the absolute difference
@@ -684,7 +703,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 48
-  section: Pair of straight lines
+  section: Coordinate Geometry
   topic: straight_lines
   text: The difference of the tangents of the angles which the lines $(\tan^2 \alpha
     + \cos^2 \alpha) \; x^2 - 2xy \tan \alpha + (\sin^2 \alpha) \; y^2 = 0$ make with
@@ -694,7 +713,7 @@ questions:
     B: '1'
     C: '2'
     D: '4'
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 49
@@ -708,7 +727,7 @@ questions:
     B: $x^2 + y^2 - 4x - 12y + 22 = 0$
     C: $x^2 + y^2 - 4x - 12y - 22 = 0$
     D: $3x^2 + 3y^2 - 12x - 36y - 66 = 0$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 50
@@ -722,7 +741,7 @@ questions:
     B: $\left(\frac{1}{4}, \frac{3}{4}\right)$
     C: $\left(\frac{-1}{5}, \frac{2}{5}\right)$
     D: $\left(\frac{3}{5}, \frac{2}{5}\right)$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 51
@@ -733,14 +752,14 @@ questions:
   options:
     A: $\frac{5}{8}$
     B: $\frac{15}{8}$
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    C: $\frac{8}{15}$
+    D: $\frac{19}{8}$
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 52
-  section: system_of_circles
-  topic: null
+  section: Coordinate Geometry
+  topic: system_of_circles
   text: $\mathbf{r_1, r_2 > 0}$ and if $C_1, C_2$ are centres of the two circles having
     only two common tangents and $C_1C_2 = r_1 + r_2$, then which of the following
     is correct
@@ -751,12 +770,12 @@ questions:
     C: $r_1, r_2$ are always the distances of the centres from the common tangent
       of the two circles
     D: 'external centre of similitude divides $C_1C_2$ in the ratio $r_1 : r_2$'
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 53
-  section: system_of_circles
-  topic: null
+  section: Coordinate Geometry
+  topic: system_of_circles
   text: Let $S = x^2 + y^2 - 6x - 6y + 4 = 0$ and $S' = x^2 + y^2 - 2x - 4y + 3 =
     0$ be two circles. The centre of a circle of radius $\sqrt{14}$ and having same
     radical axis with either of $S = 0$ or $S'=0$ is
@@ -765,7 +784,7 @@ questions:
     B: $(\frac{-19}{5}, \frac{-2}{5})$
     C: $(1, 2)$
     D: $(\frac{2}{5}, \frac{3}{5})$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 54
@@ -779,7 +798,7 @@ questions:
     B: \frac{k+2}{3}
     C: $-1$
     D: \frac{k}{2}
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 55
@@ -796,7 +815,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 56
-  section: Ellipse
+  section: Coordinate Geometry
   topic: ellipse
   text: For $k > 0$, the shortest distance from a point $P(1, k)$ on the ellipse $9x^2
     + 4y^2 - 18x + 16y - 11 = 0$ to one of its directrix is
@@ -805,22 +824,22 @@ questions:
     B: $3 + \sqrt{5}$
     C: $\frac{9}{\sqrt{5}} - 3$
     D: $\frac{9}{\sqrt{5}} - 2$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 57
-  section: Ellipse
+  section: Coordinate Geometry
   topic: ellipse
   text: A tangent drawn at a point on the ellipse $\frac{x^2}{25} + \frac{y^2}{16}
     = 1$ cuts the X- axis at a point A. If A' be the image of A with respect to the
     line $y = x$, then the circle with A A' as its diameter passes through the fixed
     point
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: $(0,4)$
+    B: $(0,-4)$
+    C: $(0,0)$
+    D: $(1,1)$
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 58
@@ -835,11 +854,11 @@ questions:
     B: $-\left(\frac{a^2 + b^2}{a}\right)$
     C: $\frac{a^2 + b^2}{b}$
     D: $-\frac{a^2 + b^2}{b}$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 59
-  section: Algebra
+  section: Vector Algebra
   topic: vectors_and_scalars
   text: Let ABCD be a tetrahedron in which the coordinates of each of its vertices
     is in arithmetic progression. If the centroid G of the tetrahedron is $(2, 3,
@@ -849,11 +868,11 @@ questions:
     B: '7'
     C: $\sqrt{22}$
     D: $\sqrt{29}$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 60
-  section: Algebra
+  section: Vector Algebra
   topic: vectors_and_scalars
   text: The angle between the lines whose direction ratios satisfy the equations $l
     + m + n = 0$ and $l^2 = m^2 + n^2$ is
@@ -862,11 +881,11 @@ questions:
     B: $\frac{\pi}{3}$
     C: $\frac{\pi}{4}$
     D: $\frac{\pi}{6}$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 61
-  section: Algebra
+  section: Vector Algebra
   topic: applications_to_geometry
   text: A plane $\Pi$ is passing through the points A = $(0, 0, 2)$, B = $(1, 0, 1)$
     and C = $(3, 1, 1)$. If the plane $\Pi$ makes angles $\alpha$ and $\beta$ with
@@ -881,7 +900,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 62
-  section: Limits and Continuity
+  section: Calculus
   topic: limits_and_continuity
   text: $\underset{x\to 0}{Lt} \frac{x^4 + x^3 + x^2}{Sin^{-1}(\frac{x}{\sqrt{1+x^2}})Tan^{-1}x}
     = $
@@ -890,11 +909,11 @@ questions:
     B: '0'
     C: '1'
     D: $\frac{-1}{\sqrt{2}}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 63
-  section: Limits and Continuity
+  section: Calculus
   topic: limits_and_continuity
   text: If $f(x) = \lim_{n\to\infty} (\frac{log(2+x) - x^{2n} sin x}{1+x^{2n}}), 0
     \le x \le \frac{\pi}{2}, x \in R$, then at x = 1, f(x) is
@@ -903,11 +922,11 @@ questions:
     B: discontinuous
     C: continuous
     D: continuous but not differentiable
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 64
-  section: Differentiation and Derivatives
+  section: Calculus
   topic: differentiation_and_derivatives
   text: If $f(x) = \frac{(x+1)sinh x}{e^{2x} tan x}$ and $\frac{f'(x)}{f(x)} = \frac{1}{x+1}
     + coth x + g(x)$, then g(x) =
@@ -916,7 +935,7 @@ questions:
     B: 2 - 2 cosec 2x
     C: -2(1 + cosec 2x)
     D: 2 - \frac{1}{sin x cos x}
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 65
@@ -942,7 +961,7 @@ questions:
     B: $x(1-y^{2})$
     C: $y(1-x^{2})$
     D: $\sqrt{1-x^{2}} - \sqrt{1-y^{2}}$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 67
@@ -956,7 +975,7 @@ questions:
     B: $a^{2}$
     C: $a$
     D: $\frac{a}{\theta}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 68
@@ -994,7 +1013,7 @@ questions:
     B: $2$
     C: $4$
     D: $2 + log 2$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 71
@@ -1007,7 +1026,7 @@ questions:
     B: $\frac{\pi}{6}$
     C: $\frac{\pi}{3}$
     D: $\frac{\pi}{12}$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 72
@@ -1020,7 +1039,7 @@ questions:
     B: $2\sin x + 1$
     C: $4\sin x + 1$
     D: $2\sin x - \sin 4x + 2$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 73
@@ -1035,7 +1054,7 @@ questions:
     C: $\frac{2}{\sqrt{7}}log|\frac{\sqrt{7} - \tan \frac{x}{2}}{\sqrt{7} + \tan \frac{x}{2}}|
       + C$
     D: $2Sinh^{-1}|\frac{2 \tan \frac{x}{2}}{1 + \tan^2 \frac{x}{2}}| + C$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 74
@@ -1049,20 +1068,20 @@ questions:
     B: $\frac{137}{32}, \frac{-23}{64\sqrt{2}}$
     C: $\frac{15}{8}, \frac{-23}{16\sqrt{2}}$
     D: $\frac{49}{32}, \frac{23}{16\sqrt{2}}$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 75
   section: Calculus
   topic: definite_integrals
-  text: If $I_{n} = \int_{0}^{a} \frac{x^{n}}{\sqrt{a^{2} - x^{2}}} dx$, then $\frac{I_{8}}{I_{6}}
-    = $
+  text: If $I_n = \int_0^a \frac{x^n}{\sqrt{a^2 - x^2}} dx$, then $\frac{I_8}{I_4}
+    =$
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: $\frac{48}{35a^2}$
+    B: $\frac{35}{48}a^4$
+    C: $\frac{19}{72}a^6$
+    D: $\frac{29}{56}a^4$
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 76
@@ -1074,11 +1093,11 @@ questions:
     B: $\frac{16(5^{5})}{63}$
     C: $\frac{3(5^{10})}{256} \pi$
     D: $\frac{16(5^{10})}{693}$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 77
-  section: Applications of Derivatives
+  section: Calculus
   topic: applications_of_derivatives
   text: The area (in square units) bounded by the curves $|x|=2,|y|=2$ and $x y \leq
     \frac{1}{2}$ is
@@ -1091,7 +1110,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 78
-  section: Differential Equations
+  section: Calculus
   topic: differential_equations
   text: The differential equation of which $x y = a e^{x}+b e^{-x}+x^{2}$ is a solution,
     is
@@ -1100,7 +1119,7 @@ questions:
     B: $x y^{\prime\prime} + 2 y^{\prime} - x + x^{2} + 2 = 0$
     C: $x y^{\prime\prime} + 2 y^{\prime} - y + x^{2} - 2 = 0$
     D: $x y^{\prime\prime} + 2 y^{\prime} - x y - x^{2} - 2 = 0$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 79
@@ -1113,7 +1132,7 @@ questions:
     B: $(x + 3)^4(y - x - 3)^4 = c(5y + x + 3)^3
     C: $(y - x + 3)^4 = c|5y + x - 3|$
     D: $(y - x + 3)^4 = c|5y + x + 3|$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 80
@@ -1125,9 +1144,9 @@ questions:
   options:
     A: \alpha \cos \alpha + 2
     B: \alpha = (2n-1)\frac{\pi}{2}, n \in Z
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    C: \cos\frac{\alpha}{2}=1
+    D: \alpha = \cot\frac{\alpha}{2}
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 81
@@ -1139,7 +1158,7 @@ questions:
     B: Electromagnetic
     C: Strong nuclear
     D: Weak nuclear
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 82
@@ -1167,7 +1186,7 @@ questions:
     B: 1 m/s$^2$
     C: 2 m/s$^2$
     D: 1.5 m/s$^2$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 84
@@ -1181,24 +1200,10 @@ questions:
     B: moving with a speed of $15$ m/s from west to east
     C: moving with a speed of $15$ m/s from east to west
     D: moving with a speed of $10$ m/s from east to west
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 85
-  section: Mechanics
-  topic: laws_of_motion
-  text: A body of mass $2$kg travels according to the law $x(t) = pt + qt^2 + rt^3$
-    where $p = 3 ms^{-1}, q = 4 ms^{-2}$ and $r = 5 ms^{-3}$. The force acting on
-    the body at $t = 2$ second is
-  options:
-    A: 22 N
-    B: 44 N
-    C: 36 N
-    D: 68 N
-  correct_answer: A
-  difficulty: moderate
-  subject: Physics
-- id: 86
   section: Mechanics
   topic: motion_in_a_plane
   text: A projectile is thrown into air with velocity $15$ m/s at an angle $30^o$
@@ -1210,6 +1215,21 @@ questions:
     C: 0.5 sec
     D: 1.5 sec
   correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 86
+  section: Mechanics
+  topic: motion_in_a_plane
+  text: A particle is projected from the ground with some initial velocity making
+    an angle of $45^\circ$ with the horizontal. If it reaches a height of 7.5 m above
+    the ground while it travels a horizontal distance of 10m from the point of projection,
+    then the initial speed of particle is (Assume $g=10 m/s^2$)
+  options:
+    A: 10 m/s
+    B: 20 m/s
+    C: 15 m/s
+    D: 25 m/s
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 87
@@ -1232,12 +1252,13 @@ questions:
     as the lower end of the rod and then released. What is the acceleration of the
     rod with which it comes down? Assume the pulleys and threads are massless and
     friction force is neglected. (Use $g = 10 \, m/s^2$)
+  image: /static/papers/ts_eamcet/2020_3/q88.png
   options:
     A: 4 m/s
     B: 3 m/s
     C: 2 m/s
     D: 5 m/s
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 89
@@ -1250,29 +1271,17 @@ questions:
     B: zero
     C: K/4
     D: K/2
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 90
-  section: Mechanics
-  topic: work_energy_and_power
-  text: A particle having kinetic energy K is projected at $60^\circ$ with the horizontal.
-    The kinetic energy at the highest point is
-  options:
-    A: K
-    B: zero
-    C: K/4
-    D: K/2
-  correct_answer: A
-  difficulty: moderate
-  subject: Physics
-- id: 91
   section: Mechanics
   topic: work_energy_and_power
   text: A bullet of mass $m_1$ is moving with speed $V_0$ hits a sand bag of mass
     $m_2$. If the speed of the bullet after passing the sand bag is $\frac{V_0}{3}$,
     then the height $h$ up to which the bag rises is (Assume g = acceleration due
     to gravity)
+  image: /static/papers/ts_eamcet/2020_3/q90.png
   options:
     A: $h = \frac{1}{2g} \left( \frac{2m_1 V_0}{3 \ m_2} \right)^2$
     B: $h = \frac{2m_1 V_0}{5 \ m_2}$
@@ -1281,8 +1290,8 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
-- id: 92
-  section: System of Particles and Rotational Motion
+- id: 91
+  section: Mechanics
   topic: system_of_particles_and_rotational_motion
   text: From a uniform circular disc of radius 2 cm (its centre of mass is at 'O')
     a circular portion of radius 1 cm is removed such that the shift in centre of
@@ -1294,7 +1303,21 @@ questions:
     B: $45^0$
     C: $60^0$
     D: $120^0$
-  correct_answer: A
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Mechanics
+  topic: laws_of_motion
+  text: 'A ball of mass 2 g released from the top of an inclined plane describes a
+    circular motion of radius 20 cm in the vertical plane upon reaching the bottom.
+    The minimum height of the inclined plane is:'
+  options:
+    A: 20 cm
+    B: 10 cm
+    C: 50 cm
+    D: 60 cm
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 93
@@ -1313,7 +1336,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 94
-  section: Gravitation
+  section: Mechanics
   topic: gravitation
   text: Find the acceleration of our galaxy, due to the nearest comparably sized galaxy.
     The approximate mass of each galaxy is $8 \times 10^{11}$ solar masses and they
@@ -1360,20 +1383,19 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 97
-  section: Algebra
-  topic: complex_numbers
-  text: If $z$ is a complex number such that $|z| \ge 2$, then the minimum value of
-    $|z + \frac{1}{2}|$ is
+  section: Thermal Physics
+  topic: thermodynamics
+  text: Newton's law of cooling is a special case of
   options:
-    A: is equal to $\frac{5}{2}$
-    B: lies in the interval $(1, 2)$
-    C: is strictly greater than $\frac{5}{2}$
-    D: is strictly greater than $\frac{3}{2}$ but less than $\frac{5}{2}$
-  correct_answer: A
+    A: Wien's displacement law
+    B: Kirchhoff's law
+    C: Stefan's law
+    D: Planck's law
+  correct_answer: C
   difficulty: moderate
-  subject: Mathematics
+  subject: Physics
 - id: 98
-  section: Thermodynamics
+  section: Thermal Physics
   topic: thermodynamics
   text: How much thermal energy is required to change a 40 g ice cube from solid at
     $-10^{\circ}C$ to steam at $110^{\circ}C$. [Assume latent heat of fusion for water
@@ -1402,21 +1424,20 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 100
-  section: Coordinate Geometry
-  topic: ellipse
-  text: The equation of the ellipse whose axes are parallel to the coordinate axes,
-    having its centre at $(2, -3)$, one focus at $(3, -3)$ and vertex at $(4, -3)$
-    is
+  section: Thermal Physics
+  topic: kinetic_theory_of_gases
+  text: In an ideal gas if the masses of all molecules are doubled and their speeds
+    are halved, then the ratio of initial and final pressures of the gas is
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '2:1'
+    B: '1:2'
+    C: '4:1'
+    D: '1:4'
   correct_answer: A
   difficulty: moderate
-  subject: Mathematics
+  subject: Physics
 - id: 101
-  section: Sound Waves
+  section: Oscillations and Waves
   topic: sound_waves
   text: An engine sounding a whistle of frequency 2000 Hz is receding from the stationary
     observer at 72 km/h. What is the apparent frequency of the observer? The velocity
@@ -1436,10 +1457,10 @@ questions:
     20 cm. Find the distance of the object if the image obtained is magnified by 4
     times.
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 25 cm when the image is real
+    B: 15 cm when the image is real
+    C: 25 cm when the image is virtual
+    D: 10 cm when the image is virtual
   correct_answer: A
   difficulty: moderate
   subject: Physics
@@ -1452,7 +1473,7 @@ questions:
     B: Red light travels faster than violet light in a medium
     C: In vacuum red light travel faster than others
     D: IMAGE_CONTENT
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 104
@@ -1467,7 +1488,21 @@ questions:
     C: the resolving power of the microscope is reciprocal to the maximum separation
       of two points seen as distinct
     D: polarisation phenomenon is observed only for transverse waves
-  correct_answer: A
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 105
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: The electrostatic potential inside a charged spherical ball is given by $\phi
+    = ar^2 + b$, where r is the distance from the centre and a, b are constant. Then
+    the charge density inside the ball is ($\epsilon_0 =$ Permittivity in free space)
+  options:
+    A: $-6a\epsilon_0r$
+    B: $-6a\epsilon_0$
+    C: $-24\pi a\epsilon_0$
+    D: $-24\pi a\epsilon_0r$
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 106
@@ -1484,11 +1519,11 @@ questions:
       q_2}{x^2}
     C: zero, \frac{Q}{4 \pi \epsilon_0} \frac{}{x^2}
     D: zero, \frac{Q + q_1}{4 \pi \epsilon_0} \frac{}{x^2}
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 107
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: There are four bulbs of power 100W, 200W, 500W and 1000W. Among those whose
     filament has high resistance? (Assuming same voltage source)
@@ -1501,7 +1536,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 108
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: In a meter bridge two gaps in the metallic strip are connected by $3\Omega$
     and $9\Omega$ resistors. What should be the value of shunt that needs to be added
@@ -1511,7 +1546,7 @@ questions:
     B: 6$\Omega$
     C: 4.5$\Omega$
     D: 12$\Omega$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 109
@@ -1519,12 +1554,13 @@ questions:
   topic: magnetic_effects_of_current_and_magnetism
   text: A current I flows in a straight wire bent in the shape of a quarter ring of
     radius R as shown in figure. The magnetic field induction (B) at point O is
+  image: /static/papers/ts_eamcet/2020_3/q109.png
   options:
     A: \frac{\mu_o I}{4 R}
     B: \frac{\mu_o I}{8 R}
     C: \frac{\mu_o I}{2 R}
     D: IMAGE_CONTENT
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 110
@@ -1542,7 +1578,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 111
-  section: Moving Charges and Magnetism
+  section: Electricity and Magnetism
   topic: magnetic_effects_of_current_and_magnetism
   text: A bar magnet having magnetic moment M is bent as an arc. Its magnetic moment
   options:
@@ -1554,16 +1590,17 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 112
-  section: Moving Charges and Magnetism
+  section: Electricity and Magnetism
   topic: magnetic_effects_of_current_and_magnetism
   text: The magnetic field at point P of given figure due to carrying of current I
     by a conductor of radius R, is
+  image: /static/papers/ts_eamcet/2020_3/q112.png
   options:
     A: \frac{\mu_{0}I}{4\pi r}
     B: \frac{\mu_{0}I}{4\pi R}
     C: \frac{\mu_{0}IR^{2}}{4\pi r}
     D: \frac{\mu_{0}IR}{4\pi r^{2}}
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 113
@@ -1572,37 +1609,30 @@ questions:
   text: Which of the following components of an $L-C-R$ circuit, with an AC supply,
     dissipates energy?
   options:
-    A: 'only $L$
-
-      $L$'
-    B: 'only $R$
-
-      $R$'
-    C: 'only $C$
-
-      $C$'
-    D: '$L$ and $C$
-
-      $L$  $C$'
-  correct_answer: A
+    A: only $L$
+    B: only $R$
+    C: only $C$
+    D: $L$ and $C$
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 114
   section: Electricity and Magnetism
-  topic: electromagnetic_induction
-  text: The magnetic flux through a coil varies with time $t$ as $\phi=5t^2+6t+9$,
-    where $\phi$ is in milliweber and $t$ is in second. What is the value of induced
-    emf at $t=0.5$ s ?
+  topic: electrostatic_potential_and_capacitance
+  text: Consider a parallel plate capacitor which is maintained at potential 200 V.
+    The separation distance between the plates of capacitor and the area of plates
+    are 1mm and $20~cm^2$ respectively. Calculate displacement current in $1~\mu s$.
+    $[\epsilon_0 = 8.85 \times 10^{-12}~F/m]$
   options:
-    A: 5.5 mV
-    B: 2.5 mV
-    C: 3.0 mV
-    D: 8.0 mV
+    A: 3.5 mA
+    B: 2.5 mA
+    C: 1.5 mA
+    D: 0.5 mA
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 115
-  section: dual_nature_of_matter_and_radiation
+  section: Modern Physics
   topic: atoms
   text: The De-broglie wavelength of the electron in the first Bohr orbit of the hydrogen
     atom is
@@ -1611,7 +1641,7 @@ questions:
     B: equal to the circumference of the first orbit
     C: $\frac{1}{4}$ times the circumference of the first orbit
     D: equal to the half of the radius of the first orbit
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 116
@@ -1624,7 +1654,7 @@ questions:
     B: \frac{\lambda}{2}
     C: 4$\lambda$
     D: 9$\lambda$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 117
@@ -1648,24 +1678,26 @@ questions:
     regulation. The load current is 4 mA and the unregulated input voltage is 10 V.
     To get a Zener current five times the load current the value of series resistor
     $R_s$ is nearly
+  image: /static/papers/ts_eamcet/2020_3/q118.png
   options:
     A: 150 $\Omega$
     B: 167 $\Omega$
     C: 175 $\Omega$
     D: 159 $\Omega$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 119
   section: Modern Physics
   topic: semiconductors_and_devices
   text: Identify the equivalent logic gate for the following circuit
+  image: /static/papers/ts_eamcet/2020_3/q119.png
   options:
     A: AND
     B: NOR
     C: OR
     D: NAND
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 120
@@ -1676,11 +1708,11 @@ questions:
     changed so as to obtain the modulation index of 0.8, keeping the peak voltage
     of the message signal same as before.
   options:
-    A: AND
-    B: NOR
-    C: OR
-    D: NAND
-  correct_answer: A
+    A: increase by 7.5 V
+    B: reduce by 7.5 V
+    C: increase by 12.5 V
+    D: reduce by 12.5 V
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 121
@@ -1689,11 +1721,11 @@ questions:
   text: Which sets of the d- orbitals are directly oriented towards the ligands in
     octahedral coordination compounds?
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: $d_{x^2-y^2}$ and $d_{xy}$
+    B: $d_{z^2}$ and $d_{yz}$
+    C: $d_{xz}$ and $d_{xy}$
+    D: $d_{x^2-y^2}$ and $d_{z^2}$
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 122
@@ -1704,8 +1736,8 @@ questions:
     A: $6.022 \times 10^{23}$
     B: $10.022 \times 10^{25}$
     C: $108.4 \times 10^{23}$
-    D: IMAGE_CONTENT
-  correct_answer: A
+    D: $1.084 \times 10^{23}$
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 123
@@ -1717,7 +1749,7 @@ questions:
     B: F
     C: N
     D: Cl
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 124
@@ -1734,22 +1766,24 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 125
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
-  text: Find out the hybridisations of $C^1$, $C^2$ and $C^3$ labelled carbon atoms
-    in the given molecule $H-C \equiv C - \stackrel{H}{\stackrel{|}{C}} = C - CH_2$
+  text: Find out the hybridisations of $C^1, C^2$ and $C^3$ labelled carbon atoms
+    in the given molecule $H - C \equiv \stackrel{1}{C} - \stackrel{2}{C}(H) = \stackrel{3}{C}
+    = CH_2$
   options:
-    A: $C^1 \newline sp$, $C^2 \newline sp^2$, $C^3 \newline sp^2$
-    B: $C^1 \newline sp$, $C^2 \newline sp^2$, $C^3 \newline sp$
-    C: $C^1 \newline sp$, $C^2 \newline sp$, $C^3 \newline sp$
-    D: $C^1 \newline sp^2$, $C^2 \newline sp$, $C^3 \newline sp^2$
-  correct_answer: A
+    A: '$C^1: sp, C^2: sp^2, C^3: sp^2$'
+    B: '$C^1: sp, C^2: sp^2, C^3: sp$'
+    C: '$C^1: sp, C^2: sp, C^3: sp$'
+    D: '$C^1: sp^2, C^2: sp^2, C^3: sp^2$'
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 126
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: Increasing order of dipole moment of following compounds
+  image: /static/papers/ts_eamcet/2020_3/q126.png
   options:
     A: $(iv) < (i) < (ii) < (iii)$
     B: $(i) < (iv) < (iii) < (ii)$
@@ -1768,7 +1802,7 @@ questions:
     B: $PCl_3 > SO_3 > SO_2 > CO_2$
     C: $SO_2 > SO_3 > PCl_3 > CO_2$
     D: $CO_2 > SO_2 > SO_3 > PCl_3$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 128
@@ -1781,8 +1815,8 @@ questions:
   options:
     A: 2.25 P atm, 0.5 P atm and 0.25 P atm
     B: 2.25 P atm, 0.5 P atm  0.25 P atm
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    C: 0.63 P atm,0.16 P atm and 0.21 P atm
+    D: 0.5 P atm,0.3 P atm and 0.2 P atm
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -1796,7 +1830,7 @@ questions:
     B: $2.00$
     C: $1.95$
     D: $2.95$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 130
@@ -1811,19 +1845,19 @@ questions:
       isotopes of the element.
     D: Atomic mass used for an element is the average atomic mass obtained by taking
       into account the natural abundance of different isotopes of that element.
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 131
-  section: Thermodynamics
+  section: Physical Chemistry
   topic: thermodynamics
   text: Which of the following is not an extensive property?
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: Volume
+    B: Entropy
+    C: Heat capacity at constant volume
+    D: Molar heat capacity at constant pressure
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 132
@@ -1837,7 +1871,7 @@ questions:
     B: \frac{1}{8}
     C: '32'
     D: '64'
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 133
@@ -1849,19 +1883,44 @@ questions:
     B: '8.0'
     C: '5.8'
     D: '6.9'
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 134
-  section: Physical Chemistry
-  topic: chemical_equilibrium_acids_bases
-  text: Which one of the following is a condensation polymer?
+  section: Inorganic Chemistry
+  topic: hydrogen_and_its_compounds
+  text: 'Match the following methods for treating hardness of water with their corresponding
+    reagents used:
+
+
+    **List-I**
+
+    A) Treatment with washing soda
+
+    B) Calgon''s method
+
+    C) Clark''s method
+
+    D) Zeolite / Permutit process
+
+
+    **List-II**
+
+    I) $Ca(OH)_2$
+
+    II) $Na_2CO_3$
+
+    III) $NaAlSiO_4$
+
+    IV) $Na_6P_6O_{18}$
+
+    '
   options:
-    A: Polystyrene
-    B: PVC
-    C: Teflon
-    D: Nylon-6,6
-  correct_answer: A
+    A: A-II, B-I, C-III, D-IV
+    B: A-II, B-IV, C-I, D-III
+    C: A-III, B-II, C-IV, D-I
+    D: A-IV, B-III, C-II, D-I
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 135
@@ -1875,19 +1934,19 @@ questions:
     B: $Na_2SO_3$
     C: $Na_2S_4O_6$
     D: $NaHCO_3$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 136
-  section: Inorganic Chemistry
+  section: Physical Chemistry
   topic: chemical_bonding_and_molecular_structure
   text: Hybridization of boron in diborane is
   options:
-    A: II
-    B: III
-    C: IV
-    D: I
-  correct_answer: A
+    A: sp
+    B: sp^2
+    C: sp^3
+    D: sp^3d
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 137
@@ -1899,11 +1958,11 @@ questions:
     B: Diamond is more dense than graphite
     C: Diamond is metastable
     D: Graphite is thermodynamically less stable allotrope of carbon
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 138
-  section: Environmental Chemistry
+  section: Inorganic Chemistry
   topic: environmental_chemistry
   text: Which among the following is not the components of photochemical smog?
   options:
@@ -1911,24 +1970,24 @@ questions:
     B: Formaldehyde
     C: $SO_2$
     D: $O_3$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 139
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: How many geometrical isomers are possible for the compound with molecular
     formula $C_2FCIBrI$?
   options:
     A: Four
     B: Five
-    C: Three
+    C: six
     D: Two
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 140
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: 2-bromopentane is heated with potassium ethoxide in ethanol. The major product
     is 2- ?
@@ -1947,7 +2006,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 141
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: aldehydes_ketones_and_carboxylic_acids
   text: Reaction of 2-methylbuta-1, 3-diene with $O_3$ and $Zn-H_2O$, gives 2- -1,
     3- $O_3$ $Zn-H_2O$ ,
@@ -1956,11 +2015,11 @@ questions:
     B: $CH_3COCHO + 2HCHO$
     C: $CH_3COCHO + 2HCO_2H$
     D: $CH_3CO_2H + 3HCO_2H$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 142
-  section: Solid State
+  section: Physical Chemistry
   topic: solid_state
   text: If the distance between $Na^+$ and $Cl^-$ ions in sodium chloride crystal
     is 'Y' pm. The length of the edge of the unit cell will be $Na^+$ $Cl^-$ ‘Y’ pm.
@@ -1970,7 +2029,7 @@ questions:
     B: 2Y pm
     C: $\frac{Y}{4}$ pm
     D: $\frac{Y}{2}$ pm
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 143
@@ -1984,7 +2043,7 @@ questions:
     B: (i) < (iii) < (ii) < (iv)
     C: (i) < (iv) < (ii) < (iii)
     D: (iii) < (i) < (iv) < (ii)
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 144
@@ -2008,7 +2067,7 @@ questions:
     B: Hexaqua-chromium (III) bromide
     C: Tetramine-dichloro-cobalt (III) chloride
     D: potassium hexacyanoferrate (II)
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 146
@@ -2022,24 +2081,21 @@ questions:
     B: 123 kcal/mol
     C: 153 kcal/mol
     D: 90 kcal/mol
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 147
-  section: Modern Physics
-  topic: semiconductors_and_devices
-  text: For transistor action, which of the following statements are correct? (a)
-    Base, emitter and collector regions should have similar size and doping concentrations.
-    (b) The base region must be very thin and lightly doped. (c) The emitter junction
-    is forward biased and collector junction is reverse bias
+  section: Physical Chemistry
+  topic: chemical_kinetics
+  text: Which of the following reaction is auto catalytic?
   options:
-    A: Only (a) is correct
-    B: Only (b) is correct
-    C: Only (b) and (c) are correct
-    D: (a), (b) and (c) are correct
-  correct_answer: A
+    A: $C_6H_5COCl + C_6H_6 \xrightarrow{AlCl_3} C_6H_5COC_6H_6 + HCl + AlCl_3$
+    B: $4NH_3 + 5O_2 \xrightarrow{Pt} 4NO + 6H_2O$
+    C: $CH_2 = CH_2 + H_2 \xrightarrow{[RhCl(PPh_3)_3]} CH_3 - CH_3$
+    D: $5C_2O_4^{2-} + 2MnO_4^- + 16H^+ \rightarrow 10CO_2 + 2Mn^{2+} + 8H_2O$
+  correct_answer: D
   difficulty: moderate
-  subject: Physics
+  subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
   topic: d_and_f_block_elements
@@ -2062,20 +2118,20 @@ questions:
     B: $\mathrm{NOCl}$
     C: $\mathrm{NCl}_{3}$
     D: $\mathrm{N}_{2} \mathrm{O}_{4}$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 150
   section: Inorganic Chemistry
   topic: p_block_elements
-  text: In the following reaction, products x and y respectively, are $P_4 + 10 \
-    SO_2Cl_2 \ ightarrow x + y$
+  text: In the following reaction, products x and y respectively, are $P_4 + 10 SO_2Cl_2
+    \rightarrow x + y$
   options:
     A: $PCl_5$ and $S_2Cl_2$
     B: $PCl_5$ and $SO_3$
     C: $PCl_5$ and $SO_2$
     D: $PCl_5$ and $S_2Cl_2$
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 151
@@ -2084,11 +2140,11 @@ questions:
   text: In the octahedral crystal field, the correct order of splitting in $Cr^{3+}$
     complexes for $I^-, H_2O, NH_3$ and $CN^-$ is
   options:
-    A: CN^- < NH_3 < H_2O < I^-
-    B: NH_3 < H_2O < I^- < CN^-
-    C: CN^- < I^- < H_2O < NH_3
-    D: I^- < H_2O < NH_3 < CN^-
-  correct_answer: A
+    A: $CN^- < NH_3 < H_2O < I^-$
+    B: $NH_3 < H_2O < I^- < CN^-$
+    C: $CN^- < I^- < H_2O < NH_3$
+    D: $I^- < H_2O < NH_3 < CN^-$
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 152
@@ -2101,33 +2157,50 @@ questions:
     B: 3 and 0
     C: 6 and 3
     D: 6 and 0
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 153
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: polymers
-  text: Match the following List I List - II A) Natural rubber I) Free radical polymerization
-    B) PVC II) Side chain alternative arrangement C) Terylene III) $cis$-Polyisoprene
-    D) Syndiotactic polymer IV) Condensation polymerization
+  text: 'Match the following:
+
+
+    **List - I**
+
+    A) Natural rubber
+
+    B) PVC
+
+    C) Terylene
+
+    D) Syndiotactic polymer
+
+
+    **List - II**
+
+    I) Free radical polymerization
+
+    II) Side chain alternative arrangement
+
+    III) cis-Polyisoprene
+
+    IV) Condensation polymerization
+
+
+    The correct match is:
+
+    '
   options:
-    A: 'A
-
-      I'
-    B: 'B
-
-      II'
-    C: 'C
-
-      III'
-    D: 'D
-
-      IV'
-  correct_answer: A
+    A: A-I, B-II, C-III, D-IV
+    B: A-III, B-II, C-IV, D-I
+    C: A-III, B-I, C-IV, D-II
+    D: A-IV, B-II, C-I, D-III
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 154
-  section: Biomolecules
+  section: Organic Chemistry
   topic: biomolecules
   text: Starch, when boiled with dilute sulphuric acid under high pressure, gives
     compound A. On prolonged heating with hydroiodic acid, A gives compound B. What
@@ -2141,57 +2214,70 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 155
-  section: Biomolecules
+  section: Organic Chemistry
   topic: biomolecules
   text: The dipeptide given below is used as
+  image: /static/papers/ts_eamcet/2020_3/q155.png
   options:
     A: Detergent
     B: Preservative
     C: Sweetening agent
     D: Antioxidant (Drug)
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 156
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: Which one among the following will undergoes faster $S_N^1$ reaction? $S_N^1$
     ?
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+      image: /static/papers/ts_eamcet/2020_3/q156-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_3/q156-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_3/q156-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2022_5/q156-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 157
-  section: Inorganic Chemistry
-  topic: organic_compounds_containing_oxygen
-  text: Major product in the following reaction sequence is (i) $NaOH(aq)$, $CH_3I$
-    (ii) $Anhyd. AlCl_3, CH_3CH_2COCl$ (iii) $NaBH_4$
+  section: Organic Chemistry
+  topic: alcohols_phenols_and_ethers
+  text: 'Major product in the following reaction sequence is:
+
+    Phenol $\xrightarrow{(i) ~ NaOH(aq), ~ CH_{3}I} A \xrightarrow{(ii) ~ \text{Anhyd.}
+    ~ AlCl_{3}, ~ CH_{3}CH_{2}COCl} B \xrightarrow{(iii) ~ NaBH_{4}} \text{Major product}$
+
+    '
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+      image: /static/papers/ts_eamcet/2020_3/q157-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_3/q157-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_3/q157-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_3/q157-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 158
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: aldehydes_ketones_and_carboxylic_acids
   text: Among the following reagents, which one can converts ester into aldehyde?
   options:
     A: AlH (i -Bu)$_2$
     B: Sn + HCl
     C: $H_2$ / Pd, $BaSO_4$
-    D: IMAGE_CONTENT
-  correct_answer: A
+    D: DIBAL-H
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 159
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: aldehydes_ketones_and_carboxylic_acids
   text: The correct set of reagents which convert acetylene to but-2-enal are
   options:
@@ -2199,11 +2285,11 @@ questions:
     B: H$_2$O/Hg$^{2+}$/H$^+$, dil. NaOH
     C: H$_2$O/H$^+$, conc. NaOH
     D: H$_2$O, KMnO$_4$/OH$^-$
-  correct_answer: A
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 160
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: amines
   text: Which one among the following statements is true?
   options:
@@ -2211,6 +2297,6 @@ questions:
     B: Aniline cannot be converted into phenol via its diazonium salt.
     C: Aliphatic diazonium salts liberate nitrogen gas quantitatively.
     D: Aniline cannot be converted into fluorobenzene via its diazonium salt.
-  correct_answer: A
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry

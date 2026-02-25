@@ -1,0 +1,98 @@
+id: ts_eamcet_2021_1
+exam: TS EAMCET
+year: 2021
+shift: 1
+date: null
+session: Shift 1
+source_pdf: 2021-1.pdf
+metadata:
+  total_questions: 6
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 6
+- code: PHY
+  name: Physics
+  question_count: 0
+- code: CHE
+  name: Chemistry
+  question_count: 0
+questions:
+- id: 1
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: "$f: [-2,2] ightarrow [-2,2]$, $g: [-2,2] ightarrow [0,4]$ are two functions\
+    \ defined as $f(x) = \begin{cases} -2, & -2 \\leq x \\leq 0 \\ x^2-2, & 0 \\leq\
+    \ x \\leq 2 \\end{cases}$ and $g(x) = |f(x)| + f(|x|)$, then"
+  options:
+    A: $f$ and $g$ are injective mappings
+    B: $f$ and $g$ are surjective mappings
+    C: $f$ is bijective mapping and $g$ is injective mapping
+    D: $f$ is not bijective mapping and $g$ is surjective mapping
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: The domain of the function $f(x) = rac{1}{\sqrt{|x|-x}}$ is
+  options:
+    A: $\mathbb{R}$
+    B: $(-\infty, 0)$
+    C: $(0, \infty)$
+    D: $(0,1)$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 3
+  section: Mathematical Induction
+  topic: mathematical_induction
+  text: For any $n \in \mathbb{N}$, $4^{n}+15n-1$ is divisible by
+  options:
+    A: '2'
+    B: '9'
+    C: '5'
+    D: '6'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 4
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: The domain of the function $f(x) = rac{1}{\sqrt{|x|-x}}$ is
+  options:
+    A: (0, \infty)
+    B: (-\infty,1)
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 5
+  section: Matrices
+  topic: matrices
+  text: "If $P = \begin{pmatrix} 1 & \\alpha & 3 \\ 1 & 3 & 3 \\ 2 & 4 & 4 \\end{pmatrix}$\
+    \ is the adjoint of a 3x3 matrix A and det(A) = 4, then $\\alpha$ ="
+  options:
+    A: '22'
+    B: '11'
+    C: '3'
+    D: '4'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 6
+  section: Matrices
+  topic: matrices
+  text: If the system of equations $x+y+z=1$, $x+2y+4z=K$, $x+4y+10z=K^2$ is consistent
+    then $K=$
+  options:
+    A: 1, -2
+    B: -1, 2
+    C: 1, 2
+    D: '1'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics

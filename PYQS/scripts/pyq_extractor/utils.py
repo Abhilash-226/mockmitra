@@ -61,7 +61,7 @@ def validate_question(question: dict) -> Tuple[bool, Optional[str]]:
     Returns:
         Tuple of (is_valid, error_message)
     """
-    required_fields = ['text', 'options', 'correct']
+    required_fields = ['text', 'options', 'correct_answer']
     
     for field in required_fields:
         if field not in question:
@@ -76,7 +76,7 @@ def validate_question(question: dict) -> Tuple[bool, Optional[str]]:
         return False, "Question must have at least 2 options"
     
     # Check correct answer
-    correct = question.get('correct', '')
+    correct = question.get('correct_answer', '')
     if correct not in options:
         return False, f"Correct answer '{correct}' not in options"
     
