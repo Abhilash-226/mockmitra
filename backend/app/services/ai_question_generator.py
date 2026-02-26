@@ -185,26 +185,22 @@ Ensure the output matches this schema:
                     content = content[7:-3].strip()
                 elif content.startswith("```"):
                     content = content[3:-3].strip()
-                
+                import re
+
+                # PRE-PROCESS: Always double single backslashes before JSON parsing.
+                # Critical: LaTeX commands like \neq, \notin, \text, \frac, \begin
+                # start with valid JSON escape chars (\n, \t, \f, \b). json.loads
+                # "silently succeeds" - turning \neq into newline+"eq" - without
+                # raising any error, so an except-block fix would never fire.
+                # The regex only doubles truly-single backslashes; already-doubled
+                # ones (e.g. \\\\frac that Gemini got right) are left untouched.
+                content = re.sub(r'(?<!\\\\)\\\\(?!\\\\)', r'\\\\\\\\', content)
+
                 try:
                     return json.loads(content)
                 except json.JSONDecodeError as je:
-                    # HEURISTIC: Fix common LaTeX JSON escaping issues
-                    # If we see a single backslash followed by a letter (common in LaTeX), 
-                    # but it's not a valid JSON escape, try to double it.
-                    print(f"JSON Decode Error. Attempting to fix LaTeX escaping...")
-                    
-                    # This regex finds a backslash not preceded by another backslash,
-                    # and followed by a letter (like \t, \s, \b which might be LaTeX but are bad JSON)
-                    import re
-                    # Replace \ with \\ unless it's already part of an escape sequence like \", \\, \/, \b, \f, \n, \r, \t
-                    # A simpler approach: replace all single \ with \\
-                    # But we must not double already doubled ones.
-                    fixed_content = re.sub(r'(?<!\\)\\(?!["\\/bfnrt])', r'\\\\', content)
-                    try:
-                        return json.loads(fixed_content)
-                    except:
-                        raise je # If still failing, raise the original error to trigger retry
+                    print(f"JSON Decode Error (after backslash pre-processing).")
+                    raise je  # Triggers the retry / error handler below
 
             except Exception as e:
                 error_msg = str(e)
@@ -215,10 +211,11 @@ Ensure the output matches this schema:
                     time.sleep(delay)
                     continue
                 
-                # Handle JSON issues
-                if "JSONDecodeError" in error_msg or "Invalid \\escape" in error_msg:
-                    print(f"Gemini returning invalid JSON (escape issue). Retrying... ({attempt+1}/{max_retries})")
-                    time.sleep(1) # Small pause
+                # Handle JSON issues (escape problems AND invalid control characters like \b)
+                if ("JSONDecodeError" in error_msg or "Invalid \\escape" in error_msg
+                        or "Invalid control character" in error_msg):
+                    print(f"Gemini returning invalid JSON (escape/control char issue). Retrying... ({attempt+1}/{max_retries})")
+                    time.sleep(1)  # Small pause
                     continue
                     
                 print(f"Gemini API Call Error: {e}")

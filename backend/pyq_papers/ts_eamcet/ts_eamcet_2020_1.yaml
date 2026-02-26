@@ -23,7 +23,7 @@ questions:
 - id: 1
   section: Algebra
   topic: functions_and_inverse_functions
-  text: If $f(x) = x - frac{1}{x}, x \neq 0$, then $3f(x) = $
+  text: If f(x) = x - 1/x, x \neq 0$, then $3f(x) = 
   options:
     A: $3[f(x)]^2 - f(x^2)$
     B: $[f(x)]^3 - f(x^3)$
@@ -48,7 +48,7 @@ questions:
 - id: 3
   section: Algebra
   topic: mathematical_induction
-  text: If $S_n$ is the sum of the first $n$ terms of the series $1^2 + 2 + 2^2 +
+  text: If $S_n$ is the sum of the first $n$ terms of the series $1^2 + 2\times 2^2 +
     3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$, then, when $n$ is even $S_n$
     $= 1^2 + 2 + 2^2 + 3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$, $n$ $S_n$
     , $n$ $S_n =$
@@ -66,10 +66,7 @@ questions:
   text: Let $A = \begin{bmatrix} 1 & 4 & 2 \\ 2 & -1 & 4 \\ -3 & 7 & -6 \end{bmatrix}$
     and $B = [b_{ij}]_{3\times 3}$ with $b_{11} = 2, b_{13} = -2, b_{12} = 0$ is such
     that $AB = \begin{bmatrix} 2 & 14 & -4 \\ 4 & 1 & -8 \\ -6 & 15 & 12 \end{bmatrix}$,
-    then $|B| + trace(B) = $ $A = \begin{bmatrix} 1 & 4 & 2 \\ 2 & -1 & 4 \\ -3 &
-    7 & -6 \end{bmatrix}$, $B = [b_{ij}]_{3\times 3}$, $b_{11} = 2, b_{13} = -2, b_{12}
-    = 0$ $AB = \begin{bmatrix} 2 & 14 & -4 \\ 4 & 1 & -8 \\ -6 & 15 & 12 \end{bmatrix}$
-    $|B| + trace(B) = $
+    then $|B| + trace(B) = $
   options:
     A: '-2'
     B: '10'
@@ -82,8 +79,7 @@ questions:
   section: Matrices
   topic: matrices
   text: A is a $m\times n$ matrix of rank 4. If A contains an $m^{th}$ order non-singular
-    sub matrix and $A^T A$ is a $7\times 7$ matrix, then the number of rows of A is
-    4 $m\times n$ A. $m$ A , $A^T A$ $7\times 7$ , A
+    sub matrix and $A^T A$ is a $7\times 7$ matrix, then the number of rows of A 
   options:
     A: '5'
     B: '4'
@@ -119,7 +115,7 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
-- id: 9
+- id: 8
   section: Algebra
   topic: complex_numbers
   text: 'Assertion (A): If z is a complex number such that $|z| \geq 3$, the least
@@ -134,7 +130,7 @@ questions:
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
-- id: 10
+- id: 9
   section: Algebra
   topic: complex_numbers
   text: If $(\frac{\cos \theta + i \sin \theta}{\sin \theta + i \cos \theta})^{2020}
@@ -144,7 +140,19 @@ questions:
     A: '2'
     B: '-1'
     C: '2020'
-    D: IMAGE_CONTENT
+    D: '1'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 10
+  section: Algebra
+  topic: complex_numbers
+  text: If $\omega$ is a complex cube root of unity, then $\sum_{x=1}^{10} ((\omega x+2)(\omega^2 x+2)-3) =$
+  options:
+    A: '285'
+    B: '945'
+    C: '1025'
+    D: '705'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -203,19 +211,6 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 15
-  section: Algebra
-  topic: theory_of_equations
-  text: If the roots of the equation $8x^3 + 6px^2 + 3qx -27 = 0$ are in a geometric
-    progression, then $\frac{q^2}{9} + p^2 + 6pq + \frac{q}{p} = $
-  options:
-    A: '-3'
-    B: '-10'
-    C: '6'
-    D: '0'
-  correct_answer: A
-  difficulty: moderate
-  subject: Mathematics
-- id: 16
   section: Permutations and Combinations
   topic: permutations_and_combinations
   text: If $x$ and $y$ represent the number of arrangements of the letters of word
@@ -227,6 +222,18 @@ questions:
     C: $\frac{6!}{2! 2!} \times 42$
     D: $\frac{7!}{2! 2!} . {}^7P_4$
   correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Permutations and Combinations
+  topic: permutations_and_combinations
+  text: Numbers between 1 and 10,000 are formed using the digits 2 and 3 only once and the digit 4 twice. If the numbers thus formed are arranged in increasing order and $x, y$ represent the ranks of 4324 and 324 respectively then $x - y =$
+  options:
+    A: '17'
+    B: '31'
+    C: '14'
+    D: '16'
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 17
@@ -320,7 +327,7 @@ questions:
     B: $n\pi + (-1)^n \frac{\pi}{4} - \frac{\pi}{12}$
     C: $2n\pi \pm \frac{\pi}{4} - \frac{\pi}{12}$
     D: $n\pi + (-1)^n \frac{\pi}{4} - \frac{\pi}{12}$
-  correct_answer: C
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 24
@@ -402,21 +409,6 @@ questions:
   subject: Mathematics
 - id: 30
   section: Algebra
-  topic: addition_of_vectors
-  text: If $12\hat{i} - 12\hat{j} - 18\hat{k}$, $-3\hat{i} - 6\hat{j} - 9\hat{k}$
-    and $3\hat{i} + 3\hat{j} - 24\hat{k}$ be the position vectors of the vertices
-    A, B and C respectively of $\triangle ABC$, then the position vector of the
-    incentre of $\triangle ABC$ is
-  options:
-    A: $12\hat{i} - 15\hat{j} - 51\hat{k}$
-    B: $6\hat{i} - \frac{15}{2}\hat{j} - \frac{51}{2}\hat{k}$
-    C: $\frac{4}{3}\hat{i} - \frac{5}{3}\hat{j} - 17\hat{k}$
-    D: $4\hat{i} - 5\hat{j} - 17\hat{k}$
-  correct_answer: D
-  difficulty: moderate
-  subject: Mathematics
-- id: 31
-  section: Algebra
   topic: applications_to_geometry
   text: Let $\Pi$ be a plane containing the points $(0, -5, -1)$, $(1, -2, 5)$, $(-3,
     5, 0)$ and L be a line passing through the point $(0, -5, -1)$ and parallel to
@@ -430,7 +422,7 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
-- id: 32
+- id: 31
   section: Algebra
   topic: applications_to_geometry
   text: For non-coplanar vectors $\vec{a}$, $\vec{b}$ and $\vec{c}$, if the point
@@ -443,6 +435,18 @@ questions:
     C: $2$
     D: $1$
   correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: Algebra
+  topic: applications_to_geometry
+  text: If the orthocentre of the triangle whose vertices are $2\vec{i} + 3\vec{j} + 5\vec{k}$, $5\vec{i} + 2\vec{j} + 3\vec{k}$ and $3\vec{i} + 5\vec{j} + 2\vec{k}$ is $x\vec{i} + y\vec{j} + z\vec{k}$ then
+  options:
+    A: $x = 2y = z$
+    B: $x = y = 2z$
+    C: $x = y = -z$
+    D: $x = y = z$
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 33
@@ -474,19 +478,6 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 35
-  section: Calculus
-  topic: differentiation_and_derivatives
-  text: If $x = f(t)$ and $y = g(t)$ are differentiable functions of 't' then $\frac{d^{2}y}{dx^{2}}$
-    is
-  options:
-    A: $\frac{g''(t)}{f''(t)}$
-    B: $\frac{f'(t)g''(t) - g'(t)f''(t)}{(f'(t))^{3}}$
-    C: $\frac{f'(t)g''(t) + g'(t)f''(t)}{(f'(t))^{3}}$
-    D: $\frac{f'(t)g''(t) - g'(t)f''(t)}{(g'(t))^{3}}$
-  correct_answer: B
-  difficulty: moderate
-  subject: Mathematics
-- id: 36
   section: Measures of Dispersion
   topic: measures_of_dispersion
   text: 'Assertion(A): Variance of $4x_1, 4x_2,........4x_n$ is 16 \times the variance
@@ -500,7 +491,7 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
-- id: 37
+- id: 36
   section: Probability & Statistics
   topic: probability
   text: If $\alpha, \beta$ are respectively the mean deviation about the mean and
@@ -511,6 +502,18 @@ questions:
     B: $(2.27, 10.24)$
     C: $(2.72, 10.24)$
     D: $(2.72, 10.42)$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 37
+  section: Probability & Statistics
+  topic: probability
+  text: In an examination there are four Yes/No type of questions. The probability that the answer by the student to a question without guess to be correct is $\frac{2}{3}$. The probability that a student guesses a correct answer is $\frac{1}{2}$. A student writes the examination either by without guessing answers to all the 4 questions or by guessing answers to all 4 questions. The probability that he attempt the exam by guessing answers to all questions is $\frac{3}{7}$. Given that a student answered at least 3 questions correctly, the probability that he answered all the questions without guessing is
+  options:
+    A: $\frac{13}{15}$
+    B: $\frac{405}{1429}$
+    C: $\frac{1024}{1429}$
+    D: $\frac{2}{15}$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
@@ -559,7 +562,7 @@ questions:
 - id: 41
   section: Probability & Statistics
   topic: probability
-  text: In a hos\pital, on an average if there are 35 births in a week, then the
+  text: In a hospital, on an average if there are 35 births in a week, then the
     probability that there will be less than 3 births in a day, is
   options:
     A: $\frac{118}{e^{35}}$
@@ -599,7 +602,7 @@ questions:
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
-- id: 45
+- id: 44
   section: Algebra
   topic: functions_and_inverse_functions
   text: 'A function $f : \mathbb{R} \rightarrow \mathbb{R}$ is such that $f(1) = 2$
@@ -614,7 +617,7 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
-- id: 46
+- id: 45
   section: Straight Lines
   topic: straight_lines
   text: Two straight lines $3x + 4y = 5$ and $4x -3y = 15$ intersect at the point
@@ -628,7 +631,7 @@ questions:
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
-- id: 47
+- id: 46
   section: Coordinate Geometry
   topic: straight_lines
   text: The equation of a line making an angle $60^o$ with the line $x + y - 3
@@ -638,6 +641,18 @@ questions:
     B: $2x + y - 3 = 0$
     C: $\sqrt{3}x + (1 - \sqrt{3})y = 1$
     D: $\sqrt{3}x + (2 + \sqrt{3})y = 2(1 + \sqrt{3})$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 47
+  section: Pair of straight lines
+  topic: straight_lines
+  text: "Let P be the pair of lines represented by $2x^2 - 5xy + 2y^2 + 6x - 3y = 0$ and consider the following independent statements:\nI. $\\alpha$ is the $x$ coordinate of the point of intersection of the pair of lines P.\nII. $\\beta$ is the slope of one of the lines of P passing through origin.\nIII. $\\gamma$ is the constant term in the equation of the pair of angular bisectors of P.\nthen"
+  options:
+    A: $\beta < \gamma < \alpha$
+    B: $\alpha < \beta = \gamma$
+    C: $\alpha = \beta < \gamma$
+    D: $\gamma < \alpha < \beta$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
@@ -718,11 +733,11 @@ questions:
     of radius 5 units such that the common chord is of maximum length and slope $\frac{3}{4}$,
     then the centre of the circle $S_2$ is'
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: C
+    A: '$(\frac{-9}{5}, \frac{12}{5})$ or $(\frac{9}{5}, \frac{-12}{5})$'
+    B: '$(\frac{7}{5}, \frac{-12}{5})$ or $(\frac{-7}{5}, \frac{12}{5})$'
+    C: '$(\frac{-9}{5}, \frac{-12}{5})$ or $(\frac{9}{5}, \frac{12}{5})$'
+    D: '$(\frac{12}{5}, \frac{9}{5})$ or $(\frac{-12}{5}, \frac{-9}{5})$'
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 54
@@ -780,30 +795,29 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 58
-  section: Matrices
-  topic: matrices
-  text: If $A = \begin{bmatrix} 3 & -2 \\ 4 & -2 \end{bmatrix}$ satisfies the matrix
-    equation $A^2 + kA + 2I = 0$, then $k = $
-  options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
-  difficulty: moderate
-  subject: Mathematics
-- id: 59
-  section: Three Dimensional Coordinates
-  topic: three_dimensional_coordinates
-  text: If the circ \leq $x^2+y^2=a^2$ intersects the hyperbola $xy=b^2$ at four points
-    $(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$, then $x_1 y_1 x_2 y_2 x_3 y_3
-    x_4 y_4 =$
+  section: Coordinate Geometry
+  topic: hyperbola
+  text: If the circle $x^2 + y^2 = a^2$ intersects the hyperbola $xy = b^2$ at four
+    points $(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$, then $y_1 y_2 y_3 y_4 =$
   options:
     A: $a^4$
     B: $0$
     C: $b^4$
     D: $b^2$
   correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 59
+  section: Three Dimensional Coordinates
+  topic: three_dimensional_coordinates
+  text: If the line passing through the points $(a, 2, -4)$ and $(5, 3, b)$ crosses
+    the ZX-plane at the point $(-a + 2b, 0, a + b)$, then $14a + 7b =$
+  options:
+    A: '35'
+    B: '73'
+    C: '-35'
+    D: '-23'
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 60
@@ -857,10 +871,6 @@ questions:
     B: '8'
     C: '4'
     D: '6'
-    '1': '2'
-    '2': '8'
-    '3': '4'
-    '4': $\frac{1}{2}$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
@@ -895,7 +905,7 @@ questions:
 - id: 66
   section: Calculus
   topic: differential_equations
-  text: If $y = e^{mx} (\cos bx + \sin bx)$ satisfies the equation $\frac{d^2y}{dx^2}
+  text: If $y = e^{ax} (\cos bx + \sin bx)$ satisfies the equation $\frac{d^2y}{dx^2}
     - K \frac{dy}{dx} + Ly = 0$, then $L+bK = $
   options:
     A: '0'
@@ -949,16 +959,26 @@ questions:
 - id: 70
   section: Calculus
   topic: applications_of_derivatives
-  text: Match the functions of List I with the items of List II. List I List II A)
-    $3x^4 - 2x^3 - 6x^2 + 6x + 1$ I) has minimum value at $x = 4$ B) $x + \frac{1}{x},
-    orall x < 0$ II) has maximum value at $x = -1$ C) $x^4(7 - x)^3$ III) has maximum
-    value at $x = 4$ D) $x^4 + (8 - x)^4$ IV) is decreasing i
+  text: |
+    Match the functions of List I with the items of List II.
+    List I:
+    A) $3x^4 - 2x^3 - 6x^2 + 6x + 1$
+    B) $x + \frac{1}{x}, \forall x < 0$
+    C) $x^4(7 - x)^3$
+    D) $x^4 + (8 - x)^4$
+
+    List II:
+    I) has minimum value at $x = 4$
+    II) has maximum value at $x = -1$
+    III) has maximum value at $x = 4$
+    IV) is decreasing in $[2, \infty)$
+    V) is increasing in $[2, \infty)$
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: A-IV, B-I, C-II, D-III
+    B: A-V, B-IV, C-I, D-III
+    C: A-V, B-II, C-III, D-I
+    D: A-IV, B-II, C-I, D-V
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 71
@@ -975,14 +995,14 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 72
-  section: Algebra
-  topic: matrices
-  text: 'Let $A = \begin{bmatrix} 1 & 0 & 0 \\ 5 & 2 & 0 \\ -1 & 6 & 3 \end{bmatrix}$. If $\alpha, \beta, \gamma$ are real numbers such that $A^2 + \alpha I = \beta A + \gamma A^{-1}$, then a possible value of $(\alpha, \beta, \gamma)$ is'
+  section: Calculus
+  topic: integration
+  text: If $\int \frac{x^2(x \sec^2 x + \tan x)}{(x \tan x + 1)^2} dx = A \log(|x \sin x + \cos x|) + B \frac{f(x)}{(x \tan x + 1)} + C$ then $f(A+B) =$
   options:
-    A: $(-3, 7, 9)$
-    B: $(3, -7, 9)$
-    C: (-3, 7, -9)
-    D: $(3, -7, -9)$
+    A: '1'
+    B: '0'
+    C: '-1'
+    D: '2'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -996,7 +1016,7 @@ questions:
     B: $\frac{4}{25}$
     C: $\frac{11}{36}$
     D: $\frac{13}{36}$
-  correct_answer: A
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 74
@@ -1149,24 +1169,24 @@ questions:
 - id: 85
   section: Mechanics
   topic: motion_in_a_plane
-  text: Two cars A and B are moving with speeds $V_A$=120 km/hr and $V_B$= 50 km/hr
-    respectively in the directions as indicated by the arrow in the figure below.
-    What is the relative speed of the car B with respect to car A?
+  text: Initial velocity with which a body is projected is 10 m/s from the base of
+    an inclined plane as shown in the given figure. If the angle of projection
+    is $60^o$ with the horizontal, then the range R is [Take value of $g = 10$
+    m/s$^2$]
   options:
-    A: 70 km/h
-    B: 120 km/h
-    C: 130 km/h
-    D: 170 km/h
-  correct_answer: C
+    A: $\frac{15\sqrt{3}}{2}$ m
+    B: $\frac{40}{3}$ m
+    C: $5\sqrt{3}$ m
+    D: $\frac{20}{3}$ m
+  correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 86
   section: Mechanics
   topic: motion_in_a_plane
-  text: Initial velocity with which a body is projected is 10 m/s from the base of
-    an inclined plane as shown in the given figure. If the angle of projection
-    is $60^o$ with the horizontal, then the range R is [Take value of $g = 10$
-    m/s$^2$]
+  text: A projectile is fired at an angle of $45^o$ with the horizontal. Elevation
+    angle of the projectile at its highest point as seen from the point of projection
+    is
   options:
     A: $60^o$
     B: $Tan^{-1}(\frac{1}{2})$
@@ -1280,33 +1300,25 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 94
-  section: Algebra
-  topic: matrices
-  text: If $A = \begin{bmatrix} 3 & -2 \\ 4 & -2 \end{bmatrix}$, find the value of
-    k so that $A^2 = kA - 2I$ where I is the identity matrix.
-  options:
-    A: '0'
-    B: '1'
-    C: '2'
-    D: '3'
-  correct_answer: B
-  difficulty: moderate
-  subject: Physics
-- id: 95
   section: Mechanics
   topic: gravitation
   text: The graph correctly represents the variation of acceleration due to gravity
     ($g$) with radial distance from the centre of the earth (radius of the earth =
     $R_E$) is
+  
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 
+    image: /static/papers/ts_eamcet/2020_1/q94-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q94-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q94-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q94-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Physics
-- id: 96
+- id: 95
   section: Mechanics
   topic: properties_of_matter
   text: The length of a metal wire is found to be $L_1$ and $L_2$ when the tension
@@ -1320,7 +1332,7 @@ questions:
   correct_answer: D
   difficulty: moderate
   subject: Physics
-- id: 97
+- id: 96
   section: Mechanics
   topic: properties_of_matter
   text: A cubical block of wood having mass of 160 gm has a metal piece fastened
@@ -1333,6 +1345,19 @@ questions:
     C: 33.3 gm
     D: 66.6 gm
   correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 97
+  section: Thermal Physics
+  topic: thermodynamics
+  text: A solid of 2 kg mass absorbs 50 kJ when its temperature is raised from $20\,^{\circ}C$
+    to $70\,^{\circ}C$. The specific heat capacity of this solid in unit of J/kg $^{\circ}C$ is
+  options:
+    A: '500'
+    B: '1000'
+    C: '1500'
+    D: '750'
+  correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 98
@@ -1439,6 +1464,7 @@ questions:
   topic: ray_optics_and_optical_instruments
   text: Two negative charges of equal magnitude are located in x-y plane as shown
     below in the figure. The direction of the electric field at point P is
+  image: /static/papers/ts_eamcet/2020_1/q105.png
   options:
     A: along positive - x direction
     B: along negative - x direction
@@ -1480,11 +1506,12 @@ questions:
   section: Current Electricity
   topic: current_electricity
   text: Find the current in the circuit.
+  image: /static/papers/ts_eamcet/2020_1/q108.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '0.01A'
+    B: '0.02A'
+    C: '0.03A'
+    D: '0.04A'
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1552,6 +1579,7 @@ questions:
   topic: alternating_current_circuits
   text: An alternating voltage $\varepsilon = 30 \sin 200 t$ (in volts) is applied
     to the circuit below. The amplitude of the current through the circuit is IMAGE_CONTENT
+  image: /static/papers/ts_eamcet/2020_1/q113.png
   options:
     A: 0.3 A
     B: 0.4 A
@@ -1625,6 +1653,7 @@ questions:
   topic: semiconductors_and_devices
   text: A Zener diode is connected to a battery and a load resistance as shown below.
     The currents $I$, $I_Z$ and $I_L$ respectively are
+  image: /static/papers/ts_eamcet/2020_1/q118.png
   options:
     A: 10 mA, 5 mA, 5 mA
     B: 15 mA, 5 mA, 10 mA
@@ -1696,10 +1725,10 @@ questions:
   topic: d_and_f_block_elements
   text: The highest oxidation state observed in first row transition metal is
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '+6'
+    B: '+8'
+    C: '+7'
+    D: '+9'
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
@@ -1734,10 +1763,10 @@ questions:
   topic: chemical_bonding_and_molecular_structure
   text: Which of the following molecules is not paramagnetic in nature?
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 'O2'
+    B: 'O2^-'
+    C: 'O2+'
+    D: 'O2^{2-}'
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -1745,11 +1774,12 @@ questions:
   section: Physical Chemistry
   topic: thermodynamics
   text: Identify the correct observation with respect to the given graphs
+  image: /static/papers/ts_eamcet/2020_1/q127.png
   options:
     A: $T_1 > T_2$ and $P_1 > P_2$
-    B: $T_1 > T_2$ and $P_1 < P_2$
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    B: $T_2 > T_1$ and $P_1 > P_2$
+    C: $T_1 > T_2$ and $P_2 > P_1$
+    D: $T_2 > T_1$ and $P_2 > P_1$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -1814,25 +1844,27 @@ questions:
     NaOH solution. The ionic product of calcium hydroxide is $5.5 \times 10^{-6}$.
   options:
     A: $11 \times 10^{-6}$
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: D
+    B: '1'
+    C: $5.5 \times 10^{-4}$
+    D: '5.5'
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 133
   section: Physical Chemistry
   topic: chemical_equilibrium_acids_bases
-  text: Match the given ionization constant values with the corresponding acids
+  text: |
+    Match the given ionization constant values with the corresponding acids.
+    A) HI    - (I) $3.2 \times 10^9$
+    B) HF    - (II) $3.5 \times 10^{-4}$
+    C) HCl   - (III) $1.3 \times 10^6$
+    D) HBr   - (IV) $1.0 \times 10^9$
+    The correct match is
   options:
-    A: 'A B C D
-
-      I II III IV'
-    B: 'A B C D
-
-      II III IV I'
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: A-I, B-II, C-III, D-IV
+    B: A-II, B-III, C-IV, D-I
+    C: A-IV, B-III, C-II, D-I
+    D: A-II, B-I, C-III, D-IV
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -1871,9 +1903,9 @@ questions:
   text: An aqueous solution of borax is
   options:
     A: Neutral
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    B: Amphotetric
+    C: Basic
+    D: Acidic
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -1907,12 +1939,40 @@ questions:
   text: Hybridizations of carbon-2 in P and Q are respectively. $CH_3 - C - CH_3 \xrightarrow{HCN}
     C_4H_7NO$ $1 \quad 2 \quad 3 \qquad \qquad P$ $H_2SO_4 + H_2O \downarrow \quad
     Heat$ $C_4H_6O_2$ $Q$
+  image: /static/papers/ts_eamcet/2020_1/q139.png
   options:
     A: $Sp^3 \quad Sp^2$
     B: $Sp^2 \quad Sp^2$
     C: $Sp^3 \quad Sp$
     D: $Sp^3 \quad Sp^3$
   correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 140
+  section: Organic Chemistry
+  topic: hydrocarbons
+  text: A benzene derivative did not produce white precipitate with the ammonical silver
+    nitrate solution but decolorized the cold dilute alkaline $KMnO_4$ solution. The
+    compound is
+  options:
+    A: $C_8H_6$
+    B: $C_8H_{10}$
+    C: $C_8H_8$
+    D: $C_7H_8$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 141
+  section: Organic Chemistry
+  topic: hydrocarbons
+  text: Which of the following can be used as the test for unsaturation with regard
+    to color change of reaction?
+  options:
+    A: Addition of hydrogen
+    B: Addition of hydrogen bromide
+    C: Addition of hypobromous acid
+    D: Addition of bromine
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 142
@@ -1997,21 +2057,20 @@ questions:
   subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
-  topic: representative_elements
-  text: A I B III C IV D II
+  topic: metallurgy
+  text: |
+    Match the following:
+    Ores - Composition
+    A) Calamine    - I) $CuFeS_2$
+    B) Chalcopyrites - II) $ZnCO_3$
+    C) Bauxite     - III) $Fe_2O_3$
+    D) Haematite   - IV) $Al_2O_3 \cdot 2H_2O$
+    The correct match is
   options:
-    A: 'A
-
-      III'
-    B: 'B
-
-      I'
-    C: 'C
-
-      II'
-    D: 'D
-
-      IV'
+    A: A-II, B-I, C-IV, D-III
+    B: A-I, B-III, C-IV, D-II
+    C: A-III, B-I, C-II, D-IV
+    D: A-I, B-III, C-II, D-IV
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -2085,10 +2144,14 @@ questions:
   topic: biomolecules
   text: Choose the correct zwitter ionic form for aspartic acid
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+     image: /static/papers/ts_eamcet/2020_1/q154-op1.png
+    B:
+     image: /static/papers/ts_eamcet/2020_1/q154-op2.png
+    C:
+     image: /static/papers/ts_eamcet/2020_1/q154-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q154-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
@@ -2098,9 +2161,9 @@ questions:
   text: Paracetamol is
   options:
     A: Antiseptic drug
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    B: Antipyretic drug
+    C: Antihistamine drug
+    D: Antibiotic drug
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
@@ -2110,53 +2173,33 @@ questions:
   text: The major products P and Q formed in the following reactions are respectively
     + $CH_3CH_2CH_2Cl \xrightarrow{anhyd. AlCl_3}$ P (i) $CH_3CH_2COCl$ , anhyd.
     $AlCl_3$ $\longrightarrow$ Q (ii) Zn (Hg) , HCl, $\Delta$
+  image: /static/papers/ts_eamcet/2020_1/q156.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 
+     image: /static/papers/ts_eamcet/2020_1/q156-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q156-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q156-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_1/q156-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 157
   section: Inorganic Chemistry
   topic: hydrocarbons
-  text: The major products P and Q formed in the following reactions are respectively
-    + $CH_3CH_2CH_2Cl \xrightarrow{anhyd. AlCl_3}$ P (i) $CH_3CH_2COCl$ , anhyd.
-    $AlCl_3$ $\longrightarrow$ Q (ii) Zn (Hg) , HCl, $\Delta$
+  text: The major product formed in the following reaction is
+  image: /static/papers/ts_eamcet/2020_1/q157.png
   options:
-    A: 'P
-
-      IMAGE_CONTENT
-
-
-      Q
-
-      IMAGE_CONTENT'
-    B: 'P
-
-      IMAGE_CONTENT
-
-
-      Q
-
-      IMAGE_CONTENT'
-    C: 'P
-
-      IMAGE_CONTENT
-
-
-      Q
-
-      IMAGE_CONTENT'
-    D: 'P
-
-      IMAGE_CONTENT
-
-
-      Q
-
-      IMAGE_CONTENT'
+    A: 
+     image: /static/papers/ts_eamcet/2020_1/q157-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q157-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q157-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q157-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -2165,11 +2208,16 @@ questions:
   topic: organic_compounds_containing_oxygen
   text: 'The major product formed in the following reactions is: $OH \xrightarrow[(v)
     H^+]{(i) NaOH \atop (ii) CO_2 \atop (iii) H^+/H_2O \atop (iv) CH_3COCl, Pyridine}$'
+  image: /static/papers/ts_eamcet/2020_1/q158.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 
+     image: /static/papers/ts_eamcet/2020_1/q158-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q158-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q158-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q158-op4.png
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -2177,25 +2225,33 @@ questions:
   section: Inorganic Chemistry
   topic: aldehydes_ketones_and_carboxylic_acids
   text: What is the product R in the following reaction sequence? $CHO \xrightarrow[\Delta]{conc. NaOH} C_4H_6O + C_4H_3O_2Na \xrightarrow[\Delta]{NaOH, CaO} R$ P Q
+  image: /static/papers/ts_eamcet/2020_1/q159.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 
+     image: /static/papers/ts_eamcet/2020_1/q159-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q159-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q159-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q159-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 160
   section: Inorganic Chemistry
   topic: organic_compounds_containing_nitrogen
-  text: The major product formed in the following orientations is $CH_3$ (i) $Sn/HCl$
-    (ii) $Br_2$ (1 eq) $C_18O_2$ $NO_2$ $\rightarrow$ (iii) $NaNO_2, HCl$ $273 -
-    278K$ (iv) $Cu_2Br_2 / HBr$
+  text: The major product formed in the following reaction is
+  image: /static/papers/ts_eamcet/2020_1/q160.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 
+     image: /static/papers/ts_eamcet/2020_1/q160-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_1/q160-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_1/q160-op3.png
+    D:
+     image: /static/papers/ts_eamcet/2020_1/q160-op4.png
   correct_answer: C
   difficulty: moderate
   subject: Chemistry

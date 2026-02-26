@@ -7,12 +7,57 @@ import examService from "../../services/examService";
 import "katex/dist/katex.min.css";
 import Latex from "react-latex-next";
 
+// LaTeX command words that commonly lose their backslash due to JSON parsing issues.
+// These appear inside $...$ regions without a leading backslash.
+const LATEX_COMMANDS = [
+  // Greek letters (most common)
+  'alpha','beta','gamma','delta','epsilon','zeta','eta','theta','iota','kappa',
+  'lambda','mu','nu','xi','pi','rho','sigma','tau','upsilon','phi','chi','psi','omega',
+  'Gamma','Delta','Theta','Lambda','Xi','Pi','Sigma','Phi','Psi','Omega',
+  // Math operators
+  'frac','sqrt','sum','prod','int','lim','infty','partial','nabla',
+  'times','div','cdot','pm','mp','leq','geq','neq','approx','equiv','sim',
+  'in','notin','subset','supset','cup','cap','emptyset','forall','exists',
+  'rightarrow','leftarrow','Rightarrow','Leftarrow','leftrightarrow',
+  'to','gets','mapsto','land','lor','lnot','neg',
+  // Brackets
+  'left','right','langle','rangle','lceil','rceil','lfloor','rfloor',
+  // Formatting
+  'text','mathrm','mathbf','mathit','mathbb','mathcal','operatorname',
+  'begin','end','bmatrix','pmatrix','vmatrix','matrix',
+  // Trig/functions
+  'sin','cos','tan','sec','csc','cot','arcsin','arccos','arctan',
+  'log','ln','exp','max','min','gcd','lcm','det','tr','rank','adj',
+  // Spaces and misc
+  'quad','qquad','hspace','vspace','cdots','ldots','vdots','ddots',
+  'hat','vec','bar','dot','ddot','tilde','overline','underline',
+];
+
+const LATEX_RE = new RegExp(
+  '(?<![\\\\a-zA-Z])(' + LATEX_COMMANDS.join('|') + ')(?=[^a-zA-Z]|$)',
+  'g'
+);
+
+/**
+ * Sanitizes AI-generated text that may have LaTeX commands missing their backslash.
+ * Only replaces inside $...$ math regions to avoid false positives in plain text.
+ */
+function sanitizeLatex(text) {
+  if (!text) return text;
+  // Replace inside each $...$ region
+  return text.replace(/\$([^$]+)\$/g, (match, inner) => {
+    const fixed = inner.replace(LATEX_RE, (m) => '\\' + m);
+    return '$' + fixed + '$';
+  });
+}
+
 // Helper: renders text with LaTeX, preserving \n as line breaks
 // Handles both actual newlines and literal \n sequences (from YAML single-quoted strings)
 function LatexText({ children }) {
   if (!children) return null;
+  const sanitized = sanitizeLatex(String(children));
   // Split on actual newlines OR literal \n (two chars: backslash + n)
-  const parts = String(children).split(/\n|\\n/);
+  const parts = sanitized.split(/\n|\\n/);
   return (
     <>
       {parts.map((part, i) => (
