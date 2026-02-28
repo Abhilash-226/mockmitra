@@ -23,7 +23,7 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
     """
     path = Path(yaml_path)
     if not path.exists():
-        print(f"❌ File not found: {yaml_path}")
+        print(f"[ERROR] File not found: {yaml_path}")
         return False
 
     with open(path, 'r', encoding='utf-8') as f:
@@ -42,10 +42,10 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
     print(f"\n[1] Question Count:")
     print(f"    Expected: {expected_total} | Found: {total}")
     if total != expected_total:
-        print(f"    ❌ FAIL: Count mismatch! {'Extra' if total > expected_total else 'Missing'} questions.")
+        print(f"    [FAIL] Count mismatch! {'Extra' if total > expected_total else 'Missing'} questions.")
         all_ok = False
     else:
-        print(f"    ✅ PASS")
+        print(f"    [PASS]")
 
     # 2. ID coverage
     print(f"\n[2] ID Coverage (1-{expected_total}):")
@@ -58,22 +58,22 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
     dup_ids = sorted(set(i for i in all_ids if all_ids.count(i) > 1))
     
     if missing_ids:
-        print(f"    ❌ MISSING IDs ({len(missing_ids)}): {missing_ids}")
+        print(f"    [FAIL] MISSING IDs ({len(missing_ids)}): {missing_ids}")
         all_ok = False
     else:
-        print(f"    ✅ No missing IDs")
+        print(f"    [OK] No missing IDs")
     
     if extra_ids:
-        print(f"    ❌ EXTRA IDs ({len(extra_ids)}): {extra_ids}")
+        print(f"    [FAIL] EXTRA IDs ({len(extra_ids)}): {extra_ids}")
         all_ok = False
     else:
-        print(f"    ✅ No extra IDs")
+        print(f"    [OK] No extra IDs")
     
     if dup_ids:
-        print(f"    ❌ DUPLICATE IDs ({len(dup_ids)}): {dup_ids}")
+        print(f"    [FAIL] DUPLICATE IDs ({len(dup_ids)}): {dup_ids}")
         all_ok = False
     else:
-        print(f"    ✅ No duplicate IDs")
+        print(f"    [OK] No duplicate IDs")
 
     # 3. Required fields
     print(f"\n[3] Required Fields Check:")
@@ -86,14 +86,14 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
                 field_issues.append(f"Q{qid}: missing '{field}'")
     
     if field_issues:
-        print(f"    ❌ FAIL ({len(field_issues)} issues):")
+        print(f"    [FAIL] ({len(field_issues)} issues):")
         for issue in field_issues[:10]:
             print(f"        - {issue}")
         if len(field_issues) > 10:
             print(f"        ... and {len(field_issues) - 10} more")
         all_ok = False
     else:
-        print(f"    ✅ All questions have required fields")
+        print(f"    [OK] All questions have required fields")
 
     # 4. Options check (must have exactly A, B, C, D)
     print(f"\n[4] Options Structure (A, B, C, D):")
@@ -110,14 +110,14 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
             option_issues.append(f"Q{qid}: has keys {sorted(keys)} instead of {sorted(expected_keys)}")
     
     if option_issues:
-        print(f"    ❌ FAIL ({len(option_issues)} issues):")
+        print(f"    [FAIL] ({len(option_issues)} issues):")
         for issue in option_issues[:10]:
             print(f"        - {issue}")
         if len(option_issues) > 10:
             print(f"        ... and {len(option_issues) - 10} more")
         all_ok = False
     else:
-        print(f"    ✅ All options have correct A/B/C/D structure")
+        print(f"    [OK] All options have correct A/B/C/D structure")
 
     # 5. Placeholder check
     print(f"\n[5] Placeholder Content:")
@@ -132,14 +132,14 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
                     placeholder_issues.append(f"Q{qid} Option {k}: '{v}'")
     
     if placeholder_issues:
-        print(f"    ⚠ WARNING ({len(placeholder_issues)} placeholder options):")
+        print(f"    [WARN] ({len(placeholder_issues)} placeholder options):")
         for issue in placeholder_issues[:10]:
             print(f"        - {issue}")
         if len(placeholder_issues) > 10:
             print(f"        ... and {len(placeholder_issues) - 10} more")
         # Don't fail on placeholders, just warn
     else:
-        print(f"    ✅ No placeholder content found")
+        print(f"    [OK] No placeholder content found")
 
     # 6. Subject/section distribution
     print(f"\n[6] Subject Distribution:")
@@ -155,9 +155,9 @@ def verify_extraction(yaml_path: str, expected_total: int = 160) -> bool:
     # Summary
     print(f"\n{'='*60}")
     if all_ok:
-        print(f"✅ VERIFICATION PASSED: {path.name} is correctly structured.")
+        print(f"[PASS] VERIFICATION PASSED: {path.name} is correctly structured.")
     else:
-        print(f"❌ VERIFICATION FAILED: {path.name} has issues (listed above).")
+        print(f"[FAIL] VERIFICATION FAILED: {path.name} has issues (listed above).")
     print(f"{'='*60}\n")
     
     return all_ok

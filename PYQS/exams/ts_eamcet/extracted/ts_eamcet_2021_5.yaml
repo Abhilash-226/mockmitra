@@ -1,0 +1,2129 @@
+id: ts_eamcet_2021_5
+exam: TS EAMCET
+year: 2021
+shift: 5
+date: null
+session: Shift 5
+source_pdf: 2021-5.pdf
+metadata:
+  total_questions: 155
+  duration_minutes: 180
+  marking_scheme: +1 for correct, 0 for wrong
+sections:
+- code: MAT
+  name: Mathematics
+  question_count: 78
+- code: PHY
+  name: Physics
+  question_count: 39
+- code: CHE
+  name: Chemistry
+  question_count: 38
+questions:
+- id: 1
+  section: Inorganic Chemistry
+  topic: d_and_f_block_elements
+  text: Match the following Column-1 Column-2 Reaction Main product A) $4FeCl_3 +
+    3K_4[Fe(CN)_6] \rightarrow$ I) $Fe_4[Fe(CN)_6]_3$ B) $ZnCl_2 + 4NaOH \rightarrow$
+    II) $FeCl_2$ C) $2FeCl_3 + H_2S \rightarrow$ III) $Zn(OH)Cl$ IV) $Fe_3[Fe(CN)_6]_3$
+    V) $Na_2ZnO_2$ VI) $FeS$ The correct match is
+  options:
+    A: 'A
+
+      I'
+    B: 'B
+
+      III'
+    C: 'C
+
+      VI'
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 2
+  section: Inorganic Chemistry
+  topic: amines
+  text: $CH_3CH_2CH_2CH_2NH_2 + Na_2CO_3 + 2NaBr + 2H_2O$
+  options:
+    A: UNREADABLE_IMAGE
+    B: UNREADABLE_IMAGE
+    C: UNREADABLE_IMAGE
+    D: UNREADABLE_IMAGE
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 3
+  section: Algebra
+  topic: mathematical_induction
+  text: For any $n \in N$, $\\frac{1}{2.5} + \\frac{1}{5.8} + ... + \\frac{1}{(3n-1)(3n+2)}
+    = $
+  options:
+    A: $\\frac{n}{6n+4}$
+    B: $\\frac{n^2}{6n+4}$
+    C: $\\frac{1}{2}.\\frac{n^2}{6n+4}$
+    D: IMAGE_CONTENT
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 4
+  section: Inorganic Chemistry
+  topic: organic_compounds_containing_nitrogen
+  text: $CH_3CH_2CH_2CH_2NH_2 + 2 Na_2CO_3 + Br_2 + 2H_2O$
+  options:
+    A: UNREADABLE_IMAGE
+    B: UNREADABLE_IMAGE
+    C: UNREADABLE_IMAGE
+    D: UNREADABLE_IMAGE
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 6
+  section: Matrices
+  topic: matrices
+  text: If $\Delta = \begin{vmatrix} 1 & a & a^2 \\ 1 & b & b^2 \\ 1 & c & c^2 \end{vmatrix}
+    = K(a-b)(b-c)(c-a)$, then $K =$
+  options:
+    A: '-1'
+    B: '1'
+    C: '2'
+    D: '3'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 7
+  section: Complex Numbers
+  topic: complex_numbers
+  text: If $(a+ib)^{ rac{1}{4}} = 2 + 3i$, then $3b-2a =$
+  options:
+    A: $-22$
+    B: $-122$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 8
+  section: Algebra
+  topic: complex_numbers
+  text: $\omega$ is a complex cube root of unity. Match the items of List-I to the
+    items of List-II List-I List-II A) $\omega^{1010} + \omega^{2020}$ I) 0 B) $(1+\omega
+    - \omega^2)(1-\omega + \omega^2)$ II) 1 C) $(2+\omega^2 + \omega^4)^5$ III) -1
+    D) $(3+5\omega + 3\omega^2)^3$ IV) 4 V) 8 The correct match is
+  options:
+    A: III
+    B: IV
+    C: I
+    D: V
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 9
+  section: Complex Numbers
+  topic: complex_numbers
+  text: If the roots of the equation $(z-4)^3 = 8i$ are $a-2i, b+i,$ and $c+i,$ then
+    $\\sqrt{abc} = $
+  options:
+    A: $13\\sqrt{3}$
+    B: $4\\sqrt{13}$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 10
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\\frac{\\alpha}{\\alpha+1}$ and $\\frac{\\beta}{\\beta+1}$ are the roots
+    of the quadratic equation $x^2 + 7x + 3 = 0$, then the equation having roots $\\alpha$
+    and $\\beta$ is
+  options:
+    A: $3x^2 - x - 3 = 0$
+    B: $11x^2 + 13x + 3 = 0$
+    C: $13x^2 + 11x + 13 = 0$
+    D: $11x^2 + 3x + 13 = 0$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 11
+  section: Algebra
+  topic: quadratic_expressions
+  text: If $y = \\frac{x^2 + 14x + 9}{x^2 + 2x + 3} \forall x \in R$, then the interval
+    of maximum length in which y lies is
+  options:
+    A: $[-5, 4]$
+    B: $[-4, 5]$
+    C: $[\\frac{1}{3}, 3]$
+    D: $[-\\frac{1}{3}, 3]$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 12
+  section: Algebra
+  topic: theory_of_equations
+  text: The equation whose roots are squares of the roots of $x^4 - 2x^3 + 6x - 21
+    = 0$ is
+  options:
+    A: $x^4 - 4x^3 - 18x^2 - 36x + 441 = 0$
+    B: $x^4 + 18x^3 - 4x^2 + 36x + 441 = 0$
+    C: $x^4 - 2x^3 + 4x^2 + 6x + 441 = 0$
+    D: $x^4 + 3x^3 - 5x^2 + 6x + 441 = 0$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 13
+  section: Algebra
+  topic: theory_of_equations
+  text: If $\\alpha, \\beta, \gamma$ are the roots of $x^3 - x + 1 = 0$, then $\\frac{1
+    + \\alpha}{1 - \\alpha} + \\frac{1 + \\beta}{1 - \\beta} + \\frac{1 + \gamma}{1
+    - \gamma} = $
+  options:
+    A: '1'
+    B: '0'
+    C: '-1'
+    D: '-3'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 14
+  section: Permutations and Combinations
+  topic: permutations_and_combinations
+  text: $^{34}C_5 + \sum_{r=0}^{4} (38-r)C_4 = $
+  options:
+    A: $22 \times ^{39}C_4$
+    B: $^{39}C_4$
+    C: $3 \times ^{39}C_3$
+    D: $^{39}C_5$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 15
+  section: Algebra
+  topic: functions_and_inverse_functions
+  text: 'Let $f : R \rightarrow R$ be defined by $f(x) = x^2 - 3x + 4$. Then $f(x)$
+    is'
+  options:
+    A: bijective function
+    B: injective function
+    C: surjective function
+    D: none of these
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 16
+  section: Permutations and Combinations
+  topic: permutations_and_combinations
+  text: 'If $^{22}P_{r+1} : ^{20}P_{r+2} = 11:52$ then $r =$'
+  options:
+    A: '3'
+    B: '5'
+    C: '7'
+    D: '9'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 17
+  section: Binomial Theorem
+  topic: binomial_theorem
+  text: The coefficient of $x^4$ in the expansion of $(1-x-x^2+x^3)^6$ is
+  options:
+    A: '120'
+    B: '15'
+    C: '-75'
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 18
+  section: Binomial Theorem
+  topic: binomial_theorem
+  text: The sum of the coefficients in the expansion of $\\left(1 + \\frac{x}{2}\\right)^{12}$
+    is
+  options:
+    A: '0'
+    B: $2^{11}$
+    C: $\\left(\\frac{3}{2}\\right)^{12}$
+    D: $2^{12}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 19
+  section: Algebra
+  topic: quadratic_expressions
+  text: For any quadratic polynomial $f(x)$, it is true that $f(x) = f(a) + f'(a)(x-a)
+    + \\frac{f''(a)}{2!}(x-a)^2$, where a is any real number. If $\\frac{3x^2+4x+7}{(x-2)^3}
+    = \\frac{A}{(x-2)^3} + \\frac{B}{(x-2)^2} + \\frac{C}{(x-2)}$ and $g(x) = 3x^2
+    + 4x + 7$ then $A + B + C =$
+  options:
+    A: $g(2) + g'(2) + g''(2)$
+    B: $g''(2) + 2g(2) + \\frac{g'(1)}{2!}$
+    C: $g(2) + g'(2) + \\frac{g''(2)}{2!}$
+    D: $2g(2) + 2g'(2) + \\frac{g''(2)}{2!}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 20
+  section: Algebra
+  topic: partial_fractions
+  text: For any quadratic polynomial $f(x)$, it is true that $f(x) = f(a) + f'(a)(x-a)
+    + \\frac{f''(a)}{2!}(x-a)^2$, where a is any real number. If $\\frac{3x^2+4x+7}{(x-2)^3}
+    = \\frac{A}{(x-2)^3} + \\frac{B}{(x-2)^2} + \\frac{C}{(x-2)}$ and $g(x) = 3x^2
+    + 4x + 7$ then $A + B + C =$
+  options:
+    A: $g(2) + g'(2) + g''(2)$
+    B: $g''(2) + 2g(2) + \\frac{g'(1)}{2!}$
+    C: $g(2) + g'(2) + \\frac{g''(2)}{2!}$
+    D: $2g(2) + 2g'(2) + \\frac{g''(2)}{2!}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 21
+  section: trigonometric_ratios_and_identities
+  topic: trigonometric_ratios_and_identities
+  text: Let $ACB$ be a triang \leq with right-ang \leq at $C$. Let $AB = 29$ units,
+    $BC = 21$ units and $|\overline{AC}| = \\theta$. Then $\cos^2\\theta - \sin^2\\theta
+    =$
+  options:
+    A: $\\frac{840}{841}$
+    B: $\\frac{40}{841}$
+    C: $\\frac{40}{41}$
+    D: $\\frac{840}{41}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 22
+  section: Trigonometry
+  topic: multiple_and_sub_multiple_angles
+  text: $\\frac{1 - \cos 2\\theta + \sin 2\\theta}{1 + \cos 2\\theta + \sin 2\\theta}
+    =$
+  options:
+    A: $\cot \\theta$
+    B: $\cos 2\\theta$
+    C: $\tan \\theta$
+    D: IMAGE_CONTENT
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 23
+  section: Trigonometry
+  topic: multiple_and_sub_multiple_angles
+  text: Let $y = 4 \sin^2{\\theta} - \cos{2\\theta}$. If $l$ and $m$ are the minimum
+    and maximum values of $y$ respectively, then
+  options:
+    A: $lm = \\frac{m}{l}$
+    B: $lm = \\frac{l}{m}$
+    C: $l + m = \\frac{l}{m}$
+    D: $\\frac{lm}{l - m} = 1 + m$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 24
+  section: trigonometric_equations
+  topic: trigonometric_equations
+  text: If $\cos \\theta = -\\frac{1}{\\sqrt{2}}$ and $\tan \\theta = 1$, then the
+    general value of $\\theta$ is
+  options:
+    A: $2n\\pi + \\frac{\\pi}{4}, n = 0, 1, 2, 3......$
+    B: $(2n + 1)\\pi + \\frac{\\pi}{4}, n = 0, 1, 2, 3......$
+    C: $n\\pi + \\frac{\\pi}{4}, n = 0, 1, 2, 3......$
+    D: $n\\pi \pm \\frac{\\pi}{4}, n = 0, 1, 2, 3......$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 25
+  section: inverse_trigonometric_functions
+  topic: inverse_trigonometric_functions
+  text: If $Sin^{-1}x < Cos^{-1}x$, then
+  options:
+    A: $-1 \leq x < \\frac{1}{\\sqrt{2}}$
+    B: $\\frac{1}{\\sqrt{2}} < x \leq 1$
+    C: $-1 \leq x \leq \\frac{1}{\\sqrt{2}}$
+    D: $\\frac{-1}{\\sqrt{2}} \leq x \leq \\frac{1}{\\sqrt{2}}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 26
+  section: Trigonometry
+  topic: hyperbolic_functions
+  text: $Cot \ h^{-1}(2) + Cosec \ h^{-1}(-2\\sqrt{2}) = $
+  options:
+    A: $\log \\sqrt{\\frac{3}{2}}$
+    B: $\log \\sqrt{6}$
+    C: $\log \\frac{3}{\\sqrt{2}}$
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 27
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: In $\triang \leq ABC$, $|B = \\frac{\\pi}{4}, |C = \\frac{\\pi}{3}$. If the
+    area of the triang \leq is $54 + 18\\sqrt{3}$ sq. units, then $a =$
+  options:
+    A: $\\sqrt{3} + 1$
+    B: $2(\\sqrt{3} + 1)$
+    C: $4(\\sqrt{3} + 1)$
+    D: $6(\\sqrt{3} + 1)$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 28
+  section: Properties of Triangles
+  topic: properties_of_triangles
+  text: If $a, b, c$ are the sides of a $\triang \leq ABC$ and exradii $r_1, r_2,
+    r_3$ are respectively 12, 6, 4 then $a+2b+3c =$
+  options:
+    A: '24'
+    B: '44'
+    C: '30'
+    D: '54'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 29
+  section: Properties of Triangles
+  topic: properties_of_triangles
+  text: 'In a triang \leq ABC, if $a : b : c = 4 : 5 : 6$, then $\\frac{1}{4R}[r_1
+    + r_2 + r_3] =$'
+  options:
+    A: $\\frac{7}{5}$
+    B: $\\frac{7}{2}$
+    C: $\\frac{7}{3}$
+    D: $\\frac{7}{4}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 30
+  section: properties_of_triangles
+  topic: properties_of_triangles
+  text: In a triang \leq ABC, with usual notation, if $a = 12, b = 16, c = 20$, then
+    the ratio of the exradii of the triang \leq opposite to the angles in the order
+    $\ang \leq C, \ang \leq B, \ang \leq A$ is
+  options:
+    A: '3 : 4 : 5'
+    B: '6 : 3 : 2'
+    C: '12 : 7 : 5'
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 31
+  section: vectors_and_scalars
+  topic: types_of_vectors
+  text: If the vectors $-3\vec{i}+4\vec{j}+\lambda \vec{k}$ and $\mu\vec{i}+8\vec{j}+6\vec{k}$
+    are collinear, then $\lambda - \mu =$
+  options:
+    A: $0$
+    B: $-3$
+    C: $6$
+    D: $9$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 32
+  section: Calculus
+  topic: limits_and_continuity
+  text: If $f(x) = \begin{cases} \\frac{sin(a+1)x+sinx}{x}, & x<0 \\ c, & x=0 \\ \\frac{\\sqrt{x+bx^2}-\\sqrt{x}}{b
+    x^{3/2}}, & x>0 \end{cases}$ is continuous at $x=0$, then
+  options:
+    A: $a = -\\frac{3}{2}, c = \\frac{1}{2}$
+    B: $a = -\\frac{3}{2}, c = \\frac{3}{2}$
+    C: $a = \\frac{3}{2}, c = \\frac{1}{2}$
+    D: $a = \\frac{3}{2}, c = \\frac{3}{2}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 33
+  section: Algebra
+  topic: scalar_dot_product
+  text: Three vectors $\vec{a}, \vec{b}$ and $\vec{c}$ satisfy $\vec{a}+\vec{b}+\vec{c}=\vec{0}$.
+    If $|\vec{a}|=3, |\vec{b}|=4, |\vec{c}|=2$, then $\vec{a}.\vec{b}+\vec{b}.\vec{c}+\vec{c}.\vec{a}+2(|\vec{a}|+|\vec{b}|+|\vec{c}|)=$
+  options:
+    A: -$\\frac{7}{2}$
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 34
+  section: scalar_dot_product
+  topic: vectors_and_scalars
+  text: $(\overline{a}+2\overline{b}-\overline{c}).((\overline{a}-\overline{b}) \times
+    (\overline{a}-\overline{b}-\overline{c}))=$
+  options:
+    A: $2\begin{bmatrix} a & b & c \end{bmatrix}$
+    B: $\begin{bmatrix} a & b & c \end{bmatrix}$
+    C: $3\begin{bmatrix} a & b & c \end{bmatrix}$
+    D: '0'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: vector_cross_product
+  topic: applications_to_geometry
+  text: If $\overline{a}=\hat{i}+\hat{j}+\hat{k}$, $\overline{c}=\hat{j}-\hat{k}$
+    are given vectors, then a vector $\overline{b}$ satisfying the equations $\overline{a}
+    imes \overline{b}=\overline{c}$ and $\overline{a}.\overline{b}=3$ is
+  options:
+    A: $5\hat{i}+2\hat{j}+2\hat{k}$
+    B: $\\frac{5}{2}\hat{i}+\hat{j}+\hat{k}$
+    C: "$\\\\frac{5}{3}\\hat{i}+\frac{2}{3}\\hat{j}+\frac{2}{3}\\hat{k}$"
+    D: "$\\hat{i}+\frac{2}{5}\\hat{j}-\frac{2}{5}\\hat{k}$"
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 36
+  section: vector_cross_product
+  topic: applications_to_geometry
+  text: If the vectors $\overline{a}, \overline{b}, \overline{c}$ form the sides $BC,
+    CA, AB$ respectively of a triang \leq $ABC$, then
+  options:
+    A: $\overline{a}.\overline{b}+\overline{b}.\overline{c}+\overline{c}.\overline{a}=0$
+    B: "$\\overline{a} \times \\overline{b}=\\overline{b} \times \\overline{c}=\\\
+      overline{c} \times \\overline{a}$"
+    C: $\overline{a}.\overline{b}=\overline{b}.\overline{c}=\overline{c}.\overline{a}$
+    D: "$\\overline{a} \times \\overline{b}+\\overline{b} \times \\overline{c}+\\\
+      overline{c} \times \\overline{a}=\\overline{0}$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 37
+  section: Algebra
+  topic: scalar_dot_product
+  text: Let $\overline{a}=2\overline{i}-3\overline{j}+\overline{k}$, $\overline{b}=\overline{i}+2\overline{j}-3\overline{k}$,
+    $\overline{c}=\overline{i}-\overline{j}$ and $\overline{d}=\overline{i}+j+x\overline{k}$.
+    If $(\overline{a} imes \overline{b}) imes \overline{c}$ is perpendicular to $\overline{d}$,
+    then $x=$
+  options:
+    A: "$\frac{3}{2}$"
+    B: '2'
+    C: "$\frac{2}{3}$"
+    D: '1'
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 38
+  section: Probability & Statistics
+  topic: probability
+  text: A, B, C are aiming to shoot a balloon. A will succeed 4 times out of 6 attempts.
+    The chance of B to shoot the balloon is 3 out of 5 and that of C is 2 out of 3.
+    If the three aim to shoot the balloon simultaneously, then the probability that
+    at least two of them hit the balloon is
+  options:
+    A: "$\frac{5}{9}$"
+    B: "$\frac{2}{9}$"
+    C: "$\frac{1}{3}$"
+    D: "$\frac{2}{3}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 39
+  section: Complex Numbers
+  topic: complex_numbers
+  text: $\omega$ is a complex cube root of unity. When an unbiased die is thrown 3
+    times, if $\\beta_1, \\beta_2, \\beta_3$ are the numbers appeared on the die,
+    then the probability that $\\beta_1, \\beta_2$ and $\\beta_3$ satisfy $\omega^{\\beta_1}
+    + \omega^{\\beta_2} = -\omega^{\\beta_3}$, is
+  options:
+    A: $\\frac{212}{513}$
+    B: $\\frac{1}{3}$
+    C: $\\frac{3}{5}$
+    D: $\\frac{32}{45}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 40
+  section: Probability & Statistics
+  topic: probability
+  text: If $P(\\frac{A}{B}) = \\frac{3}{10}, P(\\frac{B}{A}) = \\frac{4}{5}$ and $P(A
+    \cup B) = KP(B)$, then $\\frac{1}{K} = $
+  options:
+    A: $\\frac{40}{49}$
+    B: $\\frac{40}{43}$
+    C: $\\frac{100}{101}$
+    D: $1$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 41
+  section: Algebra
+  topic: matrices
+  text: Let $A = \begin{bmatrix} 1 & 1 & 1 \\ 0 & 1 & 1 \\ 0 & 0 & 1 \end{bmatrix}$.
+    Then for any positive integer 'n', $A^n = $
+  options:
+    A: $\begin{bmatrix} 1 & n & n(n+1)/2 \\ 0 & 1 & n \\ 0 & 0 & 1 \end{bmatrix}$
+    B: $\begin{bmatrix} 1 & n & n \\ 0 & 1 & n \\ 0 & 0 & 1 \end{bmatrix}$
+    C: $\begin{bmatrix} 1 & n(n+1)/2 & n \\ 0 & 1 & n \\ 0 & 0 & 1 \end{bmatrix}$
+    D: $\begin{bmatrix} n & n & n \\ 0 & n & n \\ 0 & 0 & n \end{bmatrix}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 42
+  section: Probability & Statistics
+  topic: probability
+  text: If the probability that an individual will suffer a bad reaction from an injection
+    is 0.001, then the probability that out of 2000 individuals, exactly 3 individuals
+    suffer a bad reaction is
+  options:
+    A: "$\frac{4}{3e^2}$"
+    B: "$\frac{2}{e^2}$"
+    C: "$\frac{2}{3e^2}$"
+    D: "$\frac{4}{5e^2}$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 43
+  section: Locus
+  topic: locus
+  text: A rod of length 6 units slides with its ends on the coordinate axes. The locus
+    of the midpoint of the rod is
+  options:
+    A: $x^2 + y^2 = 9$
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 44
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: The transformed equation of the curve $2x^2 + y^2 - 3x + 5y - 8 = 0$ when
+    the origin is translated to the point $(-1, 2)$ is
+  options:
+    A: $2x^2 + y^2 - 7x + 9y + 11 = 0$
+    B: $2x^2 + y^2 + 7x + 9y + 11 = 0$
+    C: $2x^2 + y^2 - x + y + 11 = 0$
+    D: $2x^2 + y^2 + 7x - 9y + 11 = 0$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 45
+  section: Straight Lines
+  topic: straight_lines
+  text: The point on the line $4x - y - 2 = 0$ which is equidistant from the points
+    $(-5, 6)$ and $(3, 2)$ is
+  options:
+    A: $(2,\ 6)$
+    B: $(4,\ 14)$
+    C: $(1,\ 2)$
+    D: $(3,\ 10)$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 46
+  section: straight_lines
+  topic: straight_lines
+  text: The incentre of the triang \leq having the vertices $(1, \\sqrt{3}), (0, 0)$
+    and $(2, 0)$ is
+  options:
+    A: $\\left(1, \\frac{\\sqrt{3}}{2}\\right)$
+    B: $\\left(\\frac{2}{3}, \\frac{1}{\\sqrt{3}}\\right)$
+    C: $\\left(\\frac{2}{3}, \\frac{\\sqrt{3}}{2}\\right)$
+    D: $\\left(1, \\frac{1}{\\sqrt{3}}\\right)$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 47
+  section: Straight Lines
+  topic: straight_lines
+  text: If $P'(a,b)$ is the ima \geq of the point $P(-1,2)$ with respect to the line
+    $x-2y+3=0$, then the length of the perpendicular from $P'$on to the line $2x+y-7=0$
+    is
+  options:
+    A: "$\frac{2}{\\\\sqrt{5}}$"
+    B: "$\frac{3}{\\\\sqrt{5}}$"
+    C: $\\sqrt{5}$
+    D: $\\frac{8}{\\sqrt{5}}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 48
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: If the vertices of a triang \leq $\leq ABC$ are $A(1,7)$, $B(-5,-1)$ and $C(7,4)$,
+    then the equation of a bisector of $|ABC|$ is
+  options:
+    A: $7x-9y+26=0$
+    B: $9x-7y+38=0$
+    C: $7x+9y+44=0$
+    D: $9x+7y+52=0$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 49
+  section: Coordinate Geometry
+  topic: circle
+  text: The combined equation of the two diameters of a circ \leq which divide the
+    circ \leq into 4 sectors is $ax^2 + 2hxy + by^2 = 0$. If the area of the bigger
+    sector is 5 times the area of the smaller sector, then $\\frac{|a+b|}{\\sqrt{(a-b)^2
+    + 4h^2}} = $
+  options:
+    A: $\\frac{1}{2}$
+    B: $\\frac{\\sqrt{3}}{2}$
+    C: $\\frac{1}{\\sqrt{2}}$
+    D: $1$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 50
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: If $9x^2 - 24xy + 16y^2 + \\alpha x + \\beta y + 6$ represents a pair of parallel
+    lines of 1 unit apart and one of those lines passes through $(1,1)$ then $\\frac{\\alpha}{\\beta}
+    = $
+  options:
+    A: $\\frac{2}{3}$
+    B: $1$
+    C: $\\frac{-3}{2}$
+    D: $\\frac{-3}{4}$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 51
+  section: Coordinate Geometry
+  topic: circle
+  text: If $(a, b)$ is the centre of the circ \leq passing through the vertices of
+    the triang \leq formed by $x + y = 6, 2x + y = 4$ and $x + 2y = 5$, then $(a,
+    b)$ is
+  options:
+    A: UNREADABLE_IMAGE
+    B: UNREADABLE_IMAGE
+    C: UNREADABLE_IMAGE
+    D: UNREADABLE_IMAGE
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 52
+  section: Circle
+  topic: locus
+  text: The locus of the mid points of the chords of the circ \leq $x^2-2x+y^2 = 0$
+    drawn from a point (0, 0) on it is
+  options:
+    A: x^2 + y^2 - x = 0
+    B: x^2 + y^2 - y = 0
+    C: x^2 + y^2 - 2x = 0
+    D: x^2 + y^2 - 2y = 0
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 53
+  section: System of Circles
+  topic: system_of_circles
+  text: The number of possib \leq common tangents that can be drawn to the circles
+    $x^2 + y^2 + 4x - 6y - 3 = 0$ and $x^2 + y^2 + 4x - 2y + 1 = 0$ is
+  options:
+    A: '4'
+    B: '3'
+    C: '1'
+    D: '0'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 54
+  section: circle
+  topic: system_of_circles
+  text: The equation of the circ \leq passing through $(1, 1)$ and through the points
+    of intersection of the circles $x^2 + y^2 + 13x - 3y = 0$ and $2x^2 + 2y^2 + 4x
+    - 7y - 25 = 0$ is
+  options:
+    A: $4x^2 + 4y^2 + 30x - 13y - 25 = 0$
+    B: $2x^2 + 2y^2 + 15x - 19y = 0$
+    C: $4x^2 + 4y^2 + 25x + 12y - 45 = 0$
+    D: $4x^2 + 4y^2 + 13x - 30y + 9 = 0$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 55
+  section: circle
+  topic: system_of_circles
+  text: If the circles $(x-2)^2 + (y-3)^2 = 25$ and $25x^2 + 25y^2 - 40x - 70y - 160
+    = 0$ touch internally at $(\\alpha, \\beta)$ then $\\alpha + \\beta =$
+  options:
+    A: $4x^2 + 4y^2 + 30x - 13y - 25 = 0$
+    B: $2x^2 + 2y^2 + 15x - 19y = 0$
+    C: $4x^2 + 4y^2 + 25x + 12y - 45 = 0$
+    D: $4x^2 + 4y^2 + 13x - 30y + 9 = 0$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 56
+  section: Coordinate Geometry
+  topic: parabola
+  text: A point on the parabola whose focus and vertex are respectively at $(\\frac{5}{4},
+    -2)$ and $(1, -2)$ is
+  options:
+    A: $(4, 0)$
+    B: $(15, 2)$
+    C: $(3, -1)$
+    D: IMAGE_CONTENT
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 57
+  section: parabola
+  topic: parabola
+  text: The parametric equations of the parabola $y^2-4x-8y-12=0$ are
+  options:
+    A: $x=7+2t, \quad y=-4+t^2$
+    B: $x=-7+2t, \quad y=4+2t$
+    C: $x=-7+t^2, \quad y=-4+2t$
+    D: $x=-7+t^2, \quad y=4+2t$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 58
+  section: ellipse
+  topic: General
+  text: A focus of an ellipse having eccentricity $\\frac{1}{2}$ is at $(0,0)$ and
+    a directrix is the line $x=4$. Then the equation of one such ellipse is
+  options:
+    A: $\\frac{9x^2}{64} + \\frac{3y^2}{16} = 1$
+    B: $\\frac{(2x+1)^2}{32} + \\frac{y^2}{16} = 1$
+    C: $\\frac{(3x+4)^2}{64} + \\frac{y^2}{32} = 1$
+    D: $(3x+4)^2 + 12y^2 = 64$
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 59
+  section: Algebra
+  topic: matrices
+  text: If $A = \begin{bmatrix} 2 & 1 & 0 \\ 0 & 2 & 1 \\ 0 & 0 & 2 \end{bmatrix}$,
+    then the value of $|adj(adj A)|$ is
+  options:
+    A: $2^2$
+    B: $2^4$
+    C: $2^8$
+    D: $2^{16}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 60
+  section: Coordinate Geometry
+  topic: hyperbola
+  text: The lines $x\cos\\alpha + y\sin\\alpha = P, \\alpha \in R$ are chords of the
+    hyperbola $\\frac{x^2}{9} - \\frac{y^2}{36} = 1$ and they subtend a right ang
+    \leq at the centre of the hyperbola. The locus of the poles of these lines with
+    respect to the given hyperbola is
+  options:
+    A: $x^2 - 16y^2 = 108$
+    B: $16x^2 - y^2 = 108$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 61
+  section: Algebra
+  topic: vectors_and_scalars
+  text: If $(\\frac{9}{4}, \\frac{5}{4}, \\frac{15}{4})$ is the centroid of a tetrahedron
+    whose vertices are $(a, 2, 1)$, $(1, b, 4)$, $(4, 0, c)$ and $(1, 1, 7)$, then
+  options:
+    A: $a = b = c$
+    B: $a = b = c + 1$
+    C: $b = c = a + 1$
+    D: $a = c = b + 1$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 62
+  section: Algebra
+  topic: vectors_and_scalars
+  text: The direction cosines of the line making angles $\\frac{\\pi}{4}, \\frac{\\pi}{3}$
+    and $\\theta \; (0 < \\theta < \\frac{\\pi}{2})$ respectively with $x, y$ and
+    $z$ axes, are
+  options:
+    A: $\\frac{1}{\\sqrt{2}}, \\frac{1}{2}, \\frac{1}{2}$
+    B: $\\frac{1}{\\sqrt{2}}, \\frac{1}{2}, \\frac{\\sqrt{3}}{2}$
+    C: $\\frac{1}{\\sqrt{2}}, \\frac{1}{2}, \\frac{1}{\\sqrt{2}}$
+    D: $\\frac{1}{\\sqrt{2}}, \\frac{\\sqrt{3}}{2}, \\frac{1}{\\sqrt{2}}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 63
+  section: Three Dimensional Coordinates
+  topic: three_dimensional_coordinates
+  text: The point on the plane $2x-2y+4z+5=0$ that is nearer to $\\left(\\frac{3}{2},
+    1, 2\\right)$ is
+  options:
+    A: $\\left(0, \\frac{5}{2}, 0\\right)$
+    B: $\\left(-5, -\\frac{5}{2}, 0\\right)$
+    C: $\\left(0, 0, -\\frac{5}{4}\\right)$
+    D: $\\left(-\\frac{1}{2}, 0, -1\\right)$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 64
+  section: Algebra
+  topic: matrices
+  text: Let $A = \begin{bmatrix} 1 & 2 & 3\\ 1 & 1 & 5\\ 2 & 4 & 7 \end{bmatrix}$,
+    then the value of $|A|$ is
+  options:
+    A: $1$
+    B: $-1$
+    C: $0$
+    D: $2$
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 65
+  section: limits_and_continuity
+  topic: limits_and_continuity
+  text: "Let $f(x) = \\\\frac{2 - \\\\sqrt{x+4}}{\\sin 2x}, x \neq 0$. In order that\
+    \ $f(x)$ is continuous at $x = 0, f(0)$ is to be defined as"
+  options:
+    A: $\\frac{-1}{8}$
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 66
+  section: Limits and Continuity
+  topic: limits_and_continuity
+  text: If $f(x) = \begin{cases} 1 + \cos x, & x \ \leq 0 \\ a - x, & 0 < x \ \leq
+    2 \\ x^2 - b^2, & x > 2 \end{cases}$ is continuous everywhere, then $a^2 + b^2
+    =$
+  options:
+    A: '4'
+    B: '8'
+    C: '12'
+    D: '16'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 67
+  section: Calculus
+  topic: differentiation_and_derivatives
+  text: If $x = 5(1-sint)$, $y = 5(t+cost)$, then $\\frac{dx}{dy} =$
+  options:
+    A: $\\frac{sint-1}{cost}$
+    B: $\\frac{cost}{sint-1}$
+    C: $tan \\frac{t}{2}$
+    D: $\\frac{cos \\frac{t}{2} - sin \\frac{t}{2}}{cos \\frac{t}{2} + sin \\frac{t}{2}}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 68
+  section: Calculus
+  topic: limits_and_continuity
+  text: 'Let $g : [-2, 2] \rightarrow R$ and $f : [-2, 2] \rightarrow R$ are two functions
+    defined as $g(x) = \begin{cases} -1, & \text{if } -2 \leq x < 0 \\ x^2-1, & \text{if
+    } 0 \leq x \leq 2 \end{cases}$ and $f(x) = |g(x)| + g(|x|) + 2$. In the interval
+    $(-2, 2)$, $f$ is not differentiab \leq at $x =$'
+  options:
+    A: '0'
+    B: '1'
+    C: $\\frac{1}{2}$
+    D: '-1'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 69
+  section: Trigonometry
+  topic: multiple_and_sub_multiple_angles
+  text: $\\frac{cos \\frac{t}{2} - sin \\frac{t}{2}}{cos \\frac{t}{2} + sin \\frac{t}{2}}$
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 71
+  section: Calculus
+  topic: applications_of_derivatives
+  text: The approximate value of $(8.01)^{\\frac{4}{3}} + (8.01)^2$ upto 3 decimal
+    places is
+  options:
+    A: '80.116'
+    B: '80.216'
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 72
+  section: Calculus
+  topic: applications_of_derivatives
+  text: If the tangent at a point $P$ on the curve $y=4x^4+x$ is perpendicular to
+    the tangent to the same curve at $(0,0)$, then the point $P$ is
+  options:
+    A: \\left(-\\frac{1}{2}, -\\frac{1}{4}\\right)
+    B: \\left(\\frac{1}{2}, \\frac{3}{4}\\right)
+    C: (1, 5)
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 73
+  section: Calculus
+  topic: differentiation_and_derivatives
+  text: IMAGE_CONTENT
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 74
+  section: Calculus
+  topic: applications_of_derivatives
+  text: If the function $f(x)=x(x+3)e^{\\frac{-x}{2}}$ satisfies all the conditions
+    of Rolle's theorem in $[-3,0]$, then a root of $f'(x)=0$ is
+  options:
+    A: $0$
+    B: $\\frac{\\pi}{2}$
+    C: $\\frac{\\pi}{4}$
+    D: $\\frac{\\pi}{6}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 75
+  section: Calculus
+  topic: integration
+  text: $\int rac{dx}{sin x + cos x} = $
+  options:
+    A: "$\frac{1}{\\\\sqrt{2}} log \\left| tan \\\\left( \frac{x}{2} + \frac{\\\\\
+      pi}{8} \right) \right| + C$"
+    B: "$\frac{1}{\\\\sqrt{2}} log \\left| tan \\\\left( \frac{x}{2} + \frac{\\\\\
+      pi}{4} \right) \right| + C$"
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 76
+  section: Calculus
+  topic: integration
+  text: $\int (x+2)\\sqrt{x+3} \,dx = $
+  options:
+    A: "$\frac{2}{15} \\\\sqrt{x+3} (3x^2 -13x + 12) + C$"
+    B: "$\frac{2}{15} \\\\sqrt{x+3} (3x^2 +13x + 12) + C$"
+    C: "$\frac{2}{5} \\\\sqrt{x+3} (3x^2 -12x + 13) + C$"
+    D: "$\frac{2}{5} \\\\sqrt{x+3} (3x^2 +12x - 13) + C$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 77
+  section: Calculus
+  topic: integration
+  text: $\int (\\frac{1-cos x}{1+cos x})^{\\frac{2}{7}} dx = $
+  options:
+    A: $\\frac{7}{11} (tan \\frac{x}{2})^{\\frac{11}{7}} + C$
+    B: $\\frac{7}{11} (tan \\frac{x}{2})^{\\frac{7}{11}} + C$
+    C: $\\frac{7}{11} (cot \\frac{x}{2})^{\\frac{11}{7}} + C$
+    D: $\\frac{11}{7} (cot \\frac{x}{2})^{\\frac{7}{11}} + C$
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 78
+  section: Definite Integrals
+  topic: definite_integrals
+  text: $\int_{5}^{9} \\frac{log 3x^{2}}{log 3x^{2} + log(588-84x + 3x^{2})}dx = $
+  options:
+    A: '2'
+    B: '1'
+    C: $\\frac{1}{2}$
+    D: '4'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 79
+  section: Definite Integrals
+  topic: definite_integrals
+  text: $\int_{-1}^{1} \\frac{log (1+x)}{1+x^{2}} dx = \int_{0}^{1} \\frac{log (1+x)}{1+x^{2}}
+    dx + \int_{0}^{1} f(x) dx$ then $f(x) = $
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 80
+  section: Differential Equations
+  topic: differential_equations
+  text: The general solution of $\\frac{dy}{dx} = x + sinx cosy + x cosy + sin x$
+    is
+  options:
+    A: $tan \\frac{x}{2} = \\frac{y^2}{2} - cosy + C$
+    B: $tan \\frac{y}{2} = \\frac{x^2}{2} - cosx + C$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 81
+  section: Trigonometry
+  topic: multiple_and_sub_multiple_angles
+  text: Which of the following statement is incorrect? $tan \\frac{x}{2} = \\frac{1}{2}
+    + cos x + Cx$
+  options:
+    A: UNREADABLE_IMAGE
+    B: UNREADABLE_IMAGE
+    C: UNREADABLE_IMAGE
+    D: UNREADABLE_IMAGE
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 82
+  section: Units and Measurements
+  topic: units_and_measurements
+  text: The dimensions of $\sigma b^4$ where '$\sigma$' is Stefan's constant and 'b'
+    is Wien's constant are
+  options:
+    A: '[M$^0$L$^0$T$^0$]'
+    B: '[ML$^4$T$^{-3}$]'
+    C: '[ML$^{-2}$T]'
+    D: '[ML$^6$T$^{-3}$]'
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 83
+  section: Mechanics
+  topic: motion_in_a_straight_line
+  text: A car travels in a straight line along a road. Its distance 'x' from a stop
+    sign is given as a function of 't' by the equation $x(t) = \\alpha t + \\beta
+    t^3$, where $\\alpha = 2.0$ m/s, $\\beta = 0.01$ m/s³. Calculate the avera \geq
+    velocity of the car in the time interval t = 2.00 sec to 4.00 sec.
+  options:
+    A: 2.28 m/s
+    B: 4.94 m/s
+    C: 3.34 m/s
+    D: 4.12 m/s
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 84
+  section: Mechanics
+  topic: laws_of_motion
+  text: A man weights 70 kg. He stands on a weighing sca \leq in a lift, which is
+    moving (a) upwards with a uniform speed of 10 m/s. (b) downwards with a uniform
+    acceleration of $5 m/s^2$. What would be the readings on the sca \leq in each
+    case?
+  options:
+    A: 70 kg and 35 kg
+    B: 70 kg and 350 N
+    C: 70 kg and 35 kg
+    D: 70 kg and 350 N
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 85
+  section: Mechanics
+  topic: laws_of_motion
+  text: 'Display Question Number : Yes Is Question Mandatory : No Option Orientation
+    : Vertical'
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 86
+  section: Scalar Dot Product
+  topic: scalar_dot_product
+  text: 'Find the ang \leq between the two vectors: $\vec{a}=3i+2j+5k$, $\vec{b}=5i+3j+k$'
+  options:
+    A: "$\\cos^{-1} \\\\left( \frac{26}{\\\\sqrt{1330}} \right)$"
+    B: "$\\sin^{-1} \\\\left( \frac{26}{\\\\sqrt{1330}} \right)$"
+    C: "$\\cos^{-1} \\\\left( \frac{26}{\\\\sqrt{1335}} \right)$"
+    D: "$\tan^{-1} \\\\left( \frac{26}{\\\\sqrt{1330}} \right)$"
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 87
+  section: Mechanics
+  topic: laws_of_motion
+  text: Block A of mass 3 kg rests on another block B of mass 7 kg. The coefficient
+    of friction between A and B is 0.4 whi \leq the coefficient of friction between
+    B and the horizontal floor on which B rests is 0.55. Find the force of friction
+    between A and B, when a horizontal force of 50 N is applied on the block B. (Use
+    $g=10$ m/s$^2$)
+  options:
+    A: '0'
+    B: 5 N
+    C: 4 N
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 88
+  section: Mechanics
+  topic: laws_of_motion
+  text: What is the maximum force F that can be applied on block $m_1$, so that both
+    $m_1$ & $m_2$ will move together? There is no friction between $m_1$ and the horizontal
+    table. The coefficient of friction between '$m_1$' and '$m_2$' is $\mu$.
+  options:
+    A: $\mu m_2 g$
+    B: $\mu (m_1 + m_2)g$
+    C: "$\\mu \frac{m_1 m_2}{(m_1 + m_2)} g$"
+    D: $\mu m_1 g$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 89
+  section: Mechanics
+  topic: work_energy_and_power
+  text: The potential energy of a partic \leq in a central field has the form $U(r)
+    = \\frac{1}{r^2} - \\frac{1}{r}$, where 'r' is the distance from the centre of
+    the field. The magnitude of the maximum attractive force in Newton is
+  options:
+    A: $\\frac{1}{27}$
+    B: $\\frac{1}{9}$
+    C: $\\frac{1}{3}$
+    D: '1'
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 91
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: A rigid body of mass M and radius R rolls without slip\ping on an inclined
+    plane of inclination $\\theta$, under gravity. Match the type of body Column I
+    with magnitude of the force of friction Column II. Column I Column II A) For ring
+    I) $\\frac{Mg sin\\theta}{2.5}$ B) For solid sphere II) $\\frac{Mg sin\\theta}{3}$
+    C) For solid cylinder III) $\\frac{Mg sin\\theta}{3.5}$ D) For hallow cylinder
+    IV) $\\frac{Mg sin\\theta}{2}$
+  options:
+    A: IV III II IV
+    B: I II IV IV
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: A small disc of mass 500 gm and radius 5 cm rolls down an inclined plane without
+    slip\\ping. Speed of its center of mass when it reaches the bottom of the incline
+    plane depends on
+  options:
+    A: mass & radius
+    B: mass & height of the incline
+    C: height of the incline
+    D: height of the incline and acceleration due to gravity
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 93
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: Starting from rest, a partic \leq rotates in a circ \leq of radius R = 2m
+    with an angular acceleration $\\alpha = 2 t$ rad/$s^2$. The magnitude of avera
+    \geq velocity of the partic \leq over the time interval from t = 0 to t = 2s is
+  options:
+    A: 8 m/s
+    B: 4 m/s
+    C: 2 m/s
+    D: 6 m/s
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 94
+  section: Mechanics
+  topic: gravitation
+  text: What is the chan \geq in mass of a body, when taken 64 km below the surface
+    of the earth? [Take radius of the earth as 6400 km]
+  options:
+    A: Increases by $2\%$
+    B: Decreases by $1\%$
+    C: Increases by $1\%$
+    D: Decreases by $2\%$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 95
+  section: Mechanics
+  topic: properties_of_matter
+  text: Consider a rod of length 1.0 m with a cross-sectional area of $0.50 \, cm^2$.
+    The rod supports a 500-kg platform that hangs attached to the rod's lower end.
+    What is elongation of the rod under the stress ignoring the weight of the rod?
+    Consider the Young's modulus to be $10^{11} \, Pa$ and $g = 10 \, m/s^2$.
+  options:
+    A: 2 mm
+    B: 0.5 mm
+    C: 1.5 mm
+    D: 1 mm
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 96
+  section: Mechanics
+  topic: fluid_mechanics
+  text: Water is pumped steadily out of a flooded basement, at the speed of 10 m/s
+    through a hose (tube) of radius 1 cm, passing through a window 3 m above the water
+    level. The power of the pump is (Assume $g = 10 \, m/s^2$, density of water =
+    $1000 \, kg/m^3$)
+  options:
+    A: $80\\pi \, W$
+    B: $30\\pi \, W$
+    C: $50\\pi \, W$
+    D: $90\\pi \, W$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 97
+  section: Mechanics
+  topic: fluid_mechanics
+  text: A U-shaped tube is partially filled with an incompressib \leq liquid of density
+    $1.2 \, g/cm^3$. Oil which does not mix with the liquid is next poured into left
+    side of the U-tube until the liquid rises by 15 cm on the right side of U-tube.
+    If the density of the oil is $0.9 \, g/cm^3$, the oil level will stand higher
+    than the liquid level of right side of U-tube by
+  options:
+    A: $15 \, cm$
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 98
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
+  text: The ratio of linear expansivity to the co-efficient of a real expansion of
+    a rectangular sheet of a solid is
+  options:
+    A: '2'
+    B: '0.5'
+    C: '1'
+    D: '1.5'
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 99
+  section: Thermal Physics
+  topic: thermal_properties_of_matter
+  text: Two rods whose lengths are $l_1$ and $l_2$ with heat conductivity co-efficients
+    $k_1$ and $k_2$ are placed end to end. The heat conductivity coefficient of a
+    uniform rod of length $l_1 + l_2$ whose conductivity is same as that of the system
+    of these two rods is
+  options:
+    A: $\\frac{(l_1 + l_2)k_1k_2}{k_2l_1 + k_1l_2}$
+    B: $\\frac{(l_1 + l_2)k_1k_2}{k_1l_1 + k_2l_2}$
+    C: $\\frac{k_1l_1 + k_2l_2}{(l_1 + l_2)k_1k_2}$
+    D: $\\frac{k_1l_2 + k_2l_1}{(l_1 + l_2)k_1k_2}$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 100
+  section: Physical Chemistry
+  topic: chemical_kinetics
+  text: For a chemical reaction $A \rightarrow B$, the rate of reaction is $r = k[A]^0$.
+    Then
+  options:
+    A: The rate of reaction is independent of initial concentration of A
+    B: The half-life of reaction depends on initial concentration of A
+    C: The rate constant is independent of temperature
+    D: The rate of formation of B is twice that of A
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 101
+  section: Thermodynamics
+  topic: thermodynamics
+  text: A diatomic gas of volume $2 \ m^3$ at a pressure $2 imes 10^5 \ N/m^2$ is
+    compressed adiabatically to a volume $0.5 \ m^3$. The work done in this process
+    is. [Use $4^{1.4} = 6.96$]
+  options:
+    A: "$2.96 \times 10^5 \\ J$"
+    B: "$8.96 \times 10^5 \\ J$"
+    C: "$9.36 \times 10^5 \\ J$"
+    D: "$1.44 \times 10^6 \\ J$"
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 102
+  section: Thermal Physics
+  topic: kinetic_theory_of_gases
+  text: As per kinetic theory of gases which of the following statements is / are
+    true? a) Temperature of a gas is a measure of avera \geq kinetic energy of a molecule
+    b) Temperature of a gas depends on the nature of the gas c) Heavier molecu \leq
+    has lower avera \geq speed d) Lighter molecu \leq has lower avera \geq speed
+  options:
+    A: a & b are true
+    B: b & c are true
+    C: a & c are true
+    D: IMAGE_CONTENT
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 103
+  section: Oscillations and Waves
+  topic: wave_motion
+  text: A wave is represented by the equation $y = (0.02 \ m)sin(5\\pi x-20t)$. The
+    minimum distance between the two particles always having the same speed is. (Assume
+    $x$ and $t$ are in SI units)
+  options:
+    A: 0.02 m
+    B: 0.4 m
+    C: 0.8 m
+    D: 0.2 m
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 104
+  section: Algebra
+  topic: matrices
+  text: A screen is placed $90 \ cm$ from an object. The ima \geq is formed by using
+    a convex lens twice on the screen by putting the lens at two different locations
+    separated by $20 \ cm$. The focal length of the lens is approximately equal to
+  options:
+    A: 21.38 cm
+    B: 30.0 cm
+    C: 35.0 cm
+    D: 24 cm
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 105
+  section: Optics
+  topic: wave_optics
+  text: What would be the angular separation between the consecutive bright fringes
+    in Young's doub \leq slit experiment with blue green light of wavelength $400
+    \ nm$? The separation between the slits is $0.001 \ m$.
+  options:
+    A: $4 \times 10^{-4}$ rad
+    B: $3 \times 10^{-4}$ rad
+    C: $2 \times 10^{-4}$ rad
+    D: $1 \times 10^{-4}$ rad
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 106
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: A circular wire loop of radius 10 cm carries a total char \geq of $10^{-5}$
+    C distributed uniformly over its length. A small length of $3.14 imes 10^{-6}$
+    m of wire is cut off. The magnitude of electric field at the center due to the
+    remaining wire is (Assume $\\frac{1}{4\\pi \epsilon_0} = 9 imes 10^{9}$ SI units
+    )
+  options:
+    A: 30 N/C
+    B: 40 N/C
+    C: 35 N/C
+    D: 45 N/C
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 107
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: Consider the charged cylindrical capacitor. The magnitude of electric field
+    $\vec{E}$ in its annular region
+  options:
+    A: Varies as $\\frac{1}{r}$, where r is the distance from its axis
+    B: Zero
+    C: Is same throughout and $|\vec{E}|>0$
+    D: Varies as $\\frac{1}{r^2}$, where r is the distance from its axis
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 108
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: A spherical capacitor consists of two concentric spherical conductors. Find
+    the capacitance of the spherical capacitor if the outer radius is 2R and the inner
+    radius is R.
+  options:
+    A: $4\\pi \epsilon_0 R$
+    B: $8\\pi \epsilon_0 R$
+    C: $\d\frac{8\\pi \epsilon_0}{R}$
+    D: $\d\frac{4\\pi \epsilon_0}{R}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 109
+  section: Moving Charges and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: A wire of length $l$ carries a current I along the X- axis. The magnetic force
+    acting on the wire is given by $\vec{F} = IB_0L\\left(\hat{k} - \hat{j}\\right)T$
+    where $B_0$ is a constant. The existing magnetic field $\vec{B}$ is
+  options:
+    A: $B_0\\left(\hat{i}\\right)$
+    B: $B_0\\left(\hat{i}-\hat{j}\\right)$
+    C: $-B_0\\left(\hat{i}+\hat{j}\\right)$
+    D: $B_0\\left(\hat{k}-\hat{j}\\right)$
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 110
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: Two long wires with no contact are placed perpendicular to each other. $i_1$
+    and $i_2$ are currents flowing through these wires respectively. The magnetic
+    force on a small length 'dl' of the second wire situated at a distance 'l ' from
+    first wire is proportional to
+  options:
+    A: $i_1 i_2$
+    B: $l$
+    C: $\\frac{1}{i_1 i_2}$
+    D: $l^2$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 111
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: A solenoid has a core of a material with relative permeability 501. The windings
+    of the solenoid are insulated from the core and carry a current of 2.5 A. If the
+    number of turns are 900 per metre. The magnetization in A/m is
+  options:
+    A: 1.125$\times 10^6$
+    B: 2.8$\times 10^6$
+    C: 2.25$\times 10^6$
+    D: 1.69$\times 10^6$
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 112
+  section: Electricity and Magnetism
+  topic: magnetic_effects_of_current_and_magnetism
+  text: A long straight solenoid with cross sectional radius 'a' and number of turns
+    per unit length 'n' has a current varying with time as I(As$^{-1}$). The magnitude
+    of the electric field as a function of distance 'r' from the solenoid axis is
+  options:
+    A: UNREADABLE_IMAGE
+    B: UNREADABLE_IMAGE
+    C: UNREADABLE_IMAGE
+    D: UNREADABLE_IMAGE
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 113
+  section: Alternating Current Circuits
+  topic: alternating_current_circuits
+  text: An alternating current is given by $i = 2 sin \omega t + 6 cos \omega t$.
+    The rms current in amperes is
+  options:
+    A: $2 \\sqrt{5}$
+    B: $2 \\sqrt{10}$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
+- id: 114
+  section: Electromagnetic Waves
+  topic: electromagnetic_waves
+  text: For an EM Wave, the electric and magnetic fields are 300 V/m and 7.9 A/m respectively.
+    The maximum rate of energy flow is
+  options:
+    A: 2730 $\\frac{watt}{m^2}$
+    B: 2790 $\\frac{watt}{m^2}$
+    C: 2370 $\\frac{watt}{m^2}$
+    D: 2390 $\\frac{watt}{m^2}$
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 115
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: Which of the following partic \leq has the shortest de-Broglie wavelength?
+  options:
+    A: Proton
+    B: Electron
+    C: $\\alpha$ – particle
+    D: X – rays
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 116
+  section: Modern Physics
+  topic: atoms
+  text: Hydrogen atom in the ground state absorbs $\Delta E$ amount of energy. If
+    the orbital angular momentum of the electron is increased by $\\frac{h}{2\\pi}
+    (h =$ Plank constant), then the magnitude of $\Delta E$ is
+  options:
+    A: 12.09 eV
+    B: 12.75 eV
+    C: 10.2 eV
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 117
+  section: Modern Physics
+  topic: nuclear_physics
+  text: In a nuclear reactor, the main purpose of the moderator is to
+  options:
+    A: Initiate the fission process by giving away its neutron
+    B: Slow down the fast neutrons
+    C: Cool down the excess of heat generated in the reactor
+    D: Absorb excess of neutrons and control the reaction rate
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 118
+  section: Modern Physics
+  topic: semiconductors_and_devices
+  text: If the temperature of the semi-conductor is increased, which of the following
+    is correct statement?
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 119
+  section: Optics
+  topic: ray_optics_and_optical_instruments
+  text: The angular dispersion produced by a prism is $2^{\circ}$. If the refractive
+    index of red colour is 1.56 and that of violet colour is 1.62, then the refracting
+    ang \leq of the prism is
+  options:
+    A: $20^{\circ}$
+    B: $30^{\circ}$
+    C: $40^{\circ}$
+    D: $50^{\circ}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 120
+  section: Communication Systems
+  topic: basics_of_communication_systems
+  text: A messa \geq signal of frequency $f_m$ is used to modulate a carrier of frequency
+    $f_c$. If the side bands are $f_1$ and $f_2$ then the ratio $\\frac{f_c}{f_m}$
+    is
+  options:
+    A: $\\frac{f_1 + f_2}{f_2 - f_1}$
+    B: $\\frac{(f_1 + f_2)^2}{f_1 f_2}$
+    C: $\\frac{f_2 - f_1}{2}$
+    D: $\\frac{f_2 + f_1}{2}$
+  correct_answer: B
+  difficulty: moderate
+  subject: Physics
+- id: 121
+  section: Physical Chemistry
+  topic: basic_concepts_of_chemistry
+  text: Heisenberg's uncertainty princip \leq is ingeneral significant to $\\frac{f_1
+    f_2}{(f_1 + f_2)^2}$
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 122
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: Which of the following relations is correct, if the wavelength $(\lambda)$
+    is equal to the distance travelled by the electron in one second? h is the planck's
+    constant and m is the mass of electron
+  options:
+    A: $\lambda = h/p$
+    B: $\lambda = h/m$
+    C: $\lambda = \\sqrt{h/p}$
+    D: IMAGE_CONTENT
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 123
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: The set of amphoteric oxides among the given oxides are $Ga_2O_3$ , $As_4O_{10}$
+    , $Sb_4O_{10}$ , $B_2O_3$, $Tl_2O$
+  options:
+    A: "$\text{T1}_2\text{O}, \text{B}_2\text{O}_3$"
+    B: "$\text{Sb}_4\text{O}_{10}, \text{B}_2\text{O}_3, \text{Ga}_2\text{O}_3$"
+    C: "$\text{Ga}_2\text{O}_3, \text{T1}_2\text{O}, \text{As}_4\text{O}_{10}$"
+    D: "$\text{Ga}_2\text{O}_3, \text{As}_4\text{O}_{10}, \text{Sb}_4\text{O}_{10}$"
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 124
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: The first ionisation energies (in kJ mol$^{-1}$) of four consecutive elements
+    of the second period are given in the options. The first ionisation energy of
+    nitrogen is
+  options:
+    A: '1086'
+    B: '1402'
+    C: '1681'
+    D: '1314'
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 125
+  section: Inorganic Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: Highest covalent character is found in which of the following?
+  options:
+    A: $CaF_2$
+    B: $CaCl_2$
+    C: $CaBr_2$
+    D: $CaI_2$
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 126
+  section: Chemical Bonding and Molecular Structure
+  topic: chemical_bonding_and_molecular_structure
+  text: The correct sequence of bond order is
+  options:
+    A: $O_2^+ > O_2^- > O_2 > O_2^{2-}$
+    B: $O_2^+ > O_2 > O_2^- > O_2^{2-}$
+    C: $O_2^+ > O_2 > O_2^{2-} > O_2^-$
+    D: $O_2^+ > O_2^{2-} > O_2^- > O_2$
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 127
+  section: Physical Chemistry
+  topic: kinetic_theory_of_gases
+  text: The most probab \leq velocity of a gas at 7200 K is equal to the RMS velocity
+    of He gas at 27 $^\circ$C. The gas is
+  options:
+    A: $O_2$
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 128
+  section: Thermal Physics
+  topic: thermodynamics
+  text: A plot of volume of the gas Versus T (K) is shown below. Which of the options
+    is correct for the plot?
+  options:
+    A: $P_1 < P_2 < P_3$
+    B: $P_1 = P_2 = P_3$
+    C: $P_1 > P_2 > P_3$
+    D: Cannot be determined
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 129
+  section: Physical Chemistry
+  topic: stoichiometry
+  text: In the balanced equation of the following reaction, the ratio of a/b is a
+    $a CaCO_3 + bH_3PO_4 \r\rightarrow pCa_3(PO_4)_2 + qCO_2 + rH_2O$
+  options:
+    A: 2/3
+    B: 3/2
+    C: 1/2
+    D: 7/5
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 130
+  section: Physical Chemistry
+  topic: basic_concepts_of_chemistry
+  text: The number of grams of oxygen in 32.2 g of $Na_2SO_4.10H_2O$ is approximately
+  options:
+    A: 32.2 g
+    B: 22.4 g
+    C: 11.2 g
+    D: 64.4 g
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 131
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: A metallic surface is irradiated with monochromatic light of different wavelengths
+    and the stop\ping potential is measured for each wavelength. If the stop\ping
+    potential is plotted against the reciprocal of the wavelength, then the graph
+    is a straight line. The slope of the line depends on
+  options:
+    A: Char \geq of the electron
+    B: Planck's constant
+    C: Threshold frequency
+    D: Work function of the metal
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 132
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: Match the following List-1 List-2 Acid Ka (ionization constant) A) HCN I)
+    $6.8 imes 10^{-4}$ B) $H_2C_2O_4$ II) $8.9 imes 10^{-8}$ C) $H_2S$ III) $4.9 imes
+    10^{-10}$ D) Niacin IV) $5.6 imes 10^{-2}$ V) $1.5 imes 10^{-5}$ The correct match
+    is
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 133
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: If the molar concentrations of base and its conjugate acid are same, then
+    $pOH$ of the buffer solution is
+  options:
+    A: same as $pK_b$ of base
+    B: same as $pK_a$ of base
+    C: same as $pK_a$ of acid
+    D: IMAGE_CONTENT
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 134
+  section: Inorganic Chemistry
+  topic: organic_compounds_containing_oxygen
+  text: $H_2 + CO + alkene \xr\rightarrow{catalyst} 1^0 alcohol$ What is the stab
+    \leq intermediate and the nature of the reaction?
+  options:
+    A: acid, reduction
+    B: aldehyde, oxidation
+    C: aldehyde, reduction
+    D: alcohol, oxidation
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 135
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: Consider the following equilibrium at $25^\circ C$ $NH_3(aq) + H_2O(l) ightleftharpoons
+    NH_4^+(aq) + OH^-(aq)$ Which of the following option is correct?
+  options:
+    A: If the temperature is decreased then the equilibrium will shift towards the
+      forward direction
+    B: If $NH_4Cl$ is added then the equilibrium will shift towards the forward direction
+    C: If the temperature is increased then the equilibrium will shift towards the
+      forward direction
+    D: If HCl is added then the equilibrium will shift towards the backward direction
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 136
+  section: Inorganic Chemistry
+  topic: coordination_compounds
+  text: Which of the following complex ions does not exist?
+  options:
+    A: $[B(H_2O)_6]^{3+}$
+    B: $[Al(H_2O)_6]^{3+}$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 137
+  section: Inorganic Chemistry
+  topic: representative_elements
+  text: Which of the following statements are correct? a) The isotope of carbon containing
+    7 neutrons has natural abundance of 1.1 % b) Among the IVA group elements, Sn
+    has the lowest melting point c) Silicon is the $2^{nd}$ (by mass) most abundant
+    element in the earth’s crust d) Elemental carbon shows the highest electrical
+    resistivity among the 14 group elements
+  options:
+    A: a, c and d only
+    B: a, b and c only
+    C: b, c and d only
+    D: a, b, c and d
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 138
+  section: Inorganic Chemistry
+  topic: haloalkanes_and_haloarenes
+  text: Which of the following chemicals can be used as dry cleaning agents? a) $Cl_2C=CCl_2$
+    b) $CO_2$(liq) c) $H_2O_2$ d) $CH_3CHO$
+  options:
+    A: a, b, c and d
+    B: a, b and c only
+    C: b, c and d only
+    D: a and b only
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 139
+  section: Physical Chemistry
+  topic: basic_concepts_of_chemistry
+  text: Equal mass of $CH_4$ and $H_2$ are mixed in an empty container at $25^\circ
+    C$. The fraction of the total pressure exerted by $H_2$ is
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 140
+  section: Mechanics
+  topic: work_energy_and_power
+  text: A ball of mass $m$ hits the floor with a speed $v$ making an ang \leq of incidence
+    $\\theta$ with the normal. The coefficient of restitution between the ball and
+    the floor is $e$. The speed of the reflected ball and the ang \leq of reflection
+    of the ball will be
+  options:
+    A: $v^{\prime}=v, \\theta^{\prime}=\\theta$
+    B: $v^{\prime}=v, \\theta^{\prime} \neq \\theta$
+    C: $v^{\prime} \neq v, \\theta^{\prime}=\\theta$
+    D: $v^{\prime} \neq v, \\theta^{\prime} \neq \\theta$
+  correct_answer: D
+  difficulty: moderate
+  subject: Chemistry
+- id: 141
+  section: Algebra
+  topic: permutations_and_combinations
+  text: A person invites 8 guests for a dinner and places 5 of them at one round tab
+    \leq and the remaining 3 at another round table. The number of ways, he can arran
+    \geq the guests is
+  options:
+    A: '40320'
+    B: '28224'
+    C: '26880'
+    D: '13440'
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 142
+  section: Physical Chemistry
+  topic: solid_state
+  text: A compound made up of elements A and B (with a general formula $A_xB_y$),
+    where B form a hcp lattice and A occupy $2/3^{rd}$ of the tetrahedral voids. The
+    formula of the compound is
+  options:
+    A: $A_2B_3$
+    B: $A_3B_4$
+    C: $A_4B_3$
+    D: $A_3B_2$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 143
+  section: Physical Chemistry
+  topic: solutions
+  text: If the density of a 2 M solution of ethylene glycol in water is 1.11 g/ml,
+    the molality (in 'm') of the solution is approximately
+  options:
+    A: '1.92'
+    B: '1.57'
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 144
+  section: Physical Chemistry
+  topic: solutions
+  text: 'Given Sol A: Phenol and aniline Sol B : Chloroform and acetone Which of following
+    is correct as per Raoult''s law?'
+  options:
+    A: Sol A shows -ve and B shows +ve deviation
+    B: Both solutions A and B show -ve deviation
+    C: Sol A shows +ve and B shows -ve deviation
+    D: '2.15'
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 145
+  section: Physical Chemistry
+  topic: electrochemistry
+  text: Salts of A (atomic weight 8), B (atomic weight 18) and C (atomic weight 50)
+    were electrolysed under identical conditions using the same quantity of electricity.
+    It was found that 2.4 g of A was deposited, the weight of B and C deposited are
+    1.8 g and 7.5 g respectively. The valences of A, B and C are, respectively.
+  options:
+    A: 3, 1 and 2
+    B: 1, 2 and 3
+    C: 1, 3 and 2
+    D: 3, 2 and 1
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 146
+  section: Algebra
+  topic: matrices
+  text: "If $A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 1 \\ 0 & -2 & 4 \\end{bmatrix}$,\
+    \ $I = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \\end{bmatrix}$ and\
+    \ $A^{-1} = rac{1}{6}(A^2 + cA + dI)$ then the values of $c$ and $d$ are"
+  options:
+    A: $-6, -11$
+    B: 6, 11
+    C: $-6, 11$
+    D: 6, -11
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 147
+  section: Physical Chemistry
+  topic: chemical_kinetics
+  text: What will be the overall order of a reaction for which the rate expression
+    is given as $Rate = K[A]^{\\frac{1}{2}}[B]^{\\frac{3}{2}}$
+  options:
+    A: first order
+    B: zero order
+    C: third order
+    D: a and c represent physisorption
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 148
+  section: Inorganic Chemistry
+  topic: representative_elements
+  text: The main products formed when copper metal is reacted with concentrated $HNO_3$
+    are
+  options:
+    A: $Cu(NO_3)_2$; $NO$
+    B: $Cu(NO_3)_2$; $H_2$
+    C: $Cu(NO_3)_2$; $NO_2$
+    D: $Cu(NO_3)_2$; $NO$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 150
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: Complete hydrolysis of $XeF_4$ and $XeF_6$ gives its oxides P and Q, respectively.
+    Identify P and Q
+  options:
+    A: '$
+
+      \begin{array}{cc}
+
+      P & Q
+
+      \\ XeO_2 & XeO_3\end{array}$'
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 151
+  section: Inorganic Chemistry
+  topic: p_block_elements
+  text: Complete hydrolysis of $XeF_4$ and $XeF_6$ gives its oxides P and Q, respectively.
+    Identify P and Q
+  options:
+    A: 'P
+
+      $XeO_3$'
+    B: 'Q
+
+      $XeO_3$'
+    C: 'P
+
+      $XeO_2$'
+    D: 'Q
+
+      $XeO_2$'
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 152
+  section: Inorganic Chemistry
+  topic: coordination_compounds
+  text: The oxidation number of central metal in $[Pt(NH_3)_2Cl(NO_2)]$ and $[CoCl_2(en)_2]^o$,
+    respectively, are
+  options:
+    A: $+2; +1$
+    B: $+2; +2$
+    C: $+2; +3$
+    D: $+3; +2$
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 153
+  section: Inorganic Chemistry
+  topic: coordination_compounds
+  text: Which of the following statements is not correct?
+  options:
+    A: In $\[Ni(CO)_4] $ nickel is in zero oxidation state.
+    B: Both $\[NiCl_4]^{2-}$ and $\[Ni(CO)_4]$ are diamagnetic.
+    C: With the exception of $\[Ni(CO)_4]$, all other carbonyl halides, are monomeric.
+    D: Metal carbonyls are volati \leq and poisonous.
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 154
+  section: Inorganic Chemistry
+  topic: biomolecules
+  text: IMAGE_CONTENT
+  options:
+    A: IV > III > I > II
+    B: IV > III > II > I
+    C: I > II > III > IV
+    D: III > IV > II > I
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 155
+  section: Inorganic Chemistry
+  topic: haloalkanes_and_haloarenes
+  text: The major product obtained on interaction of phenol with sodium hydroxide
+    and carbon dioxide is
+  options:
+    A: Salicylaldehyde
+    B: Salicylic acid
+    C: Phthalic acid
+    D: Benzoic acid
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 156
+  section: Inorganic Chemistry
+  topic: organic_compounds_containing_oxygen
+  text: In which of the following compounds deoxygenation is possib \leq when heated
+    with Zn (A) IMAGE_CONTENT (B) IMAGE_CONTENT (C) IMAGE_CONTENT (D) IMAGE_CONTENT
+  options:
+    A: A, B and C
+    B: A, C and D
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 158
+  section: Inorganic Chemistry
+  topic: organic_compounds_containing_oxygen
+  text: In which of the following compounds deoxygenation is possib $\leq$ when heated
+    with Zn
+  options:
+    A: IMAGE_CONTENT
+    B: IMAGE_CONTENT
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 159
+  section: Inorganic Chemistry
+  topic: aldehydes_ketones_and_carboxylic_acids
+  text: Match the following Column-1 Reaction of carbonyl compound with A) Hydroxylamine
+    B) Alcohol C) Hydrazine D) Amine Column -2 Product I) Hydrazone II) Schiff’s base
+    (Substituted imine) III) Oxime IV) Ketal The correct match is
+  options:
+    A: III
+    B: IV
+    C: I
+    D: II
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry
+- id: 160
+  section: Inorganic Chemistry
+  topic: amines
+  text: Products that are formed in the given reaction including by products are $CH_3CH_2CH_2CH_2CONH_2
+    + Br_2 + 4NaOH \rightarrow$
+  options:
+    A: $CH_3CH_2CH_2CH_2NH_2 + Na_2CO_3 + 2NaBr + 2H_2O$
+    B: $CH_3CH_2CH_2CH_2NH_2 + Na_2CO_3 + 2NaBr + 2H_2O$
+    C: IMAGE_CONTENT
+    D: IMAGE_CONTENT
+  correct_answer: A
+  difficulty: moderate
+  subject: Chemistry

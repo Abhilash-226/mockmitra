@@ -42,7 +42,7 @@ export default function LoginForm({
             }
           }
         },
-        use_fedcm_for_prompt: false, // Disable FedCM to avoid CORS issues
+        use_fedcm_for_prompt: true, // Disable FedCM to avoid CORS issues
       });
 
       window.google.accounts.id.renderButton(googleButtonRef.current, {
@@ -50,7 +50,7 @@ export default function LoginForm({
         theme: "outline",
         size: "large",
         text: "continue_with",
-        width: "100%",
+        width: "400",
       });
     } catch (err) {
       console.error("Google Sign-In initialization error:", err);

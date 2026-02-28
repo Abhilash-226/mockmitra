@@ -187,20 +187,27 @@ Ensure the output matches this schema:
                     content = content[3:-3].strip()
                 import re
 
-                # PRE-PROCESS: Always double single backslashes before JSON parsing.
-                # Critical: LaTeX commands like \neq, \notin, \text, \frac, \begin
-                # start with valid JSON escape chars (\n, \t, \f, \b). json.loads
-                # "silently succeeds" - turning \neq into newline+"eq" - without
-                # raising any error, so an except-block fix would never fire.
-                # The regex only doubles truly-single backslashes; already-doubled
-                # ones (e.g. \\\\frac that Gemini got right) are left untouched.
-                content = re.sub(r'(?<!\\\\)\\\\(?!\\\\)', r'\\\\\\\\', content)
+                # PRE-PROCESS: Clean up control characters that break JSON parsing.
+                # Replace literal tabs and non-escaped newlines within strings.
+                content = content.replace("\t", "\\t")
+                # More aggressive control char cleanup for chars 0-31 except maybe \n \r \t
+                # but \n \r \t are the main culprits in JSON strings.
+                
+                # PRE-PROCESS: Surgical fix for backslashes.
+                # Avoid doubling valid JSON escapes like \" or already-doubled \\.
+                # This fixes \neq, \frac, \text etc. that LLMs often forget to escape.
+                processed_content = re.sub(r'(?<!\\)\\(?!["\\])', r'\\\\', content)
 
                 try:
-                    return json.loads(content)
-                except json.JSONDecodeError as je:
-                    print(f"JSON Decode Error (after backslash pre-processing).")
-                    raise je  # Triggers the retry / error handler below
+                    return json.loads(processed_content)
+                except json.JSONDecodeError:
+                    # Fallback: If pre-processing broke it (unlikely with surgical regex),
+                    # try parsing the original raw content.
+                    try:
+                        return json.loads(content)
+                    except json.JSONDecodeError as je:
+                        print(f"JSON Decode Error even after fallback: {je}")
+                        raise je
 
             except Exception as e:
                 error_msg = str(e)

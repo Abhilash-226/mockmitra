@@ -59,7 +59,7 @@ export default function SignupForm({
             }
           }
         },
-        use_fedcm_for_prompt: false, // Disable FedCM to avoid CORS issues
+        use_fedcm_for_prompt: true,
       });
 
       window.google.accounts.id.renderButton(googleButtonRef.current, {
@@ -67,7 +67,7 @@ export default function SignupForm({
         theme: "outline",
         size: "large",
         text: "signup_with",
-        width: "100%",
+        width: "400",
       });
     } catch (err) {
       console.error("Google Sign-In initialization error:", err);

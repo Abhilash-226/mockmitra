@@ -6,19 +6,19 @@ date: null
 session: Shift 3
 source_pdf: 2020-3.pdf
 metadata:
-  total_questions: 159
+  total_questions: 160
   duration_minutes: 180
   marking_scheme: +1 for correct, 0 for wrong
 sections:
 - code: MAT
   name: Mathematics
-  question_count: 81
+  question_count: 80
 - code: PHY
   name: Physics
-  question_count: 39
+  question_count: 40
 - code: CHE
   name: Chemistry
-  question_count: 39
+  question_count: 40
 questions:
 - id: 1
   section: Algebra

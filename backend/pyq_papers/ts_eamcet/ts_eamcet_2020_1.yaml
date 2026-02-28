@@ -6,24 +6,24 @@ date: null
 session: Shift 1
 source_pdf: 2020-1.pdf
 metadata:
-  total_questions: 156
+  total_questions: 160
   duration_minutes: 180
   marking_scheme: +1 for correct, 0 for wrong
 sections:
 - code: MAT
   name: Mathematics
-  question_count: 78
+  question_count: 80
 - code: PHY
   name: Physics
   question_count: 40
 - code: CHE
   name: Chemistry
-  question_count: 38
+  question_count: 40
 questions:
 - id: 1
   section: Algebra
   topic: functions_and_inverse_functions
-  text: If f(x) = x - 1/x, x \neq 0$, then $3f(x) = 
+  text: If f(x) = x - 1/x, x \neq 0$, then $3f(x) =
   options:
     A: $3[f(x)]^2 - f(x^2)$
     B: $[f(x)]^3 - f(x^3)$
@@ -48,10 +48,10 @@ questions:
 - id: 3
   section: Algebra
   topic: mathematical_induction
-  text: If $S_n$ is the sum of the first $n$ terms of the series $1^2 + 2\times 2^2 +
-    3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$, then, when $n$ is even $S_n$
-    $= 1^2 + 2 + 2^2 + 3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$, $n$ $S_n$
-    , $n$ $S_n =$
+  text: If $S_n$ is the sum of the first $n$ terms of the series $1^2 + 2\times 2^2
+    + 3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$, then, when $n$ is even
+    $S_n$ $= 1^2 + 2 + 2^2 + 3^2 + 2\times 4^2 + 5^2 + 2\times 6^2 + ... \infty$,
+    $n$ $S_n$ , $n$ $S_n =$
   options:
     A: $\frac{n(n+1)}{2}$
     B: $\frac{n^2(n+1)}{2}$
@@ -61,7 +61,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 4
-  section: Matrices
+  section: Algebra
   topic: matrices
   text: Let $A = \begin{bmatrix} 1 & 4 & 2 \\ 2 & -1 & 4 \\ -3 & 7 & -6 \end{bmatrix}$
     and $B = [b_{ij}]_{3\times 3}$ with $b_{11} = 2, b_{13} = -2, b_{12} = 0$ is such
@@ -76,10 +76,10 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 5
-  section: Matrices
+  section: Algebra
   topic: matrices
   text: A is a $m\times n$ matrix of rank 4. If A contains an $m^{th}$ order non-singular
-    sub matrix and $A^T A$ is a $7\times 7$ matrix, then the number of rows of A 
+    sub matrix and $A^T A$ is a $7\times 7$ matrix, then the number of rows of A
   options:
     A: '5'
     B: '4'
@@ -89,7 +89,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 6
-  section: Matrices
+  section: Algebra
   topic: matrices
   text: If $C$ and $D$ are two $n\times n$ non-singular matrices over the set of real
     numbers $R$ such that $CD = -DC$, then $n$ is
@@ -102,11 +102,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 7
-  section: Complex Numbers
+  section: Algebra
   topic: complex_numbers
-  text: If $z_1 = x_1 + iy_1, z_2 = x_2 + iy_2, z_3 = x_1 + i \frac{x_2}{2}, z_4 = 2y_1
-    + iy_2$ are complex numbers such that $|z_1| = 1, |z_2| = 2$ and $Re(z_1 z_2)
-    = 0$, then
+  text: If $z_1 = x_1 + iy_1, z_2 = x_2 + iy_2, z_3 = x_1 + i \frac{x_2}{2}, z_4 =
+    2y_1 + iy_2$ are complex numbers such that $|z_1| = 1, |z_2| = 2$ and $Re(z_1
+    z_2) = 0$, then
   options:
     A: $|z_3| = 1, |z_4| = 2, Im(z_3 z_4) = 0$
     B: $|z_3| = 2, |z_4| = 1, Re(z_3 z_4) = 0$
@@ -147,7 +147,8 @@ questions:
 - id: 10
   section: Algebra
   topic: complex_numbers
-  text: If $\omega$ is a complex cube root of unity, then $\sum_{x=1}^{10} ((\omega x+2)(\omega^2 x+2)-3) =$
+  text: If $\omega$ is a complex cube root of unity, then $\sum_{x=1}^{10} ((\omega
+    x+2)(\omega^2 x+2)-3) =$
   options:
     A: '285'
     B: '945'
@@ -190,7 +191,7 @@ questions:
     of the roots of the equation $x^3 - px^2 + px - 1 = 0$ is identical with the given
     equation, then $p =$
   options:
-    A: '$\frac{1}{2}$'
+    A: $\frac{1}{2}$
     B: $2$
     C: $3$
     D: $-1$
@@ -211,7 +212,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 15
-  section: Permutations and Combinations
+  section: Algebra
   topic: permutations_and_combinations
   text: If $x$ and $y$ represent the number of arrangements of the letters of word
     ATRAPATRAM such that (i) all A's are together and (ii) no two A's are together
@@ -225,9 +226,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 16
-  section: Permutations and Combinations
+  section: Algebra
   topic: permutations_and_combinations
-  text: Numbers between 1 and 10,000 are formed using the digits 2 and 3 only once and the digit 4 twice. If the numbers thus formed are arranged in increasing order and $x, y$ represent the ranks of 4324 and 324 respectively then $x - y =$
+  text: Numbers between 1 and 10,000 are formed using the digits 2 and 3 only once
+    and the digit 4 twice. If the numbers thus formed are arranged in increasing order
+    and $x, y$ represent the ranks of 4324 and 324 respectively then $x - y =$
   options:
     A: '17'
     B: '31'
@@ -237,11 +240,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 17
-  section: Binomial Theorem
+  section: Algebra
   topic: binomial_theorem
   text: If the $9^{th}$ and $10^{th}$ terms are numerically greatest terms in the
-    expansion of $(5x-6y)^n$ when $x=\frac{2}{5}$ and $y=\frac{1}{2}$, then the
-    absolute value of the middle term of that expansion is
+    expansion of $(5x-6y)^n$ when $x=\frac{2}{5}$ and $y=\frac{1}{2}$, then the absolute
+    value of the middle term of that expansion is
   options:
     A: ${14}C_8 6^7$
     B: ${14}C_7 6^7$
@@ -253,8 +256,8 @@ questions:
 - id: 18
   section: Algebra
   topic: binomial_theorem
-  text: $1-\frac{1}{16} \cdot \frac{1}{2} \left(\frac{3}{4}\right)^{2}+\frac{1
-    \cdot 4}{1 \cdot 2} \cdot \frac{1}{3} \left(\frac{3}{4}\right)^{3}+\dots =$
+  text: $1-\frac{1}{16} \cdot \frac{1}{2} \left(\frac{3}{4}\right)^{2}+\frac{1 \cdot
+    4}{1 \cdot 2} \cdot \frac{1}{3} \left(\frac{3}{4}\right)^{3}+\dots =$
   options:
     A: $\frac{3}{6} \left(\frac{3}{4}\right)$
     B: $\frac{4}{5} \left(\frac{3}{4}\right)^{2}$
@@ -279,8 +282,8 @@ questions:
 - id: 20
   section: Trigonometry
   topic: multiple_and_sub_multiple_angles
-  text: Let $\alpha$ be maximum value of $(3cos\theta - 4sin\theta)$ and $\beta
-    = \frac{n\pi}{2}$. If $\alpha = asin^2\theta.\cos^3\theta$ and $\beta = asin^3\theta.\cos^2\theta$,
+  text: Let $\alpha$ be maximum value of $(3cos\theta - 4sin\theta)$ and $\beta =
+    \frac{n\pi}{2}$. If $\alpha = asin^2\theta.\cos^3\theta$ and $\beta = asin^3\theta.\cos^2\theta$,
     then $\sqrt{\frac{(\alpha^2 + \beta^2)}{(\alpha\beta)^3}} = $
   options:
     A: $5 \sin \frac{\theta}{2} \cos^2 \frac{\theta}{2}$
@@ -307,8 +310,9 @@ questions:
 - id: 22
   section: Trigonometry
   topic: trigonometric_equations
-  text: If \cos $(\frac{\pi}{4} - x)$ \cos 2x + \sin x \sin 2x sec x= \cos x.\sin 2x sec
-    x + \cos $(\frac{\pi}{4} + x)$ \cos 2x , then a possible value of sec x is
+  text: If \cos $(\frac{\pi}{4} - x)$ \cos 2x + \sin x \sin 2x sec x= \cos x.\sin
+    2x sec x + \cos $(\frac{\pi}{4} + x)$ \cos 2x , then a possible value of sec x
+    is
   options:
     A: $\frac{1}{2\sqrt{2}}$
     B: $\frac{2}{\sqrt{2}}$
@@ -331,10 +335,10 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 24
-  section: Inverse Trigonometric Functions
+  section: Trigonometry
   topic: inverse_trigonometric_functions
-  text: If $\sin^{-1} (\frac{12}{x}) + \sin^{-1} (\frac{5}{x}) = \frac{\pi}{2}$,
-    then $x =$
+  text: If $\sin^{-1} (\frac{12}{x}) + \sin^{-1} (\frac{5}{x}) = \frac{\pi}{2}$, then
+    $x =$
   options:
     A: '5'
     B: '7'
@@ -370,8 +374,8 @@ questions:
 - id: 27
   section: Trigonometry
   topic: properties_of_triangles
-  text: In a $\triangle ABC$, $\frac{\Delta^2}{a^2 + b^2 + c^2} (\frac{1}{r_1^2}
-    + \frac{1}{r_2^2} + \frac{1}{r_3^2}) = $
+  text: In a $\triangle ABC$, $\frac{\Delta^2}{a^2 + b^2 + c^2} (\frac{1}{r_1^2} +
+    \frac{1}{r_2^2} + \frac{1}{r_3^2}) = $
   options:
     A: '0'
     B: '1'
@@ -393,12 +397,12 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 29
-  section: vector_cross_product
+  section: Vector Algebra
   topic: applications_to_geometry
   text: If $12\hat{i} - 12\hat{j} - 18\hat{k}$, $-3\hat{i} - 6\hat{j} - 9\hat{k}$
     and $3\hat{i} + 3\hat{j} - 24\hat{k}$ be the position vectors of the vertices
-    A, B and C respectively of $\triangle ABC$, then the position vector of the
-    incentre of $\triangle ABC$ is
+    A, B and C respectively of $\triangle ABC$, then the position vector of the incentre
+    of $\triangle ABC$ is
   options:
     A: $12\hat{i} - 15\hat{j} - 51\hat{k}$
     B: $6\hat{i} - \frac{15}{2}\hat{j} - \frac{51}{2}\hat{k}$
@@ -408,7 +412,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 30
-  section: Algebra
+  section: Vector Algebra
   topic: applications_to_geometry
   text: Let $\Pi$ be a plane containing the points $(0, -5, -1)$, $(1, -2, 5)$, $(-3,
     5, 0)$ and L be a line passing through the point $(0, -5, -1)$ and parallel to
@@ -423,7 +427,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 31
-  section: Algebra
+  section: Vector Algebra
   topic: applications_to_geometry
   text: For non-coplanar vectors $\vec{a}$, $\vec{b}$ and $\vec{c}$, if the point
     of intersection of the line $\vec{r} = \vec{a} + t(\vec{b} - \vec{c})$ and the
@@ -438,9 +442,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 32
-  section: Algebra
+  section: Vector Algebra
   topic: applications_to_geometry
-  text: If the orthocentre of the triangle whose vertices are $2\vec{i} + 3\vec{j} + 5\vec{k}$, $5\vec{i} + 2\vec{j} + 3\vec{k}$ and $3\vec{i} + 5\vec{j} + 2\vec{k}$ is $x\vec{i} + y\vec{j} + z\vec{k}$ then
+  text: If the orthocentre of the triangle whose vertices are $2\vec{i} + 3\vec{j}
+    + 5\vec{k}$, $5\vec{i} + 2\vec{j} + 3\vec{k}$ and $3\vec{i} + 5\vec{j} + 2\vec{k}$
+    is $x\vec{i} + y\vec{j} + z\vec{k}$ then
   options:
     A: $x = 2y = z$
     B: $x = y = 2z$
@@ -450,10 +456,12 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 33
-  section: Algebra
+  section: Vector Algebra
   topic: addition_of_vectors
   text: If the vectors $\vec{AB} = p\hat{i} + q\hat{j} + r\hat{k}$, $\vec{AC} = s\hat{i}
-    + 3\hat{j} + 4\hat{k}$, $\vec{CB} = 3\hat{i} + \hat{j} - 2\hat{k}$ from $\triangle ABC$, then the values of $p, q, r$ and $s$ such that the area of $\triangle ABC$ is $5\sqrt{6}$ are
+    + 3\hat{j} + 4\hat{k}$, $\vec{CB} = 3\hat{i} + \hat{j} - 2\hat{k}$ from $\triangle
+    ABC$, then the values of $p, q, r$ and $s$ such that the area of $\triangle ABC$
+    is $5\sqrt{6}$ are
   options:
     A: $p=11, q=4, r=-2, s=8$
     B: $p=8, q=4, r=2, s=5$
@@ -463,7 +471,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 34
-  section: Algebra
+  section: Vector Algebra
   topic: vector_cross_product
   text: Let $\vec a, \vec b,$ and $\vec c$ be three unit vectors such that $\vec a
     \\times (\vec b \\times \vec c) = \frac{1}{\sqrt{2}} (\vec b + \vec c)$ and $\vec
@@ -478,7 +486,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 35
-  section: Measures of Dispersion
+  section: Probability & Statistics
   topic: measures_of_dispersion
   text: 'Assertion(A): Variance of $4x_1, 4x_2,........4x_n$ is 16 \times the variance
     of $x_1, x_2, x_3,........x_n$ Reason (R): If $y = ax + b$, then variance of y
@@ -508,7 +516,14 @@ questions:
 - id: 37
   section: Probability & Statistics
   topic: probability
-  text: In an examination there are four Yes/No type of questions. The probability that the answer by the student to a question without guess to be correct is $\frac{2}{3}$. The probability that a student guesses a correct answer is $\frac{1}{2}$. A student writes the examination either by without guessing answers to all the 4 questions or by guessing answers to all 4 questions. The probability that he attempt the exam by guessing answers to all questions is $\frac{3}{7}$. Given that a student answered at least 3 questions correctly, the probability that he answered all the questions without guessing is
+  text: In an examination there are four Yes/No type of questions. The probability
+    that the answer by the student to a question without guess to be correct is $\frac{2}{3}$.
+    The probability that a student guesses a correct answer is $\frac{1}{2}$. A student
+    writes the examination either by without guessing answers to all the 4 questions
+    or by guessing answers to all 4 questions. The probability that he attempt the
+    exam by guessing answers to all questions is $\frac{3}{7}$. Given that a student
+    answered at least 3 questions correctly, the probability that he answered all
+    the questions without guessing is
   options:
     A: $\frac{13}{15}$
     B: $\frac{405}{1429}$
@@ -539,10 +554,10 @@ questions:
     If a fuse selected at random from one of the boxes is found to be defective, then
     the probability that it has come from box D is
   options:
-    A: '$\frac{1}{13}$'
-    B: '$\frac{4}{65}$'
-    C: '$\frac{1}{65}$'
-    D: '$\frac{2}{13}$'
+    A: $\frac{1}{13}$
+    B: $\frac{4}{65}$
+    C: $\frac{1}{65}$
+    D: $\frac{2}{13}$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -553,17 +568,17 @@ questions:
     as success, then the variance of the number of successes is
   options:
     A: '1'
-    B: '$\frac{5}{3}$'
-    C: '$\frac{2}{3}$'
-    D: '$\frac{2}{9}$'
+    B: $\frac{5}{3}$
+    C: $\frac{2}{3}$
+    D: $\frac{2}{9}$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 41
   section: Probability & Statistics
   topic: probability
-  text: In a hospital, on an average if there are 35 births in a week, then the
-    probability that there will be less than 3 births in a day, is
+  text: In a hospital, on an average if there are 35 births in a week, then the probability
+    that there will be less than 3 births in a day, is
   options:
     A: $\frac{118}{e^{35}}$
     B: $\frac{37}{2e^{5}}$
@@ -573,12 +588,12 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 42
-  section: locus
+  section: Coordinate Geometry
   topic: locus
   text: Let A (2, 1) be a point and equation of the straight line L be $x - y = 0$.
-    Let $a$ and $b$ respectively represent the distances from a variable point
-    P $(\alpha, \beta)$ to A and to the line L. If C is distance of the point A
-    from origin such that $a = bc$, then locus of P is
+    Let $a$ and $b$ respectively represent the distances from a variable point P $(\alpha,
+    \beta)$ to A and to the line L. If C is distance of the point A from origin such
+    that $a = bc$, then locus of P is
   options:
     A: $3x^2 + 3y^2 + 10xy + 8x + 4y + 10 = 0$
     B: $3x^2 + 3y^2 - 10xy + 8x + 4y - 10 = 0$
@@ -588,7 +603,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 43
-  section: Transformation of Axes
+  section: Coordinate Geometry
   topic: transformation_of_axes
   text: 'The point $(4, 1)$ undergoes the following transformations successively:
     (i) Reflection in the line $x - y = 0$ (ii) Shifting through a distance of 2 units
@@ -610,15 +625,15 @@ questions:
     by the lines $2|x| + 5|y| \leq 4$ expressed interms of $f(1), f(2)$ and $f(4)$
     is'
   options:
-    A: '$\frac{f(4)}{f(1) + 2f(2)}$'
-    B: '$\frac{f(4)}{1 + f(2)}$'
-    C: '$\frac{2f(4)}{2f(1) + f(2)}$'
-    D: '$\frac{f(4)}{2f(1) + f(2)}$'
+    A: $\frac{f(4)}{f(1) + 2f(2)}$
+    B: $\frac{f(4)}{1 + f(2)}$
+    C: $\frac{2f(4)}{2f(1) + f(2)}$
+    D: $\frac{f(4)}{2f(1) + f(2)}$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 45
-  section: Straight Lines
+  section: Coordinate Geometry
   topic: straight_lines
   text: Two straight lines $3x + 4y = 5$ and $4x -3y = 15$ intersect at the point
     A. The equations of the lines passing through $(1, 2)$ and intersecting the given
@@ -634,8 +649,8 @@ questions:
 - id: 46
   section: Coordinate Geometry
   topic: straight_lines
-  text: The equation of a line making an angle $60^o$ with the line $x + y - 3
-    = 0$ and passing through the point $(1, 1)$ is
+  text: The equation of a line making an angle $60^o$ with the line $x + y - 3 = 0$
+    and passing through the point $(1, 1)$ is
   options:
     A: $(1 + \sqrt{3})x + (1 - \sqrt{3})y - 2 = 0$
     B: $2x + y - 3 = 0$
@@ -645,9 +660,20 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 47
-  section: Pair of straight lines
+  section: Coordinate Geometry
   topic: straight_lines
-  text: "Let P be the pair of lines represented by $2x^2 - 5xy + 2y^2 + 6x - 3y = 0$ and consider the following independent statements:\nI. $\\alpha$ is the $x$ coordinate of the point of intersection of the pair of lines P.\nII. $\\beta$ is the slope of one of the lines of P passing through origin.\nIII. $\\gamma$ is the constant term in the equation of the pair of angular bisectors of P.\nthen"
+  text: 'Let P be the pair of lines represented by $2x^2 - 5xy + 2y^2 + 6x - 3y =
+    0$ and consider the following independent statements:
+
+    I. $\alpha$ is the $x$ coordinate of the point of intersection of the pair of
+    lines P.
+
+    II. $\beta$ is the slope of one of the lines of P passing through origin.
+
+    III. $\gamma$ is the constant term in the equation of the pair of angular bisectors
+    of P.
+
+    then'
   options:
     A: $\beta < \gamma < \alpha$
     B: $\alpha < \beta = \gamma$
@@ -657,7 +683,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 48
-  section: Pair of straight lines
+  section: Coordinate Geometry
   topic: straight_lines
   text: The combined equation of the diagonals of the parallelogram formed by the
     lines $(7x^2 -4xy +8y^2)^2 + (4x -8y -32)(7x^2 -4xy +8y^2) = 0$ is
@@ -683,11 +709,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 50
-  section: circle
+  section: Coordinate Geometry
   topic: circle
-  text: If $\alpha z = -4$ and $(2, \alpha)$ is the mid point of a chord of the
-    circle $x^2 + y^2 - 4x + 8y + 6 = 0$, then the values of the y-intercept of
-    the chord lie in the interval.
+  text: If $\alpha z = -4$ and $(2, \alpha)$ is the mid point of a chord of the circle
+    $x^2 + y^2 - 4x + 8y + 6 = 0$, then the values of the y-intercept of the chord
+    lie in the interval.
   options:
     A: $(-4 - \sqrt{14}, -4 + \sqrt{14})$
     B: $(-4, 4)$
@@ -697,7 +723,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 51
-  section: system_of_circles
+  section: Coordinate Geometry
   topic: system_of_circles
   text: $C_1$ and $C_2$ are the external and internal centres of similitude of the
     circles $x^2 + y^2 - 2x + 4y + 1 = 0$ and $x^2 + y^2 + 4x - 6y + 12 = 0$. If the
@@ -714,9 +740,9 @@ questions:
 - id: 52
   section: Coordinate Geometry
   topic: system_of_circles
-  text: 'Suppose the circle $S: x^2 + y^2 + 2gx + 2fy + c = 0$ cuts orthogonally
-    the two circles $S'': x^2 + y^2 - 4x - 6y + 11 = 0$ and $S'''': x^2 + y^2 - 10x
-    - 4y + 21 = 0$. If the centre of S = 0 lies on the bisector of the angle between
+  text: 'Suppose the circle $S: x^2 + y^2 + 2gx + 2fy + c = 0$ cuts orthogonally the
+    two circles $S'': x^2 + y^2 - 4x - 6y + 11 = 0$ and $S'''': x^2 + y^2 - 10x -
+    4y + 21 = 0$. If the centre of S = 0 lies on the bisector of the angle between
     the positive coordinate axes, then $2g + 2f + c = $'
   options:
     A: '12'
@@ -729,14 +755,14 @@ questions:
 - id: 53
   section: Coordinate Geometry
   topic: system_of_circles
-  text: 'If the circle $S_1 : x^2 + y^2 = 16$ intersects another circle $S_2$
-    of radius 5 units such that the common chord is of maximum length and slope $\frac{3}{4}$,
+  text: 'If the circle $S_1 : x^2 + y^2 = 16$ intersects another circle $S_2$ of radius
+    5 units such that the common chord is of maximum length and slope $\frac{3}{4}$,
     then the centre of the circle $S_2$ is'
   options:
-    A: '$(\frac{-9}{5}, \frac{12}{5})$ or $(\frac{9}{5}, \frac{-12}{5})$'
-    B: '$(\frac{7}{5}, \frac{-12}{5})$ or $(\frac{-7}{5}, \frac{12}{5})$'
-    C: '$(\frac{-9}{5}, \frac{-12}{5})$ or $(\frac{9}{5}, \frac{12}{5})$'
-    D: '$(\frac{12}{5}, \frac{9}{5})$ or $(\frac{-12}{5}, \frac{-9}{5})$'
+    A: $(\frac{-9}{5}, \frac{12}{5})$ or $(\frac{9}{5}, \frac{-12}{5})$
+    B: $(\frac{7}{5}, \frac{-12}{5})$ or $(\frac{-7}{5}, \frac{12}{5})$
+    C: $(\frac{-9}{5}, \frac{-12}{5})$ or $(\frac{9}{5}, \frac{12}{5})$
+    D: $(\frac{12}{5}, \frac{9}{5})$ or $(\frac{-12}{5}, \frac{-9}{5})$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -754,7 +780,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 55
-  section: Parabola
+  section: Coordinate Geometry
   topic: parabola
   text: The equation of the common tangent of the parabolas $x^2 = 108y$ and $y^2
     = 32x$ is
@@ -767,7 +793,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 56
-  section: Ellipse
+  section: Coordinate Geometry
   topic: ellipse
   text: The ellipse having its foci $(0, \pm 1)$ and major axis of length $\sqrt{5}$
     is
@@ -780,12 +806,12 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 57
-  section: Ellipse
+  section: Coordinate Geometry
   topic: ellipse
   text: An ellipse $\frac{x^2}{a^2} + \frac{y^2}{b^2} = 1$ with eccentricity $\frac{2\sqrt{2}}{3}$
-    is inscribed in a circle $x^2 + y^2 = 18$ such that the length of its major
-    axis is equal to the diameter of this circle. The locus of the poles of all the
-    tangents of the circle with respect to the ellipse is
+    is inscribed in a circle $x^2 + y^2 = 18$ such that the length of its major axis
+    is equal to the diameter of this circle. The locus of the poles of all the tangents
+    of the circle with respect to the ellipse is
   options:
     A: $x^2 + y^2 = \frac{8}{9}$
     B: $\frac{18x}{9} + \frac{2y}{9} = 1$
@@ -798,7 +824,8 @@ questions:
   section: Coordinate Geometry
   topic: hyperbola
   text: If the circle $x^2 + y^2 = a^2$ intersects the hyperbola $xy = b^2$ at four
-    points $(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$, then $y_1 y_2 y_3 y_4 =$
+    points $(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$, then $y_1 y_2 y_3 y_4
+    =$
   options:
     A: $a^4$
     B: $0$
@@ -808,7 +835,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 59
-  section: Three Dimensional Coordinates
+  section: Coordinate Geometry
   topic: three_dimensional_coordinates
   text: If the line passing through the points $(a, 2, -4)$ and $(5, 3, b)$ crosses
     the ZX-plane at the point $(-a + 2b, 0, a + b)$, then $14a + 7b =$
@@ -821,12 +848,12 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 60
-  section: Algebra
+  section: Vector Algebra
   topic: vectors_and_scalars
   text: The direction cosines of the normal to the plane containing the lines having
     direction ratios $1, 2, 1$ and $4, 5, -3$ are
   options:
-    A: '$\frac{-11}{\sqrt{179}}, \frac{7}{\sqrt{179}}, \frac{-3}{\sqrt{179}}$'
+    A: $\frac{-11}{\sqrt{179}}, \frac{7}{\sqrt{179}}, \frac{-3}{\sqrt{179}}$
     B: $\frac{1}{\sqrt{2}}, 0, \frac{-1}{\sqrt{2}}$
     C: $\frac{5}{\sqrt{41}}, \frac{-4}{\sqrt{41}}, 0$
     D: $\frac{2}{\sqrt{5}}, \frac{-1}{\sqrt{5}}, 0$
@@ -834,12 +861,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 61
-  section: Algebra
+  section: Vector Algebra
   topic: scalar_dot_product
   text: The foot of the perpendicular drawn from the point $(1, 1, 1)$ to the plane
     $\pi_1$ is $(1, 3, 5)$. If $(2, 2, -1), (3, 4, 2), (3, 3, 0)$ are three points
-    on the plane $\pi_2$, then the angle between the planes $\pi_1$ and $\pi_2$
-    is
+    on the plane $\pi_2$, then the angle between the planes $\pi_1$ and $\pi_2$ is
   options:
     A: $\frac{\pi}{2}$
     B: $cos^{-1}(\frac{1}{3})$
@@ -861,11 +887,11 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 63
-  section: limits_and_continuity
+  section: Calculus
   topic: limits_and_continuity
   text: The value of '$a$' for which the function $f(x) = \begin{cases} \frac{1-\cos
-    4x}{x^2}, & x < 0 \\ a, & x = 0 \\ \frac{\sqrt{x}}{\sqrt{16+\sqrt{x}}-4},
-    & x > 0 \end{cases}$ is continuous at $x=0$, is
+    4x}{x^2}, & x < 0 \\ a, & x = 0 \\ \frac{\sqrt{x}}{\sqrt{16+\sqrt{x}}-4}, & x
+    > 0 \end{cases}$ is continuous at $x=0$, is
   options:
     A: '2'
     B: '8'
@@ -878,8 +904,8 @@ questions:
   section: Calculus
   topic: differentiation_and_derivatives
   text: If $f(x) = \tan^{-1} (\frac{1}{\sin^2 x + \sin x + 1}) + \tan^{-1} (\frac{1}{\sin^2
-    x + 3 \sin x + 3}) + \tan^{-1} (\frac{1}{\sin^2 x + 5 \sin x + 7}) + ... +$ upto 10
-    terms, then $f'(0) =$
+    x + 3 \sin x + 3}) + \tan^{-1} (\frac{1}{\sin^2 x + 5 \sin x + 7}) + ... +$ upto
+    10 terms, then $f'(0) =$
   options:
     A: $\frac{-1}{101}$
     B: $\frac{100}{101}$
@@ -916,7 +942,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 67
-  section: parabola
+  section: Coordinate Geometry
   topic: parabola
   text: If $\frac{k}{a^3}$ is the length of the sub normal at any point $P(\alpha,
     y)$ on the curve $x^2 - a^2 = \frac{x^4y^2}{a^4}$, then $k =$
@@ -932,9 +958,9 @@ questions:
   section: Calculus
   topic: applications_of_derivatives
   text: A tank in the shape of a rectangular parallelepiped has volume 27 cubic meters.
-    This tank is filled with water such that the rate of change of level of the
-    water is thrice the rate of change water quantity falling in the tank, then
-    the height of the tank (in meters) is
+    This tank is filled with water such that the rate of change of level of the water
+    is thrice the rate of change water quantity falling in the tank, then the height
+    of the tank (in meters) is
   options:
     A: '9'
     B: '18'
@@ -947,7 +973,8 @@ questions:
   section: Calculus
   topic: differentiation_and_derivatives
   text: 'Let $f : [2, 5] \rightarrow R$ be a differentiable function and $\frac{f(5)}{f(2)}
-    = 1$. If there is a $c \in (2, 5)$ such that $cf''(c) = 2f(c) - 2c^3$ then $f(x) =$'
+    = 1$. If there is a $c \in (2, 5)$ such that $cf''(c) = 2f(c) - 2c^3$ then $f(x)
+    =$'
   options:
     A: -2x^3 + \frac{78}{7}x^2
     B: $x^3 + \frac{3}{7}x^2$
@@ -959,20 +986,32 @@ questions:
 - id: 70
   section: Calculus
   topic: applications_of_derivatives
-  text: |
-    Match the functions of List I with the items of List II.
+  text: 'Match the functions of List I with the items of List II.
+
     List I:
+
     A) $3x^4 - 2x^3 - 6x^2 + 6x + 1$
+
     B) $x + \frac{1}{x}, \forall x < 0$
+
     C) $x^4(7 - x)^3$
+
     D) $x^4 + (8 - x)^4$
 
+
     List II:
+
     I) has minimum value at $x = 4$
+
     II) has maximum value at $x = -1$
+
     III) has maximum value at $x = 4$
+
     IV) is decreasing in $[2, \infty)$
+
     V) is increasing in $[2, \infty)$
+
+    '
   options:
     A: A-IV, B-I, C-II, D-III
     B: A-V, B-IV, C-I, D-III
@@ -982,10 +1021,10 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 71
-  section: Definite Integrals
+  section: Calculus
   topic: definite_integrals
-  text: For $x \in (\frac{3\pi}{4}, \pi)$, $\int (\sqrt{1 + \sin 2x} + \sqrt{1
-    - \sin 2x}) dx =$
+  text: For $x \in (\frac{3\pi}{4}, \pi)$, $\int (\sqrt{1 + \sin 2x} + \sqrt{1 - \sin
+    2x}) dx =$
   options:
     A: $-2 \cos x + C$
     B: $2 \sin x + C$
@@ -997,7 +1036,8 @@ questions:
 - id: 72
   section: Calculus
   topic: integration
-  text: If $\int \frac{x^2(x \sec^2 x + \tan x)}{(x \tan x + 1)^2} dx = A \log(|x \sin x + \cos x|) + B \frac{f(x)}{(x \tan x + 1)} + C$ then $f(A+B) =$
+  text: If $\int \frac{x^2(x \sec^2 x + \tan x)}{(x \tan x + 1)^2} dx = A \log(|x
+    \sin x + \cos x|) + B \frac{f(x)}{(x \tan x + 1)} + C$ then $f(A+B) =$
   options:
     A: '1'
     B: '0'
@@ -1009,8 +1049,8 @@ questions:
 - id: 73
   section: Calculus
   topic: integration
-  text: If $\int x^3 (\log x)^2 dx = x^4[A(\log x)^2 + B(\log x) + C \log e] + K$, then
-    A + B + C =
+  text: If $\int x^3 (\log x)^2 dx = x^4[A(\log x)^2 + B(\log x) + C \log e] + K$,
+    then A + B + C =
   options:
     A: $\frac{7}{24}$
     B: $\frac{4}{25}$
@@ -1063,10 +1103,10 @@ questions:
   text: The area (in square units) of the region enclosed between the parabola $y^2
     = 2x$ and the line $y = 4x - 1$ is
   options:
-    A: '$\frac{9}{32}$'
-    B: '$\frac{7}{23}$'
-    C: '$\frac{16}{3}$'
-    D: '$\frac{15}{4}$'
+    A: $\frac{9}{32}$
+    B: $\frac{7}{23}$
+    C: $\frac{16}{3}$
+    D: $\frac{15}{4}$
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -1084,7 +1124,7 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 79
-  section: Differential Equations
+  section: Calculus
   topic: differential_equations
   text: The general solution of the differential equation $(3y-7x+7) \, dx + (7y-3x+3)
     \, dy = 0$ is
@@ -1099,12 +1139,12 @@ questions:
 - id: 80
   section: Calculus
   topic: differential_equations
-  text: The general solution of the differential equation $x \cos \frac{y}{x} (y \, dx
-    + x \, dy) = y \sin \frac{x}{y} (x \, dy - y \, dx)$ is
+  text: The general solution of the differential equation $x \cos \frac{y}{x} (y \,
+    dx + x \, dy) = y \sin \frac{x}{y} (x \, dy - y \, dx)$ is
   options:
-    A: '$\log(xy) = \log \cos \frac{x}{y} + C$'
-    B: '$\cos \left( \frac{y}{x} \right) = \frac{C}{xy}$'
-    C: '$\log(xy) = \log \sec \frac{x}{y} + C$'
+    A: $\log(xy) = \log \cos \frac{x}{y} + C$
+    B: $\cos \left( \frac{y}{x} \right) = \frac{C}{xy}$
+    C: $\log(xy) = \log \sec \frac{x}{y} + C$
     D: $x + y + C = 0$
   correct_answer: B
   difficulty: moderate
@@ -1140,14 +1180,14 @@ questions:
 - id: 83
   section: Mechanics
   topic: motion_in_a_straight_line
-  text: A particle is moving along the y- axis. The position of the particle
-    from the origin as a function of time (t) is given as $y(t) = 10\,te^{-t}$. How
-    far is the particle from the origin when it stops momentarily (y is given in
-    units of meter and t is in units of sec.)
+  text: A particle is moving along the y- axis. The position of the particle from
+    the origin as a function of time (t) is given as $y(t) = 10\,te^{-t}$. How far
+    is the particle from the origin when it stops momentarily (y is given in units
+    of meter and t is in units of sec.)
   options:
     A: 5 meter
     B: 5e meter
-    C: '$\frac{5}{e}$ meter'
+    C: $\frac{5}{e}$ meter
     D: 10 meter
   correct_answer: C
   difficulty: moderate
@@ -1170,9 +1210,8 @@ questions:
   section: Mechanics
   topic: motion_in_a_plane
   text: Initial velocity with which a body is projected is 10 m/s from the base of
-    an inclined plane as shown in the given figure. If the angle of projection
-    is $60^o$ with the horizontal, then the range R is [Take value of $g = 10$
-    m/s$^2$]
+    an inclined plane as shown in the given figure. If the angle of projection is
+    $60^o$ with the horizontal, then the range R is [Take value of $g = 10$ m/s$^2$]
   options:
     A: $\frac{15\sqrt{3}}{2}$ m
     B: $\frac{40}{3}$ m
@@ -1244,8 +1283,8 @@ questions:
   topic: work_energy_and_power
   text: A ball of mass m = 1 Kg is thrown from the top of a building with initial
     velocity $\vec{v} = (20 \, m/s) \hat{i} + (24 \, m/s) \hat{j}$ at time t = 0 s.
-    The change in the potential energy of the ball between t = 0 and t = 6s, if
-    the ball does not hit the ground (Assume g = 10 m/s$^2$)
+    The change in the potential energy of the ball between t = 0 and t = 6s, if the
+    ball does not hit the ground (Assume g = 10 m/s$^2$)
   options:
     A: 1440 J
     B: -1440 J
@@ -1255,7 +1294,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 91
-  section: System of Particles and Rotational Motion
+  section: Mechanics
   topic: system_of_particles_and_rotational_motion
   text: A solid sphere and a solid cylinder, each of mass M and radius R are rolling
     with a linear speed on a flat surface without slip\ping. Let $L_1$ be magnitude
@@ -1278,19 +1317,19 @@ questions:
     of radius 25 cm. The mass of pulley is 2 kg. Find the acceleration of the object.
     (Assume pulley to be a solid disk; $g = 10 m/s^2$)
   options:
-    A: '1.\t$\frac{2}{3} m/s^2$'
-    B: '2.\t$\frac{4}{3} m/s^2$'
-    C: '3.\t$\frac{8}{3} m/s^2$'
-    D: '4.\t$\frac{10}{3} m/s^2$'
+    A: 1.\t$\frac{2}{3} m/s^2$
+    B: 2.\t$\frac{4}{3} m/s^2$
+    C: 3.\t$\frac{8}{3} m/s^2$
+    D: 4.\t$\frac{10}{3} m/s^2$
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 93
   section: Oscillations and Waves
   topic: simple_harmonic_motion
-  text: A point mass oscillates along the X-axis according to the law $x = x_0 \cos(\omega t
-    - \frac{\pi}{4})$. If the acceleration of the particle is written as a =
-    $A \cos(\omega t - \delta)$, then
+  text: A point mass oscillates along the X-axis according to the law $x = x_0 \cos(\omega
+    t - \frac{\pi}{4})$. If the acceleration of the particle is written as a = $A
+    \cos(\omega t - \delta)$, then
   options:
     A: $A = x_0 \omega^2, \delta = \frac{-\pi}{4}$
     B: $A = x_0, \delta = -\frac{\pi}{4}$
@@ -1305,16 +1344,15 @@ questions:
   text: The graph correctly represents the variation of acceleration due to gravity
     ($g$) with radial distance from the centre of the earth (radius of the earth =
     $R_E$) is
-  
   options:
-    A: 
-    image: /static/papers/ts_eamcet/2020_1/q94-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q94-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q94-op3.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q94-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q94-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q94-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q94-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q94-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1325,20 +1363,20 @@ questions:
     of $T_1$ and $T_2$ are applied to it respectively. The natural length of the wire
     is
   options:
-    A: '$\frac{L_1T_1 + L_2T_2}{T_2 + T_1}$'
-    B: '$\frac{L_1 + L_2}{2}$'
-    C: '$\frac{L_1T_1 + L_2T_1}{T_2 + T_1}$'
-    D: '$\frac{L_1T_2 - L_2T_1}{T_2 - T_1}$'
+    A: $\frac{L_1T_1 + L_2T_2}{T_2 + T_1}$
+    B: $\frac{L_1 + L_2}{2}$
+    C: $\frac{L_1T_1 + L_2T_1}{T_2 + T_1}$
+    D: $\frac{L_1T_2 - L_2T_1}{T_2 - T_1}$
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 96
   section: Mechanics
   topic: properties_of_matter
-  text: A cubical block of wood having mass of 160 gm has a metal piece fastened
-    underneath as shown in the figure. Find the maximum mass of the metal piece which
-    will allow the block to float in water. Specific gravity of wood is 0.8 and that
-    metal is 10 and density of water = 1gm/cc.
+  text: A cubical block of wood having mass of 160 gm has a metal piece fastened underneath
+    as shown in the figure. Find the maximum mass of the metal piece which will allow
+    the block to float in water. Specific gravity of wood is 0.8 and that metal is
+    10 and density of water = 1gm/cc.
   options:
     A: 55.5 gm
     B: 44.4 gm
@@ -1351,7 +1389,8 @@ questions:
   section: Thermal Physics
   topic: thermodynamics
   text: A solid of 2 kg mass absorbs 50 kJ when its temperature is raised from $20\,^{\circ}C$
-    to $70\,^{\circ}C$. The specific heat capacity of this solid in unit of J/kg $^{\circ}C$ is
+    to $70\,^{\circ}C$. The specific heat capacity of this solid in unit of J/kg $^{\circ}C$
+    is
   options:
     A: '500'
     B: '1000'
@@ -1377,7 +1416,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 99
-  section: Thermodynamics
+  section: Thermal Physics
   topic: thermodynamics
   text: Five moles of an ideal gas has pressure $P_o$, volume $V_o$ and temperature
     $T_o$. The gas is expanded to volume $3V_o$ along a path so that the pressure
@@ -1394,7 +1433,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 100
-  section: Thermodynamics
+  section: Thermal Physics
   topic: kinetic_theory_of_gases
   text: How many rotational degrees of freedom does a rigid diatomic molecule have?
   options:
@@ -1476,10 +1515,9 @@ questions:
 - id: 106
   section: Electricity and Magnetism
   topic: electrostatics
-  text: 'An infinite non-conducting sheet has a surface charge density $2 \times
-    10^{-7} C/m^2$ on one side. The distance between two equipotential surfaces whose
-    potential differ by 90 V is: (Assume $\frac{1}{4\pi \epsilon_0} = 9 \times 10^{9}
-    \frac{Nm^2}{C^2}$)'
+  text: 'An infinite non-conducting sheet has a surface charge density $2 \times 10^{-7}
+    C/m^2$ on one side. The distance between two equipotential surfaces whose potential
+    differ by 90 V is: (Assume $\frac{1}{4\pi \epsilon_0} = 9 \times 10^{9} \frac{Nm^2}{C^2}$)'
   options:
     A: $\frac{20}{\pi}$ mm
     B: $\frac{25}{\pi}$ mm
@@ -1489,7 +1527,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 107
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: A cylindrical wire P has resistance $10 \Omega$. A second wire Q has length
     and diameter half that of P. If the material of both the wires is same, then resistance
@@ -1503,15 +1541,15 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 108
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
   text: Find the current in the circuit.
   image: /static/papers/ts_eamcet/2020_1/q108.png
   options:
-    A: '0.01A'
-    B: '0.02A'
-    C: '0.03A'
-    D: '0.04A'
+    A: 0.01A
+    B: 0.02A
+    C: 0.03A
+    D: 0.04A
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1532,11 +1570,11 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 110
-  section: Moving Charges and Magnetism
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
-  text: A particle of charge q and mass m moves in a circular orbit of radius
-    r with angular speed $\omega$. The ratio of the magnitude of its magnetic moment
-    to that of its angular momentum is
+  text: A particle of charge q and mass m moves in a circular orbit of radius r with
+    angular speed $\omega$. The ratio of the magnitude of its magnetic moment to that
+    of its angular momentum is
   options:
     A: $\frac{q}{m} \omega$
     B: $\frac{q}{2mr}$
@@ -1554,10 +1592,10 @@ questions:
     on the y-axis is $\frac{\mu_0}{4 \pi} \frac{M_0}{R^3}$. Assuming $R >> l$ (magnet
     length), the magnitude of M is
   options:
-    A: '$\frac{M_0}{2\sqrt{2}}$'
-    B: '$\frac{M_0}{2}$'
-    C: '$\frac{M_0}{\sqrt{5}}$'
-    D: '$\frac{M_0}{\sqrt{2}}$'
+    A: $\frac{M_0}{2\sqrt{2}}$
+    B: $\frac{M_0}{2}$
+    C: $\frac{M_0}{\sqrt{5}}$
+    D: $\frac{M_0}{\sqrt{2}}$
   correct_answer: C
   difficulty: moderate
   subject: Physics
@@ -1637,9 +1675,9 @@ questions:
 - id: 117
   section: Modern Physics
   topic: nuclear_physics
-  text: 'The half-life of a radioactive sample is 5 seconds. If the initial mass
-    of the sample is 60 grams then the time required to reduce the sample to
-    7.5 grams is:'
+  text: 'The half-life of a radioactive sample is 5 seconds. If the initial mass of
+    the sample is 60 grams then the time required to reduce the sample to 7.5 grams
+    is:'
   options:
     A: 15 secs
     B: 75 secs
@@ -1649,7 +1687,7 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 118
-  section: Semiconductors and Devices
+  section: Modern Physics
   topic: semiconductors_and_devices
   text: A Zener diode is connected to a battery and a load resistance as shown below.
     The currents $I$, $I_Z$ and $I_L$ respectively are
@@ -1721,7 +1759,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 123
-  section: d_and_f_block_elements
+  section: Inorganic Chemistry
   topic: d_and_f_block_elements
   text: The highest oxidation state observed in first row transition metal is
   options:
@@ -1746,15 +1784,15 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 125
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: Let's assume the $C = C$ bond in acetylene is along z-axis. Find out the correct
     combination of atomic orbitals with non-zero overlapping.
   options:
-    A: '$2P_z$ of $C^1$ and $2P_z$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2P_z$'
-    B: '$2P_x$ of $C^1$ and $2P_y$ of $C^2$ \n$C^1$ $2P_x$ $C^2$ $2P_y$'
-    C: '$2P_z$ of $C^1$ and $2S$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2S$'
-    D: '$2P_z$ of $C^1$ and $2P_z$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2P_z$'
+    A: $2P_z$ of $C^1$ and $2P_z$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2P_z$
+    B: $2P_x$ of $C^1$ and $2P_y$ of $C^2$ \n$C^1$ $2P_x$ $C^2$ $2P_y$
+    C: $2P_z$ of $C^1$ and $2S$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2S$
+    D: $2P_z$ of $C^1$ and $2P_z$ of $C^2$ \n$C^1$ $2P_z$ $C^2$ $2P_z$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -1763,10 +1801,10 @@ questions:
   topic: chemical_bonding_and_molecular_structure
   text: Which of the following molecules is not paramagnetic in nature?
   options:
-    A: 'O2'
-    B: 'O2^-'
-    C: 'O2+'
-    D: 'O2^{2-}'
+    A: O2
+    B: O2^-
+    C: O2+
+    D: O2^{2-}
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -1853,13 +1891,19 @@ questions:
 - id: 133
   section: Physical Chemistry
   topic: chemical_equilibrium_acids_bases
-  text: |
-    Match the given ionization constant values with the corresponding acids.
+  text: 'Match the given ionization constant values with the corresponding acids.
+
     A) HI    - (I) $3.2 \times 10^9$
+
     B) HF    - (II) $3.5 \times 10^{-4}$
+
     C) HCl   - (III) $1.3 \times 10^6$
+
     D) HBr   - (IV) $1.0 \times 10^9$
+
     The correct match is
+
+    '
   options:
     A: A-I, B-II, C-III, D-IV
     B: A-II, B-III, C-IV, D-I
@@ -1922,7 +1966,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 138
-  section: Environmental Chemistry
+  section: Inorganic Chemistry
   topic: environmental_chemistry
   text: Which of the following is air pollutant?
   options:
@@ -1934,7 +1978,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 139
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: Hybridizations of carbon-2 in P and Q are respectively. $CH_3 - C - CH_3 \xrightarrow{HCN}
     C_4H_7NO$ $1 \quad 2 \quad 3 \qquad \qquad P$ $H_2SO_4 + H_2O \downarrow \quad
@@ -1951,9 +1995,9 @@ questions:
 - id: 140
   section: Organic Chemistry
   topic: hydrocarbons
-  text: A benzene derivative did not produce white precipitate with the ammonical silver
-    nitrate solution but decolorized the cold dilute alkaline $KMnO_4$ solution. The
-    compound is
+  text: A benzene derivative did not produce white precipitate with the ammonical
+    silver nitrate solution but decolorized the cold dilute alkaline $KMnO_4$ solution.
+    The compound is
   options:
     A: $C_8H_6$
     B: $C_8H_{10}$
@@ -1976,7 +2020,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 142
-  section: Solid State
+  section: Physical Chemistry
   topic: solid_state
   text: In a BCC lattice having the edge length of 200 pm, the cation has the radius
     of 70 pm. The radius ratio of $\frac{r+}{r-}$ is (Given $\sqrt{2} = 1.4, \sqrt{3}
@@ -2057,15 +2101,22 @@ questions:
   subject: Chemistry
 - id: 148
   section: Inorganic Chemistry
-  topic: metallurgy
-  text: |
-    Match the following:
+  topic: representative_elements
+  text: 'Match the following:
+
     Ores - Composition
+
     A) Calamine    - I) $CuFeS_2$
+
     B) Chalcopyrites - II) $ZnCO_3$
+
     C) Bauxite     - III) $Fe_2O_3$
+
     D) Haematite   - IV) $Al_2O_3 \cdot 2H_2O$
+
     The correct match is
+
+    '
   options:
     A: A-II, B-I, C-IV, D-III
     B: A-I, B-III, C-IV, D-II
@@ -2107,9 +2158,9 @@ questions:
     = 22, V = 23, Cr = 24, Mn = 25$)
   options:
     A: $Ti^{3+}, V^{2+}, Cr^{3+} and Mn^{4+}$
-    B: '$Ti^{3+}, V^{2+}, Cr^{2+} \text{ } Mn^{4+}$'
-    C: '$Ti^+, V^{4+}, Cr^{6+} \text{ and } Mn^{7+}$'
-    D: '$Ti^{2+}, V^{4+}, Cr^{6+} \text{ } Mn^{7+}$'
+    B: $Ti^{3+}, V^{2+}, Cr^{2+} \text{ } Mn^{4+}$
+    C: $Ti^+, V^{4+}, Cr^{6+} \text{ and } Mn^{7+}$
+    D: $Ti^{2+}, V^{4+}, Cr^{6+} \text{ } Mn^{7+}$
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
@@ -2127,7 +2178,7 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 153
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: polymers
   text: Which of the following are synthetic rubbers? (i) Terylene (ii) Buna-S (iii)
     Buna-N (iv) Neoprene (v) Polyacrylonitrile
@@ -2140,23 +2191,23 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 154
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: biomolecules
   text: Choose the correct zwitter ionic form for aspartic acid
   options:
     A:
-     image: /static/papers/ts_eamcet/2020_1/q154-op1.png
+      image: /static/papers/ts_eamcet/2020_1/q154-op1.png
     B:
-     image: /static/papers/ts_eamcet/2020_1/q154-op2.png
+      image: /static/papers/ts_eamcet/2020_1/q154-op2.png
     C:
-     image: /static/papers/ts_eamcet/2020_1/q154-op3.png
+      image: /static/papers/ts_eamcet/2020_1/q154-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q154-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q154-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 155
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: organic_compounds_containing_oxygen
   text: Paracetamol is
   options:
@@ -2168,90 +2219,91 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 156
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: basic_principles_and_techniques
   text: The major products P and Q formed in the following reactions are respectively
-    + $CH_3CH_2CH_2Cl \xrightarrow{anhyd. AlCl_3}$ P (i) $CH_3CH_2COCl$ , anhyd.
-    $AlCl_3$ $\longrightarrow$ Q (ii) Zn (Hg) , HCl, $\Delta$
+    + $CH_3CH_2CH_2Cl \xrightarrow{anhyd. AlCl_3}$ P (i) $CH_3CH_2COCl$ , anhyd. $AlCl_3$
+    $\longrightarrow$ Q (ii) Zn (Hg) , HCl, $\Delta$
   image: /static/papers/ts_eamcet/2020_1/q156.png
   options:
-    A: 
-     image: /static/papers/ts_eamcet/2020_1/q156-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q156-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q156-op3.png
-    D: 
-     image: /static/papers/ts_eamcet/2020_1/q156-op4.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q156-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q156-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q156-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_1/q156-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 157
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: hydrocarbons
   text: The major product formed in the following reaction is
   image: /static/papers/ts_eamcet/2020_1/q157.png
   options:
-    A: 
-     image: /static/papers/ts_eamcet/2020_1/q157-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q157-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q157-op3.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q157-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q157-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q157-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q157-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q157-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 158
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: organic_compounds_containing_oxygen
   text: 'The major product formed in the following reactions is: $OH \xrightarrow[(v)
     H^+]{(i) NaOH \atop (ii) CO_2 \atop (iii) H^+/H_2O \atop (iv) CH_3COCl, Pyridine}$'
   image: /static/papers/ts_eamcet/2020_1/q158.png
   options:
-    A: 
-     image: /static/papers/ts_eamcet/2020_1/q158-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q158-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q158-op3.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q158-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q158-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q158-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q158-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q158-op4.png
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 159
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: aldehydes_ketones_and_carboxylic_acids
-  text: What is the product R in the following reaction sequence? $CHO \xrightarrow[\Delta]{conc. NaOH} C_4H_6O + C_4H_3O_2Na \xrightarrow[\Delta]{NaOH, CaO} R$ P Q
+  text: What is the product R in the following reaction sequence? $CHO \xrightarrow[\Delta]{conc.
+    NaOH} C_4H_6O + C_4H_3O_2Na \xrightarrow[\Delta]{NaOH, CaO} R$ P Q
   image: /static/papers/ts_eamcet/2020_1/q159.png
   options:
-    A: 
-     image: /static/papers/ts_eamcet/2020_1/q159-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q159-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q159-op3.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q159-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q159-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q159-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q159-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q159-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 160
-  section: Inorganic Chemistry
+  section: Organic Chemistry
   topic: organic_compounds_containing_nitrogen
   text: The major product formed in the following reaction is
   image: /static/papers/ts_eamcet/2020_1/q160.png
   options:
-    A: 
-     image: /static/papers/ts_eamcet/2020_1/q160-op1.png
-    B: 
-     image: /static/papers/ts_eamcet/2020_1/q160-op2.png
-    C: 
-     image: /static/papers/ts_eamcet/2020_1/q160-op3.png
+    A:
+      image: /static/papers/ts_eamcet/2020_1/q160-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_1/q160-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_1/q160-op3.png
     D:
-     image: /static/papers/ts_eamcet/2020_1/q160-op4.png
+      image: /static/papers/ts_eamcet/2020_1/q160-op4.png
   correct_answer: C
   difficulty: moderate
   subject: Chemistry

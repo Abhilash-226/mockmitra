@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import "katex/dist/katex.min.css";
-import Latex from "react-latex-next";
+import LatexText from "../../components/ui/LatexText";
 import {
   Card,
   CardContent,
@@ -19,24 +19,6 @@ const formatTime = (seconds) => {
   const secs = seconds % 60;
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
-
-// Helper: renders text containing LaTeX, preserving newlines
-function LatexText({ children }) {
-  if (!children) return null;
-  const parts = String(children).split(/\n|\\n/);
-  return (
-    <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          <Latex>{part}</Latex>
-          {i < parts.length - 1 && <br />}
-        </span>
-      ))}
-    </>
-  );
-}
-
-// Defensive helper to parse potential stringified objects (Python-style dicts)
 const parseOptionValue = (val) => {
   if (typeof val !== "string") return val;
   if (val.startsWith("{'") && val.endsWith("'}") && val.includes("'image':")) {

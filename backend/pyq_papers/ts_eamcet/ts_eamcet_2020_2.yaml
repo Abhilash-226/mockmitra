@@ -78,11 +78,11 @@ questions:
   text: Let $A = \begin{bmatrix} 2 & -2 & -4 \\ -1 & 3 & 4 \\ 1 & -2 & x \end{bmatrix}$
     and $A^2 = A$. If $r$ is the rank of $A$, then $r+x = $
   options:
-    A: '-3'
-    B: '2'
-    C: '1'
-    D: '-1'
-  correct_answer: null
+    A: '$-3$'
+    B: '$2$'
+    C: '$1$'
+    D: '$-1$'
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 6
@@ -242,8 +242,8 @@ questions:
     A: \frac{1}{27}
     B: \frac{29}{378}
     C: \frac{2}{9}
-    D: \frac{1}{189}
-  correct_answer: null
+    D: \frac{1}{14}
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 18
@@ -432,7 +432,7 @@ questions:
     B: '12'
     C: 3\sqrt{2}
     D: '3'
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 32
@@ -470,8 +470,8 @@ questions:
     + t(2\hat{i} + 3\hat{j} + 6\hat{k})$ and $\vec{r} = (3\hat{i} - \hat{j} - \hat{k})
     + s(2\hat{i} - \hat{j} + 2\hat{k})$ is
   options:
-    A: \frac{10}{\sqrt{17}}
-    B: \frac{22}{\sqrt{17}}
+    A: $\frac{10}{\sqrt{17}}$
+    B: $\frac{22}{\sqrt{17}}$
     C: '9'
     D: '8'
   correct_answer: B
@@ -485,19 +485,21 @@ questions:
     \ remaining, half of them are equal to b and the rest are equal to -b. If the\
     \ variance of all the observations is (a \neq b), then"
   options:
-    A: a^2 = 4b^2
-    B: b^2 = 4a^2
-    C: a^2 = 3b^2
-    D: b^2 = 3a^2
+    A: $a^2 = 4b^2$
+    B: $b^2 = 4a^2$
+    C: $a^2 = 3b^2$
+    D: $b^2 = 3a^2$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 36
   section: General
   topic: general
-  text: For the following distribution, the mean deviation about the median is | $x_i$
-    | 6 | 12 | 18 | 24 | 30 | 36 | 42 | |---|---|---|---|---|---|---|---| | $f_i$
-    | 4 | 7 | 9 | 18 | 15 | 10 | 5 |
+  text: |
+    For the following distribution, the mean deviation about the median is
+    | $x_i$ | 6 | 12 | 18 | 24 | 30 | 36 | 42 |
+    |---|---|---|---|---|---|---|---|
+    | $f_i$ | 4 | 7 | 9 | 18 | 15 | 10 | 5 |
   options:
     A: '8.0'
     B: '7.5'
@@ -573,10 +575,10 @@ questions:
     of a drug is 0.001, then the probability that out of 2000 individuals having that
     injection, more than 2 individuals will suffer a reaction, is
   options:
-    A: \frac{5}{e^2}
-    B: 1 - \frac{5}{e^2}
-    C: 1 - \frac{6}{e^2}
-    D: \frac{6}{e^2}
+    A: $\frac{5}{e^2}$
+    B: $1 - \frac{5}{e^2}$
+    C: $1 - \frac{6}{e^2}$
+    D: $\frac{6}{e^2}$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
@@ -597,10 +599,8 @@ questions:
 - id: 43
   section: Coordinate Geometry
   topic: transformation_of_axes
-  text: If $a\alpha^2 + b\beta^2 + c\alpha\beta + d = 0$ is the transformed equation
-    of $4x^2 + \sqrt{3}xy + 5y^2 - 4 = 0$ obtained by using $\alpha = \frac{\sqrt{3}}{2}x
-    + \frac{y}{2}$ and $\beta = -\frac{x}{2} + \frac{\sqrt{3}}{2}y$, then $c(a + b
-    + d) =
+  text: |
+    If $a\alpha^2 + b\beta^2 + c\alpha\beta + d = 0$ is the transformed equation of $4x^2 + \sqrt{3}xy + 5y^2 - 4 = 0$ obtained by using $\alpha = \frac{\sqrt{3}}{2}x + \frac{y}{2}$ and $\beta = -\frac{x}{2} + \frac{\sqrt{3}}{2}y$, then $c(a + b + d) = $
   options:
     A: $8\sqrt{3} - 10$
     B: $8 - 10\sqrt{3}$
@@ -612,9 +612,8 @@ questions:
 - id: 44
   section: Coordinate Geometry
   topic: straight_lines
-  text: 'If the normal form of the equation of a straight line $4x+3y+2=0$ is $x \cos
-    \alpha + y \sin \alpha = p$ and its intercept form is \frac{x}{a} + \frac{y}{b}
-    = 1, then \frac{p \sec \alpha}{ab} = '
+  text: |
+    If the normal form of the equation of a straight line $4x+3y+2=0$ is $x \cos \alpha + y \sin \alpha = p$ and its intercept form is $\frac{x}{a} + \frac{y}{b} = 1$, then $\frac{p \sec \alpha}{ab} = $
   options:
     A: -1/2
     B: 3/2
@@ -640,20 +639,6 @@ questions:
 - id: 46
   section: Coordinate Geometry
   topic: straight_lines
-  text: For an integer K, if the point P $(K^2, K+1)$ and the origin O(0,0) lie in
-    the same region between the lines $x+2y-5=0$ and $3x-y+1=0$, then the possible
-    number of such points P is
-  options:
-    A: '4'
-    B: '2'
-    C: '6'
-    D: Infinitely many
-  correct_answer: B
-  difficulty: moderate
-  subject: Mathematics
-- id: 47
-  section: Coordinate Geometry
-  topic: straight_lines
   text: The area (in square units) of the quadrilateral formed by the point of intersection
     of the lines $x + y - 1 = 0, x - y + 1 = 0$, the point $(1, 1)$ and the feet of
     the perpendiculars from this point on to the lines is
@@ -663,6 +648,20 @@ questions:
     C: '1'
     D: '2'
   correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
+- id: 47
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: The condition that the lines joining the origin to the points of intersection
+    of the two curves $x^2 + y^2 + gx + c = 0, x^2 + y^2 + 2fy - c = 0$ are at right
+    angles, is
+  options:
+    A: $g^2 - f^2 = 4c$
+    B: $g^2 - f^2 = 2c$
+    C: $f^2 - 4g^2 = 8c$
+    D: $g^2 - 4f^2 = 8c$
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 48
@@ -691,7 +690,7 @@ questions:
     B: '18'
     C: '9'
     D: '54'
-  correct_answer: null
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 50
@@ -704,9 +703,9 @@ questions:
   options:
     A: \frac{1}{2}
     B: \frac{\sqrt{3}}{2}
-    C: \frac{3\sqrt{3}}{4}
+    C: \frac{\sqrt{3}}{4}
     D: \frac{3}{2}
-  correct_answer: null
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 51
@@ -738,9 +737,8 @@ questions:
 - id: 53
   section: Coordinate Geometry
   topic: system_of_circles
-  text: If the radical axis of the circles $x^2 + y^2 + 2\alpha x + 2\beta y + c =
-    0$ and $x^2 + y^2 + \frac{3}{2}x + 4y + c = 0$ touches the circle $x^2 + y^2 +
-    2x + 2y + 1 = 0$, then $4a\beta - 8a - 3\beta + 10 =
+  text: |
+    If the radical axis of the circles $x^2 + y^2 + 2\alpha x + 2\beta y + c = 0$ and $x^2 + y^2 + \frac{3}{2}x + 4y + c = 0$ touches the circle $x^2 + y^2 + 2x + 2y + 1 = 0$, then $4a\beta - 8a - 3\beta + 10 = $
   options:
     A: '2'
     B: '-2'
@@ -782,11 +780,11 @@ questions:
     mid points of the intercepts made by those tangents between the coordinate axes
     is
   options:
-    A: null
-    B: null
-    C: null
-    D: null
-  correct_answer: A
+    A: $\frac{x^2}{2} + \frac{y^2}{4} = 1$
+    B: $\frac{x^2}{4} + \frac{y^2}{2} = 1$
+    C: $\frac{1}{2x^2} + \frac{1}{4y^2} = 1$
+    D: $\frac{1}{4x^2} + \frac{1}{2y^2} = 1$
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 57
@@ -800,20 +798,18 @@ questions:
     B: '16'
     C: '128'
     D: '64'
-  correct_answer: null
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 58
   section: Coordinate Geometry
   topic: hyperbola
-  text: If $p, q$ are the eccentricities of the hyperbola \frac{x^2}{a^2} - \frac{y^2}{b^2}
-    = 1$ and its conjugate hyperbola respectively, then the area of the square (in
-    sq. units) formed by the points of intersection of the ellipse \frac{x^2}{p^2}
-    + \frac{y^2}{q^2} = 1$ and the pair of lines $x^2 - y^2 = 0$ is
+  text: |
+    If $p, q$ are the eccentricities of the hyperbola $\frac{x^2}{a^2} - \frac{y^2}{b^2} = 1$ and its conjugate hyperbola respectively, then the area of the square (in sq. units) formed by the points of intersection of the ellipse $\frac{x^2}{p^2} + \frac{y^2}{q^2} = 1$ and the pair of lines $x^2 - y^2 = 0$ is
   options:
     A: '4'
-    B: \sqrt{2}
-    C: \frac{\sqrt{3}}{2}
+    B: $\sqrt{2}$
+    C: $\frac{\sqrt{3}}{2}$
     D: '16'
   correct_answer: A
   difficulty: moderate
@@ -943,17 +939,15 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 68
-  section: General
-  topic: general
-  text: The angle A of $\triangle ABC$ is found by measurement to be $67\frac{1}{2}^o$
-    and the area of $\triangle ABC$ is calculated from the measurements of b, c, A.
-    In measuring A, an error of 9 minutes is made then the percentage error in the
-    area of the triangle is
+  section: Calculus
+  topic: applications_of_derivatives
+  text: |
+    Let $f: R \to R$ be a bijection. A curve represented by $y = f(x)$ is such that $f'(x) > 0, \forall x \in R$. The tangent and normal drawn at $P(\alpha, 1)$ on the curve cuts the X-axis at A, B respectively and C is the foot of the perpendicular from P onto the X-axis. If $P(\alpha, 1)$ is such a point that $AC + CB$ is minimum, then the tangent at P is parallel to the line
   options:
-    A: $\frac{\pi}{6}(2-\sqrt{3})$
-    B: $\frac{\pi}{6}(2+\sqrt{3})$
-    C: $\frac{\pi}{12}(\sqrt{2}+1)$
-    D: $\frac{\pi}{12}(\sqrt{2}-1)$
+    A: $x - y = 0$
+    B: $\alpha x + y - 1 = 0$
+    C: j
+    D: \frac{2x}{\alpha} - y = \alpha^2
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
@@ -967,9 +961,9 @@ questions:
   options:
     A: '10'
     B: '11'
-    C: '12'
+    C: '18'
     D: '13'
-  correct_answer: null
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 70
@@ -982,7 +976,7 @@ questions:
     B: $\frac{\pi}{6}$
     C: $\frac{\pi}{3}$
     D: $\frac{2\pi}{3}$
-  correct_answer: null
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 71
@@ -1001,40 +995,38 @@ questions:
 - id: 72
   section: Calculus
   topic: integration
-  text: If $\int \frac{(x-1) dx}{(x+1)\sqrt{x^3 + x^2 + x}} = A. Tan^{-1} \sqrt{f(x)}
-    + \text{ constant, then the ordered pair} (A, f(-1))=$
-  options:
-    A: $(2, 1)$
-    B: $(2, -1)$
-    C: $(1, 2)$
-    D: $(-2, 2)$
-  correct_answer: null
-  difficulty: moderate
-  subject: Mathematics
-- id: 73
-  section: Calculus
-  topic: integration
-  text: "If $\\int \\frac{2x + 3}{3x + 5} dx = x + A, x \neq -\\frac{5}{3}, -\\frac{2}{3}$\
-    \ and $\\int f(x) dx = Ax + B \\ln |3x - 2| + C$, then $3B - A =$"
+  text: |
+    If $f\left(\frac{2x+3}{3x+5}\right) = x+4, x \neq \frac{-5}{3}, \frac{2}{3}$ and $\int f(x) dx = Ax + B \ln |3x - 2| + C$, then $3B - A =$
   options:
     A: $\frac{64}{9}$
     B: $\frac{-52}{21}$
     C: $\frac{-10}{3}$
     D: $\frac{-52}{9}$
-  correct_answer: null
+  correct_answer: D
+  difficulty: moderate
+  subject: Mathematics
+- id: 73
+  section: Calculus
+  topic: integration
+  text: |
+    If $\int e^x \left( \frac{x^2 - 8x + 19}{(x - 1)^5} \right) dx = \frac{e^x(lx + m)}{(x - 1)^4} + C$ then $4l + m =$
+  options:
+    A: '-5'
+    B: '-2'
+    C: '1'
+    D: '0'
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 74
   section: Calculus
   topic: definite_integrals
-  text: '$\int \frac{dx}{(x-2)\sqrt{x^2 - 3x + 5}} =$ Options :'
+  text: $\int \frac{dx}{(x-2)\sqrt{x^2 - 3x + 5}} =$
   options:
-    A: $\frac{-1}{\sqrt{3}} \cosh^{-1} \left[\frac{7x-8}{\sqrt{37}(x-2)}\right] +
-      C$
+    A: $\frac{-1}{\sqrt{3}} \cosh^{-1} \left[\frac{7x-8}{\sqrt{37}(x-2)}\right] + C$
     B: $\frac{-1}{\sqrt{3}} \sinh^{-1} \left[\frac{x+4}{\sqrt{11}(x-2)}\right] + C$
     C: $\frac{-1}{\sqrt{3}} \cosh^{-1} \left[\frac{x+4}{\sqrt{11}(x-2)}\right] + C$
-    D: $\frac{-1}{\sqrt{3}} \sinh^{-1} \left[\frac{7x-8}{\sqrt{37}(x-2)}\right] +
-      C$
+    D: $\frac{-1}{\sqrt{3}} \sinh^{-1} \left[\frac{7x-8}{\sqrt{37}(x-2)}\right] + C$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
@@ -1127,7 +1119,7 @@ questions:
     B: The law of conservation of energy is valid only in macroscopic domain
     C: Weak nuclear force operates in the range of $\sim 10^{-15}m$
     D: Laws of nature do not change with time
-  correct_answer: null
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 82
@@ -1142,7 +1134,7 @@ questions:
     B: one minute
     C: 30 second
     D: one degree
-  correct_answer: null
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 83
@@ -1156,7 +1148,7 @@ questions:
     B: 3 - √3 sec
     C: 2 + √2 sec
     D: 3.5 sec
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 84
@@ -1221,7 +1213,8 @@ questions:
   topic: laws_of_motion
   text: A box of mass m is in equilibrium under the application of three forces as
     shown below. If the magnitude of \vec{f_1}$ is 10 N, what is the magnitude of
-    \vec{f_3}$?\n![Force Diagram](/static/papers/ts_eamcet/2020_2/q88.png)
+    \vec{f_3}$?
+  image: /static/papers/ts_eamcet/2020_2/q88.png
   options:
     A: 5 N
     B: 15 N
@@ -1248,22 +1241,6 @@ questions:
   subject: Physics
 - id: 90
   section: Mechanics
-  topic: laws_of_motion
-  text: A moving body with a mass $m_1$ and velocity u strikes a stationary body of
-    mass $m_2$. The masses $m_1$ and $m_2$ should be in the ratio $\frac{m_1}{m_2}$
-    so as to decrease the velocity of the first body to $\frac{2u}{3}$ and giving
-    a velocity of 'v' to $m_2$, assuming a perfectly elastic impact. Then the ratio
-    $\frac{m_1}{m_2}$ is
-  options:
-    A: '5'
-    B: 1/5
-    C: 1/25
-    D: '25'
-  correct_answer: null
-  difficulty: moderate
-  subject: Physics
-- id: 91
-  section: Mechanics
   topic: work_energy_and_power
   text: A force acts on a 30 gm particle in such a way that the position of the particle
     as a function of time is given by $x = \alpha t^2$, where x is in metre, t is
@@ -1274,10 +1251,10 @@ questions:
     B: 0.45 J
     C: 0.49 J
     D: 0.53 J
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Physics
-- id: 92
+- id: 91
   section: Mechanics
   topic: system_of_particles_and_rotational_motion
   text: A straight rod of length L is made of a material having mass per unit length
@@ -1289,7 +1266,19 @@ questions:
     B: $\frac{8}{3} kg-m^2$
     C: $8 kg-m^2$
     D: $\frac{4}{3} kg-m^2$
-  correct_answer: null
+  correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 92
+  section: Mechanics
+  topic: system_of_particles_and_rotational_motion
+  text: Consider a uniform horizontal solid cylinder of mass 10 kg such that its length is 9 times its radius. Let the radius be 40 cm. Calculate the moment of inertia of the cylinder about a line passing through its edge and perpendicular to its axis
+  options:
+    A: 21.3 kg-m²
+    B: 18.7 kg-m²
+    C: 23.6 kg-m²
+    D: 10.9 kg-m²
+  correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 93
@@ -1343,7 +1332,8 @@ questions:
   text: A hydraulic lift as shown in the figure is used to lift a mass of 1000 Kg
     which is placed on a piston ($P_1$) of area $1 m^2$. If the cross-section area
     of the piston ($P_2$) at the other end is $0.01 m^2$, then, how much mass needs
-    to be put on it to lift the 1000 kg?\n![Hydraulic Lift Diagram](/static/papers/ts_eamcet/2020_2/q96.png)
+    to be put on it to lift the 1000 kg?
+  image: /static/papers/ts_eamcet/2020_2/q96.png
   options:
     A: 1 Kg
     B: 10 Kg
@@ -1362,7 +1352,7 @@ questions:
     B: $\alpha T$ = constant
     C: $\frac{\alpha}{T}$ = constant
     D: $\frac{T}{\alpha}$ = constant
-  correct_answer: null
+  correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 98
@@ -1375,7 +1365,7 @@ questions:
     B: $\lambda \propto T^{4}$
     C: $\lambda$ is independent of T
     D: $\lambda \propto T$
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 99
@@ -1416,7 +1406,7 @@ questions:
     B: 12$\pi$
     C: 4$\pi^2$
     D: 4$\pi$
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 102
@@ -1426,6 +1416,7 @@ questions:
     concave mirror, at a distance X from the mirror. The focal length of the mirror
     is F. If the length of the image in the mirror is '$l'$', then ratio $\left(\frac{l'}{l}\right)$
     is (Assume $l << X$ and $l << F$)
+  image: /static/papers/ts_eamcet/2020_2/q102.png
   options:
     A: $\frac{F-X}{F}$
     B: $\frac{F-X}{F}^2$
@@ -1440,7 +1431,8 @@ questions:
   text: Consider a glass prism immersed in a liquid as shown below. The refractive
     index of glass and liquid is 1.5 and 1.2 respectively. A ray of light enters the
     prism perpendicular to the face AB. The largest value of angle $\theta$ is, if
-    the ray is totally reflected at the face AC:\n![Prism Diagram](/static/papers/ts_eamcet/2020_2/q103.png)
+    the ray is totally reflected at the face AC
+  image: /static/papers/ts_eamcet/2020_2/q103.png
   options:
     A: $Cos^{-1}(0.8)$
     B: $Sin^{-1}(0.8)$
@@ -1451,21 +1443,6 @@ questions:
   subject: Physics
 - id: 104
   section: Optics
-  topic: ray_optics_and_optical_instruments
-  text: 'Consider a glass prism immersed in a liquid as shown below. The refractive
-    index of glass and liquid is 1.5 and 1.2 respectively. A ray of light enters the
-    prism perpendicular to the face AB. The largest value of angle $\theta$ is, if
-    the ray is totally reflected at the face AC:'
-  options:
-    A: $\cos^{-1}(0.8)$
-    B: $\sin^{-1}(0.8)$
-    C: $\cos^{-1}(0.6)$
-    D: $\sin^{-1}(0.4)$
-  correct_answer: A
-  difficulty: moderate
-  subject: Physics
-- id: 105
-  section: Optics
   topic: wave_optics
   text: If in a Young's double slit experiment the slit separation is doubled and
     the distance of the screen from the slits is reduced to half, then, the fringe
@@ -1475,7 +1452,25 @@ questions:
     B: '4'
     C: $\frac{1}{4}$
     D: '2'
-  correct_answer: B
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
+- id: 105
+  section: Electricity and Magnetism
+  topic: electrostatics
+  text: 'In a uniformly charged sphere of total charge Q and radius R, the electric
+    field E is plotted as function of distance from the centre of the sphere. The
+    graph which would correspond to the above description will be :'
+  options:
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q105-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q105-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q105-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q105-op4.png
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 106
@@ -1484,6 +1479,7 @@ questions:
   text: Electric charges $+q$ and $-q$ are placed at points A and B respectively which
     are at a distance of 2L apart. If C is the midpoint between A and B, then the
     work done in moving a charge $+Q$ along the semi-circle CRD is
+  image: /static/papers/ts_eamcet/2020_2/q106.png
   options:
     A: $\frac{qQ}{2\pi \epsilon_0 L}$
     B: $\frac{qQ}{6\pi \epsilon_0 L}$
@@ -1497,6 +1493,7 @@ questions:
   topic: current_electricity
   text: Find the equivalent resistance between point A and B in the following circuit.
     (The resistance of each resistor is R)
+  image: /static/papers/ts_eamcet/2020_2/q107.png
   options:
     A: $ \frac{34}{55}R$
     B: $ \frac{45}{77}R$
@@ -1525,7 +1522,7 @@ questions:
   text: Two infinite wires carrying opposite electrical currents I and i are placed
     a distance x apart. A point P at a distance y away from the wire carrying current
     i is shown in the figure. If the magnetic field is zero at point P then the magnitude
-    of i is\n![Magnetic Field Diagram](/static/papers/ts_eamcet/2020_2/q109.png)
+    of i is
   options:
     A: $I \left( \frac{x}{x+y} \right)$
     B: $I \left( \frac{2x}{x+y} \right)$
@@ -1535,21 +1532,6 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 110
-  section: Electricity and Magnetism
-  topic: moving_charges_and_magnetism
-  text: Two infinite wires carrying opposite electrical currents I and i are placed
-    a distance x apart. A point P at a distance y away from the wire carrying current
-    i is shown in the figure. If the magnetic field is zero at point P then the magnitude
-    of i is
-  options:
-    A: I $\frac{x}{x+y}$
-    B: I $\frac{2x}{x+y}$
-    C: I $\frac{y}{x+y}$
-    D: I $\frac{2y}{x+y}$
-  correct_answer: C
-  difficulty: moderate
-  subject: Physics
-- id: 111
   section: Electricity and Magnetism
   topic: magnetic_effects_of_current_and_magnetism
   text: A solenoid of length 2 m carries a current of 20 Ampere. The diameter of the
@@ -1561,6 +1543,18 @@ questions:
     C: 175 m
     D: 150 m
   correct_answer: D
+  difficulty: moderate
+  subject: Physics
+- id: 111
+  section: Electricity and Magnetism
+  topic: magnetism_and_matter
+  text: Which of the following is desirable for making permanent magnets?
+  options:
+    A: Low coercive field and low retentivity
+    B: Low coercive field and high retentivity
+    C: High coercive field and high retentivity
+    D: High coercive field and low retentivity
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 112
@@ -1584,10 +1578,14 @@ questions:
   text: Which one of the following curves represents the variation of impedance (Z)
     with frequency f in a series LCR circuit when connected to an AC source?
   options:
-    A: Z\newline graph
-    B: Z\newline graph
-    C: Z\newline graph
-    D: Z\newline graph
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q113-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q113-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q113-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q113-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1650,23 +1648,15 @@ questions:
   topic: semiconductors_and_devices
   text: Which of the following circuits satisfies the logic condition A =1, B=1, D=1?
   options:
-    A: 'B
-
-
-      D'
-    B: 'B
-
-
-      D'
-    C: 'B
-
-
-      D'
-    D: 'B
-
-
-      D'
-  correct_answer: null
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q118-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q118-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q118-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q118-op4.png
+  correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 119
@@ -1819,8 +1809,7 @@ questions:
 - id: 130
   section: Physical Chemistry
   topic: stoichiometry
-  text: Sulphuric acid reacts with sodium hydroxide as follows H$_{2}$SO$_{4}$ + 2NaOH
-    $\rightarrow$ Na$_{2}$SO$_{4}$ + 2H$_{2}$O What will be the amount of sodium sulphate
+  text: Sulphuric acid reacts with sodium hydroxide as follows $H_2SO_4 + 2NaOH \rightarrow Na_2SO_4 + 2H_2O$ What will be the amount of sodium sulphate
     formed, when 1 L of 0.2 M sulphuric acid is allowed to react with 1 L of 0.2 M
     sodium hydroxide solution?
   options:
@@ -1855,7 +1844,7 @@ questions:
     C: $\Delta G$ measures activation energy of a reaction
     D: When $\Delta G$ is positive, the reaction should proceed forward to form more
       product
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 133
@@ -1896,7 +1885,7 @@ questions:
     B: II and III only
     C: I and III only
     D: I, II and III
-  correct_answer: null
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 136
@@ -1906,18 +1895,10 @@ questions:
     $[B_4O_5(OH)_4]^{2-}$ units. (ii) Aqueous solution of borax is acidic in nature.
     (iii) Cobalt gives blue colour in borax bead test.
   options:
-    A: '(i) and (ii)
-
-      (i)  (ii)'
-    B: '(i)  (iii)
-
-      (i)'
-    C: '(ii) and (iii)
-
-      (ii)  (iii)'
-    D: '(i), (ii) and (iii)
-
-      (i), (ii)  (iii)'
+    A: '(i) and (ii)'
+    B: '(i)  (iii)'
+    C: '(ii) and (iii)'
+    D: '(i), (ii) and (iii)'
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
@@ -1955,9 +1936,7 @@ questions:
     A: (i), (ii) and (iii) only
     B: (i) and (iii) only
     C: (i), (ii), (iii) and (iv)
-    D: '(i) and (ii) only
-
-      (i)  (ii)'
+    D: '(i) and (ii) only'
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
@@ -1969,10 +1948,14 @@ questions:
     'C' on the reaction with silver powder gives 'D'. The structures of 'A' and 'D'
     are
   options:
-    A: $\begin{array}{c} OH \ | \text{--}CH_2 \end{array}$
-    B: $\begin{array}{c} O \ || \text{--}C\text{--}H \end{array}$
-    C: $\begin{array}{c} CH_3 \ | \text{--}OH \end{array}$
-    D: $H_3C\text{--}C\text{--}H$
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q140-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q140-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q140-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q140-op4.png
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -1981,6 +1964,7 @@ questions:
   topic: basic_principles_and_techniques
   text: The order of circled $C-H$ bond dissociation energy in the following compound
     is
+  image: /static/papers/ts_eamcet/2020_2/q141.png
   options:
     A: (ii) > (i) > (iv) > (iii)
     B: (iv) > (iii) > (i) > (ii)
@@ -2032,8 +2016,8 @@ questions:
 - id: 145
   section: Physical Chemistry
   topic: electrochemistry
-  text: $\Mg^{2+}$ displaces hydrogen from acids but copper does not. A galvanic cell
-    prepared by combining $\Cu/\Cu^{2+}$ and $\Mg/\Mg^{2+}$ has an EMF of $2.71$ V
+  text: $Mg^{2+}$ displaces hydrogen from acids but copper does not. A galvanic cell
+    prepared by combining $Cu/Cu^{2+}$ and $Mg/Mg^{2+}$ has an EMF of $2.71$ V
     at $298$ K. If the potential of copper electrode is $0.34$V, what is the reduction
     potential of Mg electrode?
   options:
@@ -2041,13 +2025,13 @@ questions:
     B: -2.37 V
     C: +2.37 V
     D: 2 V
-  correct_answer: null
+  correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 146
   section: Physical Chemistry
   topic: thermodynamics
-  text: For a reversible reaction $A ightleftharpoons B$, pre-exponential factor is
+  text: For a reversible reaction $A \rightleftharpoons B$, pre-exponential factor is
     same for both the forward and backward reactions and has value of $20 S^{-1}$.
     If the enthalpy change along the forward reaction is $-41.5$ kJ/mol, the value
     of equilibrium constant at 500 K is
@@ -2056,7 +2040,7 @@ questions:
     B: $e^{-10}$
     C: $e^{0}$
     D: $e^{-100}$
-  correct_answer: null
+  correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 147
@@ -2137,6 +2121,7 @@ questions:
   text: The structure given below is an example of I) A condensation and biodegradable
     polymer II) A biodegradable and thermoplastic polymer III) A biodegradable and
     thermosetting polymer IV) A polyester and thermoplastic polymer
+  image: /static/papers/ts_eamcet/2020_2/q153.png
   options:
     A: I, II and III
     B: I, II and IV
@@ -2165,34 +2150,14 @@ questions:
   topic: organic_compounds_containing_oxygen
   text: The structure of paracetamol is
   options:
-    A: 'HNC0CH3
-
-      |
-
-      CH3
-
-      |
-
-      OH'
-    B: 'HNC0CH3
-
-      |
-
-      OH'
-    C: 'HNC0CH3
-
-      |
-
-      CH3
-
-      |
-
-      OH'
-    D: 'OCOCH3
-
-      |
-
-      NH2'
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q155-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q155-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q155-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q155-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
@@ -2200,8 +2165,7 @@ questions:
   section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: Arrange the following in the correct order of reactivity towards nucleophilic
-    substitution reaction. (i) 1-chloro-2-nitrobenzene (ii) Chlorobenzene (iii) 1-chloro-3-nitrobenzene        .
-    (i) 1--2- (ii)  (iii) 1--3-
+    substitution reaction. (i) 1-chloro-2-nitrobenzene (ii) Chlorobenzene (iii) 1-chloro-3-nitrobenzene
   options:
     A: ii > i > iii
     B: iii > i > ii
@@ -2229,11 +2193,16 @@ questions:
   section: Organic Chemistry
   topic: haloalkanes_and_haloarenes
   text: What are X and Y in the following reaction sequence?    X  Y  ?
+  image: /static/papers/ts_eamcet/2020_2/q158.png
   options:
-    A: val1
-    B: val2
-    C: val3
-    D: val4
+    A: 
+     image: /static/papers/ts_eamcet/2020_2/q158-op1.png
+    B: 
+     image: /static/papers/ts_eamcet/2020_2/q158-op2.png
+    C: 
+     image: /static/papers/ts_eamcet/2020_2/q158-op3.png
+    D: 
+     image: /static/papers/ts_eamcet/2020_2/q158-op4.png
   correct_answer: D
   difficulty: moderate
   subject: Chemistry

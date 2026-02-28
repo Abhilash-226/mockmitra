@@ -1,21 +1,6 @@
 // Options List Component with Tailwind CSS
 import "katex/dist/katex.min.css";
-import Latex from "react-latex-next";
-
-function LatexText({ children }) {
-  if (!children) return null;
-  const parts = String(children).split(/\n|\\n/);
-  return (
-    <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          <Latex>{part}</Latex>
-          {i < parts.length - 1 && <br />}
-        </span>
-      ))}
-    </>
-  );
-}
+import LatexText from "../ui/LatexText";
 
 const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 

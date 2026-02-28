@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-from typing import Optional
+from typing import Optional, List
 
 
 class Settings(BaseSettings):
@@ -29,6 +29,15 @@ class Settings(BaseSettings):
     
     # Exam Settings
     EXAM_CONFIGS_PATH: str = "exam_configs"
+    
+    # CORS Settings
+    BACKEND_CORS_ORIGINS: List[str] = [
+        "http://localhost:5173",
+        "http://localhost:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:3000",
+        "https://jxqhfxsq-5173.inc1.devtunnels.ms",
+    ]
     
     class Config:
         import os

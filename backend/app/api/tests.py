@@ -215,73 +215,88 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
                 
                 random.shuffle(available_blueprints)
             
-                # 3. Fetch existing questions from DB matching this section/subject
+                # 3. Track unique question texts and blueprints to avoid duplicates
+                test_question_texts = set()
+                used_blueprint_ids = set()
+                
+                # Fetch existing questions if we have any to avoid re-adding identical ones
+                # (though IDs would differ, text shouldn't repeat)
                 query_filter = {
                     "exam_code": test_data.exam_code,
-                    "section": section_name # Using section name matches how questions are often tagged
+                    "section": section_name
                 }
                 if test_data.test_type == TestType.TOPIC_WISE and test_data.topics:
                     query_filter["topic"] = {"$in": test_data.topics}
                 
-                existing_questions = await Question.find(query_filter).to_list()
+                existing_pool = await Question.find(query_filter).to_list()
                 
-                # 4. Selection Logic: Sample from DB or Generate via AI
-                is_pool_shallow = len(existing_questions) < (needed_for_section * VARIETY_POOL_FACTOR)
+                # 4. Selection Logic: Loop until we have enough questions
+                collected_for_section = 0
+                max_attempts = needed_for_section * 3 # Prevent infinite loops
+                attempts = 0
                 
-                shortage = needed_for_section
-                if not is_pool_shallow:
-                    selected = random.sample(existing_questions, needed_for_section)
-                    question_ids.extend([q.id for q in selected])
-                    shortage = 0
-                else:
-                    # Take some from DB and generate the rest
-                    use_from_db = min(len(existing_questions), needed_for_section // 4)
-                    if use_from_db > 0:
-                        selected = random.sample(existing_questions, use_from_db)
-                        question_ids.extend([q.id for q in selected])
-                        shortage = needed_for_section - use_from_db
-                
-                # 5. Generate with AI if needed
-                if shortage > 0 and available_blueprints:
-                    print(f"Generating {shortage} AI questions for {section_name}...")
-                    sem = asyncio.Semaphore(2)
+                while collected_for_section < needed_for_section and attempts < max_attempts:
+                    attempts += 1
                     
-                    # Capture closure variables correctly
-                    current_section_name = section_name
+                    # Try to pick from DB first if pool exists and hasn't been exhausted
+                    current_pool = [q for q in existing_pool if q.question_text not in test_question_texts]
                     
-                    async def gen_q_task(i, target_section):
-                        async with sem:
-                            bp = available_blueprints[i % len(available_blueprints)]
-                            try:
-                                # Use executor for sync generator call
-                                loop = asyncio.get_running_loop()
-                                gen_q = await loop.run_in_executor(None, lambda: generator.generate_from_blueprint(bp, use_ai_phrasing=True))
-                                if not gen_q: return None
-                                
-                                # Map difficulty
-                                mapping = {"easy": "easy", "moderate": "medium", "hard": "hard"}
-                                q_diff = mapping.get(str(gen_q.difficulty_level).lower(), "medium")
-                                
-                                db_q = Question(
-                                    question_text=gen_q.question_text,
-                                    options={"a": gen_q.options[0], "b": gen_q.options[1], "c": gen_q.options[2], "d": gen_q.options[3]},
-                                    correct_option=["a", "b", "c", "d"][gen_q.correct_option_index],
-                                    explanation=gen_q.solution,
-                                    exam_code=test_data.exam_code,
-                                    section=target_section,
-                                    topic=bp.chapter or bp.concept,
-                                    difficulty=q_diff,
-                                    source=QuestionSource.AI_GENERATED
-                                )
-                                await db_q.insert()
-                                return db_q.id
-                            except Exception as e:
-                                print(f"AI Gen Error in section {target_section}: {e}")
-                                return None
-                                
-                    tasks = [gen_q_task(i, current_section_name) for i in range(shortage)]
-                    new_ids = await asyncio.gather(*tasks)
-                    question_ids.extend([nid for nid in new_ids if nid])
+                    if current_pool and (len(current_pool) > (needed_for_section * 2) or attempts < 2):
+                        # Use from DB
+                        selected = random.choice(current_pool)
+                        question_ids.append(selected.id)
+                        test_question_texts.add(selected.question_text)
+                        collected_for_section += 1
+                        continue
+                        
+                    # Otherwise, generate with AI
+                    if not available_blueprints:
+                        break # Cannot proceed without blueprints
+                        
+                    # Target unique blueprints if possible
+                    unused_blueprints = [bp for bp in available_blueprints if bp.id not in used_blueprint_ids]
+                    if unused_blueprints:
+                        bp = random.choice(unused_blueprints)
+                    else:
+                        # Pool exhausted, reuse randomly
+                        bp = random.choice(available_blueprints)
+                        
+                    print(f"Generating AI question {collected_for_section + 1}/{needed_for_section} using blueprint {bp.id} for {section_name}...")
+                    try:
+                        loop = asyncio.get_running_loop()
+                        gen_q = await loop.run_in_executor(None, lambda: generator.generate_from_blueprint(bp, use_ai_phrasing=True))
+                        
+                        if not gen_q:
+                            continue
+                            
+                        # Check for duplicate text
+                        if gen_q.question_text in test_question_texts:
+                            print(f"DEBUG: AI generated duplicate text, retrying...")
+                            continue
+                            
+                        # Map difficulty
+                        mapping = {"easy": "easy", "moderate": "medium", "hard": "hard"}
+                        q_diff = mapping.get(str(gen_q.difficulty_level).lower(), "medium")
+                        
+                        db_q = Question(
+                            question_text=gen_q.question_text,
+                            options={"a": gen_q.options[0], "b": gen_q.options[1], "c": gen_q.options[2], "d": gen_q.options[3]},
+                            correct_option=["a", "b", "c", "d"][gen_q.correct_option_index],
+                            explanation=gen_q.solution,
+                            exam_code=test_data.exam_code,
+                            section=section_name,
+                            topic=bp.chapter or bp.concept,
+                            difficulty=q_diff,
+                            source=QuestionSource.AI_GENERATED
+                        )
+                        await db_q.insert()
+                        question_ids.append(db_q.id)
+                        test_question_texts.add(db_q.question_text)
+                        used_blueprint_ids.add(bp.id)
+                        collected_for_section += 1
+                    except Exception as e:
+                        print(f"AI Gen Error in section {section_name}: {e}")
+                        await asyncio.sleep(1) # Backoff
 
         # Finalize Test and Attempt
         test.question_ids = question_ids
