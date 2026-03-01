@@ -101,8 +101,9 @@ export function sanitizeLatex(text) {
 export default function LatexText({ children }) {
   if (!children) return null;
   const sanitized = sanitizeLatex(String(children));
-  // Split on actual newlines OR literal \n (two chars: backslash + n)
-  const parts = sanitized.split(/\n|\\n/);
+  // Split only on actual newline characters. 
+  // We removed |\\n because it was breaking LaTeX commands like \neq, \nu, \nabla
+  const parts = sanitized.split(/\n/);
   return (
     <>
       {parts.map((part, i) => (

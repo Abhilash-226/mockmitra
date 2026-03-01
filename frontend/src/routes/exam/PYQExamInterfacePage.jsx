@@ -9,8 +9,8 @@ import Modal from "../../components/ui/Modal";
 // Handles both actual newlines and literal \n sequences (from YAML single-quoted strings)
 function LatexText({ children }) {
   if (!children) return null;
-  // Split on actual newlines OR literal \n (two chars: backslash + n)
-  const parts = String(children).split(/\n|\\n/);
+  // Split on actual newlines only to avoid breaking LaTeX commands like \neq
+  const parts = String(children).split(/\n/);
   return (
     <>
       {parts.map((part, i) => (
