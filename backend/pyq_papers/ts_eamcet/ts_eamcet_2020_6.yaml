@@ -6,26 +6,24 @@ date: null
 session: Shift 6
 source_pdf: 2020-6.pdf
 metadata:
-  total_questions: 153
+  total_questions: 160
   duration_minutes: 180
   marking_scheme: +1 for correct, 0 for wrong
 sections:
 - code: MAT
   name: Mathematics
-  question_count: 75
+  question_count: 80
 - code: PHY
   name: Physics
   question_count: 40
 - code: CHE
   name: Chemistry
-  question_count: 38
+  question_count: 40
 questions:
 - id: 1
   section: Algebra
   topic: functions_and_inverse_functions
-  text: "Let $f:[0,10] \\rightarrow [1,20]$ be a function defined as $f(x) = \begin{cases}\
-    \ rac{60-5x}{3} & 0 \\leq x \\leq 6 \\ 10, & 6 \\leq x \\leq 7, \\ 31-3x, & 7\
-    \ \\leq x \\leq 10 \\end{cases}$ then $f$ is"
+  text: 'Let $f:[0,10] \rightarrow [1,20]$ be a function defined as $f(x) = \begin{cases} \frac{60-5x}{3} & 0 \le x \le 6 \\ 10, & 6 \le x \le 7 \\ 31-3x, & 7 \le x \le 10 \end{cases}$ then $f$ is'
   options:
     A: bijective function
     B: one-one but not on to function
@@ -37,22 +35,19 @@ questions:
 - id: 2
   section: Algebra
   topic: functions_and_inverse_functions
-  text: "Let $f:[0,10] \\rightarrow [1,20]$ be a function defined as $f(x) = \begin{cases}\
-    \ rac{60-5x}{3} & 0 \\leq x \\leq 6 \\ 10, & 6 \\leq x \\leq 7, \\ 31-3x, & 7\
-    \ \\leq x \\leq 10 \\end{cases}$ then $f$ is"
+  text: 'The domain of the function $f(x) =\sqrt{\log_{10}\left(\frac{5x - x^2}{4}\right)}$ is'
   options:
-    A: bijective function
-    B: one-one but not on to function
-    C: onto but not one-one function
-    D: neither one -one nor onto function
-  correct_answer: C
+    A: $[0, 1]$
+    B: $[1, 4]$
+    C: $[4, 5]$
+    D: '$(-\infty,\infty)$'
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 3
   section: Algebra
   topic: mathematical_induction
-  text: Let the greatest common divisor of $m, n$ be 1. If $ rac{1}{1.7} + rac{1}{7.13}
-    + rac{1}{13.19} + ... up\ to\ 20\ terms = rac{m}{n}$, then $5m + 2n = $
+  text: 'Let the greatest common divisor of $m, n$ be 1. If $\frac{1}{1.7} +\frac{1}{7.13} +\frac{1}{13.19} + ... up to 20 terms =\frac{m}{n}$, then $5m + 2n = $'
   options:
     A: '325'
     B: '330'
@@ -64,136 +59,95 @@ questions:
 - id: 4
   section: Algebra
   topic: matrices
-  text: If A, B are two non singular matrices of order 3, $|B| = k$, a positive integer,
-    then match the items of list - I with the items of list - II List -I A) $k^{-1}
-    A^{-1}$ B) $|Adj(A^{-1})|$ C) $BAB^{-1} = I_3 \R\rightarrow BA^kB^{-1} =$ D) $Adj(Adj(A^{-1}))
-    =$ List -II I) $BA^k + A^kB$ II) $\\frac{|B|}{|B|}$ III) $\\frac{1}{|B||A|}$ IV)
-    $\\frac{1}{|A|(A^{-1})}$ V) $\\frac{1}{|A|^2}$ The correct match is
+  text: |
+    If A, B are two non singular matrices of order 3, $|B| = k$, a positive integer, then match the items of list - I with the items of list - II
+
+    **List - I**
+
+    A) $|k^{-1} A^{-1}|$
+
+    B) $|Adj(A^{-1})|$
+
+    C) $BAB^{-1} = I \implies BA^k B^{-1} =$
+
+    D) $Adj(Adj(A^{-1})) =$
+
+    **List - II**
+
+    I) $BA^k + A^k B$
+
+    II) $\frac{B Adj(B)}{|B|}$
+
+    III) $\frac{1}{|B|^3 |A|}$
+
+    IV) $\frac{1}{|A|} (A^{-1})$
+
+    V) $\frac{1}{|A|^2}$
   options:
-    A: 'A
-
-      III
-
-      B
-
-      V
-
-      C
-
-      II
-
-      D
-
-      IV'
-    B: 'A
-
-      III
-
-      B
-
-      IV
-
-      C
-
-      I
-
-      D
-
-      II'
-    C: 'A
-
-      I
-
-      B
-
-      V
-
-      C
-
-      II
-
-      D
-
-      IV'
-    D: 'A
-
-      III
-
-      B
-
-      IV
-
-      C
-
-      II
-
-      D
-
-      I'
+    A: A - III, B - V, C - II, D - IV
+    B: A - III, B - IV, C - I, D - II
+    C: A - I, B - V, C - II, D - IV
+    D: A - III, B - IV, C - II, D - I
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 5
-  section: Matrices
-  topic: matrices
-  text: If A, B are two non singular matrices of order 3, $|B| = k$, a positive integer,
-    then match the items of list - I with the items of list - II List -I A) $k^{-1}
-    A^{-1}$ B) $|Adj(A^{-1})|$ C) $BAB^{-1} = I_3 \R \rightarrow BA^kB^{-1} =$ D)
-    $Adj(Adj(A^{-1})) =$ List -II I) $BA^k + A^kB$ II) $\\frac{|B|}{|A|}$ III) $\\frac{1}{|B||A|}$
-    IV) $\\frac{1}{|A|}$ V) $\\frac{1}{|A|^2}$
+  section: Algebra
+  topic: theory_of_equations
+  text: 'All the real values of $p, q$ so that the system of equations $2x + py + 6z = 8$, $x + 2y + qz = 5$, $x + y + 3z = 4$ may have no solution are'
   options:
-    A: 'III
-
-      V
-
-      I
-
-      III'
-    B: 'V
-
-      IV
-
-      II
-
-      IV'
-    C: 'II
-
-      I
-
-      IV
-
-      II'
-    D: 'IV
-
-      II
-
-      V
-
-      I'
-  correct_answer: A
+    A: '$p = 2, q \neq 3$'
+    B: '$p = 2, q = \frac{15}{2}$'
+    C: '$p \neq 2, q = 3$'
+    D: '$p = 3, q = \frac{15}{4}$'
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 6
   section: Algebra
-  topic: matrices
-  text: All the real values of $p, q$ so that the system of equations $2x + py + 6z
-    = 8$ $x + 2y + qz = 5$ $x + y + 3z = 4$ may have no solution are
+  topic: theory_of_equations
+  text: |
+    If $p$ and $q$ are two distinct real values of $\lambda$ for which the system of equations
+
+    $(\lambda - 1)x + (3\lambda + 1)y + 2\lambda z = 0$
+
+    $(\lambda - 1)x + (4\lambda - 2)y + (\lambda + 3)z = 0$
+
+    $2x + (3\lambda + 1)y + 3(\lambda - 1)z = 0$
+
+    has non-zero solution, then $p^2 + q^2 - pq =$
   options:
-    A: "$p = 2, q \neq 3$"
-    B: $p = 2, q = \\frac{15}{2}$
-    C: "$p \neq 2, q = 3$"
-    D: $p = 3, q = \\frac{15}{4}$
-  correct_answer: C
+    A: '15'
+    B: '9'
+    C: '3'
+    D: '6'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 7
+  section: Algebra
+  topic: complex_numbers
+  text: |
+    Let $z = x + iy$ be a complex number,
+
+    $A = \{z \mid |z| \le 2\}$ and $B = \{z \mid (1-i)z + (1+i)\overline{z} \ge 4\}$
+
+    Then which one of the following options belongs to $A \cap B$?
+  options:
+    A: '$\sqrt{3} +\frac{1}{2}i$'
+    B: '$\frac{1}{2} +\frac{i}{2}$'
+    C: '$\sqrt{2} +\frac{i}{2}$'
+    D: $2 + 2i$
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 8
   section: Algebra
-  topic: complex_numbers
-  text: The solutions of the equation $z^2(1-z^2) = 16, z \in C$, lie on the curve
-    $z \in C, z^2(1-z^2) = 16$
+  topic: theory_of_equations
+  text: 'The solutions of the equation $z^2(1-z^2) = 16$, $z \in \mathbb{C}$, lie on the curve'
   options:
     A: $|z| = 1$
-    B: "$|z| = \frac{2}{3}$"
+    B: '$|z| =\frac{2}{3}$'
     C: $|z|^2 = 3|z| + 2$
     D: $|z| = 2$
   correct_answer: D
@@ -202,38 +156,31 @@ questions:
 - id: 9
   section: Algebra
   topic: complex_numbers
-  text: If $z, \overline{z}, -z, -\overline{z}$ forms a rectang \leq of area $2\\sqrt{3}$
-    square units, then one such $z$ is $z, \overline{z}, -z, -\overline{z}$ $2\\sqrt{3}$
-    || , $z$
+  text: 'If $z,\overline{z}, -z, -\overline{z}$ forms a rectangle of area $2\sqrt{3}$ square units, then one such $z$ is'
   options:
-    A: "$\frac{1}{2} \\\\sqrt{3}i$"
-    B: "$\frac{\\\\sqrt{5} + \\\\sqrt{3} i}{4}$"
-    C: "$\frac{3}{2} \\\\sqrt{3} i$"
-    D: "$\frac{\\\\sqrt{5} + \\\\sqrt{11} i}{2}$"
+    A: '$\frac{1}{2} +\sqrt{3}i$'
+    B: '$\frac{\sqrt{5} +\sqrt{3} i}{4}$'
+    C: '$\frac{3}{2} +\sqrt{3} i$'
+    D: '$\frac{\sqrt{5} +\sqrt{11} i}{2}$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 10
   section: Algebra
   topic: complex_numbers
-  text: $\\left( \\frac{\cos \\theta + i \sin \\theta}{\sin \\theta + i \cos \\theta}
-    \\right)^4 + \\left( \\frac{1 + \cos \\theta - i \sin \\theta}{1 + \cos \\theta
-    + i \sin \\theta} \\right)^{16} = $
+  text: '$\left(\frac{\cos\theta + i\sin\theta}{\sin\theta + i\cos\theta}\right)^4 +\left(\frac{1 +\cos\theta - i\sin\theta}{1 +\cos\theta + i\sin\theta}\right)^{16} = $'
   options:
-    A: $2 \cos 8 \\theta$
-    B: $2 \cos 16 \\theta$
-    C: $2 \sin 8 \\theta$
-    D: $2 \sin 16 \\theta$
+    A: '$2\cos 8\theta$'
+    B: '$2\cos 16\theta$'
+    C: '$2\sin 8\theta$'
+    D: '$2\sin 16\theta$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 11
   section: Algebra
-  topic: quadratic_expressions
-  text: Let S be the set of all possib \leq integral values of $\lambda$ in the interval
-    $(-3, 7)$ for which the roots of the quadratic equation $\lambda x^2 + 13x + 7
-    = 0$ are all rational numbers. Then the sum of the elements in S is $(-3, 7)$
-    , $\lambda x^2 + 13x + 7 = 0$ $\lambda$ S . S
+  topic: theory_of_equations
+  text: 'Let S be the set of all possible\le integral values of $\lambda$ in the interval $(-3, 7)$ for which the roots of the quadratic equation $\lambda x^2 + 13x + 7 = 0$ are all rational numbers. Then the\sum of the elements in S is $(-3, 7)$ , $\lambda x^2 + 13x + 7 = 0$ $\lambda$ S . S'
   options:
     A: $4$
     B: $0$
@@ -243,43 +190,33 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 12
-  section: Quadratic Expressions
-  topic: quadratic_expressions
-  text: $\\alpha$ is the maximum value of $1-2x-5x^2$ and $\\beta$ is the minimum
-    value of $x^2-2x+r$. If $5\\alpha x^2 + \\beta x + 6 > 0$ for all real values
-    x, then the interval in which r lies is
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: '$\alpha$ is the maximum value of $1-2x-5x^2$ and $\beta$ is the minimum value of $x^2-2x+r$. If $5\alpha x^2 +\beta x + 6 > 0$ for all real values x, then the interval in which r lies is'
   options:
     A: $(0, 5)$
-    B: $(-5, \infty)$
-    C: $( -\infty, 7)$
+    B: '$(-5,\infty)$'
+    C: '$( -\infty, 7)$'
     D: $(-11, 13)$
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 13
-  section: Theory of Equations
+  section: Algebra
   topic: theory_of_equations
-  text: If $\\alpha_1, \\beta_1, \gamma_1$, are the roots of the equation $ax^3 +
-    bx^2 + cx + d = 0$ and $\\alpha_2, \\beta_2, \gamma_2$ are the roots of the equation
-    $ax^3 - bx^2 + cx - d = 0$ such that $0 < \\alpha_1 < \\beta_1 < \gamma_1$, $0
-    < \\alpha_2 < \\beta_2 < \gamma_2$, $\\alpha_1 - \\alpha_2 = 2 = \\beta_1 - \\beta_2
-    = \gamma_1 - \gamma_2 = 4$, then $a + b + c + d = $
+  text: 'For the equation $x^4 + x^3 - 4x^2 + x + 1 = 0$ the ratio of the\sum of the squares of all the roots to the product of the distinct roots is'
   options:
-    A: '10'
-    B: '12'
-    C: '6'
-    D: '8'
-  correct_answer: D
+    A: '1 : 4'
+    B: '3 : 5'
+    C: '9 : 1'
+    D: '4 : 3'
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 14
   section: Algebra
   topic: theory_of_equations
-  text: If $\\alpha_1, \\beta_1, \gamma_1$ are the roots of the equation $ax^3 + bx^2
-    + cx + dx + e = 0$ and $\\alpha_2, \\beta_2, \gamma_2$ are the roots of the equation
-    $ex^3 + dx^2 + cx + bx + a = 0$ such that $0 < \\alpha_1 < \\beta_1 < \gamma_1$,
-    $0 < \\alpha_2 < \\beta_2 < \gamma_2$, $\\alpha_1 - \\alpha_2 = 2 = \\beta_1 -
-    \\beta_2 = \gamma_1 - \gamma_2 = 4$, then a + b + c + d + e =
+  text: 'If $\alpha_1,\beta_1,\gamma_1$ are the roots of the equation $ax^3 + bx^2 + cx + dx + e = 0$ and $\alpha_2,\beta_2,\gamma_2$ are the roots of the equation $ex^3 + dx^2 + cx + bx + a = 0$ such that $0 <\alpha_1 <\beta_1 <\gamma_1$, $0 <\alpha_2 <\beta_2 <\gamma_2$, $\alpha_1 -\alpha_2 = 2 =\beta_1 -\beta_2 =\gamma_1 -\gamma_2 = 4$, then a + b + c + d + e ='
   options:
     A: '10'
     B: '12'
@@ -289,11 +226,9 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 15
-  section: Permutations and Combinations
-  topic: permutations_and_combinations
-  text: The total number of three digit and five digit integers which can be formed
-    by using the digits 0, 1, 2, 3, 4, 5 but using each digit not more than once in
-    each number is
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: The total number of three digit and five digit integers which can be formed by using the digits 0, 1, 2, 3, 4, 5 but using each digit not more than once in each number is
   options:
     A: '100'
     B: '600'
@@ -303,12 +238,9 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 16
-  section: Permutations and Combinations
-  topic: permutations_and_combinations
-  text: At an election a voter may vote for any number of candidates not exceeding
-    the number to be elected. If 4 candidates are to be elected out of the 12 contested
-    in the election and voter votes for at least one candidate, then the number of
-    ways in which a voter can vote is.
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: At an election a voter may vote for any number of candidates not exceeding the number to be elected. If 4 candidates are to be elected out of the 12 contested in the election and voter votes for at least one candidate, then the number of ways in which a voter can vote is.
   options:
     A: '793'
     B: '298'
@@ -320,9 +252,7 @@ questions:
 - id: 17
   section: Algebra
   topic: binomial_theorem
-  text: Let $x \in R$ be so small that the powers of $x$ beyond two are insignificant
-    and negligibly small. For such $x$, if $(1 - x)^2 (2 + x)^6$ is approximated by
-    $a + bx + cx^2$, then $a + b + c =$
+  text: Let $x in R$ be so small that the powers of $x$ beyond two are insignificant and negligibly small. For such $x$, if $(1 - x)^2 (2 + x)^6$ is approximated by $a + bx + cx^2$, then $a + b + c =$
   options:
     A: '-80'
     B: '144'
@@ -334,55 +264,55 @@ questions:
 - id: 18
   section: Algebra
   topic: binomial_theorem
-  text: For $0 < x < 1$, the expansion of $\\left(1 + \\frac{1}{x}\\right)^{\\frac{1}{2}}$
-    is
+  text: 'For $0 < x < 1$, the expansion of $\left(1 +\frac{1}{x}\right)^{\frac{1}{2}}$ is'
   options:
-    A: $1 + \\frac{1}{2x} - \\frac{1}{2!} {\\left(\\frac{1}{2x}\\right)}^2 + \\frac{1.3}{3!}
-      {\\left(\\frac{1}{2x}\\right)}^3 - \\frac{1.3.5}{4!} {\\left(\\frac{1}{2x}\\right)}^4
-      + ........\infty$
-    B: $\\frac{1}{\\sqrt{x}} + \\frac{1}{2} - \\frac{1}{2!} \\frac{x\\sqrt{x}}{2!}
-      + \\frac{1.3}{3!} \\frac{x^2\\sqrt{x}}{2!} - ........\infty$
-    C: $1 + \\frac{1}{\\sqrt{x}} + \\frac{1}{2!} \\frac{x\\sqrt{x}}{2!} + \\frac{1.3}{3!}
-      \\frac{x^2\\sqrt{x}}{2!} + ........\infty$
-    D: $\\frac{1}{\\sqrt{x}} + \\frac{1}{2x\\sqrt{x}} - \\frac{1}{2!} {\\left(\\frac{1}{2x}\\right)}^2
-      + \\frac{1.3}{3!} {\\left(\\frac{1}{2x}\\right)}^3 \\frac{1}{\\sqrt{x}} - ........\infty$
+    A: '$1 +\frac{1}{2x} -\frac{1}{2!} {\left(\frac{1}{2x}\right)}^2 +\frac{1.3}{3!} {\left(\frac{1}{2x}\right)}^3 -\frac{1.3.5}{4!} {\left(\frac{1}{2x}\right)}^4 + ........\infty$'
+    B: '$\frac{1}{\sqrt{x}} +\frac{1}{2} -\frac{1}{2!}\frac{x\sqrt{x}}{2!} +\frac{1.3}{3!}\frac{x^2\sqrt{x}}{2!} - ........\infty$'
+    C: '$1 +\frac{1}{\sqrt{x}} +\frac{1}{2!}\frac{x\sqrt{x}}{2!} +\frac{1.3}{3!}\frac{x^2\sqrt{x}}{2!} + ........\infty$'
+    D: '$\frac{1}{\sqrt{x}} +\frac{1}{2x\sqrt{x}} -\frac{1}{2!} {\left(\frac{1}{2x}\right)}^2 +\frac{1.3}{3!} {\left(\frac{1}{2x}\right)}^3\frac{1}{\sqrt{x}} - ........\infty$'
   correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
+- id: 19
+  section: Algebra
+  topic: '\partial_fractions'
+  text: 'If $\frac{4x^2+5x^4+7}{(x^2+1)(x^4+x^2+1)} =\frac{Ax+B}{x^2+1} +\frac{Cx^3+Dx^2+Ex+F}{x^4+x^2+1}$, then $B+2(D+F+E)-C.A=$'
+  options:
+    A: '0'
+    B: '3'
+    C: '1'
+    D: '-3'
+  correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 20
   section: Trigonometry
-  topic: sum_and_difference_of_angles
-  text: $\sin^2 \\frac{\\pi}{8} + \cos^2 \\frac{3\\pi}{8} - \sin^2 \\frac{5\\pi}{8}
-    + \cos^2 \\frac{5\\pi}{8} - \sin^2 \\frac{7\\pi}{8} + \cos^2 \\frac{7\\pi}{8}
-    = $
+  topic: '\sum_and_difference_of_angles'
+  text: '$\sin^2\frac{\pi}{8} +\cos^2\frac{3\pi}{8} -\sin^2\frac{5\pi}{8} +\cos^2\frac{5\pi}{8} -\sin^2\frac{7\pi}{8} +\cos^2\frac{7\pi}{8} = $'
   options:
-    A: $\\frac{1}{4}$
-    B: $\\frac{1}{2}$
+    A: '$\frac{1}{4}$'
+    B: '$\frac{1}{2}$'
     C: '0'
-    D: $\\frac{3}{4}$
+    D: '$\frac{3}{4}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 21
-  section: multiple_and_sub_multiple_angles
-  topic: multiple_and_sub_multiple_angles
-  text: $\operatorname{cosec}^2 \left[ \tan^{-1} \\left(\\frac{\\frac{a-\\pi}{4}-1}{\tan
-    \\frac{a-\\pi}{4}+1} \\right) + \cos^{-1} \cot 5a . \sec 5a \right] = $
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: '$\operatorname{cosec}^2\left[\tan^{-1}\left(\frac{\frac{a-\pi}{4}-1}{\tan\frac{a-\pi}{4}+1}\right) +\cos^{-1}\cot 5a .\sec 5a\right] = $'
   options:
-    A: 2$\\alpha$
-    B: 5$\\alpha$
-    C: $\\frac{\\pi}{2}-4a$
-    D: $\\frac{5}{2}a$
+    A: '2$\alpha$'
+    B: '5$\alpha$'
+    C: '$\frac{\pi}{2}-4a$'
+    D: '$\frac{5}{2}a$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 22
-  section: properties_of_triangles
-  topic: null
-  text: 'Assertion (A): If A = $15^o$ B= $17^o$ and C = $13^o$ then $ cot 2A + \cot
-    2B + \cot 2C = \cot 2A \cot 2B \cot 2C$ Reason (R) : In a $\Delta PQR$, $\Tan
-    \\frac{P}{2} \Tan \\frac{Q}{2} + \Tan \\frac{Q}{2} \Tan \\frac{R}{2} + \Tan \\frac{R}{2}
-    \Tan \\frac{P}{2} = 1$ The correct option among the following is'
+  section: Probability & Statistics
+  topic: probability
+  text: 'Assertion (A): If A = $15^o$ B= $17^o$ and C = $13^o$ then $\cot 2A +\cot 2B +\cot 2C =\cot 2A\cot 2B\cot 2C$ Reason (R) : In a $\Delta PQR$, $\tan\frac{P}{2}\tan\frac{Q}{2} +\tan\frac{Q}{2}\tan\frac{R}{2} +\tan\frac{R}{2}\tan\frac{P}{2} = 1$ The correct option among the following is'
   options:
     A: (A) is true, (R) is true and (R) is the correct explanation for (A)
     B: (A) is true, (R) is true but (R) is not the correct explanation for (A)
@@ -392,37 +322,33 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 23
-  section: trigonometric_equations
-  topic: null
-  text: The solution set of the trigonometric equation $\tan \\theta + 5 \cot \\theta
-    = \sec \\theta$ is
+  section: Coordinate Geometry
+  topic: probability
+  text: 'The solution set of the trigonometric equation $\tan\theta + 5\cot\theta =\sec\theta$ is'
   options:
-    A: $\left{\\theta / \\theta = 2n\\pi \pm \\frac{\\pi}{3}, n \in Z\right}$
-    B: $\left{\\theta / \\theta = n\\pi + (-1)^n \\frac{\\pi}{2}, n \in Z\right}$
-    C: $\left{\\theta / \\theta = n\\pi + \\frac{\\pi}{6}, n \in Z\right}$
-    D: $\phi$
+    A: '$\left\{\theta /\theta = 2n\pi\pm\frac{\pi}{3}, n in Z\right\}$'
+    B: '$\left\{\theta /\theta = n\pi + (-1)^n\frac{\pi}{2}, n in Z\right\}$'
+    C: '$\left\{\theta /\theta = n\pi +\frac{\pi}{6}, n in Z\right\}$'
+    D: '$\phi$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 24
-  section: Inverse Trigonometric Functions
-  topic: inverse_trigonometric_functions
-  text: If $\operatorname{Tan}^{-1} \\frac{1}{5}+ \operatorname{Sec}^{-1} x+\operatorname{Tan}^{-1}
-    \\frac{1}{8}=\\frac{\\pi}{2}$, then $x^2 =$
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: 'If $\operatorname{Tan}^{-1}\frac{1}{5}+ operatorname{Sec}^{-1} x+\operatorname{Tan}^{-1}\frac{1}{8}=\frac{\pi}{2}$, then $x^2 =$'
   options:
-    A: $\\frac{12}{7}$
-    B: $\\frac{50}{49}$
-    C: $\\frac{13}{12}$
-    D: $\\frac{1}{2}$
+    A: '$\frac{12}{7}$'
+    B: '$\frac{50}{49}$'
+    C: '$\frac{13}{12}$'
+    D: '$\frac{1}{2}$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 25
   section: Trigonometry
   topic: hyperbolic_functions
-  text: 'Assertion (A): $\operatorname{Cosech}^{-1}(3)=\log \\left(\\frac{1+\\sqrt{10}}{3}\\right)$
-    Reason (R): $e^{\operatorname{Cosh}^{-1} x}$ is a root of the quadratic equation
-    $xp^2-2p-x=0$ The correct option among the following is'
+  text: 'Assertion (A): $\operatorname{Cosech}^{-1}(3)=\log\left(\frac{1+\sqrt{10}}{3}\right)$ Reason (R): $e^{\operatorname{Cosh}^{-1} x}$ is a root of the quadratic equation $xp^2-2p-x=0$ The correct option among the following is'
   options:
     A: (A) is true, (R) is true and (R) is the correct explanation for (A)
     B: (A) is true, (R) is true but (R) is not the correct explanation for (A)
@@ -432,142 +358,140 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 26
-  section: properties_of_triangles
-  topic: null
-  text: In a $\triang \leq ABC$ if $|A=3|B$, $CA=9$ and $BC=16$, then the length of
-    AB is
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: 'In a $\triangle ABC$ if $|A=3|B$, $CA=9$ and $BC=16$, then the length of AB is'
   options:
-    A: $\\frac{5}{3}$
-    B: $\\frac{7}{3}$
+    A: '$\frac{5}{3}$'
+    B: '$\frac{7}{3}$'
     C: '2'
-    D: $\\frac{35}{3}$
+    D: '$\frac{35}{3}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 27
-  section: properties_of_triangles
-  topic: null
-  text: In $\triang \leq ABC$, $\\frac{1+\cos C}{r_1+r_2}+\\frac{1+\cos A}{r_2+r_3}+\\frac{1+\cos
-    B}{r_3+r_1} = $
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'In $\Delta ABC$, $\frac{1 +\cos C}{r_1 + r_2} +\frac{1 +\cos A}{r_2 + r_3} +\frac{1 +\cos B}{r_1 + r_3} =$'
   options:
-    A: $\\frac{2}{3R}$
-    B: $\\frac{R}{2}$
-    C: $\\frac{3}{2R}$
-    D: $\\frac{6R}{5}$
+    A: '$\frac{2}{3R}$'
+    B: '$\frac{R}{2}$'
+    C: '$\frac{3}{2R}$'
+    D: '$\frac{6R}{5}$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 28
-  section: properties_of_triangles
-  topic: null
-  text: In a triang \leq ABC, if $\cos A \cos B + \sin A \sin B \sin C =1$ then $a:b:c=$
+  section: Trigonometry
+  topic: properties_of_triangles
+  text: 'In a triangle ABC, if $\cos A\cos B +\sin A\sin B\sin C =1$ then $a:b:c=$'
   options:
-    A: $1:1:\\sqrt{2}$
+    A: '$1:1:\sqrt{2}$'
     B: $1:1:1$
-    C: $\\sqrt{2}:1:1$
-    D: $1:\\sqrt{2}:1$
+    C: '$\sqrt{2}:1:1$'
+    D: '$1:\sqrt{2}:1$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 29
-  section: properties_of_triangles
-  topic: properties_of_triangles
-  text: In a triang \leq $\leq ABC$, if $\cos A \cos B + \sin A \sin B \sin C =1$
-    then $a:b:c=$
+  section: Vector Algebra
+  topic: vectors_and_scalars
+  text: |
+    Let $\overline{OA} = \overline{a}, \overline{OB} = \overline{b}$ be two non collinear vectors, $\overline{OP} = x_1 \overline{a} + y_1 \overline{b}, \overline{OQ} = x_2 \overline{a} + y_2 \overline{b}$
+
+    and $\overline{A''O} = \overline{OA}, \overline{B''O} = \overline{OB}$. If $x_1 = \frac{-3}{4}, x_2 = \frac{1}{3}, y_1 = \frac{7}{4}, y_2 = \frac{5}{3}$, then
   options:
-    A: $1:1:\\sqrt{2}$
-    B: $1:1:1$
-    C: $\\sqrt{2}:1:1$
-    D: $1:\\sqrt{2}:1$
-  correct_answer: A
+    A: '$P$ lies inside the $\Delta A''OB$ and $Q$ lies outside the $\Delta AOB$'
+    B: '$P$ lies outside the $\Delta AOB''$ and $Q$ lies on the $\Delta A''OB''$'
+    C: '$P$ lies inside the $\Delta AOB$ and $Q$ lies outside the $\Delta AOB''$'
+    D: '$P$ lies on the $\Delta A''OB$ and $Q$ lies outside the $\Delta AOB$'
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 30
-  section: vectors_and_scalars
-  topic: addition_of_vectors
-  text: The position vector of a point P is $2\hat{i} - \hat{j} + 3\hat{k}$ and $\vec{a}
-    = -\hat{i} - 2\hat{k}, \vec{b} = \hat{i} - \hat{j} + 2\hat{k}$ are two vectors
-    which determine a plane $\\pi$. The equation of a line through P normal to $\vec{b}$
-    and lying on the plane $\\pi$ is
+  section: Algebra
+  topic: theory_of_equations
+  text: 'The position vector of a point P is $2\hat{i} -\hat{j} + 3\hat{k}$ and $\vec{a} = -\hat{i} - 2\hat{k},\vec{b} =\hat{i} -\hat{j} + 2\hat{k}$ are two vectors which determine a plane $\pi$. The equation of a line through P normal to $\vec{b}$ and lying on the plane $\pi$ is'
   options:
-    A: \(\vec{r}=2 \hat{i}+3 \hat{j}+3 \hat{k}+\lambda(-\hat{i}+5 \hat{j}-2 \hat{k})\)
-    B: \(\vec{r}=2 \hat{i}+\hat{j}+3 \hat{k}+\lambda(\hat{i}+\hat{j}+\hat{k})\)
-    C: \(\vec{r}=2 \hat{i}+\hat{j}+3 \hat{k}+\lambda(-2\hat{i}-\hat{j}+3 \hat{k})\)
-    D: \(\vec{r}=2 \hat{i}+\hat{j}+3 \hat{k}+\lambda(-3\hat{i}+4 \hat{j}-5 \hat{k})\)
+    A: '\(\vec{r}=2\hat{i}+3\hat{j}+3\hat{k}+\lambda(-\hat{i}+5\hat{j}-2\hat{k})\)'
+    B: '\(\vec{r}=2\hat{i}+\hat{j}+3\hat{k}+\lambda(\hat{i}+\hat{j}+\hat{k})\)'
+    C: '\(\vec{r}=2\hat{i}+\hat{j}+3\hat{k}+\lambda(-2\hat{i}-\hat{j}+3\hat{k})\)'
+    D: '\(\vec{r}=2\hat{i}+\hat{j}+3\hat{k}+\lambda(-3\hat{i}+4\hat{j}-5\hat{k})\)'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 31
-  section: vectors_and_scalars
+  section: Vector Algebra
   topic: vectors_and_scalars
-  text: The position vector of a point P is $2\hat{i} - \hat{j} + 3\hat{k}$ and $\vec{a}
-    = -\hat{i} - 2\hat{k}, \vec{b} = \hat{i} - \hat{j} + 2\hat{k}$ are two vectors
-    which determine a plane $\\pi$. The equation of a line through P normal to $\vec{b}$
-    and lying on the plane $\\pi$ is
+  text: 'In a quadrilateral ABCD, the point P divides DC in the ratio $1 : 3$ internally and Q is the midpoint of AC. If $\overline{AB} +\overline{AD} +\overline{BC} - 2\overline{DC} =\lambda\overline{PQ}$, then the value of $\lambda$ is'
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '-2'
+    B: '2'
+    C: '4'
+    D: '-4'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 32
-  section: Scalar Dot Product
-  topic: vectors_and_scalars
-  text: Let $\overr\rightarrow{p} = 2\overr\rightarrow{i} - 3\overr\rightarrow{j}
-    + \overr\rightarrow{k}$, $\overr\rightarrow{q} = \overr\rightarrow{i} + \overr\rightarrow{j}
-    - \overr\rightarrow{k}$. If the vectors $\overr\rightarrow{a}$ and $\overr\rightarrow{b}$
-    are the orthogonal projections of $\overr\rightarrow{p}$ on $\overr\rightarrow{q}$
-    and $\overr\rightarrow{q}$ on $\overr\rightarrow{p}$ respectively, then $\\frac{\overr\rightarrow{a}
-    imes \overr\rightarrow{b}}{\overr\rightarrow{a} \cdot \overr\rightarrow{b}} =
-    $
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'Let $\overrightarrow{p} = 2\overrightarrow{i} - 3\overrightarrow{j} + \overrightarrow{k}$, $\overrightarrow{q} = \overrightarrow{i} + \overrightarrow{j} - \overrightarrow{k}$. If the vectors $\overrightarrow{a}$ and $\overrightarrow{b}$ are the orthogonal projections of $\overrightarrow{p}$ on $\overrightarrow{q}$ and $\overrightarrow{q}$ on $\overrightarrow{p}$ respectively, then $\frac{\overrightarrow{a} \times \overrightarrow{b}}{\overrightarrow{a} \cdot \overrightarrow{b}} = $'
   options:
-    A: $\\frac{2\overr\rightarrow{i} + 3\overr\rightarrow{j} + 5\overr\rightarrow{k}}{19\\sqrt{2}}$
-    B: $\\frac{2\overr\rightarrow{i} + 3\overr\rightarrow{j} + 5\overr\rightarrow{k}}{\\sqrt{38}}$
-    C: $\\frac{2\overr\rightarrow{i} + 3\overr\rightarrow{j} + 5\overr\rightarrow{k}}{2}$
-    D: $\\frac{3\overr\rightarrow{i} - 2\overr\rightarrow{j}}{13}$
+    A: '$\frac{2\overrightarrow{i} + 3\overrightarrow{j} + 5\overrightarrow{k}}{19\sqrt{2}}$'
+    B: '$\frac{2\overrightarrow{i} + 3\overrightarrow{j} + 5\overrightarrow{k}}{\sqrt{38}}$'
+    C: '$\frac{2\overrightarrow{i} + 3\overrightarrow{j} + 5\overrightarrow{k}}{2}$'
+    D: '$\frac{3\overrightarrow{i} - 2\overrightarrow{j}}{13}$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 33
   section: Algebra
-  topic: scalar_dot_product
-  text: Let $\overr \rightarrow{a} = 2\overr \rightarrow{i} - 3\overr \rightarrow{j}
-    + 4\overr \rightarrow{k}$, $\overr \rightarrow{b} = 7\overr \rightarrow{i} + 2\overr
-    \rightarrow{j} - 3\overr \rightarrow{k}$, $\overr \rightarrow{c} = \overr \rightarrow{i}
-    + \overr \rightarrow{j} + \overr \rightarrow{k}$. The vector $\overr \rightarrow{r}$
-    such that $\overr \rightarrow{r} \cdot \overr \rightarrow{c} = 60$ and perpendicular
-    to both $\overr \rightarrow{a}, \overr \rightarrow{b}$ is
+  topic: quadratic_expressions
+  text: 'Let $\overrightarrow{a} = 2\overrightarrow{i} - 3\overrightarrow{j} + 4\overrightarrow{k}$, $\overrightarrow{b} = 7\overrightarrow{i} + 2\overrightarrow{j} - 3\overrightarrow{k}$, $\overrightarrow{c} = \overrightarrow{i} + \overrightarrow{j} + \overrightarrow{k}$. The vector $\overrightarrow{r}$ such that $\overrightarrow{r} \cdot \overrightarrow{c} = 60$ and perpendicular to both $\overrightarrow{a}$, $\overrightarrow{b}$ is'
   options:
-    A: "$14\\overr\r\\rightarrow{i} - 6\\overr\r\\rightarrow{j} - 12\\overr\r\\rightarrow{k}$"
-    B: "$\\overr\r\\rightarrow{i} + 34\\overr\r\\rightarrow{j} + 25\\overr\r\\rightarrow{k}$"
-    C: "$4\\overr\r\\rightarrow{i} - 21\\overr\r\\rightarrow{j} - 12\\overr\r\\rightarrow{k}$"
-    D: "$6\\overr\r\\rightarrow{i} - 6\\overr\r\\rightarrow{j} + 28\\overr\r\\rightarrow{k}$"
+    A: '$14\overrightarrow{i} - 6\overrightarrow{j} - 12\overrightarrow{k}$'
+    B: '$\overrightarrow{i} + 34\overrightarrow{j} + 25\overrightarrow{k}$'
+    C: '$4\overrightarrow{i} - 21\overrightarrow{j} - 12\overrightarrow{k}$'
+    D: '$6\overrightarrow{i} - 6\overrightarrow{j} + 28\overrightarrow{k}$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 34
   section: Algebra
-  topic: scalar_dot_product
-  text: The shortest distance between the line $\overr \rightarrow{r} = 2\overr \rightarrow{i}
-    - 2\overr \rightarrow{j} + 3\overr \rightarrow{k} + \lambda (\overr \rightarrow{i}
-    - \overr \rightarrow{j} + 4\overr \rightarrow{k})$ and the plane $\overr \rightarrow{r}
-    \cdot (\overr \rightarrow{i} + 5\overr \rightarrow{j} + \overr \rightarrow{k})
-    = 5$ is
+  topic: quadratic_expressions
+  text: 'The shortest distance between the line $\overrightarrow{r} = 2\overrightarrow{i} - 2\overrightarrow{j} + 3\overrightarrow{k} + \lambda (\overrightarrow{i} - \overrightarrow{j} + 4\overrightarrow{k})$ and the plane $\overrightarrow{r} \cdot (\overrightarrow{i} + 5\overrightarrow{j} + \overrightarrow{k}) = 5$ is'
   options:
-    A: "$\frac{1}{3\\\\sqrt{3}}$"
-    B: "$\frac{5}{3\\\\sqrt{3}}$"
-    C: "$\frac{10}{3\\\\sqrt{3}}$"
-    D: "$\frac{11}{3\\\\sqrt{3}}$"
+    A: '$\frac{1}{3\sqrt{3}}$'
+    B: '$\frac{5}{3\sqrt{3}}$'
+    C: '$\frac{10}{3\sqrt{3}}$'
+    D: '$\frac{11}{3\sqrt{3}}$'
+  correct_answer: C
+  difficulty: moderate
+  subject: Mathematics
+- id: 35
+  section: Probability & Statistics
+  topic: measures_of_dispersion
+  text: |
+    For the following frequency distribution, the variance is approximately equal to
+
+
+    | Class Interval | 0-5 | 5-10 | 10-15 | 15-20 | 20-25 |
+
+    |---|---|---|---|---|---|
+
+    | Frequency | 4 | 1 | 10 | 3 | 2 |
+  options:
+    A: '33.1'
+    B: '30.55'
+    C: '34.75'
+    D: '37.50'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 36
-  section: measures_of_dispersion
-  topic: measures_of_dispersion
-  text: If the mean of the discrete distribution $8, 9, 6, 5, x, 4, 6, 5$ is 6, then
-    its standard deviation (nearest to two decimal places) is
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: If the mean of the discrete distribution $8, 9, 6, 5, x, 4, 6, 5$ is 6, then its standard deviation (nearest to two decimal places) is
   options:
     A: '2.50'
     B: '1.58'
@@ -576,37 +500,46 @@ questions:
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
+- id: 37
+  section: Probability & Statistics
+  topic: probability
+  text: 'If A and B are events of a sample space such that $P(A \cup B) = \frac{3}{4}, P(A \cap B) = \frac{1}{4}$ and $P(\overline{A}) = \frac{2}{3}$, then $P(\overline{A} \cap B)$ is'
+  options:
+    A: '$\frac{5}{12}$'
+    B: '$\frac{3}{8}$'
+    C: '$\frac{4}{5}$'
+    D: '$\frac{5}{4}$'
+  correct_answer: A
+  difficulty: moderate
+  subject: Mathematics
 - id: 38
   section: Probability & Statistics
   topic: probability
-  text: Let X and Y be two events of a samp \leq space such that $P(X) = \\frac{1}{3}$,
-    $P(X/Y) = \\frac{1}{2}$ and $P(Y/X) = \\frac{2}{5}$ then
+  text: 'Let X and Y be two events of a sample space such that $P(X) = \frac{1}{3}$, $P(X|Y) = \frac{1}{2}$ and $P(Y|X) = \frac{2}{5}$ then'
   options:
-    A: $P(X \cap Y) = \\frac{1}{5}$
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '$P(X \cap Y) = \frac{1}{5}$'
+    B: '$P(X \cap Y) = \frac{1}{6}$'
+    C: '$P(Y) = \frac{1}{6}$'
+    D: '$P(\overline{X} \cap Y) = \frac{1}{2}$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 39
   section: Probability & Statistics
   topic: probability
-  text: Let A and B be not mutually exclusive events. If $P(A) = \\frac{4}{9}, P(A
-    \cap B) = \\frac{3}{7}$ then $P(\\frac{B}{A})=$
+  text: 'Let A and B be not mutually exclusive events. If $P(A) = \frac{4}{9}, P(A \cap B) = \frac{3}{7}$ then $P(B \mid A) =$'
   options:
     A: '0'
-    B: $\\frac{1}{28}$
-    C: $\\frac{3}{13}$
-    D: $\\frac{4}{7}$
+    B: '$\frac{1}{28}$'
+    C: '$\frac{3}{13}$'
+    D: '$\frac{4}{7}$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 40
   section: Probability & Statistics
   topic: probability
-  text: If 20% of the bolts produced by a machine are defective then the probability
-    that out of 4 bolts chosen at random, less than 2 bolts will be defective , is
+  text: If 20% of the bolts produced by a machine are defective then the probability that out of 4 bolts chosen at random, less than 2 bolts will be defective , is
   options:
     A: '0.2048'
     B: '0.4096'
@@ -618,36 +551,31 @@ questions:
 - id: 41
   section: Probability & Statistics
   topic: probability
-  text: In a book consisting of 600 pages, there are 60 typographical errors. The
-    probability that a randomly chosen pa $\geq$ will contain atmost two errors, is
+  text: 'In a book consisting of 600 pages, there are 60 typographical errors. The probability that a randomly chosen pa $\ge$ will contain atmost two errors, is'
   options:
-    A: $\\frac{1}{5}e$
-    B: $\\frac{1}{e^{0.1}}(\\frac{221}{200})$
-    C: $\\frac{1}{e^{0.1}}(\\frac{111}{200})$
-    D: $\\frac{1}{5}e^{0.1}$
+    A: '$\frac{1}{5}e$'
+    B: '$\frac{1}{e^{0.1}}(\frac{221}{200})$'
+    C: '$\frac{1}{e^{0.1}}(\frac{111}{200})$'
+    D: '$\frac{1}{5}e^{0.1}$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 42
-  section: Straight Lines
+  section: Coordinate Geometry
   topic: straight_lines
-  text: IF M is the foot of the perpendicular drawn from the origin O on to the variab
-    \leq line L, passing through a fixed point $(a, b)$ then the locus of the mid
-    point of OM is
+  text: 'If M is the foot of the perpendicular drawn from the origin O on to the variable line L, passing through a fixed point $(a, b)$ then the locus of the mid point of OM is'
   options:
     A: $x^2 + y^2 = a^2 + b^2$
-    B: $\newline 2x^2 + 2y^2 - ax - by = 0$
+    B: '$2x^2 + 2y^2 - ax - by = 0$'
     C: $ax + by = 0$
     D: $2x^2 + 2y^2 - ay - bx = 0$
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 43
-  section: Transformation of Axes
+  section: Coordinate Geometry
   topic: transformation_of_axes
-  text: When the origin is shifted to the point $\\left(\\frac{3}{2}, \\frac{3}{2}\\right)$
-    by the translation of coordinate axes, then the transformed equation of $32x^2
-    + 8xy + 32y^2 - 108x - 108y + 99 = 0$ is
+  text: 'When the origin is shifted to the point $\left(\frac{3}{2},\frac{3}{2}\right)$ by the translation of coordinate axes, then the transformed equation of $32x^2 + 8xy + 32y^2 - 108x - 108y + 99 = 0$ is'
   options:
     A: 72$X^2 + 56Y^2 - 63 = 0$
     B: $X^2 - 14XY - 7Y^2 - 2 = 0$
@@ -659,9 +587,7 @@ questions:
 - id: 44
   section: Coordinate Geometry
   topic: straight_lines
-  text: A line $L_1$ passing through A $(3, 4)$ and having slope 1 cuts another line
-    $L_2$ passing through C at B, such that AB = AC. If the equation of line BC is
-    $2x - y + 4 = 0$, then the equation of AC is
+  text: A line $L_1$ passing through A $(3, 4)$ and having slope 1 cuts another line $L_2$ passing through C at B, such that AB = AC. If the equation of line BC is $2x - y + 4 = 0$, then the equation of AC is
   options:
     A: $7x - y - 17 = 0$
     B: $x - y + 1 = 0$
@@ -673,22 +599,19 @@ questions:
 - id: 45
   section: Coordinate Geometry
   topic: straight_lines
-  text: Angles made with the X - axis by the two lines passing through the point P
-    $(1, 2)$ and cutting the line $x + y = 4$ at a distance $\\frac{\\sqrt{6}}{3}$
-    units from the point P are
+  text: 'Angles made with the X - axis by the two lines passing through the point P $(1, 2)$ and cutting the line $x + y = 4$ at a distance $\frac{\sqrt{6}}{3}$ units from the point P are'
   options:
-    A: $\\frac{\\pi}{5}$ and $\\frac{3\\pi}{10}$
-    B: $\\frac{\\pi}{6}$ and $\\frac{\\pi}{3}$
-    C: $\\frac{\\pi}{12}$ and $\\frac{5\\pi}{12}$
-    D: $\\frac{\\pi}{8}$ and $\\frac{3\\pi}{8}$
+    A: '$\frac{\pi}{5}$ and $\frac{3\pi}{10}$'
+    B: '$\frac{\pi}{6}$ and $\frac{\pi}{3}$'
+    C: '$\frac{\pi}{12}$ and $\frac{5\pi}{12}$'
+    D: '$\frac{\pi}{8}$ and $\frac{3\pi}{8}$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 46
   section: Coordinate Geometry
   topic: straight_lines
-  text: The straight lines $x + 3y - 9 = 0$, $4x + 5y - 1 = 0$, $px + qy + 10 = 0$
-    are concurrent if the line $5x + 6y + 10 = 0$ passes through the point
+  text: The straight lines $x + 3y - 9 = 0$, $4x + 5y - 1 = 0$, $px + qy + 10 = 0$ are concurrent if the line $5x + 6y + 10 = 0$ passes through the point
   options:
     A: $(q, -p)$
     B: $(q, p)$
@@ -697,38 +620,46 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
+- id: 47
+  section: Coordinate Geometry
+  topic: straight_lines
+  text: 'For $l \in \mathbb{R}$, the equation $(2l - 3)x^2 + 2lxy - y^2 = 0$ represents a pair of lines'
+  options:
+    A: 'only when $l = 0$'
+    B: 'for all values of $l \in \mathbb{R} - (-3, 1)$'
+    C: 'for all values of $l \in (-3, 1)$'
+    D: 'for all values of $l \in \mathbb{R}$'
+  correct_answer: B
+  difficulty: moderate
+  subject: Mathematics
 - id: 48
   section: Coordinate Geometry
-  topic: pair_of_straight_lines
-  text: For $l \in R$, the equation $(2l - 3)x^2 + 2lxy - y^2 = 0$ represents a pair
-    of lines
+  topic: straight_lines
+  text: 'The centroid of the triangle\le formed by the lines $x + y = 1$ and $2y^2 - xy - 6x^2 = 0$ is'
   options:
-    A: only when $l=0$
-    B: for all values of $l \in R - (-3, 1)$
-    C: for all values of $l \in (-3, 1)$
-    D: for all values of $l \in R$
-  correct_answer: B
+    A: $(0, 0)$
+    B: '$(\frac{5}{9},\frac{11}{9})$'
+    C: '$(\frac{-5}{9},\frac{11}{9})$'
+    D: '$(\frac{5}{9},\frac{-11}{9})$'
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 49
   section: Coordinate Geometry
-  topic: straight_lines
-  text: The centroid of the triang \leq formed by the lines $x + y = 1$ and $2y^2
-    - xy - 6x^2 = 0$ is
+  topic: circle
+  text: Two points from the set of Concyclic points of the circle passing through $(1, 1), (2, -1), (3, 2)$ is
   options:
-    A: $(0, 0)$
-    B: $(\\frac{5}{9}, \\frac{11}{9})$
-    C: $(\\frac{-5}{9}, \\frac{11}{9})$
-    D: $(\\frac{5}{9}, \\frac{-11}{9})$
-  correct_answer: C
+    A: '$\left(\frac{5}{2} +\sqrt{\frac{5}{2}},\frac{1}{2} +\sqrt{\frac{5}{2}}\right),\left(\frac{5}{2},\frac{1}{2} +\sqrt{\frac{5}{2}}\right)$'
+    B: '$\left(\frac{5}{2} +\sqrt{\frac{5}{2}},\frac{1}{2}\right),\left(\frac{5+\sqrt{5}}{2},\frac{1+\sqrt{5}}{2}\right)$'
+    C: '$\left(\frac{5+\sqrt{5}}{2},\frac{1+\sqrt{5}}{\sqrt{2}}\right),\left(\frac{5}{2} +\sqrt{\frac{5}{2}},\frac{1+\sqrt{5}}{4}\right)$'
+    D: '$\left(\frac{5}{2} -\frac{\sqrt{5}}{2},\frac{1}{2} -\frac{\sqrt{5}}{2}\right),\left(\frac{5}{2} -\frac{\sqrt{5}}{2},\frac{1}{2} +\frac{\sqrt{5}}{2}\right)$'
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 50
-  section: Circle
-  topic: system_of_circles
-  text: If the polar of a point $P$ with respect to a circ \leq of radius $r$ which
-    touches the coordinate axes and lies in the first quadrant is $x+2y=4r$, then
-    the point $P$ is
+  section: Vector Algebra
+  topic: applications_to_geometry
+  text: 'If the polar of a point $P$ with respect to a circle\le of radius $r$ which touches the coordinate axes and lies in the first quadrant is $x+2y=4r$, then the point $P$ is'
   options:
     A: $(r, 2r)$
     B: $(2r, r)$
@@ -738,11 +669,9 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 51
-  section: Circle
-  topic: system_of_circles
-  text: If the circles $x^2 + y^2 - 2x - 2(3 + \\sqrt{7})y + 8 + 6\\sqrt{7} = 0$ and
-    $x^2 + y^2 - 8x - 6y + k^2 = 0$, $k \in Z$, have exactly two common tangents,
-    then the number of possib \leq values for $k$ is
+  section: Vector Algebra
+  topic: applications_to_geometry
+  text: 'If the circles $x^2 + y^2 - 2x - 2(3 +\sqrt{7})y + 8 + 6\sqrt{7} = 0$ and $x^2 + y^2 - 8x - 6y + k^2 = 0$, $k in Z$, have exactly two common tangents, then the number of possible\le values for $k$ is'
   options:
     A: '8'
     B: '5'
@@ -753,40 +682,35 @@ questions:
   subject: Mathematics
 - id: 52
   section: Coordinate Geometry
-  topic: system_of_circles
-  text: The circ \leq $S = 0$ cuts the circles $C_1 = x^2+y^2-8x-2y+16 = 0$ and $C_2
-    = x^2+y^2-4x-4y-1 = 0$ orthogonally. If the common chord of $S = 0$ and $C_1 =
-    0$ is $2x+13y-15 = 0$, then the centre of $S$ is
+  topic: circle
+  text: 'The circle\le $S = 0$ cuts the circles $C_1 = x^2+y^2-8x-2y+16 = 0$ and $C_2 = x^2+y^2-4x-4y-1 = 0$ orthogonally. If the common chord of $S = 0$ and $C_1 = 0$ is $2x+13y-15 = 0$, then the centre of $S$ is'
   options:
-    A: $(\\frac{-11}{3}, \\frac{7}{6})$
-    B: $(\\frac{11}{3}, \\frac{-7}{6})$
-    C: $(\\frac{2}{15}, \\frac{11}{15})$
-    D: $(\\frac{11}{15}, \\frac{-2}{15})$
+    A: '$(\frac{-11}{3},\frac{7}{6})$'
+    B: '$(\frac{11}{3},\frac{-7}{6})$'
+    C: '$(\frac{2}{15},\frac{11}{15})$'
+    D: '$(\frac{11}{15},\frac{-2}{15})$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 53
   section: Coordinate Geometry
-  topic: system_of_circles
-  text: The equation of the circ \leq passing through the points of intersection of
-    the two orthogonal circles $S_1 = x^2 + y^2 + kx - 4y - 1 = 0, S_2 = 3x^2 + 3y^2
-    - 14x + 23y - 15 = 0$ and passing through the point $(-1, -1)$ is
+  topic: circle
+  text: The equation of the circle passing through the points of intersection of the two orthogonal circles $S_1 = x^2 + y^2 + kx - 4y - 1 = 0$, $S_2 = 3x^2 + 3y^2 - 14x + 23y - 15 = 0$ and passing through the point $(-1, -1)$ is
   options:
     A: $x^2 + y^2 - 8x - 2y - 12 = 0$
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: B
+    B: $3x^2 + 3y^2 + 18x - 12y = 0$
+    C: $5x^2 + 5y^2 - 22x + 15y - 17 = 0$
+    D: $x^2 + y^2 - 5x + 14y + 7 = 0$
+  correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 54
   section: Coordinate Geometry
   topic: parabola
-  text: Consider the parabola $y^2 + 2x + 2y -3 = 0$ and match the items of list -
-    I with those of the List - II
+  text: Consider the parabola $y^2 + 2x + 2y -3 = 0$ and match the items of list - I with those of the List - II
   options:
     A: $2x - 5 = 0$
-    B: $\\left( \\frac{3}{2}, -1 \\right)$
+    B: '$\left(\frac{3}{2}, -1\right)$'
     C: $y + 1 = 0$
     D: $(2, -1)$
   correct_answer: A
@@ -795,11 +719,9 @@ questions:
 - id: 55
   section: Coordinate Geometry
   topic: parabola
-  text: The normal at a point on the parabola $y^2 = 4x$ passes through $(5, 0)$.
-    If there are two more normals to this parabola which pass through $(5, 0)$, the
-    centroid of the triang \leq formed by the feet of these three normals is
+  text: 'The normal at a point on the parabola $y^2 = 4x$ passes through $(5, 0)$. If there are two more normals to this parabola which pass through $(5, 0)$, the centroid of the triangle\le formed by the feet of these three normals is'
   options:
-    A: $(\\frac{1}{2}, 2)$
+    A: '$(\frac{1}{2}, 2)$'
     B: $(4,0)$
     C: $(0,2)$
     D: $(2,0)$
@@ -809,91 +731,79 @@ questions:
 - id: 56
   section: Calculus
   topic: applications_of_derivatives
-  text: A spherical balloon is being inflated at the rate of $30 \mathrm{~cm}^3 /
-    \mathrm{sec}$. Then the rate at which the radius increases when the radius is
-    $15 \mathrm{~cm}$ is
+  text: 'A spherical balloon is being inflated at the rate of $30\mathrm{~cm}^3 /\mathrm{\sec}$. Then the rate at which the radius increases when the radius is $15\mathrm{~cm}$ is'
   options:
-    A: "$\frac{1}{30 \\\\pi} \\mathrm{cm} / \\mathrm{sec}$"
-    B: "$\frac{1}{15 \\\\pi} \\mathrm{cm} / \\mathrm{sec}$"
-    C: "$\frac{1}{20 \\\\pi} \\mathrm{cm} / \\mathrm{sec}$"
-    D: "$\frac{1}{5 \\\\pi} \\mathrm{cm} / \\mathrm{sec}$"
+    A: '$\frac{1}{30\pi}\mathrm{cm} /\mathrm{\sec}$'
+    B: '$\frac{1}{15\pi}\mathrm{cm} /\mathrm{\sec}$'
+    C: '$\frac{1}{20\pi}\mathrm{cm} /\mathrm{\sec}$'
+    D: '$\frac{1}{5\pi}\mathrm{cm} /\mathrm{\sec}$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 57
   section: Coordinate Geometry
   topic: ellipse
-  text: If the product of the lengths of the perpendiculars drawn from the foci to
-    the tangent $y=\\frac{-3}{4}x+3\\sqrt{2}$ of the ellipse $\\frac{x^2}{a^2} + \\frac{y^2}{b^2}
-    = 1$ is 9, then the eccentricity of that ellipse is
+  text: 'If the product of the lengths of the perpendiculars drawn from the foci to the tangent $y=\frac{-3}{4}x+3\sqrt{2}$ of the ellipse $\frac{x^2}{a^2} +\frac{y^2}{b^2} = 1$ is 9, then the eccentricity of that ellipse is'
   options:
-    A: $\\frac{\\sqrt{2}}{3}$
-    B: $\\frac{\\sqrt{5}}{6}$
-    C: $\\frac{1}{9}$
-    D: $\\frac{\\sqrt{7}}{4}$
+    A: '$\frac{\sqrt{2}}{3}$'
+    B: '$\frac{\sqrt{5}}{6}$'
+    C: '$\frac{1}{9}$'
+    D: '$\frac{\sqrt{7}}{4}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 58
-  section: Calculus
-  topic: differential_equations
-  text: The general solution of the differential equation $ rac{dy}{dx} = rac{y}{x}
-    + an(\\frac{y}{x})$ is ($C$ is an arbitrary constant)
+  section: Algebra
+  topic: theory_of_equations
+  text: 'The general solution of the differential equation $\frac{dy}{dx} =\frac{y}{x} + an(\frac{y}{x})$ is ($C$ is an arbitrary constant)'
   options:
-    A: $\sin(\\frac{y}{x}) = Cx$
-    B: $\sin(\\frac{y}{x}) = C$
-    C: $\cos(\\frac{y}{x}) = Cx$
-    D: $\cos(\\frac{y}{x}) = C$
+    A: '$\sin(\frac{y}{x}) = Cx$'
+    B: '$\sin(\frac{y}{x}) = C$'
+    C: '$\cos(\frac{y}{x}) = Cx$'
+    D: '$\cos(\frac{y}{x}) = C$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 59
   section: Coordinate Geometry
   topic: straight_lines
-  text: If the points A $(-1, 0, 7)$, B $(3, 2, -1)$, C $(5, k, -2)$ are collinear,
-    then the ratio in which the point P $(t, k-2t, t+k)$ divides the line segment
-    BC is
+  text: If the points A $(-1, 0, 7)$, B $(3, 2, -1)$, C $(5, k, -2)$ are collinear, then the ratio in which the point P $(t, k-2t, t+k)$ divides the line segment BC is
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: D
+    A: '-2 : 3'
+    B: '-1 : 2'
+    C: '1 : 2'
+    D: '3 : -2'
+  correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 60
   section: Algebra
-  topic: scalar_dot_product
-  text: The direction cosines $l, m, n$ of two lines are satisfying $3l + m + 5n =
-    0$ and $6 m n - 2 n l + 5 l m = 0$. If $\\theta$ is the ang \leq between those
-    lines then $|cos \\theta| = $
+  topic: quadratic_expressions
+  text: 'The direction cosines $l, m, n$ of two lines are satisfying $3l + m + 5n = 0$ and $6 m n - 2 n l + 5 l m = 0$. If $\theta$ is the ang\le between those lines then $|\cos\theta| = $'
   options:
-    A: $\\frac{1}{\\sqrt{6}}$
-    B: $\\frac{1}{\\sqrt{2}}$
-    C: $\\frac{1}{6}$
-    D: $\\frac{1}{\\sqrt{5}}$
+    A: '$\frac{1}{\sqrt{6}}$'
+    B: '$\frac{1}{\sqrt{2}}$'
+    C: '$\frac{1}{6}$'
+    D: '$\frac{1}{\sqrt{5}}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 61
   section: Algebra
-  topic: scalar_dot_product
-  text: A tetrahedron has vertices $O(0, 0, 0), A(1, 2, 1), B(2, 1, 3), C(-1, 1, 2)$.
-    If $\\theta$ is the ang \leq between the faces OAB and ABC, then cos $\\theta
-    = $
+  topic: quadratic_expressions
+  text: 'A tetrahedron has vertices $O(0, 0, 0), A(1, 2, 1), B(2, 1, 3), C(-1, 1, 2)$. If $\theta$ is the ang\le between the faces OAB and ABC, then\cos $\theta = $'
   options:
-    A: $\\frac{1}{\\sqrt{2}}$
-    B: $\\frac{19}{35}$
-    C: $\\frac{\\sqrt{3}}{2}$
-    D: $\\frac{17}{31}$
+    A: '$\frac{1}{\sqrt{2}}$'
+    B: '$\frac{19}{35}$'
+    C: '$\frac{\sqrt{3}}{2}$'
+    D: '$\frac{17}{31}$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 62
   section: Calculus
   topic: limits_and_continuity
-  text: If $log(1 + x) = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\frac{x^4}{4} + ........\infty$
-    and $lim_{x \r\rightarrow 0} \\frac{log(1 + x)^{1 + x}}{x^2} = k$, then 12k=
+  text: 'If $\log(1 + x) = x -\frac{x^2}{2} +\frac{x^3}{3} -\frac{x^4}{4} + ........\infty$ and $\lim_{x\rightarrow 0}\frac{\log(1 + x)^{1 + x}}{x^2} = k$, then 12k='
   options:
     A: '1'
     B: '2'
@@ -903,51 +813,45 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 63
-  section: Limits and Continuity
-  topic: limits_and_continuity
-  text: "If $f(x) = \\begin{cases} k, & \\text{for } x = 1 \\\\ \\\\frac{(9x - 1)(\\\
-    \\sqrt{x} - 1)}{3x^2 + 2x - 5}, & \\text{for } x \neq 1 \\end{cases}$ is continuous\
-    \ on $[0, \\infty)$, then $k =$"
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'If $f(x) = \begin{cases} k, & \text{for } x = 1 \\ \frac{(9x - 1)(\sqrt{x} - 1)}{3x^2 + 2x - 5}, & \text{for } x \neq 1 \end{cases}$ is continuous on $[0, \infty)$, then $k =$'
   options:
-    A: $\\frac{1}{16}$
-    B: $\\frac{1}{8}$
-    C: $\\frac{1}{4}$
-    D: $\\frac{1}{2}$
+    A: '$\frac{1}{16}$'
+    B: '$\frac{1}{8}$'
+    C: '$\frac{1}{4}$'
+    D: '$\frac{1}{2}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 64
-  section: Differentiation and Derivatives
-  topic: differentiation_and_derivatives
-  text: "Let $g(x) \neq 0, g'(x) \neq 0, f(x) \neq 0, f'(x) \neq 0$. If $F(x) = f(x)g(x),\
-    \ G(x) = f'(x)g'(x)$ and $F'(x) = G(x)H(x) = f(x)K(x)$, then $H(x) + K(x) =$"
+  section: Calculus
+  topic: applications_of_derivatives
+  text: "Let $g(x) \neq 0, g'(x) \neq 0, f(x) \neq 0, f'(x) \neq 0$. If $F(x) = f(x)g(x)$, $G(x) = f'(x)g'(x)$ and $F'(x) = G(x)H(x) = f(x)K(x)$, then $H(x) + K(x) =$"
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: '$\frac{f''}{f} + \frac{f}{f''} + \frac{g}{g''}$'
+    B: '$\frac{f''}{f} + \frac{g}{g''} + \frac{g''}{g}$'
+    C: '$\frac{f''g'' + fg}{ff''gg''}$'
+    D: '$\frac{f''}{f} + \frac{g}{g''} + \frac{f}{f''} + \frac{g''}{g}$'
+  correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 65
-  section: differentiation_and_derivatives
-  topic: differentiation_and_derivatives
-  text: If $y = rac{xSin^{-1}x}{\\sqrt{1-x^2}} + log\\sqrt{1-x^2}$, then $ rac{dy}{dx}
-    =$
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: 'If $y =\frac{xSin^{-1}x}{\sqrt{1-x^2}} +\log\sqrt{1-x^2}$, then $\frac{dy}{dx} =$'
   options:
-    A: "$\frac{Sin^{-1}x}{1-x^2}$"
-    B: "$\frac{Sin^{-1}x}{(1-x^2)^{3/2}}$"
-    C: "$\frac{x}{1-x^2}$"
-    D: "$\frac{xSin^{-1}x}{\\\\sqrt{1-x^2}} - \frac{2x}{\\\\sqrt{1-x^2}}$"
+    A: '$\frac{Sin^{-1}x}{1-x^2}$'
+    B: '$\frac{Sin^{-1}x}{(1-x^2)^{3/2}}$'
+    C: '$\frac{x}{1-x^2}$'
+    D: '$\frac{xSin^{-1}x}{\sqrt{1-x^2}} -\frac{2x}{\sqrt{1-x^2}}$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 66
-  section: differentiation_and_derivatives
-  topic: differentiation_and_derivatives
-  text: Let $f(x)$ and $g(x)$ be twice differentiab \leq functions such that $f(x)
-    = x^2 + g'(1).x + g'(2)$ and $g(x) = f(1).x^2 + xf'(x) + f'(x)$. Then, $f(x) -
-    g(x) =$
+  section: Coordinate Geometry
+  topic: transformation_of_axes
+  text: 'Let $f(x)$ and $g(x)$ be twice differentiab\le functions such that $f(x) = x^2 + g''(1).x + g''(2)$ and $g(x) = f(1).x^2 + xf''(x) + f''(x)$. Then, $f(x) - g(x) =$'
   options:
     A: $2x + 5$
     B: $3x^2 + 6x + 1$
@@ -957,53 +861,45 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 67
-  section: applications_of_derivatives
-  topic: applications_of_derivatives
-  text: If the area of a circ \leq increases at the rate of $\\frac{1}{\\sqrt{\\pi}}$
-    sq. units /sec, then the rate (in units/sec) at which the perimeter of the circ
-    \leq changes, when perimeter is $\\sqrt{\\pi}$ units, is
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'If the area of a circle\le increases at the rate of $\frac{1}{\sqrt{\pi}}$ sq. units /\sec, then the rate (in units/\sec) at which the perimeter of the circle\le changes, when perimeter is $\sqrt{\pi}$ units, is'
   options:
     A: '2'
     B: '4'
-    C: $\\frac{1}{\\sqrt{\\pi}}$
-    D: $\\sqrt{\\pi}$
+    C: '$\frac{1}{\sqrt{\pi}}$'
+    D: '$\sqrt{\pi}$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 68
-  section: applications_of_derivatives
-  topic: applications_of_derivatives
-  text: Let $a$ be a fixed positive real number and $n$ be an arbitrary constant.
-    For the curve $y = \\frac{x^n}{a^{n-1}}$, if the length of the subnormal at any
-    point $(\\alpha, \\beta)$ is proportional to $\\alpha^2$, then $n =$
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: 'Let $a$ be a fixed positive real number and $n$ be an arbitrary constant. For the curve $y =\frac{x^n}{a^{n-1}}$, if the length of the subnormal at any point $(\alpha,\beta)$ is proportional to $\alpha^2$, then $n =$'
   options:
     A: '2'
     B: '1'
     C: '0'
-    D: $\\frac{3}{2}$
+    D: '$\frac{3}{2}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 69
   section: Calculus
   topic: applications_of_derivatives
-  text: In each of the choices given below, a function and an interval are given.
-    The correct choice having a function and the associated interval for which the
-    Lagrange's mean value theorem is not valid is
+  text: 'In each of the choices given below, a function and an interval are given. The correct choice having a function and the associated interval for which the Lagrange''s mean value theorem is not valid is'
   options:
     A: $x,[1,5]$
-    B: $\log x,[1,e]$
-    C: $\\frac{2x-1}{3x-4},[1,2]$
-    D: $\\frac{(x-2)^2}{(x-4)^2},[2,4]$
+    B: '$\log x,[1,e]$'
+    C: '$\frac{2x-1}{3x-4},[1,2]$'
+    D: '$\frac{(x-2)^2}{(x-4)^2},[2,4]$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 70
-  section: differentiation_and_derivatives
-  topic: applications_of_derivatives
-  text: Let $p(x)$ be a polynomial of degree 3 having extreme value at $x=1$. If $lim_{x
-    \rightarrow 0} \\frac{p(x)+4}{x^2} = 6$, then $\\frac{dp}{dx}|_{x = \\frac{1}{2}}
-    =$
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: 'Let $p(x)$ be a polynomial of degree 3 having extreme value at $x=1$. If $\lim_{x\rightarrow 0}\frac{p(x)+4}{x^2} = 6$, then $\frac{dp}{dx}|_{x =\frac{1}{2}} =$'
   options:
     A: '2'
     B: '0'
@@ -1013,55 +909,45 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 71
-  section: integration
-  topic: definite_integrals
-  text: $\int \\frac{\sqrt[3]{y^2} + \sqrt[4]{y} + \sqrt[6]{y}}{\\sqrt{y}(1+\sqrt[3]{y^2})}
-    dy=$
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: '$\int\frac{\sqrt[3]{y^2} +\sqrt[4]{y} +\sqrt[6]{y}}{\sqrt{y}(1+\sqrt[3]{y^2})} dy=$'
   options:
-    A: $\\frac{3}{4}\sqrt[3]{y^4} + Tan^{-1}(\\sqrt{y}) + C$
-    B: $\\frac{3}{2}y^{2/3} + 6 Tan^{-1}(\sqrt[6]{y^2}) + C$
-    C: $\\frac{2}{3\sqrt[3]{y^2}} + 6 log(1+y^2) + C$
-    D: $\\frac{3}{1+y} + Tan^{-1}(\sqrt[3]{y^2}) + C$
+    A: '$\frac{3}{4}\sqrt[3]{y^4} + Tan^{-1}(\sqrt{y}) + C$'
+    B: '$\frac{3}{2}y^{2/3} + 6 Tan^{-1}(\sqrt[6]{y^2}) + C$'
+    C: '$\frac{2}{3\sqrt[3]{y^2}} + 6\log(1+y^2) + C$'
+    D: '$\frac{3}{1+y} + Tan^{-1}(\sqrt[3]{y^2}) + C$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 72
   section: Calculus
   topic: definite_integrals
-  text: For $k \in (1, \infty)$, $\int \\frac{1}{1+k \cos x} dx =$ $k \in (1, \infty)$,
-    $\int \\frac{1}{1+k \cos x} dx =$
+  text: 'For $k in (1,\infty)$, $\int\frac{1}{1+k\cos x} dx =$ $k in (1,\infty)$, $\int\frac{1}{1+k\cos x} dx =$'
   options:
-    A: $\\frac{2}{\\sqrt{1+k^2}} Tan^{-1}(\\frac{1-k}{\\sqrt{1+k}} tan \\frac{x}{2})
-      + C$
-    B: $\\frac{1}{\\sqrt{k^2-1}} log (\\frac{\\sqrt{k+1}+\\sqrt{k-1} tan \\frac{x}{2}}{\\sqrt{k+1}-\\sqrt{k-1}})+C$
-    C: $\\frac{1}{\\sqrt{k^2+1}} log (\\frac{\\sqrt{k+1}+\\sqrt{k-1} tan \\frac{x}{2}}{\\sqrt{k+1}-\\sqrt{k-1}
-      tan \\frac{x}{2}})+C$
-    D: $\\frac{1}{\\sqrt{k^2-1}} Tan^{-1} (\\frac{\\sqrt{k-1} cos \\frac{x}{2} + \\sqrt{k-1}
-      sin \\frac{x}{2}}{\\sqrt{k+1} cos - \\sqrt{k-1} sin \\frac{x}{2}})+C$
+    A: '$\frac{2}{\sqrt{1+k^2}} Tan^{-1}(\frac{1-k}{\sqrt{1+k}}\tan\frac{x}{2}) + C$'
+    B: '$\frac{1}{\sqrt{k^2-1}}\log (\frac{\sqrt{k+1}+\sqrt{k-1}\tan\frac{x}{2}}{\sqrt{k+1}-\sqrt{k-1}})+C$'
+    C: '$\frac{1}{\sqrt{k^2+1}}\log (\frac{\sqrt{k+1}+\sqrt{k-1}\tan\frac{x}{2}}{\sqrt{k+1}-\sqrt{k-1}\tan\frac{x}{2}})+C$'
+    D: '$\frac{1}{\sqrt{k^2-1}} Tan^{-1} (\frac{\sqrt{k-1}\cos\frac{x}{2} +\sqrt{k-1}\sin\frac{x}{2}}{\sqrt{k+1}\cos -\sqrt{k-1}\sin\frac{x}{2}})+C$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 73
   section: Calculus
   topic: integration
-  text: $\int e^{-3x}(x^2 + sin 4x) dx =$
+  text: '$\int e^{-3x}(x^2 +\sin 4x) dx =$'
   options:
-    A: $-e^{-3x}(\\frac{x^2}{3} + \\frac{2x}{9} + \\frac{2}{27} + \\frac{3}{25}sin
-      4x + \\frac{4}{25} cos 4x ) + C$
-    B: $-e^{-3x}(\\frac{x^2}{3} + \\frac{2x}{9} - \\frac{2}{27} + \\frac{3}{25}sin
-      4x + \\frac{4}{25} cos 4x ) + C$
-    C: $-e^{-3x}(\\frac{x^2}{3} + \\frac{2x}{9} + \\frac{2}{27} - \\frac{3}{25}sin
-      4x - \\frac{4}{25} cos 4x ) + C$
-    D: $-e^{-3x}(\\frac{x^2}{3} - \\frac{2x}{27} + \\frac{3}{25}sin 4x - \\frac{4}{25}
-      cos 4x ) + C$
+    A: '$-e^{-3x}(\frac{x^2}{3} +\frac{2x}{9} +\frac{2}{27} +\frac{3}{25}\sin 4x +\frac{4}{25}\cos 4x ) + C$'
+    B: '$-e^{-3x}(\frac{x^2}{3} +\frac{2x}{9} -\frac{2}{27} +\frac{3}{25}\sin 4x +\frac{4}{25}\cos 4x ) + C$'
+    C: '$-e^{-3x}(\frac{x^2}{3} +\frac{2x}{9} +\frac{2}{27} -\frac{3}{25}\sin 4x -\frac{4}{25}\cos 4x ) + C$'
+    D: '$-e^{-3x}(\frac{x^2}{3} -\frac{2x}{27} +\frac{3}{25}\sin 4x -\frac{4}{25}\cos 4x ) + C$'
   correct_answer: A
   difficulty: moderate
   subject: Mathematics
 - id: 74
   section: Algebra
   topic: matrices
-  text: If $A = \begin{bmatrix} 1 & -2 \\ 3 & -2 \end{bmatrix}$, then which of the
-    following statement is true?
+  text: 'If $A =\begin{bmatrix} 1 & -2  3 & -2\end{bmatrix}$, then which of the following statement is true?'
   options:
     A: $A^2 - A + 2I = 0$
     B: $A^2 + A + 2I = 0$
@@ -1071,78 +957,69 @@ questions:
   difficulty: moderate
   subject: Mathematics
 - id: 75
-  section: Limits and Continuity
-  topic: limits_and_continuity
-  text: $\lim_{n \r\rightarrow \infty} \left[ \\left( 1 + \\frac{1}{n^2} \\right)
-    \\left( 1 + \\frac{2^2}{n^2} \\right) \\left( 1 + \\frac{3^2}{n^2} \\right) ...
-    \\left( 1 + \\frac{n^2}{n^2} \\right) \right]^{\\frac{1}{n}} =$
+  section: Probability & Statistics
+  topic: random_variables_and_distribution
+  text: '$\lim_{n\rightarrow\infty}\left[\left( 1 +\frac{1}{n^2}\right)\left( 1 +\frac{2^2}{n^2}\right)\left( 1 +\frac{3^2}{n^2}\right) ...\left( 1 +\frac{n^2}{n^2}\right)\right]^{\frac{1}{n}} =$'
   options:
     A: $e$
     B: $2e$
-    C: $\\frac{e^{-2}}{2}$
-    D: $\\frac{2e^{-4}}{e^2}$
+    C: '$\frac{e^{-2}}{2}$'
+    D: '$\frac{2e^{-4}}{e^2}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 76
-  section: Definite Integrals
-  topic: definite_integrals
-  text: $\int_{-\\frac{\\pi}{2}}^{-\\frac{\\pi}{2}} \\frac{3 dx}{1 + e^{\\sqrt{8}
-    sin x - \\frac{3 \\pi}{8}}} =$
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: '$\int_{-\frac{\pi}{2}}^{-\frac{\pi}{2}}\frac{3 dx}{1 + e^{\sqrt{8}\sin x -\frac{3\pi}{8}}} =$'
   options:
-    A: $\\frac{3\\sqrt{2}}{4}$
-    B: $\\frac{3}{4} \\pi$
-    C: $\\frac{\\pi}{8}$
-    D: $\\frac{3\\pi}{8}$
+    A: '$\frac{3\sqrt{2}}{4}$'
+    B: '$\frac{3}{4}\pi$'
+    C: '$\frac{\pi}{8}$'
+    D: '$\frac{3\pi}{8}$'
   correct_answer: D
   difficulty: moderate
   subject: Mathematics
 - id: 77
-  section: Definite Integrals
-  topic: definite_integrals
-  text: If the area of the region bounded by $y = cos x, y = sin x, x = \\frac{\\pi}{4}$
-    and $x = a$ is bisected by the line $x = a$, then $sin(a + \\frac{\\pi}{4}) =$
+  section: Coordinate Geometry
+  topic: pair_of_straight_lines
+  text: 'If the area of the region bounded by $y =\cos x, y =\sin x, x =\frac{\pi}{4}$ and $x = a$ is bisected by the line $x = a$, then $\sin(a +\frac{\pi}{4}) =$'
   options:
-    A: $\\frac{\\sqrt{2}}{2 + \\sqrt{2}}$
-    B: $\\frac{\\sqrt{3} + 1}{2}$
-    C: $\\frac{\\sqrt{2} - 1}{2\\sqrt{2}}$
-    D: $\\frac{\\sqrt{3} + 1}{2\\sqrt{2}}$
+    A: '$\frac{\sqrt{2}}{2 +\sqrt{2}}$'
+    B: '$\frac{\sqrt{3} + 1}{2}$'
+    C: '$\frac{\sqrt{2} - 1}{2\sqrt{2}}$'
+    D: '$\frac{\sqrt{3} + 1}{2\sqrt{2}}$'
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 78
-  section: Differential Equations
-  topic: differential_equations
-  text: If the family of curves $y = ae^x + be^{-x}$, where $a, b$ are arbitrary constants
-    represents the general solution of the differential equation $f\\left(x, y, \\frac{dy}{dx},
-    \\frac{d^2y}{dx^2}\\right) = 0$, then $\\frac{df}{dx} =$
+  section: Algebra
+  topic: theory_of_equations
+  text: 'If the family of curves $y = ae^x + be^{-x}$, where $a, b$ are arbitrary constants represents the general solution of the differential equation $f\left(x, y,\frac{dy}{dx},\frac{d^2y}{dx^2}\right) = 0$, then $\frac{df}{dx} =$'
   options:
-    A: $\\frac{d^2y}{dx^2} - 3\\frac{dy}{dx} - 4y$
-    B: $\\frac{d^3y}{dx^3} - 3\\frac{d^2y}{dx^2} - 4\\frac{dy}{dx}$
-    C: $\\frac{d^3y}{dx^3} - \\frac{d^2y}{dx^2} - 3\\frac{dy}{dx} + 2$
-    D: $\\frac{d^3y}{dx^3} - \\frac{d^2y}{dx^2} + 3$
+    A: '$\frac{d^2y}{dx^2} - 3\frac{dy}{dx} - 4y$'
+    B: '$\frac{d^3y}{dx^3} - 3\frac{d^2y}{dx^2} - 4\frac{dy}{dx}$'
+    C: '$\frac{d^3y}{dx^3} -\frac{d^2y}{dx^2} - 3\frac{dy}{dx} + 2$'
+    D: '$\frac{d^3y}{dx^3} -\frac{d^2y}{dx^2} + 3$'
   correct_answer: B
   difficulty: moderate
   subject: Mathematics
 - id: 79
   section: Calculus
   topic: differential_equations
-  text: If the length of the sub tangent at any point $p\\left(x, y\\right)$ on a
-    curve $f\\left(x, y\\right) = 0$ is $x + 7y^2$, then $f(x, y) =$
+  text: 'If the length of the sub tangent at any point $p\left(x, y\right)$ on a curve $f\left(x, y\right) = 0$ is $x + 7y^2$, then $f(x, y) =$'
   options:
     A: $xy + cy - 7x$
-    B: $\\frac{x}{y} + 7x - c$
+    B: '$\frac{x}{y} + 7x - c$'
     C: $7y^2 + cy - x$
     D: $7xy + cy - x$
   correct_answer: C
   difficulty: moderate
   subject: Mathematics
 - id: 80
-  section: Calculus
-  topic: differential_equations
-  text: If the general solution of the differential equation $(y - x + 1) dy - (y
-    + x + 2) dx = 0$ is $f\\left(x, y, c\\right) = 0$, then the value of $c$ such
-    that $f\\left(1, 1, c\\right) = 0$ is
+  section: Algebra
+  topic: theory_of_equations
+  text: 'If the general solution of the differential equation $(y - x + 1) dy - (y + x + 2) dx = 0$ is $f\left(x, y, c\right) = 0$, then the value of $c$ such that $f\left(1, 1, c\right) = 0$ is'
   options:
     A: $4$
     B: $-4$
@@ -1156,33 +1033,29 @@ questions:
   topic: nuclear_physics
   text: The nuclear forces are __________
   options:
-    A: long ran \geq repulsive forces
-    B: long ran \geq attractive forces
-    C: short ran \geq attractive forces
-    D: short ran \geq repulsive forces
+    A: 'long range repulsive forces'
+    B: 'long range attractive forces'
+    C: 'short range attractive forces'
+    D: 'short range repulsive forces'
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 82
   section: Oscillations and Waves
-  topic: waves
-  text: Due to an explosion underneath water, a bubb \leq started oscillating. If
-    this oscillation has time period T, which is proportional to $P^{\\alpha} S^{\\beta}
-    E^{\gamma}$, where P is static pressure, S is density of water and E is total
-    energy of explosion. Determine $\\alpha, \\beta$ and $\gamma$
+  topic: sound_waves
+  text: 'Due to an explosion underneath water, a bubble started oscillating. If this oscillation has time period T, which is proportional to $P^{\alpha} S^{\beta} E^{\gamma}$, where P is static pressure, S is density of water and E is total energy of explosion. Determine $\alpha,\beta$ and $\gamma$'
   options:
-    A: ${\\alpha = \\frac{-3}{2}, \\beta = \\frac{1}{3}, \gamma = \\frac{-5}{6}}$
-    B: ${\\alpha = \\frac{-5}{6}, \\beta = \\frac{1}{2}, \gamma = \\frac{1}{3}}$
-    C: ${\\alpha = \\frac{1}{2}, \\beta = \\frac{-5}{6}, \gamma = \\frac{-7}{4}}$
-    D: ${\\alpha = \\frac{1}{3}, \\beta = \\frac{3}{2}, \gamma = \\frac{4}{3}}$
+    A: '${\alpha =\frac{-3}{2},\beta =\frac{1}{3},\gamma =\frac{-5}{6}}$'
+    B: '${\alpha =\frac{-5}{6},\beta =\frac{1}{2},\gamma =\frac{1}{3}}$'
+    C: '${\alpha =\frac{1}{2},\beta =\frac{-5}{6},\gamma =\frac{-7}{4}}$'
+    D: '${\alpha =\frac{1}{3},\beta =\frac{3}{2},\gamma =\frac{4}{3}}$'
   correct_answer: B
   difficulty: moderate
   subject: Physics
 - id: 83
   section: Mechanics
   topic: motion_in_a_straight_line
-  text: A car travelling at $15 m/s$ overtake another car travelling at $10 m/s$.
-    Assuming each car is 4 m long. What is the time taken during the overtake?
+  text: A car travelling at $15 m/s$ overtake another car travelling at $10 m/s$. Assuming each car is 4 m long. What is the time taken during the overtake?
   options:
     A: 1.6 s
     B: 0.8 s
@@ -1194,50 +1067,33 @@ questions:
 - id: 84
   section: Mechanics
   topic: laws_of_motion
-  text: If a body moving in a circular path maintains constant speed of $10 ms^{-1}$,
-    then which of the following correctly describes the relation between acceleration
-    (a) and radius (r).
+  text: If a body moving in a circular path maintains constant speed of $10 ms^{-1}$, then which of the following correctly describes the relation between acceleration (a) and radius (r).
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: 'null'
+    image: /static/papers/ts_eamcet/2020_6/q84-op4.png
+    B: 'null'
+    C: 'null'
+    D: 'null'
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 85
-  section: vectors_and_scalars
-  topic: types_of_vectors
-  text: If $0.5\hat{i} + 0.8\hat{j} + C\hat{k}$ is a unit vector then C is
+  section: Oscillations and Waves
+  topic: simple_harmonic_motion
+  text: 'If $0.5\hat{i} + 0.8\hat{j} + C\hat{k}$ is a unit vector then C is'
   options:
-    A: $\\sqrt{0.89}$
+    A: '$\sqrt{0.89}$'
     B: '0.2'
     C: '0.3'
-    D: $\\sqrt{0.11}$
+    D: '$\sqrt{0.11}$'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 86
   section: Mechanics
-  topic: laws_of_motion
-  text: A body of mass 5kg is acted upon by a force $F = (-3\hat{i} + 4\hat{j})N$.
-    If its initial velocity at t=0 is $V = (6\hat{i} - 12\hat{j})ms^{-1}$, the time
-    at which it will just have zero velocity is
-  options:
-    A: 10 s
-    B: 20 s
-    C: 30 s
-    D: 40 s
-  correct_answer: A
-  difficulty: moderate
-  subject: Physics
-- id: 87
-  section: Mechanics
   topic: motion_in_a_plane
-  text: A projecti \leq is launched from point A of the given landscape with a water
-    body as shown in the diagram. The launching ang \leq is $15^o$. From the following,
-    identify the right initial velocity of the projecti \leq with which it will fall
-    somewhere in between the points C and D. (Assume $g = 10 m/s^2$)
+  text: 'A projectile is launched from point A of the given landscape with a water body as shown in the diagram. The launching angle is $15^o$. From the following, identify the\right initial velocity of the projectile with which it will fall somewhere in between the points C and D. (Assume $g = 10 m/s^2$)'
+  image: /static/papers/ts_eamcet/2020_6/q86.png
   options:
     A: 21.5 m/s
     B: 22.5 m/s
@@ -1246,11 +1102,23 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
+- id: 87
+  section: Mechanics
+  topic: laws_of_motion
+  text: 'When a bullet is fired from a rifle its momentum becomes $20 \text{ kg m/s}$. If the velocity of the bullet is $1000 \text{ m/s}$, then what is its mass?'
+  options:
+    A: 30 g
+    B: 5 kg
+    C: 20 g
+    D: 500 g
+  correct_answer: C
+  difficulty: moderate
+  subject: Physics
 - id: 88
   section: Mechanics
   topic: laws_of_motion
-  text: A block is between two surfaces as shown in the figure. Find the normal reaction
-    at both surfaces. [Assume $g = 10 m/s^2$]
+  text: A block is between two surfaces as shown in the figure. Find the normal reaction at both surfaces. [Assume $g = 10 m/s^2$]
+  image: /static/papers/ts_eamcet/2020_6/q88.png
   options:
     A: $N_1 = 37.2 N$ and $N_2 = 9.6 N$
     B: $N_1 = 38.2 N$ and $N_2 = 8.6 N$
@@ -1262,22 +1130,19 @@ questions:
 - id: 89
   section: Mechanics
   topic: work_energy_and_power
-  text: When a body is acted upon by a resultant force, then the work done by the
-    resultant force is equal to
+  text: When a body is acted upon by a resultant force, then the work done by the resultant force is equal to
   options:
     A: its initial kinetic energy
     B: its initial potential energy
-    C: chan \geq in the kinetic energy
-    D: chan \geq in the potential energy
+    C: 'chan\ge in the kinetic energy'
+    D: 'chan\ge in the potential energy'
   correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 90
   section: Mechanics
   topic: work_energy_and_power
-  text: A force acts on a body of mass 10 kg. resulting in its displacement given
-    as $x = ( rac{t^3}{25})m$ where t is the time in seconds. The work done by the
-    force in 5 seconds is
+  text: 'A force acts on a body of mass 10 kg. resulting in its displacement given as $x = (\frac{t^3}{25})m$ where t is the time in seconds. The work done by the force in 5 seconds is'
   options:
     A: 620 J
     B: 333 J
@@ -1289,9 +1154,7 @@ questions:
 - id: 91
   section: Mechanics
   topic: work_energy_and_power
-  text: A body of mass 2 kg is initially at rest. It starts moving unidirectionally
-    along the positive x-axis under the influence of a variab \leq force $F = (2 +
-    6x^2)$ N. The kinetic energy of the body when it is at x = 2m is
+  text: 'A body of mass 2 kg is initially at rest. It starts moving unidirectionally along the positive x-axis under the influence of a variable\le force $F = (2 + 6x^2)$ N. The kinetic energy of the body when it is at x = 2m is'
   options:
     A: 20 J
     B: 22 J
@@ -1303,10 +1166,7 @@ questions:
 - id: 92
   section: Mechanics
   topic: system_of_particles_and_rotational_motion
-  text: 'A circular ho \leq of radius 3 cm is cut out from a uniform circular disc
-    of radius 6 cm. The centre of the ho \leq is at 3 cm, from the centre of the original
-    disc. The distance of centre of gravity of the resulting flat body from the centre
-    of the original disc is:'
+  text: 'A circular hole of radius 3 cm is cut out from a uniform circular disc of radius 6 cm. The centre of the hole is at 3 cm, from the centre of the original disc. The distance of centre of gravity of the resulting flat body from the centre of the original disc is:'
   options:
     A: 6 cm
     B: 3 cm
@@ -1318,14 +1178,12 @@ questions:
 - id: 93
   section: Oscillations and Waves
   topic: simple_harmonic_motion
-  text: For a partic \leq executing SHM, determine the ratio of avera \geq acceleration
-    of the partic \leq between extreme position and equilibrium position w.r.t the
-    maximmum acceleration.
+  text: 'For a particle executing SHM, determine the ratio of average acceleration of the particle between extreme position and equilibrium position w.r.t the maximmum acceleration.'
   options:
-    A: "$\frac{4}{\\\\pi}$"
-    B: "$\frac{2}{\\\\pi}$"
-    C: "$\frac{1}{\\\\pi}$"
-    D: "$\frac{1}{2\\\\pi}$"
+    A: '$\frac{4}{\pi}$'
+    B: '$\frac{2}{\pi}$'
+    C: '$\frac{1}{\pi}$'
+    D: '$\frac{1}{2\pi}$'
   correct_answer: B
   difficulty: moderate
   subject: Physics
@@ -1337,18 +1195,14 @@ questions:
     A: acceleration due to gravity increases with increasing altitude
     B: acceleration due to gravity is independent of mass of earth
     C: a geostationary satellite can have a time period less than 24 hours
-    D: acceleration due to gravity decreases with increasing depth assuming earth
-      to be a sphere of uniform density
+    D: acceleration due to gravity decreases with increasing depth assuming earth to be a sphere of uniform density
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 95
   section: Mechanics
   topic: properties_of_matter
-  text: A slab of side 50 cm and thickness 10 cm is subject to a shearing force of
-    $10^5$ N on its narrow edge. If the lower ed \geq is riveted to the floor and
-    upper ed \geq is displaced by 0.2 mm, then shear modulus of the material of the
-    slab is
+  text: 'A slab of side 50 cm and thickness 10 cm is subject to a shearing force of $10^5$ N on its narrow edge. If the lower edge is riveted to the floor and upper edge is displaced by 0.2 mm, then shear modulus of the material of the slab is'
   options:
     A: 6 GPa
     B: 0.6 GPa
@@ -1360,23 +1214,19 @@ questions:
 - id: 96
   section: Mechanics
   topic: properties_of_matter
-  text: A meniscus drop of radius 1 cm is sprayed into $10^6$ droplets of equal size.
-    Calculate the energy expended if surface tension of mercury is $435 imes 10^{-3}$
-    N/m
+  text: 'A meniscus drop of radius 1 cm is sprayed into $10^6$ droplets of equal size. Calculate the energy expended if surface tension of mercury is $435 \times 10^{-3}$ N/m'
   options:
-    A: "$54.1 \times 10^{-3}$ J"
-    B: 64.1$\times 10^{-3}$ J
-    C: 74.1$\times 10^{-3}$ J
-    D: 84.1$\times 10^{-3}$ J
+    A: '$54.1\times 10^{-3}$ J'
+    B: '64.1$\times 10^{-3}$ J'
+    C: '74.1$\times 10^{-3}$ J'
+    D: '84.1$\times 10^{-3}$ J'
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 97
   section: Thermal Physics
   topic: thermodynamics
-  text: The specific heat of helium at constant volume is 12.6 J mol$^{-1}$K$^{-1}$.
-    The specific heat of helium at constant pressure in J mol$^{-1}$K$^{-1}$ is approximately
-    (Assume the universal gas constant R= 8.314 J mol$^{-1}$K$^{-1}$)
+  text: The specific heat of helium at constant volume is 12.6 J mol$^{-1}$K$^{-1}$. The specific heat of helium at constant pressure in J mol$^{-1}$K$^{-1}$ is approximately (Assume the universal gas constant R= 8.314 J mol$^{-1}$K$^{-1}$)
   options:
     A: '12.6'
     B: '16.8'
@@ -1388,25 +1238,19 @@ questions:
 - id: 98
   section: Thermal Physics
   topic: thermal_properties_of_matter
-  text: A composite slab is prepared with two different materials A and B. The relation
-    between their coefficient of thermal conductivity and thickness is given as $\\frac{K_A}{K_B}
-    = \\frac{2}{2}$ and $X_A = 2X_B$ respectively. If the temperature of faces of
-    A and B are 75 ${}^\circ$C and 50 ${}^\circ$C respectively, what will be the temperature
-    of common surface?
+  text: 'A composite slab is prepared with two different materials A and B. The relation between their coefficient of thermal conductivity and thickness is given as $\frac{K_A}{K_B} =\frac{2}{2}$ and $X_A = 2X_B$ respectively. If the temperature of faces of A and B are 75 ${}^\circ$C and 50 ${}^\circ$C respectively, what will be the temperature of common surface?'
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A: '60 ${}^\circ$C'
+    B: '50 ${}^\circ$C'
+    C: '62.5 ${}^\circ$C'
+    D: '55 ${}^\circ$C'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 99
-  section: Thermodynamics
-  topic: thermodynamics
-  text: Work done on heating one mo \leq of monoatomic gas adiabatically through 20${}^\circ$C
-    is W. Then the work done on heating 6 moles of rigid diatomic gas through the
-    same chan \geq in temperature
+  section: Electricity and Magnetism
+  topic: moving_charges_and_magnetism
+  text: 'Work done on heating one mole of monoatomic gas adiabatically through 20${}^\circ$C is W. Then the work done on heating 6 moles of rigid diatomic gas through the same chan\ge in temperature'
   options:
     A: 9 W
     B: 10 W
@@ -1418,49 +1262,43 @@ questions:
 - id: 100
   section: Thermal Physics
   topic: thermodynamics
-  text: If a gas has $n$ degrees of freedom, then the ratio of $\\frac{C_p}{C_v}$
-    is
+  text: 'If a gas has $n$ degrees of freedom, then the ratio of $\frac{C_p}{C_v}$ is'
   options:
-    A: $\\frac{n+2}{n}$
-    B: $\\frac{2n+1}{n}$
-    C: $\\frac{n+2}{2n}$
-    D: $\\frac{n+4}{2n}$
+    A: '$\frac{n+2}{n}$'
+    B: '$\frac{2n+1}{n}$'
+    C: '$\frac{n+2}{2n}$'
+    D: '$\frac{n+4}{2n}$'
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 101
   section: Oscillations and Waves
-  topic: waves
-  text: A bus moving with an uniform speed of 72 km/h towards a building blows a horn
-    of frequency 1.7 KHz . If speed of sound in air is 340 m/s, what will be the frequency
-    of echo heard by bus driver?
+  topic: sound_waves
+  text: A bus moving with an uniform speed of 72 km/h towards a building blows a horn of frequency 1.7 KHz . If speed of sound in air is 340 m/s, what will be the frequency of echo heard by bus driver?
   options:
     A: 1.8 KHz
     B: 2.0 KHz
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    C: 1.6 KHz
+    D: 1.4 KHz
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 102
   section: Optics
   topic: ray_optics_and_optical_instruments
-  text: If the ima \geq of an object is at the focal point (f) to the right side of
-    a convex lens, the position of the object on the left of the lens is at
+  text: 'If the image of an object is at the focal point (f) to the right side of a convex lens, the position of the object on the left of the lens is at'
   options:
     A: f
     B: 2f
     C: < f
-    D: $\infty$
-  correct_answer: D
+    D: '$\infty$'
+  correct_answer: C
   difficulty: moderate
   subject: Physics
 - id: 103
   section: Optics
   topic: wave_optics
-  text: On using red light $(\lambda = 6600 \mathring{A})$ in Young's doub \leq slit
-    experiment, 60 fringes are observed in the field of view. If violet light $(\lambda
-    = 4400 \mathring{A})$ is used, the number of fringes observed will be
+  text: 'On using red light $(\lambda = 6600 \text{\AA})$ in Young''s double slit experiment, 60 fringes are observed in the field of view. If violet light $(\lambda = 4400 \text{\AA})$ is used, the number of fringes observed will be'
   options:
     A: '30'
     B: '120'
@@ -1472,14 +1310,12 @@ questions:
 - id: 104
   section: Optics
   topic: wave_optics
-  text: Young's doub \leq slit experiment is carried out by using green, red and blue
-    light. one color at a time. The frin \geq width recorded are $\\beta_G$, $\\beta_r$,
-    $\\beta_B$ respectively then
+  text: 'Young''s double slit experiment is carried out by using green, red and blue light. one color at a time. The fringe width recorded are $\beta_G$, $\beta_r$, $\beta_B$ respectively then'
   options:
-    A: $\\beta_G > \\beta_r > \\beta_B$
-    B: $\\beta_r > \\beta_G > \\beta_B$
-    C: $\\beta_B > \\beta_G > \\beta_r$
-    D: $\\beta_B > \\beta_r > \\beta_G$
+    A: '$\beta_G >\beta_r >\beta_B$'
+    B: '$\beta_r >\beta_G >\beta_B$'
+    C: '$\beta_B >\beta_G >\beta_r$'
+    D: '$\beta_B >\beta_r >\beta_G$'
   correct_answer: D
   difficulty: moderate
   subject: Physics
@@ -1498,38 +1334,35 @@ questions:
 - id: 106
   section: Electricity and Magnetism
   topic: electrostatic_potential_and_capacitance
-  text: Assume each oil drop consists of a capacitance of $C$. If combine $n$ drops
-    to form a bigger drop, then the capacitance of bigger drop $C'$ would be
+  text: 'Assume each oil drop consists of a capacitance of $C$. If combine $n$ drops to form a bigger drop, then the capacitance of bigger drop $C''$ would be'
   options:
-    A: "$C' = 2n^{\frac{2}{3}}C$"
-    B: $C' = \\frac{5n}{4}C$
-    C: $C' = \\frac{n^2}{5}C$
-    D: "$C' = C \\cdot n^{\frac{1}{3}}$"
+    A: '$C'' = 2n^{\frac{2}{3}}C$'
+    B: '$C'' =\frac{5n}{4}C$'
+    C: '$C'' =\frac{n^2}{5}C$'
+    D: '$C'' = C\cdot n^{\frac{1}{3}}$'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 107
-  section: Current Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
-  text: A conductor of length 100 cm and area of cross section $1 \ mm^2$ carries
-    a current of 5A. If the resistivity of the material of the conductor is $3.0 imes
-    10^{-8} \Omega \ m$, then the electric field across the conductor is
+  text: 'A conductor of length $100 \text{ cm}$ and area of cross section $1 \text{ mm}^2$ carries a current of $5\text{ A}$. If the resistivity of the material of the conductor is $3.0 \times 10^{-8} \Omega \cdot m$, then the electric field across the conductor is'
   options:
-    A: 0.15 V/m
-    B: 0.015 V/m
-    C: 1.5 V/m
-    D: 0.0015 V/m
+    A: '$0.15 \text{ V/m}$'
+    B: '$0.015 \text{ V/m}$'
+    C: '$1.5 \text{ V/m}$'
+    D: '$0.0015 \text{ V/m}$'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 108
   section: Electricity and Magnetism
   topic: current_electricity
-  text: If the Wheatstone's brid \geq with four resistors $R_1, R_2, R_3, R_4$ is
-    balanced then the correct expression is
+  text: "If the Wheatstone's bridge with four resistors $R_1, R_2, R_3, R_4$ is balanced then the correct expression is"
+  image: /static/papers/ts_eamcet/2020_6/q108.png
   options:
-    A: "$\frac{R_2}{R_1} = \frac{R_4}{R_3}$"
-    B: "$\frac{R_2}{R_3} = \frac{R_1}{R_4}$"
+    A: '$\frac{R_2}{R_1} =\frac{R_4}{R_3}$'
+    B: '$\frac{R_2}{R_3} =\frac{R_1}{R_4}$'
     C: $R_1R_2 = R_3R_4$
     D: $R_1 + R_2 = R_3 + R_4$
   correct_answer: A
@@ -1538,13 +1371,11 @@ questions:
 - id: 109
   section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
-  text: A circular coil of 10 turns and radius 10 cm is placed in a uniform magnetic
-    field of 0.1 T normal to the plane of the coil. If the current in the coil is
-    5A then the magnitude of the torque on the coil is
+  text: A circular coil of 10 turns and radius 10 cm is placed in a uniform magnetic field of 0.1 T normal to the plane of the coil. If the current in the coil is 5A then the magnitude of the torque on the coil is
   options:
-    A: $500 \\pi Nm$
-    B: $0.05 \\pi Nm$
-    C: $0.005 \\pi Nm$
+    A: '$500\pi Nm$'
+    B: '$0.05\pi Nm$'
+    C: '$0.005\pi Nm$'
     D: zero
   correct_answer: D
   difficulty: moderate
@@ -1552,8 +1383,7 @@ questions:
 - id: 110
   section: Electricity and Magnetism
   topic: magnetic_effects_of_current_and_magnetism
-  text: A 50 cm long solenoid has winding of 400 turns. What current must pass through
-    it to produce a magnetic field of induction $4\\pi imes 10^{-3} T$ at the center?
+  text: 'A 50 cm long solenoid has winding of 400 turns. What current must pass through it to produce a magnetic field of induction $4\pi\times 10^{-3} T$ at the center?'
   options:
     A: 10.5 A
     B: 12.5 A
@@ -1563,24 +1393,21 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 111
-  section: Magnetic_Effects_of_Current_and_Magnetism
+  section: Electricity and Magnetism
   topic: moving_charges_and_magnetism
   text: If relative permeability of iron is 5500, then its susceptibility is
   options:
-    A: $5500 \times 10^{7}$
-    B: $5500 \times 10^{-7}$
+    A: '$5500\times 10^{7}$'
+    B: '$5500\times 10^{-7}$'
     C: '5501'
     D: '5499'
   correct_answer: D
   difficulty: moderate
   subject: Physics
 - id: 112
-  section: Current_Electricity
+  section: Electricity and Magnetism
   topic: current_electricity
-  text: A moving coil Galvanometer of resistance $100\Omega$ is used as an ammeter
-    using a resistance $0.1\Omega$. The maximum deflection current in the Galvanometer
-    is $100 \mu A$. Find the minimum current in the circuit so that ammeter shows
-    maximum deflection?
+  text: 'A moving coil Galvanometer of resistance $100\Omega$ is used as an ammeter using a resistance $0.1\Omega$. The maximum deflection current in the Galvanometer is $100\mu A$. Find the minimum current in the circuit so that ammeter shows maximum deflection?'
   options:
     A: 100.1 mA
     B: 1000. 1 mA
@@ -1590,35 +1417,21 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 113
-  section: Current_Electricity
+  section: Electricity and Magnetism
   topic: alternating_current_circuits
-  text: In CR circuit the growth of char \geq on the capacitor is
+  text: 'In CR circuit the growth of charge on the capacitor is'
   options:
-    A: more ra\pid if the CR is smaller
-    B: more ra\pid if the CR is larger
+    A: 'more rapid if the CR is smaller'
+    B: 'more rapid if the CR is larger'
     C: independent of CR
     D: independent of time
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 114
-  section: Current Electricity
-  topic: Alternating Current Circuits
-  text: In CR circuit the growth of char \geq on the capacitor is
-  options:
-    A: more ra\pid if the CR is smaller
-    B: more ra\pid if the CR is larger
-    C: independent of CR
-    D: independent of time
-  correct_answer: A
-  difficulty: moderate
-  subject: Physics
-- id: 115
   section: Optics
-  topic: electromagnetic_waves
-  text: What is the amplitude of the electric filed in a parallel beam of intensity
-    $\\left(\\frac{15}{\\pi}\\right) \\frac{W}{m^{2}}$ Assume $\\frac{1}{4 \\pi \epsilon_{o}}=9
-    \times 10^{9} \\frac{Nm^{2}}{C^{2}}$
+  topic: ray_optics_and_optical_instruments
+  text: 'What is the amplitude of the electric filed in a parallel beam of intensity $\left(\frac{15}{\pi}\right)\frac{W}{m^{2}}$ Assume $\frac{1}{4\pi\epsilon_{o}}=9\times 10^{9}\frac{Nm^{2}}{C^{2}}$'
   options:
     A: 60 N/C
     B: 50 N/C
@@ -1627,22 +1440,33 @@ questions:
   correct_answer: A
   difficulty: moderate
   subject: Physics
+- id: 115
+  section: Modern Physics
+  topic: dual_nature_of_matter_and_radiation
+  text: 'Photons of energy $2.4 \text{ eV}$ and wavelength $\lambda$ fall on a metal plate and release photoelectrons with a maximum velocity $v$. By decreasing $\lambda$ by $50\%$, the maximum velocity of photoelectrons becomes $3v$. The work function of the material of the metal plate is'
+  options:
+    A: 2.1 eV
+    B: 1.7 eV
+    C: 2.8 eV
+    D: 2.0 eV
+  correct_answer: A
+  difficulty: moderate
+  subject: Physics
 - id: 116
   section: Modern Physics
   topic: atomic_physics
-  text: The ratio of maximum to minimum wavelength in Balmer series of an hydrogenic
-    atom is
+  text: The ratio of maximum to minimum wavelength in Balmer series of an hydrogenic atom is
   options:
-    A: $\\frac{9}{5}$
-    B: $\\frac{12}{7}$
-    C: $\\frac{9}{7}$
-    D: $\\frac{14}{9}$
+    A: '$\frac{9}{5}$'
+    B: '$\frac{12}{7}$'
+    C: '$\frac{9}{7}$'
+    D: '$\frac{14}{9}$'
   correct_answer: A
   difficulty: moderate
   subject: Physics
 - id: 117
   section: Modern Physics
-  topic: nuclear_physics
+  topic: '\nuclear_physics'
   text: Alpha rays emitted from a radioactive substance are
   options:
     A: negatively charged particles
@@ -1655,13 +1479,17 @@ questions:
 - id: 118
   section: Modern Physics
   topic: semiconductors_and_devices
-  text: 'Which of the following de\picts the output of the full wave rectifier with
-    capacitor filter for the following AC input:'
+  text: 'Which of the following de\picts the output of the full wave rectifier with capacitor filter for the following AC input:'
+  image: /static/papers/ts_eamcet/2020_6/q118.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+      image: /static/papers/ts_eamcet/2020_6/q118-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_6/q118-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_6/q118-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_6/q118-op4.png
   correct_answer: C
   difficulty: moderate
   subject: Physics
@@ -1669,10 +1497,11 @@ questions:
   section: Communication Systems
   topic: basics_of_communication_systems
   text: The Boolean expression for the circuit given in figure is .
+  image: /static/papers/ts_eamcet/2020_6/q119.png
   options:
-    A: $Y = A + \overline{B}$
-    B: $Y = \overline{A} + B$
-    C: $Y = \overline{A + B}$
+    A: '$Y = A +\overline{B}$'
+    B: '$Y =\overline{A} + B$'
+    C: '$Y =\overline{A + B}$'
     D: $Y = A + B$
   correct_answer: C
   difficulty: moderate
@@ -1680,9 +1509,7 @@ questions:
 - id: 120
   section: Communication Systems
   topic: basics_of_communication_systems
-  text: A messa \geq signal of frequency $10$ KHz and peak volta \geq of $15$ volts
-    is used to modulate a carrier frequency of $1$ MHz and peak volta \geq of $30$
-    volts. Determine the modulation index.
+  text: 'A message signal of frequency $10$ KHz and peak voltage of $15$ volts is used to modulate a carrier frequency of $1$ MHz and peak voltage of $30$ volts. Determine the modulation index.'
   options:
     A: '0.5'
     B: '0.6'
@@ -1692,10 +1519,9 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 121
-  section: Atomic Physics
-  topic: atoms
-  text: The degeneracy of the level of hydrogen atoms that contain the energy of $\\left(\\frac{-R_{H}}{16}\\right)$
-    is
+  section: Physical Chemistry
+  topic: atomic_structure
+  text: 'The degeneracy of the level of hydrogen atoms that contain the energy of $\left(\frac{-R_{H}}{16}\right)$ is'
   options:
     A: '4'
     B: '16'
@@ -1705,10 +1531,9 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 122
-  section: Modern Physics
-  topic: dual_nature_of_matter_and_radiation
-  text: Wavelength of $H^+$ ion with kinetic energy $1.68$ eV is (Mass of proton =
-    $1.6726 \times 10^{-27}$ kg )
+  section: Physical Chemistry
+  topic: atomic_structure
+  text: 'Wavelength of $H^+$ ion with kinetic energy $1.68$ eV is (Mass of proton = $1.6726\times 10^{-27}$ kg )'
   options:
     A: 1.22 nm
     B: 0.286 nm
@@ -1719,11 +1544,8 @@ questions:
   subject: Chemistry
 - id: 123
   section: Inorganic Chemistry
-  topic: chemical_bonding_and_molecular_structure
-  text: 'Assertion (A) : $Mg^{2+}$ and $Al^{3+}$ are isoelectronic but the magnitude
-    of ionic radius of $Al^{3+}$ is less than that in $Mg^{2+}$ Reason (R) : The effective
-    nuclear char \geq on the outermost electrons in $Al^{3+}$ is greater than that
-    in $Mg^{2+}$ The correct option among the following is'
+  topic: hydrogen_and_its_compounds
+  text: 'Assertion (A) : $Mg^{2+}$ and $Al^{3+}$ are isoelectronic but the magnitude of ionic radius of $Al^{3+}$ is less than that in $Mg^{2+}$ Reason (R) : The effective nuclear char\ge on the outermost electrons in $Al^{3+}$ is greater than that in $Mg^{2+}$ The correct option among the following is'
   options:
     A: (A) is true, (R) is true and (R) is the correct explanation for (A)
     B: (A) is true, is true but (R) is the not the correct explanation for A
@@ -1735,13 +1557,15 @@ questions:
 - id: 124
   section: Physical Chemistry
   topic: basic_concepts_of_chemistry
-  text: The successive ionisation energy values for an element ‘X’ are given below
-    i) $1^{st}$ ionisation energy = $410$ kJ $mol^{-1}$ ii) $2^{nd}$ ionisation energy
-    = $820$ kJ $mol^{-1}$ iii) $3^{rd}$ ionisation energy = $1100$ kJ $mol^{-1}$ iv)
-    $4^{th}$ ionisation energy = $1500$ kJ $mol^{-1}$ v) $5^{th}$ ionisation energy
-    = $3200$ kJ $mol^{-1}$ The number of valence electrons in the atom ‘X’ is ‘X’
-    . i) 1 = $410$ kJ $mol^{-1}$ ii) 2 = $820$ kJ $mol^{-1}$ iii) 3 = $1100$ kJ $mol^{-1}$
-    iv) 4 = $1500$ kJ $mol^{-1}$ v) 5 = $3200$ kJ $mol^{-1}$ ‘X’ (valence)
+  text: |
+    The successive ionisation energy values for an element 'X' are given below:
+    i) $1^{st}$ ionisation energy = $410$ kJ mol$^{-1}$
+    ii) $2^{nd}$ ionisation energy = $820$ kJ mol$^{-1}$
+    iii) $3^{rd}$ ionisation energy = $1100$ kJ mol$^{-1}$
+    iv) $4^{th}$ ionisation energy = $1500$ kJ mol$^{-1}$
+    v) $5^{th}$ ionisation energy = $3200$ kJ mol$^{-1}$
+
+    The number of valence electrons in the atom 'X' is:
   options:
     A: '1'
     B: '4'
@@ -1751,38 +1575,46 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 125
-  section: Chemical Chemistry
+  section: Physical Chemistry
   topic: chemical_bonding_and_molecular_structure
-  text: Match the following . A) $BF_3$ I) Tetrahedral () B) $ClF_3$ II) Trigonal
-    planner () C) $NH_3$ III) T-shape T- D) $NH_4^+$ IV) Trigonal pyramidal The correct
-    match is
+  text: |
+    Match the following:
+
+
+    A) $BF_3$    I) Tetrahedral
+
+    B) $ClF_3$   II) Trigonal planar
+
+    C) $NH_3$    III) T-shape
+
+    D) $NH_4^+$  IV) Trigonal pyramidal
+
+
+    The correct match is
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
-  correct_answer: A
+    A: A - III, B - II, C - IV, D - I
+    B: A - III, B - II, C - I, D - IV
+    C: A - II, B - III, C - IV, D - I
+    D: A - II, B - III, C - I, D - IV
+  correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 126
   section: Physical Chemistry
   topic: chemical_bonding_and_molecular_structure
-  text: Which of the following molecules does not exist according to molecular orbital
-    theory?
+  text: Which of the following molecules does not exist according to molecular orbital theory?
   options:
     A: $Li_2$
     B: $Be_2$
     C: $B_2$
-    D: IMAGE_CONTENT
+    D: $C_2$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 127
   section: Physical Chemistry
-  topic: kinetic_theory_of_gases
-  text: Root mean square (rms) speed of $O_2$ is $500$ m/s at a constant temperature.
-    Calculate the rms speed and the avera \geq kinetic energy of $H_2$ at the same
-    temperature. (consider $R = 8.33 J K^{-1}mol^{-1}$)
+  topic: basic_concepts_of_chemistry
+  text: Root mean square (rms) speed of $O_2$ is $500$ m/s at a constant temperature. Calculate the rms speed and the average kinetic energy of $H_2$ at the same temperature. (consider $R = 8.33 J K^{-1}mol^{-1}$)
   options:
     A: 500 m/s and $4.0$ kJ/mol
     B: 500 m/s and $4.7$ kJ/mol
@@ -1793,10 +1625,8 @@ questions:
   subject: Chemistry
 - id: 128
   section: Physical Chemistry
-  topic: kinetic_theory_of_gases
-  text: Which of the following describes an ideal gas? (i) The volume occu\pied by
-    a gas molecu \leq is negligible. (ii) The collision between ideal gases are elastic
-    (iii) Particles are very small compared to the distance between each other
+  topic: basic_concepts_of_chemistry
+  text: 'Which of the following describes an ideal gas? (i) The volume occupied by a gas molecule\le is negligible. (ii) The collision between ideal gases are elastic (iii) Particles are very small compared to the distance between each other'
   options:
     A: (i) and (ii) only
     B: (i) and (iii) only
@@ -1820,8 +1650,7 @@ questions:
 - id: 130
   section: Physical Chemistry
   topic: chemical_kinetics
-  text: $KMnO_4$ oxidises $C_2H_2O_4$ to form $CO_2$. In which of the following, the
-    reaction will be faster?
+  text: $KMnO_4$ oxidises $H_2C_2O_4$ to form $CO_2$. In which of the following, the reaction will be faster?
   options:
     A: aq. $HCl$ solution
     B: aq. $NaOH$ solution
@@ -1833,28 +1662,36 @@ questions:
 - id: 131
   section: Physical Chemistry
   topic: thermodynamics
-  text: $\Delta H$ & $\Delta S$ for a reaction are $+30.0$ $kJ$ $mol^{-1}$ and $0.06$
-    $kJ$ $K^{-1}$ $mol^{-1}$ at 1 atm pressure. The temperature at which free energy
-    chan \geq is equal to zero and nature of the reaction below this temperature are
+  text: '$\Delta H$ & $\Delta S$ for a reaction are $+30.0$ $kJ$ $mol^{-1}$ and $0.06$ $kJ$ $K^{-1}$ $mol^{-1}$ at 1 atm pressure. The temperature at which free energy change is equal to zero and nature of the reaction below this temperature are'
   options:
     A: $500$ $^oC$ and non-spontaneous
     B: $227$ $^oC$ and non-spontaneous
     C: $400$ $^oC$ and spontaneous
-    D: IMAGE_CONTENT
+    D: $227$ $^oC$ and spontaneous
   correct_answer: B
+  difficulty: moderate
+  subject: Chemistry
+- id: 132
+  section: Physical Chemistry
+  topic: chemical_equilibrium_acids_bases
+  text: 'The vapour density of $N_2O_4$ for the reaction $N_2O_4 \rightleftharpoons 2NO_2$ is $40$. The degree of dissociation is'
+  options:
+    A: '1.25'
+    B: '2.50'
+    C: '1.50'
+    D: '0.15'
+  correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 133
   section: Physical Chemistry
   topic: chemical_equilibrium_acids_bases
-  text: What is the equilibrium constant $(K_c)$ for the given reaction? $N_2 + O_2
-    ightleftharpoons 2NO$ Where the equilibrium concentration of $N_2$, $O_2$ and
-    $NO$ are found to be $4 imes 10^{-3}$, $3 imes 10^{-3}$ and $3 imes 10^{-3}$ respectively.
+  text: 'What is the equilibrium constant $(K_c)$ for the given reaction? $N_2 + O_2 r\r\rightleftharpoons 2NO$ Where the equilibrium concentration of $N_2$, $O_2$ and $NO$ are found to be $4\times 10^{-3}$, $3\times 10^{-3}$ and $3\times 10^{-3}$ respectively.'
   options:
     A: '0.750'
     B: '0.622'
-    C: 9 $\times 10^{-3}$
-    D: 12.8 $\times 10^{-6}$
+    C: '9 $\times 10^{-3}$'
+    D: '12.8 $\times 10^{-6}$'
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
@@ -1873,22 +1710,19 @@ questions:
 - id: 135
   section: Inorganic Chemistry
   topic: representative_elements
-  text: Predict the feasibility of the given reactions in aqueous solution (i) $Be(OH)_2
-    + 2OH^- \longr\rightarrow [Be(OH)_4]^{2-}$ (ii) $Be(OH)_2 + 2H^+ \longr\rightarrow
-    [Be(OH)_4]^{2+}$
+  text: 'Predict the feasibility of the given reactions in aqueous solution: (i) $Be(OH)_2 + 2OH^- \longrightarrow [Be(OH)_4]^{2-}$ (ii) $Be(OH)_2 + 2H^+ \longrightarrow Be^{2+} + 2H_2O$'
   options:
     A: Only (i) is feasible
     B: Only (ii) is feasible
     C: (i) and (ii) are feasible
-    D: IMAGE_CONTENT
+    D: None of the above
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 136
   section: Inorganic Chemistry
   topic: representative_elements
-  text: What is the nature of the bonding in anhydrous $AlCl_3$ and hydrated $AlCl_3$
-    respectively?
+  text: What is the nature of the bonding in anhydrous $AlCl_3$ and hydrated $AlCl_3$ respectively?
   options:
     A: Ionic and Ionic
     B: Ionic and Covalent
@@ -1910,23 +1744,21 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 138
-  section: Environmental Chemistry
+  section: Inorganic Chemistry
   topic: environmental_chemistry
-  text: Biochemical Oxygen Demand (BOD) is a measure of organic materials present
-    in water. BOD value less than 5 ppm indicates a water samp \leq to be
+  text: 'Biochemical Oxygen Demand (BOD) is a measure of organic materials present in water. BOD value less than 5 ppm indicates a water sample to be'
   options:
     A: Rich in dissolved oxygen
     B: Poor in dissolved oxygen
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    C: Slightly polluted
+    D: None of the above
   correct_answer: A
   difficulty: moderate
   subject: Chemistry
 - id: 139
   section: Inorganic Chemistry
   topic: coordination_compounds
-  text: Sodium fusion extract of aniline when heated with ferrous sulphate solution
-    and then acidified with concentrated $H_2SO_4$ form which of the following complexes?
+  text: Sodium fusion extract of aniline when heated with ferrous sulphate solution and then acidified with concentrated $H_2SO_4$ form which of the following complexes?
   options:
     A: $[Fe(CN)_6]^{4-}$
     B: $Fe_4[Fe(CN)_6]_3.xH_2O$
@@ -1937,25 +1769,26 @@ questions:
   subject: Chemistry
 - id: 140
   section: Inorganic Chemistry
-  topic: hydrocarbons
-  text: Ethyl phenyl acetylene (1-phenyl-1-butyne) on reduction with partially deactivated
-    palladised charcoal (Lindlar's catalyst) gives
+  topic: hydrogen_and_its_compounds
+  text: 'Ethyl phenyl acetylene (1-phenyl-1-butyne) on reduction with partially deactivated palladised charcoal (Lindlar''s catalyst) gives'
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+      image: /static/papers/ts_eamcet/2020_6/q140-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_6/q140-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_6/q140-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_6/q140-op4.png
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 141
   section: Inorganic Chemistry
-  topic: basic_principles_and_techniques
-  text: Which one of the following methods is suitab \leq to generate aromatic compound(s)
-    from linear aliphatic saturated hydrocarbons with at least six carbon atoms?
+  topic: hydrogen_and_its_compounds
+  text: 'Which one of the following methods is suitable to generate aromatic compound(s) from linear aliphatic saturated hydrocarbons with at least six carbon atoms?'
   options:
-    A: Heating at 1573 K under 10-20 atmospheric pressure in presence of $V_2O_5,
-      Mo_2O_3$ or $Cr_2O_3$ as catalyst.
+    A: Heating at 1573 K under 10-20 atmospheric pressure in presence of $V_2O_5, Mo_2O_3$ or $Cr_2O_3$ as catalyst.
     B: Subjecting to Friedel-Crafts alkylation.
     C: Subjecting to Friedel-Crafts acylation followed by Wolff-Kishner reduction.
     D: Dehydrogenation.
@@ -1963,11 +1796,9 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 142
-  section: Solid State
+  section: Physical Chemistry
   topic: solid_state
-  text: Copper crystallizes in ccp arrangement and accepted value of metal ion radius
-    was found to be 1.41 $\mathop A\limits^o $. Calculate the density of copper in
-    grams per cubic centimetre. (atomic weight of copper is 64, $N_A = 6 \times 10^{23}$)
+  text: 'Copper crystallizes in ccp arrangement and accepted value of metal ion radius was found to be 1.41 $\mathop A\limits^o $. Calculate the density of copper in grams per cubic centimetre. (atomic weight of copper is 64, $N_A = 6\times 10^{23}$)'
   options:
     A: '6.67'
     B: '7.80'
@@ -1979,9 +1810,7 @@ questions:
 - id: 143
   section: Inorganic Chemistry
   topic: coordination_compounds
-  text: $A^{2+}$, $B^{2+}$ and $C^-$ form an ionic complex like $A_{i-2}[B(C)_i]_2$.
-    If the complex is 75% dissociated in a solvent with i = 4, the coordination number
-    of B is
+  text: $A^{2+}$, $B^{2+}$ and $C^-$ form an ionic complex like $A_{i-2}[B(C)_i]_2$. If the complex is 75% dissociated in a solvent with i = 4, the coordination number of B is
   options:
     A: '3'
     B: '4'
@@ -2003,11 +1832,9 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 145
-  section: Electrochemistry
+  section: Physical Chemistry
   topic: electrochemistry
-  text: The standard electrode potentials of $Ag^+/Ag$ is $+0.80$ V and $Cu^+/Cu$
-    is $+0.34$ V. If these electrodes are connected through a salt bridge, which of
-    the following statements is correct?
+  text: The standard electrode potentials of $Ag^+/Ag$ is $+0.80$ V and $Cu^+/Cu$ is $+0.34$ V. If these electrodes are connected through a salt bridge, which of the following statements is correct?
   options:
     A: Silver electrode acts as anode and $E^o$ cell is $-0.34$ V
     B: Copper electrode acts as anode and $E^o$ cell is $+0.46$ V
@@ -2017,24 +1844,21 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 146
-  section: Chemical Kinetics
+  section: Physical Chemistry
   topic: chemical_kinetics
-  text: 'For a zero order reaction, the plot of concentration of reactant vs time
-    is (Hint: Consider the intercept on the concentration axis)'
+  text: 'For a zero order reaction, the plot of concentration of reactant vs time is (Hint: Consider the intercept on the concentration axis)'
   options:
     A: linear with +ve slope and non zero +ve intercept
-    B: linear with – ve slope and non zero +ve intercept
-    C: linear with – ve slope and zero intercept
+    B: 'linear with -ve slope and non zero +ve intercept'
+    C: 'linear with -ve slope and zero intercept'
     D: linear with + ve slope and zero intercept
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 147
-  section: Surface Chemistry
+  section: Physical Chemistry
   topic: surface_chemistry
-  text: The gold numbers of gelatin, haemoglobin and sodium acetate are $5 imes 10^{-3}$,
-    $5 imes 10^{-2}$ and $7 imes 10^{-1}$, respectively. The protective actions will
-    be in the order
+  text: 'The gold numbers of gelatin, haemoglobin and sodium acetate are $5 \times 10^{-3}$, $5\times 10^{-2}$ and $7\times 10^{-1}$, respectively. The protective actions will be in the order'
   options:
     A: Gelatin < haemoglobin < sodium acetate
     B: Gelatin > haemoglobin > sodium acetate
@@ -2096,7 +1920,7 @@ questions:
   topic: coordination_compounds
   text: Which of the following molecules is colorless?
   options:
-    A: $CuSO_4 \cdot 5H_2O$ (crystal)
+    A: '$CuSO_4\cdot 5H_2O$ (crystal)'
     B: $CuSO_4$(anhydrous)
     C: $[Cu(NH_3)_4]^{2+}$ (aq)
     D: $[CuCl_4]^{2-}$ (aq)
@@ -2104,23 +1928,21 @@ questions:
   difficulty: moderate
   subject: Chemistry
 - id: 153
-  section: basic_principles_and_techniques
-  topic: basic_principles_and_techniques
-  text: Which of the following vinyl derivatives is the most reactive towards anionic
-    polymerisation?
+  section: Physical Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: Which of the following vinyl derivatives is the most reactive towards anionic polymerisation?
   options:
     A: CH$_2$=CH-CH$_2$-CH$_3$
     B: CH$_2$=CH-CH$_2$-OE
     C: CH$_2$=CH-Cl
-    D: CH$_2$=CH-C≡N
+    D: 'CH$_2$=CH-C\u2261N'
   correct_answer: D
   difficulty: moderate
   subject: Chemistry
 - id: 154
-  section: biomolecules
-  topic: biomolecules
-  text: Amino acids containing heterocyclic ring are (i) Histidine (ii) Valine (iii)
-    Arginine (iv) Proline
+  section: Physical Chemistry
+  topic: chemical_bonding_and_molecular_structure
+  text: Amino acids containing heterocyclic ring are (i) Histidine (ii) Valine (iii) Arginine (iv) Proline
   options:
     A: i, iv
     B: ii, iii
@@ -2131,9 +1953,8 @@ questions:
   subject: Chemistry
 - id: 155
   section: Inorganic Chemistry
-  topic: chemistry_in_everyday_life
-  text: Which among the following is an arsenic based antibiotic drug, for which Paul
-    Ehrlich was awarded Nob \leq prize in 1908.
+  topic: classification_of_elements_and_periodicity
+  text: 'Which among the following is an arsenic based antibiotic drug, for which Paul Ehrlich was awarded Noble prize in 1908.'
   options:
     A: Salvarsan
     B: Pencillin
@@ -2144,101 +1965,78 @@ questions:
   subject: Chemistry
 - id: 156
   section: Inorganic Chemistry
-  topic: basic_principles_and_techniques
-  text: The major product in the following reaction sequence is (i) $EtMgBr$ (ii)
-    $H_2O$ (iii) 20% $H_3PO_4$ (iv) $HBr$ $\r\rightarrow$ P
+  topic: hydrogen_and_its_compounds
+  text: The major product in the following reaction sequence is
+  image: /static/papers/ts_eamcet/2020_6/q156.png
   options:
-    A: IMAGE_CONTENT
-    B: IMAGE_CONTENT
-    C: IMAGE_CONTENT
-    D: IMAGE_CONTENT
+    A:
+      image: /static/papers/ts_eamcet/2020_6/q156-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_6/q156-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_6/q156-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_6/q156-op4.png
+  correct_answer: C
+  difficulty: moderate
+  subject: Chemistry
+- id: 157
+  section: Inorganic Chemistry
+  topic: classification_of_elements_and_periodicity
+  text: Which of the following gives alcohol/phenol products?
+  image: /static/papers/ts_eamcet/2020_6/q157.png
+  options:
+    A: (i) and (ii)
+    B: (ii) and (iii)
+    C: (i) and (iv)
+    D: (i) and (iii)
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 158
   section: Inorganic Chemistry
-  topic: alcohols_phenols_and_ethers
-  text: Which of the following gives alcohol/phenol products? $C_3H_7CO_2H \xr\rightarrow{LiAlH_4}
-    $ $C_2H_5Br \xr\rightarrow{Mg, dry ether} then H_2O$ + $N_2Cl \xr\rightarrow{H_3PO_2/H_2O}$
-    $Cl \xr\rightarrow{NaOH, 623K/300 atm} CH_3$
+  topic: classification_of_elements_and_periodicity
+  text: The major products P and Q in the following reaction sequence is
+  image: /static/papers/ts_eamcet/2020_6/q158.png
   options:
-    A: '(i) and (ii)
-
-      (i)  (ii)'
-    B: '(ii) and (iii)
-
-      (ii)  (iii)'
-    C: '(i) and (iv)
-
-      (i)  (iv)'
-    D: '(i) and (iii)
-
-      (i)  (iii)'
+    A:
+      image: /static/papers/ts_eamcet/2020_6/q158-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_6/q158-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_6/q158-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_6/q158-op4.png
   correct_answer: C
   difficulty: moderate
   subject: Chemistry
 - id: 159
   section: Inorganic Chemistry
-  topic: organic_compounds_containing_nitrogen
-  text: In the following reactions, P, Q, and R are $CO_2H \xr\rightarrow{NH_3} P
-    \xr\rightarrow{Heat} Q \xr\rightarrow{Strong heating} R$ $CO_2H$
+  topic: hydrogen_and_its_compounds
+  text: In the following reactions, P, Q, and R are
+  image: /static/papers/ts_eamcet/2020_6/q159.png
   options:
-    A: 'P
-
-      $COO^-NH_4^+$
-
-      $COO^-NH_4^+$     Q
-
-      $CO_2NH_2$
-
-      $CO_2NH_2$        R
-
-      IMAGE_CONTENT'
-    B: 'P
-
-      $COO^-NH_4^+$
-
-      $COO^-NH_4^+$     Q
-
-      $CONH_2$
-
-      $CONH_2$        R
-
-      IMAGE_CONTENT'
-    C: 'P
-
-      $CO_2NH_2$
-
-      $CO_2NH_2$     Q
-
-      $CO_2NH_2$
-
-      $CO_2NH_2$        R
-
-      IMAGE_CONTENT'
-    D: 'P
-
-      $COO^-NH_4^+$
-
-      $COO^-NH_4^+$     Q
-
-      $CO_2NH_2$
-
-      $CO_2NH_2$        R
-
-      IMAGE_CONTENT'
+    A:
+      image: /static/papers/ts_eamcet/2020_6/q159-op1.png
+    B:
+      image: /static/papers/ts_eamcet/2020_6/q159-op2.png
+    C:
+      image: /static/papers/ts_eamcet/2020_6/q159-op3.png
+    D:
+      image: /static/papers/ts_eamcet/2020_6/q159-op4.png
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
 - id: 160
   section: Inorganic Chemistry
-  topic: basic_principles_and_techniques
-  text: Following transformation can be accomplished by IMAGE_CONTENT
+  topic: hydrogen_and_its_compounds
+  text: Following transformation can be accomplished by
+  image: /static/papers/ts_eamcet/2020_6/q160.png
   options:
-    A: "(i) $LiAlH_4$ \n(ii) Pyridinium dichromate"
-    B: "(i) $Br_2/4KOH$ \n(ii) $NaNO_2, HCl$"
-    C: "(i) $LiAlH_4$ \n(ii) $H_3O^+$, Heat"
-    D: "(i) $Sn/HCl$ \n(ii) $NaNO_2, HCl$"
+    A: (i) $LiAlH_4$ (ii) Pyridinium dichromate
+    B: (i) $Br_2/4KOH$ (ii) $NaNO_2, HCl$
+    C: (i) $LiAlH_4$ (ii) $H_3O^+$, Heat
+    D: (i) $Sn/HCl$ (ii) $NaNO_2, HCl$
   correct_answer: B
   difficulty: moderate
   subject: Chemistry
