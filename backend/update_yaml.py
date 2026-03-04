@@ -211,13 +211,8 @@ def update_file(filepath):
 
 # Run for all files
 files = [
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2023_1.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2023_2.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2024_1.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2024_2.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2024_3.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2024_4.yaml",
-    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2024_5.yaml"
+    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2021_2.yaml",
+    "c:/Users/ashad/Desktop/abhilash/Projects/MockMitra/backend/pyq_papers/ts_eamcet/ts_eamcet_2021_3.yaml",
 ]
 
 for f in files:
