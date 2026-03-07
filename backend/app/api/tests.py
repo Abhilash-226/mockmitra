@@ -273,6 +273,17 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
                         if gen_q.question_text in test_question_texts:
                             print(f"DEBUG: AI generated duplicate text, retrying...")
                             continue
+                        
+                        # Verify correct answer is in options before saving
+                        if gen_q.correct_option_index < 0 or gen_q.correct_option_index >= len(gen_q.options):
+                            print(f"DEBUG: Invalid correct_option_index {gen_q.correct_option_index}, skipping...")
+                            continue
+                        
+                        # Hard check: correct_answer text must match the option at correct_option_index
+                        correct_answer_text = gen_q.options[gen_q.correct_option_index]
+                        if gen_q.correct_answer and correct_answer_text.strip() != gen_q.correct_answer.strip():
+                            print(f"DEBUG: Answer mismatch! options[{gen_q.correct_option_index}]='{correct_answer_text[:40]}' != correct_answer='{gen_q.correct_answer[:40]}', skipping...")
+                            continue
                             
                         # Map difficulty
                         mapping = {"easy": "easy", "moderate": "medium", "hard": "hard"}
@@ -289,6 +300,14 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
                             difficulty=q_diff,
                             source=QuestionSource.AI_GENERATED
                         )
+                        
+                        # Final sanity check: correct_option key maps to correct answer text
+                        stored_correct_key = db_q.correct_option
+                        stored_correct_text = db_q.options.get(stored_correct_key, "")
+                        if not stored_correct_text or stored_correct_text.strip() == "":
+                            print(f"DEBUG: Empty correct answer text for key '{stored_correct_key}', skipping...")
+                            continue
+                        
                         await db_q.insert()
                         question_ids.append(db_q.id)
                         test_question_texts.add(db_q.question_text)
@@ -702,7 +721,7 @@ async def get_test_history(user_id: str = Depends(get_current_user)):
     """Get user's test history"""
     attempts = await TestAttempt.find(
         TestAttempt.user_id == PydanticObjectId(user_id)
-    ).sort(-TestAttempt.started_at).to_list()
+    ).sort(-TestAttempt.started_at).limit(50).to_list()
     
     # Fetch test details to populate titles
     test_ids = list(set([a.test_id for a in attempts]))

@@ -7,8 +7,9 @@ PAPERS_DIR = r"backend/pyq_papers/ts_eamcet"
 FILES_TO_PROCESS = [
     "ts_eamcet_2020_1.yaml", "ts_eamcet_2020_2.yaml", "ts_eamcet_2020_3.yaml",
     "ts_eamcet_2020_4.yaml", "ts_eamcet_2020_5.yaml", "ts_eamcet_2020_6.yaml",
-    "ts_eamcet_2020_7.yaml", "ts_eamcet_2021_2.yaml", "ts_eamcet_2021_3.yaml",
-    "ts_eamcet_2021_4.yaml", "ts_eamcet_2021_5.yaml", "ts_eamcet_2021_6.yaml"
+    "ts_eamcet_2020_7.yaml", "ts_eamcet_2021_1.yaml", "ts_eamcet_2021_2.yaml", 
+    "ts_eamcet_2021_3.yaml", "ts_eamcet_2021_4.yaml", "ts_eamcet_2021_5.yaml", 
+    "ts_eamcet_2021_6.yaml"
 ]
 
 def load_config(path):

@@ -135,13 +135,26 @@ Difficulty: {diff_str}
 Section/Topic: {section} / {topic}
 
 STRICT TECHNICAL RULES:
-1. Accuracy: The question must be mathematically and scientifically flawless.
+1. Accuracy: The question must be mathematically and scientifically flawless. SOLVE THE PROBLEM FULLY FIRST, then generate the options.
 2. LaTeX: Use $...$ for all mathematical expressions and chemical formulas. Example: $\\text{{H}}_2\\text{{SO}}_4$, $x^2 + 2x + 1$.
 3. Originality: If a reference question is provided, do NOT repeat it. Extract the CORE CONCEPT and create a new problem.
 4. Distractors: Provide 4 plausible options. Avoid "None of these" or "All of these".
 5. Language: Use professional, academic English.
 6. JSON: Output ONLY a valid JSON object. No conversation, no markdown blocks.
 7. Backslashes: In the JSON output, all backslashes in LaTeX must be properly escaped (e.g., use \\\\text instead of \\text).
+
+CRITICAL - CORRECT ANSWER REQUIREMENT:
+- You MUST first solve the problem completely and arrive at a NUMERICAL or EXACT answer.
+- Then create 4 options where ONE option contains EXACTLY this computed answer.
+- The correct_option field MUST be COPIED EXACTLY (character-for-character) from one of the 4 strings in the options array.
+- Do NOT compute one answer in solution_steps but put a different value in correct_option.
+- COMMON MISTAKES TO AVOID:
+  * Conservation of momentum: Check signs and magnitudes carefully.
+  * Kinematics with direction changes: Use absolute values for distance (not displacement).
+  * Integration: Be careful with limits and signs when velocity changes direction.
+  * Surface area/energy: Double-check exponents and orders of magnitude.
+- After computing the answer, VERIFY it by substituting back or checking units/dimensions.
+- Verify: correct_option == options[i] for exactly one i in [0,1,2,3].
 """
 
         user_prompt = f"""Generate a unique {diff_str} question for:
@@ -149,12 +162,20 @@ Subject: {blueprint.subject}
 Topic: {topic}
 {template_str}
 
+MANDATORY WORKFLOW - Follow these steps IN ORDER:
+1. First, create the question with specific numerical values.
+2. SOLVE the problem completely step-by-step. Show ALL intermediate calculations.
+3. Arrive at a final numerical/exact answer. CHECK your arithmetic by re-computing.
+4. Create 4 options: ONE must be EXACTLY your computed answer, the other 3 must be plausible wrong answers (common student mistakes like sign errors, missing factors, wrong formulas).
+5. Set correct_option to the EXACT string from the options array that matches the computed answer.
+6. SELF-CHECK: Verify correct_option appears character-for-character in the options array.
+
 Ensure the output matches this schema:
 {{
   "question_text": "string (including LaTeX)",
   "options": ["string", "string", "string", "string"],
-  "correct_option": "string (must match one in options exactly)",
-  "solution_steps": "string (detailed explanation)",
+  "correct_option": "string (MUST be exactly copied from one of the 4 options above)",
+  "solution_steps": "string (detailed step-by-step solution showing how you arrive at the answer, including verification)",
   "variables": {{ "name": value }},
   "reasoning": "string (internal logic)"
 }}
@@ -162,9 +183,9 @@ Ensure the output matches this schema:
         return system_prompt, user_prompt
 
     def _call_gemini(self, system_prompt: str, user_prompt: str) -> Optional[Dict[str, Any]]:
-        """Call Gemini API using the new SDK with exponential backoff for 429s."""
+        """Call Gemini API with robust JSON parsing for LaTeX-heavy math content."""
         max_retries = 3
-        base_delay = 2  # seconds
+        base_delay = 2
         
         for attempt in range(max_retries):
             try:
@@ -173,78 +194,202 @@ Ensure the output matches this schema:
                     contents=user_prompt,
                     config=types.GenerateContentConfig(
                         system_instruction=system_prompt,
-                        temperature=0.7,
+                        temperature=0.5,
                         response_mime_type="application/json"
                     )
                 )
                 
-                # Pre-processing: Sometimes LLMs return extra escapes or slightly broken JSON
                 content = response.text.strip()
-                # Remove markdown code blocks if present
                 if content.startswith("```json"):
                     content = content[7:-3].strip()
                 elif content.startswith("```"):
                     content = content[3:-3].strip()
-                import re
-
-                # PRE-PROCESS: Clean up control characters that break JSON parsing.
-                # Replace literal tabs and non-escaped newlines within strings.
-                content = content.replace("\t", "\\t")
-                # More aggressive control char cleanup for chars 0-31 except maybe \n \r \t
-                # but \n \r \t are the main culprits in JSON strings.
                 
-                # PRE-PROCESS: Surgical fix for backslashes.
-                # Avoid doubling valid JSON escapes like \" or already-doubled \\.
-                # This fixes \neq, \frac, \text etc. that LLMs often forget to escape.
-                processed_content = re.sub(r'(?<!\\)\\(?!["\\])', r'\\\\', content)
-
-                try:
-                    return json.loads(processed_content)
-                except json.JSONDecodeError:
-                    # Fallback: If pre-processing broke it (unlikely with surgical regex),
-                    # try parsing the original raw content.
-                    try:
-                        return json.loads(content)
-                    except json.JSONDecodeError as je:
-                        print(f"JSON Decode Error even after fallback: {je}")
-                        raise je
-
+                result = self._parse_json_response(content)
+                if result is not None:
+                    result = self._fix_latex_in_parsed(result)
+                    return result
+                
+                print(f"JSON parse failed after all strategies, attempt {attempt+1}/{max_retries}")
+                time.sleep(1)
+                continue
+                
             except Exception as e:
                 error_msg = str(e)
-                # Handle Rate Limiting (429)
                 if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
                     delay = base_delay * (2 ** attempt) + random.uniform(0, 1)
-                    print(f"Gemini Rate Limit (429). Retrying in {delay:.2f}s... (Attempt {attempt+1}/{max_retries})")
+                    print(f"Gemini Rate Limit (429). Retrying in {delay:.2f}s... ({attempt+1}/{max_retries})")
                     time.sleep(delay)
                     continue
-                
-                # Handle JSON issues (escape problems AND invalid control characters like \b)
-                if ("JSONDecodeError" in error_msg or "Invalid \\escape" in error_msg
-                        or "Invalid control character" in error_msg):
-                    print(f"Gemini returning invalid JSON (escape/control char issue). Retrying... ({attempt+1}/{max_retries})")
-                    time.sleep(1)  # Small pause
-                    continue
-                    
                 print(f"Gemini API Call Error: {e}")
                 return None
         
         return None
+
+    def _parse_json_response(self, content: str) -> Optional[Dict]:
+        """Parse JSON with multiple fallback strategies for LaTeX-heavy math content."""
+        import re
+        
+        # Strategy 1: Direct parse (works for well-formed responses)
+        try:
+            return json.loads(content)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 2: Allow control characters in strings (strict=False)
+        try:
+            return json.JSONDecoder(strict=False).decode(content)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 3: Remove literal control chars + fix invalid backslash escapes
+        cleaned = re.sub('[\x00-\x08\x0b\x0c\x0e-\x1f]', '', content)
+        fixed = re.sub(r'\\(?!["\\\\/{bfnrtu])', r'\\\\', cleaned)
+        try:
+            return json.JSONDecoder(strict=False).decode(fixed)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 4: Aggressive - double ALL single backslashes
+        sanitized = self._sanitize_all_backslashes(cleaned)
+        try:
+            return json.JSONDecoder(strict=False).decode(sanitized)
+        except json.JSONDecodeError:
+            pass
+        
+        # Strategy 5: Extract JSON object from surrounding text (handles markdown/preamble)
+        try:
+            # Find the outermost { ... } block
+            brace_start = cleaned.find('{')
+            brace_end = cleaned.rfind('}')
+            if brace_start != -1 and brace_end > brace_start:
+                json_substr = cleaned[brace_start:brace_end + 1]
+                # Try parsing the extracted block with backslash fix
+                fixed_substr = re.sub(r'\\(?!["\\\\/{bfnrtu])', r'\\\\', json_substr)
+                return json.JSONDecoder(strict=False).decode(fixed_substr)
+        except (json.JSONDecodeError, ValueError):
+            pass
+        
+        return None
+
+    def _sanitize_all_backslashes(self, text: str) -> str:
+        """Double all single backslashes - aggressive fix for LaTeX in JSON."""
+        result = []
+        i = 0
+        while i < len(text):
+            if text[i] == '\\':
+                if i + 1 < len(text) and text[i+1] == '\\':
+                    result.append('\\\\')
+                    i += 2
+                elif i + 1 < len(text) and text[i+1] == '"':
+                    result.append('\\"')
+                    i += 2
+                else:
+                    result.append('\\\\')
+                    i += 1
+            else:
+                result.append(text[i])
+                i += 1
+        return ''.join(result)
+
+    def _fix_latex_in_parsed(self, data: Dict) -> Dict:
+        """Restore LaTeX commands mangled by JSON escape interpretation.
+        
+        JSON interprets \\f as form feed, \\b as backspace, etc.
+        This restores them to LaTeX backslash commands when followed by letters.
+        """
+        import re
+        
+        def fix_text(s):
+            if not isinstance(s, str):
+                return s
+            s = re.sub('\x0c([a-zA-Z])', r'\\f\1', s)   # form feed -> \f (\frac, \forall)
+            s = re.sub('\x08([a-zA-Z])', r'\\b\1', s)   # backspace -> \b (\begin, \binom)
+            s = re.sub('\x09([a-zA-Z])', r'\\t\1', s)   # tab -> \t (\text, \theta)
+            s = re.sub('\x0d([a-zA-Z])', r'\\r\1', s)   # CR -> \r (\right, \rangle)
+            s = re.sub('\x0a([a-z])', r'\\n\1', s)      # newline -> \n (\neq, \nu)
+            return s
+        
+        for key in ['question_text', 'correct_option', 'reasoning']:
+            if key in data and isinstance(data[key], str):
+                data[key] = fix_text(data[key])
+        
+        if 'options' in data and isinstance(data['options'], list):
+            data['options'] = [fix_text(o) if isinstance(o, str) else o for o in data['options']]
+        
+        if 'solution_steps' in data:
+            if isinstance(data['solution_steps'], str):
+                data['solution_steps'] = fix_text(data['solution_steps'])
+            elif isinstance(data['solution_steps'], list):
+                data['solution_steps'] = [fix_text(s) if isinstance(s, str) else s for s in data['solution_steps']]
+        
+        return data
+
+    def _normalize_option_text(self, text: str) -> str:
+        """Normalize option text for comparison (strip whitespace, normalize LaTeX)."""
+        import re
+        t = text.strip()
+        # Remove surrounding $...$ for comparison
+        t = re.sub(r'^\$(.+)\$$', r'\1', t)
+        # Normalize whitespace
+        t = re.sub(r'\s+', ' ', t)
+        # Normalize common LaTeX variants (use raw strings to avoid escape issues)
+        t = t.replace(r'\frac', 'FRAC').replace(r'\text', 'TEXT')
+        t = t.replace(r'\sqrt', 'SQRT').replace(r'\ln', 'LN')
+        return t.lower()
 
     def _convert_to_question(
         self, 
         ai_data: AIQuestionOutput, 
         blueprint: Blueprint,
         difficulty: DifficultyLevel
-    ) -> GeneratedQuestion:
-        """Converts raw AI output to internal Question model."""
+    ) -> Optional[GeneratedQuestion]:
+        """Converts raw AI output to internal Question model.
         
-        # Find correct index
+        Returns None if the correct answer cannot be reliably matched to an option.
+        """
+        
+        if not ai_data.options or len(ai_data.options) < 4:
+            print(f"VALIDATION FAIL: Less than 4 options generated")
+            return None
+        
+        # Check for duplicate options
+        unique_options = set(ai_data.options)
+        if len(unique_options) < 4:
+            print(f"VALIDATION FAIL: Duplicate options detected: {ai_data.options}")
+            return None
+
+        # Step 1: Try exact match
+        correct_idx = None
         try:
             correct_idx = ai_data.options.index(ai_data.correct_option)
         except ValueError:
-            # Fallback for LLM mistakes
-            correct_idx = 0
-            ai_data.options[0] = ai_data.correct_option
+            pass
+        
+        # Step 2: Try normalized/fuzzy match
+        if correct_idx is None:
+            norm_correct = self._normalize_option_text(ai_data.correct_option)
+            for i, opt in enumerate(ai_data.options):
+                if self._normalize_option_text(opt) == norm_correct:
+                    correct_idx = i
+                    print(f"VALIDATION FIX: Fuzzy matched correct_option to options[{i}]")
+                    break
+        
+        # Step 3: Try substring match (e.g., "-3/5" in "$-\frac{3}{5}$")
+        if correct_idx is None:
+            norm_correct = self._normalize_option_text(ai_data.correct_option)
+            for i, opt in enumerate(ai_data.options):
+                norm_opt = self._normalize_option_text(opt)
+                if norm_correct in norm_opt or norm_opt in norm_correct:
+                    correct_idx = i
+                    print(f"VALIDATION FIX: Substring matched correct_option to options[{i}]")
+                    break
+        
+        # Step 4: If still no match, REJECT the question — don't silently insert
+        if correct_idx is None:
+            print(f"VALIDATION FAIL: correct_option '{ai_data.correct_option}' not found in options {ai_data.options}")
+            print(f"Rejecting question to trigger retry with fresh generation.")
+            return None
             
         return GeneratedQuestion(
             id=str(uuid.uuid4()),

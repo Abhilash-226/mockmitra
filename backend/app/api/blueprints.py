@@ -3,6 +3,7 @@ Blueprint and Question Generation API endpoints.
 """
 
 from typing import List, Optional, Dict, Any
+import asyncio
 from fastapi import APIRouter, HTTPException, Query
 from pydantic import BaseModel, Field
 
@@ -143,8 +144,11 @@ async def get_statistics():
     """
     Get statistics about loaded blueprints.
     """
-    loader = get_blueprint_loader()
-    stats = loader.get_statistics()
+    def _get_stats():
+        loader = get_blueprint_loader()
+        return loader.get_statistics()
+    
+    stats = await asyncio.to_thread(_get_stats)
     return BlueprintStatistics(**stats)
 
 

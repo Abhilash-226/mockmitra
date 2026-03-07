@@ -16,11 +16,11 @@ async def get_dashboard_analytics(user_id: str = Depends(get_current_user)):
     """Get user dashboard analytics"""
     uid = PydanticObjectId(user_id)
     
-    # Get all completed attempts
+    # Fetch only recently completed attempts (capped) instead of all
     attempts = await TestAttempt.find(
         TestAttempt.user_id == uid,
         TestAttempt.status == TestStatus.COMPLETED
-    ).to_list()
+    ).sort(-TestAttempt.completed_at).limit(200).to_list()
     
     if not attempts:
         return {
@@ -55,7 +55,7 @@ async def get_dashboard_analytics(user_id: str = Depends(get_current_user)):
                 "percentage": a.percentage,
                 "completed_at": a.completed_at
             }
-            for a in sorted(attempts, key=lambda x: x.completed_at or x.started_at, reverse=True)[:5]
+            for a in attempts[:5]
         ]
     }
 

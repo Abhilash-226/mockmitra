@@ -14,6 +14,8 @@ from beanie import PydanticObjectId
 from typing import List, Optional, Dict, Any
 from pathlib import Path
 from datetime import datetime, timezone
+import asyncio
+import time
 import yaml
 import os
 
@@ -139,9 +141,15 @@ def load_paper_yaml(paper_id: str, exam_code: str = "ts_eamcet") -> Optional[Dic
     return None
 
 
+# In-memory cache for available papers
+_papers_cache: Dict[str, Any] = {}  # {exam_code: {"data": [...], "timestamp": float}}
+_PAPERS_CACHE_TTL = 300  # 5 minutes
+
+
 def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
     """
     Get all available papers for an exam (both extracted and pending).
+    Results are cached for 5 minutes to avoid repeated filesystem scanning.
     
     Args:
         exam_code: Exam code (e.g., "ts_eamcet")
@@ -149,6 +157,11 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
     Returns:
         List of paper info dicts
     """
+    # Check cache first
+    cached = _papers_cache.get(exam_code)
+    if cached and (time.monotonic() - cached["timestamp"]) < _PAPERS_CACHE_TTL:
+        return cached["data"]
+
     pyq_pdf_dir = get_exam_pdf_dir(exam_code)
     pyq_yaml_dir = get_exam_yaml_dir(exam_code)
     
@@ -211,6 +224,9 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
     # Sort by year desc, then shift
     papers.sort(key=lambda x: (-x["year"], x["shift"]))
     
+    # Store in cache
+    _papers_cache[exam_code] = {"data": papers, "timestamp": time.monotonic()}
+    
     return papers
 
 
@@ -222,7 +238,7 @@ async def list_papers(exam: str = "ts_eamcet"):
     Scans the PYQS folder for PDFs and checks which ones have been extracted.
     """
     exam_code = exam.lower().replace("-", "_").replace(" ", "_")
-    papers = get_available_papers(exam_code)
+    papers = await asyncio.to_thread(get_available_papers, exam_code)
     
     extracted_count = sum(1 for p in papers if p["is_extracted"])
     
@@ -351,7 +367,7 @@ async def get_available_years(exam: str = "ts_eamcet"):
     Get list of years with available papers.
     """
     exam_code = exam.lower().replace("-", "_").replace(" ", "_")
-    papers = get_available_papers(exam_code)
+    papers = await asyncio.to_thread(get_available_papers, exam_code)
     
     # Group by year
     years_data = {}

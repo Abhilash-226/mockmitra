@@ -36,8 +36,9 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://127.0.0.1:5173",
         "http://127.0.0.1:3000",
-        "https://jxqhfxsq-5173.inc1.devtunnels.ms",
     ]
+    # Allow all origins in dev (set to true when using port forwarding / tunnels)
+    CORS_ALLOW_ALL: bool = False
     
     class Config:
         import os

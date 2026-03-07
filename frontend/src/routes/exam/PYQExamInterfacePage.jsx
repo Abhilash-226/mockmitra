@@ -1,6 +1,12 @@
 // PYQ Exam Interface Page - For Past Year Question Papers
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { useParams, useNavigate, useLocation, useBlocker, useBeforeUnload } from "react-router-dom";
+import {
+  useParams,
+  useNavigate,
+  useLocation,
+  useBlocker,
+  useBeforeUnload,
+} from "react-router-dom";
 import "katex/dist/katex.min.css";
 import Latex from "react-latex-next";
 import Modal from "../../components/ui/Modal";
@@ -153,7 +159,7 @@ function Timer({ seconds, onTimeUp }) {
 
   return (
     <div
-      className={`px-3 py-1 rounded font-mono text-lg font-bold ${
+      className={`px-2 md:px-3 py-0.5 md:py-1 rounded font-mono text-sm md:text-lg font-bold ${
         isCritical
           ? "bg-red-600 text-white animate-pulse"
           : isWarning
@@ -191,7 +197,9 @@ export default function PYQExamInterfacePage() {
   const [answers, setAnswers] = useState({});
   const [markedForReview, setMarkedForReview] = useState(new Set());
   const [visitedQuestions, setVisitedQuestions] = useState(new Set([0]));
-  const [showPalette, setShowPalette] = useState(true);
+  const [showPalette, setShowPalette] = useState(
+    () => window.innerWidth >= 768,
+  );
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [language, setLanguage] = useState("English");
   const [currentSection, setCurrentSection] = useState(0);
@@ -202,17 +210,26 @@ export default function PYQExamInterfacePage() {
 
   // Prevent accidental navigation
   useBeforeUnload(
-    useCallback((e) => {
-      if (!loading && questions.length > 0) {
-        e.preventDefault();
-        return (e.returnValue = "Are you sure you want to leave the exam? Your progress may not be saved.");
-      }
-    }, [loading, questions.length])
+    useCallback(
+      (e) => {
+        if (!loading && questions.length > 0) {
+          e.preventDefault();
+          return (e.returnValue =
+            "Are you sure you want to leave the exam? Your progress may not be saved.");
+        }
+      },
+      [loading, questions.length],
+    ),
   );
 
   // Block internal navigation (back button, etc.)
   useBlocker(({ nextLocation, currentLocation }) => {
-    return !loading && questions.length > 0 && !isSubmitted && nextLocation.pathname !== currentLocation.pathname;
+    return (
+      !loading &&
+      questions.length > 0 &&
+      !isSubmitted &&
+      nextLocation.pathname !== currentLocation.pathname
+    );
   });
 
   // Store correct answers for result calculation
@@ -260,8 +277,10 @@ export default function PYQExamInterfacePage() {
         // We'll fetch full paper for results later
 
         // Update sections from actual questions - Grouping by Subject
-        const uniqueSubjects = [...new Set(pyqQuestions.map((q) => q.subject || q.section))];
-        
+        const uniqueSubjects = [
+          ...new Set(pyqQuestions.map((q) => q.subject || q.section)),
+        ];
+
         // Define subject order
         const subjectOrder = ["Mathematics", "Physics", "Chemistry"];
         uniqueSubjects.sort((a, b) => {
@@ -429,14 +448,17 @@ export default function PYQExamInterfacePage() {
     // Build answers payload: map index-based answers to question_number + option letter
     const answersPayload = questions.map((q, idx) => ({
       question_number: q.number,
-      selected_option: answers[idx] || null,  // "A", "B", "C", "D" or null
-      time_spent_seconds: 0,  // TODO: per-question timing
+      selected_option: answers[idx] || null, // "A", "B", "C", "D" or null
+      time_spent_seconds: 0, // TODO: per-question timing
     }));
 
     // Calculate rough total time from duration
-    const elapsed = examInfo.duration - (document.querySelector('[class*="font-mono"]')?.textContent
-      ? 0 : examInfo.duration);  // fallback
-    const timeTaken = Math.max(0, examInfo.duration - 0);  // simplified
+    const elapsed =
+      examInfo.duration -
+      (document.querySelector('[class*="font-mono"]')?.textContent
+        ? 0
+        : examInfo.duration); // fallback
+    const timeTaken = Math.max(0, examInfo.duration - 0); // simplified
 
     try {
       const result = await pyqService.submitPyqTest({
@@ -531,11 +553,11 @@ export default function PYQExamInterfacePage() {
   return (
     <div className="h-screen flex flex-col bg-gray-100 overflow-hidden">
       {/* Header */}
-      <div className="bg-white border-b-2 border-gray-300 px-4 py-2">
-        <div className="flex items-center justify-between">
+      <div className="bg-white border-b-2 border-gray-300 px-2 md:px-4 py-1.5 md:py-2">
+        <div className="flex items-center justify-between gap-2">
           {/* Left: Paper Info */}
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-gray-200 rounded border-2 border-gray-400 flex items-center justify-center">
+          <div className="flex items-center gap-2 md:gap-4 min-w-0">
+            <div className="hidden md:flex w-12 h-12 bg-gray-200 rounded border-2 border-gray-400 items-center justify-center shrink-0">
               <svg
                 className="w-8 h-8 text-gray-500"
                 fill="currentColor"
@@ -544,30 +566,30 @@ export default function PYQExamInterfacePage() {
                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
               </svg>
             </div>
-            <div className="text-sm">
-              <div className="flex gap-2">
+            <div className="text-xs md:text-sm min-w-0">
+              <div className="hidden md:flex gap-2">
                 <span className="text-gray-600">Candidate Name :</span>
                 <span className="font-semibold">{examData.candidateName}</span>
               </div>
-              <div className="flex gap-2">
-                <span className="text-gray-600">Paper</span>
-                <span className="text-blue-600 font-semibold">
-                  : {examData.examName} {examData.year} - Shift {examData.shift}
+              <div className="flex gap-1 md:gap-2">
+                <span className="text-gray-600 shrink-0">Paper :</span>
+                <span className="text-blue-600 font-semibold truncate">
+                  {examData.examName} {examData.year} - Shift {examData.shift}
                 </span>
               </div>
-              <div className="flex gap-2 items-center">
-                <span className="text-gray-600">Remaining Time :</span>
+              <div className="flex gap-1 md:gap-2 items-center">
+                <span className="text-gray-600 shrink-0">Time :</span>
                 <Timer seconds={examData.duration} onTimeUp={handleTimeUp} />
               </div>
             </div>
           </div>
 
           {/* Right: Language & Submit */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 md:gap-4 shrink-0">
             <select
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
-              className="border border-gray-300 rounded px-3 py-2 text-sm"
+              className="hidden md:block border border-gray-300 rounded px-3 py-2 text-sm"
             >
               <option value="English">English</option>
               <option value="Hindi">Hindi</option>
@@ -575,7 +597,7 @@ export default function PYQExamInterfacePage() {
             </select>
             <button
               onClick={() => setShowSubmitModal(true)}
-              className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-semibold text-sm"
+              className="bg-green-600 hover:bg-green-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
             >
               Submit
             </button>
@@ -584,7 +606,7 @@ export default function PYQExamInterfacePage() {
       </div>
 
       {/* Section Tabs */}
-      <div className="bg-slate-700 text-white flex">
+      <div className="bg-slate-700 text-white flex overflow-x-auto">
         {examData.sections.map((section, idx) => (
           <button
             key={section.id}
@@ -592,11 +614,11 @@ export default function PYQExamInterfacePage() {
               setCurrentSection(idx);
               // Find first question of this subject/section
               const firstQIdx = examData.questions.findIndex(
-                (q) => (q.subject === section.id || q.section === section.id),
+                (q) => q.subject === section.id || q.section === section.id,
               );
               if (firstQIdx !== -1) goToQuestion(firstQIdx);
             }}
-            className={`px-6 py-3 text-sm font-medium transition-colors ${
+            className={`px-3 md:px-6 py-2 md:py-3 text-xs md:text-sm font-medium transition-colors whitespace-nowrap ${
               currentSection === idx
                 ? "bg-blue-600 text-white"
                 : "hover:bg-slate-600"
@@ -613,7 +635,7 @@ export default function PYQExamInterfacePage() {
         <div className="flex-1 flex flex-col">
           {/* Question Content */}
           <div className="flex-1 overflow-y-auto">
-            <div className="p-6">
+            <div className="p-3 md:p-6">
               {/* Question Header */}
               <div className="flex items-center justify-between mb-4">
                 <h2 className="text-lg font-bold text-gray-800">
@@ -629,17 +651,19 @@ export default function PYQExamInterfacePage() {
               </div>
 
               {/* Question Text */}
-              <div className="bg-white p-6 rounded-lg shadow-sm border mb-6">
+              <div className="bg-white p-3 md:p-6 rounded-lg shadow-sm border mb-4 md:mb-6">
                 <p className="text-gray-800 text-lg leading-relaxed">
                   <LatexText>{currentQuestion.text}</LatexText>
                 </p>
                 {currentQuestion.image && (
                   <div className="mt-4 flex justify-center bg-white p-2 border rounded">
-                    <img 
-                      src={currentQuestion.image.startsWith('http') 
-                        ? currentQuestion.image 
-                        : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8000'}${currentQuestion.image}`} 
-                      alt="Question Diagram" 
+                    <img
+                      src={
+                        currentQuestion.image.startsWith("http")
+                          ? currentQuestion.image
+                          : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${currentQuestion.image}`
+                      }
+                      alt="Question Diagram"
                       className="max-w-full h-auto max-h-[300px] object-contain"
                     />
                   </div>
@@ -655,7 +679,7 @@ export default function PYQExamInterfacePage() {
                     <button
                       key={option.id}
                       onClick={() => selectOption(option.id)}
-                      className={`w-full flex items-center gap-4 p-4 rounded-lg border-2 transition-all text-left ${
+                      className={`w-full flex items-center gap-2 md:gap-4 p-2.5 md:p-4 rounded-lg border-2 transition-all text-left ${
                         isSelected
                           ? "border-blue-500 bg-blue-50"
                           : "border-gray-300 bg-white hover:border-gray-400"
@@ -671,12 +695,15 @@ export default function PYQExamInterfacePage() {
                         ({option.id})
                       </div>
                       <span className="text-gray-800 flex-1">
-                        {typeof option.text === "object" && option.text?.image ? (
+                        {typeof option.text === "object" &&
+                        option.text?.image ? (
                           <div className="py-1">
                             <img
-                              src={option.text.image.startsWith('http') 
-                                ? option.text.image 
-                                : `${import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:8000'}${option.text.image}`}
+                              src={
+                                option.text.image.startsWith("http")
+                                  ? option.text.image
+                                  : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${option.text.image}`
+                              }
                               alt={`Option (${option.id})`}
                               className="max-h-32 object-contain rounded"
                             />
@@ -693,73 +720,128 @@ export default function PYQExamInterfacePage() {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="bg-gray-200 border-t-2 border-gray-300 p-3 flex items-center gap-2">
-            <button
-              onClick={saveAndNext}
-              className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              SAVE & NEXT
-            </button>
-            <button
-              onClick={clearResponse}
-              className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              CLEAR
-            </button>
-            <button
-              onClick={saveMarkAndNext}
-              className="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              SAVE & MARK FOR REVIEW
-            </button>
-            <button
-              onClick={markForReviewAndNext}
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              MARK FOR REVIEW & NEXT
-            </button>
-            <div className="flex-1"></div>
-            <button
-              onClick={() => currentIndex > 0 && goToQuestion(currentIndex - 1)}
-              disabled={currentIndex === 0}
-              className="bg-gray-500 hover:bg-gray-600 disabled:opacity-50 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              ← BACK
-            </button>
-            <button
-              onClick={() =>
-                currentIndex < totalQuestions - 1 &&
-                goToQuestion(currentIndex + 1)
-              }
-              disabled={currentIndex === totalQuestions - 1}
-              className="bg-gray-500 hover:bg-gray-600 disabled:opacity-50 text-white px-4 py-2 rounded font-semibold text-sm"
-            >
-              NEXT →
-            </button>
+          <div className="bg-gray-200 border-t-2 border-gray-300 p-2 md:p-3">
+            <div className="flex flex-wrap items-center gap-1.5 md:gap-2">
+              <button
+                onClick={saveAndNext}
+                className="bg-green-500 hover:bg-green-600 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                SAVE & NEXT
+              </button>
+              <button
+                onClick={clearResponse}
+                className="bg-orange-500 hover:bg-orange-600 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                CLEAR
+              </button>
+              <button
+                onClick={saveMarkAndNext}
+                className="bg-purple-500 hover:bg-purple-600 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                <span className="hidden md:inline">SAVE & MARK FOR REVIEW</span>
+                <span className="md:hidden">SAVE & MARK</span>
+              </button>
+              <button
+                onClick={markForReviewAndNext}
+                className="bg-blue-500 hover:bg-blue-600 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                <span className="hidden md:inline">MARK FOR REVIEW & NEXT</span>
+                <span className="md:hidden">MARK & NEXT</span>
+              </button>
+              <div className="flex-1"></div>
+              <button
+                onClick={() =>
+                  currentIndex > 0 && goToQuestion(currentIndex - 1)
+                }
+                disabled={currentIndex === 0}
+                className="bg-gray-500 hover:bg-gray-600 disabled:opacity-50 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                ← BACK
+              </button>
+              <button
+                onClick={() =>
+                  currentIndex < totalQuestions - 1 &&
+                  goToQuestion(currentIndex + 1)
+                }
+                disabled={currentIndex === totalQuestions - 1}
+                className="bg-gray-500 hover:bg-gray-600 disabled:opacity-50 text-white px-2 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
+              >
+                NEXT →
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* Palette Toggle Button */}
+        {/* Desktop: Palette Toggle Button */}
         <button
           onClick={() => setShowPalette(!showPalette)}
-          className="bg-blue-600 hover:bg-blue-700 text-white w-6 flex items-center justify-center"
+          className="hidden md:flex bg-blue-600 hover:bg-blue-700 text-white w-6 items-center justify-center"
         >
           {showPalette ? "›" : "‹"}
         </button>
 
-        {/* Question Palette Sidebar */}
+        {/* Desktop: Question Palette Sidebar */}
         {showPalette && (
-          <div className="w-80 bg-white border-l-2 border-gray-300 flex flex-col overflow-hidden">
-            {/* Status Legend */}
+          <div className="hidden md:flex w-80 bg-white border-l-2 border-gray-300 flex-col overflow-hidden">
             <StatusLegend stats={stats} />
-
-            {/* Question Grid */}
             <div className="flex-1 overflow-y-auto">
               <QuestionPaletteGrid
                 questions={questionsWithStatus}
                 currentIndex={currentIndex}
                 onQuestionClick={goToQuestion}
               />
+            </div>
+          </div>
+        )}
+
+        {/* Mobile: Floating palette toggle */}
+        <button
+          onClick={() => setShowPalette(!showPalette)}
+          className="md:hidden fixed bottom-20 right-3 z-40 w-12 h-12 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg flex items-center justify-center"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+            />
+          </svg>
+        </button>
+
+        {/* Mobile: Palette overlay */}
+        {showPalette && (
+          <div className="md:hidden fixed inset-0 z-50 flex">
+            <div
+              className="absolute inset-0 bg-black/50"
+              onClick={() => setShowPalette(false)}
+            />
+            <div className="relative ml-auto w-72 max-w-[80vw] bg-white shadow-xl flex flex-col overflow-hidden">
+              <div className="flex items-center justify-between p-3 bg-blue-600 text-white">
+                <span className="font-semibold text-sm">Question Palette</span>
+                <button
+                  onClick={() => setShowPalette(false)}
+                  className="text-white text-xl leading-none"
+                >
+                  &times;
+                </button>
+              </div>
+              <StatusLegend stats={stats} />
+              <div className="flex-1 overflow-y-auto">
+                <QuestionPaletteGrid
+                  questions={questionsWithStatus}
+                  currentIndex={currentIndex}
+                  onQuestionClick={(idx) => {
+                    goToQuestion(idx);
+                    setShowPalette(false);
+                  }}
+                />
+              </div>
             </div>
           </div>
         )}

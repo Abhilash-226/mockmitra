@@ -126,11 +126,11 @@ export default function DashboardPage() {
 
     fetchDashboardData();
 
-    // Poll for updates if any test is generating
+    // Poll for updates less frequently to avoid overloading
     const interval = setInterval(() => {
       // Background fetch without making the whole page "loading"
       fetchDashboardData(false);
-    }, 10000);
+    }, 30000);
 
     return () => clearInterval(interval);
   }, []);
@@ -138,9 +138,8 @@ export default function DashboardPage() {
   // Format relative time
   const formatRelativeTime = (dateStr) => {
     if (!dateStr) return "N/A";
-    const normalizedDateStr = (dateStr.endsWith('Z') || dateStr.includes('+'))
-      ? dateStr
-      : dateStr + 'Z';
+    const normalizedDateStr =
+      dateStr.endsWith("Z") || dateStr.includes("+") ? dateStr : dateStr + "Z";
     const date = new Date(normalizedDateStr);
     const now = new Date();
     const diffMs = now - date;
@@ -280,7 +279,9 @@ export default function DashboardPage() {
                       <p className="text-sm text-gray-500">
                         {test.status === "generating"
                           ? "Processing..."
-                          : formatRelativeTime(test.completed_at || test.created_at)}
+                          : formatRelativeTime(
+                              test.completed_at || test.created_at,
+                            )}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
@@ -290,7 +291,10 @@ export default function DashboardPage() {
                         </span>
                       ) : test.status === "not_started" ? (
                         <Link to={`/exam/${test.test_id}/instructions`}>
-                          <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
+                          <Button
+                            size="sm"
+                            className="bg-green-600 hover:bg-green-700 text-white"
+                          >
                             Start Test
                           </Button>
                         </Link>

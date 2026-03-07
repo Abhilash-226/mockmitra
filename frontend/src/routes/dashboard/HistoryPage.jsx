@@ -41,10 +41,14 @@ export default function HistoryPage() {
 
       // Set stats from dashboard data (or calculate locally if needed)
       setStats({
-        totalTests: dashboardData.total_tests || testHistory.filter(t => t.status === 'completed').length,
+        totalTests:
+          dashboardData.total_tests ||
+          testHistory.filter((t) => t.status === "completed").length,
         avgScore: dashboardData.average_percentage || 0,
         accuracy: dashboardData.overall_accuracy || 0,
-        practiceTime: formatPracticeTime(dashboardData.total_time_spent_hours || 0),
+        practiceTime: formatPracticeTime(
+          dashboardData.total_time_spent_hours || 0,
+        ),
       });
 
       setError(null);
@@ -59,7 +63,7 @@ export default function HistoryPage() {
   useEffect(() => {
     fetchHistory();
 
-    // Poll for updates if any test is generating
+    // Poll for updates only if any test is generating
     const interval = setInterval(() => {
       setHistory((prev) => {
         const hasGenerating = prev.some((t) => t.status === "generating");
@@ -68,7 +72,7 @@ export default function HistoryPage() {
         }
         return prev;
       });
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, []);
@@ -192,20 +196,24 @@ export default function HistoryPage() {
                         {(() => {
                           const dateStr = test.date;
                           if (!dateStr) return "...";
-                          const normalizedDateStr = (dateStr.endsWith('Z') || dateStr.includes('+'))
-                            ? dateStr
-                            : dateStr + 'Z';
-                          return new Date(normalizedDateStr).toLocaleDateString("en-IN", {
-                            day: "numeric",
-                            month: "short",
-                            year: "numeric",
-                            hour: "2-digit",
-                            minute: "2-digit",
-                          });
+                          const normalizedDateStr =
+                            dateStr.endsWith("Z") || dateStr.includes("+")
+                              ? dateStr
+                              : dateStr + "Z";
+                          return new Date(normalizedDateStr).toLocaleDateString(
+                            "en-IN",
+                            {
+                              day: "numeric",
+                              month: "short",
+                              year: "numeric",
+                              hour: "2-digit",
+                              minute: "2-digit",
+                            },
+                          );
                         })()}
                       </p>
                     </div>
-                    
+
                     <div className="flex items-center gap-6">
                       {test.status === "completed" ? (
                         <>
@@ -239,10 +247,13 @@ export default function HistoryPage() {
                         getStatusBadge(test.status)
                       )}
 
-                      {(test.status === "not_started" || test.status === "in_progress") && (
+                      {(test.status === "not_started" ||
+                        test.status === "in_progress") && (
                         <Link to={`/exam/${test.testId}/test`}>
                           <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-                            {test.status === "in_progress" ? "Resume Test" : "Start Test"}
+                            {test.status === "in_progress"
+                              ? "Resume Test"
+                              : "Start Test"}
                           </button>
                         </Link>
                       )}
@@ -274,8 +285,10 @@ export default function HistoryPage() {
           <p className="text-gray-500 mb-4">
             Start taking tests to see your history here
           </p>
-          <Link to="/exam/custom/customize"> {/* Adjust link as needed */}
-             <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
+          <Link to="/exam/custom/customize">
+            {" "}
+            {/* Adjust link as needed */}
+            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
               Take a Test
             </button>
           </Link>

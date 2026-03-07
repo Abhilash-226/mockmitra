@@ -16,9 +16,11 @@ import random
 import math
 import re
 import uuid
+import time
 from typing import List, Optional, Dict, Any, Union, Tuple
 from datetime import datetime, timezone
 from dataclasses import dataclass
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 try:
     from groq import Groq
@@ -1262,7 +1264,7 @@ Your response:"""
         unique_blueprints: bool = True,
         use_ai_phrasing: bool = False,
     ) -> List[GeneratedQuestion]:
-        """Generate multiple questions."""
+        """Generate multiple questions, using concurrent API calls for AI-generated ones."""
         blueprints = self.loader.query_blueprints(
             subject=subject,
             section=section,
@@ -1275,32 +1277,59 @@ Your response:"""
         if not blueprints:
             return []
 
-        questions = []
+        # Select blueprints
+        selected_blueprints = []
         used_blueprints = set()
-
         for _ in range(count):
             available = [
                 bp for bp in blueprints
                 if not unique_blueprints or bp.id not in used_blueprints
             ]
-
             if not available:
                 available = blueprints
                 used_blueprints.clear()
-
             blueprint = random.choice(available)
             used_blueprints.add(blueprint.id)
+            selected_blueprints.append(blueprint)
 
-            question = self.generate_from_blueprint(
-                blueprint,
-                use_ai_phrasing=use_ai_phrasing
-            )
+        # Separate static vs AI-needing blueprints
+        static_bps = []
+        ai_bps = []
+        for bp in selected_blueprints:
+            is_pyq = "pyq_source" in (bp.tags or [])
+            if not bp.variables and not is_pyq:
+                static_bps.append(bp)
+            else:
+                ai_bps.append(bp)
+
+        questions = []
+
+        # Generate static questions (instant, no API calls)
+        for bp in static_bps:
+            q = self._generate_static_question(bp)
+            if q:
+                questions.append(q)
+
+        # Generate AI questions concurrently (up to 5 parallel API calls)
+        if ai_bps:
+            max_workers = min(5, len(ai_bps))
+            print(f"Generating {len(ai_bps)} AI questions concurrently ({max_workers} workers)...")
             
-            if question:
-                questions.append(question)
-                # Small throttle to stay within Gemini/Vertex quotas
-                if use_ai_phrasing:
-                    time.sleep(0.5)
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                future_to_bp = {
+                    executor.submit(
+                        self.generate_from_blueprint, bp, None, use_ai_phrasing
+                    ): bp
+                    for bp in ai_bps
+                }
+                for future in as_completed(future_to_bp):
+                    try:
+                        q = future.result(timeout=180)
+                        if q:
+                            questions.append(q)
+                    except Exception as e:
+                        bp = future_to_bp[future]
+                        print(f"Concurrent generation failed for {bp.id}: {e}")
 
         return questions
 

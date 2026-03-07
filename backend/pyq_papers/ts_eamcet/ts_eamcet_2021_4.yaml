@@ -12,13 +12,13 @@ metadata:
 sections:
 - code: MAT
   name: Mathematics
-  question_count: 81
+  question_count: 80
 - code: PHY
   name: Physics
-  question_count: 43
+  question_count: 40
 - code: CHE
   name: Chemistry
-  question_count: 36
+  question_count: 40
 questions:
 - id: 1
   section: Algebra
