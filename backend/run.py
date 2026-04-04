@@ -1,5 +1,6 @@
 import uvicorn
 import asyncio
+import os
 from app.core.database import init_db
 
 
@@ -16,8 +17,8 @@ if __name__ == "__main__":
     
     # Run server
     uvicorn.run(
-        "app.main:app",
+        "main:app",
         host="0.0.0.0",
-        port=8000,
-        reload=True
+        port=int(os.getenv("PORT", "8000")),
+        reload=False
     )

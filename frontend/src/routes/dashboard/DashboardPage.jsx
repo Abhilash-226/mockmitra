@@ -1,8 +1,9 @@
 // Dashboard Page Component
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
 import { analyticsService } from "../../services/analyticsService";
+import { examService } from "../../services/examService";
 import Button from "../../components/ui/Button";
 import {
   Card,
@@ -10,7 +11,6 @@ import {
   CardContent,
   CardTitle,
 } from "../../components/ui/Card";
-import ProgressBar from "../../components/ui/ProgressBar";
 import Spinner from "../../components/ui/Spinner";
 
 const QUICK_ACTIONS = [
@@ -103,36 +103,67 @@ const QUICK_ACTIONS = [
 export default function DashboardPage() {
   const { user } = useAuthStore();
   const [dashboardData, setDashboardData] = useState(null);
-  const [blueprintStats, setBlueprintStats] = useState(null);
+  const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const pollingTimerRef = useRef(null);
+  const isFetchingRef = useRef(false);
 
   useEffect(() => {
+    let isUnmounted = false;
+
     const fetchDashboardData = async (showLoading = true) => {
+      if (isFetchingRef.current) return null;
+      isFetchingRef.current = true;
       try {
         if (showLoading) setLoading(true);
-        const [dashboard, stats] = await Promise.all([
+        const [dashboard, history] = await Promise.all([
           analyticsService.getDashboard().catch(() => null),
-          analyticsService.getBlueprintStats().catch(() => null),
+          examService.getHistory().catch(() => []),
         ]);
         setDashboardData(dashboard);
-        setBlueprintStats(stats);
+        setHistoryData(history || []);
+        setError(null);
+        return {
+          ok: true,
+          hasGenerating: (history || []).some(
+            (attempt) => attempt.status === "generating",
+          ),
+        };
       } catch (err) {
         setError(err.message);
+        return { ok: false, hasGenerating: false };
       } finally {
+        isFetchingRef.current = false;
         if (showLoading) setLoading(false);
       }
     };
 
-    fetchDashboardData();
+    const scheduleNextPoll = (delayMs) => {
+      if (isUnmounted) return;
+      if (pollingTimerRef.current) clearTimeout(pollingTimerRef.current);
+      pollingTimerRef.current = setTimeout(runPoll, delayMs);
+    };
 
-    // Poll for updates less frequently to avoid overloading
-    const interval = setInterval(() => {
-      // Background fetch without making the whole page "loading"
-      fetchDashboardData(false);
-    }, 30000);
+    const runPoll = async (showLoading = false) => {
+      const result = await fetchDashboardData(showLoading);
+      if (isUnmounted) return;
 
-    return () => clearInterval(interval);
+      if (!result || !result.ok) {
+        scheduleNextPoll(45000);
+      } else if (result.hasGenerating) {
+        scheduleNextPoll(20000);
+      } else {
+        scheduleNextPoll(60000);
+      }
+    };
+
+    runPoll(true);
+
+    return () => {
+      isUnmounted = true;
+      if (pollingTimerRef.current) clearTimeout(pollingTimerRef.current);
+    };
   }, []);
 
   // Format relative time
@@ -160,21 +191,23 @@ export default function DashboardPage() {
     overall_accuracy: dashboardData?.overall_accuracy || 0,
   };
 
-  const recentTests = dashboardData?.recent_attempts || [];
+  const historyNameByAttemptId = new Map(
+    (historyData || []).map((attempt) => [
+      attempt.id || attempt._id,
+      attempt.test_title || attempt.exam_code || "Untitled Test",
+    ]),
+  );
 
-  // Generate topic progress from blueprint stats
-  const topicProgress = blueprintStats
-    ? Object.entries(blueprintStats.by_subject || {}).map(
-        ([subject, count]) => ({
-          topic: subject,
-          progress: Math.min(
-            100,
-            Math.round((count / blueprintStats.total_blueprints) * 100 * 3),
-          ),
-          total: 100,
-        }),
-      )
-    : [];
+  const recentTests = (dashboardData?.recent_attempts || [])
+    .map((attempt) => ({
+      ...attempt,
+      test_name:
+        historyNameByAttemptId.get(attempt.id || attempt._id) ||
+        attempt.test_title ||
+        attempt.exam_code ||
+        "Untitled Test",
+    }))
+    .slice(0, 3);
 
   return (
     <div className="space-y-6">
@@ -274,7 +307,7 @@ export default function DashboardPage() {
                   >
                     <div className="flex-1 min-w-0">
                       <p className="font-medium text-gray-900 truncate">
-                        Test #{test.test_id?.slice(-6) || "N/A"}
+                        {test.test_name}
                       </p>
                       <p className="text-sm text-gray-500">
                         {test.status === "generating"
@@ -326,10 +359,10 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
 
-        {/* Topic Progress */}
+        {/* Performance Analytics */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle>Subject Coverage</CardTitle>
+            <CardTitle>Performance Analytics</CardTitle>
             <Link
               to="/analytics"
               className="text-sm text-blue-600 hover:underline"
@@ -338,39 +371,31 @@ export default function DashboardPage() {
             </Link>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
-              {topicProgress.length === 0 ? (
-                <div className="text-center py-6 text-gray-500">
-                  <p>Loading subject data...</p>
-                </div>
-              ) : (
-                topicProgress.map((item, index) => (
-                  <div key={index}>
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm font-medium text-gray-700">
-                        {item.topic}
-                      </span>
-                      <span className="text-sm text-gray-500">
-                        {item.progress}%
-                      </span>
-                    </div>
-                    <ProgressBar
-                      value={item.progress}
-                      max={item.total}
-                      color={
-                        item.progress >= 80
-                          ? "success"
-                          : item.progress >= 60
-                            ? "primary"
-                            : item.progress >= 40
-                              ? "warning"
-                              : "danger"
-                      }
-                      size="sm"
-                    />
-                  </div>
-                ))
-              )}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="text-center rounded-lg bg-blue-50 p-3">
+                <p className="text-2xl font-bold text-blue-600">
+                  {stats.total_tests}
+                </p>
+                <p className="text-sm text-gray-600">Tests Taken</p>
+              </div>
+              <div className="text-center rounded-lg bg-green-50 p-3">
+                <p className="text-2xl font-bold text-green-600">
+                  {stats.average_percentage}%
+                </p>
+                <p className="text-sm text-gray-600">Average Score</p>
+              </div>
+              <div className="text-center rounded-lg bg-purple-50 p-3">
+                <p className="text-2xl font-bold text-purple-600">
+                  {stats.overall_accuracy}%
+                </p>
+                <p className="text-sm text-gray-600">Accuracy</p>
+              </div>
+              <div className="text-center rounded-lg bg-orange-50 p-3">
+                <p className="text-2xl font-bold text-orange-600">
+                  {stats.total_time_spent_hours}h
+                </p>
+                <p className="text-sm text-gray-600">Practice Time</p>
+              </div>
             </div>
           </CardContent>
         </Card>

@@ -13,6 +13,11 @@ import examService from "../../services/examService";
 import "katex/dist/katex.min.css";
 import LatexText from "../../components/ui/LatexText";
 
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
+  /\/api\/?$/,
+  "",
+);
+
 // Question Status Types
 const STATUS = {
   NOT_VISITED: "not_visited",
@@ -185,6 +190,7 @@ export default function ExamInterfacePage() {
   const [language, setLanguage] = useState("English");
   const [currentSection, setCurrentSection] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Loading state
   const [loadingMessage, setLoadingMessage] = useState("Initializing exam...");
@@ -450,6 +456,11 @@ export default function ExamInterfacePage() {
   };
 
   const handleSubmit = async () => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setIsSubmitted(true);
+
     try {
       // Build responses array for API submission
       const responses = examData.questions.map((q, idx) => ({
@@ -459,20 +470,17 @@ export default function ExamInterfacePage() {
         time_spent_seconds: 0, // TODO: Track actual time per question
       }));
 
-      await examService.submitTest(examId, responses);
-      setIsSubmitted(true);
-      navigate(`/results/${examId}`);
+      const submitResult = await examService.submitTest(examId, responses);
+      const attemptId =
+        submitResult?.id || submitResult?._id || submitResult?.attempt_id;
+      navigate(`/results/${attemptId || examId}`);
     } catch (err) {
       console.error("Failed to submit test:", err);
       // Still navigate to results on error, as the UI state should be saved
-      setIsSubmitted(true);
       navigate(`/results/${examId}`);
+    } finally {
+      setIsSubmitting(false);
     }
-  };
-
-  // Section filtering
-  const getSectionQuestions = (sectionId) => {
-    return examData.questions.filter((q) => q.section === sectionId);
   };
 
   // Loading state
@@ -602,6 +610,7 @@ export default function ExamInterfacePage() {
             </select>
             <button
               onClick={() => setShowSubmitModal(true)}
+              disabled={isSubmitting}
               className="bg-green-600 hover:bg-green-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
             >
               Submit
@@ -673,7 +682,7 @@ export default function ExamInterfacePage() {
                       src={
                         currentQuestion.image.startsWith("http")
                           ? currentQuestion.image
-                          : `http://localhost:8000${currentQuestion.image}`
+                          : `${API_ORIGIN}${currentQuestion.image}`
                       }
                       alt="Question Diagram"
                       className="max-w-full h-auto max-h-[300px] object-contain"
@@ -715,7 +724,7 @@ export default function ExamInterfacePage() {
                               src={
                                 option.text.image.startsWith("http")
                                   ? option.text.image
-                                  : `http://localhost:8000${option.text.image}`
+                                  : `${API_ORIGIN}${option.text.image}`
                               }
                               alt={`Option ${optionLabels[idx]}`}
                               className="max-h-32 object-contain rounded"
@@ -871,7 +880,7 @@ export default function ExamInterfacePage() {
       {/* Submit Confirmation Modal */}
       <Modal
         isOpen={showSubmitModal}
-        onClose={() => setShowSubmitModal(false)}
+        onClose={() => !isSubmitting && setShowSubmitModal(false)}
         title="Submit Examination"
         size="lg"
       >
@@ -919,19 +928,38 @@ export default function ExamInterfacePage() {
           </div>
 
           <div className="flex justify-end gap-3 pt-4 border-t">
-            <Button variant="outline" onClick={() => setShowSubmitModal(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setShowSubmitModal(false)}
+              disabled={isSubmitting}
+            >
               Go Back to Exam
             </Button>
             <Button
               variant="primary"
               onClick={handleSubmit}
+              disabled={isSubmitting}
               className="bg-green-600 hover:bg-green-700"
             >
-              Confirm Submit
+              {isSubmitting ? "Submitting..." : "Confirm Submit"}
             </Button>
           </div>
         </div>
       </Modal>
+
+      {isSubmitting && (
+        <div className="fixed inset-0 z-[100] bg-black/40 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-xl p-6 text-center w-[90%] max-w-sm">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-600 mx-auto mb-4"></div>
+            <h3 className="text-lg font-semibold text-gray-800">
+              Submitting your test...
+            </h3>
+            <p className="text-gray-600 mt-2 text-sm">
+              Please wait while we prepare your analysis.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

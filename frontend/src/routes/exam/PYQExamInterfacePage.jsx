@@ -31,6 +31,11 @@ function LatexText({ children }) {
 import Button from "../../components/ui/Button";
 import { pyqService } from "../../services/pyqService";
 
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
+  /\/api\/?$/,
+  "",
+);
+
 // Question Status Types
 const STATUS = {
   NOT_VISITED: "not_visited",
@@ -204,6 +209,7 @@ export default function PYQExamInterfacePage() {
   const [language, setLanguage] = useState("English");
   const [currentSection, setCurrentSection] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Loading state
   const [loadingMessage, setLoadingMessage] = useState("Loading paper...");
@@ -443,6 +449,9 @@ export default function PYQExamInterfacePage() {
   };
 
   const handleSubmit = async () => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
     setIsSubmitted(true);
 
     // Build answers payload: map index-based answers to question_number + option letter
@@ -480,6 +489,8 @@ export default function PYQExamInterfacePage() {
           attemptedQuestions: stats.answered + stats.answeredMarked,
         },
       });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -597,6 +608,7 @@ export default function PYQExamInterfacePage() {
             </select>
             <button
               onClick={() => setShowSubmitModal(true)}
+              disabled={isSubmitting}
               className="bg-green-600 hover:bg-green-700 text-white px-3 md:px-4 py-1.5 md:py-2 rounded font-semibold text-xs md:text-sm"
             >
               Submit
@@ -661,7 +673,7 @@ export default function PYQExamInterfacePage() {
                       src={
                         currentQuestion.image.startsWith("http")
                           ? currentQuestion.image
-                          : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${currentQuestion.image}`
+                          : `${API_ORIGIN}${currentQuestion.image}`
                       }
                       alt="Question Diagram"
                       className="max-w-full h-auto max-h-[300px] object-contain"
@@ -702,7 +714,7 @@ export default function PYQExamInterfacePage() {
                               src={
                                 option.text.image.startsWith("http")
                                   ? option.text.image
-                                  : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${option.text.image}`
+                                  : `${API_ORIGIN}${option.text.image}`
                               }
                               alt={`Option (${option.id})`}
                               className="max-h-32 object-contain rounded"
@@ -850,7 +862,7 @@ export default function PYQExamInterfacePage() {
       {/* Submit Confirmation Modal */}
       <Modal
         isOpen={showSubmitModal}
-        onClose={() => setShowSubmitModal(false)}
+        onClose={() => !isSubmitting && setShowSubmitModal(false)}
         title="Submit Examination"
         size="lg"
       >
@@ -898,19 +910,38 @@ export default function PYQExamInterfacePage() {
           </div>
 
           <div className="flex justify-end gap-3 pt-4 border-t">
-            <Button variant="outline" onClick={() => setShowSubmitModal(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setShowSubmitModal(false)}
+              disabled={isSubmitting}
+            >
               Go Back to Exam
             </Button>
             <Button
               variant="primary"
               onClick={handleSubmit}
+              disabled={isSubmitting}
               className="bg-green-600 hover:bg-green-700"
             >
-              Confirm Submit
+              {isSubmitting ? "Submitting..." : "Confirm Submit"}
             </Button>
           </div>
         </div>
       </Modal>
+
+      {isSubmitting && (
+        <div className="fixed inset-0 z-[100] bg-black/40 flex items-center justify-center">
+          <div className="bg-white rounded-lg shadow-xl p-6 text-center w-[90%] max-w-sm">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-blue-600 mx-auto mb-4"></div>
+            <h3 className="text-lg font-semibold text-gray-800">
+              Submitting your test...
+            </h3>
+            <p className="text-gray-600 mt-2 text-sm">
+              Please wait while we prepare your analysis.
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

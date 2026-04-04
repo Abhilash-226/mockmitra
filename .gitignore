@@ -8,3 +8,6 @@ credentials.json
 .env
 .env.local
 .env.*.local
+
+# Backend cloud credentials
+backend/placeguide-*.json

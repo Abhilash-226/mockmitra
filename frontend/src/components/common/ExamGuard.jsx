@@ -14,10 +14,12 @@ export default function ExamGuard({ children }) {
 
   // Check if we have exam data from store, URL, or router state
   const isInstructionsPage = location.pathname.includes("/instructions");
+  const isTestPage = location.pathname.includes("/test");
   const hasExamData = currentExam || examConfig;
   const hasRouterState = location.state?.testId || location.state?.config;
-  const hasValidExamState =
-    examState === "ready" || examState === "in_progress";
+  const hasUrlExamId = Boolean(urlExamId);
+  const canUseUrlParamAccess =
+    hasUrlExamId && (isInstructionsPage || isTestPage);
 
   // Handle beforeunload event
   const handleBeforeUnload = useCallback(
@@ -101,6 +103,7 @@ export default function ExamGuard({ children }) {
     } else if (
       !hasExamData &&
       !hasRouterState &&
+      !canUseUrlParamAccess &&
       !isInstructionsPage &&
       examState !== "loading"
     ) {
@@ -111,6 +114,7 @@ export default function ExamGuard({ children }) {
     isAuthenticated,
     hasExamData,
     hasRouterState,
+    canUseUrlParamAccess,
     isInstructionsPage,
     examState,
     navigate,
@@ -122,14 +126,19 @@ export default function ExamGuard({ children }) {
   }
 
   // For instructions page, allow access if we have URL examId or router state
-  if (isInstructionsPage && (urlExamId || hasRouterState)) {
+  if ((isInstructionsPage || isTestPage) && (hasUrlExamId || hasRouterState)) {
     return (
       <div className="exam-guard min-h-screen bg-gray-100">{children}</div>
     );
   }
 
   // Check if exam is loaded
-  if (!hasExamData && !hasRouterState && examState !== "loading") {
+  if (
+    !hasExamData &&
+    !hasRouterState &&
+    !canUseUrlParamAccess &&
+    examState !== "loading"
+  ) {
     return null;
   }
 

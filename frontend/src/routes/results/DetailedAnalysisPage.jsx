@@ -13,6 +13,11 @@ import Button from "../../components/ui/Button";
 import Spinner from "../../components/ui/Spinner";
 import { analyticsService } from "../../services/analyticsService";
 
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
+  /\/api\/?$/,
+  "",
+);
+
 const formatTime = (seconds) => {
   if (!seconds) return "0:00";
   const mins = Math.floor(seconds / 60);
@@ -25,7 +30,7 @@ const parseOptionValue = (val) => {
     try {
       // Basic Python dict -> JSON conversion for image paths
       return JSON.parse(val.replace(/'/g, '"'));
-    } catch (e) {
+    } catch (_error) {
       return val;
     }
   }
@@ -37,7 +42,7 @@ const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 // Individual Question Card matching the reference UI
 function QuestionReviewCard({ question }) {
   const [showSolution, setShowSolution] = useState(false);
-  const [solution, setSolution] = useState(null);  // null = not fetched yet
+  const [solution, setSolution] = useState(null); // null = not fetched yet
   const [solutionLoading, setSolutionLoading] = useState(false);
   const [solutionError, setSolutionError] = useState(null);
 
@@ -66,7 +71,10 @@ function QuestionReviewCard({ question }) {
       console.error("Solution generation failed:", err);
       setSolutionError("Failed to generate solution. Please try again.");
       // Fallback to stored explanation
-      if (question.solution && question.solution !== "No explanation available") {
+      if (
+        question.solution &&
+        question.solution !== "No explanation available"
+      ) {
         setSolution(question.solution);
         setSolutionError(null);
       }
@@ -85,8 +93,16 @@ function QuestionReviewCard({ question }) {
         wrapper: "border border-green-200 bg-green-50",
         label: "bg-green-500 text-white",
         icon: (
-          <svg className="w-5 h-5 text-green-500 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          <svg
+            className="w-5 h-5 text-green-500 flex-shrink-0"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clipRule="evenodd"
+            />
           </svg>
         ),
       };
@@ -95,8 +111,16 @@ function QuestionReviewCard({ question }) {
         wrapper: "border border-red-200 bg-red-50",
         label: "bg-red-400 text-white",
         icon: (
-          <svg className="w-5 h-5 text-red-400 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+          <svg
+            className="w-5 h-5 text-red-400 flex-shrink-0"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+              clipRule="evenodd"
+            />
           </svg>
         ),
       };
@@ -110,28 +134,56 @@ function QuestionReviewCard({ question }) {
   const borderColor = question.isCorrect
     ? "border-l-green-500"
     : question.userAnswer
-    ? "border-l-red-500"
-    : "border-l-gray-400";
+      ? "border-l-red-500"
+      : "border-l-gray-400";
 
   const skipped = !question.userAnswer;
 
   return (
-    <div className={`bg-white rounded-xl border border-gray-200 border-l-4 ${borderColor} shadow-sm overflow-hidden`}>
+    <div
+      className={`bg-white rounded-xl border border-gray-200 border-l-4 ${borderColor} shadow-sm overflow-hidden`}
+    >
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100">
         <div className="flex items-center gap-2">
-          <span className="font-semibold text-gray-800">Question {question.number}</span>
+          <span className="font-semibold text-gray-800">
+            Question {question.number}
+          </span>
           {question.isCorrect ? (
-            <svg className="w-5 h-5 text-green-500" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-green-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
             </svg>
           ) : skipped ? (
-            <svg className="w-5 h-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-gray-400"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
+                clipRule="evenodd"
+              />
             </svg>
           ) : (
-            <svg className="w-5 h-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            <svg
+              className="w-5 h-5 text-red-500"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                clipRule="evenodd"
+              />
             </svg>
           )}
         </div>
@@ -145,8 +197,8 @@ function QuestionReviewCard({ question }) {
               question.difficulty === "Easy"
                 ? "bg-green-100 text-green-700"
                 : question.difficulty === "Medium"
-                ? "bg-yellow-100 text-yellow-700"
-                : "bg-red-100 text-red-700"
+                  ? "bg-yellow-100 text-yellow-700"
+                  : "bg-red-100 text-red-700"
             }`}
           >
             {question.difficulty}
@@ -177,7 +229,7 @@ function QuestionReviewCard({ question }) {
               src={
                 question.image.startsWith("http")
                   ? question.image
-                  : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${question.image}`
+                  : `${API_ORIGIN}${question.image}`
               }
               alt="Question diagram"
               className="max-w-full h-auto max-h-64 object-contain rounded-lg border border-gray-200"
@@ -206,7 +258,7 @@ function QuestionReviewCard({ question }) {
                         src={
                           opt.text.image.startsWith("http")
                             ? opt.text.image
-                            : `${import.meta.env.VITE_API_URL?.replace("/api", "") || "http://localhost:8000"}${opt.text.image}`
+                            : `${API_ORIGIN}${opt.text.image}`
                         }
                         alt={`Option (${OPTION_LABELS[idx]})`}
                         className="max-h-32 object-contain rounded"
@@ -227,9 +279,13 @@ function QuestionReviewCard({ question }) {
           <div className="flex items-center gap-2">
             <span className="text-gray-500 w-36">Your Answer:</span>
             {question.userAnswer ? (
-              <span className={`font-semibold ${question.isCorrect ? "text-green-600" : "text-red-500"}`}>
+              <span
+                className={`font-semibold ${question.isCorrect ? "text-green-600" : "text-red-500"}`}
+              >
                 {OPTION_LABELS[
-                  question.options.findIndex((o) => o.value === question.userAnswer)
+                  question.options.findIndex(
+                    (o) => o.value === question.userAnswer,
+                  )
                 ] ?? question.userAnswer.toUpperCase()}
               </span>
             ) : (
@@ -240,7 +296,9 @@ function QuestionReviewCard({ question }) {
             <span className="text-gray-500 w-36">Correct Answer:</span>
             <span className="font-semibold text-green-600">
               {OPTION_LABELS[
-                question.options.findIndex((o) => o.value === question.correctAnswer)
+                question.options.findIndex(
+                  (o) => o.value === question.correctAnswer,
+                )
               ] ?? question.correctAnswer?.toUpperCase()}
             </span>
           </div>
@@ -254,16 +312,41 @@ function QuestionReviewCard({ question }) {
         >
           {solutionLoading ? (
             <>
-              <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+              <svg
+                className="w-4 h-4 animate-spin"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                />
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                />
               </svg>
               Generating Solution...
             </>
           ) : (
             <>
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              <svg
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                />
               </svg>
               {showSolution ? "Hide Solution" : "View Solution"}
             </>
@@ -274,11 +357,25 @@ function QuestionReviewCard({ question }) {
         {showSolution && (
           <div className="mt-3 rounded-xl border border-blue-100 overflow-hidden">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-blue-600">
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              <svg
+                className="w-4 h-4 text-white"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
               </svg>
-              <span className="text-sm font-semibold text-white">AI-Generated Solution</span>
-              <span className="ml-auto text-xs text-blue-200">powered by Groq · Llama 3.3</span>
+              <span className="text-sm font-semibold text-white">
+                AI-Generated Solution
+              </span>
+              <span className="ml-auto text-xs text-blue-200">
+                powered by Groq · Llama 3.3
+              </span>
             </div>
             <div className="bg-blue-50 px-5 py-4">
               {solutionLoading ? (
@@ -291,13 +388,25 @@ function QuestionReviewCard({ question }) {
                 </div>
               ) : solutionError && !solution ? (
                 <div className="flex items-start gap-3 text-red-700">
-                  <svg className="w-5 h-5 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   <div>
                     <p className="text-sm font-medium">{solutionError}</p>
                     <button
-                      onClick={() => { setSolution(null); setSolutionError(null); handleViewSolution(); }}
+                      onClick={() => {
+                        setSolution(null);
+                        setSolutionError(null);
+                        handleViewSolution();
+                      }}
                       className="mt-1 text-xs underline hover:no-underline"
                     >
                       Retry
@@ -319,11 +428,35 @@ function QuestionReviewCard({ question }) {
 
 // ─────────────────────────────────────────────
 const SECTION_COLORS = {
-  Mathematics: { bg: "bg-blue-50", border: "border-blue-400", text: "text-blue-700", ring: "text-blue-500", light: "bg-blue-100" },
-  Physics:     { bg: "bg-amber-50", border: "border-amber-400", text: "text-amber-700", ring: "text-amber-500", light: "bg-amber-100" },
-  Chemistry:   { bg: "bg-emerald-50", border: "border-emerald-400", text: "text-emerald-700", ring: "text-emerald-500", light: "bg-emerald-100" },
+  Mathematics: {
+    bg: "bg-blue-50",
+    border: "border-blue-400",
+    text: "text-blue-700",
+    ring: "text-blue-500",
+    light: "bg-blue-100",
+  },
+  Physics: {
+    bg: "bg-amber-50",
+    border: "border-amber-400",
+    text: "text-amber-700",
+    ring: "text-amber-500",
+    light: "bg-amber-100",
+  },
+  Chemistry: {
+    bg: "bg-emerald-50",
+    border: "border-emerald-400",
+    text: "text-emerald-700",
+    ring: "text-emerald-500",
+    light: "bg-emerald-100",
+  },
 };
-const DEFAULT_SECTION_COLOR = { bg: "bg-gray-50", border: "border-gray-400", text: "text-gray-700", ring: "text-gray-500", light: "bg-gray-100" };
+const DEFAULT_SECTION_COLOR = {
+  bg: "bg-gray-50",
+  border: "border-gray-400",
+  text: "text-gray-700",
+  ring: "text-gray-500",
+  light: "bg-gray-100",
+};
 
 const DEFAULT_SUMMARY = {
   testName: "Test",
@@ -368,15 +501,19 @@ export default function DetailedAnalysisPage() {
         const correct = data.correct || data.correct_answers || 0;
         const wrong = data.wrong || data.wrong_answers || 0;
         const skippedCount = data.skipped || 0;
-        const totalQ = data.total_questions || correct + wrong + skippedCount || 0;
+        const totalQ =
+          data.total_questions || correct + wrong + skippedCount || 0;
         const attempted = correct + wrong;
-        const accuracyPct = attempted > 0 ? Math.round((correct / attempted) * 1000) / 10 : 0;
+        const accuracyPct =
+          attempted > 0 ? Math.round((correct / attempted) * 1000) / 10 : 0;
 
         setSummary({
           testName: data.test_name || data.exam_name || "Test",
           score: data.score || 0,
           maxScore: data.max_score || totalQ,
-          percentage: data.percentage || (totalQ > 0 ? Math.round((correct / totalQ) * 100) : 0),
+          percentage:
+            data.percentage ||
+            (totalQ > 0 ? Math.round((correct / totalQ) * 100) : 0),
           accuracy: accuracyPct,
           rank: data.rank || "-",
           timeTaken: formatTime(data.time_taken_seconds),
@@ -389,10 +526,11 @@ export default function DetailedAnalysisPage() {
         // Transform questions
         const questions = (data.questions || []).map((q, index) => {
           const options = (q.options || []).map((opt) => {
-            if (typeof opt === "string") return { value: opt, text: parseOptionValue(opt) };
-            return { 
-              value: opt.key ?? opt.value, 
-              text: parseOptionValue(opt.text ?? opt.label ?? opt) 
+            if (typeof opt === "string")
+              return { value: opt, text: parseOptionValue(opt) };
+            return {
+              value: opt.key ?? opt.value,
+              text: parseOptionValue(opt.text ?? opt.label ?? opt),
             };
           });
           return {
@@ -405,7 +543,8 @@ export default function DetailedAnalysisPage() {
             topic: q.topic || "General",
             section: q.section || "General",
             difficulty: q.difficulty
-              ? q.difficulty.charAt(0).toUpperCase() + q.difficulty.slice(1).toLowerCase()
+              ? q.difficulty.charAt(0).toUpperCase() +
+                q.difficulty.slice(1).toLowerCase()
               : "Medium",
             solution: q.solution || q.explanation || "No explanation available",
             isCorrect: q.is_correct,
@@ -417,20 +556,24 @@ export default function DetailedAnalysisPage() {
         const sectionStats = {};
         questions.forEach((q) => {
           const sec = q.section || "General";
-          if (!sectionStats[sec]) sectionStats[sec] = { correct: 0, wrong: 0, skipped: 0, total: 0 };
+          if (!sectionStats[sec])
+            sectionStats[sec] = { correct: 0, wrong: 0, skipped: 0, total: 0 };
           sectionStats[sec].total++;
           if (q.isCorrect === true) sectionStats[sec].correct++;
           else if (q.userAnswer) sectionStats[sec].wrong++;
           else sectionStats[sec].skipped++;
         });
-        const sectionAnalysis = Object.entries(sectionStats).map(([section, s]) => ({
-          section,
-          correct: s.correct,
-          wrong: s.wrong,
-          skipped: s.skipped,
-          total: s.total,
-          percentage: s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
-        }));
+        const sectionAnalysis = Object.entries(sectionStats).map(
+          ([section, s]) => ({
+            section,
+            correct: s.correct,
+            wrong: s.wrong,
+            skipped: s.skipped,
+            total: s.total,
+            percentage:
+              s.total > 0 ? Math.round((s.correct / s.total) * 100) : 0,
+          }),
+        );
 
         // Time analysis
         const times = (data.responses || [])
@@ -439,15 +582,21 @@ export default function DetailedAnalysisPage() {
         const timeAnalysis = {
           avgTimePerQuestion:
             data.average_time_per_question ||
-            (times.length > 0 ? Math.round(times.reduce((a, b) => a + b, 0) / times.length) : 0),
+            (times.length > 0
+              ? Math.round(times.reduce((a, b) => a + b, 0) / times.length)
+              : 0),
           fastestQuestion: times.length > 0 ? Math.min(...times) : 0,
           slowestQuestion: times.length > 0 ? Math.max(...times) : 0,
           recommendedTime: 36,
         };
 
         setAnalysis({
-          questions: questions.length > 0 ? questions : DEFAULT_ANALYSIS.questions,
-          sectionAnalysis: sectionAnalysis.length > 0 ? sectionAnalysis : DEFAULT_ANALYSIS.sectionAnalysis,
+          questions:
+            questions.length > 0 ? questions : DEFAULT_ANALYSIS.questions,
+          sectionAnalysis:
+            sectionAnalysis.length > 0
+              ? sectionAnalysis
+              : DEFAULT_ANALYSIS.sectionAnalysis,
           timeAnalysis,
         });
         setError(null);
@@ -491,8 +640,18 @@ export default function DetailedAnalysisPage() {
       {(() => {
         const scoreCirc = 2 * Math.PI * 54;
         const scoreOffset = scoreCirc - (summary.percentage / 100) * scoreCirc;
-        const pctColor = summary.percentage >= 60 ? "text-green-500" : summary.percentage >= 30 ? "text-amber-500" : "text-red-500";
-        const strokeColor = summary.percentage >= 60 ? "stroke-green-500" : summary.percentage >= 30 ? "stroke-amber-500" : "stroke-red-500";
+        const pctColor =
+          summary.percentage >= 60
+            ? "text-green-500"
+            : summary.percentage >= 30
+              ? "text-amber-500"
+              : "text-red-500";
+        const strokeColor =
+          summary.percentage >= 60
+            ? "stroke-green-500"
+            : summary.percentage >= 30
+              ? "stroke-amber-500"
+              : "stroke-red-500";
         return (
           <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
             {/* Test name + actions row */}
@@ -502,10 +661,22 @@ export default function DetailedAnalysisPage() {
               </h2>
               <div className="flex items-center gap-3 text-sm text-gray-500">
                 <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M12 6v6l4 2" />
+                  </svg>
                   {summary.timeTaken}
                 </span>
-                <Link to="/dashboard/exams" className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-medium hover:bg-blue-100 transition-colors text-xs">
+                <Link
+                  to="/dashboard/exams"
+                  className="px-3 py-1.5 rounded-lg bg-blue-50 text-blue-600 font-medium hover:bg-blue-100 transition-colors text-xs"
+                >
                   Take Another Test
                 </Link>
               </div>
@@ -516,17 +687,30 @@ export default function DetailedAnalysisPage() {
               {/* Donut Chart */}
               <div className="relative w-36 h-36 flex-shrink-0">
                 <svg viewBox="0 0 120 120" className="w-full h-full -rotate-90">
-                  <circle cx="60" cy="60" r="54" fill="none" className="stroke-gray-100" strokeWidth="8" />
                   <circle
-                    cx="60" cy="60" r="54" fill="none"
+                    cx="60"
+                    cy="60"
+                    r="54"
+                    fill="none"
+                    className="stroke-gray-100"
+                    strokeWidth="8"
+                  />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="54"
+                    fill="none"
                     className={`${strokeColor} transition-all duration-1000 ease-out`}
-                    strokeWidth="8" strokeLinecap="round"
+                    strokeWidth="8"
+                    strokeLinecap="round"
                     strokeDasharray={scoreCirc}
                     strokeDashoffset={scoreOffset}
                   />
                 </svg>
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <span className={`text-3xl font-extrabold ${pctColor}`}>{summary.percentage}%</span>
+                  <span className={`text-3xl font-extrabold ${pctColor}`}>
+                    {summary.percentage}%
+                  </span>
                   <span className="text-xs text-gray-400 mt-0.5">Score</span>
                 </div>
               </div>
@@ -535,8 +719,12 @@ export default function DetailedAnalysisPage() {
               <div className="flex-1 w-full">
                 {/* Score line */}
                 <div className="flex items-baseline gap-1.5 mb-1">
-                  <span className="text-4xl font-extrabold text-gray-900">{summary.score}</span>
-                  <span className="text-lg text-gray-400 font-medium">/ {summary.maxScore}</span>
+                  <span className="text-4xl font-extrabold text-gray-900">
+                    {summary.score}
+                  </span>
+                  <span className="text-lg text-gray-400 font-medium">
+                    / {summary.maxScore}
+                  </span>
                 </div>
                 <p className="text-sm text-gray-500 mb-5">
                   {summary.accuracy}% Accuracy
@@ -548,28 +736,36 @@ export default function DetailedAnalysisPage() {
                   <div className="flex items-center gap-3 rounded-xl bg-green-50 border border-green-100 px-4 py-3">
                     <div className="w-1 h-8 rounded-full bg-green-500" />
                     <div>
-                      <p className="text-xl font-bold text-green-600">{summary.correct}</p>
+                      <p className="text-xl font-bold text-green-600">
+                        {summary.correct}
+                      </p>
                       <p className="text-xs text-green-700">Correct</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl bg-red-50 border border-red-100 px-4 py-3">
                     <div className="w-1 h-8 rounded-full bg-red-500" />
                     <div>
-                      <p className="text-xl font-bold text-red-600">{summary.incorrect}</p>
+                      <p className="text-xl font-bold text-red-600">
+                        {summary.incorrect}
+                      </p>
                       <p className="text-xs text-red-700">Incorrect</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl bg-gray-50 border border-gray-200 px-4 py-3">
                     <div className="w-1 h-8 rounded-full bg-gray-400" />
                     <div>
-                      <p className="text-xl font-bold text-gray-600">{summary.skipped}</p>
+                      <p className="text-xl font-bold text-gray-600">
+                        {summary.skipped}
+                      </p>
                       <p className="text-xs text-gray-500">Skipped</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 rounded-xl bg-blue-50 border border-blue-100 px-4 py-3">
                     <div className="w-1 h-8 rounded-full bg-blue-500" />
                     <div>
-                      <p className="text-xl font-bold text-blue-600">{summary.total}</p>
+                      <p className="text-xl font-bold text-blue-600">
+                        {summary.total}
+                      </p>
                       <p className="text-xs text-blue-700">Total</p>
                     </div>
                   </div>
@@ -591,29 +787,48 @@ export default function DetailedAnalysisPage() {
               {analysis.sectionAnalysis.map((sec) => {
                 const c = SECTION_COLORS[sec.section] || DEFAULT_SECTION_COLOR;
                 const circumference = 2 * Math.PI * 28;
-                const offset = circumference - (sec.percentage / 100) * circumference;
+                const offset =
+                  circumference - (sec.percentage / 100) * circumference;
                 return (
                   <div
                     key={sec.section}
                     className={`rounded-xl border-l-4 ${c.border} ${c.bg} p-5 flex flex-col items-center gap-3 shadow-sm`}
                   >
                     {/* Section name */}
-                    <h3 className={`text-base font-bold ${c.text}`}>{sec.section}</h3>
+                    <h3 className={`text-base font-bold ${c.text}`}>
+                      {sec.section}
+                    </h3>
 
                     {/* Donut ring */}
                     <div className="relative w-20 h-20">
-                      <svg viewBox="0 0 64 64" className="w-full h-full -rotate-90">
-                        <circle cx="32" cy="32" r="28" fill="none" className="stroke-gray-200" strokeWidth="5" />
+                      <svg
+                        viewBox="0 0 64 64"
+                        className="w-full h-full -rotate-90"
+                      >
                         <circle
-                          cx="32" cy="32" r="28" fill="none"
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          fill="none"
+                          className="stroke-gray-200"
+                          strokeWidth="5"
+                        />
+                        <circle
+                          cx="32"
+                          cy="32"
+                          r="28"
+                          fill="none"
                           className={`${c.ring} transition-all duration-700`}
-                          stroke="currentColor" strokeWidth="5"
+                          stroke="currentColor"
+                          strokeWidth="5"
                           strokeLinecap="round"
                           strokeDasharray={circumference}
                           strokeDashoffset={offset}
                         />
                       </svg>
-                      <span className={`absolute inset-0 flex items-center justify-center text-lg font-bold ${c.text}`}>
+                      <span
+                        className={`absolute inset-0 flex items-center justify-center text-lg font-bold ${c.text}`}
+                      >
                         {sec.percentage}%
                       </span>
                     </div>
@@ -639,7 +854,9 @@ export default function DetailedAnalysisPage() {
               })}
             </div>
           ) : (
-            <p className="text-gray-500 text-center py-4">No section analysis available</p>
+            <p className="text-gray-500 text-center py-4">
+              No section analysis available
+            </p>
           )}
         </CardContent>
       </Card>
@@ -652,19 +869,27 @@ export default function DetailedAnalysisPage() {
         <CardContent>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="text-center p-4 bg-blue-50 rounded-lg">
-              <p className="text-2xl font-bold text-blue-600">{analysis.timeAnalysis.avgTimePerQuestion}s</p>
+              <p className="text-2xl font-bold text-blue-600">
+                {analysis.timeAnalysis.avgTimePerQuestion}s
+              </p>
               <p className="text-sm text-blue-700">Avg per Question</p>
             </div>
             <div className="text-center p-4 bg-green-50 rounded-lg">
-              <p className="text-2xl font-bold text-green-600">{analysis.timeAnalysis.fastestQuestion}s</p>
+              <p className="text-2xl font-bold text-green-600">
+                {analysis.timeAnalysis.fastestQuestion}s
+              </p>
               <p className="text-sm text-green-700">Fastest Answer</p>
             </div>
             <div className="text-center p-4 bg-red-50 rounded-lg">
-              <p className="text-2xl font-bold text-red-600">{analysis.timeAnalysis.slowestQuestion}s</p>
+              <p className="text-2xl font-bold text-red-600">
+                {analysis.timeAnalysis.slowestQuestion}s
+              </p>
               <p className="text-sm text-red-700">Slowest Answer</p>
             </div>
             <div className="text-center p-4 bg-purple-50 rounded-lg">
-              <p className="text-2xl font-bold text-purple-600">{analysis.timeAnalysis.recommendedTime}s</p>
+              <p className="text-2xl font-bold text-purple-600">
+                {analysis.timeAnalysis.recommendedTime}s
+              </p>
               <p className="text-sm text-purple-700">Recommended Time</p>
             </div>
           </div>
@@ -674,8 +899,18 @@ export default function DetailedAnalysisPage() {
       {/* Question Review */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <svg className="w-5 h-5 text-gray-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+          <svg
+            className="w-5 h-5 text-gray-700"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+            />
           </svg>
           <h2 className="text-lg font-bold text-gray-800">Question Review</h2>
         </div>

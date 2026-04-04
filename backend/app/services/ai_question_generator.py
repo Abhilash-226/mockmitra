@@ -1,7 +1,9 @@
 import os
 import json
+import ast
 import random
 import time
+import threading
 from typing import Optional, Dict, Any, List, Union
 from pydantic import BaseModel, Field, field_validator
 from datetime import datetime
@@ -45,33 +47,91 @@ class AIQuestionGenerator:
     Generates exam questions using Gemini 1.5 Flash via Google GenAI SDK.
     Uses GCP credits if GOOGLE_CLOUD_PROJECT is set, otherwise uses API Key.
     """
+
+    _semaphore_lock = threading.Lock()
+    _global_semaphore = None
+    _global_semaphore_capacity = None
+    _rate_limit_lock = threading.Lock()
+    _last_call_at = 0.0
+    _cooldown_lock = threading.Lock()
+    _cooldown_until = 0.0
     
     def __init__(self, api_key: Optional[str] = None):
         self.api_key = api_key or settings.GEMINI_API_KEY
         self.project = settings.GOOGLE_CLOUD_PROJECT
         self.location = settings.GOOGLE_CLOUD_LOCATION
         self.client = None
-        self.model = "gemini-2.0-flash-001" 
+        self.model = settings.GEMINI_GENERATION_MODEL
+        self.generator_max_calls_per_second = max(0.0, float(settings.GENERATOR_MAX_CALLS_PER_SECOND))
+        self.generator_429_cooldown_seconds = max(0, int(settings.GENERATOR_429_COOLDOWN_SECONDS))
+        self._ensure_global_semaphore()
         
         try:
             if self.project:
                 # Use Vertex AI (GCP Credits)
-                print(f"Initializing Gemini via Vertex AI (Project: {self.project})")
+                print(
+                    f"Initializing Gemini via Vertex AI (Project: {self.project}, Model: {self.model})"
+                )
                 self.client = genai.Client(
                     vertexai=True,
                     project=self.project,
                     location=self.location
                 )
-                # Vertex AI uses a different model name format
-                self.model = "gemini-2.0-flash-001"
             elif self.api_key:
                 # Use API Key (AI Studio style)
-                print("Initializing Gemini via API Key")
+                print(f"Initializing Gemini via API Key (Model: {self.model})")
                 self.client = genai.Client(api_key=self.api_key)
             else:
                 print("AI Generator Error: No Gemini API Key or GCP Project provided.")
         except Exception as e:
             print(f"Failed to initialize Gemini client: {e}")
+
+    def _ensure_global_semaphore(self):
+        capacity = max(1, int(settings.GENERATOR_GLOBAL_CONCURRENCY))
+        if (
+            AIQuestionGenerator._global_semaphore is not None
+            and AIQuestionGenerator._global_semaphore_capacity == capacity
+        ):
+            return
+
+        with AIQuestionGenerator._semaphore_lock:
+            if (
+                AIQuestionGenerator._global_semaphore is None
+                or AIQuestionGenerator._global_semaphore_capacity != capacity
+            ):
+                AIQuestionGenerator._global_semaphore = threading.BoundedSemaphore(value=capacity)
+                AIQuestionGenerator._global_semaphore_capacity = capacity
+
+    def _respect_cooldown(self):
+        with AIQuestionGenerator._cooldown_lock:
+            wait_seconds = max(0.0, AIQuestionGenerator._cooldown_until - time.monotonic())
+        if wait_seconds > 0:
+            print(f"Generator cooldown active ({wait_seconds:.1f}s) due to recent 429")
+            time.sleep(wait_seconds)
+
+    def _register_rate_limit_hit(self):
+        if self.generator_429_cooldown_seconds <= 0:
+            return
+        with AIQuestionGenerator._cooldown_lock:
+            AIQuestionGenerator._cooldown_until = max(
+                AIQuestionGenerator._cooldown_until,
+                time.monotonic() + self.generator_429_cooldown_seconds,
+            )
+
+    def _wait_for_rate_limit_slot(self):
+        if self.generator_max_calls_per_second <= 0:
+            return
+
+        min_interval = 1.0 / self.generator_max_calls_per_second
+        while True:
+            with AIQuestionGenerator._rate_limit_lock:
+                now = time.monotonic()
+                elapsed = now - AIQuestionGenerator._last_call_at
+                if elapsed >= min_interval:
+                    AIQuestionGenerator._last_call_at = now
+                    return
+                wait_seconds = min_interval - elapsed
+            time.sleep(min(wait_seconds, 0.25))
 
     def generate_question(
         self, 
@@ -136,12 +196,12 @@ Section/Topic: {section} / {topic}
 
 STRICT TECHNICAL RULES:
 1. Accuracy: The question must be mathematically and scientifically flawless. SOLVE THE PROBLEM FULLY FIRST, then generate the options.
-2. LaTeX: Use $...$ for all mathematical expressions and chemical formulas. Example: $\\text{{H}}_2\\text{{SO}}_4$, $x^2 + 2x + 1$.
+2. Formatting: You MUST use proper standard LaTeX for all mathematical expressions, variables, formulas, and equations. Inline math MUST be enclosed in single dollar signs (e.g., $\sqrt{{3}}$, $x^2$, $\frac{{a+b}}{{c}}$). Block math MUST be enclosed in double dollar signs. NEVER use plain-text math like sqrt(3) or 1/2 or m-1.
 3. Originality: If a reference question is provided, do NOT repeat it. Extract the CORE CONCEPT and create a new problem.
 4. Distractors: Provide 4 plausible options. Avoid "None of these" or "All of these".
 5. Language: Use professional, academic English.
 6. JSON: Output ONLY a valid JSON object. No conversation, no markdown blocks.
-7. Backslashes: In the JSON output, all backslashes in LaTeX must be properly escaped (e.g., use \\\\text instead of \\text).
+7. Backslashes: In the JSON output, all backslashes in LaTeX must be properly escaped (e.g., use \\\\frac instead of \\frac).
 
 CRITICAL - CORRECT ANSWER REQUIREMENT:
 - You MUST first solve the problem completely and arrive at a NUMERICAL or EXACT answer.
@@ -172,7 +232,7 @@ MANDATORY WORKFLOW - Follow these steps IN ORDER:
 
 Ensure the output matches this schema:
 {{
-  "question_text": "string (including LaTeX)",
+    "question_text": "string",
   "options": ["string", "string", "string", "string"],
   "correct_option": "string (MUST be exactly copied from one of the 4 options above)",
   "solution_steps": "string (detailed step-by-step solution showing how you arrive at the answer, including verification)",
@@ -186,43 +246,53 @@ Ensure the output matches this schema:
         """Call Gemini API with robust JSON parsing for LaTeX-heavy math content."""
         max_retries = 3
         base_delay = 2
-        
-        for attempt in range(max_retries):
-            try:
-                response = self.client.models.generate_content(
-                    model=self.model,
-                    contents=user_prompt,
-                    config=types.GenerateContentConfig(
-                        system_instruction=system_prompt,
-                        temperature=0.5,
-                        response_mime_type="application/json"
+        semaphore = AIQuestionGenerator._global_semaphore
+        if semaphore:
+            semaphore.acquire()
+
+        try:
+            for attempt in range(max_retries):
+                try:
+                    self._respect_cooldown()
+                    self._wait_for_rate_limit_slot()
+                    response = self.client.models.generate_content(
+                        model=self.model,
+                        contents=user_prompt,
+                        config=types.GenerateContentConfig(
+                            system_instruction=system_prompt,
+                            temperature=0.2,
+                            response_mime_type="application/json"
+                        )
                     )
-                )
-                
-                content = response.text.strip()
-                if content.startswith("```json"):
-                    content = content[7:-3].strip()
-                elif content.startswith("```"):
-                    content = content[3:-3].strip()
-                
-                result = self._parse_json_response(content)
-                if result is not None:
-                    result = self._fix_latex_in_parsed(result)
-                    return result
-                
-                print(f"JSON parse failed after all strategies, attempt {attempt+1}/{max_retries}")
-                time.sleep(1)
-                continue
-                
-            except Exception as e:
-                error_msg = str(e)
-                if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                    delay = base_delay * (2 ** attempt) + random.uniform(0, 1)
-                    print(f"Gemini Rate Limit (429). Retrying in {delay:.2f}s... ({attempt+1}/{max_retries})")
-                    time.sleep(delay)
+
+                    content = response.text.strip()
+                    if content.startswith("```json"):
+                        content = content[7:-3].strip()
+                    elif content.startswith("```"):
+                        content = content[3:-3].strip()
+
+                    result = self._parse_json_response(content)
+                    if result is not None:
+                        result = self._fix_latex_in_parsed(result)
+                        return result
+
+                    print(f"JSON parse failed after all strategies, attempt {attempt+1}/{max_retries}")
+                    time.sleep(1)
                     continue
-                print(f"Gemini API Call Error: {e}")
-                return None
+
+                except Exception as e:
+                    error_msg = str(e)
+                    if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                        self._register_rate_limit_hit()
+                        delay = base_delay * (2 ** attempt) + random.uniform(0, 1)
+                        print(f"Gemini Rate Limit (429). Retrying in {delay:.2f}s... ({attempt+1}/{max_retries})")
+                        time.sleep(delay)
+                        continue
+                    print(f"Gemini API Call Error: {e}")
+                    return None
+        finally:
+            if semaphore:
+                semaphore.release()
         
         return None
 
@@ -269,6 +339,26 @@ Ensure the output matches this schema:
                 return json.JSONDecoder(strict=False).decode(fixed_substr)
         except (json.JSONDecodeError, ValueError):
             pass
+
+        # Strategy 6: Python-dict style fallback (single quotes / True / False)
+        try:
+            python_obj = ast.literal_eval(content)
+            if isinstance(python_obj, dict):
+                return python_obj
+        except Exception:
+            pass
+
+        # Strategy 7: Extract dict-like block then literal_eval
+        try:
+            brace_start = content.find('{')
+            brace_end = content.rfind('}')
+            if brace_start != -1 and brace_end > brace_start:
+                dict_substr = content[brace_start:brace_end + 1]
+                python_obj = ast.literal_eval(dict_substr)
+                if isinstance(python_obj, dict):
+                    return python_obj
+        except Exception:
+            pass
         
         return None
 
@@ -299,6 +389,31 @@ Ensure the output matches this schema:
         This restores them to LaTeX backslash commands when followed by letters.
         """
         import re
+
+        def cleanup_subsuperscript_dollars(s: str) -> str:
+            """Fix malformed dollars around sub/superscripts.
+
+            Examples:
+            - t_{2$g$} -> t_{2g}
+            - t_$g$ -> t_{g}
+            """
+            if not s:
+                return s
+
+            # Convert _${...}$ style fragments to braced sub/superscripts
+            s = re.sub(r'([_^])\$([^$]+)\$', r'\1{\2}', s)
+
+            # Remove stray $ inside already-braced sub/superscripts
+            def _strip_inner_dollars(match):
+                prefix, inner, suffix = match.groups()
+                return f"{prefix}{inner.replace('$', '')}{suffix}"
+
+            previous = None
+            while previous != s:
+                previous = s
+                s = re.sub(r'([_^]\{)([^{}]*)(\})', _strip_inner_dollars, s)
+
+            return s
         
         def fix_text(s):
             if not isinstance(s, str):
@@ -308,6 +423,7 @@ Ensure the output matches this schema:
             s = re.sub('\x09([a-zA-Z])', r'\\t\1', s)   # tab -> \t (\text, \theta)
             s = re.sub('\x0d([a-zA-Z])', r'\\r\1', s)   # CR -> \r (\right, \rangle)
             s = re.sub('\x0a([a-z])', r'\\n\1', s)      # newline -> \n (\neq, \nu)
+            s = cleanup_subsuperscript_dollars(s)
             return s
         
         for key in ['question_text', 'correct_option', 'reasoning']:

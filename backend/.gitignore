@@ -10,10 +10,15 @@ env/
 
 # Environment variables
 .env
+.env.*
 
 # Database
 *.db
 *.sqlite3
+
+# Cloud credentials
+*.service-account.json
+placeguide-*.json
 
 # IDE
 .idea/

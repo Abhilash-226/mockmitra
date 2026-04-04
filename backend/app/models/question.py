@@ -50,4 +50,6 @@ class Question(Document):
         indexes = [
             [("exam_code", 1), ("section", 1)],
             [("exam_code", 1), ("topic", 1)],
+            [("exam_code", 1), ("section", 1), ("topic", 1), ("difficulty", 1)],  # unseen-query index
+            [("exam_code", 1), ("section", 1), ("source", 1)],                   # pool-source filter
         ]

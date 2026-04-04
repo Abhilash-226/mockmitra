@@ -1,5 +1,7 @@
 // Error Boundary Component - Catches React errors
-import { Component } from 'react';
+import { Component } from "react";
+
+const IS_DEV = import.meta.env.DEV;
 
 export default class ErrorBoundary extends Component {
   constructor(props) {
@@ -12,7 +14,7 @@ export default class ErrorBoundary extends Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
+    console.error("Error caught by boundary:", error, errorInfo);
     this.setState({ errorInfo });
 
     // You can also log to an error reporting service here
@@ -59,12 +61,12 @@ export default class ErrorBoundary extends Component {
               Oops! Something went wrong
             </h2>
             <p className="text-gray-600 mb-6">
-              We're sorry, but something unexpected happened. Please try again or
-              reload the page.
+              We're sorry, but something unexpected happened. Please try again
+              or reload the page.
             </p>
 
             {/* Error Details (Development Only) */}
-            {process.env.NODE_ENV === 'development' && this.state.error && (
+            {IS_DEV && this.state.error && (
               <div className="mb-6 p-4 bg-red-50 rounded-lg text-left">
                 <p className="text-xs font-mono text-red-800 break-all">
                   {this.state.error.toString()}
@@ -100,7 +102,7 @@ export default class ErrorBoundary extends Component {
 
             {/* Support Link */}
             <p className="mt-6 text-sm text-gray-500">
-              If this problem persists,{' '}
+              If this problem persists,{" "}
               <a
                 href="mailto:support@mockmitra.com"
                 className="text-blue-600 hover:underline"
@@ -116,4 +118,3 @@ export default class ErrorBoundary extends Component {
     return this.props.children;
   }
 }
-

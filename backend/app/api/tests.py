@@ -2,6 +2,7 @@ import random
 import uuid
 import sys
 import asyncio
+from concurrent.futures import ThreadPoolExecutor
 from typing import List, Optional, Dict, Any, Union
 from datetime import datetime, timezone, timedelta
 from enum import Enum
@@ -23,6 +24,7 @@ from app.schemas.test import TestCreate, TestAttemptResponse, SubmitTestRequest
 from app.schemas.question import QuestionInTest
 from app.services.question_generator_v2 import get_question_generator_v2
 from app.services.blueprint_loader import get_blueprint_loader
+from app.services.question_selector import get_question_selector
 from app.schemas.exam import ExamConfig
 from app.api.exams import load_exam_config
 
@@ -74,6 +76,20 @@ async def generate_test(
         filtered_sections = [s for s in exam_config.sections if s.code in target_codes]
     else:
         filtered_sections = exam_config.sections
+
+    # Topic-wise tests should only allocate questions to sections that contain
+    # at least one selected topic.
+    if test_data.test_type == TestType.TOPIC_WISE and test_data.topics:
+        target_topics = set(test_data.topics)
+        filtered_sections = [
+            s for s in filtered_sections
+            if any(t.code in target_topics for t in (s.topics or []))
+        ]
+        if not filtered_sections:
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Selected topics do not map to any available section for this exam"
+            )
 
     # Use custom values if provided, otherwise fall back to exam_config defaults
     total_questions = test_data.custom_question_count or sum(s.total_questions for s in filtered_sections)
@@ -133,10 +149,6 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
     from app.models.test import TestType # Local import to ensure it's in scope for background task
     print(f"Background: Starting generation for Test {test_id}...")
     try:
-        # Load necessary services
-        generator = get_question_generator_v2()
-        blueprint_loader = get_blueprint_loader()
-        
         # Get the target test document to update later
         test = await Test.get(test_id)
         if not test:
@@ -145,21 +157,6 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
             
         target_question_count = test.total_questions
         question_ids = []
-        
-        # Define variety pool factor
-        VARIETY_POOL_FACTOR = 3.0
-        
-        # Load all blueprints for this exam
-        blueprint_loader.load_all(force_reload=True)
-        blueprints = blueprint_loader.get_blueprints_by_exam(test_data.exam_code)
-        print(f"DEBUG: Found {len(blueprints)} blueprints total for {test_data.exam_code}")
-        
-        if len(blueprints) == 0:
-            all_bps = blueprint_loader.get_all_blueprints()
-            print(f"DEBUG: Total blueprints in loader: {len(all_bps)}")
-            if all_bps:
-                print(f"DEBUG: Sample blueprint exam field: '{all_bps[0].exam}'")
-                print(f"DEBUG: Requested exam_code: '{test_data.exam_code}'")
         
         # Iterate through subjects then sections
         for subject in exam_config.subjects:
@@ -189,133 +186,61 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
                     continue
                     
                 print(f"DEBUG: Processing Section: {section_name} (Code: {section_code}), Need: {needed_for_section}")
-                
-                # Filter blueprints for this subject AND section
-                # Use a more flexible search
-                available_blueprints = [
-                    bp for bp in blueprints 
-                    if bp.subject.lower() == subject_name.lower() and 
-                       (bp.section and (bp.section.lower() == section_name.lower() or bp.section.lower() == section_code.lower()))
-                ]
-                
-                print(f"DEBUG: Found {len(available_blueprints)} relevant blueprints for {section_name}")
-                
-                if not available_blueprints:
-                    # Fallback: ignore section if none found, but keep subject
-                    available_blueprints = [bp for bp in blueprints if bp.subject.lower() == subject_name.lower()]
-                    print(f"DEBUG: Fallback - found {len(available_blueprints)} blueprints for subject {subject_name} only")
 
-                # Filter by difficulty if specified
-                if test_data.difficulty and test_data.difficulty != "mixed":
-                    target_diff = test_data.difficulty.lower()
-                    available_blueprints = [
-                        bp for bp in available_blueprints 
-                        if bp.difficulty_level and bp.difficulty_level.value == target_diff
-                    ]
-                
-                random.shuffle(available_blueprints)
-            
-                # 3. Track unique question texts and blueprints to avoid duplicates
-                test_question_texts = set()
-                used_blueprint_ids = set()
-                
-                # Fetch existing questions if we have any to avoid re-adding identical ones
-                # (though IDs would differ, text shouldn't repeat)
-                query_filter = {
-                    "exam_code": test_data.exam_code,
-                    "section": section_name
-                }
-                if test_data.test_type == TestType.TOPIC_WISE and test_data.topics:
-                    query_filter["topic"] = {"$in": test_data.topics}
-                
-                existing_pool = await Question.find(query_filter).to_list()
-                
-                # 4. Selection Logic: Loop until we have enough questions
-                collected_for_section = 0
-                max_attempts = needed_for_section * 3 # Prevent infinite loops
-                attempts = 0
-                
-                while collected_for_section < needed_for_section and attempts < max_attempts:
-                    attempts += 1
-                    
-                    # Try to pick from DB first if pool exists and hasn't been exhausted
-                    current_pool = [q for q in existing_pool if q.question_text not in test_question_texts]
-                    
-                    if current_pool and (len(current_pool) > (needed_for_section * 2) or attempts < 2):
-                        # Use from DB
-                        selected = random.choice(current_pool)
-                        question_ids.append(selected.id)
-                        test_question_texts.add(selected.question_text)
-                        collected_for_section += 1
+                # Determine topic filter (scoped to this section for topic-wise tests)
+                topics_filter = test_data.topics if (
+                    test_data.test_type == TestType.TOPIC_WISE and test_data.topics
+                ) else None
+                section_topics_filter = None
+                if topics_filter:
+                    section_topic_codes = {t.code for t in (section_config.topics or [])}
+                    section_topics_filter = [t for t in topics_filter if t in section_topic_codes]
+                    # No selected topic belongs to this section; skip it.
+                    if not section_topics_filter:
                         continue
-                        
-                    # Otherwise, generate with AI
-                    if not available_blueprints:
-                        break # Cannot proceed without blueprints
-                        
-                    # Target unique blueprints if possible
-                    unused_blueprints = [bp for bp in available_blueprints if bp.id not in used_blueprint_ids]
-                    if unused_blueprints:
-                        bp = random.choice(unused_blueprints)
-                    else:
-                        # Pool exhausted, reuse randomly
-                        bp = random.choice(available_blueprints)
-                        
-                    print(f"Generating AI question {collected_for_section + 1}/{needed_for_section} using blueprint {bp.id} for {section_name}...")
-                    try:
-                        loop = asyncio.get_running_loop()
-                        gen_q = await loop.run_in_executor(None, lambda: generator.generate_from_blueprint(bp, use_ai_phrasing=True))
-                        
-                        if not gen_q:
-                            continue
-                            
-                        # Check for duplicate text
-                        if gen_q.question_text in test_question_texts:
-                            print(f"DEBUG: AI generated duplicate text, retrying...")
-                            continue
-                        
-                        # Verify correct answer is in options before saving
-                        if gen_q.correct_option_index < 0 or gen_q.correct_option_index >= len(gen_q.options):
-                            print(f"DEBUG: Invalid correct_option_index {gen_q.correct_option_index}, skipping...")
-                            continue
-                        
-                        # Hard check: correct_answer text must match the option at correct_option_index
-                        correct_answer_text = gen_q.options[gen_q.correct_option_index]
-                        if gen_q.correct_answer and correct_answer_text.strip() != gen_q.correct_answer.strip():
-                            print(f"DEBUG: Answer mismatch! options[{gen_q.correct_option_index}]='{correct_answer_text[:40]}' != correct_answer='{gen_q.correct_answer[:40]}', skipping...")
-                            continue
-                            
-                        # Map difficulty
-                        mapping = {"easy": "easy", "moderate": "medium", "hard": "hard"}
-                        q_diff = mapping.get(str(gen_q.difficulty_level).lower(), "medium")
-                        
-                        db_q = Question(
-                            question_text=gen_q.question_text,
-                            options={"a": gen_q.options[0], "b": gen_q.options[1], "c": gen_q.options[2], "d": gen_q.options[3]},
-                            correct_option=["a", "b", "c", "d"][gen_q.correct_option_index],
-                            explanation=gen_q.solution,
-                            exam_code=test_data.exam_code,
-                            section=section_name,
-                            topic=bp.chapter or bp.concept,
-                            difficulty=q_diff,
-                            source=QuestionSource.AI_GENERATED
-                        )
-                        
-                        # Final sanity check: correct_option key maps to correct answer text
-                        stored_correct_key = db_q.correct_option
-                        stored_correct_text = db_q.options.get(stored_correct_key, "")
-                        if not stored_correct_text or stored_correct_text.strip() == "":
-                            print(f"DEBUG: Empty correct answer text for key '{stored_correct_key}', skipping...")
-                            continue
-                        
-                        await db_q.insert()
-                        question_ids.append(db_q.id)
-                        test_question_texts.add(db_q.question_text)
-                        used_blueprint_ids.add(bp.id)
-                        collected_for_section += 1
-                    except Exception as e:
-                        print(f"AI Gen Error in section {section_name}: {e}")
-                        await asyncio.sleep(1) # Backoff
+
+                topic_single = (
+                    section_topics_filter[0]
+                    if section_topics_filter and len(section_topics_filter) == 1
+                    else None
+                )
+
+                # Determine difficulty filter
+                diff_filter = (
+                    test_data.difficulty
+                    if test_data.difficulty and test_data.difficulty != "mixed"
+                    else None
+                )
+
+                # ── QuestionSelector: unseen-first DB serve + AI fallback ──
+                selector = get_question_selector()
+                user_id_str = str(attempt_id)  # use attempt owner; attempt already created above
+                # Re-fetch attempt to get user_id
+                _attempt = await TestAttempt.get(attempt_id)
+                user_id_str = str(_attempt.user_id) if _attempt else str(attempt_id)
+
+                try:
+                    selected_questions = await selector.select_questions(
+                        user_id=user_id_str,
+                        exam_code=test_data.exam_code,
+                        section=section_name,
+                        topic=topic_single,
+                        topics=section_topics_filter,
+                        difficulty=diff_filter,
+                        count=needed_for_section,
+                    )
+                except Exception as sel_err:
+                    print(f"QuestionSelector error for {section_name}: {sel_err}")
+                    selected_questions = []
+
+                for q in selected_questions:
+                    question_ids.append(q.id)
+
+                print(
+                    f"DEBUG: Section {section_name} — got {len(selected_questions)}/{needed_for_section} questions"
+                )
+
+
 
         # Finalize Test and Attempt
         test.question_ids = question_ids
@@ -323,9 +248,15 @@ async def process_test_generation(test_id: PydanticObjectId, attempt_id: Pydanti
         
         attempt = await TestAttempt.get(attempt_id)
         if attempt:
-            attempt.status = TestStatus.NOT_STARTED
+            if len(question_ids) >= target_question_count:
+                attempt.status = TestStatus.NOT_STARTED
+                print(f"Background: Test {test_id} complete. {len(question_ids)} questions added.")
+            else:
+                attempt.status = TestStatus.ABANDONED
+                print(
+                    f"Background: Test {test_id} incomplete ({len(question_ids)}/{target_question_count}). Marked ABANDONED for safe retry."
+                )
             await attempt.save()
-            print(f"Background: Test {test_id} complete. {len(question_ids)} questions added.")
 
     except Exception as e:
         print(f"Background Generation CRITICAL FAILURE: {e}")

@@ -1,14 +1,15 @@
 // Analytics Page Component - pulls live analytics instead of mock data
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Card,
   CardHeader,
   CardContent,
   CardTitle,
 } from "../../components/ui/Card";
-import ProgressBar from "../../components/ui/ProgressBar";
 import Spinner from "../../components/ui/Spinner";
 import { analyticsService } from "../../services/analyticsService";
+import { examService } from "../../services/examService";
 
 const formatPracticeTime = (hours) => {
   if (!hours) return "0h";
@@ -29,15 +30,18 @@ const formatDate = (dateString) => {
   });
 };
 
+const isPyqMock = (name = "") => {
+  const normalized = String(name).toLowerCase();
+  return normalized.startsWith("pyq") || normalized.includes("past year");
+};
+
 export default function AnalyticsPage() {
   const [timeRange, setTimeRange] = useState("all");
   const [stats, setStats] = useState({
     testsTaken: 0,
     avgScore: 0,
     avgAccuracy: 0,
-    totalQuestions: 0,
     practiceTime: "0h",
-    bestScore: 0,
   });
   const [recentAttempts, setRecentAttempts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -47,29 +51,38 @@ export default function AnalyticsPage() {
     const fetchAnalytics = async () => {
       try {
         setLoading(true);
-        const response = await analyticsService.getDashboard();
+        const [response, historyData] = await Promise.all([
+          analyticsService.getDashboard(),
+          examService.getHistory().catch(() => []),
+        ]);
         const data = response.data || response;
+
+        const historyNameByAttemptId = new Map(
+          (historyData || []).map((attempt) => [
+            attempt.id || attempt._id,
+            attempt.test_title || attempt.exam_code || "Untitled Test",
+          ]),
+        );
 
         const attempts = (data.recent_attempts || []).map((attempt, index) => ({
           id: attempt.id || `attempt-${index}`,
-          testId: attempt.test_id || null,
+          testName:
+            historyNameByAttemptId.get(attempt.id || attempt._id) ||
+            attempt.test_title ||
+            attempt.exam_code ||
+            "Untitled Test",
           score: attempt.score ?? 0,
           percentage: attempt.percentage ?? 0,
           completedAt: attempt.completed_at || null,
         }));
 
-        const bestScore = attempts.length
-          ? Math.max(...attempts.map((attempt) => attempt.percentage))
-          : 0;
-
         setStats({
           testsTaken: data.total_tests || attempts.length,
           avgScore: data.average_percentage || data.average_score || 0,
           avgAccuracy: data.overall_accuracy || 0,
-          totalQuestions: data.total_questions_attempted || 0,
           practiceTime: formatPracticeTime(data.total_time_spent_hours),
-          bestScore,
         });
+
         setRecentAttempts(attempts);
         setError(null);
       } catch (err) {
@@ -95,6 +108,76 @@ export default function AnalyticsPage() {
     }
     return true;
   });
+
+  const aiAttempts = filteredAttempts.filter(
+    (attempt) => !isPyqMock(attempt.testName),
+  );
+  const pyqAttempts = filteredAttempts.filter((attempt) =>
+    isPyqMock(attempt.testName),
+  );
+
+  const renderAttemptRows = (attempts) => {
+    if (!attempts.length) {
+      return (
+        <p className="text-gray-500 text-center py-8">
+          No attempts in this section
+        </p>
+      );
+    }
+
+    return (
+      <div className="divide-y divide-gray-200">
+        {attempts.map((attempt) => (
+          <div
+            key={attempt.id}
+            className="p-3 hover:bg-gray-50 transition-colors"
+          >
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div className="flex-1 min-w-0">
+                <p className="text-base font-semibold text-gray-900 truncate">
+                  {attempt.testName}
+                </p>
+                <p className="text-[11px] text-gray-500 mt-1">
+                  {formatDate(attempt.completedAt)}
+                </p>
+              </div>
+
+              <div className="flex items-center gap-5">
+                <div className="text-center min-w-[70px]">
+                  <p className="text-xl font-bold text-gray-900">
+                    {attempt.score}
+                  </p>
+                  <p className="text-[11px] text-gray-500">Score</p>
+                </div>
+
+                <div className="text-center min-w-[90px]">
+                  <p
+                    className={`text-xl font-bold ${
+                      attempt.percentage >= 80
+                        ? "text-green-600"
+                        : attempt.percentage >= 60
+                          ? "text-yellow-600"
+                          : "text-red-600"
+                    }`}
+                  >
+                    {attempt.percentage}%
+                  </p>
+                  <p className="text-[11px] text-gray-500">Percentage</p>
+                </div>
+
+                <Link
+                  to={`/results/${attempt.id}`}
+                  className="shrink-0 whitespace-nowrap text-sm font-medium text-blue-600 hover:text-blue-700"
+                >
+                  View Results
+                </Link>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   if (loading) {
     return (
@@ -146,241 +229,65 @@ export default function AnalyticsPage() {
         </div>
       </div>
 
-      {/* Overview Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{stats.testsTaken}</p>
-                <p className="text-sm text-gray-500">Tests Taken</p>
-              </div>
-            </div>
+          <CardContent className="p-4 text-center">
+            <p className="text-3xl font-bold text-blue-600">
+              {stats.testsTaken}
+            </p>
+            <p className="text-sm text-gray-500">Tests Taken</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-green-100 text-green-600 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{stats.avgScore}%</p>
-                <p className="text-sm text-gray-500">Average Score</p>
-              </div>
-            </div>
+          <CardContent className="p-4 text-center">
+            <p className="text-3xl font-bold text-green-600">
+              {stats.avgScore}%
+            </p>
+            <p className="text-sm text-gray-500">Average Score</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{stats.avgAccuracy}%</p>
-                <p className="text-sm text-gray-500">Overall Accuracy</p>
-              </div>
-            </div>
+          <CardContent className="p-4 text-center">
+            <p className="text-3xl font-bold text-purple-600">
+              {stats.avgAccuracy}%
+            </p>
+            <p className="text-sm text-gray-500">Overall Accuracy</p>
           </CardContent>
         </Card>
         <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-orange-100 text-orange-600 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="text-2xl font-bold">{stats.practiceTime}</p>
-                <p className="text-sm text-gray-500">Practice Time</p>
-              </div>
-            </div>
+          <CardContent className="p-4 text-center">
+            <p className="text-3xl font-bold text-orange-600">
+              {stats.practiceTime}
+            </p>
+            <p className="text-sm text-gray-500">Practice Time</p>
           </CardContent>
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Recent Performance */}
-        <Card className="lg:col-span-2">
-          <CardHeader>
-            <CardTitle>Recent Performance</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {filteredAttempts.length > 0 ? (
-              <div className="space-y-4">
-                {filteredAttempts.map((attempt) => (
-                  <div
-                    key={attempt.id}
-                    className="flex flex-col sm:flex-row sm:items-center gap-4"
-                  >
-                    <div className="sm:w-48">
-                      <p className="text-sm font-medium text-gray-900">
-                        Attempt {attempt.id.slice(-4)}
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {formatDate(attempt.completedAt)}
-                      </p>
-                    </div>
-                    <div className="flex-1">
-                      <ProgressBar
-                        value={attempt.percentage}
-                        max={100}
-                        color={
-                          attempt.percentage >= 70
-                            ? "success"
-                            : attempt.percentage >= 50
-                              ? "warning"
-                              : "danger"
-                        }
-                        showLabel
-                      />
-                    </div>
-                    <span className="text-sm font-semibold text-gray-700">
-                      {attempt.score} pts
-                    </span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <p className="text-gray-500 text-center py-4">
-                No attempts in this range yet
-              </p>
-            )}
-          </CardContent>
-        </Card>
-
-        {/* Activity Summary */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Activity Summary</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div>
-                <p className="text-sm text-gray-500">Questions Attempted</p>
-                <p className="text-2xl font-bold text-gray-900">
-                  {stats.totalQuestions}
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Best Score</p>
-                <p className="text-2xl font-bold text-green-600">
-                  {stats.bestScore || 0}%
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-gray-500">Average Score</p>
-                <p className="text-2xl font-bold text-blue-600">
-                  {stats.avgScore}%
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Attempts Table */}
       <Card>
         <CardHeader>
-          <CardTitle>Recent Attempts</CardTitle>
+          <CardTitle>Latest Attempts</CardTitle>
         </CardHeader>
-        <CardContent className="p-0">
-          {recentAttempts.length > 0 ? (
-            <div className="divide-y divide-gray-200">
-              {recentAttempts.map((attempt) => (
-                <div
-                  key={attempt.id}
-                  className="p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-3"
-                >
-                  <div>
-                    <p className="font-medium text-gray-900">
-                      Attempt {attempt.id.slice(-6)}
-                    </p>
-                    <p className="text-sm text-gray-500">
-                      {formatDate(attempt.completedAt)}
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-6">
-                    <div className="text-center">
-                      <p
-                        className={`text-2xl font-bold ${
-                          attempt.percentage >= 80
-                            ? "text-green-600"
-                            : attempt.percentage >= 60
-                              ? "text-yellow-600"
-                              : "text-red-600"
-                        }`}
-                      >
-                        {attempt.percentage}%
-                      </p>
-                      <p className="text-xs text-gray-500">Percentage</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="text-2xl font-bold text-gray-900">
-                        {attempt.score}
-                      </p>
-                      <p className="text-xs text-gray-500">Score</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+        <CardContent>
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-3">
+                AI Mocks
+              </h4>
+              <div className="rounded-lg border border-gray-200 bg-white">
+                {renderAttemptRows(aiAttempts)}
+              </div>
             </div>
-          ) : (
-            <p className="text-gray-500 text-center py-8">
-              No attempts available yet
-            </p>
-          )}
+
+            <div className="xl:border-l xl:border-gray-200 xl:pl-6">
+              <h4 className="text-xs font-semibold text-gray-700 uppercase tracking-wide mb-3">
+                PYQ Mocks
+              </h4>
+              <div className="rounded-lg border border-gray-200 bg-white">
+                {renderAttemptRows(pyqAttempts)}
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
     </div>

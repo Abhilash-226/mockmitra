@@ -44,7 +44,7 @@ from app.services.question_validator import QuestionValidator
 # CONFIGURATION
 # =============================================================================
 
-MAX_GENERATION_RETRIES = 5  # Max attempts before discarding a blueprint
+MAX_GENERATION_RETRIES = 3  # Max attempts before discarding a blueprint
 ANSWER_PRECISION = 2  # Decimal places for numeric answers
 
 
@@ -98,10 +98,12 @@ class QuestionGeneratorV2:
         if seed is not None:
             random.seed(seed)
 
-        # 1. OPTIMIZATION: If blueprint is static, don't waste AI tokens
-        # BUT: For PYQ sources, we WANT variety, so we force them through AI
-        is_pyq = "pyq_source" in (blueprint.tags or [])
-        if not blueprint.variables and not is_pyq:
+        # 1. OPTIMIZATION: If blueprint is static, don't waste AI tokens.
+        # BUT: For PYQ/fallback seeds, we want variety, so force AI path.
+        tags = blueprint.tags or []
+        is_pyq = "pyq_source" in tags
+        is_fallback = "ai_fallback" in tags
+        if not blueprint.variables and not is_pyq and not is_fallback:
             return self._generate_static_question(blueprint)
 
         # 2. AI GENERATION LOOP

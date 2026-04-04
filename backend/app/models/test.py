@@ -65,6 +65,10 @@ class TestResponse(Document):
     
     class Settings:
         name = "test_responses"
+        indexes = [
+            [("attempt_id", 1)],
+            [("attempt_id", 1), ("question_id", 1)],  # fast seen-question lookup
+        ]
 
 
 class TestAttempt(Document):

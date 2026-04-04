@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 from beanie import PydanticObjectId
 import httpx
+from pydantic import BaseModel, EmailStr
 
 from app.core.security import get_password_hash, verify_password, create_access_token, get_current_user
 from app.core.config import settings
@@ -9,6 +10,29 @@ from app.models.user import User
 from app.schemas.user import UserCreate, UserResponse, Token, UserLogin, LoginResponse, GoogleAuth
 
 router = APIRouter()
+
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+
+class ResetPasswordRequest(BaseModel):
+    token: str
+    password: str
+
+
+class VerifyEmailRequest(BaseModel):
+    token: str
+
+
+class UpdateProfileRequest(BaseModel):
+    full_name: str | None = None
+    target_exam: str | None = None
+
+
+class ChangePasswordRequest(BaseModel):
+    current_password: str
+    new_password: str
 
 
 @router.post("/register", response_model=LoginResponse)
@@ -217,3 +241,66 @@ async def google_auth(data: GoogleAuth):
             profile_picture=user.profile_picture
         )
     )
+
+
+@router.post("/forgot-password")
+async def forgot_password(data: ForgotPasswordRequest):
+    """Accepted endpoint for frontend parity. Email dispatch should be integrated externally."""
+    user = await User.find_one(User.email == data.email)
+    if not user:
+        # Do not leak account existence.
+        return {"message": "If an account exists, a reset link has been sent."}
+    return {"message": "If an account exists, a reset link has been sent."}
+
+
+@router.post("/reset-password")
+async def reset_password(_data: ResetPasswordRequest):
+    """Password reset token flow placeholder. Requires external token issuance mechanism."""
+    return {
+        "message": "Password reset token flow is not configured. Use change-password after login."
+    }
+
+
+@router.post("/verify-email")
+async def verify_email(_data: VerifyEmailRequest):
+    """Email verification placeholder endpoint for frontend parity."""
+    return {"message": "Email verification flow is not configured."}
+
+
+@router.put("/me", response_model=UserResponse)
+async def update_profile(data: UpdateProfileRequest, user_id: str = Depends(get_current_user)):
+    user = await User.get(PydanticObjectId(user_id))
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+
+    if data.full_name is not None:
+        user.full_name = data.full_name
+    if data.target_exam is not None:
+        user.target_exam = data.target_exam
+    await user.save()
+
+    return UserResponse(
+        _id=str(user.id),
+        email=user.email,
+        full_name=user.full_name,
+        target_exam=user.target_exam,
+        is_active=user.is_active,
+        created_at=user.created_at,
+        auth_provider=user.auth_provider,
+        profile_picture=user.profile_picture,
+    )
+
+
+@router.put("/change-password")
+async def change_password(data: ChangePasswordRequest, user_id: str = Depends(get_current_user)):
+    user = await User.get(PydanticObjectId(user_id))
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    if user.auth_provider == "google" and not user.hashed_password:
+        raise HTTPException(status_code=400, detail="Google sign-in account has no local password")
+    if not user.hashed_password or not verify_password(data.current_password, user.hashed_password):
+        raise HTTPException(status_code=400, detail="Current password is incorrect")
+
+    user.hashed_password = get_password_hash(data.new_password)
+    await user.save()
+    return {"message": "Password updated successfully"}

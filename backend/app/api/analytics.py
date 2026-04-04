@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from beanie import PydanticObjectId
 from typing import Optional, List
 from pydantic import BaseModel
+from pymongo.errors import ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout
 
 from app.core.security import get_current_user
 from app.models.test import TestAttempt, TestStatus, Test
@@ -11,16 +12,26 @@ from app.core.config import settings
 router = APIRouter()
 
 
+def _raise_db_unavailable(e: Exception):
+    print(f"Database unavailable in analytics endpoint: {e}")
+    raise HTTPException(
+        status_code=503,
+        detail="Database temporarily unavailable. Please retry in a few moments.",
+    )
+
+
 @router.get("/dashboard")
 async def get_dashboard_analytics(user_id: str = Depends(get_current_user)):
     """Get user dashboard analytics"""
     uid = PydanticObjectId(user_id)
-    
-    # Fetch only recently completed attempts (capped) instead of all
-    attempts = await TestAttempt.find(
-        TestAttempt.user_id == uid,
-        TestAttempt.status == TestStatus.COMPLETED
-    ).sort(-TestAttempt.completed_at).limit(200).to_list()
+    try:
+        # Fetch only recently completed attempts (capped) instead of all
+        attempts = await TestAttempt.find(
+            TestAttempt.user_id == uid,
+            TestAttempt.status == TestStatus.COMPLETED
+        ).sort(-TestAttempt.completed_at).limit(200).to_list()
+    except (ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout) as e:
+        _raise_db_unavailable(e)
     
     if not attempts:
         return {
@@ -67,9 +78,11 @@ async def get_exam_performance(
 ):
     """Get performance analytics for a specific exam"""
     uid = PydanticObjectId(user_id)
-    
-    # Get test IDs for this exam
-    tests = await Test.find(Test.exam_code == exam_code).to_list()
+    try:
+        # Get test IDs for this exam
+        tests = await Test.find(Test.exam_code == exam_code).to_list()
+    except (ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout) as e:
+        _raise_db_unavailable(e)
     test_ids = [t.id for t in tests]
     
     if not test_ids:
@@ -81,12 +94,15 @@ async def get_exam_performance(
             "average_score": 0
         }
     
-    # Get attempts for these tests
-    attempts = await TestAttempt.find(
-        TestAttempt.user_id == uid,
-        {"test_id": {"$in": test_ids}},
-        TestAttempt.status == TestStatus.COMPLETED
-    ).sort(+TestAttempt.completed_at).to_list()
+    try:
+        # Get attempts for these tests
+        attempts = await TestAttempt.find(
+            TestAttempt.user_id == uid,
+            {"test_id": {"$in": test_ids}},
+            TestAttempt.status == TestStatus.COMPLETED
+        ).sort(+TestAttempt.completed_at).to_list()
+    except (ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout) as e:
+        _raise_db_unavailable(e)
     
     if not attempts:
         return {
@@ -126,60 +142,66 @@ async def get_attempt_analytics(
     uid = PydanticObjectId(user_id)
     aid = PydanticObjectId(attempt_id)
     
-    # Get attempt
-    attempt = await TestAttempt.find_one(
-        TestAttempt.id == aid,
-        TestAttempt.user_id == uid
-    )
+    try:
+        # Get attempt
+        attempt = await TestAttempt.find_one(
+            TestAttempt.id == aid,
+            TestAttempt.user_id == uid
+        )
+    except (ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout) as e:
+        _raise_db_unavailable(e)
     
     if not attempt:
         raise HTTPException(status_code=404, detail="Attempt not found")
     
-    # Get responses
-    responses = await TestResponseModel.find(
-        TestResponseModel.attempt_id == aid
-    ).to_list()
-    
-    # Build a map of responses keyed by question_id for quick lookup
-    response_map = {str(r.question_id): r for r in responses}
-    
-    # Fetch full question documents
-    question_ids = [r.question_id for r in responses]
-    questions_docs = await Question.find(
-        {"_id": {"$in": question_ids}}
-    ).to_list()
-    
-    # Build questions list in response order
-    question_doc_map = {str(q.id): q for q in questions_docs}
-    questions_list = []
-    for idx, r in enumerate(responses):
-        qid = str(r.question_id)
-        q = question_doc_map.get(qid)
-        if not q:
-            continue
-        # options is a dict like {"a": "...", "b": "...", ...}
-        # Convert to list of {key, text} for the frontend
-        options_list = [{"key": k, "text": v} for k, v in q.options.items()]
-        questions_list.append({
-            "id": qid,
-            "question_text": q.question_text,
-            "options": options_list,
-            "correct_answer": q.correct_option,
-            "selected_option": r.selected_option,
-            "is_correct": r.is_correct,
-            "topic": q.topic or "General",
-            "section": q.section or "General",
-            "difficulty": q.difficulty.value if q.difficulty else "medium",
-            "solution": q.explanation or "No explanation available",
-            "time_spent": r.time_spent_seconds,
-            "image": q.image,
-        })
-    
-    # Calculate time analysis
-    time_per_question = [r.time_spent_seconds for r in responses if r.time_spent_seconds]
+    try:
+        # Get responses
+        responses = await TestResponseModel.find(
+            TestResponseModel.attempt_id == aid
+        ).to_list()
 
-    # Fetch test for title/marks
-    test_doc = await Test.get(attempt.test_id)
+        # Build a map of responses keyed by question_id for quick lookup
+        response_map = {str(r.question_id): r for r in responses}
+
+        # Fetch full question documents
+        question_ids = [r.question_id for r in responses]
+        questions_docs = await Question.find(
+            {"_id": {"$in": question_ids}}
+        ).to_list()
+
+        # Build questions list in response order
+        question_doc_map = {str(q.id): q for q in questions_docs}
+        questions_list = []
+        for idx, r in enumerate(responses):
+            qid = str(r.question_id)
+            q = question_doc_map.get(qid)
+            if not q:
+                continue
+            # options is a dict like {"a": "...", "b": "...", ...}
+            # Convert to list of {key, text} for the frontend
+            options_list = [{"key": k, "text": v} for k, v in q.options.items()]
+            questions_list.append({
+                "id": qid,
+                "question_text": q.question_text,
+                "options": options_list,
+                "correct_answer": q.correct_option,
+                "selected_option": r.selected_option,
+                "is_correct": r.is_correct,
+                "topic": q.topic or "General",
+                "section": q.section or "General",
+                "difficulty": q.difficulty.value if q.difficulty else "medium",
+                "solution": q.explanation or "No explanation available",
+                "time_spent": r.time_spent_seconds,
+                "image": q.image,
+            })
+
+        # Calculate time analysis
+        time_per_question = [r.time_spent_seconds for r in responses if r.time_spent_seconds]
+
+        # Fetch test for title/marks
+        test_doc = await Test.get(attempt.test_id)
+    except (ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout) as e:
+        _raise_db_unavailable(e)
     test_name = test_doc.title if test_doc else "Test"
     max_score = test_doc.total_marks if test_doc else (attempt.total_attempted + attempt.skipped)
 

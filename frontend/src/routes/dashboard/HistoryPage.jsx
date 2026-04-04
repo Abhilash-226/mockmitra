@@ -1,5 +1,5 @@
 // History Page Component
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "../../components/ui/Card";
 import Spinner from "../../components/ui/Spinner";
@@ -8,6 +8,7 @@ import { analyticsService } from "../../services/analyticsService"; // Keep for 
 
 export default function HistoryPage() {
   const [history, setHistory] = useState([]);
+  const [sectionFilter, setSectionFilter] = useState("all");
   const [stats, setStats] = useState({
     totalTests: 0,
     avgScore: 0,
@@ -16,13 +17,31 @@ export default function HistoryPage() {
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const pollingTimerRef = useRef(null);
+  const isFetchingRef = useRef(false);
+  const latestHistoryRef = useRef([]);
 
   const fetchHistory = async () => {
+    if (isFetchingRef.current) return null;
+    isFetchingRef.current = true;
     try {
-      const [historyData, dashboardData] = await Promise.all([
+      const [historyResult, dashboardResult] = await Promise.allSettled([
         examService.getHistory(),
-        analyticsService.getDashboard().catch(() => ({})), // Fallback if analytics fails
+        analyticsService.getDashboard(),
       ]);
+
+      const historyData =
+        historyResult.status === "fulfilled"
+          ? historyResult.value
+          : latestHistoryRef.current;
+      const dashboardData =
+        dashboardResult.status === "fulfilled" ? dashboardResult.value : {};
+
+      if (historyResult.status === "rejected") {
+        console.warn(
+          "History fetch timed out/failed. Retaining previous data.",
+        );
+      }
 
       // Extract history from API
       // The backend now returns TestAttemptResponse list
@@ -38,6 +57,7 @@ export default function HistoryPage() {
       }));
 
       setHistory(testHistory);
+      latestHistoryRef.current = testHistory;
 
       // Set stats from dashboard data (or calculate locally if needed)
       setStats({
@@ -51,30 +71,51 @@ export default function HistoryPage() {
         ),
       });
 
-      setError(null);
+      if (historyResult.status === "fulfilled") {
+        setError(null);
+      }
+      return {
+        ok: historyResult.status === "fulfilled",
+        hasGenerating: testHistory.some((t) => t.status === "generating"),
+      };
     } catch (err) {
       console.error("Failed to fetch history:", err);
       setError("Failed to load test history");
+      return { ok: false, hasGenerating: false };
     } finally {
+      isFetchingRef.current = false;
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchHistory();
+    let isUnmounted = false;
 
-    // Poll for updates only if any test is generating
-    const interval = setInterval(() => {
-      setHistory((prev) => {
-        const hasGenerating = prev.some((t) => t.status === "generating");
-        if (hasGenerating) {
-          fetchHistory();
-        }
-        return prev;
-      });
-    }, 15000);
+    const scheduleNextPoll = (delayMs) => {
+      if (isUnmounted) return;
+      if (pollingTimerRef.current) clearTimeout(pollingTimerRef.current);
+      pollingTimerRef.current = setTimeout(runPoll, delayMs);
+    };
 
-    return () => clearInterval(interval);
+    const runPoll = async () => {
+      const result = await fetchHistory();
+      if (isUnmounted) return;
+
+      if (!result || !result.ok) {
+        scheduleNextPoll(45000);
+      } else if (result.hasGenerating) {
+        scheduleNextPoll(15000);
+      } else {
+        scheduleNextPoll(60000);
+      }
+    };
+
+    runPoll();
+
+    return () => {
+      isUnmounted = true;
+      if (pollingTimerRef.current) clearTimeout(pollingTimerRef.current);
+    };
   }, []);
 
   const formatPracticeTime = (hours) => {
@@ -115,6 +156,97 @@ export default function HistoryPage() {
       default:
         return null; // Completed shows score
     }
+  };
+
+  const isPyqMock = (test) => {
+    const name = (test.examName || "").toLowerCase();
+    return name.startsWith("pyq") || name.includes("past year");
+  };
+
+  const pyqMocks = history.filter(isPyqMock);
+  const aiMocks = history.filter((test) => !isPyqMock(test));
+  const aiSubmitted = aiMocks.filter((test) => test.status === "completed");
+  const aiInGenerationOrGenerated = aiMocks.filter(
+    (test) => test.status !== "completed",
+  );
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "...";
+    const normalizedDateStr =
+      dateStr.endsWith("Z") || dateStr.includes("+") ? dateStr : dateStr + "Z";
+    return new Date(normalizedDateStr).toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
+  const renderHistoryRows = (tests) => {
+    if (!tests.length) {
+      return (
+        <div className="p-4 text-sm text-gray-500">
+          No tests in this section
+        </div>
+      );
+    }
+
+    return tests.map((test) => (
+      <div key={test.id} className="p-4 hover:bg-gray-50 transition-colors">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="flex-1">
+            <h3 className="font-medium text-gray-900">{test.examName}</h3>
+            <p className="text-sm text-gray-500 mt-1">
+              {formatDate(test.date)}
+            </p>
+          </div>
+
+          <div className="flex items-center gap-6">
+            {test.status === "completed" ? (
+              <>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-gray-900">
+                    {test.score}
+                  </p>
+                  <p className="text-xs text-gray-500">Score</p>
+                </div>
+                <div className="text-center">
+                  <p
+                    className={`text-2xl font-bold ${
+                      test.percentage >= 80
+                        ? "text-green-600"
+                        : test.percentage >= 60
+                          ? "text-yellow-600"
+                          : "text-red-600"
+                    }`}
+                  >
+                    {test.percentage}%
+                  </p>
+                  <p className="text-xs text-gray-500">Percentage</p>
+                </div>
+                <Link to={`/results/${test.id}`}>
+                  <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
+                    View Results
+                  </button>
+                </Link>
+              </>
+            ) : (
+              getStatusBadge(test.status)
+            )}
+
+            {(test.status === "not_started" ||
+              test.status === "in_progress") && (
+              <Link to={`/exam/${test.testId}/test`}>
+                <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
+                  {test.status === "in_progress" ? "Resume Test" : "Start Test"}
+                </button>
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
+    ));
   };
 
   if (loading) {
@@ -179,91 +311,78 @@ export default function HistoryPage() {
 
       {/* Test History List */}
       {history.length > 0 ? (
-        <Card>
-          <CardContent className="p-0">
-            <div className="divide-y divide-gray-200">
-              {history.map((test) => (
-                <div
-                  key={test.id}
-                  className="p-4 hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <div className="flex-1">
-                      <h3 className="font-medium text-gray-900">
-                        {test.examName}
+        <div className="space-y-6">
+          <div className="flex flex-wrap items-center gap-2">
+            {[
+              { key: "all", label: "All", count: history.length },
+              { key: "ai", label: "AI Mocks", count: aiMocks.length },
+              { key: "pyq", label: "PYQ Mocks", count: pyqMocks.length },
+            ].map((item) => (
+              <button
+                key={item.key}
+                onClick={() => setSectionFilter(item.key)}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium border transition-colors ${
+                  sectionFilter === item.key
+                    ? "bg-blue-600 text-white border-blue-600"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
+                }`}
+              >
+                {item.label} ({item.count})
+              </button>
+            ))}
+          </div>
+
+          {(sectionFilter === "all" || sectionFilter === "ai") && (
+            <Card>
+              <CardContent className="p-0">
+                <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    AI Mocks ({aiMocks.length})
+                  </h2>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2">
+                  <div className="min-w-0 lg:border-r lg:border-gray-200">
+                    <div className="px-4 py-3 border-b border-gray-100 bg-white">
+                      <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                        Submitted
                       </h3>
-                      <p className="text-sm text-gray-500 mt-1">
-                        {(() => {
-                          const dateStr = test.date;
-                          if (!dateStr) return "...";
-                          const normalizedDateStr =
-                            dateStr.endsWith("Z") || dateStr.includes("+")
-                              ? dateStr
-                              : dateStr + "Z";
-                          return new Date(normalizedDateStr).toLocaleDateString(
-                            "en-IN",
-                            {
-                              day: "numeric",
-                              month: "short",
-                              year: "numeric",
-                              hour: "2-digit",
-                              minute: "2-digit",
-                            },
-                          );
-                        })()}
-                      </p>
                     </div>
+                    <div className="divide-y divide-gray-200">
+                      {renderHistoryRows(aiSubmitted)}
+                    </div>
+                  </div>
 
-                    <div className="flex items-center gap-6">
-                      {test.status === "completed" ? (
-                        <>
-                          <div className="text-center">
-                            <p className="text-2xl font-bold text-gray-900">
-                              {test.score}
-                            </p>
-                            <p className="text-xs text-gray-500">Score</p>
-                          </div>
-                          <div className="text-center">
-                            <p
-                              className={`text-2xl font-bold ${
-                                test.percentage >= 80
-                                  ? "text-green-600"
-                                  : test.percentage >= 60
-                                    ? "text-yellow-600"
-                                    : "text-red-600"
-                              }`}
-                            >
-                              {test.percentage}%
-                            </p>
-                            <p className="text-xs text-gray-500">Percentage</p>
-                          </div>
-                          <Link to={`/results/${test.id}`}>
-                            <button className="px-4 py-2 text-sm font-medium text-blue-600 hover:bg-blue-50 rounded-lg transition-colors">
-                              View Results
-                            </button>
-                          </Link>
-                        </>
-                      ) : (
-                        getStatusBadge(test.status)
-                      )}
-
-                      {(test.status === "not_started" ||
-                        test.status === "in_progress") && (
-                        <Link to={`/exam/${test.testId}/test`}>
-                          <button className="px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 rounded-lg transition-colors">
-                            {test.status === "in_progress"
-                              ? "Resume Test"
-                              : "Start Test"}
-                          </button>
-                        </Link>
-                      )}
+                  <div className="min-w-0 border-t border-gray-100 lg:border-t-0">
+                    <div className="px-4 py-3 border-b border-gray-100 bg-white">
+                      <h3 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">
+                        In Generation / Generated
+                      </h3>
+                    </div>
+                    <div className="divide-y divide-gray-200">
+                      {renderHistoryRows(aiInGenerationOrGenerated)}
                     </div>
                   </div>
                 </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+          )}
+
+          {(sectionFilter === "all" || sectionFilter === "pyq") && (
+            <Card>
+              <CardContent className="p-0">
+                <div className="px-4 py-3 border-b border-gray-200 bg-gray-50">
+                  <h2 className="text-lg font-semibold text-gray-900">
+                    PYQ Mocks ({pyqMocks.length})
+                  </h2>
+                </div>
+                <div className="divide-y divide-gray-200">
+                  {renderHistoryRows(pyqMocks)}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+        </div>
       ) : (
         <div className="text-center py-12 bg-white rounded-xl border border-gray-200">
           <svg
