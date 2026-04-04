@@ -118,6 +118,11 @@ export default function LandingPage() {
               Experience the exact exam interface, precision timers, and
               detailed analytics.
             </p>
+            <p className="mt-3 text-base text-blue-200">
+              Looking for TS EAPCET mock tests, AI mock test generators, or
+              exam-like practice for SSC and IBPS? MockMitra helps you practice
+              smarter.
+            </p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to="/signup">
                 <Button
