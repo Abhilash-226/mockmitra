@@ -5,6 +5,7 @@ import { SyllabusCustomizer } from "../../components/forms";
 import Spinner from "../../components/ui/Spinner";
 import { examService } from "../../services/examService";
 import { useExamStore } from "../../store/useExamStore";
+import { setPageSeo } from "../../utils/seo";
 
 const DEFAULT_EXAM_CONFIG = {
   examCode: "",
@@ -66,22 +67,26 @@ const normalizeSections = (sections = [], subjects = [], defaults = {}) => {
       const sections = (subject.sections || []).map((section, sectionIndex) => {
         const sectionName = section.name;
         const sectionCode = section.code || slugify(sectionName);
-        
+
         // Topics inside this section (from the new hierarchy)
-        const topics = (section.topics || []).map((topic, topicIndex) => 
-          normalizeTopic(topic, topicIndex, sectionCode)
-        ).filter(Boolean);
+        const topics = (section.topics || [])
+          .map((topic, topicIndex) =>
+            normalizeTopic(topic, topicIndex, sectionCode),
+          )
+          .filter(Boolean);
 
         return {
           id: sectionCode,
           code: sectionCode,
           name: sectionName,
           totalQuestions: section.total_questions ?? 0,
-          marksPerQuestion: section.marks_per_question ?? defaults.defaultMarks ?? 1,
-          negativeMarks: section.negative_marks ?? defaults.defaultNegative ?? 0,
+          marksPerQuestion:
+            section.marks_per_question ?? defaults.defaultMarks ?? 1,
+          negativeMarks:
+            section.negative_marks ?? defaults.defaultNegative ?? 0,
           topics,
           subjectCode: subject.code,
-          subjectName: subject.name
+          subjectName: subject.name,
         };
       });
 
@@ -90,7 +95,7 @@ const normalizeSections = (sections = [], subjects = [], defaults = {}) => {
         code: subjectCode,
         name: subject.name,
         sections,
-        totalQuestions: sections.reduce((acc, s) => acc + s.totalQuestions, 0)
+        totalQuestions: sections.reduce((acc, s) => acc + s.totalQuestions, 0),
       };
     });
   }
@@ -201,6 +206,17 @@ export default function ExamCustomizationPage() {
   const [manualExamCode, setManualExamCode] = useState(null);
   const fallbackExamCode = examId || stateExamCode || null;
   const activeExamCode = manualExamCode || fallbackExamCode;
+
+  useEffect(() => {
+    setPageSeo({
+      title: "Custom Test Generator",
+      description:
+        "Create personalized AI mock tests by selecting exam, sections, topics, difficulty, and duration on MockMitra.",
+      path: activeExamCode
+        ? `/exam/${activeExamCode}/customize`
+        : "/exam/customize",
+    });
+  }, [activeExamCode]);
 
   // Debug logging
   console.log("ExamCustomization Debug:", {
@@ -400,29 +416,33 @@ export default function ExamCustomizationPage() {
   const handleSubmit = async (config) => {
     try {
       setLoading(true);
-      const targetExamCode = config.selectedExam || examConfig?.examCode || examId;
-      
+      const targetExamCode =
+        config.selectedExam || examConfig?.examCode || examId;
+
       // Process selected sections and topics based on hierarchical mapping
       let selectedSections = [];
       let selectedTopics = [];
 
       if (config.testMode === "sectional") {
         // In this mode, config.selectedTopics contains section codes
-        selectedSections = config.selectedTopics.map(t => 
-          typeof t === 'string' ? t : (t.id || t.code || t)
+        selectedSections = config.selectedTopics.map((t) =>
+          typeof t === "string" ? t : t.id || t.code || t,
         );
       } else if (config.testMode === "topic") {
         // In this mode, config.selectedTopics contains actual topic codes/names
-        selectedTopics = config.selectedTopics.map(t => 
-          typeof t === 'string' ? t : (t.id || t.code || t.name || t)
+        selectedTopics = config.selectedTopics.map((t) =>
+          typeof t === "string" ? t : t.id || t.code || t.name || t,
         );
       }
 
       // Generate test
       await examService.generateTest({
         title: `${examConfig?.examName || targetExamCode} ${
-          config.testMode === "full" ? "Full Mock" : 
-          config.testMode === "sectional" ? "Sectional Drill" : "Topic Focus"
+          config.testMode === "full"
+            ? "Full Mock"
+            : config.testMode === "sectional"
+              ? "Sectional Drill"
+              : "Topic Focus"
         }`,
         exam_code: targetExamCode,
         test_type: TEST_TYPE_MAP[config.testMode] || "topic_wise",
@@ -434,8 +454,10 @@ export default function ExamCustomizationPage() {
       });
 
       // Show success message (could be a toast in future)
-      alert("Your test is being generated! You will be notified on the dashboard when it is ready.");
-      
+      alert(
+        "Your test is being generated! You will be notified on the dashboard when it is ready.",
+      );
+
       // Navigate to dashboard to see progress
       navigate("/dashboard");
     } catch (err) {

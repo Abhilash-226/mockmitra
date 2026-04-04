@@ -4,6 +4,7 @@
 import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { pyqService } from "../../services/pyqService";
+import { setPageSeo } from "../../utils/seo";
 import Button from "../../components/ui/Button";
 import {
   Card,
@@ -20,6 +21,15 @@ export default function PYQPapersPage() {
   const [selectedYear, setSelectedYear] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  useEffect(() => {
+    setPageSeo({
+      title: "TS EAPCET Previous Year Papers",
+      description:
+        "Practice TS EAPCET previous year question papers with exam-like CBT interface and detailed performance tracking.",
+      path: "/pyq-papers",
+    });
+  }, []);
 
   useEffect(() => {
     fetchPapers();

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
 import { analyticsService } from "../../services/analyticsService";
 import { examService } from "../../services/examService";
+import { setPageSeo } from "../../utils/seo";
 import Button from "../../components/ui/Button";
 import {
   Card,
@@ -108,6 +109,15 @@ export default function DashboardPage() {
   const [error, setError] = useState(null);
   const pollingTimerRef = useRef(null);
   const isFetchingRef = useRef(false);
+
+  useEffect(() => {
+    setPageSeo({
+      title: "Dashboard",
+      description:
+        "Track your mock test performance, accuracy, and recent attempts on your MockMitra dashboard.",
+      path: "/dashboard",
+    });
+  }, []);
 
   useEffect(() => {
     let isUnmounted = false;
