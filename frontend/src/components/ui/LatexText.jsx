@@ -148,6 +148,13 @@ const LATEX_RE = new RegExp(
   "g",
 );
 
+// Some API payloads can arrive double-escaped in production (e.g., "\\\\lim").
+// Collapse repeated backslashes before known commands so KaTeX can parse them.
+const DOUBLE_ESCAPED_COMMAND_RE = new RegExp(
+  "\\\\\\\\+(?=(" + LATEX_COMMANDS.join("|") + ")(?=[^a-zA-Z]|$))",
+  "g",
+);
+
 const OUTSIDE_MATH_REPLACEMENTS = [
   [/\\times/g, "×"],
   [/\\cdot/g, "·"],
@@ -220,6 +227,7 @@ export function sanitizeLatex(text) {
   if (!text) return text;
 
   let processed = String(text);
+  processed = processed.replace(DOUBLE_ESCAPED_COMMAND_RE, "\\");
   processed = processed.replace(/\\\$/g, "$");
   processed = ensureBalancedDollarPairs(processed);
 

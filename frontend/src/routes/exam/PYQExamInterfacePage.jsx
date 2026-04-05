@@ -7,28 +7,9 @@ import {
   useBlocker,
   useBeforeUnload,
 } from "react-router-dom";
-import "katex/dist/katex.min.css";
-import Latex from "react-latex-next";
 import Modal from "../../components/ui/Modal";
-
-// Helper: renders text with LaTeX, preserving \n as line breaks
-// Handles both actual newlines and literal \n sequences (from YAML single-quoted strings)
-function LatexText({ children }) {
-  if (!children) return null;
-  // Split on actual newlines only to avoid breaking LaTeX commands like \neq
-  const parts = String(children).split(/\n/);
-  return (
-    <>
-      {parts.map((part, i) => (
-        <span key={i}>
-          <Latex>{part}</Latex>
-          {i < parts.length - 1 && <br />}
-        </span>
-      ))}
-    </>
-  );
-}
 import Button from "../../components/ui/Button";
+import LatexText from "../../components/ui/LatexText";
 import { pyqService } from "../../services/pyqService";
 
 const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
