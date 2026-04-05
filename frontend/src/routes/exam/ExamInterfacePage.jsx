@@ -18,6 +18,12 @@ const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
   "",
 );
 
+function normalizeLatexInput(value) {
+  if (typeof value !== "string") return value;
+  // Production payloads can contain double-escaped commands like \\frac.
+  return value.replace(/\\\\+(?=[A-Za-z])/g, "\\");
+}
+
 // Question Status Types
 const STATUS = {
   NOT_VISITED: "not_visited",
@@ -290,12 +296,12 @@ export default function ExamInterfacePage() {
         const transformedQuestions = aiQuestions.map((q, index) => ({
           id: q.id,
           number: index + 1,
-          text: q.question_text,
+          text: normalizeLatexInput(q.question_text),
           options: [
-            { id: "a", text: q.options?.a || "Option A" },
-            { id: "b", text: q.options?.b || "Option B" },
-            { id: "c", text: q.options?.c || "Option C" },
-            { id: "d", text: q.options?.d || "Option D" },
+            { id: "a", text: normalizeLatexInput(q.options?.a) || "Option A" },
+            { id: "b", text: normalizeLatexInput(q.options?.b) || "Option B" },
+            { id: "c", text: normalizeLatexInput(q.options?.c) || "Option C" },
+            { id: "d", text: normalizeLatexInput(q.options?.d) || "Option D" },
           ],
           section: q.section || "general",
           topic: q.topic,

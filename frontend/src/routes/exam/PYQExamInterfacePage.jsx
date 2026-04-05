@@ -17,6 +17,12 @@ const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
   "",
 );
 
+function normalizeLatexInput(value) {
+  if (typeof value !== "string") return value;
+  // Production payloads can contain double-escaped commands like \\frac.
+  return value.replace(/\\\\+(?=[A-Za-z])/g, "\\");
+}
+
 // Question Status Types
 const STATUS = {
   NOT_VISITED: "not_visited",
@@ -244,12 +250,12 @@ export default function PYQExamInterfacePage() {
         const transformedQuestions = pyqQuestions.map((q, index) => ({
           id: q.number || index + 1,
           number: q.number || index + 1,
-          text: q.text || "Question text not available",
+          text: normalizeLatexInput(q.text) || "Question text not available",
           options: [
-            { id: "A", text: q.options?.A || "Option A" },
-            { id: "B", text: q.options?.B || "Option B" },
-            { id: "C", text: q.options?.C || "Option C" },
-            { id: "D", text: q.options?.D || "Option D" },
+            { id: "A", text: normalizeLatexInput(q.options?.A) || "Option A" },
+            { id: "B", text: normalizeLatexInput(q.options?.B) || "Option B" },
+            { id: "C", text: normalizeLatexInput(q.options?.C) || "Option C" },
+            { id: "D", text: normalizeLatexInput(q.options?.D) || "Option D" },
           ],
           section: q.section || "general",
           topic: q.topic,

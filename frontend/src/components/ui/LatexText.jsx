@@ -303,7 +303,7 @@ export default function LatexText({ children }) {
     <>
       {parts.map((part, i) => (
         <span key={i}>
-          <Latex>{part}</Latex>
+          <Latex strict="ignore">{part}</Latex>
           {i < parts.length - 1 && <br />}
         </span>
       ))}
