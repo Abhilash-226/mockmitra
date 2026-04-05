@@ -247,15 +247,24 @@ async def generate_solution(
     body: SolutionRequest,
     user_id: str = Depends(get_current_user)
 ):
-    """Generate a step-by-step solution using Groq LLM."""
-    if not settings.GROQ_API_KEY:
-        raise HTTPException(status_code=503, detail="AI service not configured")
+    """Generate a step-by-step solution using Gemini."""
+    if not settings.GEMINI_API_KEY and not settings.GOOGLE_CLOUD_PROJECT:
+        raise HTTPException(status_code=503, detail="Gemini service not configured")
 
     try:
-        from groq import Groq
-        client = Groq(api_key=settings.GROQ_API_KEY)
+        from google import genai
+        from google.genai import types
+
+        if settings.GOOGLE_CLOUD_PROJECT:
+            client = genai.Client(
+                vertexai=True,
+                project=settings.GOOGLE_CLOUD_PROJECT,
+                location=settings.GOOGLE_CLOUD_LOCATION,
+            )
+        else:
+            client = genai.Client(api_key=settings.GEMINI_API_KEY)
     except Exception as e:
-        raise HTTPException(status_code=503, detail=f"AI service unavailable: {e}")
+        raise HTTPException(status_code=503, detail=f"Gemini client unavailable: {e}")
 
     # Find the correct option text
     correct_text = body.correct_answer
@@ -294,13 +303,19 @@ Use LaTeX for all mathematical expressions (wrap in $...$ for inline, $$...$$ fo
 Keep the solution educational but concise (aim for 150-300 words)."""
 
     try:
-        response = client.chat.completions.create(
-            messages=[{"role": "user", "content": prompt}],
-            model="llama-3.3-70b-versatile",
-            temperature=0.3,
-            max_tokens=600,
+        response = client.models.generate_content(
+            model=settings.GEMINI_GENERATION_MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                temperature=0.3,
+                max_output_tokens=700,
+            ),
         )
-        solution_text = response.choices[0].message.content.strip()
+
+        solution_text = (response.text or "").strip()
+        if not solution_text:
+            raise RuntimeError("Empty response from Gemini")
+
         return {"solution": solution_text}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Solution generation failed: {e}")
+        raise HTTPException(status_code=500, detail=f"Gemini solution generation failed: {e}")
