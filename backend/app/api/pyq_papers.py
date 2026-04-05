@@ -170,29 +170,32 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
     
     exam_name = exam_code.upper().replace("_", " ")  # ts_eamcet -> TS EAMCET
     
-    # First, scan extracted YAML files
+    # First, scan extracted YAML files.
+    # NOTE: Keep this path lightweight for production by avoiding full YAML parsing
+    # for every paper in list views. Detailed parsing is done only in get_paper().
     if pyq_yaml_dir.exists():
         for yaml_file in sorted(pyq_yaml_dir.glob(f"{exam_code}_*.yaml")):
             paper_id = yaml_file.stem  # e.g., ts_eamcet_2020_1
             if paper_id in seen_ids:
                 continue
-            
-            yaml_data = load_paper_yaml(paper_id, exam_code)
-            if yaml_data:
-                is_extracted = len(yaml_data.get('questions', [])) > 0
-                papers.append({
-                    "id": paper_id,
-                    "exam": exam_name,
-                    "year": yaml_data.get("year", 0),
-                    "shift": yaml_data.get("shift", 1),
-                    "source_pdf": yaml_data.get("source_pdf"),
-                    "is_extracted": is_extracted,
-                    "date": yaml_data.get("date"),
-                    "session": yaml_data.get("session"),
-                    "total_questions": yaml_data.get("metadata", {}).get("total_questions", 160),
-                    "duration_minutes": yaml_data.get("metadata", {}).get("duration_minutes", 180),
-                })
-                seen_ids.add(paper_id)
+
+            parts = paper_id.split("_")
+            year = int(parts[2]) if len(parts) >= 4 and parts[2].isdigit() else 0
+            shift = int(parts[3]) if len(parts) >= 4 and parts[3].isdigit() else 1
+
+            papers.append({
+                "id": paper_id,
+                "exam": exam_name,
+                "year": year,
+                "shift": shift,
+                "source_pdf": None,
+                "is_extracted": True,
+                "date": None,
+                "session": None,
+                "total_questions": 160,
+                "duration_minutes": 180,
+            })
+            seen_ids.add(paper_id)
     
     # Then, scan PDF files for any that don't have YAML yet
     if pyq_pdf_dir.exists():
@@ -204,8 +207,7 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
                 continue
             
             # Check if extracted YAML exists
-            yaml_data = load_paper_yaml(paper_id, exam_code)
-            is_extracted = yaml_data is not None and len(yaml_data.get('questions', [])) > 0
+            is_extracted = (pyq_yaml_dir / f"{paper_id}.yaml").exists()
             
             papers.append({
                 "id": paper_id,
@@ -214,10 +216,10 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
                 "shift": info["shift"],
                 "source_pdf": pdf_file.name,
                 "is_extracted": is_extracted,
-                "date": yaml_data.get("date") if yaml_data else None,
-                "session": yaml_data.get("session") if yaml_data else None,
-                "total_questions": yaml_data.get("metadata", {}).get("total_questions", 160) if yaml_data else 160,
-                "duration_minutes": yaml_data.get("metadata", {}).get("duration_minutes", 180) if yaml_data else 180,
+                "date": None,
+                "session": None,
+                "total_questions": 160,
+                "duration_minutes": 180,
             })
             seen_ids.add(paper_id)
     
@@ -231,19 +233,20 @@ def get_available_papers(exam_code: str = "ts_eamcet") -> List[Dict[str, Any]]:
 
 
 @router.get("/papers", response_model=PapersListResponse)
-async def list_papers(exam: str = "ts_eamcet"):
+async def list_papers(exam: str = "ts_eamcet", exam_code: Optional[str] = None):
     """
     List all available PYQ papers for an exam.
     
     Scans the PYQS folder for PDFs and checks which ones have been extracted.
     """
-    exam_code = exam.lower().replace("-", "_").replace(" ", "_")
-    papers = await asyncio.to_thread(get_available_papers, exam_code)
+    effective_exam = (exam_code or exam)
+    normalized_exam_code = effective_exam.lower().replace("-", "_").replace(" ", "_")
+    papers = await asyncio.to_thread(get_available_papers, normalized_exam_code)
     
     extracted_count = sum(1 for p in papers if p["is_extracted"])
     
     return PapersListResponse(
-        exam=exam_code.upper(),
+        exam=normalized_exam_code.upper(),
         total_papers=len(papers),
         extracted_papers=extracted_count,
         papers=[PaperSummary(**p) for p in papers]
@@ -362,12 +365,13 @@ async def get_paper_questions(paper_id: str, section: Optional[str] = None):
 
 
 @router.get("/years")
-async def get_available_years(exam: str = "ts_eamcet"):
+async def get_available_years(exam: str = "ts_eamcet", exam_code: Optional[str] = None):
     """
     Get list of years with available papers.
     """
-    exam_code = exam.lower().replace("-", "_").replace(" ", "_")
-    papers = await asyncio.to_thread(get_available_papers, exam_code)
+    effective_exam = (exam_code or exam)
+    normalized_exam_code = effective_exam.lower().replace("-", "_").replace(" ", "_")
+    papers = await asyncio.to_thread(get_available_papers, normalized_exam_code)
     
     # Group by year
     years_data = {}
@@ -396,7 +400,7 @@ async def get_available_years(exam: str = "ts_eamcet"):
     
     # Return sorted by year descending
     return {
-        "exam": exam.upper(),
+        "exam": normalized_exam_code.upper(),
         "years": sorted(years_data.values(), key=lambda x: -x["year"])
     }
 

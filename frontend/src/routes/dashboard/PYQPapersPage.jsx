@@ -38,12 +38,17 @@ export default function PYQPapersPage() {
   const fetchPapers = async () => {
     try {
       setLoading(true);
-      const [papersData, yearsData] = await Promise.all([
-        pyqService.getPapers("ts_eamcet"),
-        pyqService.getYears("ts_eamcet"),
-      ]);
-      setPapers(papersData.papers || []);
-      setYears(yearsData.years || []);
+      const papersData = await pyqService.getPapers("ts_eamcet");
+      const fetchedPapers = papersData.papers || [];
+      setPapers(fetchedPapers);
+
+      // Derive year filters from papers list to avoid an extra API round-trip.
+      const yearsFromPapers = [
+        ...new Set(fetchedPapers.map((paper) => paper.year)),
+      ]
+        .filter((year) => Number.isFinite(year))
+        .map((year) => ({ year }));
+      setYears(yearsFromPapers);
     } catch (err) {
       console.error("Failed to fetch PYQ papers:", err);
       setError(err.message || "Failed to load papers");
