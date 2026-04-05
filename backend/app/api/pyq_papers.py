@@ -54,6 +54,24 @@ def _normalize_latex_text(value: Any) -> str:
     return text
 
 
+def _normalize_option_value(value: Any) -> Any:
+    """Normalize option payload while preserving structured image options."""
+    if isinstance(value, dict):
+        normalized: Dict[str, Any] = {}
+        for key, item in value.items():
+            # Preserve raw image paths so frontend can build absolute URLs.
+            if key == "image" and isinstance(item, str):
+                normalized[key] = item
+            else:
+                normalized[key] = _normalize_option_value(item)
+        return normalized
+
+    if isinstance(value, list):
+        return [_normalize_option_value(item) for item in value]
+
+    return _normalize_latex_text(value)
+
+
 def get_exam_yaml_dir(exam_code: str) -> Path:
     """Get the YAML directory for an exam."""
     folder = EXAM_FOLDERS.get(exam_code, exam_code)
@@ -310,7 +328,7 @@ async def get_paper(paper_id: str):
     questions = []
     for q in yaml_data.get("questions", []):
         normalized_options = {
-            str(k): _normalize_latex_text(v)
+            str(k): _normalize_option_value(v)
             for k, v in (q.get("options", {}) or {}).items()
         }
         questions.append(PaperQuestion(
@@ -377,7 +395,7 @@ async def get_paper_questions(paper_id: str, section: Optional[str] = None):
                 "section": q.section,
                 "text": _normalize_latex_text(q.text),
                 "options": {
-                    str(k): _normalize_latex_text(v)
+                    str(k): _normalize_option_value(v)
                     for k, v in (q.options or {}).items()
                 },
                 "image": q.image,
