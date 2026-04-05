@@ -1,30 +1,5 @@
 import "katex/dist/katex.min.css";
-import Latex from "react-latex-next";
-import { Component } from "react";
-
-class SafeLatexBoundary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError() {
-    return { hasError: true };
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.text !== this.props.text && this.state.hasError) {
-      this.setState({ hasError: false });
-    }
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return <span>{this.props.text}</span>;
-    }
-    return this.props.children;
-  }
-}
+import katex from "katex";
 
 // LaTeX command words that commonly lose their backslash due to JSON parsing issues.
 // These appear inside $...$ regions without a leading backslash.
@@ -338,12 +313,23 @@ export default function LatexText({ children }) {
     return tokens.map((token, idx) => {
       if (!token) return null;
       if (token.startsWith("$") && token.endsWith("$")) {
+        const mathExpr = token.slice(1, -1);
+        let html = null;
+        try {
+          html = katex.renderToString(mathExpr, {
+            throwOnError: false,
+            strict: "ignore",
+            displayMode: false,
+            output: "htmlAndMathml",
+          });
+        } catch {
+          return <span key={`m-${idx}`}>{token}</span>;
+        }
         return (
-          <SafeLatexBoundary key={`m-${idx}`} text={token}>
-            <Latex strict="ignore" throwOnError={false}>
-              {token}
-            </Latex>
-          </SafeLatexBoundary>
+          <span
+            key={`m-${idx}`}
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
         );
       }
       return <span key={`t-${idx}`}>{token}</span>;
