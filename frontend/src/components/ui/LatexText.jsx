@@ -324,15 +324,29 @@ export default function LatexText({ children }) {
   // Split only on actual newline characters.
   // We removed |\\n because it was breaking LaTeX commands like \neq, \nu, \nabla
   const parts = sanitized.split(/\n/);
+
+  const renderMixedLatex = (line) => {
+    const tokens = String(line).split(/(\$[^$]*\$)/g);
+    return tokens.map((token, idx) => {
+      if (!token) return null;
+      if (token.startsWith("$") && token.endsWith("$")) {
+        return (
+          <SafeLatexBoundary key={`m-${idx}`} text={token}>
+            <Latex strict="ignore" throwOnError={false}>
+              {token}
+            </Latex>
+          </SafeLatexBoundary>
+        );
+      }
+      return <span key={`t-${idx}`}>{token}</span>;
+    });
+  };
+
   return (
     <>
       {parts.map((part, i) => (
         <span key={i}>
-          <SafeLatexBoundary text={part}>
-            <Latex strict="ignore" throwOnError={false}>
-              {part}
-            </Latex>
-          </SafeLatexBoundary>
+          {renderMixedLatex(part)}
           {i < parts.length - 1 && <br />}
         </span>
       ))}
