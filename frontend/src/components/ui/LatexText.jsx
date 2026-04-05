@@ -155,6 +155,14 @@ const DOUBLE_ESCAPED_COMMAND_RE = new RegExp(
   "g",
 );
 
+// Wrap full LaTeX command spans including common arguments/superscripts/subscripts.
+const COMMAND_SPAN_RE =
+  /(\\[a-zA-Z]+(?:\s*(?:\{[^{}]*\}|\[[^\[\]]*\]|_\{[^{}]*\}|\^\{[^{}]*\}|_[A-Za-z0-9]|\^[A-Za-z0-9]))*)/g;
+
+// Wrap variables/functions that use superscripts/subscripts without backslash commands.
+const SUBSUP_SPAN_RE =
+  /(\b[A-Za-z][A-Za-z0-9]*(?:\s*(?:_\{[^{}]*\}|\^\{[^{}]*\}|_[A-Za-z0-9]|\^[A-Za-z0-9]))+)/g;
+
 const OUTSIDE_MATH_REPLACEMENTS = [
   [/\\times/g, "×"],
   [/\\cdot/g, "·"],
@@ -247,29 +255,22 @@ export function sanitizeLatex(text) {
       return `$${processed}$`;
     }
 
-    // Otherwise, wrap individual commands and their arguments
-    const MATH_BLOCK_RE =
-      /(\\[a-zA-Z]+({[^{}]*})*|[=<>+\-*/^_{}]+|(?:\d+[\d,]*\d|\d+))/g;
-
-    // We only want to wrap if it actually looks like math.
-    // If it's just a plain number in a sentence, we might not want to wrap it,
-    // but usually in these papers even numbers are better in math mode for font consistency.
-    // However, to be safe, only wrap if there's at least one backslash or comparison op.
+    // Safer fallback: wrap only likely math spans.
+    // This avoids malformed expressions caused by token-level wrapping.
     if (processed.includes("\\") || /[=<>^_]/.test(processed)) {
-      let surgicallyWrapped = processed.replace(MATH_BLOCK_RE, (match) => {
-        // Don't wrap if it's just a single digit/number and no actual math context
-        if (
-          /^\d+$/.test(match) &&
-          !processed.includes("\\") &&
-          !/[=<>^_]/.test(processed)
-        ) {
-          return match;
-        }
-        return `$${match}$`;
+      const wrappedCommands = processed.replace(COMMAND_SPAN_RE, (match) => {
+        const trimmed = match.trim();
+        return trimmed ? `$${trimmed}$` : match;
       });
 
-      // Merge adjacent $ blocks: $a$$+$$b$ -> $a+b$
-      return surgicallyWrapped.replace(/\$\$\$/g, "$").replace(/\$\$/g, "");
+      const wrappedSubSup = wrappedCommands.replace(SUBSUP_SPAN_RE, (match) => {
+        // Do not double-wrap already wrapped spans.
+        if (match.startsWith("$") && match.endsWith("$")) return match;
+        const trimmed = match.trim();
+        return trimmed ? `$${trimmed}$` : match;
+      });
+
+      return wrappedSubSup;
     }
 
     return normalizeOutsideMath(processed);
