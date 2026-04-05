@@ -326,10 +326,7 @@ export default function LatexText({ children }) {
           return <span key={`m-${idx}`}>{token}</span>;
         }
         return (
-          <span
-            key={`m-${idx}`}
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <span key={`m-${idx}`} dangerouslySetInnerHTML={{ __html: html }} />
         );
       }
       return <span key={`t-${idx}`}>{token}</span>;

@@ -1,6 +1,6 @@
 // Dashboard Page Component
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuthStore } from "../../store/useAuthStore";
 import { analyticsService } from "../../services/analyticsService";
 import { examService } from "../../services/examService";
@@ -103,12 +103,17 @@ const QUICK_ACTIONS = [
 
 export default function DashboardPage() {
   const { user } = useAuthStore();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [dashboardData, setDashboardData] = useState(null);
   const [historyData, setHistoryData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [notice, setNotice] = useState(null);
   const pollingTimerRef = useRef(null);
   const isFetchingRef = useRef(false);
+  const prevStatusRef = useRef(new Map());
+  const completionNoticeSentRef = useRef(new Set());
 
   useEffect(() => {
     setPageSeo({
@@ -118,6 +123,17 @@ export default function DashboardPage() {
       path: "/dashboard",
     });
   }, []);
+
+  useEffect(() => {
+    if (location.state?.generationStarted) {
+      setNotice({
+        title: "Test generation started",
+        message:
+          "Your custom test is being generated. You can track progress from History.",
+      });
+      navigate(location.pathname, { replace: true, state: {} });
+    }
+  }, [location, navigate]);
 
   useEffect(() => {
     let isUnmounted = false;
@@ -201,26 +217,119 @@ export default function DashboardPage() {
     overall_accuracy: dashboardData?.overall_accuracy || 0,
   };
 
-  const historyNameByAttemptId = new Map(
-    (historyData || []).map((attempt) => [
-      attempt.id || attempt._id,
-      attempt.test_title || attempt.exam_code || "Untitled Test",
-    ]),
-  );
+  const isPyqMock = (attempt) => {
+    const name = (
+      attempt?.test_title ||
+      attempt?.exam_code ||
+      ""
+    ).toLowerCase();
+    return name.startsWith("pyq") || name.includes("past year");
+  };
 
-  const recentTests = (dashboardData?.recent_attempts || [])
+  const isUnsubmittedStatus = (status) => status !== "completed";
+
+  const getObjectIdTime = (id) => {
+    if (!id || typeof id !== "string" || id.length < 8) return null;
+    const seconds = Number.parseInt(id.slice(0, 8), 16);
+    if (Number.isNaN(seconds)) return null;
+    return new Date(seconds * 1000).toISOString();
+  };
+
+  const getAttemptDateString = (attempt) =>
+    attempt?.started_at ||
+    attempt?.created_at ||
+    attempt?.completed_at ||
+    getObjectIdTime(attempt?.id || attempt?._id);
+
+  const getAttemptTime = (attempt) => {
+    const dateStr = getAttemptDateString(attempt);
+    if (!dateStr) return 0;
+    const normalized =
+      dateStr.endsWith("Z") || dateStr.includes("+") ? dateStr : `${dateStr}Z`;
+    const ts = new Date(normalized).getTime();
+    return Number.isNaN(ts) ? 0 : ts;
+  };
+
+  const recentTests = (historyData || [])
+    .filter((attempt) => !isPyqMock(attempt))
+    .filter((attempt) => isUnsubmittedStatus(attempt.status))
+    .sort((a, b) => getAttemptTime(b) - getAttemptTime(a))
     .map((attempt) => ({
       ...attempt,
-      test_name:
-        historyNameByAttemptId.get(attempt.id || attempt._id) ||
-        attempt.test_title ||
-        attempt.exam_code ||
-        "Untitled Test",
+      test_name: attempt.test_title || attempt.exam_code || "Untitled Test",
+      created_at: getAttemptDateString(attempt),
     }))
     .slice(0, 3);
 
+  useEffect(() => {
+    const nextStatusMap = new Map();
+    let newlyGenerated = null;
+
+    for (const attempt of historyData || []) {
+      if (isPyqMock(attempt)) continue;
+      const id = attempt.id || attempt._id;
+      if (!id) continue;
+
+      const currentStatus = attempt.status;
+      const prevStatus = prevStatusRef.current.get(id);
+      nextStatusMap.set(id, currentStatus);
+
+      const transitionedToReady =
+        prevStatus === "generating" && currentStatus === "not_started";
+
+      if (
+        transitionedToReady &&
+        !completionNoticeSentRef.current.has(id) &&
+        !newlyGenerated
+      ) {
+        newlyGenerated = attempt;
+        completionNoticeSentRef.current.add(id);
+      }
+    }
+
+    prevStatusRef.current = nextStatusMap;
+
+    if (newlyGenerated) {
+      setNotice({
+        title: "Test generated successfully",
+        message: `${newlyGenerated.test_title || newlyGenerated.exam_code || "Your test"} is ready. You can start it from History.`,
+      });
+    }
+  }, [historyData]);
+
   return (
     <div className="space-y-6">
+      {notice && (
+        <div className="fixed right-4 top-20 z-50 w-[320px] max-w-[calc(100vw-2rem)] rounded-lg border border-blue-200 bg-white p-4 shadow-lg">
+          <div className="flex items-start justify-between gap-3">
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-blue-700">
+                {notice.title}
+              </p>
+              <p className="mt-1 text-sm text-gray-600">{notice.message}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setNotice(null)}
+              className="text-gray-400 hover:text-gray-600"
+              aria-label="Close notification"
+            >
+              ×
+            </button>
+          </div>
+          <div className="mt-3 flex justify-end">
+            <Link to="/history">
+              <Button
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white"
+              >
+                Go to History
+              </Button>
+            </Link>
+          </div>
+        </div>
+      )}
+
       {/* Loading State */}
       {loading && (
         <div className="flex items-center justify-center py-12">
@@ -304,9 +413,12 @@ export default function DashboardPage() {
             <div className="space-y-4">
               {recentTests.length === 0 ? (
                 <div className="text-center py-6 text-gray-500">
-                  <p>No tests taken yet.</p>
-                  <Link to="/exams" className="text-blue-600 hover:underline">
-                    Start your first test
+                  <p>No generated custom tests pending.</p>
+                  <Link
+                    to="/exam/customize"
+                    className="text-blue-600 hover:underline"
+                  >
+                    Create a custom test
                   </Link>
                 </div>
               ) : (
@@ -322,9 +434,7 @@ export default function DashboardPage() {
                       <p className="text-sm text-gray-500">
                         {test.status === "generating"
                           ? "Processing..."
-                          : formatRelativeTime(
-                              test.completed_at || test.created_at,
-                            )}
+                          : formatRelativeTime(test.created_at)}
                       </p>
                     </div>
                     <div className="flex items-center gap-3">
@@ -341,25 +451,19 @@ export default function DashboardPage() {
                             Start Test
                           </Button>
                         </Link>
-                      ) : (
-                        <>
-                          <span
-                            className={`text-lg font-bold ${
-                              test.percentage >= 70
-                                ? "text-green-600"
-                                : test.percentage >= 50
-                                  ? "text-yellow-600"
-                                  : "text-red-600"
-                            }`}
+                      ) : test.status === "in_progress" ? (
+                        <Link to={`/exam/${test.test_id}/test`}>
+                          <Button
+                            size="sm"
+                            className="bg-blue-600 hover:bg-blue-700 text-white"
                           >
-                            {test.percentage}%
-                          </span>
-                          <Link to={`/results/${test.id}`}>
-                            <Button size="sm" variant="outline">
-                              Review
-                            </Button>
-                          </Link>
-                        </>
+                            Resume Test
+                          </Button>
+                        </Link>
+                      ) : (
+                        <span className="text-sm text-gray-500 px-3 py-1 bg-gray-100 rounded-full border border-gray-200">
+                          {test.status}
+                        </span>
                       )}
                     </div>
                   </div>

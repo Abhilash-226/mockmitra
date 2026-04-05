@@ -1481,8 +1481,8 @@ questions:
   difficulty: moderate
   subject: Physics
 - id: 116
-  section: Inorganic Chemistry
-  topic: hydrogen_and_its_compounds
+  section: Modern Physics
+  topic: nuclei
   text: In the hydrogen atom spectrum, let $E_1$ and $E_2$ are energies for the transition $n = 2 \rightarrow n = 1$ and $n = 3 \rightarrow n = 2$ respectively. The ratio $E_2/E_1$ is
   options:
     A: $\frac{2}{3}$
@@ -1491,7 +1491,7 @@ questions:
     D: $\frac{5}{27}$
   correct_answer: D
   difficulty: moderate
-  subject: Chemistry
+  subject: Physics
 - id: 117
   section: Modern Physics
   topic: nuclei

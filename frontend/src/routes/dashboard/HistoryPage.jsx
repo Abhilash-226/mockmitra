@@ -21,6 +21,27 @@ export default function HistoryPage() {
   const isFetchingRef = useRef(false);
   const latestHistoryRef = useRef([]);
 
+  const getObjectIdTime = (id) => {
+    if (!id || typeof id !== "string" || id.length < 8) return null;
+    const seconds = Number.parseInt(id.slice(0, 8), 16);
+    if (Number.isNaN(seconds)) return null;
+    return new Date(seconds * 1000).toISOString();
+  };
+
+  const getAttemptDate = (attempt) =>
+    attempt?.started_at ||
+    attempt?.created_at ||
+    attempt?.completed_at ||
+    getObjectIdTime(attempt?.id || attempt?._id);
+
+  const getTimestamp = (dateStr) => {
+    if (!dateStr) return 0;
+    const normalizedDateStr =
+      dateStr.endsWith("Z") || dateStr.includes("+") ? dateStr : `${dateStr}Z`;
+    const ts = new Date(normalizedDateStr).getTime();
+    return Number.isNaN(ts) ? 0 : ts;
+  };
+
   const fetchHistory = async () => {
     if (isFetchingRef.current) return null;
     isFetchingRef.current = true;
@@ -49,12 +70,14 @@ export default function HistoryPage() {
         id: attempt.id || attempt._id,
         testId: attempt.test_id, // For resuming/starting
         examName: attempt.test_title || attempt.exam_code || "Untitled Test",
-        date: attempt.started_at || attempt.created_at,
+        date: getAttemptDate(attempt),
         completedDate: attempt.completed_at,
         score: attempt.score ?? 0,
         percentage: attempt.percentage ?? 0,
         status: attempt.status, // generating, not_started, in_progress, completed, abandoned
       }));
+
+      testHistory.sort((a, b) => getTimestamp(b.date) - getTimestamp(a.date));
 
       setHistory(testHistory);
       latestHistoryRef.current = testHistory;
@@ -165,10 +188,12 @@ export default function HistoryPage() {
 
   const pyqMocks = history.filter(isPyqMock);
   const aiMocks = history.filter((test) => !isPyqMock(test));
-  const aiSubmitted = aiMocks.filter((test) => test.status === "completed");
-  const aiInGenerationOrGenerated = aiMocks.filter(
-    (test) => test.status !== "completed",
-  );
+  const aiSubmitted = aiMocks
+    .filter((test) => test.status === "completed")
+    .sort((a, b) => getTimestamp(b.date) - getTimestamp(a.date));
+  const aiInGenerationOrGenerated = aiMocks
+    .filter((test) => test.status !== "completed")
+    .sort((a, b) => getTimestamp(b.date) - getTimestamp(a.date));
 
   const formatDate = (dateStr) => {
     if (!dateStr) return "...";

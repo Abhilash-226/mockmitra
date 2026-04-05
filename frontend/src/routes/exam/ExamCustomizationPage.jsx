@@ -453,13 +453,11 @@ export default function ExamCustomizationPage() {
         custom_duration_minutes: config.duration,
       });
 
-      // Show success message (could be a toast in future)
-      alert(
-        "Your test is being generated! You will be notified on the dashboard when it is ready.",
-      );
-
-      // Navigate to dashboard to see progress
-      navigate("/dashboard");
+      navigate("/dashboard", {
+        state: {
+          generationStarted: true,
+        },
+      });
     } catch (err) {
       console.error("Failed to generate test:", err);
       setError("Failed to start test generation. Please try again.");
