@@ -1,5 +1,30 @@
 import "katex/dist/katex.min.css";
 import Latex from "react-latex-next";
+import { Component } from "react";
+
+class SafeLatexBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.text !== this.props.text && this.state.hasError) {
+      this.setState({ hasError: false });
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <span>{this.props.text}</span>;
+    }
+    return this.props.children;
+  }
+}
 
 // LaTeX command words that commonly lose their backslash due to JSON parsing issues.
 // These appear inside $...$ regions without a leading backslash.
@@ -303,9 +328,11 @@ export default function LatexText({ children }) {
     <>
       {parts.map((part, i) => (
         <span key={i}>
-          <Latex strict="ignore" throwOnError={false}>
-            {part}
-          </Latex>
+          <SafeLatexBoundary text={part}>
+            <Latex strict="ignore" throwOnError={false}>
+              {part}
+            </Latex>
+          </SafeLatexBoundary>
           {i < parts.length - 1 && <br />}
         </span>
       ))}
