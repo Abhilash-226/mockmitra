@@ -18,6 +18,8 @@ import asyncio
 import time
 import yaml
 import os
+import re
+import unicodedata
 
 from app.core.security import get_current_user
 from app.models.question import Question, QuestionSource, DifficultyLevel
@@ -33,6 +35,23 @@ EXAM_FOLDERS = {
     "ts_eamcet": "ts_eamcet",
     # Future: "jee_main": "jee_main", "neet": "neet"
 }
+
+
+def _normalize_latex_text(value: Any) -> str:
+    """Normalize OCR/YAML LaTeX text so frontend receives consistent math strings."""
+    if value is None:
+        return ""
+
+    text = str(value)
+    text = unicodedata.normalize("NFKC", text)
+    # Remove combining marks and zero-width chars that can corrupt commands like \frac
+    text = re.sub(r"[\u0300-\u036f\u200B-\u200D\uFEFF]", "", text)
+    # Convert escaped dollar delimiters (\$ or \\$) to plain $.
+    text = re.sub(r"\\+\$", "$", text)
+    # Collapse repeated backslashes before command names, e.g. \\frac -> \frac
+    text = re.sub(r"\\{2,}(?=[A-Za-z])", r"\\", text)
+
+    return text
 
 
 def get_exam_yaml_dir(exam_code: str) -> Path:
@@ -290,11 +309,15 @@ async def get_paper(paper_id: str):
     # Parse questions
     questions = []
     for q in yaml_data.get("questions", []):
+        normalized_options = {
+            str(k): _normalize_latex_text(v)
+            for k, v in (q.get("options", {}) or {}).items()
+        }
         questions.append(PaperQuestion(
             number=q.get("number") or q.get("id", 0),
             section=q.get("section", ""),
-            text=str(q.get("text", "")),
-            options=q.get("options", {}),
+            text=_normalize_latex_text(q.get("text", "")),
+            options=normalized_options,
             correct_answer=q.get("correct_answer") or q.get("correct", ""),
             image=q.get("image"),
             topic=q.get("topic"),
@@ -352,8 +375,11 @@ async def get_paper_questions(paper_id: str, section: Optional[str] = None):
             {
                 "number": q.number,
                 "section": q.section,
-                "text": q.text,
-                "options": q.options,
+                "text": _normalize_latex_text(q.text),
+                "options": {
+                    str(k): _normalize_latex_text(v)
+                    for k, v in (q.options or {}).items()
+                },
                 "image": q.image,
                 "topic": q.topic,
                 "subject": q.subject,
