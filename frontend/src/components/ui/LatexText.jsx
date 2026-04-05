@@ -210,6 +210,14 @@ const OUTSIDE_MATH_REPLACEMENTS = [
   [/\\_/g, "_"],
 ];
 
+function normalizeCorruptedLatexChars(value) {
+  // Some extracted payloads can contain combining marks / zero-width chars
+  // inside LaTeX commands (e.g. "\\f̲rac"), which breaks KaTeX parsing.
+  return String(value)
+    .normalize("NFKC")
+    .replace(/[\u0300-\u036f\u200B-\u200D\uFEFF]/g, "");
+}
+
 function normalizeOutsideMath(segment) {
   let value = segment;
   for (const [pattern, replacement] of OUTSIDE_MATH_REPLACEMENTS) {
@@ -259,7 +267,7 @@ function fixMathBlock(block) {
 export function sanitizeLatex(text) {
   if (!text) return text;
 
-  let processed = String(text);
+  let processed = normalizeCorruptedLatexChars(text);
   processed = processed.replace(DOUBLE_ESCAPED_COMMAND_RE, "\\");
   processed = processed.replace(/\\\$/g, "$");
   processed = ensureBalancedDollarPairs(processed);
