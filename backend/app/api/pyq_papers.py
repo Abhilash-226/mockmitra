@@ -494,32 +494,37 @@ async def submit_pyq_test(
         num = q.get("number") or q.get("id", 0)
         q_by_number[num] = q
 
-    # 3. Insert / reuse Question documents in DB
-    #    We use a composite key (exam_code + source=PYQ + year + question_text hash)
-    #    to avoid duplicates across multiple submissions of the same paper.
-    question_docs: Dict[int, Question] = {}  # number → Question doc
+    # 3. Insert / reuse Question documents in DB (bulk mode for performance)
+    #    On production this endpoint can timeout if we do 160+ find_one calls.
+    #    Instead: fetch all PYQ questions for (exam_code, year) once, then insert only missing.
+    existing_questions = await Question.find(
+        Question.exam_code == exam_code,
+        Question.source == QuestionSource.PYQ,
+        Question.year == year,
+    ).to_list()
+    existing_by_text: Dict[str, Question] = {
+        q.question_text: q for q in existing_questions
+    }
+
+    question_docs: Dict[int, Question] = {}  # number -> Question doc
+    docs_to_insert: list[Question] = []
+    nums_to_insert: list[int] = []
+
     for num, yq in q_by_number.items():
         q_text = str(yq.get("text", ""))
-        opts_raw = yq.get("options", {})
-
-        # Normalise option keys to lowercase a/b/c/d
-        options_map = {}
-        for k, v in opts_raw.items():
-            options_map[k.lower()] = v
-
-        correct_raw = str(yq.get("correct_answer") or yq.get("correct", "")).strip().lower()
-
-        # Try to find an existing identical question (avoid duplicates)
-        existing = await Question.find_one(
-            Question.exam_code == exam_code,
-            Question.source == QuestionSource.PYQ,
-            Question.year == year,
-            Question.question_text == q_text,
-        )
+        existing = existing_by_text.get(q_text)
         if existing:
             question_docs[num] = existing
-        else:
-            doc = Question(
+            continue
+
+        opts_raw = yq.get("options", {}) or {}
+        options_map: Dict[str, Any] = {
+            str(k).lower(): v for k, v in opts_raw.items()
+        }
+        correct_raw = str(yq.get("correct_answer") or yq.get("correct", "")).strip().lower()
+
+        docs_to_insert.append(
+            Question(
                 question_text=q_text,
                 options=options_map,
                 correct_option=correct_raw,
@@ -532,8 +537,13 @@ async def submit_pyq_test(
                 source=QuestionSource.PYQ,
                 year=year,
             )
-            await doc.insert()
-            question_docs[num] = doc
+        )
+        nums_to_insert.append(num)
+
+    if docs_to_insert:
+        await Question.insert_many(docs_to_insert)
+        for idx, num in enumerate(nums_to_insert):
+            question_docs[num] = docs_to_insert[idx]
 
     question_ids = [doc.id for doc in question_docs.values()]
 

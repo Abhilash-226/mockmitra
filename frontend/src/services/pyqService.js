@@ -44,11 +44,17 @@ export const pyqService = {
    * Persists to DB so it appears in history & supports detailed analytics.
    */
   submitPyqTest: async ({ paperId, answers, timeTakenSeconds }) => {
-    const response = await api.post(API_ENDPOINTS.PYQ.SUBMIT, {
-      paper_id: paperId,
-      answers,
-      time_taken_seconds: timeTakenSeconds,
-    });
+    const response = await api.post(
+      API_ENDPOINTS.PYQ.SUBMIT,
+      {
+        paper_id: paperId,
+        answers,
+        time_taken_seconds: timeTakenSeconds,
+      },
+      {
+        timeout: 120000,
+      },
+    );
     return response.data;
   },
 };
