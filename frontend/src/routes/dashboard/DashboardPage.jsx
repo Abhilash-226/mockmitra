@@ -514,55 +514,6 @@ export default function DashboardPage() {
           </CardContent>
         </Card>
       </div>
-
-      {/* Recommended Section */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Recommended for You</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="p-4 border border-orange-200 bg-orange-50 rounded-lg">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">📚</span>
-                <h4 className="font-semibold text-gray-900">
-                  Practice General Awareness
-                </h4>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">
-                Your weakest area. Take a focused practice session.
-              </p>
-              <Button size="sm" className="w-full">
-                Start Practice
-              </Button>
-            </div>
-            <div className="p-4 border border-blue-200 bg-blue-50 rounded-lg">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">🎯</span>
-                <h4 className="font-semibold text-gray-900">Full Mock Test</h4>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">
-                It's been 3 days since your last full test.
-              </p>
-              <Button size="sm" className="w-full">
-                Take Test
-              </Button>
-            </div>
-            <div className="p-4 border border-green-200 bg-green-50 rounded-lg">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">🔄</span>
-                <h4 className="font-semibold text-gray-900">Review Mistakes</h4>
-              </div>
-              <p className="text-sm text-gray-600 mb-3">
-                You have 15 marked questions to review.
-              </p>
-              <Button size="sm" className="w-full">
-                Review Now
-              </Button>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
     </div>
   );
 }

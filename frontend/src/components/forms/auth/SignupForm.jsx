@@ -10,14 +10,7 @@ import { GOOGLE_CLIENT_ID } from "../../../services/authService";
 
 const EXAM_OPTIONS = [
   { value: "", label: "Select your target exam", disabled: true },
-  { value: "ssc_cgl", label: "SSC CGL" },
-  { value: "ssc_chsl", label: "SSC CHSL" },
-  { value: "ibps_po", label: "IBPS PO" },
-  { value: "ibps_clerk", label: "IBPS Clerk" },
-  { value: "sbi_po", label: "SBI PO" },
-  { value: "rrb_ntpc", label: "RRB NTPC" },
-  { value: "upsc_cse", label: "UPSC CSE" },
-  { value: "other", label: "Other" },
+  { value: "ts_eamcet", label: "TS EAMCET" },
 ];
 
 export default function SignupForm({

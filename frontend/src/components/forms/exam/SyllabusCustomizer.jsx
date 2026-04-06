@@ -275,7 +275,7 @@ export default function SyllabusCustomizer({
     const subjects = Array.isArray(examConfig?.sections)
       ? examConfig.sections
       : [];
-      
+
     if (config.testMode === "sectional") {
       // In Sectional Drill mode:
       // Group Header = Subject Name
@@ -429,94 +429,6 @@ export default function SyllabusCustomizer({
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 Select Exam
               </label>
-
-              {/* Selected Exam Display */}
-              {selectedExamDetails && (
-                <div className="mb-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl">
-                  <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl">
-                        {selectedExamDetails.icon}
-                      </span>
-                      <div>
-                        <h3 className="font-semibold text-gray-900">
-                          {selectedExamDetails.name}
-                        </h3>
-                        <p className="text-sm text-gray-600">
-                          {selectedExamDetails.description ||
-                            "Blueprint-aligned mock tests"}
-                        </p>
-                      </div>
-                    </div>
-                    <span
-                      className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                        getCategoryMeta(selectedExamDetails.category).badge
-                      }`}
-                    >
-                      {getCategoryMeta(selectedExamDetails.category).label}
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap items-center gap-4 mt-4 text-xs text-gray-600">
-                    <span className="flex items-center gap-1">
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                        />
-                      </svg>
-                      {selectedExamDetails.stats.questions ||
-                        examConfig?.maxQuestions ||
-                        "--"}{" "}
-                      Q bank
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 8v4l3 3"
-                        />
-                      </svg>
-                      {selectedExamDetails.stats.duration ||
-                        examConfig?.defaultDuration ||
-                        "--"}{" "}
-                      min
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4 6h16M4 10h16M4 14h16M4 18h16"
-                        />
-                      </svg>
-                      {selectedExamDetails.stats.sections ||
-                        examConfig?.sections?.length ||
-                        0}{" "}
-                      sections
-                    </span>
-                  </div>
-                </div>
-              )}
 
               {/* Exam Dropdown */}
               {examOptions.length > 0 ? (
