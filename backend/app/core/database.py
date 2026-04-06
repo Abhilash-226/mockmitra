@@ -37,11 +37,13 @@ async def init_db():
     from app.models.user import User
     from app.models.question import Question
     from app.models.test import Test, TestAttempt, TestResponse
+    from app.models.solution_cache import SolutionCache
+    from app.models.pyq_solution import PyQSolution
     
     # Initialize Beanie with all document models
     await init_beanie(
         database=client[settings.MONGODB_DB_NAME],
-        document_models=[User, Question, Test, TestAttempt, TestResponse]
+        document_models=[User, Question, Test, TestAttempt, TestResponse, SolutionCache, PyQSolution]
     )
 
 

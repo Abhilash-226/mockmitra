@@ -24,6 +24,7 @@ import unicodedata
 from app.core.security import get_current_user
 from app.models.question import Question, QuestionSource, DifficultyLevel
 from app.models.test import Test, TestAttempt, TestStatus, TestType, TestResponse as TestResponseModel
+from app.models.pyq_solution import PyQSolution
 
 router = APIRouter()
 
@@ -462,6 +463,35 @@ class PYQSubmitRequest(BaseModel):
     time_taken_seconds: int = 0
 
 
+@router.get("/solutions/{paper_id}/{question_number}")
+async def get_pyq_solution(
+    paper_id: str,
+    question_number: int,
+    user_id: str = Depends(get_current_user),
+):
+    """Fetch pre-generated solution for a PYQ question by paper/question identifiers."""
+    _ = user_id
+    solution_doc = await PyQSolution.find_one(
+        PyQSolution.paper_id == paper_id,
+        PyQSolution.question_number == question_number,
+    )
+
+    if not solution_doc:
+        raise HTTPException(
+            status_code=404,
+            detail="Solution not available yet. Please try again after bulk generation completes.",
+        )
+
+    return {
+        "paper_id": solution_doc.paper_id,
+        "question_number": solution_doc.question_number,
+        "solution": solution_doc.solution_text,
+        "provider": solution_doc.provider,
+        "model": solution_doc.model_name,
+        "generated_at": solution_doc.updated_at,
+    }
+
+
 @router.post("/submit")
 async def submit_pyq_test(
     body: PYQSubmitRequest,
@@ -500,10 +530,12 @@ async def submit_pyq_test(
     existing_questions = await Question.find(
         Question.exam_code == exam_code,
         Question.source == QuestionSource.PYQ,
-        Question.year == year,
+        Question.source_paper_id == body.paper_id,
     ).to_list()
-    existing_by_text: Dict[str, Question] = {
-        q.question_text: q for q in existing_questions
+    existing_by_number: Dict[int, Question] = {
+        int(q.source_question_number): q
+        for q in existing_questions
+        if q.source_question_number is not None
     }
 
     question_docs: Dict[int, Question] = {}  # number -> Question doc
@@ -511,11 +543,19 @@ async def submit_pyq_test(
     nums_to_insert: list[int] = []
 
     for num, yq in q_by_number.items():
-        q_text = str(yq.get("text", ""))
-        existing = existing_by_text.get(q_text)
+        existing = existing_by_number.get(int(num))
         if existing:
+            if (
+                existing.source_paper_id != body.paper_id
+                or existing.source_question_number != int(num)
+            ):
+                existing.source_paper_id = body.paper_id
+                existing.source_question_number = int(num)
+                await existing.save()
             question_docs[num] = existing
             continue
+
+        q_text = str(yq.get("text", ""))
 
         opts_raw = yq.get("options", {}) or {}
         options_map: Dict[str, Any] = {
@@ -536,6 +576,8 @@ async def submit_pyq_test(
                 difficulty=DifficultyLevel.MEDIUM,
                 source=QuestionSource.PYQ,
                 year=year,
+                source_paper_id=body.paper_id,
+                source_question_number=int(num),
             )
         )
         nums_to_insert.append(num)

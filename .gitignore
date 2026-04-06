@@ -1,6 +1,8 @@
 # Credentials - NEVER commit these
 credentials.json
 **/credentials.json
+client_secret_*.json
+**/client_secret_*.json
 *.pem
 *.key
 
@@ -11,3 +13,4 @@ credentials.json
 
 # Backend cloud credentials
 backend/placeguide-*.json
+backend/*.service-account.json

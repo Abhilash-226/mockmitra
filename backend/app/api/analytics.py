@@ -2,6 +2,9 @@ from fastapi import APIRouter, Depends, HTTPException
 from beanie import PydanticObjectId
 from typing import Optional, List
 from pydantic import BaseModel
+from datetime import datetime, timezone
+import json
+import hashlib
 from pymongo.errors import ServerSelectionTimeoutError, AutoReconnect, NetworkTimeout
 
 from app.core.security import get_current_user
@@ -160,11 +163,28 @@ async def get_attempt_analytics(
             TestResponseModel.attempt_id == aid
         ).to_list()
 
+        # Some attempts may contain multiple response rows per question
+        # (autosave + submit). Keep the latest one per question for analysis UI.
+        latest_response_by_question: dict[str, TestResponseModel] = {}
+        for r in responses:
+            qid = str(r.question_id)
+            prev = latest_response_by_question.get(qid)
+            if not prev:
+                latest_response_by_question[qid] = r
+                continue
+
+            prev_ts = prev.answered_at or datetime.min.replace(tzinfo=timezone.utc)
+            curr_ts = r.answered_at or datetime.min.replace(tzinfo=timezone.utc)
+            if curr_ts >= prev_ts:
+                latest_response_by_question[qid] = r
+
+        unique_responses = list(latest_response_by_question.values())
+
         # Build a map of responses keyed by question_id for quick lookup
-        response_map = {str(r.question_id): r for r in responses}
+        response_map = {str(r.question_id): r for r in unique_responses}
 
         # Fetch full question documents
-        question_ids = [r.question_id for r in responses]
+        question_ids = [r.question_id for r in unique_responses]
         questions_docs = await Question.find(
             {"_id": {"$in": question_ids}}
         ).to_list()
@@ -172,7 +192,7 @@ async def get_attempt_analytics(
         # Build questions list in response order
         question_doc_map = {str(q.id): q for q in questions_docs}
         questions_list = []
-        for idx, r in enumerate(responses):
+        for idx, r in enumerate(unique_responses):
             qid = str(r.question_id)
             q = question_doc_map.get(qid)
             if not q:
@@ -193,10 +213,12 @@ async def get_attempt_analytics(
                 "solution": q.explanation or "No explanation available",
                 "time_spent": r.time_spent_seconds,
                 "image": q.image,
+                "paper_id": q.source_paper_id,
+                "question_number": q.source_question_number,
             })
 
         # Calculate time analysis
-        time_per_question = [r.time_spent_seconds for r in responses if r.time_spent_seconds]
+        time_per_question = [r.time_spent_seconds for r in unique_responses if r.time_spent_seconds]
 
         # Fetch test for title/marks
         test_doc = await Test.get(attempt.test_id)
@@ -227,7 +249,7 @@ async def get_attempt_analytics(
                 "time_spent": r.time_spent_seconds,
                 "topic": question_doc_map.get(str(r.question_id), {}).topic if question_doc_map.get(str(r.question_id)) else "General",
             }
-            for r in responses
+            for r in unique_responses
         ]
     }
 
@@ -235,6 +257,7 @@ async def get_attempt_analytics(
 # ── Solution generation ────────────────────────────────────────────────────────
 
 class SolutionRequest(BaseModel):
+    question_id: Optional[str] = None
     question_text: str
     options: List[dict]          # [{"value": "a", "text": "..."}]
     correct_answer: str          # option value, e.g. "b"
@@ -248,6 +271,68 @@ async def generate_solution(
     user_id: str = Depends(get_current_user)
 ):
     """Generate a step-by-step solution using Gemini."""
+    from app.models.question import Question
+    from app.models.solution_cache import SolutionCache
+
+    def _is_acceptable_cached_solution(text: str) -> bool:
+        if not text:
+            return False
+        stripped = text.strip()
+        words = len(stripped.split())
+        # If model formatting exists, require section markers.
+        if "1) Concept Tested" in stripped:
+            required = [
+                "1) Concept Tested",
+                "2) Step-by-Step Working",
+                "3) Evaluate Options",
+                "4) Final Answer",
+            ]
+            if any(marker not in stripped for marker in required):
+                return False
+        # Basic quality floor and truncated-tail guard.
+        if words < 80:
+            return False
+        if stripped.endswith(("\\", "$", "\\$", "(")):
+            return False
+        return True
+
+    def _build_cache_key() -> str:
+        payload = {
+            "question_text": body.question_text,
+            "options": body.options,
+            "correct_answer": body.correct_answer,
+            "topic": body.topic,
+            "section": body.section,
+        }
+        canonical = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+        return hashlib.sha256(canonical.encode("utf-8")).hexdigest()
+
+    question_doc = None
+    if body.question_id:
+        try:
+            question_doc = await Question.get(PydanticObjectId(body.question_id))
+        except Exception:
+            question_doc = None
+
+    # Reuse cached solution only if it appears complete.
+    if (
+        question_doc
+        and question_doc.explanation
+        and question_doc.explanation != "No explanation available"
+        and _is_acceptable_cached_solution(question_doc.explanation)
+    ):
+        return {"solution": question_doc.explanation, "cached": True}
+
+    # Dedicated cache for PYQ and non-persisted question flows.
+    cache_key = _build_cache_key()
+    existing_cache = await SolutionCache.find_one(SolutionCache.cache_key == cache_key)
+    if existing_cache and _is_acceptable_cached_solution(existing_cache.solution_text):
+        # Backfill Question.explanation when possible.
+        if question_doc and not _is_acceptable_cached_solution(question_doc.explanation or ""):
+            question_doc.explanation = existing_cache.solution_text
+            await question_doc.save()
+        return {"solution": existing_cache.solution_text, "cached": True}
+
     if not settings.GEMINI_API_KEY and not settings.GOOGLE_CLOUD_PROJECT:
         raise HTTPException(status_code=503, detail="Gemini service not configured")
 
@@ -293,29 +378,212 @@ Options:
 
 Correct Answer: {correct_text}
 
-Provide a clear, concise step-by-step solution that:
-1. Identifies the key concept being tested
-2. Shows the logical/mathematical working clearly
-3. Explains why the correct answer is right
-4. Briefly explains why the other options are incorrect (if helpful)
+Return a COMPLETE, step-by-step teaching solution in this exact structure:
+
+1) Concept Tested
+- Name the core concept(s) and formulas/rules needed.
+
+2) Step-by-Step Working
+- Show all intermediate steps clearly.
+- Do not skip algebra/arithmetic transitions.
+- If there are cases/constraints, evaluate each case explicitly.
+
+3) Evaluate Options
+- Check all options (A, B, C, D...) briefly and identify why each is right/wrong.
+
+4) Final Answer
+- State final option and a one-line reason.
+
+Quality constraints:
+- Minimum 6 numbered steps in the "Step-by-Step Working" section.
+- Target length: 220-450 words.
+- Be concrete and computational, not generic.
+- Do NOT return only a short summary sentence.
 
 Use LaTeX for all mathematical expressions (wrap in $...$ for inline, $$...$$ for display).
-Keep the solution educational but concise (aim for 150-300 words)."""
+"""
+
+    structured_prompt = f"""You are an expert tutor. Solve the MCQ fully and return ONLY valid JSON.
+
+{context}Question:
+{body.question_text}
+
+Options:
+{options_str}
+
+Correct Answer: {correct_text}
+
+Output JSON schema:
+{{
+  "concept_tested": "string",
+  "steps": ["string", "string", "... at least 6 detailed steps ..."],
+  "option_analysis": [
+    {{"option": "A", "reason": "string"}},
+    {{"option": "B", "reason": "string"}}
+  ],
+  "final_answer": "string"
+}}
+
+Rules:
+- Return ONLY JSON (no markdown, no prose outside JSON).
+- "steps" must have at least 6 clear computational steps.
+- Include all options in option_analysis.
+- Keep mathematical notation in LaTeX syntax where needed.
+"""
+
+    def _is_complete_solution(text: str) -> bool:
+        if not text:
+            return False
+        words = len(text.split())
+        has_concept = "1) Concept Tested" in text
+        has_steps = "2) Step-by-Step Working" in text
+        has_option_eval = "3) Evaluate Options" in text
+        has_final = "4) Final Answer" in text
+
+        # Reject clearly truncated tails.
+        stripped = text.strip()
+        truncated_tail = stripped.endswith(("\\", "$", "\\$", "("))
+
+        return (
+            words >= 120
+            and has_concept
+            and has_steps
+            and has_option_eval
+            and has_final
+            and not truncated_tail
+        )
+
+    def _format_structured_solution(payload: dict) -> str:
+        concept = str(payload.get("concept_tested", "")).strip()
+        steps = payload.get("steps", []) or []
+        option_analysis = payload.get("option_analysis", []) or []
+        final_answer = str(payload.get("final_answer", "")).strip()
+
+        # Guardrails in case model returns malformed structure
+        if not isinstance(steps, list):
+            steps = [str(steps)]
+        if not isinstance(option_analysis, list):
+            option_analysis = [option_analysis]
+
+        lines = []
+        lines.append("1) Concept Tested")
+        lines.append(concept or "Core concept analysis is required for this question.")
+        lines.append("")
+        lines.append("2) Step-by-Step Working")
+        for i, step in enumerate(steps[:12], start=1):
+            lines.append(f"{i}. {str(step).strip()}")
+        lines.append("")
+        lines.append("3) Evaluate Options")
+        for item in option_analysis[:8]:
+            if isinstance(item, dict):
+                opt = str(item.get("option", "")).strip()
+                reason = str(item.get("reason", "")).strip()
+                lines.append(f"- {opt}: {reason}")
+            else:
+                lines.append(f"- {str(item).strip()}")
+        lines.append("")
+        lines.append("4) Final Answer")
+        lines.append(final_answer or correct_text)
+        return "\n".join(lines)
+
+    retry_prompt = f"""Solve this MCQ completely in 4 sections exactly:
+1) Concept Tested
+2) Step-by-Step Working
+3) Evaluate Options
+4) Final Answer
+
+Question:
+{body.question_text}
+
+Options:
+{options_str}
+
+Correct Answer: {correct_text}
+
+Rules:
+- Minimum 6 detailed working steps.
+- Include all options in section 3.
+- End your response with this exact token on a new line: END_OF_SOLUTION
+"""
 
     try:
+        # First attempt: ask for structured JSON and format it ourselves.
         response = client.models.generate_content(
             model=settings.GEMINI_GENERATION_MODEL,
-            contents=prompt,
+            contents=structured_prompt,
             config=types.GenerateContentConfig(
-                temperature=0.3,
-                max_output_tokens=700,
+                temperature=0.2,
+                max_output_tokens=1400,
+                response_mime_type="application/json",
             ),
         )
 
-        solution_text = (response.text or "").strip()
+        raw_text = (response.text or "").strip()
+        if raw_text:
+            try:
+                payload = json.loads(raw_text)
+                solution_text = _format_structured_solution(payload)
+            except Exception:
+                solution_text = raw_text
+        else:
+            solution_text = ""
+
+        # Retry with free-form prompt if structured output is incomplete.
+        if not _is_complete_solution(solution_text):
+            retry_response = client.models.generate_content(
+                model=settings.GEMINI_GENERATION_MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=0.2,
+                    max_output_tokens=1600,
+                ),
+            )
+            retry_text = (retry_response.text or "").strip()
+            if retry_text:
+                solution_text = retry_text
+
+        # Final retry: explicit end-marker so we can detect truncation.
+        if not _is_complete_solution(solution_text):
+            marker_response = client.models.generate_content(
+                model=settings.GEMINI_GENERATION_MODEL,
+                contents=retry_prompt,
+                config=types.GenerateContentConfig(
+                    temperature=0.2,
+                    max_output_tokens=1800,
+                ),
+            )
+            marker_text = (marker_response.text or "").strip()
+            if "END_OF_SOLUTION" in marker_text:
+                marker_text = marker_text.split("END_OF_SOLUTION", 1)[0].rstrip()
+            if marker_text:
+                solution_text = marker_text
+
         if not solution_text:
             raise RuntimeError("Empty response from Gemini")
 
-        return {"solution": solution_text}
+        # Persist solution so future requests can reuse without another LLM call.
+        if question_doc and solution_text:
+            question_doc.explanation = solution_text
+            await question_doc.save()
+
+        # Persist in dedicated solution cache (works for PYQ from YAML as well).
+        if solution_text:
+            if existing_cache:
+                existing_cache.solution_text = solution_text
+                existing_cache.provider = "gemini"
+                existing_cache.model_name = settings.GEMINI_GENERATION_MODEL
+                existing_cache.question_id = body.question_id
+                existing_cache.updated_at = datetime.now(timezone.utc)
+                await existing_cache.save()
+            else:
+                await SolutionCache(
+                    cache_key=cache_key,
+                    solution_text=solution_text,
+                    provider="gemini",
+                    model_name=settings.GEMINI_GENERATION_MODEL,
+                    question_id=body.question_id,
+                ).insert()
+
+        return {"solution": solution_text, "cached": False}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Gemini solution generation failed: {e}")

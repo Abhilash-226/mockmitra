@@ -57,6 +57,16 @@ export const pyqService = {
     );
     return response.data;
   },
+
+  /**
+   * Get pre-generated solution for a PYQ question.
+   */
+  getSolution: async (paperId, questionNumber) => {
+    const response = await api.get(
+      API_ENDPOINTS.PYQ.SOLUTION(paperId, questionNumber),
+    );
+    return response.data;
+  },
 };
 
 export default pyqService;

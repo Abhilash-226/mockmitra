@@ -1,6 +1,6 @@
 // Detailed Analysis Page
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import "katex/dist/katex.min.css";
 import LatexText from "../../components/ui/LatexText";
 import {
@@ -12,6 +12,7 @@ import {
 import Button from "../../components/ui/Button";
 import Spinner from "../../components/ui/Spinner";
 import { analyticsService } from "../../services/analyticsService";
+import { pyqService } from "../../services/pyqService";
 
 const API_ORIGIN = (import.meta.env.VITE_API_URL || "/api").replace(
   /\/api\/?$/,
@@ -39,6 +40,26 @@ const parseOptionValue = (val) => {
 
 const OPTION_LABELS = ["A", "B", "C", "D", "E", "F"];
 
+const toPositiveInt = (value) => {
+  const n = Number(value);
+  return Number.isInteger(n) && n > 0 ? n : null;
+};
+
+const parsePyqPaperIdFromTestName = (testName) => {
+  if (!testName || typeof testName !== "string") return null;
+
+  // Expected shape: PYQ TS EAMCET 2020 Shift-1
+  const m = testName
+    .trim()
+    .match(/^PYQ\s+([A-Za-z\s]+?)\s+(\d{4})\s+Shift-(\d+)$/i);
+  if (!m) return null;
+
+  const exam = m[1].trim().toLowerCase().replace(/\s+/g, "_");
+  const year = m[2];
+  const shift = m[3];
+  return `${exam}_${year}_${shift}`;
+};
+
 // Individual Question Card matching the reference UI
 function QuestionReviewCard({ question }) {
   const [showSolution, setShowSolution] = useState(false);
@@ -46,8 +67,8 @@ function QuestionReviewCard({ question }) {
   const [solutionLoading, setSolutionLoading] = useState(false);
   const [solutionError, setSolutionError] = useState(null);
 
-  const handleViewSolution = async () => {
-    if (showSolution) {
+  const handleViewSolution = async (forceGenerate = false) => {
+    if (showSolution && !forceGenerate) {
       setShowSolution(false);
       return;
     }
@@ -59,19 +80,30 @@ function QuestionReviewCard({ question }) {
     setSolutionLoading(true);
     setSolutionError(null);
     try {
-      const result = await analyticsService.generateSolution({
-        questionText: question.text,
-        options: question.options,
-        correctAnswer: question.correctAnswer,
-        topic: question.topic,
-        section: question.section,
-      });
-      setSolution(result.solution);
+      if (isPyqQuestion) {
+        const result = await pyqService.getSolution(
+          question.paperId,
+          question.questionNumber,
+        );
+        setSolution(result.solution);
+      } else {
+        const result = await analyticsService.generateSolution({
+          questionId: question.id,
+          questionText: question.text,
+          options: question.options,
+          correctAnswer: question.correctAnswer,
+          topic: question.topic,
+          section: question.section,
+        });
+        setSolution(result.solution);
+      }
     } catch (err) {
       console.error("Solution generation failed:", err);
-      setSolutionError("Failed to generate solution. Please try again.");
+      const backendDetail = err?.response?.data?.detail;
+      setSolutionError(backendDetail || "Solution not available yet.");
       // Fallback to stored explanation
       if (
+        !isPyqQuestion &&
         question.solution &&
         question.solution !== "No explanation available"
       ) {
@@ -138,6 +170,8 @@ function QuestionReviewCard({ question }) {
       : "border-l-gray-400";
 
   const skipped = !question.userAnswer;
+  const isPyqQuestion =
+    Boolean(question.paperId) && Number.isInteger(question.questionNumber);
 
   return (
     <div
@@ -331,7 +365,9 @@ function QuestionReviewCard({ question }) {
                   d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
                 />
               </svg>
-              Generating Solution...
+              {isPyqQuestion
+                ? "Fetching Solution..."
+                : "Generating Solution..."}
             </>
           ) : (
             <>
@@ -371,10 +407,12 @@ function QuestionReviewCard({ question }) {
                 />
               </svg>
               <span className="text-sm font-semibold text-white">
-                AI-Generated Solution
+                {isPyqQuestion
+                  ? "Stored PYQ Solution"
+                  : "AI-Generated Solution"}
               </span>
               <span className="ml-auto text-xs text-blue-200">
-                powered by Groq · Llama 3.3
+                {isPyqQuestion ? "from solution database" : "powered by Gemini"}
               </span>
             </div>
             <div className="bg-blue-50 px-5 py-4">
@@ -405,7 +443,7 @@ function QuestionReviewCard({ question }) {
                       onClick={() => {
                         setSolution(null);
                         setSolutionError(null);
-                        handleViewSolution();
+                        handleViewSolution(true);
                       }}
                       className="mt-1 text-xs underline hover:no-underline"
                     >
@@ -485,6 +523,7 @@ const DEFAULT_ANALYSIS = {
 
 export default function DetailedAnalysisPage() {
   const { attemptId } = useParams();
+  const location = useLocation();
   const [summary, setSummary] = useState(DEFAULT_SUMMARY);
   const [analysis, setAnalysis] = useState(DEFAULT_ANALYSIS);
   const [loading, setLoading] = useState(true);
@@ -523,6 +562,12 @@ export default function DetailedAnalysisPage() {
           total: totalQ,
         });
 
+        const inferredPaperId =
+          data.paper_id ||
+          location?.state?.paperId ||
+          location?.state?.paper_id ||
+          parsePyqPaperIdFromTestName(data.test_name || "");
+
         // Transform questions
         const questions = (data.questions || []).map((q, index) => {
           const options = (q.options || []).map((opt) => {
@@ -549,6 +594,11 @@ export default function DetailedAnalysisPage() {
             solution: q.solution || q.explanation || "No explanation available",
             isCorrect: q.is_correct,
             image: q.image || null,
+            paperId: q.paper_id || inferredPaperId || null,
+            questionNumber:
+              toPositiveInt(q.question_number) ||
+              toPositiveInt(q.number) ||
+              (inferredPaperId ? index + 1 : null),
           };
         });
 
@@ -610,7 +660,7 @@ export default function DetailedAnalysisPage() {
     };
 
     if (attemptId) fetchAnalysis();
-  }, [attemptId]);
+  }, [attemptId, location]);
 
   if (loading) {
     return (
@@ -917,8 +967,11 @@ export default function DetailedAnalysisPage() {
 
         {analysis.questions.length > 0 ? (
           <div className="space-y-4">
-            {analysis.questions.map((question) => (
-              <QuestionReviewCard key={question.id} question={question} />
+            {analysis.questions.map((question, index) => (
+              <QuestionReviewCard
+                key={`${question.id ?? "question"}-${index}`}
+                question={question}
+              />
             ))}
           </div>
         ) : (

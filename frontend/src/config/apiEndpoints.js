@@ -58,5 +58,7 @@ export const API_ENDPOINTS = {
     DETAILS: (paperId) => `/pyq/papers/${paperId}`,
     QUESTIONS: (paperId) => `/pyq/papers/${paperId}/questions`,
     SUBMIT: "/pyq/submit",
+    SOLUTION: (paperId, questionNumber) =>
+      `/pyq/solutions/${paperId}/${questionNumber}`,
   },
 };

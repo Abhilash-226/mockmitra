@@ -35,6 +35,8 @@ class Question(Document):
     difficulty: DifficultyLevel = DifficultyLevel.MEDIUM
     source: QuestionSource = QuestionSource.MANUAL
     year: Optional[int] = None  # For PYQs
+    source_paper_id: Annotated[Optional[str], Indexed()] = None
+    source_question_number: Annotated[Optional[int], Indexed()] = None
     
     # Statistics
     times_attempted: int = 0
@@ -52,4 +54,5 @@ class Question(Document):
             [("exam_code", 1), ("topic", 1)],
             [("exam_code", 1), ("section", 1), ("topic", 1), ("difficulty", 1)],  # unseen-query index
             [("exam_code", 1), ("section", 1), ("source", 1)],                   # pool-source filter
+            [("source_paper_id", 1), ("source_question_number", 1)],
         ]

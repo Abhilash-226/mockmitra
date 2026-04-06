@@ -27,8 +27,16 @@ export const analyticsService = {
   },
 
   // Generate a step-by-step solution via LLM
-  generateSolution: async ({ questionText, options, correctAnswer, topic, section }) => {
+  generateSolution: async ({
+    questionId,
+    questionText,
+    options,
+    correctAnswer,
+    topic,
+    section,
+  }) => {
     const response = await api.post(API_ENDPOINTS.ANALYTICS.GENERATE_SOLUTION, {
+      question_id: questionId,
       question_text: questionText,
       options,
       correct_answer: correctAnswer,
