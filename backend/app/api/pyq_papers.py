@@ -521,7 +521,12 @@ async def submit_pyq_test(
     # Build a lookup: question_number → yaml_question
     q_by_number: Dict[int, dict] = {}
     for q in yaml_questions:
-        num = q.get("number") or q.get("id", 0)
+        raw_num = q.get("number") or q.get("id", 0)
+        try:
+            num = int(raw_num)
+        except (TypeError, ValueError):
+            # Skip malformed rows so one bad YAML item does not break submission.
+            continue
         q_by_number[num] = q
 
     # 3. Insert / reuse Question documents in DB (bulk mode for performance)
@@ -543,14 +548,14 @@ async def submit_pyq_test(
     nums_to_insert: list[int] = []
 
     for num, yq in q_by_number.items():
-        existing = existing_by_number.get(int(num))
+        existing = existing_by_number.get(num)
         if existing:
             if (
                 existing.source_paper_id != body.paper_id
-                or existing.source_question_number != int(num)
+                or existing.source_question_number != num
             ):
                 existing.source_paper_id = body.paper_id
-                existing.source_question_number = int(num)
+                existing.source_question_number = num
                 await existing.save()
             question_docs[num] = existing
             continue
@@ -577,15 +582,30 @@ async def submit_pyq_test(
                 source=QuestionSource.PYQ,
                 year=year,
                 source_paper_id=body.paper_id,
-                source_question_number=int(num),
+                source_question_number=num,
             )
         )
         nums_to_insert.append(num)
 
     if docs_to_insert:
         await Question.insert_many(docs_to_insert)
-        for idx, num in enumerate(nums_to_insert):
-            question_docs[num] = docs_to_insert[idx]
+
+        # Reload newly inserted records to guarantee IDs are present for response links.
+        inserted_questions = await Question.find(
+            Question.exam_code == exam_code,
+            Question.source == QuestionSource.PYQ,
+            Question.source_paper_id == body.paper_id,
+            {"source_question_number": {"$in": nums_to_insert}},
+        ).to_list()
+        inserted_by_number: Dict[int, Question] = {
+            int(q.source_question_number): q
+            for q in inserted_questions
+            if q.source_question_number is not None
+        }
+        for num in nums_to_insert:
+            q_doc = inserted_by_number.get(num)
+            if q_doc:
+                question_docs[num] = q_doc
 
     question_ids = [doc.id for doc in question_docs.values()]
 

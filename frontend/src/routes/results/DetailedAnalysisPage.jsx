@@ -533,8 +533,36 @@ export default function DetailedAnalysisPage() {
     const fetchAnalysis = async () => {
       try {
         setLoading(true);
-        const response = await analyticsService.getAttemptAnalytics(attemptId);
-        const data = response.data || response;
+        const loadAttemptAnalytics = async () => {
+          let latestData = null;
+
+          for (let attempt = 0; attempt < 3; attempt += 1) {
+            const response =
+              await analyticsService.getAttemptAnalytics(attemptId);
+            const data = response.data || response;
+            latestData = data;
+
+            const correct = data.correct || data.correct_answers || 0;
+            const wrong = data.wrong || data.wrong_answers || 0;
+            const skippedCount = data.skipped || 0;
+            const totalQ =
+              data.total_questions || correct + wrong + skippedCount || 0;
+            const hasQuestions =
+              Array.isArray(data.questions) && data.questions.length > 0;
+
+            if (hasQuestions || totalQ === 0 || attempt === 2) {
+              return data;
+            }
+
+            await new Promise((resolve) =>
+              setTimeout(resolve, 300 * (attempt + 1)),
+            );
+          }
+
+          return latestData;
+        };
+
+        const data = await loadAttemptAnalytics();
 
         // Build results summary from same data
         const correct = data.correct || data.correct_answers || 0;
