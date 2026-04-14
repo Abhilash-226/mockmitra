@@ -67,7 +67,8 @@ function QuestionReviewCard({ question }) {
   const [solutionLoading, setSolutionLoading] = useState(false);
   const [solutionError, setSolutionError] = useState(null);
 
-  const handleViewSolution = async (forceGenerate = false) => {
+  const handleViewSolution = async (forceGenerateOrEvent) => {
+    const forceGenerate = forceGenerateOrEvent === true;
     if (showSolution && !forceGenerate) {
       setShowSolution(false);
       return;
