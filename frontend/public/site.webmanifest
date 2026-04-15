@@ -1,9 +1,10 @@
 {
-  "name": "MockMitra",
+  "name": "MockMitra - AI Mock Test Platform for Competitive Exams",
   "short_name": "MockMitra",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1d4ed8",
-  "description": "AI-powered mock test generator with realistic CBT practice and analytics."
+  "description": "AI-powered CBT mock test platform for Indian competitive exams like TS EAPCET, SSC, IBPS. Realistic exam simulations with AI-generated questions and detailed analytics.",
+  "categories": ["education", "productivity"]
 }
