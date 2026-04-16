@@ -50,6 +50,10 @@ export function setPageSeo({ title, description, path = "/" }) {
     property: "og:url",
     content: canonicalUrl,
   });
+  upsertMeta("meta[property='og:image']", {
+    property: "og:image",
+    content: "https://mockmitra.app/favicon.svg",
+  });
   upsertMeta("meta[name='twitter:title']", {
     name: "twitter:title",
     content: pageTitle,
@@ -57,6 +61,10 @@ export function setPageSeo({ title, description, path = "/" }) {
   upsertMeta("meta[name='twitter:description']", {
     name: "twitter:description",
     content: description,
+  });
+  upsertMeta("meta[name='twitter:image']", {
+    name: "twitter:image",
+    content: "https://mockmitra.app/favicon.svg",
   });
 
   upsertCanonical(canonicalUrl);

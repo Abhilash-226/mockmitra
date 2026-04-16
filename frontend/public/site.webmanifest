@@ -6,5 +6,12 @@
   "background_color": "#ffffff",
   "theme_color": "#1d4ed8",
   "description": "AI-powered CBT mock test platform for Indian competitive exams like TS EAPCET, SSC, IBPS. Realistic exam simulations with AI-generated questions and detailed analytics.",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
   "categories": ["education", "productivity"]
 }

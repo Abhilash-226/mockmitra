@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="MockMitra logo">
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="#2563EB" />
+  <path
+    fill="#FFFFFF"
+    d="M14 34V14h4.6l5.4 8.1 5.4-8.1H34v20h-4.4V21.5l-5 7.4h-.2l-5-7.4V34z"
+  />
+</svg>
