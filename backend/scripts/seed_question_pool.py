@@ -12,6 +12,8 @@ Usage (from backend/ with venv active):
     python -m scripts.seed_question_pool --exam ts_eamcet --target 3 --topic matrices
     python -m scripts.seed_question_pool --exam ts_eamcet --target 2 --dry-run
     python -m scripts.seed_question_pool --exam ts_eamcet --target 10 --resume
+    python -m scripts.seed_question_pool --exam ts_eamcet --additional 20 --resume
+    python -m scripts.seed_question_pool --exam ts_eamcet --additional 10 --subject Physics --resume
 """
 
 import argparse
@@ -148,6 +150,7 @@ async def seed_topic(
     section: str,
     topic: str,
     target: int,
+    additional: int,
     pyq_by_topic: Dict[str, List[Dict]],
     generator,
     dry_run: bool,
@@ -165,11 +168,13 @@ async def seed_topic(
         "source": QuestionSource.AI_GENERATED,
     }).count()
 
-    if resume and existing_count >= target:
-        print(f"  ✅ {section}/{topic}: already has {existing_count} (target={target}), skipping.")
+    target_total = existing_count + additional if additional > 0 else target
+
+    if resume and existing_count >= target_total:
+        print(f"  ✅ {section}/{topic}: already has {existing_count} (target={target_total}), skipping.")
         return 0
 
-    needed = target - existing_count if resume else target
+    needed = target_total - existing_count if resume else target_total
     if needed <= 0:
         return 0
 
@@ -185,7 +190,10 @@ async def seed_topic(
         print(f"  ⚠️  {section}/{topic}: No PYQ references found — skipping.")
         return 0
 
-    print(f"  🔄 {section}/{topic}: generating {needed} questions (existing={existing_count}, target={target})")
+    target_note = f"target={target_total}"
+    if additional > 0:
+        target_note = f"add {additional} more (target={target_total})"
+    print(f"  🔄 {section}/{topic}: generating {needed} questions (existing={existing_count}, {target_note})")
 
     inserted = 0
 
@@ -280,6 +288,8 @@ async def main():
     )
     parser.add_argument("--exam", default="ts_eamcet", help="Exam code (default: ts_eamcet)")
     parser.add_argument("--target", type=int, default=5, help="Questions to generate per topic (default: 5)")
+    parser.add_argument("--additional", type=int, default=0, help="Extra questions to add per topic on top of existing AI-generated ones (default: 0)")
+    parser.add_argument("--subject", default=None, help="Only seed this subject (e.g. Physics, Chemistry)")
     parser.add_argument("--section", default=None, help="Only seed this section (e.g. Algebra)")
     parser.add_argument("--topic", default=None, help="Only seed this topic (e.g. matrices)")
     parser.add_argument("--dry-run", action="store_true", help="Show plan without writing to DB")
@@ -288,7 +298,10 @@ async def main():
 
     print(f"\n{'='*60}")
     print(f"  MockMitra Seeder — {args.exam.upper()}")
-    print(f"  Target: {args.target} per topic | Section: {args.section or 'ALL'} | Topic: {args.topic or 'ALL'}")
+    target_label = f"{args.target} per topic"
+    if args.additional > 0:
+        target_label = f"add {args.additional} more per topic"
+    print(f"  Target: {target_label} | Subject: {args.subject or 'ALL'} | Section: {args.section or 'ALL'} | Topic: {args.topic or 'ALL'}")
     print(f"  Mode: {'DRY-RUN (no DB writes)' if args.dry_run else 'LIVE'} | Resume: {args.resume}")
     print(f"{'='*60}\n")
 
@@ -304,7 +317,9 @@ async def main():
     # ── Load exam structure ───────────────────────────────────────────────────
     entries = load_exam_structure(args.exam)
 
-    # Filter by section / topic if specified
+    # Filter by subject / section / topic if specified
+    if args.subject:
+        entries = [e for e in entries if e["subject"].lower() == args.subject.lower()]
     if args.section:
         entries = [e for e in entries if e["section"].lower() == args.section.lower()]
     if args.topic:
@@ -340,6 +355,7 @@ async def main():
             section=entry["section"],
             topic=entry["topic"],
             target=args.target,
+            additional=args.additional,
             pyq_by_topic=pyq_by_topic,
             generator=generator,
             dry_run=args.dry_run,
