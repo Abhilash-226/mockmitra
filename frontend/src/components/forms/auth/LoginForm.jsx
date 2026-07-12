@@ -22,10 +22,25 @@ export default function LoginForm({
   const [showPassword, setShowPassword] = useState(false);
   const [googleLoading, setGoogleLoading] = useState(false);
   const googleButtonRef = useRef(null);
+  const googleInitializedRef = useRef(false);
+  const onGoogleLoginRef = useRef(onGoogleLogin);
+
+  useEffect(() => {
+    onGoogleLoginRef.current = onGoogleLogin;
+  }, [onGoogleLogin]);
 
   // Initialize Google Sign-In button
   useEffect(() => {
-    if (!window.google || !onGoogleLogin || !googleButtonRef.current) return;
+    if (
+      googleInitializedRef.current ||
+      !window.google ||
+      !onGoogleLoginRef.current ||
+      !googleButtonRef.current
+    ) {
+      return;
+    }
+
+    googleInitializedRef.current = true;
 
     try {
       window.google.accounts.id.initialize({
@@ -34,7 +49,7 @@ export default function LoginForm({
           if (response.credential) {
             setGoogleLoading(true);
             try {
-              await onGoogleLogin(response.credential);
+              await onGoogleLoginRef.current?.(response.credential);
             } catch (err) {
               console.error("Google login error:", err);
             } finally {
@@ -53,9 +68,10 @@ export default function LoginForm({
         width: "400",
       });
     } catch (err) {
+      googleInitializedRef.current = false;
       console.error("Google Sign-In initialization error:", err);
     }
-  }, [onGoogleLogin]);
+  }, []);
 
   const validateForm = () => {
     const newErrors = {};
