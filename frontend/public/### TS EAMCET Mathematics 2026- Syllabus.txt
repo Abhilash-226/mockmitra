@@ -1,0 +1,73 @@
+### TS EAMCET Mathematics 2026- Syllabus & Weightage
+[Algebra](https://www.careers360.com/maths/algebraic-expressions-topic-pge)
+Functions, Mathematical Induction, Matrices, Complex Numbers, De Moivre’s Theorem, Quadratic Expressions, Theory of Equations, Partial Fractions, Binomial Theorem, Permutations & Combinations
+[Trigonometry](https://www.careers360.com/maths/introduction-to-trigonometry-chapter-pge)
+Trigonometric Ratios up to Transformations, Trigonometric Equations, Inverse Trigonometric Functions, Hyperbolic Functions, Properties of Triangles
+[Coordinate Geometry](https://learn.careers360.com/maths/co-ordinate-geometry-chapter/)
+Locus, Straight Line, Pair of Straight Lines, Circle, System of Circles, Parabola, Ellipse, Hyperbola, Transformation of Axes, 3D Geometry – Direction Cosines & Ratios, 3D Coordinates
+[Calculus](https://www.careers360.com/university/indian-institute-of-technology-madras/basic-calculus-1-certification-course)
+Limits & Continuity, Differentiation, Applications of Derivatives, Integration, Definite Integrals, Differential Equations
+Vector Algebra
+Addition of Vectors, Scalar Product, Vector Product, Scalar Triple Product
+[Probability & Statistics](https://learn.careers360.com/maths/statistics-and-probability-chapter/)
+Probability, Random Variables & Distributions, Measures of Dispersion
+
+#### TS EAMCET 2026 –High-Weightage Topics (Mathematics)
+Matrices
+5.00
+Permutations & Combinations
+5.00
+Theory of Equations
+5.00
+Integration
+5.00
+Differential Equations
+5.00
+Straight Line
+5.00
+Product of Vectors
+5.00
+Functions
+3.75
+Differentiation
+3.75
+Applications of Derivatives
+3.75
+
+### TS EAMCET Physics 2026 –Syllabus & Weightage
+[Physical World & Measurement](https://learn.careers360.com/physics/physics-and-measurement-chapter/)
+Physical World, Units & Measurements
+[Mechanics](https://www.careers360.com/courses/mechanics-course)
+Motion in a Straight Line, Motion in a Plane, Laws of Motion, Work, Energy & Power, Systems of Particles & Rotational Motion, Gravitation, Oscillations
+[Properties of Matter](https://www.careers360.com/chemistry/properties-of-matter-and-their-measurement-topic-pge)
+Mechanical Properties of Solids, Mechanical Properties of Fluids, Thermal Properties of Matter
+[Thermodynamics](https://www.careers360.com/physics/thermodynamics-chapter-pge)&[Kinetic Theory](https://www.careers360.com/physics/kinetic-theory-chapter-pge)
+Thermodynamics, Kinetic Theory of Gases
+[Waves](https://www.careers360.com/physics/waves-topic-pge) & [Optics](https://learn.careers360.com/physics/optics-chapter/)
+Oscillations & Waves, Ray Optics & Optical Instruments, Wave Optics
+[Electricity](https://learn.careers360.com/school/question-what-is-electricity-and-what-is-its-use-49434/) & [Magnetism](https://learn.careers360.com/physics/magnetic-effects-of-current-and-magnetism-chapter/)
+Electric Charges & Fields, Electrostatic Potential & Capacitance, Current Electricity, Moving Charges & Magnetism, Magnetism & Matter, Electromagnetic Induction, Alternating Currents, Electromagnetic Waves
+[Modern Physics](https://www.careers360.com/physics/modern-physics-topic-pge)
+Dual Nature of Matter & Radiation, Atoms, Nuclei, Semiconductor Electronics, Communication Systems
+
+#### TS EAMCET 2026 – High-Weightage Topics (Physics)
+Current Electricity
+5.00
+Magnetism & Matter
+5.00
+Moving Charges & Magnetism
+5.00
+Nuclei
+5.00
+Semiconductor Electronics
+5.00
+Systems of Particles & Rotation
+5.00
+Thermal Properties of Matter
+5.00
+Waves
+5.00
+Work, Energy & Power
+5.00
+Mechanical Properties of Fluids
+5.00

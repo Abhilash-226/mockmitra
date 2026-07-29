@@ -51,6 +51,7 @@ class Settings(BaseSettings):
     BACKEND_CORS_ORIGINS: List[str] = [
         "https://mockmitra.app",
         "https://www.mockmitra.app",
+        "https://studysphere-frontend-gtvp.onrender.com",
     ]
     # Allow all origins in dev (set to true when using port forwarding / tunnels)
     CORS_ALLOW_ALL: bool = False
